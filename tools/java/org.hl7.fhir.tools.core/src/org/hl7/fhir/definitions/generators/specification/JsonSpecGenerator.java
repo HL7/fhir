@@ -48,7 +48,7 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
@@ -80,7 +80,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     close();
   }
 
-  public void generate(ExtensionDefinition ed) throws Exception {
+  public void generate(StructureDefinition ed) throws Exception {
     write("<pre class=\"spec\">\r\n");
 
     generateInner(ed);
@@ -90,31 +90,31 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     close();
   }
 
-  private void generateInner(ExtensionDefinition ed) throws IOException, Exception {
-    ElementDefinition root = ed.getElement().get(0);
-    String rn = ed.getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
+  private void generateInner(StructureDefinition ed) throws IOException, Exception {
+    ElementDefinition root = ed.getSnapshot().getElement().get(0);
+    String rn = ed.getSnapshot().getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
     write("// extension added to existing object<span style=\"float: right\"><a title=\"Documentation for this format\" href=\"json.html#"+rn+"\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
     write("\r\n");
     write("  \"<span title=\"" + Utilities.escapeXml(ed.getDescription()) + "\">"+ed.getUrl()+"</span>\" : { // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(ed.getName()) + "</span>\r\n");
     
-    if (ed.getElement().size() == 1) {
+    if (ed.getSnapshot().getElement().size() == 1) {
       if (root.getType().size() == 1)
-        generateCoreElem(ed.getElement(), ed.getElement().get(0), 2, "Extension", true, root.getType().get(0), true);
+        generateCoreElem(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0), 2, "Extension", true, root.getType().get(0), true);
       else {
         write("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(root.getShort()) + "</span>. One of these "+Integer.toString(root.getType().size())+":</span>\r\n");
         for (TypeRefComponent t : root.getType())
-          generateCoreElem(ed.getElement(), root, 2, "Extension", true, t, true);
+          generateCoreElem(ed.getSnapshot().getElement(), root, 2, "Extension", true, t, true);
       }
     } else {
-      List<ElementDefinition> children = getChildren(ed.getElement(), ed.getElement().get(0));
+      List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
       int c = 0;
       for (ElementDefinition child : children)
         if (child.getType().size() == 1)
-           generateCoreElem(ed.getElement(), child, 2, rn, false, child.getType().get(0), ++c == children.size());
+           generateCoreElem(ed.getSnapshot().getElement(), child, 2, rn, false, child.getType().get(0), ++c == children.size());
          else {
            write("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
            for (TypeRefComponent t : child.getType())
-             generateCoreElem(ed.getElement(), child, 2, rn, false, t, ++c == children.size());
+             generateCoreElem(ed.getSnapshot().getElement(), child, 2, rn, false, t, ++c == children.size());
          }
     }
     write("  }\r\n");
@@ -177,7 +177,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     write("}\r\n");
   }
 
-  private void generateExtensionAttribute(ExtensionDefinition ed) throws Exception {
+  private void generateExtensionAttribute(StructureDefinition ed) throws Exception {
     write(" url=\"");
     write("<span style=\"color: navy; opacity: 0.8\">" + ed.getUrl()+"</span>");
     write("\"");
@@ -431,8 +431,8 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       write("{ ");
       write("<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
       if (!Utilities.noString(type.getProfile())) {
-        if (type.getProfile().startsWith("http://hl7.org/fhir/Profile/")) {
-          String t = type.getProfile().substring(28);
+        if (type.getProfile().startsWith("http://hl7.org/fhir/StructureDefintion/")) {
+          String t = type.getProfile().substring(40);
           if (definitions.hasType(t))
             write("(<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
           else if (definitions.hasResource(t))

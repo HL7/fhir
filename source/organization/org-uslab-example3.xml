@@ -35,8 +35,8 @@ Authored by: Eric M Haas  Health eData Inc.
 	<name value="Acme Labs"/>
 	<address>
 <!-- EH replace with this  example.org temporarily to pass validation 
-		<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-county">
-			<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
+		<extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
+			<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding">
 -->
 		<extension url="http://example.org/us-core-county">
 			<extension url="http://example.org/iso21090-SC-coding">

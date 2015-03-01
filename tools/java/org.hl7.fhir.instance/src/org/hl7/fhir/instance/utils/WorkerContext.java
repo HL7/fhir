@@ -20,9 +20,9 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.ElementDefinition;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.OperationOutcome;
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
@@ -31,12 +31,12 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.utilities.CSFileInputStream;
 
 /*
- *  private static Map<String, Profile> loadProfiles() throws Exception {
-    HashMap<String, Profile> result = new HashMap<String, Profile>();
+ *  private static Map<String, StructureDefinition> loadProfiles() throws Exception {
+    HashMap<String, StructureDefinition> result = new HashMap<String, StructureDefinition>();
     Bundle feed = new XmlParser().parseGeneral(new FileInputStream(PROFILES)).getFeed();
     for (AtomEntry<? extends Resource> e : feed.getEntryList()) {
-      if (e.getReference() instanceof Profile) {
-        result.put(e.getId(), (Profile) e.getReference());
+      if (e.getReference() instanceof StructureDefinition) {
+        result.put(e.getId(), (StructureDefinition) e.getReference());
       }
     }
     return result;
@@ -48,39 +48,13 @@ import org.hl7.fhir.utilities.CSFileInputStream;
  */
 public class WorkerContext {
 
-	public static class ExtensionDefinitionResult {
-	  private ExtensionDefinition ex;
-    private ElementDefinition ed;
-    private String path;
-
-    public ExtensionDefinitionResult(ExtensionDefinition ex, ElementDefinition ed, String path) {
-	    super();
-	    this.ex = ex;
-	    this.ed = ed;
-	    this.path = path;
-	  }
-
-    public ExtensionDefinition getExtensionDefinition() {
-      return ex;
-    }
-
-    public ElementDefinition getElementDefinition() {
-      return ed;
-    }
-
-    public boolean isLocal() {
-      return path.contains(".");
-    }
-
-  }
-
 	private ITerminologyServices terminologyServices = new NullTerminologyServices();
   private IFHIRClient client = new NullClient();
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
-  private Map<String, Profile> profiles = new HashMap<String, Profile>();
-  private Map<String, ExtensionDefinition> extensionDefinitions = new HashMap<String, ExtensionDefinition>();
+  private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
+  private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
 
 
   public WorkerContext() {
@@ -88,7 +62,7 @@ public class WorkerContext {
   }
 
   public WorkerContext(ITerminologyServices conceptLocator, IFHIRClient client, Map<String, ValueSet> codeSystems,
-      Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, Profile> profiles) {
+      Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles) {
     super();
     if (conceptLocator != null)
       this.terminologyServices = conceptLocator;
@@ -127,11 +101,11 @@ public class WorkerContext {
     return maps;
   }
 
-  public Map<String, Profile> getProfiles() {
+  public Map<String, StructureDefinition> getProfiles() {
     return profiles;
   }
 
-  public Map<String, ExtensionDefinition> getExtensionDefinitions() {
+  public Map<String, StructureDefinition> getExtensionDefinitions() {
     return extensionDefinitions;
   }
 
@@ -204,22 +178,22 @@ public class WorkerContext {
       if (e.getResource().getId() == null) {
         System.out.println("unidentified resource in "+name);
       }
-      if (e.getResource() instanceof Profile)
-        seeProfile(base, (Profile) e.getResource());
+      if (e.getResource() instanceof StructureDefinition)
+        seeProfile(base, (StructureDefinition) e.getResource());
       else if (e.getResource() instanceof ValueSet)
         seeValueSet(base, (ValueSet) e.getResource());
-      else if (e.getResource() instanceof ExtensionDefinition)
-        seeExtensionDefinition(base, (ExtensionDefinition) e.getResource());
+      else if (e.getResource() instanceof StructureDefinition)
+        seeExtensionDefinition(base, (StructureDefinition) e.getResource());
       else if (e.getResource() instanceof ConceptMap)
         maps.put(((ConceptMap) e.getResource()).getUrl(), (ConceptMap) e.getResource());
     }
       }
 
-  public void seeExtensionDefinition(String base, ExtensionDefinition ed) throws Exception {
+  public void seeExtensionDefinition(String base, StructureDefinition ed) throws Exception {
     if (extensionDefinitions.get(ed.getUrl()) != null)
       throw new Exception("duplicate extension definition: "+ed.getUrl());
     extensionDefinitions.put(ed.getId(), ed);
-  	extensionDefinitions.put(base+"/ExtensionDefinition/"+ed.getId(), ed);
+  	extensionDefinitions.put(base+"/StructureDefinition/"+ed.getId(), ed);
     extensionDefinitions.put(ed.getUrl(), ed);
   }
 
@@ -232,9 +206,9 @@ public class WorkerContext {
         }
       }
 
-  public void seeProfile(String base, Profile p) {
+  public void seeProfile(String base, StructureDefinition p) {
 	  profiles.put(p.getId(), p);
-	  profiles.put(base+"/Profile/"+p.getId(), p);
+	  profiles.put(base+"/StructureDefinition/"+p.getId(), p);
 	  profiles.put(p.getUrl(), p);
   }
 
@@ -397,30 +371,16 @@ public class WorkerContext {
 
   }
 
-	public ExtensionDefinitionResult getExtensionDefinition(ExtensionDefinitionResult context, String url) throws Exception {
-	  if (context != null && (!url.startsWith("http:") || !url.startsWith("https:"))) {
-	    String path = context.path+"."+url;
-      ElementDefinition match = null;
-	    for (ElementDefinition ed : context.ex.getElement()) {
-        if (ed.getPath().equals(path))
-	        match  = ed;
-	    }
-      return match == null ? null : new ExtensionDefinitionResult(context.ex, match, path);	    
-	  } else if (url.contains("#")) {
-	    String[] parts = url.split("\\#");
-	    ExtensionDefinition res = extensionDefinitions.get(parts[0]);
-	    if (res == null)
-	      return null;
-      String path = "Extension."+parts[1];
-      ElementDefinition match = null;
-      for (ElementDefinition ed : res.getElement()) {
-        if (ed.getPath().equals(path))
-          match  = ed;
-      }
-      return match == null ? null : new ExtensionDefinitionResult(res, match, path);     
+  public StructureDefinition getExtensionStructure(StructureDefinition context, String url) throws Exception {
+	  if (url.startsWith("#")) {
+      throw new Error("Contained extensions not done yet");
 	  } else {
-	  ExtensionDefinition res = extensionDefinitions.get(url);
-	    return res == null ? null : new ExtensionDefinitionResult(res, res.getElement().get(0), res.getElement().get(0).getPath());
+		  StructureDefinition res = extensionDefinitions.get(url);
+		  if (res == null)
+			  return null;
+		  if (res.getSnapshot() == null || res.getSnapshot().getElement().isEmpty())
+			  throw new Exception("no snapshot on extension for url "+url);
+		  return res;
 	  }
   }
 

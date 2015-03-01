@@ -976,8 +976,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/Profile/condition-daf"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/condition-daf</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/condition-daf"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/condition-daf</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -1257,7 +1257,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-daf-dafpatient}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1288,7 +1288,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/Profile/encounter-daf-dafencounter}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Encounter){http://hl7.org/fhir/StructureDefinition/encounter-daf-dafencounter}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1476,7 +1476,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/us-core-concernStatus}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/us-core-concernStatus}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8887,8 +8887,8 @@
     <Cell ss:StyleID="s134"><Data ss:Type="String">concernStatus</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106" ss:HRef="http://hl7.org/fhir/ExtensionDefinition/us-core-race"><Data
-      ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/us-core-concernStatus}</Data></Cell>
+    <Cell ss:StyleID="s106" ss:HRef="http://hl7.org/fhir/StructureDefinition/us-core-race"><Data
+      ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/us-core-concernStatus}</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Search by status of the Condition Concern</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

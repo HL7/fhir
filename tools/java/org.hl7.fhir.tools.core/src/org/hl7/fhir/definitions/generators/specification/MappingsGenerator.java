@@ -38,10 +38,9 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
-import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionDefinitionMappingComponent;
-import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
+import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 public class MappingsGenerator {
@@ -70,12 +69,12 @@ public class MappingsGenerator {
   }
 
 
-  public void generate(Profile profile) {
+  public void generate(StructureDefinition profile) {
     if (profile.getMapping().isEmpty())
       mappings = "<p>No Mappings</p>";
     else {
       StringBuilder s = new StringBuilder();
-      for (ProfileMappingComponent map : profile.getMapping()) {
+      for (StructureDefinitionMappingComponent map : profile.getMapping()) {
 
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
         if (map.hasComments())
@@ -102,12 +101,12 @@ public class MappingsGenerator {
     }
   }
   
-  public void generate(ExtensionDefinition ed) {
+  public void generateExtension(StructureDefinition ed) {
     if (ed.getMapping().isEmpty())
       mappings = "<p>No Mappings</p>";
     else {
       StringBuilder s = new StringBuilder();
-      for (ExtensionDefinitionMappingComponent map : ed.getMapping()) {
+      for (StructureDefinitionMappingComponent map : ed.getMapping()) {
 
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
         if (map.hasComments())
@@ -119,7 +118,7 @@ public class MappingsGenerator {
 
         s.append(" <tr><td colspan=\"3\"><b>"+Utilities.escapeXml(ed.getName())+"</b></td></tr>\r\n");
         String path = null;
-        for (ElementDefinition e : ed.getElement()) {
+        for (ElementDefinition e : ed.getSnapshot().getElement()) {
           if (path == null || !e.getPath().startsWith(path)) {
             path = null;
             if (e.hasMax() && e.getMax().equals("0")) {
@@ -264,8 +263,8 @@ public class MappingsGenerator {
 			listKnownMappings(c,  maps);		
 	}
 
-  private void listKnownMappings(Profile profile, List<String> maps) {
-    for (ProfileMappingComponent map : profile.getMapping())
+  private void listKnownMappings(StructureDefinition profile, List<String> maps) {
+    for (StructureDefinitionMappingComponent map : profile.getMapping())
       if (!maps.contains(map.getIdentity()))
         maps.add(map.getIdentity());
   }

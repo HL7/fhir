@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
   <id value="picture"/>
-  <extension url="http://hl7.org/fhir/Profilepicture#accession">
+  <extension url="http://hl7.org/fhir/StructureDefinitionpicture#accession">
     <valueIdentifier>
       <system value="http://acme-imaging.com/accession/2012"/>
       <value value="1234567"/>
     </valueIdentifier>
   </extension>
-  <extension url="http://hl7.org/fhir/Profilepicture#studyid">
+  <extension url="http://hl7.org/fhir/StructureDefinitionpicture#studyid">
     <valueIdentifier>
       <system value="urn:ietf:rfc:3986"/>
       <value value="urn:oid:1.2.840.113619.2.21.848.34082.0.538976288.3"/>
     </valueIdentifier>
   </extension>
-  <extension url="http://hl7.org/fhir/Profilepicture#seriesid">
+  <extension url="http://hl7.org/fhir/StructureDefinitionpicture#seriesid">
     <valueIdentifier>
       <system value="urn:ietf:rfc:3986"/>
       <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>

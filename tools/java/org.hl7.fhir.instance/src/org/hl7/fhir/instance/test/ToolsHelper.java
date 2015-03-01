@@ -48,7 +48,7 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Constants;
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
@@ -111,17 +111,17 @@ public class ToolsHelper {
     		throw new Exception("Unable to understand address of profile");
     	IFHIRClient client = new FHIRSimpleClient();
     	client.initialize(parts[0]);
-    	Profile profile = client.read(Profile.class, parts[1]);
-			ProfileUtilities utils = new ProfileUtilities(context);
-    	Profile base = utils.getProfile(profile, profile.getBase());
-			if (base == null)
-				throw new Exception("Unable to resolve profile "+profile.getBase());
-			utils.generateSnapshot(base, profile, address, profile.getName(), null);
-			client.update(Profile.class, profile, parts[1]);
+    	StructureDefinition profile = client.read(StructureDefinition.class, parts[1]);
+    	ProfileUtilities utils = new ProfileUtilities(context);
+    	StructureDefinition base = utils.getProfile(profile, profile.getBase());
+    	if (base == null)
+    		throw new Exception("Unable to resolve profile "+profile.getBase());
+    	utils.generateSnapshot(base, profile, address, profile.getName(), null);
+    	client.update(StructureDefinition.class, profile, parts[1]);
     } else {
     	throw new Exception("not done yet (address = "+address+")");
     }
-    
+
 	}
 
   private Map<String, byte[]> getDefinitions(String definitions) throws Exception {

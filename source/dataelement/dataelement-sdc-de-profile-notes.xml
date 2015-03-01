@@ -8,8 +8,8 @@ Systems MAY choose to provide support for identifying language and translations.
 translation extensions FHIR defines based on the ISO21090 data type specification:
 </p>
 <ul>
-  <li><a href="http://hl7.org/fhir/ExtensionDefinition/iso21090-language">http://hl7.org/fhir/ExtensionDefinition/iso21090-ST-language</a> allows the language of a particular (or any other data type) to be identified</li>
-  <li><a href="http://hl7.org/fhir/ExtensionDefinition/iso21090-ST-translation">http://hl7.org/fhir/ExtensionDefinition/iso21090-ST-translation</a> allows additional repetitions in alternate languages to be communicated.  
+  <li><a href="http://hl7.org/fhir/StructureDefinition/iso21090-language">http://hl7.org/fhir/StructureDefinition/iso21090-ST-language</a> allows the language of a particular (or any other data type) to be identified</li>
+  <li><a href="http://hl7.org/fhir/StructureDefinition/iso21090-ST-translation">http://hl7.org/fhir/StructureDefinition/iso21090-ST-translation</a> allows additional repetitions in alternate languages to be communicated.  
   (The language for each translation would be communicated using the above #language extension)</li>
 </ul>
 <p>

@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 
 public class ResourceDefn  {
    private List<Example> examples = new ArrayList<Example>();
@@ -139,11 +139,11 @@ public class ResourceDefn  {
     return requirements;
   }
 
-  public Profile getProfile() {
+  public StructureDefinition getProfile() {
     return root.getProfile();
   }
 
-  public void setProfile(Profile profile) {
+  public void setProfile(StructureDefinition profile) {
     this.root.setProfile(profile);
   }
 

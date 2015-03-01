@@ -210,7 +210,7 @@
 
 <span style=" color: Gray">&lt;!-- <span style="color: Darkviolet">Extensions</span> --&gt;</span>
 &lt;<span title="True if the LDL value is calculated from Chol, Trig, and HDLC."><b>extension</b></span>&gt;<a name="calculated"> </a>&lt;!--  <span style="color: brown"><b>0..1</b></span> <span style="color: navy">Context: Resource = Observation.name</span> --&gt;
- &lt;<b>url</b> value=&quot;<span style="color: maroon">http://hl7.org/fhir/Profilelipid-lab-profile#calculated</span>&quot;/&gt;
+ &lt;<b>url</b> value=&quot;<span style="color: maroon">http://hl7.org/fhir/StructureDefinitionlipid-lab-profile#calculated</span>&quot;/&gt;
  &lt;<span title="True if the LDL value is calculated from Chol, Trig, and HDLC."><b>valueBoolean</b></span> value=&quot;[<span style="color: darkgreen"><a href="http://hl7.org/fhir/datatypes.html#boolean">boolean</a></span>]&quot;/&gt;<span style=" color: Gray">&lt;!-- </span><span style="color: navy">LDL is Calculated</span><span style=" color: Gray"> --&gt;</span>
 &lt;/extension&gt;
 
@@ -1954,7 +1954,7 @@ The context of use may additionally require a code from a particular system (Unl
         <max value="1"/>
         <type>
           <code value="Extension"/>
-          <profile value="http://hl7.org/fhir/ExtensionDefinition/ldl-calculated"/>
+          <profile value="http://hl7.org/fhir/StructureDefinition/ldl-calculated"/>
         </type>
         <isModifier value="false"/>
     </element>

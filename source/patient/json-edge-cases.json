@@ -42,7 +42,7 @@
         "state": "Vic",
         "postalCode": "3999"
     }],
-    "maritalStatus": {"http://hl7.org/fhir/Profileiso-21090#nullFlavor": [{"valueCode": "ASKU"}]},
+    "maritalStatus": {"http://hl7.org/fhir/StructureDefinitioniso-21090#nullFlavor": [{"valueCode": "ASKU"}]},
     "multipleBirthInteger": 3,
     "text": {
         "status": "generated",
@@ -93,20 +93,20 @@
                 null
             ],
             "_family": [
-                {"http://hl7.org/fhir/Profileiso-21090#nullFlavor": [{"valueCode": "ASKU"}]},
+                {"http://hl7.org/fhir/StructureDefinitioniso-21090#nullFlavor": [{"valueCode": "ASKU"}]},
                 {
                     "id": "a2",
-                    "http://hl7.org/fhir/Profileiso-21090#qualifier": [{"valueCode": "VV"}]
+                    "http://hl7.org/fhir/StructureDefinitioniso-21090#qualifier": [{"valueCode": "VV"}]
                 },
-                {"http://hl7.org/fhir/Profileiso-21090#nullFlavor": [{"valueCode": "ASKU"}]},
+                {"http://hl7.org/fhir/StructureDefinitioniso-21090#nullFlavor": [{"valueCode": "ASKU"}]},
                 null,
-                {"http://hl7.org/fhir/Profileiso-21090#nullFlavor": [{"valueCode": "ASKU"}]}
+                {"http://hl7.org/fhir/StructureDefinitioniso-21090#nullFlavor": [{"valueCode": "ASKU"}]}
             ],
             "_given": [
                 null,
                 {
                     "id": "a3",
-                    "http://hl7.org/fhir/Profileiso-21090#qualifier": [{"valueCode": "MID"}]
+                    "http://hl7.org/fhir/StructureDefinitioniso-21090#qualifier": [{"valueCode": "MID"}]
                 },
                 null
             ],

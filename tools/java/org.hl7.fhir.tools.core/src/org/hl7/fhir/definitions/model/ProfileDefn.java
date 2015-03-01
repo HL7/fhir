@@ -27,18 +27,18 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 
 // publishing details about a profile + the profile
 public class ProfileDefn {
 
   private String title; // human readable name
   private String id; // id in the resource, which is also the file name root
-  private Profile resource;
+  private StructureDefinition resource;
   private ResourceDefn defn; // temporary, until we get around to building the resource 
   private String usage;
     
-  public ProfileDefn(Profile resource, String usage) {
+  public ProfileDefn(StructureDefinition resource, String usage) {
     this.id = resource.getId();
     this.title = resource.getName();
     this.resource = resource;
@@ -68,11 +68,11 @@ public class ProfileDefn {
     this.id = id;
   }
 
-  public Profile getResource() {
+  public StructureDefinition getResource() {
     return resource;
   }
 
-  public void setResource(Profile resource) {
+  public void setResource(StructureDefinition resource) {
     this.resource = resource;
   }
 

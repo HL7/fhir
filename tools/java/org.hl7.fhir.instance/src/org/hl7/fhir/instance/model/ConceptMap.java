@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
@@ -44,92 +45,6 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="ConceptMap", profile="http://hl7.org/fhir/Profile/ConceptMap")
 public class ConceptMap extends DomainResource {
-
-    public enum ValuesetStatus {
-        /**
-         * This valueset is still under development.
-         */
-        DRAFT, 
-        /**
-         * This valueset is ready for normal use.
-         */
-        ACTIVE, 
-        /**
-         * This valueset has been withdrawn or superceded and should no longer be used.
-         */
-        RETIRED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ValuesetStatus fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("retired".equals(codeString))
-          return RETIRED;
-        throw new Exception("Unknown ValuesetStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "This valueset is still under development.";
-            case ACTIVE: return "This valueset is ready for normal use.";
-            case RETIRED: return "This valueset has been withdrawn or superceded and should no longer be used.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "Draft";
-            case ACTIVE: return "Active";
-            case RETIRED: return "Retired";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ValuesetStatusEnumFactory implements EnumFactory<ValuesetStatus> {
-    public ValuesetStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return ValuesetStatus.DRAFT;
-        if ("active".equals(codeString))
-          return ValuesetStatus.ACTIVE;
-        if ("retired".equals(codeString))
-          return ValuesetStatus.RETIRED;
-        throw new IllegalArgumentException("Unknown ValuesetStatus code '"+codeString+"'");
-        }
-    public String toCode(ValuesetStatus code) {
-      if (code == ValuesetStatus.DRAFT)
-        return "draft";
-      if (code == ValuesetStatus.ACTIVE)
-        return "active";
-      if (code == ValuesetStatus.RETIRED)
-        return "retired";
-      return "?";
-      }
-    }
 
     public enum ConceptEquivalence {
         /**
@@ -1303,7 +1218,7 @@ public class ConceptMap extends DomainResource {
      */
     @Child(name="status", type={CodeType.class}, order=9, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the concept map." )
-    protected Enumeration<ValuesetStatus> status;
+    protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
@@ -1322,14 +1237,14 @@ public class ConceptMap extends DomainResource {
     /**
      * The source value set that specifies the concepts that are being mapped.
      */
-    @Child(name="source", type={UriType.class, ValueSet.class, Profile.class}, order=12, min=1, max=1)
+    @Child(name="source", type={UriType.class, ValueSet.class, StructureDefinition.class}, order=12, min=1, max=1)
     @Description(shortDefinition="Identifies the source of the concepts which are being mapped", formalDefinition="The source value set that specifies the concepts that are being mapped." )
     protected Type source;
 
     /**
      * The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.
      */
-    @Child(name="target", type={UriType.class, ValueSet.class, Profile.class}, order=13, min=1, max=1)
+    @Child(name="target", type={UriType.class, ValueSet.class, StructureDefinition.class}, order=13, min=1, max=1)
     @Description(shortDefinition="Provides context to the mappings", formalDefinition="The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made." )
     protected Type target;
 
@@ -1340,13 +1255,13 @@ public class ConceptMap extends DomainResource {
     @Description(shortDefinition="Mappings for a concept from the source set", formalDefinition="Mappings for an individual concept in the source to one or more concepts in the target." )
     protected List<ConceptMapElementComponent> element;
 
-    private static final long serialVersionUID = 211635414L;
+    private static final long serialVersionUID = 517752318L;
 
     public ConceptMap() {
       super();
     }
 
-    public ConceptMap(Enumeration<ValuesetStatus> status, Type source, Type target) {
+    public ConceptMap(Enumeration<ConformanceResourceStatus> status, Type source, Type target) {
       super();
       this.status = status;
       this.source = source;
@@ -1753,12 +1668,12 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #status} (The status of the concept map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ValuesetStatus> getStatusElement() { 
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ValuesetStatus>(new ValuesetStatusEnumFactory()); // bb
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1773,7 +1688,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @param value {@link #status} (The status of the concept map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ConceptMap setStatusElement(Enumeration<ValuesetStatus> value) { 
+    public ConceptMap setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1781,16 +1696,16 @@ public class ConceptMap extends DomainResource {
     /**
      * @return The status of the concept map.
      */
-    public ValuesetStatus getStatus() { 
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the concept map.
      */
-    public ConceptMap setStatus(ValuesetStatus value) { 
+    public ConceptMap setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ValuesetStatus>(new ValuesetStatusEnumFactory());
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -2007,8 +1922,8 @@ public class ConceptMap extends DomainResource {
         childrenList.add(new Property("status", "code", "The status of the concept map.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date that the concept map status was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("source[x]", "uri|Reference(ValueSet|Profile)", "The source value set that specifies the concepts that are being mapped.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("target[x]", "uri|Reference(ValueSet|Profile)", "The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("source[x]", "uri|Reference(ValueSet|StructureDefinition)", "The source value set that specifies the concepts that are being mapped.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("target[x]", "uri|Reference(ValueSet|StructureDefinition)", "The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("element", "", "Mappings for an individual concept in the source to one or more concepts in the target.", 0, java.lang.Integer.MAX_VALUE, element));
       }
 
@@ -2088,32 +2003,32 @@ public class ConceptMap extends DomainResource {
     return ResourceType.ConceptMap;
    }
 
-  @SearchParamDefinition(name="product", path="ConceptMap.element.map.product.element", description="Reference to element/field/valueset mapping depends on", type="token" )
-  public static final String SP_PRODUCT = "product";
   @SearchParamDefinition(name="dependson", path="ConceptMap.element.dependsOn.element", description="Reference to element/field/valueset mapping depends on", type="token" )
   public static final String SP_DEPENDSON = "dependson";
+  @SearchParamDefinition(name="status", path="ConceptMap.status", description="Status of the concept map", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="date", path="ConceptMap.date", description="The concept map publication date", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="url", path="ConceptMap.url", description="The url of the concept map", type="token" )
+  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="version", path="ConceptMap.version", description="The version identifier of the concept map", type="token" )
+  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="publisher", path="ConceptMap.publisher", description="Name of the publisher of the concept map", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="product", path="ConceptMap.element.map.product.element", description="Reference to element/field/valueset mapping depends on", type="token" )
+  public static final String SP_PRODUCT = "product";
   @SearchParamDefinition(name="system", path="ConceptMap.element.map.codeSystem", description="The system for any destination concepts mapped by this map", type="token" )
   public static final String SP_SYSTEM = "system";
   @SearchParamDefinition(name="source", path="ConceptMap.source[x]", description="The system for any concepts mapped by this concept map", type="reference" )
   public static final String SP_SOURCE = "source";
-  @SearchParamDefinition(name="status", path="ConceptMap.status", description="Status of the concept map", type="token" )
-  public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="description", path="ConceptMap.description", description="Text search in the description of the concept map", type="string" )
   public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="name", path="ConceptMap.name", description="Name of the concept map", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="target", path="ConceptMap.target[x]", description="Provides context to the mappings", type="reference" )
   public static final String SP_TARGET = "target";
-  @SearchParamDefinition(name="date", path="ConceptMap.date", description="The concept map publication date", type="date" )
-  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="identifier", path="ConceptMap.identifier", description="Additional identifier for the concept map", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="url", path="ConceptMap.url", description="The url of the concept map", type="token" )
-  public static final String SP_URL = "url";
-  @SearchParamDefinition(name="publisher", path="ConceptMap.publisher", description="Name of the publisher of the concept map", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
-  @SearchParamDefinition(name="version", path="ConceptMap.version", description="The version identifier of the concept map", type="token" )
-  public static final String SP_VERSION = "version";
 
 }
 

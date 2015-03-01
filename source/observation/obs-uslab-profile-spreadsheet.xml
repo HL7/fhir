@@ -1057,7 +1057,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/StructureDefinition/</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -1283,7 +1283,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7" ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason}</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"><Data ss:Type="String">Specimen Rejection Reason</Data><NamedCell
@@ -1349,7 +1349,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabobservationkind}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2427,7 +2427,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabphpatient}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabphpatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2457,7 +2457,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/Profile/spec-uslab-uslabspec}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/spec-uslab-uslabspec}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2488,7 +2488,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/Profile/org-uslab-uslabperforminglab}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/org-uslab-uslabperforminglab}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4525,7 +4525,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason}</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">Specimen Rejection Reason</Data><NamedCell
@@ -4591,7 +4591,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabobservationkind}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5534,7 +5534,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabphpatient}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabphpatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5564,7 +5564,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/Profile/spec-uslab-uslabspec}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/spec-uslab-uslabspec}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5595,7 +5595,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/Profile/org-uslab-uslabperforminglab}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/org-uslab-uslabperforminglab}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7792,7 +7792,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason}</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">Specimen Rejection Reason</Data><NamedCell
@@ -7858,7 +7858,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabobservationkind}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8649,7 +8649,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabphpatient}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabphpatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8679,7 +8679,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/Profile/spec-uslab-uslabspec}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/spec-uslab-uslabspec}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8710,7 +8710,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/Profile/org-uslab-uslabperforminglab}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/org-uslab-uslabperforminglab}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -10916,7 +10916,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason}</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">Specimen Rejection Reason</Data><NamedCell
@@ -10982,7 +10982,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabobservationkind}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -11801,7 +11801,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabphpatient}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-uslab-uslabphpatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -11831,7 +11831,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/Profile/spec-uslab-uslabspec}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/spec-uslab-uslabspec}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -11862,7 +11862,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/Profile/org-uslab-uslabperforminglab}</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Organization){http://hl7.org/fhir/StructureDefinition/org-uslab-uslabperforminglab}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -19184,7 +19184,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">Must have a code or text or both.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -23522,7 +23522,7 @@
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason}</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason}</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"/>
@@ -23548,7 +23548,7 @@
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind}</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/uslabobservationkind}</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"/>

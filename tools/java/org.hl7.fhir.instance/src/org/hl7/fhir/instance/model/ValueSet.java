@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
@@ -44,92 +45,6 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="ValueSet", profile="http://hl7.org/fhir/Profile/ValueSet")
 public class ValueSet extends DomainResource {
-
-    public enum ValuesetStatus {
-        /**
-         * This valueset is still under development.
-         */
-        DRAFT, 
-        /**
-         * This valueset is ready for normal use.
-         */
-        ACTIVE, 
-        /**
-         * This valueset has been withdrawn or superceded and should no longer be used.
-         */
-        RETIRED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ValuesetStatus fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("retired".equals(codeString))
-          return RETIRED;
-        throw new Exception("Unknown ValuesetStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "This valueset is still under development.";
-            case ACTIVE: return "This valueset is ready for normal use.";
-            case RETIRED: return "This valueset has been withdrawn or superceded and should no longer be used.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "Draft";
-            case ACTIVE: return "Active";
-            case RETIRED: return "Retired";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ValuesetStatusEnumFactory implements EnumFactory<ValuesetStatus> {
-    public ValuesetStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return ValuesetStatus.DRAFT;
-        if ("active".equals(codeString))
-          return ValuesetStatus.ACTIVE;
-        if ("retired".equals(codeString))
-          return ValuesetStatus.RETIRED;
-        throw new IllegalArgumentException("Unknown ValuesetStatus code '"+codeString+"'");
-        }
-    public String toCode(ValuesetStatus code) {
-      if (code == ValuesetStatus.DRAFT)
-        return "draft";
-      if (code == ValuesetStatus.ACTIVE)
-        return "active";
-      if (code == ValuesetStatus.RETIRED)
-        return "retired";
-      return "?";
-      }
-    }
 
     public enum FilterOperator {
         /**
@@ -2732,7 +2647,7 @@ public class ValueSet extends DomainResource {
      */
     @Child(name="status", type={CodeType.class}, order=10, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the value set." )
-    protected Enumeration<ValuesetStatus> status;
+    protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
@@ -2783,13 +2698,13 @@ public class ValueSet extends DomainResource {
     @Description(shortDefinition="Used when the value set is 'expanded'", formalDefinition="A value set can also be 'expanded', where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed." )
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = -1590908012L;
+    private static final long serialVersionUID = -542150714L;
 
     public ValueSet() {
       super();
     }
 
-    public ValueSet(Enumeration<ValuesetStatus> status) {
+    public ValueSet(Enumeration<ConformanceResourceStatus> status) {
       super();
       this.status = status;
     }
@@ -3239,12 +3154,12 @@ public class ValueSet extends DomainResource {
     /**
      * @return {@link #status} (The status of the value set.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ValuesetStatus> getStatusElement() { 
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ValuesetStatus>(new ValuesetStatusEnumFactory()); // bb
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -3259,7 +3174,7 @@ public class ValueSet extends DomainResource {
     /**
      * @param value {@link #status} (The status of the value set.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ValueSet setStatusElement(Enumeration<ValuesetStatus> value) { 
+    public ValueSet setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -3267,16 +3182,16 @@ public class ValueSet extends DomainResource {
     /**
      * @return The status of the value set.
      */
-    public ValuesetStatus getStatus() { 
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the value set.
      */
-    public ValueSet setStatus(ValuesetStatus value) { 
+    public ValueSet setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ValuesetStatus>(new ValuesetStatusEnumFactory());
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }

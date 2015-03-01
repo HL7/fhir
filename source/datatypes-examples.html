@@ -547,7 +547,7 @@ Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
 &lt;name&gt;
   &lt;use value=&quot;official&quot; /&gt;
   &lt;family value=&quot;van&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/ExtensionDefinition/iso21090-EN-qualifier&quot; &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
 	   &lt;valueCode value=&quot;VV&quot; /&gt;
     &lt;/extension&gt;
   &lt;/family&gt;
@@ -576,12 +576,12 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
   &lt;given value=&quot;Johanna&quot; /&gt;
   &lt;given value=&quot;Maria&quot; /&gt;
   &lt;prefix value=&quot;Gräfin&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/ExtensionDefinition/iso21090-EN-qualifier&quot; &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
       &lt;valueCode value=&quot;NB&quot; /&gt;
     &lt;/extension&gt;
   &lt;/prefix&gt;
   &lt;prefix value=&quot;Dr. phil.&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/ExtensionDefinition/iso21090-EN-qualifier&quot; &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
       &lt;valueCode value=&quot;AC&quot; /&gt;
     &lt;/extension&gt;
   &lt;/prefix&gt;
@@ -649,7 +649,7 @@ Scandinavian example: Erikson is the family name. Jan Erik are the given names, 
   &lt;given value=&quot;Jan&quot; /&gt;
   &lt;given value=&quot;Erik&quot; /&gt;
   &lt;given value=&quot;Östlund&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
       &lt;valueCoding&gt;
          &lt;code value=&quot;MID&quot; /&gt;
          &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -685,7 +685,7 @@ mellomnamn.
   &lt;family value=&quot;Erikson&quot; /&gt;
   &lt;given value=&quot;Karin&quot; /&gt;
   &lt;given value=&quot;Hansen&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
       &lt;valueCoding&gt;
          &lt;code value=&quot;MID&quot; /&gt;
          &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -705,7 +705,7 @@ her mother, her father or other family names as specified by naming laws of the 
   &lt;family value=&quot;Erikson&quot; /&gt;
   &lt;given value=&quot;Karin&quot; /&gt;
   &lt;given value=&quot;Hansen&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
       &lt;valueCoding&gt;
         &lt;code value=&quot;MID&quot; /&gt;
         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -718,7 +718,7 @@ her mother, her father or other family names as specified by naming laws of the 
   &lt;family value=&quot;Berg&quot; /&gt;
   &lt;given value=&quot;Karin&quot; /&gt;
   &lt;given value=&quot;Erikson&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
       &lt;valueCoding&gt;
         &lt;code value=&quot;MID&quot; /&gt;
         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -930,7 +930,7 @@ See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatype
 <p>A UK example address.</p>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/ExtensionDefinition/iso21090-ADXP-county&quot; &gt; &lt;!-- todo: review this --&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot; &gt; &lt;!-- todo: review this --&gt;
       &lt;valueString value=&quot;HUDDERSFIELD&quot;/&gt;
     &lt;/extension&gt;
     &lt;text value=&quot;1 Back Lane&amp;#13;&amp;#10;Holmfirth&amp;#13;&amp;#10;HUDDERSFIELD&amp;#13;&amp;#10;HD7 1HQ&quot;/&gt;
@@ -943,7 +943,7 @@ See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatype
 <p>A Postal address - i.e. an address that it doesn't make sense to try and visit.</p>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/ExtensionDefinition/iso21090-AD-use&quot;&gt; &lt;!-- todo: review this --&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-AD-use&quot;&gt; &lt;!-- todo: review this --&gt;
       &lt;valueCode value=&quot;PST&quot;/&gt;
     &lt;/extension&gt;
     &lt;line value=&quot;PO Box 31445&quot;/&gt;

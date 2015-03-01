@@ -22,7 +22,7 @@
             <a href="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"
               >Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005</div>
         </text>
-        <extension url="http://hl7.org/fhir/Profile/xds-profile#practiceSettingCode">
+        <extension url="http://hl7.org/fhir/StructureDefinition/xds-practiceSettingCode">
           <valueCodeableConcept>
             <coding>
               <system value="http://ihe.net/connectathon/practiceSettingCodes"/>
@@ -63,8 +63,8 @@
         </content>
         <context>
           <period>
-            <start value="2004-12-23T08:00:00"/>
-            <end value="2004-12-23T08:01:00"/>
+            <start value="2004-12-23T08:00:00+10:00"/>
+            <end value="2004-12-23T08:01:00+10:00"/>
           </period>
         </context>
       </DocumentReference>
@@ -117,11 +117,6 @@
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Author Gerald Smitty @ Cleveland Clinic</div>
         </text>
-        <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
-          <valueReference>
-            <display value="Parma Community"/>
-          </valueReference>
-        </extension>
         <identifier>
           <label value="usual"/>
         </identifier>
@@ -131,19 +126,24 @@
           <given value="Gerald"/>
         </name>
 				<practitionerRole>
-        <managingOrganization>
-          <display value="Cleveland Clinic"/>
-        </managingOrganization>
-        <role>
-          <coding>
-            <code value="Attending"/>
-          </coding>
-        </role>
-        <specialty>
-          <coding>
-            <code value="Orthopedic"/>
-          </coding>
-        </specialty>
+          <managingOrganization>
+            <display value="Cleveland Clinic"/>
+          </managingOrganization>
+          <role>
+            <coding>
+              <code value="Attending"/>
+            </coding>
+          </role>
+          <specialty>
+            <coding>
+              <code value="Orthopedic"/>
+            </coding>
+          </specialty>
+				</practitionerRole>
+				<practitionerRole>
+          <managingOrganization>
+            <display value="Parma Community"/>
+          </managingOrganization>
 				</practitionerRole>
       </Practitioner>
 
@@ -165,11 +165,6 @@
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
         </text>
-        <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
-          <valueReference>
-            <display value="Berea Community"/>
-          </valueReference>
-        </extension>
         <identifier>
           <system value="usual"/>
         </identifier>
@@ -179,20 +174,24 @@
           <given value="Sherry"/>
         </name>
 				<practitionerRole>
-					
-        <managingOrganization>
-          <display value="Cleveland Clinic"/>
-        </managingOrganization>
-        <role>
-          <coding>
-            <code value="Primary Surgon"/>
-          </coding>
-        </role>
-        <specialty>
-          <coding>
-            <code value="Orthopedic"/>
-          </coding>
-        </specialty>
+          <managingOrganization>
+            <display value="Cleveland Clinic"/>
+          </managingOrganization>
+          <role>
+            <coding>
+              <code value="Primary Surgon"/>
+            </coding>
+          </role>
+          <specialty>
+            <coding>
+              <code value="Orthopedic"/>
+            </coding>
+          </specialty>
+				</practitionerRole>
+				<practitionerRole>
+          <managingOrganization>
+            <display value="Berea Community"/>
+          </managingOrganization>
 				</practitionerRole>
       </Practitioner>
 

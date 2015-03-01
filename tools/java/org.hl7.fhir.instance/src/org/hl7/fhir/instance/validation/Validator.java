@@ -42,7 +42,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.utilities.Utilities;
 
 /**
@@ -167,9 +167,9 @@ public class Validator {
     engine.process();
   }
 
-  private Profile readProfile(byte[] content) throws Exception {
+  private StructureDefinition readProfile(byte[] content) throws Exception {
       XmlParser xml = new XmlParser(true);
-      return (Profile) xml.parse(new ByteArrayInputStream(content));
+      return (StructureDefinition) xml.parse(new ByteArrayInputStream(content));
   }
       
   private byte[] loadProfile() throws Exception {

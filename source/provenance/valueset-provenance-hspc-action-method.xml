@@ -1,5 +1,5 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:0.00.000.0.000000.0.00.004"/>
   </extension>
   <!-- 

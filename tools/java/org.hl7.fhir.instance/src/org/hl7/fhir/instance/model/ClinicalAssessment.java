@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1463,10 +1463,10 @@ public class ClinicalAssessment extends DomainResource {
   public static final String SP_DIAGNOSIS = "diagnosis";
   @SearchParamDefinition(name="problem", path="ClinicalAssessment.problem", description="General assessment of patient state", type="reference" )
   public static final String SP_PROBLEM = "problem";
-  @SearchParamDefinition(name="date", path="ClinicalAssessment.date", description="When the assessment occurred", type="date" )
-  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="careplan", path="ClinicalAssessment.careplan", description="A specific careplan that prompted this assessment", type="reference" )
   public static final String SP_CAREPLAN = "careplan";
+  @SearchParamDefinition(name="date", path="ClinicalAssessment.date", description="When the assessment occurred", type="date" )
+  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="ruledout", path="ClinicalAssessment.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
   public static final String SP_RULEDOUT = "ruledout";
   @SearchParamDefinition(name="assessor", path="ClinicalAssessment.assessor", description="The clinicial performing the assessment", type="reference" )

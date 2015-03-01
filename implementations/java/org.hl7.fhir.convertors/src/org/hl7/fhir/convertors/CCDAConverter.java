@@ -639,7 +639,7 @@ public class CCDAConverter {
 			}
 		}
 		// ref and p are both sorted. now we fill out p as much as we can (remembering it might already be populated)
-    addToCodeableList(p.getRole(), convert.makeCodeableConceptFromCD(cda.getChild(assignedEntity, "code")));
+    p.addPractitionerRole().setRole(convert.makeCodeableConceptFromCD(cda.getChild(assignedEntity, "code")));
 		for (Element e : cda.getChildren(assignedEntity, "id")) 
 		  addToIdList(p.getIdentifier(), convert.makeIdentifierFromII(e));
 		for (Element e : cda.getChildren(assignedEntity, "addr")) 
@@ -881,22 +881,22 @@ public class CCDAConverter {
 		case SocialHistory : 
 			cda.checkTemplateId(so, "2.16.840.1.113883.10.20.22.4.38");
 			// SHALL contain exactly one [1..1] code (CONF:8558/).
-			obs.setName(convert.makeCodeableConceptFromCD(cda.getChild(so, "code")));
+			obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(so, "code")));
 			break;		
 		case Pregnancy: 
 			cda.checkTemplateId(so, "2.16.840.1.113883.10.20.15.3.8");
 			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
-			obs.setName(Factory.newCodeableConcept("11449-6", "http://loinc.org", "Pregnancy Status"));
+			obs.setCode(Factory.newCodeableConcept("11449-6", "http://loinc.org", "Pregnancy Status"));
   		break;		
 		case SmokingStatus: 
 		  cda.checkTemplateId(so, "2.16.840.1.113883.10.20.22.4.78");
 			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
-			obs.setName(Factory.newCodeableConcept("72166-2", "http://loinc.org", "Tobacco Smoking Status"));
+			obs.setCode(Factory.newCodeableConcept("72166-2", "http://loinc.org", "Tobacco Smoking Status"));
   		break;		
 		case TobaccoUse: 
 		  cda.checkTemplateId(so, "2.16.840.1.113883.10.20.22.4.12");
 			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
-			obs.setName(Factory.newCodeableConcept("11367-0", "http://loinc.org", "History of Tobacco Use"));
+			obs.setCode(Factory.newCodeableConcept("11367-0", "http://loinc.org", "History of Tobacco Use"));
 		}
 		  
 		// SHALL contain at least one [1..*] id (8551).
@@ -957,7 +957,7 @@ public class CCDAConverter {
 				obs.getRelated().add(or);
 				or.setType(ObservationRelationshiptypes.HASCOMPONENT);
 				or.setTarget(Factory.makeReference("#"+id));
-				co.setName(Factory.newCodeableConcept("11778-8", "http://loinc.org", "Delivery date Estimated"));
+				co.setCode(Factory.newCodeableConcept("11778-8", "http://loinc.org", "Delivery date Estimated"));
 				co.setValue(convert.makeDateTimeFromTS(cda.getChild(dd, "value"))); // not legal, see gForge http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=3125&start=0 
 			}
 		}
@@ -1069,7 +1069,7 @@ public class CCDAConverter {
 		
 		// SHALL contain exactly one [1..1] code (CONF:19176).
 		//  This code SHALL contain exactly one [1..1] @code="46680005" Vital signs (CodeSystem: SNOMED-CT 2.16.840.1.113883.6.96 STATIC) (CONF:19177).
-		obs.setName(convert.makeCodeableConceptFromCD(cda.getChild(organizer, "code"))); 
+		obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(organizer, "code"))); 
 
 		// SHALL contain exactly one [1..1] effectiveTime (CONF:7288).
 		obs.setApplies(convert.makeMatchingTypeFromIVL(cda.getChild(organizer, "effectiveTime")));
@@ -1098,7 +1098,7 @@ public class CCDAConverter {
 	  	  obs.setIdentifier(convert.makeIdentifierFromII(e));
 		
 		// SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Vital Sign Result Value Set 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
-		obs.setName(convert.makeCodeableConceptFromCD(cda.getChild(observation, "code"))); // all loinc codes 
+		obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(observation, "code"))); // all loinc codes 
 		
 		// SHOULD contain zero or one [0..1] text (CONF:7302).
 		// The text, if present, SHOULD contain zero or one [0..1] reference (CONF:15943).

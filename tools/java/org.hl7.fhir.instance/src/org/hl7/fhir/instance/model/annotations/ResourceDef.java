@@ -52,7 +52,7 @@ public @interface ResourceDef {
 	String id() default "";
 	
 	/**
-	 * The URL indicating the profile for this resource definition, if known
+	 * The URL indicating the StructureDefinition for this resource definition, if known
 	 */
 	String profile() default "";
 	

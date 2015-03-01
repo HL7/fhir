@@ -406,7 +406,12 @@ public class HeirarchicalTableGenerator  {
         return files.get(filename);
       StringBuilder b = new StringBuilder();
       b.append("data: image/png;base64,");
-      byte[] bytes = FileUtils.readFileToByteArray(new File(Utilities.path(dest, filename)));
+      byte[] bytes;
+      File file = new File(Utilities.path(dest, filename));
+      if (!file.exists()) // because sometime this is called real early before the files exist. it will be uilt again later because of this
+    	bytes = new byte[0]; 
+      else
+        bytes = FileUtils.readFileToByteArray(file);
       b.append(new String(Base64.encodeBase64(bytes)));
       files.put(filename, b.toString());
       return b.toString();

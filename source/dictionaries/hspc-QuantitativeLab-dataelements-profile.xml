@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- processed by StringTemplate -->
 
-<Profile xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="hspc-QuantitativeLab-dataelements-$de_id$"/>
-  <url value="http://hl7.org/fhir/Profile/$de_id$"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/$de_id$"/>
   <name value="HSPC Standard Quantitative Lab: $de_name$"/>
   <publisher value="HSPC"/>
   <contact>
@@ -15,8 +15,9 @@
   <description value="$de_definition$"/>
   <status value="draft"/>
   <date value="2015-02-18"/>
-  <type value="Observation"/>
-  <base value="http://hl7.org/fhir/Profile/observation-hspc-standardlabobs-quantitative-stdqty"/>
+  <type value="constraint"/>
+  <abstract value="false"/>
+  <base value="http://hl7.org/fhir/StructureDefinition/observation-hspc-standardlabobs-quantitative-stdqty"/>
   <differential>
     <element>
       <path value="Observation.code"/>
@@ -34,4 +35,4 @@
       <fixedCode value="$de_units_code0_code$"/>
     </element>
   </differential>
-</Profile>
+</StructureDefinition>

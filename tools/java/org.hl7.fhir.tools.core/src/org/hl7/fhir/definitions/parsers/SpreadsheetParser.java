@@ -75,19 +75,22 @@ import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DecimalType;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
-import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionContext;
+import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.OidType;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.TimeType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.UuidType;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
@@ -121,10 +124,10 @@ public class SpreadsheetParser {
   private Calendar genDate;
   private boolean isAbstract;
   private Map<String, BindingSpecification> bindings; // when parsing profiles
-  private Map<String, ExtensionDefinition> extensionDefinitions = new HashMap<String, ExtensionDefinition>();
+  private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   private ProfileKnowledgeProvider pkp;
   
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, ExtensionDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, name);	
@@ -348,7 +351,7 @@ public class SpreadsheetParser {
                 throw new Exception("Tuple parameter '"+parts[0]+"."+parts[1]+"' not found at "+getLocation(row));
               if (!param.getType().equals("Tuple"))
                 throw new Exception("Tuple parameter '"+parts[0]+"."+parts[1]+"' type must be Tuple at "+getLocation(row));
-              String profile = sheet.getColumn(row, "Profile");
+              String profile = sheet.getColumn(row, "StructureDefinition");
               String min = sheet.getColumn(row, "Min");
               String max = sheet.getColumn(row, "Max");
               param.getParts().add(new OperationTuplePart(parts[2], doco, Integer.parseInt(min), max, type, profile));
@@ -360,7 +363,7 @@ public class SpreadsheetParser {
 	            Operation operation = ops.get(parts[0]);
 	            if (operation == null)
 	              throw new Exception("Unknown Operation '"+parts[0]+"' at "+getLocation(row));
-	            String profile = sheet.getColumn(row, "Profile");
+	            String profile = sheet.getColumn(row, "StructureDefinition");
 	            String min = sheet.getColumn(row, "Min");
 	            String max = sheet.getColumn(row, "Max");
 	            OperationParameter p = new OperationParameter(parts[1], use, doco, Integer.parseInt(min), max, type, profile);
@@ -514,7 +517,7 @@ public class SpreadsheetParser {
                 d = e.getShortDefn();
               if (p.startsWith("Extension(")) {
                 String url = extractExtensionUrl(p);
-                ExtensionDefinition ex = extensionDefinitions.get(url);
+                StructureDefinition ex = extensionDefinitions.get(url);
                 if (ex == null)
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" refers to unknown extension '"+url+"' "+ getLocation(row));
                 if (Utilities.noString(d))
@@ -605,7 +608,7 @@ public class SpreadsheetParser {
       String oid = sheet.getColumn(row, "Oid");
       if (!Utilities.noString(oid))
         cd.setVsOid(oid); // no cs oid in this case
-      cd.setStatus(ValueSet.ValuesetStatus.fromCode(sheet.getColumn(row, "Status")));
+      cd.setStatus(ConformanceResourceStatus.fromCode(sheet.getColumn(row, "Status")));
       cd.setWebSite(sheet.getColumn(row, "Website"));
       cd.setEmail(sheet.getColumn(row, "Email"));
       cd.setCopyright(sheet.getColumn(row, "Copyright"));
@@ -818,7 +821,7 @@ public class SpreadsheetParser {
 		
     sheet = loadSheet(n);
     if (sheet == null)
-      throw new Exception("The Profile referred to a tab by the name of '"+n+"', but no tab by the name could be found");
+      throw new Exception("The StructureDefinition referred to a tab by the name of '"+n+"', but no tab by the name could be found");
     for (int row = 0; row < sheet.rows.size(); row++) {
       ElementDefn e = processLine(resource, sheet, row, invariants, true, ap);
       if (e != null) 
@@ -884,7 +887,7 @@ public class SpreadsheetParser {
 					String type = sheet.getColumn(row, "Type");
 					if (!file.exists() && !("tool".equals(type) || isSpecialType(type)))
 						throw new Exception("Example " + name + " file '" + file.getAbsolutePath() + "' not found parsing " + this.name);
-					String pn = sheet.getColumn(row, "Profile"); //todo-profile: rename this
+					String pn = sheet.getColumn(row, "StructureDefinition"); //todo-profile: rename this
 					if (Utilities.noString(pn)) {
 					  defn.getExamples().add(new Example(name, id, desc, file, 
 					      parseExampleType(type, row),
@@ -1203,7 +1206,10 @@ public class SpreadsheetParser {
 
   private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, ConformancePackage ap) throws Exception {
 	  // first, we build the extension definition
-	  ExtensionDefinition ex = new ExtensionDefinition();
+    StructureDefinition ex = new StructureDefinition();
+    ex.setType(StructureDefinitionType.EXTENSION);
+    ex.setBase("http://hl7.org/fhir/StructureDefinition/Extension");
+    ex.setAbstract(false);
 	  String name = sheet.getColumn(row, "Code");
 	  String context = null;
 	  if (Utilities.noString(name))
@@ -1245,10 +1251,10 @@ public class SpreadsheetParser {
       ex.setDate(genDate.getTime());
 
     if (ap.hasMetadata("status")) 
-      ex.setStatus(ExtensionDefinition.ResourceProfileStatus.fromCode(ap.metadata("status")));
+      ex.setStatus(ConformanceResourceStatus.fromCode(ap.metadata("status")));
    
     row++;
-    if (!ex.getUrl().startsWith("http://hl7.org/fhir/ExtensionDefinition/"))
+    if (!ex.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/"))
       System.out.println("extension "+ex.getUrl());
     
     while (row < sheet.getRows().size() && sheet.getColumn(row, "Code").startsWith(name+".")) {
@@ -1261,51 +1267,9 @@ public class SpreadsheetParser {
       row++;
     }
 	  
-	  if (extensions != null) {
-	    // if we got an extensions element, split this in.... 
-
-	    ElementDefn e;
-	    String path = sheet.getColumn(row, "Code");
-	    e = makeExtension(extensions, path, row, definitions);
-	    e.setMinCardinality(exe.getMinCardinality());
-	    e.setMaxCardinality(exe.getMaxCardinality());
-	    e.setCondition(exe.getCondition());
-	    e.setBindingName(sheet.getColumn(row, "Binding"));
-	    e.setDefinition(exe.getDefinition());
-	    e.setRequirements(exe.getRequirements());
-	    e.setComments(exe.getComments());
-	    e.getMappings().putAll(exe.getMappings());
-	    e.setTodo(exe.getTodo());
-	    e.setExample(exe.getExample());
-	    e.setCommitteeNotes(exe.getCommitteeNotes());
-	    if (exe.hasModifier())
-	      e.setIsModifier(exe.isModifier());
-
-
-
-	    e.getTypes().clear();
-	    e.getElementByName("definition").setFixed(new UriType(uri));
-	    e.getElementByName("ref").ban();
-	    if (e.hasModifier()) {
-	      if (e.isModifier())
-	        e.getElementByName("mustUnderstand").setFixed(new BooleanType(true));
-	      else
-	        e.getElementByName("mustUnderstand").ban();
-	    }
-	    ElementDefn v = e.getElementByName("value[x]");
-	    v.setShortDefn(sheet.getColumn(row, "Short Name"));
-	    e.setShortDefn("");
-	    v.getTypes().clear();
-	    String t = sheet.getColumn(row, "Type");
-	    if (t.equals(""))
-	      v.ban();
-	    else {
-	      TypeParser tp = new TypeParser();
-	      v.getTypes().addAll(tp.parse(t, true, profileExtensionBase));
-	    }
-	    e.getElements().remove(e.getElementByName("extension"));
-	  }
     new ProfileGenerator(definitions, null, pkp, null).convertElements(exe, ex, null);
+    StructureDefinition base = definitions.getSnapShotForType("Extension");
+    new ProfileUtilities(this.context).generateSnapshot(base, ex, ex.getUrl(), ex.getName(), pkp);
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}
@@ -1315,6 +1279,7 @@ public class SpreadsheetParser {
   }
 
   private void parseExtensionElement(Sheet sheet, int row, Definitions definitions, ElementDefn exe) throws Exception {
+    // things that go on Extension
     String[] card = sheet.getColumn(row, "Card.").split("\\.\\.");
     if (card.length != 2 || !Utilities.IsInteger(card[0])
         || (!"*".equals(card[1]) && !Utilities.IsInteger(card[1])))
@@ -1323,25 +1288,23 @@ public class SpreadsheetParser {
     exe.setMinCardinality(Integer.parseInt(card[0]));
     exe.setMaxCardinality("*".equals(card[1]) ? Integer.MAX_VALUE : Integer.parseInt(card[1]));
     exe.setCondition(sheet.getColumn(row, "Condition"));
-    exe.setBindingName(sheet.getColumn(row, "Binding"));
-    exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Must Understand"), row, null));
     exe.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
     exe.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
     exe.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
-		doAliases(sheet, row, exe);
+    doAliases(sheet, row, exe);
     for (String n : definitions.getMapTypes().keySet()) {
       exe.addMapping(n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
     }
-		String tasks = sheet.getColumn(row, "gForge");
-		if (!Utilities.noString(tasks)) {
-		  for (String t : tasks.split(","))
-		    exe.getTasks().add(t);
-		}		
-		exe.setMaxLength(sheet.getColumn(row, "Max Length"));
+    String tasks = sheet.getColumn(row, "gForge");
+    if (!Utilities.noString(tasks)) {
+      for (String t : tasks.split(","))
+        exe.getTasks().add(t);
+    }   
     exe.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
-    exe.setExample(processValue(sheet, row, "Example", exe));
     exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
     exe.setShortDefn(sheet.getColumn(row, "Short Label"));
+
+    exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Must Understand"), row, null));
     String s = sheet.getColumn(row, "Must Understand").toLowerCase();
     if (s.equals("false") || s.equals("0") || s.equals("f")
         || s.equals("n") || s.equals("no"))
@@ -1352,7 +1315,18 @@ public class SpreadsheetParser {
     else if (!"".equals(s))
       throw new Exception("unable to process Must Understand flag: " + s
           + " in " + getLocation(row));
-    exe.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), false, profileExtensionBase));
+    exe.getTypes().add(new TypeRef().setName("Extension"));
+    
+    // things that go on Extension.value
+    if (!Utilities.noString(sheet.getColumn(row, "Type"))) {
+      ElementDefn exv = new ElementDefn();
+      exv.setName("value[x]");
+      exe.getElements().add(exv);
+      exv.setBindingName(sheet.getColumn(row, "Binding"));
+      exv.setMaxLength(sheet.getColumn(row, "Max Length"));
+      exv.setExample(processValue(sheet, row, "Example", exe));
+      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), false, profileExtensionBase));
+    }
   }
 
 	private ExtensionContext readContextType(String value, int row) throws Exception {

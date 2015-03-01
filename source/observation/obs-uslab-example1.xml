@@ -22,7 +22,7 @@ see narrative this the screen that leads to follow up order for whole blood lead
 		</div>
 	</text>
 	<!-- extension for specimen reject goes here - not for this use case
-	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
+	<extension url="http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason">
 		<valueCodeableConcept>
 			<coding>
 				<system value="http://hl7.org/fhir/v2/0490"/>
@@ -33,7 +33,7 @@ see narrative this the screen that leads to follow up order for whole blood lead
 	</extension>
 -->
 	<!-- extension for observation kindt goes here -->
-	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind">
+	<extension url="http://hl7.org/fhir/StructureDefinition/uslabobservationkind">
 		<valueCode value="result"/>
 	</extension>
 	<!--EH :  The local and /or LOINC test codes go here -->

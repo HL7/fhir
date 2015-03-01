@@ -42,7 +42,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.utilities.Utilities;
 
 /**
@@ -160,18 +160,18 @@ public class Validator {
 
   public void process() throws Exception {
     byte[] defn = loadDefinitions();
-    if (!Utilities.noString(profile))
-    	engine.setProfile(readProfile(loadProfile()));
+    if (!Utilities.noString(profile)) 
+      engine.setProfile(readProfile(loadProfile()));
     readDefinitions(engine, defn);
     engine.setSource(loadSource());
     engine.process();
   }
 
-  private Profile readProfile(byte[] content) throws Exception {
+  private StructureDefinition readProfile(byte[] content) throws Exception {
       XmlParser xml = new XmlParser(true);
-      return (Profile) xml.parse(new ByteArrayInputStream(content));
+      return (StructureDefinition) xml.parse(new ByteArrayInputStream(content));
   }
-
+      
   private byte[] loadProfile() throws Exception {
 	  if (Utilities.noString(profile)) {
 		  return null;
@@ -181,7 +181,7 @@ public class Validator {
 		  return loadFromFile(profile);      
 	  } else
 		  throw new Exception("Unable to find named profile (source = "+profile+")");
-  }
+    }
 
   private void readDefinitions(ValidationEngine engine, byte[] defn) throws Exception {
     ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(defn));

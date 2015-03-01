@@ -47,7 +47,7 @@ import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -84,9 +84,9 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 		this.page = page;
 	}
 
-	public void generate(ExtensionDefinition ed, Map<String, BindingSpecification> tx) throws Exception
+	public void generateExtension(StructureDefinition ed, Map<String, BindingSpecification> tx) throws Exception
 	{
-		scan(ed, ed.getUrl(), tx);
+	  scanExtension(ed, ed.getUrl(), tx);
 		gen(txusages);
 		flush();
 		close();
@@ -114,8 +114,8 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     close();
   }
 	
-  private void scan(ExtensionDefinition exd, String url, Map<String, BindingSpecification> tx) throws Exception {
-    for (ElementDefinition ed : exd.getElement()) {
+  private void scanExtension(StructureDefinition exd, String url, Map<String, BindingSpecification> tx) throws Exception {
+    for (ElementDefinition ed : exd.getSnapshot().getElement()) {
       if (ed.hasBinding()) {
         BindingSpecification cd = getConceptDomainByNameOrNull(tx, ed.getBinding().getName());
         if (cd != null) {

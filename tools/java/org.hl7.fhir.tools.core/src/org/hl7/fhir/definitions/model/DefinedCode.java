@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.utilities.Utilities;
 
 /*
@@ -49,7 +49,7 @@ public class DefinedCode {
   private String v2Map;
   private String v3Map;
 	private Map<String, String> langs = new HashMap<String, String>();
-  private Profile profile;
+  private StructureDefinition profile;
 	
 	public DefinedCode(String code, String definition, String comment) {
 		super();
@@ -154,11 +154,11 @@ public class DefinedCode {
   }
 
 
-  public Profile getProfile() {
+  public StructureDefinition getProfile() {
     return profile;
   }
 
-  public void setProfile(Profile profile) {
+  public void setProfile(StructureDefinition profile) {
     this.profile = profile;
   }
   

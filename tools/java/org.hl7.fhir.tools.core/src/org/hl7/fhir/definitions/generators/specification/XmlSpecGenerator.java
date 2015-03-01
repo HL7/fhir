@@ -48,8 +48,7 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
@@ -80,21 +79,21 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		close();
 	}
 
-  public void generate(ExtensionDefinition ed) throws Exception {
+  public void generateExtension(StructureDefinition ed) throws Exception {
     write("<pre class=\"spec\">\r\n");
 
-    generateInner(ed);
+    generateExtensionInner(ed);
 
     write("</pre>\r\n");
     flush();
     close();
   }
 
-  private void generateInner(ExtensionDefinition ed) throws IOException, Exception {
-    ElementDefinition root = ed.getElement().get(0);
+  private void generateExtensionInner(StructureDefinition ed) throws IOException, Exception {
+    ElementDefinition root = ed.getSnapshot().getElement().get(0);
     write("&lt;!-- "+Utilities.escapeXml(ed.getName())+" -->");
     write("<span style=\"float: right\"><a title=\"Documentation for this format\" href=\"xml.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
-    String rn = ed.getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
+    String rn = ed.getSnapshot().getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
 
     write("\r\n&lt;");
     if (defPage == null)
@@ -114,12 +113,12 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     generateExtensionAttribute(ed);
     write(" &gt;\r\n");
 
-    if (ed.getElement().size() == 1) {
-      generateCoreElem(ed.getElement(), ed.getElement().get(0), 1, "Extension", true);
+    if (ed.getSnapshot().getElement().size() == 1) {
+      generateCoreElem(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0), 1, "Extension", true);
     } else {
-      List<ElementDefinition> children = getChildren(ed.getElement(), ed.getElement().get(0));
+      List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
       for (ElementDefinition child : children)
-        generateCoreElem(ed.getElement(), child, 1, rn, false);
+        generateCoreElem(ed.getSnapshot().getElement(), child, 1, rn, false);
     }
 
     write("&lt;/");
@@ -191,7 +190,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		write("&gt;\r\n");
 	}
 
-	private void generateExtensionAttribute(ExtensionDefinition ed) throws Exception {
+	private void generateExtensionAttribute(StructureDefinition ed) throws Exception {
     write(" url=\"");
     write("<span style=\"color: navy\">" + ed.getUrl()+"</span>");
     write("\"");
@@ -479,7 +478,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			}
 
 //			if (!Utilities.noString(elem.getProfile())) {
-//	      write(" <a href=\""+elem.getProfile()+"\"><span style=\"color: DarkViolet\">Profile: \""+elem.getProfile().substring(1)+"\"</span></a>");		  
+//	      write(" <a href=\""+elem.getProfile()+"\"><span style=\"color: DarkViolet\">StructureDefinition: \""+elem.getProfile().substring(1)+"\"</span></a>");		  
 //			}
 			write(" ");
 			if (elem.getElements().isEmpty() && !sharedDT) {
@@ -1024,7 +1023,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     return b.toString()+"\r\n"+ind;  
   }
 
-  public void generate(Profile resource) {
+  public void generate(StructureDefinition resource) {
     // TODO Auto-generated method stub
     
   }

@@ -158,10 +158,10 @@
       <resource>
          <type value="Provenance"/>
          <profile>
-            <reference value="http://hl7.org/fhir/Profile/provenance-ehr-rle"/>
+            <reference value="http://hl7.org/fhir/StructureDefinition/provenance-ehr-rle"/>
          </profile>
          <interaction>
-            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+            <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
                <valueCode value="SHALL"/>
             </extension>
             <code value="create"/>
@@ -171,10 +171,10 @@
       <resource>
          <type value="AuditEvent"/>
          <profile>
-            <reference value="http://hl7.org/fhir/Profile/auditevent-ehr-rle"/>
+            <reference value="http://hl7.org/fhir/StructureDefinition/auditevent-ehr-rle"/>
          </profile>
          <interaction>
-            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+            <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
                <valueCode value="SHALL"/>
             </extension>
             <code value="create"/>

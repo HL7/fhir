@@ -137,10 +137,10 @@
       </element>
     </ConceptMap>
   </contained>
-  <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
+  <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
     <valueInteger value="1"/>
   </extension>
-  <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
+  <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
     <valueInteger value="13"/>
   </extension>
   <identifier>
@@ -224,12 +224,12 @@
     <conformance value="required"/>
     <valueSet>
     <!-- 
-      <extension url="http://hl7.org/fhir/ExtensionDefinition/iso-11179-permitted-value-valueset">
+      <extension url="http://hl7.org/fhir/StructureDefinition/iso-11179-permitted-value-valueset">
         <valueReference>
           <reference value="#2179414-permitted"/>
         </valueReference>
       </extension>
-      <extension url="http://hl7.org/fhir/ExtensionDefinition/iso-11179-permitted-value-conceptmap">
+      <extension url="http://hl7.org/fhir/StructureDefinition/iso-11179-permitted-value-conceptmap">
         <valueReference>
           <reference value="#2179414-cm"/>
         </valueReference>

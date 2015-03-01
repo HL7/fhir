@@ -20,7 +20,7 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -831,8 +831,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/ExtensionDefinition/"><Data
-      ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -856,7 +856,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1038,7 +1037,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Profile</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">StructureDefinition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Data Dictionary</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1053,11 +1052,11 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Associates the profile with a collection of Data Elements</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Associates the structure definition with a collection of Data Elements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">This extension associates a profile with a data dictionary - a collection of data elements that any instance of data that conforms to the profile must also conform to. The value of the extension is a uri the defines a query that identifies the collection of relevant data elements&#10;&#10;This extension can be used on any profile of the resource types Observation and Questionnaire. THe profile specifies which elements are mandatory etc, but any elements in a resource that conforms to the profile must also conform to one of the defined data elements.&#10;&#10;For Observation:&#10;* Observation.code must be associated with a matching Data Element by DataElement.code. &#10;* The profile should bind Observation.code to a value set that has the same codes as the collection of data elements (though it can be narrower)&#10;* the units and the quantity value should conform to the rules laid down in the matching Data Element&#10;&#10;For Questionnaire:&#10;* todo</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">This extension associates a structure definition with a data dictionary - a collection of data elements that any instance of data that conforms to the structure definition must also conform to. The value of the extension is a uri the defines a query that identifies the collection of relevant data elements&#10;&#10;This extension can be used on any structure definition that is a constraint on the resource types Observation and Questionnaire. THe profile specifies which elements are mandatory etc, but any elements in a resource that conforms to the structure definition must also conform to one of the defined data elements.&#10;&#10;For Observation:&#10;* Observation.code must be associated with a matching Data Element by DataElement.code. &#10;* The structure definition should bind Observation.code to a value set that has the same codes as the collection of data elements (though it can be narrower)&#10;* the units and the quantity value should conform to the rules laid down in the matching Data Element&#10;&#10;For Questionnaire:&#10;* todo</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">There are a few but important areas where a profile needs to associate an observsation with a data dictionary. Lab test results is a classic case</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">There are a few but important areas where a structure definition needs to associate an observsation with a data dictionary. Lab test results is a classic case</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">The query can select a set of data element resources, or identify a bundle that is a collection of data elements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2032,6 +2031,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2051,7 +2051,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

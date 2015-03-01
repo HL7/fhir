@@ -43,14 +43,14 @@ Authored by: Eric M Haas  Health eData Inc.
 			</ul>
 		</div>
 	</text>
-	<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-race">
+	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
 		<valueCodeableConcept>
 			<coding>
 				<code value="2106-3"/>
 			</coding>
 		</valueCodeableConcept>
 	</extension>
-	<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-ethnicity">
+	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity">
 		<valueCodeableConcept>
 			<coding>
 				<code value="2135-2"/>

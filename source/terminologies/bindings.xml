@@ -21,6 +21,7 @@
   <WindowTopX>1140</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>632</TabRatio>
+  <ActiveSheet>5</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -78,6 +79,17 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
   </Style>
   <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s75">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
@@ -85,10 +97,10 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s77">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -98,29 +110,125 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s81">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s82">
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s83">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
-  <Style ss:ID="s82">
+  <Style ss:ID="s84">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
+  <Style ss:ID="s85">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s86">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s87">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s88">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s89">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s90" ss:Parent="s63">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s91">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s92">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s93">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s94">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s95" ss:Parent="s63">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s96">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="157.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="229.5"/>
@@ -234,6 +342,13 @@
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">#restful-interactions</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ConformanceResourceStatus</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The lifecycle status of a Value Set or Concept Map</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">#conformance-resource-status</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -248,12 +363,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -266,7 +380,7 @@
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="63.75"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="75.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="78.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s73">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Display</Data></Cell>
@@ -277,38 +391,38 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Boolean true</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Boolean true</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Boolean false</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Boolean false</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">trace</Data></Cell>
     <Cell><Data ss:Type="String">Trace Amount Detected</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The content is greater than zero, but too small to be quantified</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The content is greater than zero, but too small to be quantified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">sufficient</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">sufficient</Data></Cell>
     <Cell><Data ss:Type="String">Sufficient Quantity</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">used in formulations (e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' This code would be used to express the quantity of water. )</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">used in formulations (e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' This code would be used to express the quantity of water. )</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">withdrawn</Data></Cell>
     <Cell><Data ss:Type="String">Value Withdrawn</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The value is no longer available</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The value is no longer available</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">nil-known</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">nil-known</Data></Cell>
     <Cell><Data ss:Type="String">Nil Known</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The are no known applicable values in this context</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The are no known applicable values in this context</Data></Cell>
     <Cell><Data ss:Type="String">The existence of this subject to review</Data></Cell>
    </Row>
   </Table>
@@ -340,7 +454,7 @@
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="436.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s76">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Parent</Data></Cell>
@@ -528,12 +642,12 @@
    <Column ss:AutoFitWidth="0" ss:Width="407.25"/>
    <Column ss:Width="140.25"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Comment</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">v3</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">v2</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Comment</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">v2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -555,7 +669,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">other</Data></Cell>
     <Cell><Data ss:Type="String">Other</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">The gender of a person could not be uniquely defined as male or female, such as hermaphrodite</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">The gender of a person could not be uniquely defined as male or female, such as hermaphrodite</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&lt;AdministrativeGender.UN</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&gt;0001.A,&gt;0001.O</Data></Cell>
    </Row>
@@ -563,7 +677,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Description:A proper value is applicable, but not known.&#10; Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:&#10; Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Description:A proper value is applicable, but not known.&#10; Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:&#10; Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.UNK</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=0001.U</Data></Cell>
    </Row>
@@ -586,6 +700,85 @@
      <Number>3</Number>
      <ActiveRow>5</ActiveRow>
      <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="conformance-resource-status">
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="429"/>
+   <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="174"/>
+   <Column ss:AutoFitWidth="0" ss:Width="218.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="183.75"/>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Parent</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Display</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">v2</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Display:ru</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Display:nl</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s87"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Draft</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">This resource is still under development</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">черновик</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ontwerp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s93"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">This resource is ready for normal use</Data></Cell>
+    <Cell ss:StyleID="s94"/>
+    <Cell ss:StyleID="s94"/>
+    <Cell ss:StyleID="s96"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">активный</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">actief</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s93"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Retired</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">This resource has been withdrawn or superceded and should no longer be used</Data></Cell>
+    <Cell ss:StyleID="s94"/>
+    <Cell ss:StyleID="s94"/>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Marking a resource as &quot;retired&quot; is an assertion by the resource author/maintainer that a resource should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the resource, but best practice would be to phase its use out</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">удалён</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">verouderd</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

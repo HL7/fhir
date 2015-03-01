@@ -976,8 +976,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/Profile/diagnosticreport-daf"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/diagnosticreport-daf</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/diagnosticreport-daf"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/diagnosticreport-daf</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -1642,7 +1642,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-daf-dafpatient}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1852,7 +1852,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(DiagnosticOrder){http://hl7.org/fhir/Profile/diagnosticorder-daf-dafdiagnosticorder}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(DiagnosticOrder){http://hl7.org/fhir/StructureDefinition/diagnosticorder-daf-dafdiagnosticorder}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1914,7 +1914,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Observation){http://hl7.org/fhir/Profile/observation-daf-results-dafresultobservationcode}|Reference(Observation){http://hl7.org/fhir/Profile/observation-daf-results-dafresultobsquantity}|Reference(Observation){http://hl7.org/fhir/Profile/observation-daf-results-dafresultobsratio}|Reference(Observation){http://hl7.org/fhir/Profile/observation-daf-results-dafresultobsother}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Observation){http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobservationcode}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobsquantity}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobsratio}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobsother}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

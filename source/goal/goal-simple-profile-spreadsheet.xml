@@ -934,8 +934,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/ExtensionDefinition/goal-common-"><Data
-      ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/goal-common-</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/StructureDefinition/goal-common-"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/goal-common-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>

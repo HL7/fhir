@@ -107,10 +107,10 @@
       <!-- specify a profile for the request person. Very often there's no point profiling 
         the response, it's not interesting -->
       <request>
-        <reference value="Profile/101"/>
+        <reference value="StructureDefinition/101"/>
       </request> 
       <response>
-        <reference value="Profile/101"/>
+        <reference value="StructureDefinition/101"/>
       </response> 
     </event>
   </messaging>

@@ -10,10 +10,10 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DataElement;
-import org.hl7.fhir.instance.model.DataElement.ResourceObservationDefStatus;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.InstantType;
@@ -160,9 +160,9 @@ public class LoincToDEConvertor {
 //				cde.getTelecom().add(new Contact().setSystem(ContactSystem.url).setValue("http://hl7.org/fhir"));
 //				cde.getTelecom().add(new Contact().setSystem(ContactSystem.url).setValue("http://loinc.org"));
 				if (!col(row, "STATUS").equals("ACTIVE"))
-	 				de.setStatus(ResourceObservationDefStatus.DRAFT); // till we get good at this
+	 				de.setStatus(ConformanceResourceStatus.DRAFT); // till we get good at this
 				else
-					de.setStatus(ResourceObservationDefStatus.RETIRED);
+					de.setStatus(ConformanceResourceStatus.RETIRED);
 				de.setDateElement(DateTimeType.now());
 				de.setName(comp);
 

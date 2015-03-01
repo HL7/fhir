@@ -40,7 +40,7 @@
       <!-- No endpoint in the examples so far.  Not sure we really need it -->
       <xsl:for-each select="sdc:form_design/sdc:classifier/mdr3:designation[mdr3:sign!='']">
         <!-- Don't care whether they're preferred or not, nor what the context is.  If it's a category, we expose it -->
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#category">
           <valueCodeableConcept>
             <coding>
               <xsl:for-each select="mdr3:namespace">
@@ -122,12 +122,12 @@
         <xsl:for-each select="sdc:form_design">
           <xsl:for-each select="sdc:form_design/sdc:designation/sdc:definition[@acceptability='preferred' or not(@acceptability)]/mdr3:text[1]">
             <!-- We only take the first one, if there are multiples.  Need to agree on coded contexts to make it worth it to have multiples. -->
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#description">
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#description">
               <valueString value="{normalize-space(.)}"/>
             </extension>
           </xsl:for-each>
           <xsl:for-each select="sdc:form_design/sdc:security_and_privacy[normalize-space(.)!='']">
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#security">
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#security">
               <valueString value="{normalize-space(.)}"/>
             </extension>
           </xsl:for-each>
@@ -211,12 +211,12 @@
   </xsl:template>
   <xsl:template name="doCardinalityExtensions" as="element(extension)*">
     <xsl:for-each select="mfi13:cardinality/mfi13:minimum[not(.=('0', '1'))]">
-      <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#minOccurs">
+      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#minOccurs">
         <valueInteger value="{.}"/>
       </extension>
     </xsl:for-each>
     <xsl:for-each select="mfi13:cardinality/mfi13:maximum[not(.=('1', 'unbounded'))]">
-      <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#maxOccurs">
         <valueInteger value="{.}"/>
       </extension>
     </xsl:for-each>
@@ -225,19 +225,19 @@
     <group>
       <xsl:call-template name="checkGuards"/>
       <xsl:if test="self::sdc:header or self::sdc:footer">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#specialGroup">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc#specialGroup">
           <valueCode value="{local-name(.)}"/>
         </extension>
       </xsl:if>
       <xsl:for-each select="sdc:section_number/mfi13:label">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#label">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc#label">
           <valueString value="{.}">
             <xsl:call-template name="doStyle"/>
           </valueString>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="sdc:additional_instruction/mfi13:label">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#instruction">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#instruction">
           <valueString value="{normalize-space(.)}">
             <xsl:call-template name="doStyle"/>
           </valueString>
@@ -301,32 +301,32 @@
     <question>
       <xsl:call-template name="doCardinalityExtensions"/>
       <xsl:for-each select="sdc:question_number/mfi13:label">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#label">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc#label">
           <valueString value="{.}">
             <xsl:call-template name="doStyle"/>
           </valueString>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="sdc:additional_instruction/mfi13:label|sdc:question_instruction/mfi13:label">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#instruction">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#instruction">
           <xsl:call-template name="doStyle"/>
           <valueString value="{.}"/>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="sdc:text_after_question/mfi13:label">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#trailing">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#trailing">
           <valueString value="{normalize-space(.)}">
             <xsl:call-template name="doStyle"/>
           </valueString>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="sdc:*/mfi13:unit_of_measure[normalize-space(.)!='']">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#units">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#units">
           <valueString value="{normalize-space(.)}"/>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="*/mfi13:default_value">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#default">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#default">
           <xsl:choose>
             <xsl:when test="$type='choice'">
               <xsl:for-each select="parent::*/sdc:list_item[sdc:list_item_identifier=current()]">
@@ -344,7 +344,7 @@
         </extension>
       </xsl:for-each>
       <xsl:for-each select="*/sdc:default_element">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#default">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#default">
           <xsl:for-each select="following-sibling::sdc:list_item[sdc:list_item_identifier=current()/sdc:list_item_identifier]">
             <xsl:call-template name="doCoding">
               <xsl:with-param name="questionId" select="$questionId"/>
@@ -353,38 +353,38 @@
         </extension>
       </xsl:for-each>
       <xsl:for-each select="*/sdc:datatype/sdc:string/sdc:minimum_characters">
-        <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+        <extension url="http://hl7.org/fhir/StructureDefinition/element-extensions#minLength">
           <valueInteger value="{.}"/>
         </extension>
       </xsl:for-each>
       <xsl:choose>
         <xsl:when test="*/sdc:datatype/sdc:string/sdc:maximum_characters">
           <xsl:for-each select="*/sdc:datatype/sdc:string/sdc:maximum_characters">
-            <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+            <extension url="http://hl7.org/fhir/StructureDefinition/element-extensions#maxLength">
               <valueInteger value="{.}"/>
             </extension>
           </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
           <xsl:for-each select="*/mfi13:maximum_character_quantity">
-            <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+            <extension url="http://hl7.org/fhir/StructureDefinition/element-extensions#maxLength">
               <valueInteger value="{.}"/>
             </extension>
           </xsl:for-each>
         </xsl:otherwise>
       </xsl:choose>
       <xsl:for-each select="*/sdc:datatype/sdc:string/sdc:reg_ex">
-        <extension url="http://hl7.org/fhir/Profile/element-extensions#regex">
+        <extension url="http://hl7.org/fhir/StructureDefinition/element-extensions#regex">
           <valueString value="{.}"/>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="*/sdc:datatype/sdc:string/sdc:pattern|*/sdc:format">
-        <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
+        <extension url="http://hl7.org/fhir/StructureDefinition/element-extensions#entryFormat">
           <valueString value="{.}"/>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="*/sdc:datatype/sdc:*/sdc:minimum_value">
-        <extension url="http://hl7.org/fhir/Profile/element-extensions#minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/element-extensions#minValue">
           <xsl:choose>
             <xsl:when test="parent::sdc:integer">
               <valueInteger value="{.}"/>
@@ -396,7 +396,7 @@
         </extension>
       </xsl:for-each>
       <xsl:for-each select="*/sdc:datatype/sdc:*/sdc:maximum_value">
-        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/element-extensions#maxValue">
           <xsl:choose>
             <xsl:when test="parent::sdc:integer">
               <valueInteger value="{.}"/>
@@ -408,13 +408,13 @@
         </extension>
       </xsl:for-each>
       <xsl:for-each select="*/sdc:datatype/sdc:decimal/sdc:fractionDigits">
-        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxDecimalPlaces">
+        <extension url="http://hl7.org/fhir/StructureDefinition/element-extensions#maxDecimalPlaces">
           <valueInteger value="{.}"/>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="ancestor::sdc:form_package/sdc:mapping_package/sdc:mdr_mapping/sdc:question_element_data_element_association[mfi13:question_element_identifier=current()/sdc:question_identifier]">
         <!-- May want to move this to a mapping resource -->
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#deReference">
           <valueResource>
             <reference value="{fn:escapeSpaces(mfi13:data_element_scoped_identifier|mfi13:data_element_identifier)}"/>
           </valueResource>
@@ -422,13 +422,13 @@
         <!-- For now, not including the dex_mapping_specification stuff.  Seems like that should live in CDE, not Questionnaire -->
       </xsl:for-each>
       <xsl:for-each select="*/sdc:datatype/sdc:decimal/sdc:fractionDigits">
-        <extension url="http://hl7.org/fhir/Profile/element-extensions#minOccurs">
+        <extension url="http://hl7.org/fhir/StructureDefinition/element-extensions#minOccurs">
           <valueInteger value="{.}"/>
         </extension>
       </xsl:for-each>
       <xsl:call-template name="checkGuards"/>
       <xsl:if test="*/sdc:default_element/sdc:read_only='true' or */mfi13:default_value_read_only='true'">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#defaultAsFixed">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#defaultAsFixed">
           <valueBoolean value="true"/>
         </extension>
       </xsl:if>
@@ -456,13 +456,13 @@
       <xsl:for-each select="sdc:list_field/sdc:list_item[mfi13:fill_in='true']">
         <xsl:variable name="answerId" select="if (contains(sdc:list_item_identifier, '#')) then substring-after(sdc:list_item_identifier, '#') else sdc:list_item_identifier"/>
         <group>
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen">
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#displayWhen">
             <xsl:variable name="baseQuestionId" as="xs:string" select="ancestor::sdc:question[1]/sdc:question_identifier"/>
             <xsl:variable name="questionId" as="xs:string" select="if (contains($baseQuestionId, '#')) then substring-after($baseQuestionId, '#') else $baseQuestionId"/>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.question">
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#displayWhen.question">
               <valueString value="{$questionId}"/>
             </extension>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.value">
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#displayWhen.value">
               <xsl:call-template name="doCoding">
                 <xsl:with-param name="questionId" select="$questionId"/>
               </xsl:call-template>
@@ -513,19 +513,19 @@
   </xsl:template>
   <xsl:template name="doStyle">
     <xsl:if test="parent::*/mfi13:style[contains(., ':')]">
-      <extension url="http://hl7.org/fhir/Profile/rendering-extensions#style">
+      <extension url="http://hl7.org/fhir/StructureDefinition/rendering-extensions#style">
         <valueString value="{string-join(parent::*/mfi13:style/text(), ';')}"/>
       </extension>
     </xsl:if>
   </xsl:template>
   <xsl:template name="checkGuards">
     <xsl:for-each select="ancestor::sdc:form_design//sdc:guarded_element_identifier[.=(current()/sdc:section_identifier, current()/sdc:question_identifier)]">
-      <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen">
+      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#displayWhen">
         <xsl:variable name="questionId" as="xs:string" select="ancestor::sdc:question[1]/sdc:question_identifier"/>
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.question">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#displayWhen.question">
           <valueString value="{substring-after($questionId, '#')}"/>
         </extension>
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.value">
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-extensions#displayWhen.value">
           <xsl:for-each select="parent::sdc:guard/parent::sdc:list_item">
             <valueCoding>
               <system value="{$questionId}-cs"/>

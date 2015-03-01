@@ -226,10 +226,8 @@ todo: compartments
     <page type="resource" resource="SecurityGroup"/>
     <page type="resource" resource="SecurityClaim"/>-->
 			<page type="resource" resource="Conformance"/>
-			<page type="resource" resource="Profile"/>
 			<page type="resource" resource="StructureDefinition"/>
 			<page type="resource" resource="OperationDefinition"/>
-			<page type="resource" resource="ExtensionDefinition"/>
 			<page type="resource" resource="SearchParameter"/>
 			<page type="resource" resource="DataElement"/>
 			<page type="resource" resource="ValueSet"/>

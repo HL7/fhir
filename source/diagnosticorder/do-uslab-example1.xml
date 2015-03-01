@@ -24,7 +24,7 @@ Authored by: Eric M Haas  Health eData Inc.
 		</div>
 	</text>
 	<!-- comment out to see if causing build to hang extension for a CC to a non ordering party in this case another provider 
-	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabcc-practitioner">
+	<extension url="http://hl7.org/fhir/StructureDefinition/uslabcc-practitioner">
 		<valueReference>
 			<reference value="Practitioner/uslab-example2"/>
 			<display value="Dr Bill T Lookafter Jr"/>

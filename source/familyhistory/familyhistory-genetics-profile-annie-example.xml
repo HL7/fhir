@@ -22,7 +22,7 @@
     <!-- Age said 33, but diagram shows 42, so adjusted DOB -->
   </patient>
   <relation id="2">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -36,7 +36,7 @@
         <valueUri value="#4"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -81,7 +81,7 @@
     </condition>
   </relation>
   <relation id="3">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -95,7 +95,7 @@
         <valueUri value="#6"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -220,7 +220,7 @@
     </condition>
   </relation>
   <relation id="8">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -234,7 +234,7 @@
         <valueUri value="#2"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -280,7 +280,7 @@
     </condition>
   </relation>
   <relation id="9">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -294,7 +294,7 @@
         <valueUri value="#2"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -357,7 +357,7 @@
     </ageAge>-->
   </relation>
   <relation id="11">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -371,7 +371,7 @@
         <valueUri value="#9"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -402,7 +402,7 @@
     <deceasedBoolean value="false"/>
   </relation>
   <relation id="12">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -416,7 +416,7 @@
         <valueUri value="#9"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -477,7 +477,7 @@
     </ageAge>-->
   </relation>
   <relation id="14">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -491,7 +491,7 @@
         <valueUri value="#1"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -520,7 +520,7 @@
     </ageAge>-->
   </relation>
   <relation id="15">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -534,7 +534,7 @@
         <valueUri value="#6"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -563,7 +563,7 @@
     </ageAge>-->
   </relation>
   <relation id="16">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -577,7 +577,7 @@
         <valueUri value="#6"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -615,7 +615,7 @@
     </condition>
   </relation>
   <relation id="17">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -629,7 +629,7 @@
         <valueUri value="#4"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -658,7 +658,7 @@
     </ageAge>-->
   </relation>
   <relation id="18">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -672,7 +672,7 @@
         <valueUri value="#4"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -710,7 +710,7 @@
     </relationship>
   </relation>
   <relation id="20">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -724,7 +724,7 @@
         <valueUri value="#18"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -769,7 +769,7 @@
     </condition>
   </relation>
   <relation id="21">
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>
@@ -783,7 +783,7 @@
         <valueUri value="#18"/>
       </extension>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
+    <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
         <valueCodeableConcept>
           <coding>

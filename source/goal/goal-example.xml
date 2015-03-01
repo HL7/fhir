@@ -7,7 +7,7 @@
 			<p> A simple care goal for a patient to lose weight due to obesity.</p>
 		</div>
 	</text>
-	<extension url="http://hl7.org/fhir/ExtensionDefinition/goal-target">
+	<extension url="http://hl7.org/fhir/StructureDefinition/goal-target">
 		<extension url="measure">
 			<valueCodeableConcept>
 				<coding>

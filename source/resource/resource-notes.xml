@@ -73,7 +73,7 @@ in particular implementations or contexts of use.
   <tr>
    <td>profile (0..*)</td>
    <td><a href="datatypes.html#uri">uri</a></td>
-   <td>An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. 
+   <td>An assertion that the content conforms to a resource profile (a <a href="structuredefinition.html">StructureDefinition</a>. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. 
     Can be changed as profiles and value sets change or the system rechecks conformance</td>
   </tr>
 	
@@ -165,13 +165,13 @@ Alternatively, the concept may be one defined by the implementation in the local
 <a name="profile-tags"> </a>
 <h4>Profile Tags</h4>
 <p>
-A profile assertion represents a claim that the resource conforms to <a href="profile.html">the identified profile</a>,
-which makes sets of rules about what 
+A profile assertion represents a claim that the resource conforms to <a href="structuredefinition.html">the identified StructureDefinition</a>,
+which makes rules about what 
 content is allowed to be in a resource. In a profile tag, the term
-is a URL that references a profile resource.
+is a URL that references a <a href="structuredefinition.html">the identified StructureDefinition</a> resource.
 </p>
 <p>
-It's always possible to determine whether a resource conforms to a 
+It's always possible to determine whether a resource conforms to any 
 profile simply by testing it against the profile (the <a href="downloads.html">validation tools</a>
 provide the functionality to perform this test in a variety of contexts). 
 However there are several circumstances where simply examining whether 
@@ -183,22 +183,24 @@ a resource conforms to a particular profile as needed is impractical:
 </ul>
 <p>
 Profile Tags serve these use cases - a client/creator of a resource can tag the 
-resource with an assertion that the resource conforms to a profile. The server/receiver
-of the resource can choose to take this assertion at face value, or to assist in locating
-the profile against which to validate the resource. 
+resource with an assertion that the resource conforms to a particular structure definition. 
+The server/receiver of the resource can choose to take this assertion at face value, or 
+to assist in locating the correct <a href="structuredefinition.html">StructureDefinition</a> 
+against which to validate the resource. 
 </p>
 <p>
 Note: resources can conform to multiple profiles at once. A resource can conform to 
 a profile without ever being labelled that it does, or a resource may falsely claim to conform 
 to a profile. For this reason, applications processing resources SHOULD always 
 depend on the contents of the resource when processing them, and/or check resources
-against profiles directly rather than relying the existence of profile tags.
-Many trading partner agreements will make rules about what claims can be made 
-and when they must be tested, which will make the profile assertion more reliable. 
+against the <a href="structuredefinition.html">StructureDefinition</a>s directly rather 
+than relying the existence of profile tags for meaning.
+Profile Tags are provided as a method of finding resources that conform to 
+a particular <a href="structuredefinition.html">StructureDefinition</a>, not statements of meaning about the resource.
 </p>
 <p>
-Profile Tags are provided as a method of finding resources that conform to 
-a particular profile, not statements of meaning about the resource.
+Many trading partner agreements will make rules about what claims can be made 
+and when they must be tested, which will make the profile assertion more reliable. 
 </p>
 
 <h4>Security Labels</h4>

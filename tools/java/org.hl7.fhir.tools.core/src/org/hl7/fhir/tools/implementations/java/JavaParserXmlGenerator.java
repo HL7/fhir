@@ -431,6 +431,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
       if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
         String en = typeNames.get(e); // getCodeListType(cd.getBinding());
+        if (isSharedEnum(e.getBindingName()))
+          en = "Enumerations."+e.getBindingName();
         prsr = "parseEnumeration(xpp, "+en+".NULL, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
         // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative.NarrativeStatusEnumFactory())
       } else {   
@@ -1029,8 +1031,11 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         
         }
       } else if (en != null) {
-        write("      if (element.has"+upFirst(getElementName(name, false))+"Element())\r\n");
-        write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+        write("      if (element.has"+upFirst(getElementName(name, false))+"Element())\r\n"); 
+        if (isSharedEnum(e.getBindingName()))
+          write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new Enumerations."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+        else
+          write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
 //        write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
       } else if (isJavaPrimitive(e)) {
         write("      if (element.has"+upFirst(getElementName(name, false))+"Element()) {\r\n");

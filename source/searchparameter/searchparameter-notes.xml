@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <h2>SearchParameters on Extensions</h2>
 <p>The SearchParameter resource may be used to define searches on extensions. Depending on the context of the extension
-(as defined in the <a href="extensiondefinition.html">ExtensionDefinition</a>), this may require multiple instances of the
+(as defined in the <a href="structuredefinition.html">StructureDefinition</a>), this may require multiple instances of the
 SearchParameter.xpath element like so:</p>
 <ul>
 <li>If the extension's context is scoped by a single resource, SearchParameter.base must be set to that resource,

@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.ConceptMap;
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ValueSet;
 
 /**
@@ -339,17 +339,26 @@ public class Definitions {
     return mapTypes;
   }
 
-  public Profile getSnapShotForType(String type) throws Exception {
+  public StructureDefinition getSnapShotForType(String type) throws Exception {
+    ElementDefn e = getElementDefn(type); 
+    if (e != null && e instanceof TypeDefn) {
+      TypeDefn t = (TypeDefn) e;
+      if (t.getProfile().getSnapshot() != null)
+        return t.getProfile();
+      throw new Exception("unable to find snapshot for "+type);
+      
+    }
     ResourceDefn r = getResourceByName(type);
-    if (r == null)
-      throw new Exception("unable to find base definition for "+type);
-    if (r.getProfile().getSnapshot() != null)
-      return r.getProfile();
-    throw new Exception("unable to find snapshot for "+type);
+    if (r != null) {
+      if (r.getProfile().getSnapshot() != null)
+        return r.getProfile();
+      throw new Exception("unable to find snapshot for "+type);
+    }
+    throw new Exception("unable to find base definition for "+type);
   }
 
-  public Profile getSnapShotForBase(String base) throws Exception {
-    Profile p = getProfileByURL(base);
+  public StructureDefinition getSnapShotForBase(String base) throws Exception {
+    StructureDefinition p = getProfileByURL(base);
     if (p == null)
       throw new Exception("unable to find base definition "+base);
     if (p.getSnapshot() != null)
@@ -357,7 +366,7 @@ public class Definitions {
     throw new Exception("unable to find snapshot for "+base);
   }
 
-  private Profile getProfileByURL(String base) {
+  private StructureDefinition getProfileByURL(String base) throws Exception {
     for (ResourceDefn r : resources.values()) {
       if (r.getProfile().getUrl().equals(base))
         return r.getProfile();
@@ -373,6 +382,10 @@ public class Definitions {
         if (p.getResource() != null && base.equals(p.getResource().getUrl()))
           return p.getResource();
       }      
+    }
+    if (base.startsWith("http://hl7.org/fhir/StructureDefinition/") && hasType(base.substring(40))) {
+      TypeDefn t = getElementDefn(base.substring(40));
+      return t.getProfile();
     }
     return null;
   }

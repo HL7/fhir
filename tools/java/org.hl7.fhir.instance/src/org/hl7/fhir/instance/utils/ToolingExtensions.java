@@ -57,17 +57,18 @@ import org.hl7.fhir.utilities.Utilities;
 public class ToolingExtensions {
 
   // validated
-  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/ExtensionDefinition/valueset-subsumes"; 
-  private static final String EXT_OID = "http://hl7.org/fhir/ExtensionDefinition/valueset-oid";
-  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/ExtensionDefinition/valueset-deprecated";
-  public static final String EXT_DEFINITION = "http://hl7.org/fhir/ExtensionDefinition/valueset-definition";
-  public static final String EXT_COMMENT = "http://hl7.org/fhir/ExtensionDefinition/valueset-comments";
-  private static final String EXT_IDENTIFIER = "http://hl7.org/fhir/ExtensionDefinition/identifier";
-  private static final String EXT_TRANSLATION = "http://hl7.org/fhir/ExtensionDefinition/translation";
-  public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/ExtensionDefinition/operationoutcome-issue-source";
-  public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/ExtensionDefinition/profile-display-hint"; 
+  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/StructureDefinition/valueset-subsumes"; 
+  private static final String EXT_OID = "http://hl7.org/fhir/StructureDefinition/valueset-oid";
+  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/StructureDefinition/valueset-deprecated";
+  public static final String EXT_DEFINITION = "http://hl7.org/fhir/StructureDefinition/valueset-definition";
+  public static final String EXT_COMMENT = "http://hl7.org/fhir/StructureDefinition/valueset-comments";
+  private static final String EXT_IDENTIFIER = "http://hl7.org/fhir/StructureDefinition/identifier";
+  private static final String EXT_TRANSLATION = "http://hl7.org/fhir/StructureDefinition/translation";
+  public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source";
+  public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint"; 
 
   // unregistered?
+  
   public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
   private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   private static final String EXT_EXPANSION_CLOSED = "http://hl7.org/fhir/Profile/questionnaire-extensions#closed";

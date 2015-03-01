@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
@@ -44,92 +45,6 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="Conformance", profile="http://hl7.org/fhir/Profile/Conformance")
 public class Conformance extends DomainResource {
-
-    public enum ConformanceStatementStatus {
-        /**
-         * This conformance statement is still under development.
-         */
-        DRAFT, 
-        /**
-         * This conformance statement is ready for use in production systems.
-         */
-        ACTIVE, 
-        /**
-         * This conformance statement has been withdrawn or superceded and should no longer be used.
-         */
-        RETIRED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ConformanceStatementStatus fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("retired".equals(codeString))
-          return RETIRED;
-        throw new Exception("Unknown ConformanceStatementStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "This conformance statement is still under development.";
-            case ACTIVE: return "This conformance statement is ready for use in production systems.";
-            case RETIRED: return "This conformance statement has been withdrawn or superceded and should no longer be used.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ConformanceStatementStatusEnumFactory implements EnumFactory<ConformanceStatementStatus> {
-    public ConformanceStatementStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return ConformanceStatementStatus.DRAFT;
-        if ("active".equals(codeString))
-          return ConformanceStatementStatus.ACTIVE;
-        if ("retired".equals(codeString))
-          return ConformanceStatementStatus.RETIRED;
-        throw new IllegalArgumentException("Unknown ConformanceStatementStatus code '"+codeString+"'");
-        }
-    public String toCode(ConformanceStatementStatus code) {
-      if (code == ConformanceStatementStatus.DRAFT)
-        return "draft";
-      if (code == ConformanceStatementStatus.ACTIVE)
-        return "active";
-      if (code == ConformanceStatementStatus.RETIRED)
-        return "retired";
-      return "?";
-      }
-    }
 
     public enum RestfulConformanceMode {
         /**
@@ -2261,14 +2176,14 @@ public class Conformance extends DomainResource {
         /**
          * A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.
          */
-        @Child(name="profile", type={Profile.class}, order=2, min=0, max=1)
+        @Child(name="profile", type={StructureDefinition.class}, order=2, min=0, max=1)
         @Description(shortDefinition="What structural features are supported", formalDefinition="A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations." )
         protected Reference profile;
 
         /**
          * The actual object that is the target of the reference (A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
          */
-        protected Profile profileTarget;
+        protected StructureDefinition profileTarget;
 
         /**
          * Identifies a restful operation supported by the solution.
@@ -2333,7 +2248,7 @@ public class Conformance extends DomainResource {
         @Description(shortDefinition="Search params supported by implementation", formalDefinition="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation." )
         protected List<ConformanceRestResourceSearchParamComponent> searchParam;
 
-        private static final long serialVersionUID = -1665668054L;
+        private static final long serialVersionUID = 1477462605L;
 
       public ConformanceRestResourceComponent() {
         super();
@@ -2416,19 +2331,19 @@ public class Conformance extends DomainResource {
         /**
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
          */
-        public Profile getProfileTarget() { 
+        public StructureDefinition getProfileTarget() { 
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profileTarget = new Profile(); // aa
+              this.profileTarget = new StructureDefinition(); // aa
           return this.profileTarget;
         }
 
         /**
          * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
          */
-        public ConformanceRestResourceComponent setProfileTarget(Profile value) { 
+        public ConformanceRestResourceComponent setProfileTarget(StructureDefinition value) { 
           this.profileTarget = value;
           return this;
         }
@@ -2824,7 +2739,7 @@ public class Conformance extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A type of resource exposed via the restful interface.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("profile", "Reference(Profile)", "A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("interaction", "", "Identifies a restful operation supported by the solution.", 0, java.lang.Integer.MAX_VALUE, interaction));
           childrenList.add(new Property("versioning", "code", "Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.", 0, java.lang.Integer.MAX_VALUE, versioning));
           childrenList.add(new Property("readHistory", "boolean", "A flag for whether the server is able to return past versions as part of the vRead operation.", 0, java.lang.Integer.MAX_VALUE, readHistory));
@@ -4106,26 +4021,26 @@ public class Conformance extends DomainResource {
         /**
          * Information about the request for this event.
          */
-        @Child(name="request", type={Profile.class}, order=6, min=1, max=1)
+        @Child(name="request", type={StructureDefinition.class}, order=6, min=1, max=1)
         @Description(shortDefinition="Profile that describes the request", formalDefinition="Information about the request for this event." )
         protected Reference request;
 
         /**
          * The actual object that is the target of the reference (Information about the request for this event.)
          */
-        protected Profile requestTarget;
+        protected StructureDefinition requestTarget;
 
         /**
          * Information about the response for this event.
          */
-        @Child(name="response", type={Profile.class}, order=7, min=1, max=1)
+        @Child(name="response", type={StructureDefinition.class}, order=7, min=1, max=1)
         @Description(shortDefinition="Profile that describes the response", formalDefinition="Information about the response for this event." )
         protected Reference response;
 
         /**
          * The actual object that is the target of the reference (Information about the response for this event.)
          */
-        protected Profile responseTarget;
+        protected StructureDefinition responseTarget;
 
         /**
          * Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
@@ -4134,7 +4049,7 @@ public class Conformance extends DomainResource {
         @Description(shortDefinition="Endpoint-specific event documentation", formalDefinition="Guidance on how this event is handled, such as internal system trigger points, business rules, etc." )
         protected StringType documentation;
 
-        private static final long serialVersionUID = 758007981L;
+        private static final long serialVersionUID = 1680159501L;
 
       public ConformanceMessagingEventComponent() {
         super();
@@ -4369,19 +4284,19 @@ public class Conformance extends DomainResource {
         /**
          * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Information about the request for this event.)
          */
-        public Profile getRequestTarget() { 
+        public StructureDefinition getRequestTarget() { 
           if (this.requestTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.request");
             else if (Configuration.doAutoCreate())
-              this.requestTarget = new Profile(); // aa
+              this.requestTarget = new StructureDefinition(); // aa
           return this.requestTarget;
         }
 
         /**
          * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Information about the request for this event.)
          */
-        public ConformanceMessagingEventComponent setRequestTarget(Profile value) { 
+        public ConformanceMessagingEventComponent setRequestTarget(StructureDefinition value) { 
           this.requestTarget = value;
           return this;
         }
@@ -4413,19 +4328,19 @@ public class Conformance extends DomainResource {
         /**
          * @return {@link #response} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Information about the response for this event.)
          */
-        public Profile getResponseTarget() { 
+        public StructureDefinition getResponseTarget() { 
           if (this.responseTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.response");
             else if (Configuration.doAutoCreate())
-              this.responseTarget = new Profile(); // aa
+              this.responseTarget = new StructureDefinition(); // aa
           return this.responseTarget;
         }
 
         /**
          * @param value {@link #response} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Information about the response for this event.)
          */
-        public ConformanceMessagingEventComponent setResponseTarget(Profile value) { 
+        public ConformanceMessagingEventComponent setResponseTarget(StructureDefinition value) { 
           this.responseTarget = value;
           return this;
         }
@@ -4486,8 +4401,8 @@ public class Conformance extends DomainResource {
           childrenList.add(new Property("mode", "code", "The mode of this event declaration - whether application is sender or receiver.", 0, java.lang.Integer.MAX_VALUE, mode));
           childrenList.add(new Property("protocol", "Coding", "A list of the messaging transport protocol(s) identifiers, supported by this endpoint.", 0, java.lang.Integer.MAX_VALUE, protocol));
           childrenList.add(new Property("focus", "code", "A resource associated with the event.  This is the resource that defines the event.", 0, java.lang.Integer.MAX_VALUE, focus));
-          childrenList.add(new Property("request", "Reference(Profile)", "Information about the request for this event.", 0, java.lang.Integer.MAX_VALUE, request));
-          childrenList.add(new Property("response", "Reference(Profile)", "Information about the response for this event.", 0, java.lang.Integer.MAX_VALUE, response));
+          childrenList.add(new Property("request", "Reference(StructureDefinition)", "Information about the request for this event.", 0, java.lang.Integer.MAX_VALUE, request));
+          childrenList.add(new Property("response", "Reference(StructureDefinition)", "Information about the response for this event.", 0, java.lang.Integer.MAX_VALUE, response));
           childrenList.add(new Property("documentation", "string", "Guidance on how this event is handled, such as internal system trigger points, business rules, etc.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
@@ -4561,16 +4476,16 @@ public class Conformance extends DomainResource {
         /**
          * A constraint on a resource used in the document.
          */
-        @Child(name="profile", type={Profile.class}, order=3, min=1, max=1)
+        @Child(name="profile", type={StructureDefinition.class}, order=3, min=1, max=1)
         @Description(shortDefinition="Constraint on a resource used in the document", formalDefinition="A constraint on a resource used in the document." )
         protected Reference profile;
 
         /**
          * The actual object that is the target of the reference (A constraint on a resource used in the document.)
          */
-        protected Profile profileTarget;
+        protected StructureDefinition profileTarget;
 
-        private static final long serialVersionUID = 437404016L;
+        private static final long serialVersionUID = -1059555053L;
 
       public ConformanceDocumentComponent() {
         super();
@@ -4703,19 +4618,19 @@ public class Conformance extends DomainResource {
         /**
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A constraint on a resource used in the document.)
          */
-        public Profile getProfileTarget() { 
+        public StructureDefinition getProfileTarget() { 
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceDocumentComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profileTarget = new Profile(); // aa
+              this.profileTarget = new StructureDefinition(); // aa
           return this.profileTarget;
         }
 
         /**
          * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A constraint on a resource used in the document.)
          */
-        public ConformanceDocumentComponent setProfileTarget(Profile value) { 
+        public ConformanceDocumentComponent setProfileTarget(StructureDefinition value) { 
           this.profileTarget = value;
           return this;
         }
@@ -4724,7 +4639,7 @@ public class Conformance extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "Mode of this document declaration - whether application is producer or consumer.", 0, java.lang.Integer.MAX_VALUE, mode));
           childrenList.add(new Property("documentation", "string", "A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("profile", "Reference(Profile)", "A constraint on a resource used in the document.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A constraint on a resource used in the document.", 0, java.lang.Integer.MAX_VALUE, profile));
         }
 
       public ConformanceDocumentComponent copy() {
@@ -4800,10 +4715,10 @@ public class Conformance extends DomainResource {
     protected List<ConformanceContactComponent> contact;
 
     /**
-     * A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
+     * A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
     @Child(name="description", type={StringType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="Human description of the conformance statement", formalDefinition="A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP." )
+    @Description(shortDefinition="Human description of the conformance statement", formalDefinition="A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP." )
     protected StringType description;
 
     /**
@@ -4825,7 +4740,7 @@ public class Conformance extends DomainResource {
      */
     @Child(name="status", type={CodeType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of this conformance statement." )
-    protected Enumeration<ConformanceStatementStatus> status;
+    protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
@@ -4842,10 +4757,10 @@ public class Conformance extends DomainResource {
     protected DateTimeType date;
 
     /**
-     * Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation.
+     * Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.
      */
     @Child(name="software", type={}, order=11, min=0, max=1)
-    @Description(shortDefinition="Software that is covered by this conformance statement", formalDefinition="Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation." )
+    @Description(shortDefinition="Software that is covered by this conformance statement", formalDefinition="Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation." )
     protected ConformanceSoftwareComponent software;
 
     /**
@@ -4879,13 +4794,13 @@ public class Conformance extends DomainResource {
     /**
      * A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.
      */
-    @Child(name="profile", type={Profile.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="profile", type={StructureDefinition.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Profiles supported by the system", formalDefinition="A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile." )
     protected List<Reference> profile;
     /**
      * The actual objects that are the target of the reference (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
-    protected List<Profile> profileTarget;
+    protected List<StructureDefinition> profileTarget;
 
 
     /**
@@ -4909,7 +4824,7 @@ public class Conformance extends DomainResource {
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<ConformanceDocumentComponent> document;
 
-    private static final long serialVersionUID = 733799510L;
+    private static final long serialVersionUID = 1631871430L;
 
     public Conformance() {
       super();
@@ -5149,7 +5064,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
       if (this.description == null)
@@ -5169,7 +5084,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @param value {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public Conformance setDescriptionElement(StringType value) { 
       this.description = value;
@@ -5177,14 +5092,14 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
+     * @return A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
     public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
+     * @param value A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
     public Conformance setDescription(String value) { 
       if (Utilities.noString(value))
@@ -5298,12 +5213,12 @@ public class Conformance extends DomainResource {
     /**
      * @return {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceStatementStatus> getStatusElement() { 
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceStatementStatus>(new ConformanceStatementStatusEnumFactory()); // bb
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -5318,7 +5233,7 @@ public class Conformance extends DomainResource {
     /**
      * @param value {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Conformance setStatusElement(Enumeration<ConformanceStatementStatus> value) { 
+    public Conformance setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -5326,19 +5241,19 @@ public class Conformance extends DomainResource {
     /**
      * @return The status of this conformance statement.
      */
-    public ConformanceStatementStatus getStatus() { 
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this conformance statement.
      */
-    public Conformance setStatus(ConformanceStatementStatus value) { 
+    public Conformance setStatus(ConformanceResourceStatus value) { 
       if (value == null)
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<ConformanceStatementStatus>(new ConformanceStatementStatusEnumFactory());
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -5435,7 +5350,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return {@link #software} (Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation.)
+     * @return {@link #software} (Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.)
      */
     public ConformanceSoftwareComponent getSoftware() { 
       if (this.software == null)
@@ -5451,7 +5366,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @param value {@link #software} (Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation.)
+     * @param value {@link #software} (Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.)
      */
     public Conformance setSoftware(ConformanceSoftwareComponent value) { 
       this.software = value;
@@ -5659,9 +5574,9 @@ public class Conformance extends DomainResource {
     /**
      * @return {@link #profile} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
-    public List<Profile> getProfileTarget() { 
+    public List<StructureDefinition> getProfileTarget() { 
       if (this.profileTarget == null)
-        this.profileTarget = new ArrayList<Profile>();
+        this.profileTarget = new ArrayList<StructureDefinition>();
       return this.profileTarget;
     }
 
@@ -5669,10 +5584,10 @@ public class Conformance extends DomainResource {
     /**
      * @return {@link #profile} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
-    public Profile addProfileTarget() { 
-      Profile r = new Profile();
+    public StructureDefinition addProfileTarget() { 
+      StructureDefinition r = new StructureDefinition();
       if (this.profileTarget == null)
-        this.profileTarget = new ArrayList<Profile>();
+        this.profileTarget = new ArrayList<StructureDefinition>();
       this.profileTarget.add(r);
       return r;
     }
@@ -5774,18 +5689,18 @@ public class Conformance extends DomainResource {
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the conformance statement.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the conformance.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("description", "string", "A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("description", "string", "A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("requirements", "string", "Explains why this conformance statement is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the conformamce statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("status", "code", "The status of this conformance statement.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the conformance statement was published.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("software", "", "Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation.", 0, java.lang.Integer.MAX_VALUE, software));
+        childrenList.add(new Property("software", "", "Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.", 0, java.lang.Integer.MAX_VALUE, software));
         childrenList.add(new Property("implementation", "", "Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, java.lang.Integer.MAX_VALUE, implementation));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this conformance statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("acceptUnknown", "boolean", "A flag that indicates whether the application accepts unknown elements as part of a resource.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
         childrenList.add(new Property("format", "code", "A list of the formats supported by this implementation.", 0, java.lang.Integer.MAX_VALUE, format));
-        childrenList.add(new Property("profile", "Reference(Profile)", "A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.", 0, java.lang.Integer.MAX_VALUE, profile));
+        childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("rest", "", "A definition of the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));
         childrenList.add(new Property("messaging", "", "A description of the messaging capabilities of the solution.", 0, java.lang.Integer.MAX_VALUE, messaging));
         childrenList.add(new Property("document", "", "A document definition.", 0, java.lang.Integer.MAX_VALUE, document));

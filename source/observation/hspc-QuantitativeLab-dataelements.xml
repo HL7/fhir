@@ -414,13 +414,13 @@
     <resource>
       <DataElement>
         <id value="AlbuminMCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="40"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="99.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -627,13 +627,13 @@
     <resource>
       <DataElement>
         <id value="AlkalinePhosphataseCCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="40"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="99.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -1622,13 +1622,13 @@
     <resource>
       <DataElement>
         <id value="AspartateAminotransferaseCCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="9999"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="9999"/>
         </extension>
         <publisher value="HSPC"/>
@@ -3292,13 +3292,13 @@
     <resource>
       <DataElement>
         <id value="CalciumMCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="200"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="99.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -3845,13 +3845,13 @@
     <resource>
       <DataElement>
         <id value="CarbonDioxideSCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="300"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="999"/>
         </extension>
         <publisher value="HSPC"/>
@@ -4840,13 +4840,13 @@
     <resource>
       <DataElement>
         <id value="ChlorideSCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="10"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="300"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="999"/>
         </extension>
         <publisher value="HSPC"/>
@@ -7216,13 +7216,13 @@
     <resource>
       <DataElement>
         <id value="CreatinineMCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="99.9"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="99.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -8537,13 +8537,13 @@
     <resource>
       <DataElement>
         <id value="ErythrocyteDistributionWidthRatioPtRBCQnAutomatedCountLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="99.9"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="99.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -8580,13 +8580,13 @@
     <resource>
       <DataElement>
         <id value="ErythrocyteMeanCorpuscularHemoglobinConcentrationMCncPtRBCQnAutomatedCountLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="999.9"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="999.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -8759,13 +8759,13 @@
     <resource>
       <DataElement>
         <id value="ErythrocytesNCncPtBldQnAutomatedCountLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="99.9"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="99.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -10714,13 +10714,13 @@
     <resource>
       <DataElement>
         <id value="HematocritVFrPtBldQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="100"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="999"/>
         </extension>
         <publisher value="HSPC"/>
@@ -11233,13 +11233,13 @@
     <resource>
       <DataElement>
         <id value="HemoglobinMCncPtBldQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="50"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="99.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -13095,13 +13095,13 @@
     <resource>
       <DataElement>
         <id value="LeukocytesNCncPtBldQnAutomatedCountLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="999.9"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="999.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -13813,13 +13813,13 @@
     <resource>
       <DataElement>
         <id value="MeanCorpuscularVolumeEntVolPtRBCQnAutomatedCountLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="500"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="999.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -17263,13 +17263,13 @@
     <resource>
       <DataElement>
         <id value="PlateletsNCncPtBldQnAutomatedCountLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="9999"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="9999"/>
         </extension>
         <publisher value="HSPC"/>
@@ -17408,13 +17408,13 @@
     <resource>
       <DataElement>
         <id value="PotassiumSCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="20"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="99.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -18087,13 +18087,13 @@
     <resource>
       <DataElement>
         <id value="ProteinMCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="40"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="99.9"/>
         </extension>
         <publisher value="HSPC"/>
@@ -19305,13 +19305,13 @@
     <resource>
       <DataElement>
         <id value="SodiumSCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="50"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="300"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="999"/>
         </extension>
         <publisher value="HSPC"/>
@@ -21629,13 +21629,13 @@
     <resource>
       <DataElement>
         <id value="UreaNitrogenMCncPtSerPlasQnLabObs"/>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
           <valueDecimal value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
           <valueDecimal value="999"/>
         </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/mask">
+        <extension url="http://hl7.org/fhir/StructureDefinition/mask">
           <valueString value="999"/>
         </extension>
         <publisher value="HSPC"/>

@@ -12,7 +12,7 @@
   </text>
 
   <!--
-  <extension url="http://hl7.org/fhir/ExtensionDefinition/relatedDeviceMetric">
+  <extension url="http://hl7.org/fhir/StructureDefinition/relatedDeviceMetric">
     <valueReference>
 		<reference value="DeviceMetric/example"/>
 	</valueReference>

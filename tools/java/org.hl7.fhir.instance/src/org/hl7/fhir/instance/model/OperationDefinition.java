@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
@@ -44,92 +45,6 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="OperationDefinition", profile="http://hl7.org/fhir/Profile/OperationDefinition")
 public class OperationDefinition extends DomainResource {
-
-    public enum ResourceProfileStatus {
-        /**
-         * This profile is still under development.
-         */
-        DRAFT, 
-        /**
-         * This profile is ready for normal use.
-         */
-        ACTIVE, 
-        /**
-         * This profile has been deprecated, withdrawn or superseded and should no longer be used.
-         */
-        RETIRED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ResourceProfileStatus fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("retired".equals(codeString))
-          return RETIRED;
-        throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "This profile is still under development.";
-            case ACTIVE: return "This profile is ready for normal use.";
-            case RETIRED: return "This profile has been deprecated, withdrawn or superseded and should no longer be used.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ResourceProfileStatusEnumFactory implements EnumFactory<ResourceProfileStatus> {
-    public ResourceProfileStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return ResourceProfileStatus.DRAFT;
-        if ("active".equals(codeString))
-          return ResourceProfileStatus.ACTIVE;
-        if ("retired".equals(codeString))
-          return ResourceProfileStatus.RETIRED;
-        throw new IllegalArgumentException("Unknown ResourceProfileStatus code '"+codeString+"'");
-        }
-    public String toCode(ResourceProfileStatus code) {
-      if (code == ResourceProfileStatus.DRAFT)
-        return "draft";
-      if (code == ResourceProfileStatus.ACTIVE)
-        return "active";
-      if (code == ResourceProfileStatus.RETIRED)
-        return "retired";
-      return "?";
-      }
-    }
 
     public enum OperationKind {
         /**
@@ -468,14 +383,14 @@ public class OperationDefinition extends DomainResource {
         /**
          * A profile the specifies the rules that this parameter must conform to.
          */
-        @Child(name="profile", type={Profile.class}, order=7, min=0, max=1)
+        @Child(name="profile", type={StructureDefinition.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Profile on the type", formalDefinition="A profile the specifies the rules that this parameter must conform to." )
         protected Reference profile;
 
         /**
          * The actual object that is the target of the reference (A profile the specifies the rules that this parameter must conform to.)
          */
-        protected Profile profileTarget;
+        protected StructureDefinition profileTarget;
 
         /**
          * The parts of a Tuple Parameter.
@@ -484,7 +399,7 @@ public class OperationDefinition extends DomainResource {
         @Description(shortDefinition="Parts of a Tuple Parameter", formalDefinition="The parts of a Tuple Parameter." )
         protected List<OperationDefinitionParameterPartComponent> part;
 
-        private static final long serialVersionUID = 176609099L;
+        private static final long serialVersionUID = 633191560L;
 
       public OperationDefinitionParameterComponent() {
         super();
@@ -803,19 +718,19 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
          */
-        public Profile getProfileTarget() { 
+        public StructureDefinition getProfileTarget() { 
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profileTarget = new Profile(); // aa
+              this.profileTarget = new StructureDefinition(); // aa
           return this.profileTarget;
         }
 
         /**
          * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
          */
-        public OperationDefinitionParameterComponent setProfileTarget(Profile value) { 
+        public OperationDefinitionParameterComponent setProfileTarget(StructureDefinition value) { 
           this.profileTarget = value;
           return this;
         }
@@ -858,7 +773,7 @@ public class OperationDefinition extends DomainResource {
           childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("type", "code", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("profile", "Reference(Profile)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("part", "", "The parts of a Tuple Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
         }
 
@@ -953,16 +868,16 @@ public class OperationDefinition extends DomainResource {
         /**
          * A profile the specifies the rules that this parameter must conform to.
          */
-        @Child(name="profile", type={Profile.class}, order=6, min=0, max=1)
+        @Child(name="profile", type={StructureDefinition.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Profile on the type", formalDefinition="A profile the specifies the rules that this parameter must conform to." )
         protected Reference profile;
 
         /**
          * The actual object that is the target of the reference (A profile the specifies the rules that this parameter must conform to.)
          */
-        protected Profile profileTarget;
+        protected StructureDefinition profileTarget;
 
-        private static final long serialVersionUID = -2143629468L;
+        private static final long serialVersionUID = -1434994425L;
 
       public OperationDefinitionParameterPartComponent() {
         super();
@@ -1232,19 +1147,19 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
          */
-        public Profile getProfileTarget() { 
+        public StructureDefinition getProfileTarget() { 
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profileTarget = new Profile(); // aa
+              this.profileTarget = new StructureDefinition(); // aa
           return this.profileTarget;
         }
 
         /**
          * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
          */
-        public OperationDefinitionParameterPartComponent setProfileTarget(Profile value) { 
+        public OperationDefinitionParameterPartComponent setProfileTarget(StructureDefinition value) { 
           this.profileTarget = value;
           return this;
         }
@@ -1256,7 +1171,7 @@ public class OperationDefinition extends DomainResource {
           childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("type", "code", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("profile", "Reference(Profile)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
         }
 
       public OperationDefinitionParameterPartComponent copy() {
@@ -1356,7 +1271,7 @@ public class OperationDefinition extends DomainResource {
      */
     @Child(name="status", type={CodeType.class}, order=7, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the profile." )
-    protected Enumeration<ResourceProfileStatus> status;
+    protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
@@ -1433,13 +1348,13 @@ public class OperationDefinition extends DomainResource {
     @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
-    private static final long serialVersionUID = -2086448145L;
+    private static final long serialVersionUID = -1969411481L;
 
     public OperationDefinition() {
       super();
     }
 
-    public OperationDefinition(StringType name, Enumeration<ResourceProfileStatus> status, Enumeration<OperationKind> kind, CodeType code, BooleanType system, BooleanType instance) {
+    public OperationDefinition(StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<OperationKind> kind, CodeType code, BooleanType system, BooleanType instance) {
       super();
       this.name = name;
       this.status = status;
@@ -1772,12 +1687,12 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ResourceProfileStatus> getStatusElement() { 
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ResourceProfileStatus>(new ResourceProfileStatusEnumFactory()); // bb
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1792,7 +1707,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @param value {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public OperationDefinition setStatusElement(Enumeration<ResourceProfileStatus> value) { 
+    public OperationDefinition setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1800,16 +1715,16 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return The status of the profile.
      */
-    public ResourceProfileStatus getStatus() { 
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the profile.
      */
-    public OperationDefinition setStatus(ResourceProfileStatus value) { 
+    public OperationDefinition setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ResourceProfileStatus>(new ResourceProfileStatusEnumFactory());
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }

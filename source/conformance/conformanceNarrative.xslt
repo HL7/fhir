@@ -237,7 +237,7 @@
                   <a title="{definition/display/@value}" href="{definition/reference/@value}">
                     <xsl:value-of select="name/@value"/>
                   </a>
-                  <xsl:value-of select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value"/>
+                  <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-common#expectation']/valueCode/@value"/>
                 </xsl:for-each>
               </p>
             </xsl:if>
@@ -270,7 +270,7 @@
               </xsl:copy-of>
               <h4>Interactions</h4>
               <table class="list">
-                <xsl:variable name="doConformance" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value)"/>
+                <xsl:variable name="doConformance" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-common#expectation']/valueCode/@value)"/>
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -418,7 +418,7 @@
     </xsl:copy>
   </xsl:template>
   <xsl:template name="doParams" as="element(xhtml:table)">
-    <xsl:variable name="doConformance" as="xs:boolean" select="exists(*[self::searchParam or self::parameter]/extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value)"/>
+    <xsl:variable name="doConformance" as="xs:boolean" select="exists(*[self::searchParam or self::parameter]/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-common#expectation']/valueCode/@value)"/>
     <table class="list">
       <thead>
         <tr>
@@ -447,7 +447,7 @@
             </th>
             <xsl:if test="$doConformance">
               <td>
-                <xsl:value-of select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value"/>
+                <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-common#expectation']/valueCode/@value"/>
               </td>
             </xsl:if>
             <td>
@@ -481,7 +481,7 @@
       </th>
       <xsl:if test="$doConformance">
         <td>
-          <xsl:value-of select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value"/>
+          <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-common#expectation']/valueCode/@value"/>
         </td>
       </xsl:if>
       <td>
@@ -495,8 +495,8 @@
     </xsl:variable>
     <xsl:variable name="value" as="xs:string">
       <xsl:choose>
-        <xsl:when test="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']">
-          <xsl:value-of select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value"/>
+        <xsl:when test="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-common#expectation']">
+          <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-common#expectation']/valueCode/@value"/>
         </xsl:when>
         <xsl:otherwise>Yes</xsl:otherwise>
       </xsl:choose>

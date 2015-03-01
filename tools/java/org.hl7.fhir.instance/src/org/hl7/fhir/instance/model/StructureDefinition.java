@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
@@ -45,97 +46,8 @@ import org.hl7.fhir.instance.model.annotations.Description;
 @ResourceDef(name="StructureDefinition", profile="http://hl7.org/fhir/Profile/StructureDefinition")
 public class StructureDefinition extends DomainResource {
 
-    public enum StructureDefinitionStatus {
-        /**
-         * This profile is still under development.
-         */
-        DRAFT, 
-        /**
-         * This profile is ready for normal use.
-         */
-        ACTIVE, 
-        /**
-         * This profile has been deprecated, withdrawn or superseded and should no longer be used.
-         */
-        RETIRED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static StructureDefinitionStatus fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("retired".equals(codeString))
-          return RETIRED;
-        throw new Exception("Unknown StructureDefinitionStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "This profile is still under development.";
-            case ACTIVE: return "This profile is ready for normal use.";
-            case RETIRED: return "This profile has been deprecated, withdrawn or superseded and should no longer be used.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class StructureDefinitionStatusEnumFactory implements EnumFactory<StructureDefinitionStatus> {
-    public StructureDefinitionStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return StructureDefinitionStatus.DRAFT;
-        if ("active".equals(codeString))
-          return StructureDefinitionStatus.ACTIVE;
-        if ("retired".equals(codeString))
-          return StructureDefinitionStatus.RETIRED;
-        throw new IllegalArgumentException("Unknown StructureDefinitionStatus code '"+codeString+"'");
-        }
-    public String toCode(StructureDefinitionStatus code) {
-      if (code == StructureDefinitionStatus.DRAFT)
-        return "draft";
-      if (code == StructureDefinitionStatus.ACTIVE)
-        return "active";
-      if (code == StructureDefinitionStatus.RETIRED)
-        return "retired";
-      return "?";
-      }
-    }
 
     public enum StructureDefinitionType {
-        /**
-         * An abstract Type. Structure Definitions for abstract types are provided for structural completeness, and to support functions such as code generation.
-         */
-        ABSTRACT, 
         /**
          * A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.
          */
@@ -159,8 +71,6 @@ public class StructureDefinition extends DomainResource {
         public static StructureDefinitionType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("abstract".equals(codeString))
-          return ABSTRACT;
         if ("type".equals(codeString))
           return TYPE;
         if ("resource".equals(codeString))
@@ -173,7 +83,6 @@ public class StructureDefinition extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case ABSTRACT: return "abstract";
             case TYPE: return "type";
             case RESOURCE: return "resource";
             case CONSTRAINT: return "constraint";
@@ -183,7 +92,6 @@ public class StructureDefinition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ABSTRACT: return "";
             case TYPE: return "";
             case RESOURCE: return "";
             case CONSTRAINT: return "";
@@ -193,7 +101,6 @@ public class StructureDefinition extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case ABSTRACT: return "An abstract Type. Structure Definitions for abstract types are provided for structural completeness, and to support functions such as code generation.";
             case TYPE: return "A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.";
             case RESOURCE: return "A resource defined by the FHIR specification.";
             case CONSTRAINT: return "A set of constraints on a resource or data type that describe how it is used for a particular use.";
@@ -203,7 +110,6 @@ public class StructureDefinition extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case ABSTRACT: return "Abstract type";
             case TYPE: return "Data Type";
             case RESOURCE: return "Resource";
             case CONSTRAINT: return "Constrained Type";
@@ -218,8 +124,6 @@ public class StructureDefinition extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("abstract".equals(codeString))
-          return StructureDefinitionType.ABSTRACT;
         if ("type".equals(codeString))
           return StructureDefinitionType.TYPE;
         if ("resource".equals(codeString))
@@ -231,8 +135,6 @@ public class StructureDefinition extends DomainResource {
         throw new IllegalArgumentException("Unknown StructureDefinitionType code '"+codeString+"'");
         }
     public String toCode(StructureDefinitionType code) {
-      if (code == StructureDefinitionType.ABSTRACT)
-        return "abstract";
       if (code == StructureDefinitionType.TYPE)
         return "type";
       if (code == StructureDefinitionType.RESOURCE)
@@ -1027,7 +929,7 @@ public class StructureDefinition extends DomainResource {
      */
     @Child(name="status", type={CodeType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the profile." )
-    protected Enumeration<StructureDefinitionStatus> status;
+    protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
@@ -1061,56 +963,64 @@ public class StructureDefinition extends DomainResource {
      * Defines the type of structure that this definition is describing.
      */
     @Child(name="type", type={CodeType.class}, order=16, min=1, max=1)
-    @Description(shortDefinition="abstract | type | resource | constraint | extension", formalDefinition="Defines the type of structure that this definition is describing." )
+    @Description(shortDefinition="type | resource | constraint | extension", formalDefinition="Defines the type of structure that this definition is describing." )
     protected Enumeration<StructureDefinitionType> type;
+
+    /**
+     * Whether structure this definition describes is abstract or not.
+     */
+    @Child(name="abstract_", type={BooleanType.class}, order=17, min=1, max=1)
+    @Description(shortDefinition="Whether the structure is abstract", formalDefinition="Whether structure this definition describes is abstract or not." )
+    protected BooleanType abstract_;
 
     /**
      * Identifies the type of context to which the extension applies.
      */
-    @Child(name="contextType", type={CodeType.class}, order=17, min=0, max=1)
+    @Child(name="contextType", type={CodeType.class}, order=18, min=0, max=1)
     @Description(shortDefinition="resource | datatype | mapping | extension", formalDefinition="Identifies the type of context to which the extension applies." )
     protected Enumeration<ExtensionContext> contextType;
 
     /**
      * Identifies the types of resource or data type elements to which the extension can be applied.
      */
-    @Child(name="context", type={StringType.class}, order=18, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="context", type={StringType.class}, order=19, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Where the extension can be used in instances", formalDefinition="Identifies the types of resource or data type elements to which the extension can be applied." )
     protected List<StringType> context;
 
     /**
      * The structure that is the base on which this set of constraints is derived from.
      */
-    @Child(name="base", type={UriType.class}, order=19, min=0, max=1)
+    @Child(name="base", type={UriType.class}, order=20, min=0, max=1)
     @Description(shortDefinition="Structure that this set of constraints applies to", formalDefinition="The structure that is the base on which this set of constraints is derived from." )
     protected UriType base;
 
     /**
      * A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.
      */
-    @Child(name="snapshot", type={}, order=20, min=0, max=1)
+    @Child(name="snapshot", type={}, order=21, min=0, max=1)
     @Description(shortDefinition="Snapshot view of the structure", formalDefinition="A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile." )
     protected StructureDefinitionSnapshotComponent snapshot;
 
     /**
      * A differential view is expressed relative to the base profile - a statement of differences that it applies.
      */
-    @Child(name="differential", type={}, order=21, min=0, max=1)
+    @Child(name="differential", type={}, order=22, min=0, max=1)
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base profile - a statement of differences that it applies." )
     protected StructureDefinitionDifferentialComponent differential;
 
-    private static final long serialVersionUID = 295740765L;
+    private static final long serialVersionUID = 857523723L;
 
     public StructureDefinition() {
       super();
     }
 
-    public StructureDefinition(UriType url, StringType name, Enumeration<StructureDefinitionStatus> status, Enumeration<StructureDefinitionType> type) {
+    public StructureDefinition(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<StructureDefinitionType> type, BooleanType abstract_) {
       super();
       this.url = url;
       this.name = name;
       this.status = status;
       this.type = type;
+      this.abstract_ = abstract_;
     }
 
     /**
@@ -1590,12 +1500,12 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<StructureDefinitionStatus> getStatusElement() { 
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<StructureDefinitionStatus>(new StructureDefinitionStatusEnumFactory()); // bb
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1610,7 +1520,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @param value {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public StructureDefinition setStatusElement(Enumeration<StructureDefinitionStatus> value) { 
+    public StructureDefinition setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1618,16 +1528,16 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return The status of the profile.
      */
-    public StructureDefinitionStatus getStatus() { 
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the profile.
      */
-    public StructureDefinition setStatus(StructureDefinitionStatus value) { 
+    public StructureDefinition setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<StructureDefinitionStatus>(new StructureDefinitionStatusEnumFactory());
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1851,6 +1761,51 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
+     * @return {@link #abstract_} (Whether structure this definition describes is abstract or not.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
+     */
+    public BooleanType getAbstractElement() { 
+      if (this.abstract_ == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create StructureDefinition.abstract_");
+        else if (Configuration.doAutoCreate())
+          this.abstract_ = new BooleanType(); // bb
+      return this.abstract_;
+    }
+
+    public boolean hasAbstractElement() { 
+      return this.abstract_ != null && !this.abstract_.isEmpty();
+    }
+
+    public boolean hasAbstract() { 
+      return this.abstract_ != null && !this.abstract_.isEmpty();
+    }
+
+    /**
+     * @param value {@link #abstract_} (Whether structure this definition describes is abstract or not.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
+     */
+    public StructureDefinition setAbstractElement(BooleanType value) { 
+      this.abstract_ = value;
+      return this;
+    }
+
+    /**
+     * @return Whether structure this definition describes is abstract or not.
+     */
+    public boolean getAbstract() { 
+      return this.abstract_ == null || this.abstract_.isEmpty() ? false : this.abstract_.getValue();
+    }
+
+    /**
+     * @param value Whether structure this definition describes is abstract or not.
+     */
+    public StructureDefinition setAbstract(boolean value) { 
+        if (this.abstract_ == null)
+          this.abstract_ = new BooleanType();
+        this.abstract_.setValue(value);
+      return this;
+    }
+
+    /**
      * @return {@link #contextType} (Identifies the type of context to which the extension applies.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
      */
     public Enumeration<ExtensionContext> getContextTypeElement() { 
@@ -2069,6 +2024,7 @@ public class StructureDefinition extends DomainResource {
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.4.0 for this version.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("type", "code", "Defines the type of structure that this definition is describing.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not.", 0, java.lang.Integer.MAX_VALUE, abstract_));
         childrenList.add(new Property("contextType", "code", "Identifies the type of context to which the extension applies.", 0, java.lang.Integer.MAX_VALUE, contextType));
         childrenList.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is derived from.", 0, java.lang.Integer.MAX_VALUE, base));
@@ -2112,6 +2068,7 @@ public class StructureDefinition extends DomainResource {
             dst.mapping.add(i.copy());
         };
         dst.type = type == null ? null : type.copy();
+        dst.abstract_ = abstract_ == null ? null : abstract_.copy();
         dst.contextType = contextType == null ? null : contextType.copy();
         if (context != null) {
           dst.context = new ArrayList<StringType>();
@@ -2140,9 +2097,9 @@ public class StructureDefinition extends DomainResource {
            && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(requirements, o.requirements, true)
            && compareDeep(copyright, o.copyright, true) && compareDeep(code, o.code, true) && compareDeep(status, o.status, true)
            && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(fhirVersion, o.fhirVersion, true)
-           && compareDeep(mapping, o.mapping, true) && compareDeep(type, o.type, true) && compareDeep(contextType, o.contextType, true)
-           && compareDeep(context, o.context, true) && compareDeep(base, o.base, true) && compareDeep(snapshot, o.snapshot, true)
-           && compareDeep(differential, o.differential, true);
+           && compareDeep(mapping, o.mapping, true) && compareDeep(type, o.type, true) && compareDeep(abstract_, o.abstract_, true)
+           && compareDeep(contextType, o.contextType, true) && compareDeep(context, o.context, true) && compareDeep(base, o.base, true)
+           && compareDeep(snapshot, o.snapshot, true) && compareDeep(differential, o.differential, true);
       }
 
       @Override
@@ -2156,8 +2113,9 @@ public class StructureDefinition extends DomainResource {
            && compareValues(display, o.display, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
            && compareValues(requirements, o.requirements, true) && compareValues(copyright, o.copyright, true)
            && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
-           && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(type, o.type, true) && compareValues(contextType, o.contextType, true)
-           && compareValues(context, o.context, true) && compareValues(base, o.base, true);
+           && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(type, o.type, true) && compareValues(abstract_, o.abstract_, true)
+           && compareValues(contextType, o.contextType, true) && compareValues(context, o.context, true) && compareValues(base, o.base, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -2167,9 +2125,9 @@ public class StructureDefinition extends DomainResource {
            && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
            && (code == null || code.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (date == null || date.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty()) && (mapping == null || mapping.isEmpty())
-           && (type == null || type.isEmpty()) && (contextType == null || contextType.isEmpty()) && (context == null || context.isEmpty())
-           && (base == null || base.isEmpty()) && (snapshot == null || snapshot.isEmpty()) && (differential == null || differential.isEmpty())
-          ;
+           && (type == null || type.isEmpty()) && (abstract_ == null || abstract_.isEmpty()) && (contextType == null || contextType.isEmpty())
+           && (context == null || context.isEmpty()) && (base == null || base.isEmpty()) && (snapshot == null || snapshot.isEmpty())
+           && (differential == null || differential.isEmpty());
       }
 
   @Override
@@ -2189,7 +2147,7 @@ public class StructureDefinition extends DomainResource {
   public static final String SP_PATH = "path";
   @SearchParamDefinition(name="code", path="StructureDefinition.code", description="A code for the profile", type="token" )
   public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="type", path="StructureDefinition.type", description="abstract | type | resource | constraint | extension", type="token" )
+  @SearchParamDefinition(name="type", path="StructureDefinition.type", description="type | resource | constraint | extension", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="date", path="StructureDefinition.date", description="The profile publication date", type="date" )
   public static final String SP_DATE = "date";

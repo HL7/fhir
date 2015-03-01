@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -210,16 +210,35 @@ public class DocumentManifest extends DomainResource {
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
+     * Whether this document manifest replaces another.
+     */
+    @Child(name="supercedes", type={DocumentManifest.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="If this document manifest replaces another", formalDefinition="Whether this document manifest replaces another." )
+    protected Reference supercedes;
+
+    /**
+     * The actual object that is the target of the reference (Whether this document manifest replaces another.)
+     */
+    protected DocumentManifest supercedesTarget;
+
+    /**
      * Human-readable description of the source document. This is sometimes known as the "title".
      */
-    @Child(name="description", type={StringType.class}, order=9, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Human-readable description (title)", formalDefinition="Human-readable description of the source document. This is sometimes known as the 'title'." )
     protected StringType description;
 
     /**
+     * A code specifying the level of confidentiality of this set of Documents.
+     */
+    @Child(name="confidentiality", type={CodeableConcept.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="Sensitivity of set of documents", formalDefinition="A code specifying the level of confidentiality of this set of Documents." )
+    protected CodeableConcept confidentiality;
+
+    /**
      * The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.
      */
-    @Child(name="content", type={DocumentReference.class, Binary.class, Media.class}, order=10, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="content", type={DocumentReference.class, Binary.class, Media.class}, order=12, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contents of this set of documents", formalDefinition="The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed." )
     protected List<Reference> content;
     /**
@@ -228,7 +247,7 @@ public class DocumentManifest extends DomainResource {
     protected List<Resource> contentTarget;
 
 
-    private static final long serialVersionUID = 1915506749L;
+    private static final long serialVersionUID = -383334336L;
 
     public DocumentManifest() {
       super();
@@ -578,6 +597,50 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
+     * @return {@link #supercedes} (Whether this document manifest replaces another.)
+     */
+    public Reference getSupercedes() { 
+      if (this.supercedes == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.supercedes");
+        else if (Configuration.doAutoCreate())
+          this.supercedes = new Reference(); // cc
+      return this.supercedes;
+    }
+
+    public boolean hasSupercedes() { 
+      return this.supercedes != null && !this.supercedes.isEmpty();
+    }
+
+    /**
+     * @param value {@link #supercedes} (Whether this document manifest replaces another.)
+     */
+    public DocumentManifest setSupercedes(Reference value) { 
+      this.supercedes = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #supercedes} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Whether this document manifest replaces another.)
+     */
+    public DocumentManifest getSupercedesTarget() { 
+      if (this.supercedesTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.supercedes");
+        else if (Configuration.doAutoCreate())
+          this.supercedesTarget = new DocumentManifest(); // aa
+      return this.supercedesTarget;
+    }
+
+    /**
+     * @param value {@link #supercedes} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Whether this document manifest replaces another.)
+     */
+    public DocumentManifest setSupercedesTarget(DocumentManifest value) { 
+      this.supercedesTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
@@ -623,6 +686,30 @@ public class DocumentManifest extends DomainResource {
           this.description = new StringType();
         this.description.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #confidentiality} (A code specifying the level of confidentiality of this set of Documents.)
+     */
+    public CodeableConcept getConfidentiality() { 
+      if (this.confidentiality == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.confidentiality");
+        else if (Configuration.doAutoCreate())
+          this.confidentiality = new CodeableConcept(); // cc
+      return this.confidentiality;
+    }
+
+    public boolean hasConfidentiality() { 
+      return this.confidentiality != null && !this.confidentiality.isEmpty();
+    }
+
+    /**
+     * @param value {@link #confidentiality} (A code specifying the level of confidentiality of this set of Documents.)
+     */
+    public DocumentManifest setConfidentiality(CodeableConcept value) { 
+      this.confidentiality = value;
       return this;
     }
 
@@ -676,7 +763,9 @@ public class DocumentManifest extends DomainResource {
         childrenList.add(new Property("created", "dateTime", "When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("source", "uri", "Identifies the source system, application, or software that produced the document manifest.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("status", "code", "The status of this document manifest.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("supercedes", "Reference(DocumentManifest)", "Whether this document manifest replaces another.", 0, java.lang.Integer.MAX_VALUE, supercedes));
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the 'title'.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("confidentiality", "CodeableConcept", "A code specifying the level of confidentiality of this set of Documents.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
         childrenList.add(new Property("content", "Reference(DocumentReference|Binary|Media)", "The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.", 0, java.lang.Integer.MAX_VALUE, content));
       }
 
@@ -704,7 +793,9 @@ public class DocumentManifest extends DomainResource {
         dst.created = created == null ? null : created.copy();
         dst.source = source == null ? null : source.copy();
         dst.status = status == null ? null : status.copy();
+        dst.supercedes = supercedes == null ? null : supercedes.copy();
         dst.description = description == null ? null : description.copy();
+        dst.confidentiality = confidentiality == null ? null : confidentiality.copy();
         if (content != null) {
           dst.content = new ArrayList<Reference>();
           for (Reference i : content)
@@ -727,7 +818,8 @@ public class DocumentManifest extends DomainResource {
         return compareDeep(masterIdentifier, o.masterIdentifier, true) && compareDeep(identifier, o.identifier, true)
            && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true) && compareDeep(type, o.type, true)
            && compareDeep(author, o.author, true) && compareDeep(created, o.created, true) && compareDeep(source, o.source, true)
-           && compareDeep(status, o.status, true) && compareDeep(description, o.description, true) && compareDeep(content, o.content, true)
+           && compareDeep(status, o.status, true) && compareDeep(supercedes, o.supercedes, true) && compareDeep(description, o.description, true)
+           && compareDeep(confidentiality, o.confidentiality, true) && compareDeep(content, o.content, true)
           ;
       }
 
@@ -746,8 +838,9 @@ public class DocumentManifest extends DomainResource {
         return super.isEmpty() && (masterIdentifier == null || masterIdentifier.isEmpty()) && (identifier == null || identifier.isEmpty())
            && (subject == null || subject.isEmpty()) && (recipient == null || recipient.isEmpty()) && (type == null || type.isEmpty())
            && (author == null || author.isEmpty()) && (created == null || created.isEmpty()) && (source == null || source.isEmpty())
-           && (status == null || status.isEmpty()) && (description == null || description.isEmpty())
-           && (content == null || content.isEmpty());
+           && (status == null || status.isEmpty()) && (supercedes == null || supercedes.isEmpty()) && (description == null || description.isEmpty())
+           && (confidentiality == null || confidentiality.isEmpty()) && (content == null || content.isEmpty())
+          ;
       }
 
   @Override
@@ -755,6 +848,16 @@ public class DocumentManifest extends DomainResource {
     return ResourceType.DocumentManifest;
    }
 
+  @SearchParamDefinition(name="supersedes", path="DocumentManifest.supercedes", description="If this document manifest replaces another", type="reference" )
+  public static final String SP_SUPERSEDES = "supersedes";
+  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
+  public static final String SP_RECIPIENT = "recipient";
   @SearchParamDefinition(name="content", path="DocumentManifest.content", description="Contents of this set of documents", type="reference" )
   public static final String SP_CONTENT = "content";
   @SearchParamDefinition(name="author", path="DocumentManifest.author", description="Who and/or what authored the document", type="reference" )
@@ -763,20 +866,14 @@ public class DocumentManifest extends DomainResource {
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="source", path="DocumentManifest.source", description="The source system/application/software", type="string" )
   public static final String SP_SOURCE = "source";
-  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="created", path="DocumentManifest.created", description="When this document manifest created", type="date" )
   public static final String SP_CREATED = "created";
   @SearchParamDefinition(name="description", path="DocumentManifest.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
-  @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
-  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="confidentiality", path="DocumentManifest.confidentiality", description="Sensitivity of set of documents", type="token" )
+  public static final String SP_CONFIDENTIALITY = "confidentiality";
   @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier|DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
-  public static final String SP_RECIPIENT = "recipient";
 
 }
 

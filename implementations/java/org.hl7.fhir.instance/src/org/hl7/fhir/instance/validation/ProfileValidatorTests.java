@@ -38,7 +38,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -94,7 +94,7 @@ public class ProfileValidatorTests {
 
 	private void executeCase(InstanceValidator v, String dir, Element test) throws Exception {
 	  Element r = parseXml(dir+XMLUtil.getNamedChildValue(test, "instance")+".xml").getDocumentElement();
-	  Profile p = (Profile) parseReference(dir+XMLUtil.getNamedChildValue(test, "profile")+".xml");
+	  StructureDefinition p = (StructureDefinition) parseReference(dir+XMLUtil.getNamedChildValue(test, "profile")+".xml");
 	  List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
 	  v.validate(errors, r, p);
 	  String outcome = XMLUtil.getNamedChildValue(test, "outcome");

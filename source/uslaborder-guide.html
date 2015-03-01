@@ -473,11 +473,11 @@
             <li>Date of Birth - Always use Patient.birthDate and should never be asked as an AOE as
                there is only one at any point in time.
             </li>
-            <li>The extension us-core-race(http://hl7.org/fhir/ExtensionDefinition/us-core-race) is provided for demographic (administrative/billing), not clinical use and is bound to define five race categories as  prescribed by federal standards. The
+            <li>The extension us-core-race(http://hl7.org/fhir/StructureDefinition/us-core-race) is provided for demographic (administrative/billing), not clinical use and is bound to define five race categories as  prescribed by federal standards. The
                lab must provide an AOE for those tests where Race drives the interpretation of results. The
                value must be determined by the Ordering Provider and must be sent as the .supporting information element with type Reference(Observation). Note that state and/or national regulations may dictate other behaviors.
             </li>
-            <li>The extension us-core-ethnicity(http://hl7.org/fhir/ExtensionDefinition/us-core-ethnicity) is provided for demographic (administrative/billing), not clinical use and is bound to specify two ethnicity categories as  prescribed by federal standards. The lab must provide an AOE where Ethnicity drives the interpretation of results. The value must be determined by the Ordering Provider and must be sent as the .supporting information element with type Reference(Observation.  Note that state and/or national regulations may dictate other behaviors. </li>
+            <li>The extension us-core-ethnicity(http://hl7.org/fhir/StructureDefinition/us-core-ethnicity) is provided for demographic (administrative/billing), not clinical use and is bound to specify two ethnicity categories as  prescribed by federal standards. The lab must provide an AOE where Ethnicity drives the interpretation of results. The value must be determined by the Ordering Provider and must be sent as the .supporting information element with type Reference(Observation.  Note that state and/or national regulations may dictate other behaviors. </li>
          </ul>
          <p> More specific race and ethnicity values are available, but not limited to,
          those found   <a href="v3/Race/index.html">v3 Code System Race</a> and  <a href="v3/Ethnicity/index.html"> v3 Code System Ethnicity</a>.<!-- Eh todo see if these value set align with the text-->

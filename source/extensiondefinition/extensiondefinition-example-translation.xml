@@ -21,7 +21,7 @@
       </p>
       <pre>
   &lt;title value=&quot;Test Title&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/ExtensionDefinition/translation&quot;&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/translation&quot;&gt;
       &lt;extension url=&quot;lang&quot;&gt;
         &lt;valueCode value=&quot;nl&quot;/&gt;
       &lt;/extension&gt;
@@ -38,7 +38,7 @@
   {
     "title" : "Test Title",
     "title_" : {
-      "http://hl7.org/fhir/ExtensionDefinition/translation" : [{
+      "http://hl7.org/fhir/StructureDefinition/translation" : [{
         "lang" : "nl",
         "content : "Testtitel"
       }]
@@ -50,10 +50,10 @@
       </p>
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ExtensionDefinition/translation"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/translation"/>
   <name value="Standard FHIR Language Translation Extension"/>
   <display value="Alternate language">
-    <extension url="http://hl7.org/fhir/ExtensionDefinition/translation">
+    <extension url="http://hl7.org/fhir/StructureDefinition/translation">
       <extension url="lang">
         <valueCode value="nl"/>
       </extension>

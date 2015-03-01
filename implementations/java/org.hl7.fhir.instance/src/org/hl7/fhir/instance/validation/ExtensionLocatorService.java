@@ -29,7 +29,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-import org.hl7.fhir.instance.model.ExtensionDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition;
 
 
 
@@ -50,11 +50,11 @@ public interface ExtensionLocatorService {
 
   public class ExtensionLocationResponse {
     private Status status;
-    private ExtensionDefinition definition;
+    private StructureDefinition definition;
 		private String message;
 		private String url;
 
-    public ExtensionLocationResponse(String url, Status status, ExtensionDefinition definition, String message) {
+    public ExtensionLocationResponse(String url, Status status, StructureDefinition definition, String message) {
       super();
       this.url = url;
       this.status = status;
@@ -66,7 +66,7 @@ public interface ExtensionLocatorService {
       return status;
     }
 
-    public ExtensionDefinition getDefinition() {
+    public StructureDefinition getDefinition() {
       return definition;
     }
 

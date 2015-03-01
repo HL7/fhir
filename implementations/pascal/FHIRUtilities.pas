@@ -97,7 +97,7 @@ procedure BuildNarrative(vs : TFhirValueSet); overload;
 Function removeCaseAndAccents(s : String) : String;
 
 type
-  TFHIRProfileStructureHolder = TFhirProfileSnapshot;
+  TFHIRProfileStructureHolder = TFhirStructureDefinitionSnapshot;
   TFHIRProfileStructureElement = TFhirElementDefinition;
   TFhirProfileStructureElementList = TFhirElementDefinitionList;
   TFhirProfileStructureElementDefinitionBinding = TFhirElementDefinitionBinding;

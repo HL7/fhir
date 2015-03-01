@@ -50,7 +50,7 @@
   <name>
     <family value="du">
       <!-- the "du" part is a family name prefix (VV in iso 21090) -->
-      <extension url="http://hl7.org/fhir/Profileiso-21090#qualifier">
+      <extension url="http://hl7.org/fhir/StructureDefinitioniso-21090#qualifier">
         <valueCode value="VV"/>
       </extension>
     </family>

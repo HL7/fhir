@@ -39,7 +39,7 @@
         <zip value="9105 PZ"/>
         <country value="NLD"/>
   </address>
-  <extension url="http://hl7.org/fhir/Profile/location-ccda-servicedeliverylocation#otherAddress">
+  <extension url="http://hl7.org/fhir/StructureDefinition/location-ccda-servicedeliverylocation#otherAddress">
     <address>
         <use value="work"/>
         <line value="100 Main St"/>

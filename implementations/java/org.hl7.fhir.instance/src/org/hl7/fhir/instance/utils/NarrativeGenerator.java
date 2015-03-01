@@ -85,7 +85,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.PrimitiveType;
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Property;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Ratio;
@@ -159,14 +159,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
     } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
-      Profile p = ctxt.fetchResource(Profile.class, "test");
+      StructureDefinition p = ctxt.fetchResource(StructureDefinition.class, "test");
       generateByProfile(r, p /* context.getProfiles().get(r.getResourceType().toString()) */, true); // todo: make this manageable externally 
     } else if (context.getProfiles().containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
       generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
     }
   }
   
-  private void generateByProfile(DomainResource r, Profile profile, boolean showCodeDetails) throws Exception {
+  private void generateByProfile(DomainResource r, StructureDefinition profile, boolean showCodeDetails) throws Exception {
     if (!r.getModifierExtension().isEmpty())
       throw new Exception("Unable to generate narrative for resource of type "+r.getResourceType().toString()+" because it has modifier extensions");
     
@@ -559,7 +559,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.addText("Generated Summary: ");
     }
     String path = dres.getResourceType().toString();
-    Profile profile = context.getProfiles().get(path);
+    StructureDefinition profile = context.getProfiles().get(path);
     if (profile == null)
       x.addText("unknown resource " +path);
     else {
@@ -999,13 +999,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
           p.addText(", ");
         if (ci.hasName())
           p.addText(ci.getName()+": ");
-      boolean first = true;
+        boolean first = true;
         for (ContactPoint c : ci.getTelecom()) {
-        if (first) 
-          first = false;
-        else
-          p.addText(", ");
-        addTelecom(p, c);
+          if (first) 
+            first = false;
+          else
+            p.addText(", ");
+          addTelecom(p, c);
         }
         p.addText("; ");
       }
@@ -1953,7 +1953,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	      String right = text.substring(text.indexOf("]]]")+3);
 	      String actual = url;
 	      //      String[] parts = url.split("\\#");
-	      //      Profile p = parts[0]; // todo: definitions.getProfileByURL(parts[0]);
+	      //      StructureDefinition p = parts[0]; // todo: definitions.getProfileByURL(parts[0]);
 	      //      if (p != null)
 	      //        actual = p.getTag("filename")+".html";
 	      //      else {

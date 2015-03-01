@@ -329,56 +329,56 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
 				<reference value="dr-uslab"/>
 			</profile>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="search-type"/>
 				<documentation value="Allows a user to search for existing DiagnosticReport"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="read"/>
 				<documentation value="Allows retrieval of a specific known DiagnosticReport"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="vread"/>
 				<documentation value="Allows retrieval of a specific version of a DiagnosticReport"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="history-instance"/>
 				<documentation value="Allows review of changes to a DiagnosticReport over time"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="create"/>
 				<documentation value="Allows defining a new DiagnosticReport"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="update"/>
 				<documentation value="Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport."/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension-->
 				<code value="validate"/>
 				<documentation value="Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows"/>
 			</interaction>
 			<!-- interaction>
-        EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+        EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -389,11 +389,11 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
 			<searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report"/>
 			<!-- EH: comment out for now
 		<searchParam-->
-			<!-- EH: comment out for now extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+			<!-- EH: comment out for now extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 			<!--name value="category"/>
-        <definition value="http://hl7.org/fhir/Profile/dataelement#category"/>
+        <definition value="http://hl7.org/fhir/StructureDefinition/dataelement#category"/>
         <type value="token"/>
       </searchParam>
       <searchParam-->
@@ -412,56 +412,56 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
 				<reference value="do-uslab"/>
 			</profile>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="search-type"/>
 				<documentation value="Allows a user to search for existing DiagnosticReport"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="read"/>
 				<documentation value="Allows retrieval of a specific known DiagnosticReport"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="vread"/>
 				<documentation value="Allows retrieval of a specific version of a DiagnosticReport"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="history-instance"/>
 				<documentation value="Allows review of changes to a DiagnosticReport over time"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="create"/>
 				<documentation value="Allows defining a new DiagnosticReport"/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 				<code value="update"/>
 				<documentation value="Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport."/>
 			</interaction>
 			<interaction>
-				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension-->
 				<code value="validate"/>
 				<documentation value="Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows"/>
 			</interaction>
 			<!-- interaction>
-        EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+        EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -473,11 +473,11 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
 			<!-- How do we  do nested includes  ie  DiagnosticReport.orderer (Practitioner.organization)  -->
 		<!-- EH: comment out for now
 		<searchParam-->
-			<!-- EH: comment out for now extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+			<!-- EH: comment out for now extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension-->
 			<!--name value="category"/>
-        <definition value="http://hl7.org/fhir/Profile/dataelement#category"/>
+        <definition value="http://hl7.org/fhir/StructureDefinition/dataelement#category"/>
         <type value="token"/>
       </searchParam>
       <searchParam-->

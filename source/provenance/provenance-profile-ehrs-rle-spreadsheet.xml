@@ -983,8 +983,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/ExtensionDefinition/provenance-ehrs-rle"><Data
-      ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/provenance-ehrs-rle</Data></Cell>
+    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/provenance-ehrs-rle"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/provenance-ehrs-rle</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>

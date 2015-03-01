@@ -100,7 +100,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       boolean h = hasXhtml(root);
       boolean d = hasDecimal(root);
       boolean s = hasString(root);
-      if (l || h || d) {
+      boolean e = hasSharedEnums(root);
+      if (l || h || d || e) {
         if (l)
           write("import java.util.*;\r\n");
         if (h)
@@ -110,6 +111,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write("import java.math.*;\r\n");
         if (s)
           write("import org.hl7.fhir.utilities.Utilities;\r\n");
+        if (e)
+          write("import org.hl7.fhir.instance.model.Enumerations.*;\r\n");
       }
       if (clss == JavaGenClass.Resource) {
         write("import org.hl7.fhir.instance.model.annotations.ResourceDef;\r\n");
@@ -297,7 +300,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     return false;
   }
 
-	private boolean hasXhtml(ElementDefn root) {
+  private boolean hasSharedEnums(ElementDefn root) {
+    for (ElementDefn e : root.getElements()) {
+      if (isSharedEnum(e.getBindingName()) || hasSharedEnums(e))
+        return true;
+    } 
+    return false;
+  }
+
+  private boolean hasXhtml(ElementDefn root) {
 		for (ElementDefn e : root.getElements()) {
 			if (e.isXhtmlElement() || hasXhtmlInner(e))
 				return true;
@@ -337,6 +348,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		String tns = tn.substring(tn.indexOf("<")+1);
 		tns = tns.substring(0, tns.length()-1);
 		BindingSpecification cd = getConceptDomain(conceptDomains, e.getBindingName());
+		if (isSharedEnum(cd.getName()))
+		  return;
 
 		write("    public enum "+tns+" {\r\n");
 		int l = cd.getCodes().size();

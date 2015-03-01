@@ -46,13 +46,13 @@
   <entry>
     <resource>
         <!-- base ClinicalDocument -->
-      <Profile xmlns="http://hl7.org/fhir">
+      <StructureDefinition xmlns="http://hl7.org/fhir">
         <id value="cda-clinicaldocument"/>
         <meta>
           <lastUpdated value="2014-11-05T20:31:00Z"/>
         </meta>
         <!-- build tool to fill out narrative -->
-        <url value="http://hl7.org/fhir/Profile/cda-clinicaldocument"/>
+        <url value="http://hl7.org/fhir/StructureDefinition/cda-clinicaldocument"/>
         <name value="ClinicalDocument"/>
         <publisher value="HL7 FHIR Project"/>
         <contact>
@@ -69,8 +69,9 @@
           <uri value="http://hl7.org/v3/cda"/>
           <name value="CDA (R2)"/>
         </mapping>
-        <type value="Composition"/>
-        <base value="http://hl7.org/fhir/Profile/Composition"/>
+        <type value="constraint"/>
+        <abstract value="false"/>
+        <base value="http://hl7.org/fhir/StructureDefinition/Composition"/>
         <!-- todo: this is a bundle with a document tag.... -->
         <!-- todo: Clinical Document Id goes in feed.id -->
         <differential>
@@ -78,9 +79,6 @@
             <path value="Composition"/>
             <min value="1"/>
             <max value="1"/>
-            <type>
-              <code value="Resource"/>
-            </type>
             <isModifier value="false"/>
             <mapping>
               <identity value="cda"/>
@@ -95,7 +93,7 @@
             <max value="*"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-inFulFillmentOf"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-inFulFillmentOf"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -189,6 +187,9 @@
             <definition value="CDA: all documents are final"/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+              <code value="code"/>
+            </type>
             <fixedCode value="final"/>
             <mapping>
               <identity value="cda"/>
@@ -233,19 +234,19 @@
             <max value="*"/>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Practitioner"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
             </type>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Device"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Device"/>
             </type>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Patient"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
             </type>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/RelatedPerson"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -355,15 +356,15 @@
             <max value="1"/>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Patient"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
             </type>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Practitioner"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
             </type>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Organization"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -386,7 +387,7 @@
             <max value="1"/>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Organization"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -496,7 +497,7 @@
             <max value="*"/>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Any"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Any"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -516,7 +517,7 @@
             <max value="1"/>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Encounter"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -633,15 +634,15 @@
             <max value="1"/>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Patient"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
             </type>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Group"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Group"/>
             </type>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Device"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Device"/>
             </type>
             <isModifier value="true"/>
             <mapping>
@@ -664,7 +665,7 @@
             <max value="1"/>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/Profile/Any"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/Any"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -694,20 +695,20 @@
             </mapping>
           </element>
         </differential>
-      </Profile>
+      </StructureDefinition>
     </resource>  
   </entry>  
 
   <entry>
     <resource>
         <!-- CDA Patient Role -->
-      <Profile xmlns="http://hl7.org/fhir">
+      <StructureDefinition xmlns="http://hl7.org/fhir">
         <id value="cda-patient-role"/>
         <meta>
           <lastUpdated value="2014-11-05T20:31:00Z"/>
         </meta>
         <!-- build tool to fill out narrative -->
-        <url value="http://hl7.org/fhir/Profile/cda-patient-role"/>
+        <url value="http://hl7.org/fhir/StructureDefinition/cda-patient-role"/>
         <name value="PatientRole"/>
         <publisher value="HL7 FHIR Project"/>
         <contact>
@@ -725,8 +726,9 @@
           <name value="CDA (R2)"/>
         </mapping>
         <!-- record target structure - used from Composition -->
-        <type value="Patient"/>
-        <base value="http://hl7.org/fhir/Profile/Patient"/>
+        <type value="constraint"/>
+        <abstract value="false"/>
+        <base value="http://hl7.org/fhir/StructureDefinition/Patient"/>
 
         <differential>
           <element>
@@ -734,9 +736,6 @@
             <short value="CDA PatientRole"/>
             <min value="1"/>
             <max value="1"/>
-            <type>
-              <code value="Resource"/>
-            </type>
             <isModifier value="false"/>
             <mapping>
               <identity value="cda"/>
@@ -750,7 +749,7 @@
             <max value="1"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/us-core-religion"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/us-core-religion"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -765,7 +764,7 @@
             <max value="1"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/us-core-race"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/us-core-race"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -780,7 +779,7 @@
             <max value="1"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/us-core-ethnicity"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -795,7 +794,7 @@
             <max value="1"/>
             <type>
               <code value="Reference"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-Birthplace"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-Birthplace"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -939,7 +938,7 @@
             <max value="*"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-guardian-id"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-guardian-id"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -960,6 +959,9 @@
             <short value="in CDA, only Guardian is allowed"/>
             <min value="1"/>
             <max value="1"/>
+            <type>
+              <code value="CodeableConcept"/>
+            </type>
             <fixedCodeableConcept>
               <coding>
                 <system value="http://hl7.org/fhir/patient-contact-relationship"/>
@@ -1056,7 +1058,7 @@
             <max value="1"/>
             <type>
               <code value="CodeableConcept"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-language-mode"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-language-mode"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -1071,7 +1073,7 @@
             <max value="1"/>
             <type>
               <code value="CodeableConcept"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-language-proficiency"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-language-proficiency"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -1086,7 +1088,7 @@
             <max value="1"/>
             <type>
               <code value="CodeableConcept"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-language-preference"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-language-preference"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -1125,20 +1127,20 @@
             <max value="0"/>
           </element>
         </differential>
-      </Profile>
+      </StructureDefinition>
     </resource>
   </entry>
 
   <entry>
     <resource>
         <!-- CDA Organization -->
-      <Profile xmlns="http://hl7.org/fhir">
+      <StructureDefinition xmlns="http://hl7.org/fhir">
         <id value="cda-organization"/>
         <meta>
           <lastUpdated value="2014-11-05T20:31:00Z"/>
         </meta>
         <!-- build tool to fill out narrative -->
-        <url value="http://hl7.org/fhir/Profile/cda-organization"/>
+        <url value="http://hl7.org/fhir/StructureDefinition/cda-organization"/>
         <name value="Organization"/>
         <publisher value="HL7 FHIR Project"/>
         <contact>
@@ -1156,8 +1158,9 @@
           <name value="CDA (R2)"/>
         </mapping>
 
-        <type value="Organization"/>
-        <base value="http://hl7.org/fhir/Profile/Organization"/>
+        <type value="constraint"/>
+        <abstract value="false"/>
+        <base value="http://hl7.org/fhir/StructureDefinition/Organization"/>
 
         <differential>
           <element>
@@ -1173,7 +1176,7 @@
             <short value="CDA Whole Organization"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-whole-organization"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-whole-organization"/>
             </type>
             <mapping>
               <identity value="cda"/>
@@ -1261,7 +1264,7 @@
             <max value="1"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-code"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-org-partof-code"/>
             </type>
             <mapping>
               <identity value="cda"/>
@@ -1275,7 +1278,7 @@
             <max value="1"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-statuscode"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-org-partof-statuscode"/>
             </type>
             <mapping>
               <identity value="cda"/>
@@ -1289,7 +1292,7 @@
             <max value="1"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-effectivetime"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/cda-org-partof-effectivetime"/>
             </type>
             <mapping>
               <identity value="cda"/>
@@ -1312,20 +1315,20 @@
             <max value="0"/>
           </element>
         </differential>
-      </Profile>	
+      </StructureDefinition>	
     </resource>
   </entry>
   
   <entry>
     <resource>
         <!-- CDA Location -->
-      <Profile xmlns="http://hl7.org/fhir">
+      <StructureDefinition xmlns="http://hl7.org/fhir">
         <id value="cda-location"/>
         <meta>
           <lastUpdated value="2014-11-05T20:31:00Z"/>
         </meta>
         <!-- build tool to fill out narrative -->
-        <url value="http://hl7.org/fhir/Profile/cda-location"/>
+        <url value="http://hl7.org/fhir/StructureDefinition/cda-location"/>
         <name value="Location"/>
         <publisher value="HL7 FHIR Project"/>
         <contact>
@@ -1343,16 +1346,14 @@
           <name value="CDA (R2)"/>
         </mapping>
 
-        <type value="Location"/>
-        <base value="http://hl7.org/fhir/Profile/Location"/>
+        <type value="constraint"/>
+        <abstract value="false"/>
+        <base value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <differential>
           <element>
             <path value="Location"/>
             <min value="1"/>
             <max value="1"/>
-            <type>
-              <code value="Resource"/>
-            </type>
             <isModifier value="false"/>
             <mapping>
               <identity value="cda"/>
@@ -1429,20 +1430,20 @@
             <max value="0"/>
           </element>
         </differential>
-      </Profile>
+      </StructureDefinition>
     </resource>
   </entry>
 
   <entry>
     <resource>
       <!-- CDA inFulFillmentOf -->
-      <Profile xmlns="http://hl7.org/fhir">
+      <StructureDefinition xmlns="http://hl7.org/fhir">
         <id value="cda-inFulFillmentOf"/>
         <meta>
           <lastUpdated value="2014-11-05T20:31:00Z"/>
         </meta>
         <!-- build tool to fill out narrative -->
-        <url value="http://hl7.org/fhir/Profile/cda-inFulFillmentOf"/>
+        <url value="http://hl7.org/fhir/StructureDefinition/cda-inFulFillmentOf"/>
         <name value="inFulFillmentOfDiagnosticOrder"/>
         <publisher value="HL7 FHIR Project"/>
         <contact>
@@ -1461,17 +1462,15 @@
         </mapping>
   
         <!-- Diagnostic Order (inFulfillmentOf) -->
-        <type value="DiagnosticOrder"/>
-        <base value="http://hl7.org/fhir/Profile/DiagnosticOrder"/>
+        <type value="constraint"/>
+        <abstract value="false"/>
+        <base value="http://hl7.org/fhir/StructureDefinition/DiagnosticOrder"/>
         <differential>
           <element>
             <path value="DiagnosticOrder"/>
             <short value="CDA inFulFillmentOf"/>
             <min value="1"/>
             <max value="1"/>
-            <type>
-              <code value="Resource"/>
-            </type>
             <isModifier value="false"/>
             <mapping>
               <identity value="cda"/>
@@ -1605,26 +1604,26 @@
             <isModifier value="true"/>
           </element>
         </differential>
-      </Profile>
+      </StructureDefinition>
     </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-language-preference"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-language-preference"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-language-preference"/>
       <name value="CDA Language Preference"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
-    <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/fhir"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
         </telecom>
-  </contact>
+      </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1633,41 +1632,48 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Patient.communication"/>
-      <element>
-        <path value="Extension"/>
-        <short value="The preference for this language"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="boolean"/>
-        </type>
-        <mapping>
-          <identity value="rim"/>
-          <map value="LanguageCommunication.preferenceInd"/>
-        </mapping>
-      </element>
-    </ExtensionDefinition>  
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="The preference for this language"/>
+          <min value="0"/>
+          <max value="1"/>
+          <mapping>
+            <identity value="rim"/>
+            <map value="LanguageCommunication.preferenceInd"/>
+          </mapping>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="boolean"/>
+          </type>
+        </element>
+      </differential>
+    </StructureDefinition>  
    </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-language-proficiency"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-language-proficiency"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-language-proficiency"/>
       <name value="CDA Language Proficiency"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
-    <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/fhir"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
         </telecom>
-  </contact>
+      </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1676,46 +1682,53 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Patient.communication"/>
-      <element>
-        <path value="Extension"/>
-        <short value="The proficiency for this language"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <binding>
-          <name value="LanguageAbiliityProficiency"/>
-          <isExtensible value="true"/>
-          <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency"/>
-        </binding>
-        <mapping>
-          <identity value="rim"/>
-          <map value="LanguageCommunication.proficiencyLevelCode"/>
-        </mapping>
-      </element>
-    </ExtensionDefinition>
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="The proficiency for this language"/>
+          <min value="0"/>
+          <max value="1"/>
+          <mapping>
+            <identity value="rim"/>
+            <map value="LanguageCommunication.proficiencyLevelCode"/>
+          </mapping>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="CodeableConcept"/>
+          </type>
+          <binding>
+            <name value="LanguageAbiliityProficiency"/>
+            <isExtensible value="true"/>
+            <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency"/>
+          </binding>
+        </element>
+      </differential>
+    </StructureDefinition>
    </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-language-mode"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-language-mode"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-language-mode"/>
       <name value="CDA Language Mode"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
-    <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/fhir"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
         </telecom>
-  </contact>
+      </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1724,46 +1737,53 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Patient.communication"/>
-      <element>
-        <path value="Extension"/>
-        <short value="The mode for this language"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <binding>
-          <name value="LanguageAbiliityMode"/>
-          <isExtensible value="true"/>
-          <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityMode"/>
-        </binding>
-        <mapping>
-          <identity value="rim"/>
-          <map value="LanguageCommunication.modeCode"/>
-        </mapping>
-      </element>
-    </ExtensionDefinition>
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="The mode for this language"/>
+          <min value="0"/>
+          <max value="1"/>
+          <mapping>
+            <identity value="rim"/>
+            <map value="LanguageCommunication.modeCode"/>
+          </mapping>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="CodeableConcept"/>
+          </type>
+          <binding>
+            <name value="LanguageAbiliityMode"/>
+            <isExtensible value="true"/>
+            <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityMode"/>
+          </binding>
+        </element>
+      </differential>
+    </StructureDefinition>
    </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-guardian-id"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-guardian-id"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-guardian-id"/>
       <name value="CDA Guardian Identifier"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
-    <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/fhir"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
         </telecom>
-  </contact>
+      </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1772,41 +1792,48 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Patient.contact"/>
-      <element>
-        <path value="Extension"/>
-        <short value="The Guardian's id"/>
-        <min value="0"/>
-        <max value="*"/>
-        <type>
-          <code value="Identifier"/>
-        </type>
-        <mapping>
-          <identity value="rim"/>
-          <map value="Role.id"/>
-        </mapping>
-      </element>
-    </ExtensionDefinition>
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="The Guardian's id"/>
+          <min value="0"/>
+          <max value="*"/>
+          <mapping>
+            <identity value="rim"/>
+            <map value="Role.id"/>
+          </mapping>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="Identifier"/>
+          </type>
+        </element>
+      </differential>
+    </StructureDefinition>
    </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-birthplace"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-birthplace"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-birthplace"/>
       <name value="CDA Birthplace"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
-    <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/fhir"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
         </telecom>
-  </contact>
+      </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1815,42 +1842,49 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Patient"/>
-      <element>
-        <path value="Extension"/>
-        <short value="The patient's birthplace"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference"/>
-          <profile value="#birthplace"/>
-        </type>
-        <mapping>
-          <identity value="rim"/>
-          <map value="Role.playingEntity"/>
-        </mapping>
-      </element>
-    </ExtensionDefinition>
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="The patient's birthplace"/>
+          <min value="0"/>
+          <max value="1"/>
+          <mapping>
+            <identity value="rim"/>
+            <map value="Role.playingEntity"/>
+          </mapping>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="Reference"/>
+            <profile value="#birthplace"/>
+          </type>
+        </element>
+      </differential>
+    </StructureDefinition>
    </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-org-partof-effectivetime"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-effectivetime"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-org-partof-effectivetime"/>
       <name value="CDA Organization Relationship Effective time"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
-    <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/fhir"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
         </telecom>
-  </contact>
+      </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1859,41 +1893,48 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Organization.partOf"/>
-      <element>
-        <path value="Extension"/>
-        <short value="The period of the organizational relationship"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Period"/>
-        </type>
-        <mapping>
-          <identity value="rim"/>
-          <map value="Role.effectiveTime"/>
-        </mapping>
-      </element>
-    </ExtensionDefinition>
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="The period of the organizational relationship"/>
+          <min value="0"/>
+          <max value="1"/>
+          <mapping>
+            <identity value="rim"/>
+            <map value="Role.effectiveTime"/>
+          </mapping>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="Period"/>
+          </type>
+        </element>
+      </differential>
+    </StructureDefinition>
    </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-org-partof-statuscode"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-statuscode"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-org-partof-statuscode"/>
       <name value="CDA Organization Relationship Status"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
-    <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/fhir"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
         </telecom>
-  </contact>
+      </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1902,46 +1943,53 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Organization.partOf"/>
-      <element>
-        <path value="Extension"/>
-        <short value="The status of the organizational relationship"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <binding>
-          <name value="RoleStatus"/>
-          <isExtensible value="false"/>
-          <referenceUri value="http://hl7.org/fhir/v3/vs/RoleStatus"/>
-        </binding>
-        <mapping>
-          <identity value="rim"/>
-          <map value="Role.statusCode"/>
-        </mapping>
-      </element>
-    </ExtensionDefinition>
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="The status of the organizational relationship"/>
+          <min value="0"/>
+          <max value="1"/>
+          <mapping>
+            <identity value="rim"/>
+            <map value="Role.statusCode"/>
+          </mapping>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="CodeableConcept"/>
+          </type>
+          <binding>
+            <name value="RoleStatus"/>
+            <isExtensible value="false"/>
+            <referenceUri value="http://hl7.org/fhir/v3/vs/RoleStatus"/>
+          </binding>
+        </element>
+      </differential>
+    </StructureDefinition>
    </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-org-partof-code"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-code"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-org-partof-code"/>
       <name value="CDA Organization Relationship Type"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
-    <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/fhir"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
         </telecom>
-  </contact>
+      </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1950,46 +1998,53 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Organization.partOf"/>
-      <element>
-        <path value="Extension"/>
-        <short value="The type of the organizational relationship"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <binding>
-          <name value="RoleCode"/>
-          <isExtensible value="true"/>
-          <referenceUri value="http://hl7.org/fhir/v3/vs/RoleCode"/>
-        </binding>
-        <mapping>
-          <identity value="rim"/>
-          <map value="Role.code"/>
-        </mapping>
-      </element>
-    </ExtensionDefinition>
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="The type of the organizational relationship"/>
+          <min value="0"/>
+          <max value="1"/>
+          <mapping>
+            <identity value="rim"/>
+            <map value="Role.code"/>
+          </mapping>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="CodeableConcept"/>
+          </type>
+          <binding>
+            <name value="RoleCode"/>
+            <isExtensible value="true"/>
+            <referenceUri value="http://hl7.org/fhir/v3/vs/RoleCode"/>
+          </binding>
+        </element>
+      </differential>
+    </StructureDefinition>
    </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-whole-organization"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-whole-organization"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-whole-organization"/>
       <name value="CDA Organizational Parent"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
-    <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/fhir"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
         </telecom>
-  </contact>
+      </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1998,30 +2053,37 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Organization.partOf"/>
-      <element>
-        <path value="Extension"/>
-        <short value="The type of the organizational relationship"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference"/>
-          <profile value="#Organization"/>
-        </type>
-      </element>
-    </ExtensionDefinition>
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="The type of the organizational relationship"/>
+          <min value="0"/>
+          <max value="1"/>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="Reference"/>
+            <profile value="#Organization"/>
+          </type>
+        </element>
+      </differential>
+    </StructureDefinition>
    </resource>
   </entry>
 
   <entry>
    <resource>
-    <ExtensionDefinition xmlns="http://hl7.org/fhir">
+    <StructureDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-inFulFillmentOf"/>
       <meta>
         <lastUpdated value="2014-11-05T20:31:00Z"/>
       </meta>
-      <url value="http://hl7.org/fhir/ExtensionDefinition/cda-inFulFillmentOf"/>
+      <url value="http://hl7.org/fhir/StructureDefinition/cda-inFulFillmentOf"/>
       <name value="CDA In Fulfillment of"/>
       <publisher value="HL7 FHIR Project"/>
       <contact>
@@ -2038,19 +2100,26 @@
         <uri value="http://hl7.org/v3"/>
         <name value="RIM"/>
       </mapping>
+      <type value="extension"/>
+      <abstract value="false"/>
       <contextType value="resource"/>
       <context value="Composition"/>
-      <element>
-        <path value="Extension"/>
-        <short value="Indicates an order that this document is created to fulfill"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference"/>
-          <profile value="#inFulFillmentOfDiagnosticOrder"/>
-        </type>
-      </element>
-    </ExtensionDefinition>
+      <differential>
+        <element>
+          <path value="Extension"/>
+          <short value="Indicates an order that this document is created to fulfill"/>
+          <min value="0"/>
+          <max value="1"/>
+        </element>
+        <element>
+          <path value="Extension.value[x]"/>
+          <type>
+            <code value="Reference"/>
+            <profile value="#inFulFillmentOfDiagnosticOrder"/>
+          </type>
+        </element>
+      </differential>
+    </StructureDefinition>
    </resource>
   </entry>
 

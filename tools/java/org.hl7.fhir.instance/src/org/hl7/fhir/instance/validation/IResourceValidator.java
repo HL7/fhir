@@ -2,7 +2,7 @@ package org.hl7.fhir.instance.validation;
 
 import java.util.List;
 
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -86,7 +86,7 @@ public interface IResourceValidator {
    * @param profile
    * @throws Exception - if the underlying infrastructure fails (not if the resource is invalid)
    */
-  void validate(List<ValidationMessage> errors, Element element, Profile profile) throws Exception;
+  void validate(List<ValidationMessage> errors, Element element, StructureDefinition profile) throws Exception;
 
   /**
    * Given a DOM element, return a list of errors in the resource 
@@ -97,7 +97,7 @@ public interface IResourceValidator {
    * @param profile
    * @throws Exception - if the underlying infrastructure fails (not if the resource is invalid)
    */
-  List<ValidationMessage> validate(Element element, Profile profile) throws Exception;
+  List<ValidationMessage> validate(Element element, StructureDefinition profile) throws Exception;
 
 
   /**
@@ -149,7 +149,7 @@ public interface IResourceValidator {
    * @param profile
    * @throws Exception - if the underlying infrastructure fails (not if the resource is invalid)
    */
-  void validate(List<ValidationMessage> errors, Document document, Profile profile) throws Exception;
+  void validate(List<ValidationMessage> errors, Document document, StructureDefinition profile) throws Exception;
 
   /**
    * Given a DOM document, return a list of errors in the resource 
@@ -160,6 +160,6 @@ public interface IResourceValidator {
    * @param profile
    * @throws Exception - if the underlying infrastructure fails (not if the resource is invalid)
    */
-  List<ValidationMessage> validate(Document document, Profile profile) throws Exception;
+  List<ValidationMessage> validate(Document document, StructureDefinition profile) throws Exception;
 
 }

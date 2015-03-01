@@ -19,7 +19,7 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
@@ -62,9 +62,9 @@ public class ProfileTagger implements Tagger {
 	      if (next != null)
 	        feed = client.fetchFeed(next);
 	      else
-	        feed = client.history(Profile.class);
+	        feed = client.history(StructureDefinition.class);
 	      for (BundleEntryComponent e : feed.getEntry())
-	      	seeProfile(e.hasBase() ? e.getBase() : feed.getBase(), (Profile) e.getResource());
+	      	seeProfile(e.hasBase() ? e.getBase() : feed.getBase(), (StructureDefinition) e.getResource());
         next = ResourceUtilities.getLink(feed, "next");
 	      i++;
 	  } while (next != null);
@@ -84,20 +84,20 @@ public class ProfileTagger implements Tagger {
   }
 
 	@SuppressWarnings("unchecked")
-  private void seeProfile(String base, Profile p) throws Exception {
+  private void seeProfile(String base, StructureDefinition p) throws Exception {
 		if (isValidAgainstBase(p, loadAsXml(p), p.getId())) {
 			Resource cached = cache.get(p.getResourceType().toString()+"#"+ p.getId());
 			if (cached == null || cached.getMeta().getLastUpdated().before(p.getMeta().getLastUpdated())) {
 				cache.put(p.getResourceType().toString()+"#"+ p.getId(), p);
-				validator.getContext().seeProfile(base, (Profile) p);
+				validator.getContext().seeProfile(base, (StructureDefinition) p);
 			}
 		}
   }
 
 	@Override
 	public void process(String base, Resource entry, Meta tags, Meta added, Meta deleted) throws Exception  {
-		if (entry instanceof Profile)
-			seeProfile(base, (Profile) entry);
+		if (entry instanceof StructureDefinition)
+			seeProfile(base, (StructureDefinition) entry);
 		if (entry instanceof ValueSet)
 			seeValueSet(base, (ValueSet) entry);
 
@@ -111,13 +111,13 @@ public class ProfileTagger implements Tagger {
 		}
 
 		for (String n : validator.getContext().getProfiles().keySet()) {
-			Profile p = validator.getContext().getProfiles().get(n);
+			StructureDefinition p = validator.getContext().getProfiles().get(n);
 
 			try {
 				if (p.getUrl() != null && !p.getUrl().equals("http://hl7.org/fhir/profile/"+doc.getDocumentElement().getLocalName().toLowerCase())) {
 					boolean valid = check(doc, p, null);
 					if (valid) 
-						added.getTag().add(new Coding()); // todo-bundle "http://hl7.org/fhir/tag/profile", n, "Profile "+p.getName()));
+						added.getTag().add(new Coding()); // todo-bundle "http://hl7.org/fhir/tag/profile", n, "StructureDefinition "+p.getName()));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -126,7 +126,7 @@ public class ProfileTagger implements Tagger {
 	}
 
 
-	private boolean check(Document doc, Profile p, String id) throws Exception {
+	private boolean check(Document doc, StructureDefinition p, String id) throws Exception {
 	  List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
 	  validator.validate(errors, doc.getDocumentElement(), p);
 	  int i = 0;
@@ -143,9 +143,9 @@ public class ProfileTagger implements Tagger {
 
 	private boolean isValidAgainstBase(Resource r, Document doc, String id) throws Exception {
 	  String name = doc.getDocumentElement().getLocalName();
-	  Profile p = validator.getContext().getProfiles().get(name);
+	  StructureDefinition p = validator.getContext().getProfiles().get(name);
 	  if (p == null)
-	  	throw new Exception("unable to find Profile for "+name);
+	  	throw new Exception("unable to find StructureDefinition for "+name);
 	  new XmlParser().compose(new FileOutputStream("c:\\temp\\resource.xml"), r, true);
 	  if (p != null)
 	  	new XmlParser().compose(new FileOutputStream("c:\\temp\\profile.xml"), p, true);

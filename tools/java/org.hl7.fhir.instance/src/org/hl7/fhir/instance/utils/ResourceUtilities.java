@@ -124,13 +124,13 @@ public class ResourceUtilities {
       } else if (col.equals("DataElement.binding")) {
         v = renderBinding(de.getBinding());
       } else if (col.equals("DataElement.minValue")) {
-        v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/ExtensionDefinition/minValue") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/ExtensionDefinition/minValue").asStringValue()) : "";
+        v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/StructureDefinition/minValue") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/StructureDefinition/minValue").asStringValue()) : "";
       } else if (col.equals("DataElement.maxValue")) {
-        v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/ExtensionDefinition/maxValue") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/ExtensionDefinition/maxValue").asStringValue()) : "";
+        v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/StructureDefinition/maxValue") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/StructureDefinition/maxValue").asStringValue()) : "";
       } else if (col.equals("DataElement.maxLength")) {
-        v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/ExtensionDefinition/maxLength") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/ExtensionDefinition/maxLength").asStringValue()) : "";
+        v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/StructureDefinition/maxLength") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/StructureDefinition/maxLength").asStringValue()) : "";
       } else if (col.equals("DataElement.mask")) {
-        v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/ExtensionDefinition/mask") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/ExtensionDefinition/mask").asStringValue()) : "";
+        v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/StructureDefinition/mask") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/StructureDefinition/mask").asStringValue()) : "";
       } else 
         throw new Error("Unknown column name: "+col);
 
@@ -204,19 +204,19 @@ public class ResourceUtilities {
       results.add("DataElement.binding");
       b.append("<td><b>Binding</b></td>");
     }
-    if (hasExtension(bundle, "http://hl7.org/fhir/ExtensionDefinition/minValue")) {
+    if (hasExtension(bundle, "http://hl7.org/fhir/StructureDefinition/minValue")) {
       results.add("DataElement.minValue");
       b.append("<td><b>Min Value</b></td>");
     }
-    if (hasExtension(bundle, "http://hl7.org/fhir/ExtensionDefinition/maxValue")) {
+    if (hasExtension(bundle, "http://hl7.org/fhir/StructureDefinition/maxValue")) {
       results.add("DataElement.maxValue");
       b.append("<td><b>Max Value</b></td>");
     }
-    if (hasExtension(bundle, "http://hl7.org/fhir/ExtensionDefinition/maxLength")) {
+    if (hasExtension(bundle, "http://hl7.org/fhir/StructureDefinition/maxLength")) {
       results.add("DataElement.maxLength");
       b.append("<td><b>Max Length</b></td>");
     }
-    if (hasExtension(bundle, "http://hl7.org/fhir/ExtensionDefinition/mask")) {
+    if (hasExtension(bundle, "http://hl7.org/fhir/StructureDefinition/mask")) {
       results.add("DataElement.mask");
       b.append("<td><b>Mask</b></td>");
     }

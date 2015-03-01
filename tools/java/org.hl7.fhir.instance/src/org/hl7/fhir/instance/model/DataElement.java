@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
@@ -44,92 +45,6 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="DataElement", profile="http://hl7.org/fhir/Profile/DataElement")
 public class DataElement extends DomainResource {
-
-    public enum ResourceObservationDefStatus {
-        /**
-         * This data element is still under development.
-         */
-        DRAFT, 
-        /**
-         * This data element is ready for normal use.
-         */
-        ACTIVE, 
-        /**
-         * This data element has been deprecated, withdrawn or superseded and should no longer be used.
-         */
-        RETIRED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ResourceObservationDefStatus fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("retired".equals(codeString))
-          return RETIRED;
-        throw new Exception("Unknown ResourceObservationDefStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "This data element is still under development.";
-            case ACTIVE: return "This data element is ready for normal use.";
-            case RETIRED: return "This data element has been deprecated, withdrawn or superseded and should no longer be used.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ResourceObservationDefStatusEnumFactory implements EnumFactory<ResourceObservationDefStatus> {
-    public ResourceObservationDefStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return ResourceObservationDefStatus.DRAFT;
-        if ("active".equals(codeString))
-          return ResourceObservationDefStatus.ACTIVE;
-        if ("retired".equals(codeString))
-          return ResourceObservationDefStatus.RETIRED;
-        throw new IllegalArgumentException("Unknown ResourceObservationDefStatus code '"+codeString+"'");
-        }
-    public String toCode(ResourceObservationDefStatus code) {
-      if (code == ResourceObservationDefStatus.DRAFT)
-        return "draft";
-      if (code == ResourceObservationDefStatus.ACTIVE)
-        return "active";
-      if (code == ResourceObservationDefStatus.RETIRED)
-        return "retired";
-      return "?";
-      }
-    }
 
     public enum DataelementGranularity {
         /**
@@ -1147,7 +1062,7 @@ public class DataElement extends DomainResource {
      */
     @Child(name="status", type={CodeType.class}, order=5, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the data element." )
-    protected Enumeration<ResourceObservationDefStatus> status;
+    protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
@@ -1282,13 +1197,13 @@ public class DataElement extends DomainResource {
     @Description(shortDefinition="Map element to another set of definitions", formalDefinition="Identifies a concept from an external specification that roughly corresponds to this element." )
     protected List<DataElementMappingComponent> mapping;
 
-    private static final long serialVersionUID = -714667578L;
+    private static final long serialVersionUID = -446633276L;
 
     public DataElement() {
       super();
     }
 
-    public DataElement(Enumeration<ResourceObservationDefStatus> status) {
+    public DataElement(Enumeration<ConformanceResourceStatus> status) {
       super();
       this.status = status;
     }
@@ -1497,12 +1412,12 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #status} (The status of the data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ResourceObservationDefStatus> getStatusElement() { 
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ResourceObservationDefStatus>(new ResourceObservationDefStatusEnumFactory()); // bb
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1517,7 +1432,7 @@ public class DataElement extends DomainResource {
     /**
      * @param value {@link #status} (The status of the data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DataElement setStatusElement(Enumeration<ResourceObservationDefStatus> value) { 
+    public DataElement setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1525,16 +1440,16 @@ public class DataElement extends DomainResource {
     /**
      * @return The status of the data element.
      */
-    public ResourceObservationDefStatus getStatus() { 
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the data element.
      */
-    public DataElement setStatus(ResourceObservationDefStatus value) { 
+    public DataElement setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ResourceObservationDefStatus>(new ResourceObservationDefStatusEnumFactory());
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }

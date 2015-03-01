@@ -1,6 +1,6 @@
 package org.hl7.fhir.definitions.model;
 
-import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.StructureDefinition;
 
 public class ProfiledType {
   private String name;
@@ -9,7 +9,7 @@ public class ProfiledType {
   private String baseType;
 
   private Invariant invariant;
-  private Profile profile;
+  private StructureDefinition profile;
   
 
   public String getName() {
@@ -44,10 +44,10 @@ public class ProfiledType {
   public void setInvariant(Invariant invariant) {
     this.invariant = invariant;
   }
-  public Profile getProfile() {
+  public StructureDefinition getProfile() {
     return profile;
   }
-  public void setProfile(Profile profile) {
+  public void setProfile(StructureDefinition profile) {
     this.profile = profile;
   }
   

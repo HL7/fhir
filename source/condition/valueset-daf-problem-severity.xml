@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-problem-severity"/>
-  <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.6.8"/>
   </extension>
   <url value="http://hl7.org/fhir/vs/daf-problem-severity"/>
