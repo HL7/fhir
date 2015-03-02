@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="qicore-intro"> </a> 
+
+<h1>Introduction</h1>
+<p>
+The Quality Improvement Core (QICore) model is an initiative of the Clinical Quality Information (CQI) and Clinical Decision Support (CDS) HL7 Working Groups. QICore defines a set of FHIR profiles with extensions and bindings needed to create for interoperable quality applications. 
+</p> 
+<p>
+QICore provides a physical implementation of the Quality Information and Clinical Knowledge (QUICK) logical model. Future authors of quality measures and clinical decision support rules will use QUICK, together with the Clinical Quality Language (CQL), to create interoperable knowledge artifacts. QICore defines a FHIR-based pathway toward execution of these artifacts. Note that the use of the QICore FHIR profiles is not required, and implementations based on QUICK and CQL that do not involve FHIR are feasible, acceptable, and anticipated. 
+</p>
+
+<h2>Initiative Overview</h2>
+<p>
+This project is part of the effort to align the HL7 Product Family in the area of health quality improvement. The goal is to have a single logical data model, as well as a single logical processing language, for clinical decision support (CDS) and clinical quality measurement (CQM). This alignment will lessen the cost and complexity for product developers and vendors, reduce the learning curve, and consolidate efforts to maintain multiple standards.  
+</p>
+<p>
+This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the HL7 Virtual Medical Record for Clinical Decision Support (vMR) and QDM as sources of requirements. QIDAM gave rise to the QUICK logical model in 2014. Recognizing the community focus on FHIR, efforts were made to align QUICK as closely as possible to FHIR. This alignment has enabled the QICore to align closely to QUICK. This alignment reduces the complexity of the bidirectional mapping between QUICK and QICore. It will also make it easier in the future to leverage other FHIR-related efforts, such as CDA on FHIR. In summary, the conceptual, logical, and physical models in the initiative are QIDAM, QUICK, and QICore.
+</p> 
+<h2>Implementation Guide</h2>
+<p> The QICore FHIR Implementation Guide provides requirements and guidance on the use of FHIR in quality measurement and decision support. The profiles in this implementation guide will be used to meet QICore project objectives of:
+</p>
+<ul>
+  <li>Encouraging consistency around how quality application use and access data, across organizations between healthcare systems,</li>
+  <li>Providing guidance for consistent use of vocabularies and value sets, and</li>
+  <li>Standardizing the requirements for data servers and data consumers (client) that exchange quality-related clinical data needed for calculation of quality measures and decision support.</li>
+</ul>
+
+<h2>Out of Scope</h2>
+<p>
+This IG is limited in scope and deals only with representation of clinical data. It is limited in breadth to the profiles currently included in QICore. The current set of profiles might be extended with additional elements in the future, and additional profiles may be added at a later time. The following topics explicitly out of scope for this implementation guide:
+<ul>
+  <li>Representing knowledge artifacts, analogous to HQMF</li>
+  <li>Representation of patient-data documents, analogous to QRDA Cat I</li>
+  <li>Representation of documents containing results of quality measures, analogous to QRDA Cat III</li>
+  <li>Specifying implementation platforms or languages for QICore</li>
+</ul>
+In addition, the IG does not discuss discuss extending the QICore profiles, nor security and privacy considerations.
+</p>
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>
