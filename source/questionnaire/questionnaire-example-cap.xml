@@ -15,7 +15,8 @@
     In practice, the same codes could appear in multiple code systems and have a distinct meaning and name in
     each. -->
   <contained>
-    <ValueSet id="margin-status">
+    <ValueSet>
+      <id value="margin-status"/>
       <status value="active"/>
       <define>
         <!-- This looks like it should be SNOMED, but not sure what the codes are -->
@@ -42,7 +43,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="margin-distance">
+    <ValueSet>
+      <id value="margin-distance"/>
       <status value="active"/>
       <define>
         <system value="http://cap.org/example/fhir/margin-distance"/>
@@ -58,7 +60,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="margin">
+    <ValueSet>
+      <id value="margin"/>
       <status value="active"/>
       <define>
         <system value="http://cap.org/example/fhir/margin"/>
@@ -74,7 +77,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="involved-margins">
+    <ValueSet>
+      <id value="involved-margins"/>
       <status value="active"/>
       <define>
         <system value="http://cap.org/example/fhir/involved-margins"/>
@@ -90,7 +94,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="effect">
+    <ValueSet>
+      <id value="effect"/>
       <status value="active"/>
       <define>
         <system value="http://cap.org/example/fhir/treatment-effect"/>
@@ -110,7 +115,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="tumor">
+    <ValueSet>
+      <id value="tumor"/>
       <status value="active"/>
       <define>
         <system value="http://cap.org/example/fhir/tumor-description"/>
@@ -134,7 +140,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="invasion">
+    <ValueSet>
+      <id value="invasion"/>
       <status value="active"/>
       <define>
         <system value="http://cap.org/example/fhir/tumor-invasion"/>

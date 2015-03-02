@@ -12,11 +12,13 @@ import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.DataElement;
-import org.hl7.fhir.instance.model.DataElement.DataElementBindingComponent;
 import org.hl7.fhir.instance.model.DataElement.DataElementContactComponent;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.ExtensionHelper;
 import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -116,19 +118,19 @@ public class ResourceUtilities {
       } else if (col.equals("DataElement.status")) {
         v = de.hasStatusElement() ? de.getStatusElement().asStringValue() : "";
       } else if (col.equals("DataElement.code")) {
-        v = renderCoding(de.getCode());
+        v = renderCoding(de.getElement().get(0).getCode());
       } else if (col.equals("DataElement.type")) {
-        v = de.hasType() ? Utilities.escapeXml(de.getType()) : "";
+        v = de.getElement().get(0).hasType() ? Utilities.escapeXml(de.getElement().get(0).getType().get(0).getCode()) : "";
       } else if (col.equals("DataElement.units")) {
-        v = renderDEUnits(de.getUnits());
+      	v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits") ? Utilities.escapeXml(ToolingExtensions.readStringExtension(de, "http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits")) : "";
       } else if (col.equals("DataElement.binding")) {
-        v = renderBinding(de.getBinding());
+        v = renderBinding(de.getElement().get(0).getBinding());
       } else if (col.equals("DataElement.minValue")) {
         v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/StructureDefinition/minValue") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/StructureDefinition/minValue").asStringValue()) : "";
       } else if (col.equals("DataElement.maxValue")) {
         v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/StructureDefinition/maxValue") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/StructureDefinition/maxValue").asStringValue()) : "";
       } else if (col.equals("DataElement.maxLength")) {
-        v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/StructureDefinition/maxLength") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/StructureDefinition/maxLength").asStringValue()) : "";
+        v = "" + de.getElement().get(0).getMaxLength();
       } else if (col.equals("DataElement.mask")) {
         v = ToolingExtensions.hasExtension(de, "http://hl7.org/fhir/StructureDefinition/mask") ? Utilities.escapeXml(ToolingExtensions.readPrimitiveExtension(de, "http://hl7.org/fhir/StructureDefinition/mask").asStringValue()) : "";
       } else 
@@ -142,7 +144,7 @@ public class ResourceUtilities {
   }
 
   
-  private static String renderBinding(DataElementBindingComponent binding) {
+  private static String renderBinding(ElementDefinitionBindingComponent binding) {
     return "todo";  
   }
 
@@ -192,7 +194,7 @@ public class ResourceUtilities {
       results.add("DataElement.code");
       b.append("<td><b>Code</b></td>");
     }
-    if (!common.hasType() && hasType(bundle)) {
+    if (!common.getElement().get(0).hasType() && hasType(bundle)) {
       results.add("DataElement.type");
       b.append("<td><b>Type</b></td>");
     }
@@ -229,7 +231,7 @@ public class ResourceUtilities {
   private static boolean hasExtension(Bundle bundle, String url) {
     for (BundleEntryComponent e : bundle.getEntry()) {
       DataElement de = (DataElement) e.getResource();
-      if (ToolingExtensions.hasExtension(de, url))
+      if (ToolingExtensions.hasExtension(de, url) || ExtensionHelper.hasExtension(de.getElement().get(0), url))
         return true;
     }
     return false;
@@ -238,7 +240,7 @@ public class ResourceUtilities {
   private static boolean hasBinding(Bundle bundle) {
     for (BundleEntryComponent e : bundle.getEntry()) {
       DataElement de = (DataElement) e.getResource();
-      if (de.hasBinding())
+      if (de.getElement().get(0).hasBinding())
         return true;
     }
     return false;
@@ -247,7 +249,7 @@ public class ResourceUtilities {
   private static boolean hasCode(Bundle bundle) {
     for (BundleEntryComponent e : bundle.getEntry()) {
       DataElement de = (DataElement) e.getResource();
-      if (de.hasCode())
+      if (de.getElement().get(0).hasCode())
         return true;
     }
     return false;
@@ -256,7 +258,7 @@ public class ResourceUtilities {
   private static boolean hasType(Bundle bundle) {
     for (BundleEntryComponent e : bundle.getEntry()) {
       DataElement de = (DataElement) e.getResource();
-      if (de.hasType())
+      if (de.getElement().get(0).hasType())
         return true;
     }
     return false;
@@ -265,7 +267,7 @@ public class ResourceUtilities {
   private static boolean hasUnits(Bundle bundle) {
     for (BundleEntryComponent e : bundle.getEntry()) {
       DataElement de = (DataElement) e.getResource();
-      if (de.hasUnits())
+      if (ExtensionHelper.hasExtension(de.getElement().get(0), "http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits"))
         return true;
     }
     return false;
@@ -278,7 +280,7 @@ public class ResourceUtilities {
     meta.getContact().addAll(prototype.getContact());
     meta.setStatus(prototype.getStatus());
     meta.setDate(prototype.getDate());
-    meta.setType(prototype.getType());
+    meta.addElement().addType().setCode(prototype.getElement().get(0).getType().get(0).getCode());
 
     for (BundleEntryComponent e : bundle.getEntry()) {
       DataElement de = (DataElement) e.getResource();
@@ -290,10 +292,10 @@ public class ResourceUtilities {
         meta.setStatusElement(null);
       if (!Base.compareDeep(de.getDateElement(), meta.getDateElement(), false))
         meta.setDateElement(null);
-      if (!Base.compareDeep(de.getTypeElement(), meta.getTypeElement(), false))
-        meta.setTypeElement(null);
+      if (!Base.compareDeep(de.getElement().get(0).getType().get(0).getCodeElement(), meta.getElement().get(0).getType().get(0).getCodeElement(), false))
+        meta.addElement().addType();
     }
-    if (meta.hasPublisher() || meta.hasContact() || meta.hasStatus() || meta.hasDate() || meta.hasType()) {
+    if (meta.hasPublisher() || meta.hasContact() || meta.hasStatus() || meta.hasDate() || meta.getElement().get(0).hasType()) {
       b.append("<table class=\"grid\">\r\n"); 
       if (meta.hasPublisher())
         b.append("<tr><td>Publisher:</td><td>"+meta.getPublisher()+"</td></tr>\r\n");
@@ -322,8 +324,8 @@ public class ResourceUtilities {
         b.append("<tr><td>Status:</td><td>"+meta.getStatus().toString()+"</td></tr>\r\n");
       if (meta.hasDate())
         b.append("<tr><td>Date:</td><td>"+meta.getDateElement().asStringValue()+"</td></tr>\r\n");
-      if (meta.hasType())
-        b.append("<tr><td>Type:</td><td>"+meta.getType()+"</td></tr>\r\n");
+      if (meta.getElement().get(0).hasType())
+        b.append("<tr><td>Type:</td><td>"+meta.getElement().get(0).getType().get(0).getCode()+"</td></tr>\r\n");
       b.append("</table>\r\n"); 
     }  
     return meta;

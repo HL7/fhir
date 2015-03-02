@@ -643,7 +643,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="9"/>
               </extension>
               <linkId value="Medication/DE2"/>
@@ -669,7 +669,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="1"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="30"/>
                 </extension>
                 <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -692,7 +692,7 @@
                     <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                       <valueInteger value="7"/>
                     </extension>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                       <valueInteger value="65"/>
                     </extension>
                     <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -715,7 +715,7 @@
                         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                           <valueInteger value="0"/>
                         </extension>
-                        <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                           <valueInteger value="500"/>
                         </extension>
                         <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -739,7 +739,7 @@
                     <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                       <valueInteger value="8"/>
                     </extension>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                       <valueInteger value="65"/>
                     </extension>
                     <linkId value="Medication/DE279"/>
@@ -915,7 +915,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE318"/>
@@ -926,7 +926,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE319"/>
@@ -937,7 +937,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE321"/>
@@ -948,7 +948,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE322"/>
@@ -959,7 +959,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE324"/>
@@ -970,7 +970,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE327"/>
@@ -981,7 +981,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE328"/>
@@ -992,7 +992,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE330"/>
@@ -1003,7 +1003,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE331"/>
@@ -1255,7 +1255,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="9"/>
               </extension>
               <linkId value="HERF/DE2"/>
@@ -1687,7 +1687,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="40"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -1703,7 +1703,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="100"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -1721,7 +1721,7 @@
             <title value="Conditional Diagnosis Questions"/>
             <text value="There are business rules to indicate situations under which these elements should be used on a case report form."/>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="25"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -1745,7 +1745,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="100"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -1768,7 +1768,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="40"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -1784,7 +1784,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="10"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2299,7 +2299,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="4"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="13"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2318,7 +2318,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="5"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="41"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2347,7 +2347,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="7"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="22"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2368,7 +2368,7 @@
             <title value="Conditional Demography Questions"/>
             <text value="There are business rules to indicate situations under which these elements should be used on a case report form."/>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="15"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2381,7 +2381,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="50"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2397,7 +2397,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="75"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2420,7 +2420,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="6"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2433,7 +2433,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="6"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2451,7 +2451,7 @@
             <title value="Optional Demography Questions"/>
             <text value="There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included."/>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="44"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2467,7 +2467,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="55"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2483,7 +2483,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="50"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -2499,7 +2499,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="6"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
@@ -2515,7 +2515,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="25"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11055,7 +11055,7 @@
             <text value="Must be included when this data is collected for reporting."/>
             <required value="true"/>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="84"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11071,7 +11071,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="200"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11087,7 +11087,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="1"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11111,7 +11111,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="4"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="8"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
@@ -11130,7 +11130,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11161,7 +11161,7 @@
             <title value="Optional Adverse Event Questions"/>
             <text value="No requirement for inclusion of this element on the CRF; if the design and scientific questions posed in the study dictate the need to collect this type of data, this is the element to include on the CRF."/>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="22"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11177,7 +11177,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="60"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11190,7 +11190,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="8"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
@@ -11206,7 +11206,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="80"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11225,7 +11225,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="8"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="8"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11244,7 +11244,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="10"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11273,7 +11273,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="7"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11292,7 +11292,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11311,7 +11311,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11360,7 +11360,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11389,7 +11389,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11405,7 +11405,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="33"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11421,7 +11421,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="1"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11440,7 +11440,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11459,7 +11459,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="200"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11480,7 +11480,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="1"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -11499,7 +11499,7 @@
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/maxLength">
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
                 <valueInteger value="1"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">

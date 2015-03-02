@@ -590,7 +590,8 @@ public class XSDBaseGenerator {
             write("           <xs:element name=\"" + en + "_"
                 + upFirst(p) + "\" type=\""+ t.getName() + "_" + upFirst(p) + "\"/>\r\n");
           }
-        } else if (!definitions.getShared().contains(t.getName()) && !t.getName().equals("oid") && !t.getName().equals("uuid") && !t.getName().equals("id") ) {
+//        } else if (!definitions.getShared().contains(t.getName()) && !t.getName().equals("oid") && !t.getName().equals("uuid") && !t.getName().equals("id") ) {
+        } else if (!definitions.getShared().contains(t.getName()) && !t.getName().equals("oid") && !t.getName().equals("uuid") ) {
           write("           <xs:element name=\"" + en + "\" type=\"" + t.getName()+ "\"/>\r\n");
         }
       }

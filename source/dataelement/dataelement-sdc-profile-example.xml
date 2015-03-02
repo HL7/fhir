@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This DataElement is an example reflecting the content of row 15 of the Google document:
      https://docs.google.com/a/lmckenzie.com/spreadsheets/d/1YJ1Q10Hn_B-Yu-iIxzo28f6PsIfs4_b_-hhXsB64Vl4/edit#gid=1476288095 -->
-<DataElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir C:\Users\office\Documents\Projects\HL7Generator\FHIR2\build\publish\dataelement.xsd" xmlns="http://hl7.org/fhir">
+<DataElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/dataelement.xsd" xmlns="http://hl7.org/fhir">
   <id value="sdc-gender"/>
   <text>
-    <status value="generated"></status>
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
   </text>
   <contained>
@@ -39,59 +39,71 @@
     <value value="DE42AHRQ"/>
   </identifier>
   <version value="1.2"/>
-  <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
-  <contact>
-    <telecom>
-    <system value="email"/>
-    <value value="william.munier@ahrq.hhs.gov"/>
-  </telecom>
-  </contact>
-  <status value="draft"/>
-  <date value="2012-10-21"/>
   <name value="Patient Gender"/>
-  <category>
+  <useContext>
     <coding>
       <code value="Healthcare Event Reporting Form"/>
       <!-- Wasn't clear if the above was a code -->
       <display value="Patient safety event report - hospital: healthcare event reporting form"/>
     </coding>
-  </category>
-  <code>
-    <system value="http://loinc.org"/>
-    <code value="72143-1"/>
-    <primary value="true"/>
-  </code>
-  <question value="Patient's Gender"/>
-  <definition value="The patient's documented gender on arrival at the hospital. "/>
-  <requirements value="AHRQ Healthcare Event Reporting Form
+  </useContext>
+  <status value="draft"/>
+  <date value="2012-10-21"/>
+  <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
+  <contact>
+    <telecom>
+      <system value="email"/>
+      <value value="william.munier@ahrq.hhs.gov"/>
+    </telecom>
+  </contact>
+  <mapping>
+    <identity value="objclass"/>
+    <uri value="http://healthit.gov/sdc/objectclassproperty"/>
+    <name value="Structured Data Capture ObjectClass/Property"/>
+  </mapping>
+  <element>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
+      <valueString value="Patient's Gender"/>
+    </extension>
+    <path value="gender"/>
+    <code>
+      <system value="http://loinc.org"/>
+      <code value="72143-1"/>
+      <primary value="true"/>
+    </code>
+    <definition value="The patient's documented gender on arrival at the hospital. "/>
+    <requirements value="AHRQ Healthcare Event Reporting Form
 Patient safety event report - hospital: healthcare event reporting form
 (HERF) - version 1.2 [AHRQ]
 https://www.psoppc.org/c/document_library/get_file?uuid=6034c5aa-ad07-4dbe-ab19-0b45fb160683&amp;groupId=10218"/>
-  <type value="dateTime"/>
-  <binding>
-    <isExtensible value="false"/>
-    <conformance value="required"/>
-    <valueSet>
-      <reference value="#de42"/>
-    </valueSet>
-  </binding>
-  <mapping>
-    <extension url="http://hl7.org/fhir/StructureDefinition/11179-objectClass">
-      <valueCoding>
-        <system value="http://snomed.info/sct"/>
-        <code value="116154003"/>
-        <display value="Patient"/>
-      </valueCoding>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/11179-property">
-      <valueCoding>
-        <system value="http://snomed.info/sct"/>
-        <code value="263495000"/>
-        <display value="Gender"/>
-      </valueCoding>
-    </extension>
-    <uri value="http://healthit.gov/sdc/objectclassproperty"/>
-    <name value="Structured Data Capture ObjectClass/Property"/>
-    <map value="http://snomed.info/sct#116154003 | http://snomed.info/sct | 263495000"/>
-  </mapping>
+    <type>
+      <code value="CodeableConcept"/>
+    </type>
+    <binding>
+      <name value="Gender"/>
+      <isExtensible value="false"/>
+      <conformance value="required"/>
+      <referenceReference>
+        <reference value="#de42"/>
+      </referenceReference>
+    </binding>
+    <mapping>
+      <extension url="http://hl7.org/fhir/StructureDefinition/11179-objectClass">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="116154003"/>
+          <display value="Patient"/>
+        </valueCoding>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/11179-property">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="263495000"/>
+          <display value="Gender"/>
+        </valueCoding>
+      </extension>
+      <identity value="objclass"/>
+      <map value="http://snomed.info/sct#116154003 | http://snomed.info/sct | 263495000"/>
+    </mapping>
+  </element>
 </DataElement>
