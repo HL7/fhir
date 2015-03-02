@@ -121,6 +121,10 @@ public class BindingSpecification {
     this.usageContext = usageContext;
   }
 
+  public String getUsageContext() {
+    return usageContext;
+  }
+
   public String getId() {
     return id;
   }

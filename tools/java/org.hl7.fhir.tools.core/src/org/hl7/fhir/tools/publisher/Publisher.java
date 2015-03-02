@@ -913,7 +913,7 @@ public class Publisher implements URIResolver {
     for (BindingSpecification cd : page.getDefinitions().getBindings().values()) {
       if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference()) && cd.getReference().startsWith("http://hl7.org/fhir")) {
         if (!page.getDefinitions().getValuesets().containsKey(cd.getReference()))
-          throw new Exception("Reference " + cd.getReference() + " cannot be resolved");
+          throw new Exception(cd.getUsageContext() + " Binding " + cd.getName() + ", Reference " + cd.getReference() + " cannot be resolved");
         cd.setReferredValueSet(page.getDefinitions().getValuesets().get(cd.getReference()));
       }
     }
