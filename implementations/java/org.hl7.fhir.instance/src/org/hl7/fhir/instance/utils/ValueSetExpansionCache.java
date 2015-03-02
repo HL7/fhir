@@ -35,6 +35,7 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.client.EFhirClientException;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
@@ -83,32 +84,39 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 
   private static final String VS_ID_EXT = "http://tools/cache";
 
-	private Map<String, ValueSetExpansionOutcome> expansions = new HashMap<String, ValueSetExpansionOutcome>();
-  private WorkerContext context;
-  private String cacheFolder;
+  private final Map<String, ValueSetExpansionOutcome> expansions = new HashMap<String, ValueSetExpansionOutcome>();
+  private final WorkerContext context;
+  private final String cacheFolder;
 	
-	public ValueSetExpansionCache(WorkerContext context, String cacheFolder) throws Exception {
+  public ValueSetExpansionCache(WorkerContext context, String cacheFolder) throws Exception {
     super();
     this.context = context;
     this.cacheFolder = cacheFolder;
     if (this.cacheFolder != null)
       loadCache();
   }
-  
-	private void loadCache() throws Exception {
-	  String[] files = new File(cacheFolder).list();
-    for (String f : files) {
-      if (f.endsWith(".xml")) {
-        Resource r = new XmlParser().parse(new FileInputStream(Utilities.path(cacheFolder, f)));
-        if (r instanceof OperationOutcome) {
-          OperationOutcome oo = (OperationOutcome) r;
-          expansions.put(ToolingExtensions.getExtension(oo,VS_ID_EXT).getValue().toString(), new ValueSetExpansionOutcome(new XhtmlComposer().setXmlOnly(true).composePlainText(oo.getText().getDiv())));
-        } else {
-          ValueSet vs = (ValueSet) r; 
-          expansions.put(vs.getUrl(), new ValueSetExpansionOutcome(vs, null));
+
+  private void loadCache() throws Exception {
+        File[] files = new File(cacheFolder).listFiles();
+        // NOTE: if cacheFolder does not exist then next line will throw NullPointerException
+        for (File f : files) {
+            if (f.getName().endsWith(".xml")) {
+                final FileInputStream is = new FileInputStream(f);
+                try {
+                    Resource r = new XmlParser().parse(is);
+                    if (r instanceof OperationOutcome) {
+                        OperationOutcome oo = (OperationOutcome) r;
+                        expansions.put(ToolingExtensions.getExtension(oo, VS_ID_EXT).getValue().toString(),
+                                new ValueSetExpansionOutcome(new XhtmlComposer().setXmlOnly(true).composePlainText(oo.getText().getDiv())));
+                    } else {
+                        ValueSet vs = (ValueSet) r;
+                        expansions.put(vs.getUrl(), new ValueSetExpansionOutcome(vs, null));
+                    }
+                } finally {
+                    IOUtils.closeQuietly(is);
+                }
+            }
         }
-      }
-    }
   }
   
 	@Override
