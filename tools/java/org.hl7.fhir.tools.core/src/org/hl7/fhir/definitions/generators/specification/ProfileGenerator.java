@@ -46,6 +46,7 @@ import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.PrimitiveType;
@@ -457,7 +458,7 @@ public class ProfileGenerator {
     pathNames.clear();  
   }
 
-  public StructureDefinition generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, String usage) throws Exception {
+  public StructureDefinition generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, ImplementationGuide usage) throws Exception {
     
     try {
       return generate(pack, profile, resource, id, null, usage);
@@ -466,7 +467,7 @@ public class ProfileGenerator {
     }
   }
   
-  public StructureDefinition generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, String html, String usage) throws Exception {
+  public StructureDefinition generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, String html, ImplementationGuide usage) throws Exception {
     if (profile.getResource() != null)
       return profile.getResource();
     
@@ -481,7 +482,7 @@ public class ProfileGenerator {
     p.setAbstract(false);
 
     
-    ToolResourceUtilities.updateUsage(p, usage);
+    ToolResourceUtilities.updateUsage(p, usage.getCode());
     p.setName(pack.metadata("name"));
     p.setPublisher(pack.metadata("author.name"));
     if (pack.hasMetadata("author.reference"))
@@ -1062,8 +1063,8 @@ public class ProfileGenerator {
     return ce;
   }
 
-  public static ProfileDefn wrapProfile(StructureDefinition profile) {
-    return new ProfileDefn(profile, (String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE));
+  public ProfileDefn wrapProfile(StructureDefinition profile) throws Exception {
+    return new ProfileDefn(profile, definitions.getUsageIG((String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE), "generating profile "+profile.getId()));
   }
 
   public void convertElements(ElementDefn src, StructureDefinition ed, String path) throws Exception {

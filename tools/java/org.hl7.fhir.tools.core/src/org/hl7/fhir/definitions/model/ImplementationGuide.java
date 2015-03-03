@@ -6,6 +6,7 @@ public class ImplementationGuide {
   private String name;
   private String page;
   private boolean review;
+  
   public ImplementationGuide(String code, String name, String page, boolean review) {
     super();
     this.code = code;
@@ -13,6 +14,7 @@ public class ImplementationGuide {
     this.page = page;
     this.review = review;
   }
+  
   public String getCode() {
     return code;
   }

@@ -12,7 +12,7 @@
     <value value="http://healthcaresoa.org"/>
   </telecom>
   </contact>
-  <description value="$de_definition$"/>
+  <description value="$de_definition$"/> 
   <status value="draft"/>
   <date value="2015-02-18"/>
   <type value="constraint"/>
@@ -32,7 +32,7 @@
       <path value="Observation.valueQuantity.code"/>
       <min value="1"/>
       <max value="1"/>
-      <fixedCode value="$de_units_code0_code$"/>
+<!--      <fixedCode value="$de_units_code0_code$"/> -->
     </element>
   </differential>
 </StructureDefinition>

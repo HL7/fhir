@@ -98,7 +98,6 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 
   private void loadCache() throws Exception {
         File[] files = new File(cacheFolder).listFiles();
-        // NOTE: if cacheFolder does not exist then next line will throw NullPointerException
         for (File f : files) {
             if (f.getName().endsWith(".xml")) {
                 final FileInputStream is = new FileInputStream(f);

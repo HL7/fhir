@@ -128,6 +128,7 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
+import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptEquivalence;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
@@ -165,6 +166,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
@@ -649,7 +651,7 @@ public class Publisher implements URIResolver {
       page.log(" ...process profiles (ig)", LogMessageType.Process);
       for (Resource rd : page.getIgResources().values()) {
         if (rd instanceof StructureDefinition) {
-          ProfileDefn pd = new ProfileDefn((StructureDefinition) rd, "ig");
+          ProfileDefn pd = new ProfileDefn((StructureDefinition) rd, page.getDefinitions().getUsageIG("ig", "reading IG profiles"));
           pack.getProfiles().add(pd);
         }
       }
@@ -698,7 +700,7 @@ public class Publisher implements URIResolver {
 
   private ConformancePackage makeConformancePack(ResourceDefn r) {
     ConformancePackage result = new ConformancePackage("core");
-    result.setTitle("Base Conformance Package for "+r.getName());
+    result.setTitle("Base Profile for "+r.getName());
     return result;
   }
 
@@ -1677,7 +1679,7 @@ public class Publisher implements URIResolver {
       checkFragments();
       for (String n : page.getDefinitions().getConformancePackages().keySet()) {
         if (!n.startsWith("http://")) {
-          page.log(" ...Conformance package " + n, LogMessageType.Process);
+          page.log(" ...Profile " + n, LogMessageType.Process);
           produceConformancePackage("", page.getDefinitions().getConformancePackages().get(n));
         }
       }
@@ -1686,7 +1688,7 @@ public class Publisher implements URIResolver {
           if (ae instanceof StructureDefinition) {
             String n = Utilities.fileTitle((String) ae.getUserData("path")).replace(".xml", "");
             StructureDefinition p = (StructureDefinition) ae;
-            ProfileDefn pd = new ProfileDefn(p, "ig");
+            ProfileDefn pd = new ProfileDefn(p, page.getDefinitions().getUsageIG("ig", "reading IG profiles (2)"));
 
 
             page.log(" ...profile " + n, LogMessageType.Process);
@@ -3467,7 +3469,7 @@ public class Publisher implements URIResolver {
 
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-conformance-pack.html");
     src = page.processConformancePackageIncludes(pack, src, intro, notes);
-    page.getEpub().registerFile(pack.getId().toLowerCase() + ".html", "Conformance Package " + pack.getId(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(pack.getId().toLowerCase() + ".html", "Profile " + pack.getId(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
 
     for (Example ex : pack.getExamples()) {
@@ -3684,14 +3686,18 @@ public class Publisher implements URIResolver {
     Map<String, String> variables = new HashMap<String, String>();
     variables.put("de_id", de.getId());
     variables.put("de_name", de.getName());
-    variables.put("de_definition", Utilities.noString(de.getDefinition()) ? "??" : de.getDefinition());
-    variables.put("de_code0_code", de.getCode().get(0).getCode());
-    variables.put("de_units_code0_code", de.getUnitsCodeableConcept().getCoding().get(0).getCode());
+    variables.put("de_definition", Utilities.noString(de.getElement().get(0).getDefinition()) ? "??" : de.getElement().get(0).getDefinition());
+    variables.put("de_code0_code", de.getElement().get(0).getCode().get(0).getCode());
+    Type ucc = ToolingExtensions.getAllowedUnits(de.getElement().get(0));
+    if (ucc instanceof CodeableConcept)
+      variables.put("de_units_code0_code", ((CodeableConcept) ucc).getCoding().get(0).getCode());
+    else
+      variables.put("de_units_code0_code", "");
     String profile = processTemplate(template, variables);
     XmlParser xml = new XmlParser();
     StructureDefinition p = (StructureDefinition) xml.parse(new ByteArrayInputStream(profile.getBytes()));
     new ProfileUtilities(page.getWorkerContext()).generateSnapshot(page.getProfiles().get(p.getBase()), p, p.getBase(), p.getId(), page);
-    ProfileDefn pd = new ProfileDefn(p, "hspc"); // todo
+    ProfileDefn pd = new ProfileDefn(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation")); // todo
     pd.setId(p.getId());
     pd.setTitle(p.getName());
     ConformancePackage pack = new ConformancePackage("hspc");

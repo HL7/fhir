@@ -24,4 +24,7 @@ public class ToolResourceUtilities {
     res.setUserData(NAME_SPEC_USAGE, s);
   }
 
+  public static String getUsage(Resource res) {
+    return (String) res.getUserData(NAME_SPEC_USAGE);
+  }
 }

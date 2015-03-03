@@ -48,32 +48,6 @@ import org.hl7.fhir.utilities.CSFileInputStream;
  */
 public class WorkerContext {
 
-	public static class ExtensionStructureResult {
-	  private StructureDefinition ex;
-    private ElementDefinition ed;
-    private String path;
-
-    public ExtensionStructureResult(StructureDefinition ex, ElementDefinition ed, String path) {
-	    super();
-	    this.ex = ex;
-	    this.ed = ed;
-	    this.path = path;
-	  }
-
-    public StructureDefinition getStructureDefinition() {
-      return ex;
-    }
-
-    public ElementDefinition getElementDefinition() {
-      return ed;
-    }
-
-    public boolean isLocal() {
-      return path.contains(".");
-    }
-
-  }
-
 	private ITerminologyServices terminologyServices = new NullTerminologyServices();
   private IFHIRClient client = new NullClient();
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
@@ -397,34 +371,16 @@ public class WorkerContext {
 
   }
 
-  public ExtensionStructureResult getExtensionStructure(ExtensionStructureResult context, String url) throws Exception {
-	  if (context != null && (!url.startsWith("http:") || !url.startsWith("https:"))) {
-		  String path = context.path+"."+url;
-		  ElementDefinition match = null;
-		  for (ElementDefinition ed : context.ex.getSnapshot().getElement()) {
-			  if (ed.getPath().equals(path))
-				  match  = ed;
-		  }
-		  return match == null ? null : new ExtensionStructureResult(context.ex, match, path);	    
-	  } else if (url.contains("#")) {
-		  String[] parts = url.split("\\#");
-		  StructureDefinition res = extensionDefinitions.get(parts[0]);
-		  if (res == null)
-			  return null;
-		  String path = "Extension."+parts[1];
-		  ElementDefinition match = null;
-		  for (ElementDefinition ed : res.getSnapshot().getElement()) {
-			  if (ed.getPath().equals(path))
-				  match  = ed;
-		  }
-		  return match == null ? null : new ExtensionStructureResult(res, match, path);     
+  public StructureDefinition getExtensionStructure(StructureDefinition context, String url) throws Exception {
+	  if (url.startsWith("#")) {
+      throw new Error("Contained extensions not done yet");
 	  } else {
 		  StructureDefinition res = extensionDefinitions.get(url);
 		  if (res == null)
 			  return null;
 		  if (res.getSnapshot() == null || res.getSnapshot().getElement().isEmpty())
 			  throw new Exception("no snapshot on extension for url "+url);
-		  return new ExtensionStructureResult(res, res.getSnapshot().getElement().get(0), res.getSnapshot().getElement().get(0).getPath());
+		  return res;
 	  }
   }
 

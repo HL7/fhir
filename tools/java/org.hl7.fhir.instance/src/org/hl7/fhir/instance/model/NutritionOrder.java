@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -63,17 +63,25 @@ public class NutritionOrder extends DomainResource {
          */
         ACTIVE, 
         /**
-         * ???.
-         */
-        INACTIVE, 
-        /**
          * Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called "suspended".
          */
-        HELD, 
+        ONHOLD, 
         /**
-         * ???.
+         * All actions that are implied by the prescription have occurred (this will rarely be made explicit).
          */
-        CANCELLED, 
+        COMPLETED, 
+        /**
+         * The prescription was entered in error and therefore nullified.
+         */
+        ENTEREDINERROR, 
+        /**
+         * Actions implied by the prescription have been permanently halted, before all of them occurred.
+         */
+        STOPPED, 
+        /**
+         * The prescription was replaced by a newer one, which encompasses all the information in the previous one.
+         */
+        SUPERCEDED, 
         /**
          * added to help the parsers
          */
@@ -89,12 +97,16 @@ public class NutritionOrder extends DomainResource {
           return REQUESTED;
         if ("active".equals(codeString))
           return ACTIVE;
-        if ("inactive".equals(codeString))
-          return INACTIVE;
-        if ("held".equals(codeString))
-          return HELD;
-        if ("cancelled".equals(codeString))
-          return CANCELLED;
+        if ("on-hold".equals(codeString))
+          return ONHOLD;
+        if ("completed".equals(codeString))
+          return COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if ("stopped".equals(codeString))
+          return STOPPED;
+        if ("superceded".equals(codeString))
+          return SUPERCEDED;
         throw new Exception("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
         public String toCode() {
@@ -103,9 +115,11 @@ public class NutritionOrder extends DomainResource {
             case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case ACTIVE: return "active";
-            case INACTIVE: return "inactive";
-            case HELD: return "held";
-            case CANCELLED: return "cancelled";
+            case ONHOLD: return "on-hold";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered-in-error";
+            case STOPPED: return "stopped";
+            case SUPERCEDED: return "superceded";
             default: return "?";
           }
         }
@@ -115,9 +129,11 @@ public class NutritionOrder extends DomainResource {
             case PLANNED: return "";
             case REQUESTED: return "";
             case ACTIVE: return "";
-            case INACTIVE: return "";
-            case HELD: return "";
-            case CANCELLED: return "";
+            case ONHOLD: return "";
+            case COMPLETED: return "";
+            case ENTEREDINERROR: return "";
+            case STOPPED: return "";
+            case SUPERCEDED: return "";
             default: return "?";
           }
         }
@@ -127,9 +143,11 @@ public class NutritionOrder extends DomainResource {
             case PLANNED: return "The request has been planned.";
             case REQUESTED: return "The request has been placed.";
             case ACTIVE: return "The request is 'actionable', but not all actions that are implied by it have occurred yet.";
-            case INACTIVE: return "???.";
-            case HELD: return "Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called 'suspended'.";
-            case CANCELLED: return "???.";
+            case ONHOLD: return "Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called 'suspended'.";
+            case COMPLETED: return "All actions that are implied by the prescription have occurred (this will rarely be made explicit).";
+            case ENTEREDINERROR: return "The prescription was entered in error and therefore nullified.";
+            case STOPPED: return "Actions implied by the prescription have been permanently halted, before all of them occurred.";
+            case SUPERCEDED: return "The prescription was replaced by a newer one, which encompasses all the information in the previous one.";
             default: return "?";
           }
         }
@@ -139,9 +157,11 @@ public class NutritionOrder extends DomainResource {
             case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case ACTIVE: return "active";
-            case INACTIVE: return "inactive";
-            case HELD: return "held";
-            case CANCELLED: return "cancelled";
+            case ONHOLD: return "on-hold";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered-in-error";
+            case STOPPED: return "stopped";
+            case SUPERCEDED: return "superceded";
             default: return "?";
           }
         }
@@ -160,12 +180,16 @@ public class NutritionOrder extends DomainResource {
           return NutritionOrderStatus.REQUESTED;
         if ("active".equals(codeString))
           return NutritionOrderStatus.ACTIVE;
-        if ("inactive".equals(codeString))
-          return NutritionOrderStatus.INACTIVE;
-        if ("held".equals(codeString))
-          return NutritionOrderStatus.HELD;
-        if ("cancelled".equals(codeString))
-          return NutritionOrderStatus.CANCELLED;
+        if ("on-hold".equals(codeString))
+          return NutritionOrderStatus.ONHOLD;
+        if ("completed".equals(codeString))
+          return NutritionOrderStatus.COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return NutritionOrderStatus.ENTEREDINERROR;
+        if ("stopped".equals(codeString))
+          return NutritionOrderStatus.STOPPED;
+        if ("superceded".equals(codeString))
+          return NutritionOrderStatus.SUPERCEDED;
         throw new IllegalArgumentException("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
     public String toCode(NutritionOrderStatus code) {
@@ -177,12 +201,16 @@ public class NutritionOrder extends DomainResource {
         return "requested";
       if (code == NutritionOrderStatus.ACTIVE)
         return "active";
-      if (code == NutritionOrderStatus.INACTIVE)
-        return "inactive";
-      if (code == NutritionOrderStatus.HELD)
-        return "held";
-      if (code == NutritionOrderStatus.CANCELLED)
-        return "cancelled";
+      if (code == NutritionOrderStatus.ONHOLD)
+        return "on-hold";
+      if (code == NutritionOrderStatus.COMPLETED)
+        return "completed";
+      if (code == NutritionOrderStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      if (code == NutritionOrderStatus.STOPPED)
+        return "stopped";
+      if (code == NutritionOrderStatus.SUPERCEDED)
+        return "superceded";
       return "?";
       }
     }
@@ -750,7 +778,14 @@ public class NutritionOrder extends DomainResource {
         @Description(shortDefinition="Amount of the nutritional supplement", formalDefinition="The amount of the nutritional supplement product to provide to the patient." )
         protected Quantity quantity;
 
-        private static final long serialVersionUID = -608233691L;
+        /**
+         * Additional instructions or information pertaining to the oral supplement.
+         */
+        @Child(name="instruction", type={StringType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Instructions or additional information about the oral supplement", formalDefinition="Additional instructions or information pertaining to the oral supplement." )
+        protected StringType instruction;
+
+        private static final long serialVersionUID = 952780616L;
 
       public NutritionOrderSupplementComponent() {
         super();
@@ -877,12 +912,62 @@ public class NutritionOrder extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #instruction} (Additional instructions or information pertaining to the oral supplement.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
+         */
+        public StringType getInstructionElement() { 
+          if (this.instruction == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create NutritionOrderSupplementComponent.instruction");
+            else if (Configuration.doAutoCreate())
+              this.instruction = new StringType(); // bb
+          return this.instruction;
+        }
+
+        public boolean hasInstructionElement() { 
+          return this.instruction != null && !this.instruction.isEmpty();
+        }
+
+        public boolean hasInstruction() { 
+          return this.instruction != null && !this.instruction.isEmpty();
+        }
+
+        /**
+         * @param value {@link #instruction} (Additional instructions or information pertaining to the oral supplement.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
+         */
+        public NutritionOrderSupplementComponent setInstructionElement(StringType value) { 
+          this.instruction = value;
+          return this;
+        }
+
+        /**
+         * @return Additional instructions or information pertaining to the oral supplement.
+         */
+        public String getInstruction() { 
+          return this.instruction == null ? null : this.instruction.getValue();
+        }
+
+        /**
+         * @param value Additional instructions or information pertaining to the oral supplement.
+         */
+        public NutritionOrderSupplementComponent setInstruction(String value) { 
+          if (Utilities.noString(value))
+            this.instruction = null;
+          else {
+            if (this.instruction == null)
+              this.instruction = new StringType();
+            this.instruction.setValue(value);
+          }
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of nutritional supplement product required such as high protein or pediatric clear liquid supplement.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("productName", "string", "The product or brand name of the nutritional supplement product to be provided to the patient.", 0, java.lang.Integer.MAX_VALUE, productName));
           childrenList.add(new Property("scheduled", "Timing", "The time period and frequency at which the supplement(s) should be given.", 0, java.lang.Integer.MAX_VALUE, scheduled));
           childrenList.add(new Property("quantity", "Quantity", "The amount of the nutritional supplement product to provide to the patient.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("instruction", "string", "Additional instructions or information pertaining to the oral supplement.", 0, java.lang.Integer.MAX_VALUE, instruction));
         }
 
       public NutritionOrderSupplementComponent copy() {
@@ -892,6 +977,7 @@ public class NutritionOrder extends DomainResource {
         dst.productName = productName == null ? null : productName.copy();
         dst.scheduled = scheduled == null ? null : scheduled.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
+        dst.instruction = instruction == null ? null : instruction.copy();
         return dst;
       }
 
@@ -903,7 +989,7 @@ public class NutritionOrder extends DomainResource {
           return false;
         NutritionOrderSupplementComponent o = (NutritionOrderSupplementComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(productName, o.productName, true) && compareDeep(scheduled, o.scheduled, true)
-           && compareDeep(quantity, o.quantity, true);
+           && compareDeep(quantity, o.quantity, true) && compareDeep(instruction, o.instruction, true);
       }
 
       @Override
@@ -913,13 +999,14 @@ public class NutritionOrder extends DomainResource {
         if (!(other instanceof NutritionOrderSupplementComponent))
           return false;
         NutritionOrderSupplementComponent o = (NutritionOrderSupplementComponent) other;
-        return compareValues(productName, o.productName, true);
+        return compareValues(productName, o.productName, true) && compareValues(instruction, o.instruction, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (productName == null || productName.isEmpty())
            && (scheduled == null || scheduled.isEmpty()) && (quantity == null || quantity.isEmpty())
-          ;
+           && (instruction == null || instruction.isEmpty());
       }
 
   }
@@ -1552,7 +1639,7 @@ public class NutritionOrder extends DomainResource {
      * The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.
      */
     @Child(name="status", type={CodeType.class}, order=11, min=0, max=1)
-    @Description(shortDefinition="proposed | planned | requested | active | inactive | held | cancelled", formalDefinition="The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended." )
+    @Description(shortDefinition="proposed | planned | requested | active | on-hold | completed | entered-in-error | stopped | superceded", formalDefinition="The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended." )
     protected Enumeration<NutritionOrderStatus> status;
 
     private static final long serialVersionUID = -966362649L;

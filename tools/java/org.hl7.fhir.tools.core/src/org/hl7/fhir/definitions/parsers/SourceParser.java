@@ -44,6 +44,7 @@ import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
@@ -54,6 +55,7 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
+import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Compartment;
@@ -86,6 +88,7 @@ import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.Composition;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
@@ -311,13 +314,23 @@ public class SourceParser {
   }
 
 
-  private void loadIgs() {
-    if (ini.getPropertyNames("igs") != null) {
-      for (String n : ini.getPropertyNames("igs")) {
-        definitions.getIgs().put(n, new ImplementationGuide(n, ini.getStringProperty("igs", n), ini.getStringProperty("ig-pages", n), ini.getBooleanProperty("ig-review", n)));        
+  private void loadIgs() throws Exception {
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(true); 
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document xdoc = builder.parse(new CSFileInputStream(srcDir + "igs.xml"));
+    Element root = xdoc.getDocumentElement();
+    if (root.getNodeName().equals("igs")) {
+      Element ig = XMLUtil.getFirstChild(root);
+      while (ig != null) {
+        if (ig.getNodeName().equals("ig")) {
+          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), "1".equals(ig.getAttribute("review")));
+          definitions.getIgs().put(igg.getCode(), igg);
+          definitions.getSortedIgs().add(igg);
+        }
+        ig = XMLUtil.getNextSibling(ig);
       }
     }
-  
   }
 
 
@@ -469,7 +482,7 @@ public class SourceParser {
 	      pack.setSource(spreadsheet.getAbsolutePath());
 	      pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
         packs.put(n, pack);
-	      sparser.parseConformancePackage(pack, definitions, Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()));
+	      sparser.parseConformancePackage(pack, definitions, Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()), pack.getCategory());
 	    } catch (Exception e) {
 	      throw new Exception("Error Parsing StructureDefinition: '"+n+"': "+e.getMessage(), e);
 	    }
@@ -485,17 +498,21 @@ public class SourceParser {
     try {
       Resource rf = new XmlParser().parse(new CSFileInputStream(file));
       if (!(rf instanceof Bundle))
-        throw new Exception("Error parsing Conformance package: neither a spreadsheet nor a bundle");
+        throw new Exception("Error parsing Profile: neither a spreadsheet nor a bundle");
       Bundle b = (Bundle) rf;
       if (b.getType() != BundleType.DOCUMENT)
-        throw new Exception("Error parsing Conformance package: neither a spreadsheet nor a bundle that is a document");
+        throw new Exception("Error parsing profile: neither a spreadsheet nor a bundle that is a document");
       for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
         String base = ae.hasBase() ? ae.getBase() : b.getBase();
         if (ae.getResource() instanceof Composition)
           pack.loadFromComposition((Composition) ae.getResource(), file.getAbsolutePath());
-        else if (ae.getResource() instanceof StructureDefinition && ((StructureDefinition) ae.getResource()).getType() != StructureDefinitionType.EXTENSION)
-          pack.getProfiles().add(new ProfileDefn((StructureDefinition) ae.getResource(), usage));
-        else if (ae.getResource() instanceof StructureDefinition) {
+        else if (ae.getResource() instanceof StructureDefinition && ((StructureDefinition) ae.getResource()).getType() != StructureDefinitionType.EXTENSION) {
+          StructureDefinition ed = (StructureDefinition) ae.getResource();
+          for (StringType s : ed.getContext())
+            definitions.checkContextValid(ed.getContextType(), s.getValue(), file.getName());
+          ToolResourceUtilities.updateUsage(ed, pack.getCategory());
+          pack.getProfiles().add(new ProfileDefn(ed, definitions.getUsageIG(usage, "Parsing "+file.getAbsolutePath())));
+        } else if (ae.getResource() instanceof StructureDefinition) {
           StructureDefinition ed = (StructureDefinition) ae.getResource();
           if (Utilities.noString(ed.getBase()))
             ed.setBase("http://hl7.org/fhir/StructureDefinition/Extension");
@@ -504,7 +521,7 @@ public class SourceParser {
         }
       }
     } catch (Exception e) {
-      throw new Exception("Error Parsing Conformance Package: '"+n+"': "+e.getMessage(), e);
+      throw new Exception("Error Parsing profile: '"+n+"': "+e.getMessage(), e);
     }
   }
 
@@ -513,7 +530,7 @@ public class SourceParser {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
       SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
-      sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()));
+      sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()), ap.getCategory());
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
       parseConformanceDocument(ap, ap.getId(), new File(ap.getSource()), ap.getCategory());
   }

@@ -41,6 +41,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
+import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.ConformancePackage;
@@ -722,7 +723,7 @@ public class SpreadsheetParser {
   }
 
 
-	public void parseConformancePackage(ConformancePackage ap, Definitions definitions, String folder) throws Exception {
+	public void parseConformancePackage(ConformancePackage ap, Definitions definitions, String folder, String usage) throws Exception {
 	  try {
 	    isProfile = true;
 	    checkMappings(ap);
@@ -744,7 +745,8 @@ public class SpreadsheetParser {
 	        }
 	      }
 	    }
-      String usage = ap.metadata("category");
+      if (!Utilities.noString(ap.metadata("category")))
+          usage = ap.metadata("category");        
       if (ap.hasMetadata("name"))
         ap.setTitle(ap.metadata("name"));
       if (ap.hasMetadata("introduction"))
@@ -867,7 +869,7 @@ public class SpreadsheetParser {
 		}
 
     resource.getRoot().setProfileName(n);
-		ProfileDefn p = new ProfileDefn(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getRoot().getProfileName(), resource, usage);
+		ProfileDefn p = new ProfileDefn(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getRoot().getProfileName(), resource, definitions.getUsageIG(usage, "Parsing "+name));
     return p;
   }
 
@@ -1210,6 +1212,7 @@ public class SpreadsheetParser {
     ex.setType(StructureDefinitionType.EXTENSION);
     ex.setBase("http://hl7.org/fhir/StructureDefinition/Extension");
     ex.setAbstract(false);
+    ToolResourceUtilities.updateUsage(ex, ap.getCategory());
 	  String name = sheet.getColumn(row, "Code");
 	  String context = null;
 	  if (Utilities.noString(name))
@@ -1225,8 +1228,10 @@ public class SpreadsheetParser {
       ex.setContextType(readContextType(sheet.getColumn(row, "Context Type"), row));
       String cc = sheet.getColumn(row, "Context");
       if (!Utilities.noString(cc))
-        for (String c : cc.split("\\;"))
+        for (String c : cc.split("\\;")) {
+          definitions.checkContextValid(ex.getContextType(), c, this.name);
           ex.addContext(c);
+        }
 	  }
 	  ex.setDisplay(sheet.getColumn(row, "Display"));
 	  

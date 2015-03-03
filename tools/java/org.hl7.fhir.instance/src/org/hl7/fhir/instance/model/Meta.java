@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -65,10 +65,10 @@ public class Meta extends Type {
     protected BooleanType deleted;
 
     /**
-     * A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.
+     * A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].
      */
     @Child(name="profile", type={UriType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Profiles this resource claims to conform to", formalDefinition="A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url." )
+    @Description(shortDefinition="Profiles this resource claims to conform to", formalDefinition="A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]." )
     protected List<UriType> profile;
 
     /**
@@ -235,7 +235,7 @@ public class Meta extends Type {
     }
 
     /**
-     * @return {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
+     * @return {@link #profile} (A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].)
      */
     public List<UriType> getProfile() { 
       if (this.profile == null)
@@ -253,7 +253,7 @@ public class Meta extends Type {
     }
 
     /**
-     * @return {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
+     * @return {@link #profile} (A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].)
      */
     // syntactic sugar
     public UriType addProfileElement() {//2 
@@ -265,7 +265,7 @@ public class Meta extends Type {
     }
 
     /**
-     * @param value {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
+     * @param value {@link #profile} (A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].)
      */
     public Meta addProfile(String value) { //1
       UriType t = new UriType();
@@ -277,7 +277,7 @@ public class Meta extends Type {
     }
 
     /**
-     * @param value {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
+     * @param value {@link #profile} (A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].)
      */
     public boolean hasProfile(String value) { 
       if (this.profile == null)
@@ -353,7 +353,7 @@ public class Meta extends Type {
         childrenList.add(new Property("versionId", "id", "The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.", 0, java.lang.Integer.MAX_VALUE, versionId));
         childrenList.add(new Property("lastUpdated", "instant", "When the resource last changed - e.g. when the version changed.", 0, java.lang.Integer.MAX_VALUE, lastUpdated));
         childrenList.add(new Property("deleted", "boolean", "Set to 'true' if the resource is deleted. Deleted resources can not be fetched via the RESTful API, but may appear in bundles for various reasons.", 0, java.lang.Integer.MAX_VALUE, deleted));
-        childrenList.add(new Property("profile", "uri", "A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.", 0, java.lang.Integer.MAX_VALUE, profile));
+        childrenList.add(new Property("profile", "uri", "A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("security", "Coding", "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.", 0, java.lang.Integer.MAX_VALUE, security));
         childrenList.add(new Property("tag", "Coding", "Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.", 0, java.lang.Integer.MAX_VALUE, tag));
       }

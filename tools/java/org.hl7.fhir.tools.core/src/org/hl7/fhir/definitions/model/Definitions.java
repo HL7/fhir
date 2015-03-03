@@ -36,6 +36,7 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.ValueSet;
 
 /**
@@ -71,7 +72,7 @@ public class Definitions {
   private Map<String, ResourceDefn> resources = new HashMap<String, ResourceDefn>();
   private Map<String, WorkGroup> workgroups = new HashMap<String, WorkGroup>();
 
-	// conformance packages not owned by a particular resource
+	// profiles not owned by a particular resource
   private Map<String, ConformancePackage> packs = new HashMap<String, ConformancePackage>();
   private Map<String, String> dictionaries = new HashMap<String, String>();
 
@@ -100,6 +101,7 @@ public class Definitions {
   private Map<String, W5Entry> w5s = new HashMap<String, W5Entry>();
   private Map<String, String> typePages = new HashMap<String, String>();
   private Map<String, ImplementationGuide> igs = new HashMap<String, ImplementationGuide>();
+  private List<ImplementationGuide> sortedIgs = new ArrayList<ImplementationGuide>();
   
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -427,6 +429,60 @@ public class Definitions {
 
   public Map<String, String> getDictionaries() {
     return dictionaries;
+  }
+
+  public List<ImplementationGuide> getSortedIgs() {
+    return sortedIgs;
+  }
+
+  public ImplementationGuide getUsageIG(String usage, String context) throws Exception {
+    if (!igs.containsKey(usage))
+      throw new Exception("Attempt to use an undefined implementation guide '"+usage+"' @ "+context);
+    return igs.get(usage);
+  }
+
+  public void checkContextValid(ExtensionContext contextType, String value, String context) throws Exception {
+    if (contextType == ExtensionContext.DATATYPE) {
+      if (value.equals("*") || value.equals("Any"))
+        return;
+      if (primitives.containsKey(value))
+        return;
+      String[] parts = value.split("\\.");
+      if (hasType(parts[0]) && getElementByPath(parts) != null)
+        return;
+      
+      throw new Error("The data type context '"+value+"' is not valid @ "+context);
+      
+    } else if (contextType == ExtensionContext.RESOURCE) {
+      if (value.equals("*") || value.equals("Any"))
+        return;
+      String[] parts = value.split("\\.");
+      if (sortedResourceNames().contains(value))
+        return;
+      if (getElementByPath(parts) != null)
+        return;
+      
+      throw new Error("The resource context '"+value+"' is not valid @ "+context);
+    } else
+    throw new Error("not checked yet @ "+context);
+    
+  }
+
+  private Object getElementByPath(String[] parts) throws Exception {
+    ElementDefn e;
+    try {
+      e = getElementDefn(parts[0]);
+    } catch (Exception e1) {
+     return null;
+    }
+    int i = 1;
+    while (e != null && i < parts.length) {
+      if (e.getAcceptableGenericTypes().isEmpty() && hasType(e.typeCode()))
+        e = getElementDefn(e.typeCode());
+      e = e.getElementByName(parts[i]);
+      i++;
+    }
+    return e;
   }
 
 

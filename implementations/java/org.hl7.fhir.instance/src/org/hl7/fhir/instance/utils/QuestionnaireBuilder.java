@@ -38,7 +38,6 @@ import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.instance.utils.WorkerContext.ExtensionStructureResult;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -951,11 +950,11 @@ public class QuestionnaireBuilder {
     private void addExtensionQuestions(StructureDefinition profile, GroupComponent group, ElementDefinition element, String path, String url, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception { 
       // if this a  profiled extension, then we add it
     	if (!Utilities.noString(url)) {
-    		ExtensionStructureResult ed =  context.getExtensionStructure(null, url);
+    		StructureDefinition ed =  context.getExtensionStructure(null, url);
     		if (ed != null) {
           if (answerGroups.size() > 0)
             throw new Exception("Debug this");
-    			buildQuestion(group, profile, ed.getElementDefinition(), path+".extension["+url+"]", answerGroups);
+    			buildQuestion(group, profile, ed.getSnapshot().getElement().get(0), path+".extension["+url+"]", answerGroups);
         }
       }
     }

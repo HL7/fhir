@@ -32,7 +32,6 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.instance.model.Type;
-import org.hl7.fhir.instance.utils.WorkerContext.ExtensionStructureResult;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
@@ -249,7 +248,7 @@ public class ProfileUtilities {
           result.getElement().add(outcome);
           baseCursor++;
           diffCursor = differential.getElement().indexOf(diffMatches.get(0))+1;
-          if (differential.getElement().size() > diffCursor && isDataType(outcome.getType())) { 
+          if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
             if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
               if (outcome.getType().size() > 1)
                 throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
@@ -998,7 +997,7 @@ public class ProfileUtilities {
     if (element != null && (!element.getConstraint().isEmpty() || !element.getCondition().isEmpty())) 
       gc.addImage("lock.png", "This element has or is affected by some invariants", "I");
   
-    ExtensionStructureResult extDefn = null;
+    StructureDefinition extDefn = null;
     if (ext) {
       if (element != null && element.getType().size() == 1 && element.getType().get(0).hasProfile()) {
         extDefn = context.getExtensionStructure(null, element.getType().get(0).getProfile());
@@ -1011,9 +1010,9 @@ public class ProfileUtilities {
             left.getPieces().get(0).setText(name);
             // left.getPieces().get(0).setReference((String) extDefn.getExtensionStructure().getTag("filename"));
             left.getPieces().get(0).setHint("Extension URL = "+element.getType().get(0).getProfile());
-            genCardinality(gen, element, row, hasDef, used, extDefn.getElementDefinition());
-            genTypes(gen, pkp, row, extDefn.getElementDefinition(), profileBaseFileName, profile);
-            generateDescription(gen, row, element, extDefn.getElementDefinition(), used.used, null, null, pkp, profile);
+            genCardinality(gen, element, row, hasDef, used, extDefn.getSnapshot().getElement().get(0));
+            genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
+            generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, null, pkp, profile);
         }
       } else {
           genCardinality(gen, element, row, hasDef, used, null);
@@ -1104,8 +1103,8 @@ public class ProfileUtilities {
       if (url != null) {
         if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
         String fullUrl = url.startsWith("#") ? baseURL+url : url;
-        ExtensionStructureResult ed = context.getExtensionStructure(null, url);
-        String ref = ed == null ? null : (String) ed.getStructureDefinition().getUserData("filename");
+        StructureDefinition ed = context.getExtensionStructure(null, url);
+        String ref = ed == null ? null : (String) ed.getUserData("filename");
         c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
         c.getPieces().add(gen.new Piece(ref, fullUrl, null));
       }

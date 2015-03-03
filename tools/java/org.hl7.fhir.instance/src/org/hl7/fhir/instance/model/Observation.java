@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 28, 2015 17:29+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -44,162 +44,6 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="Observation", profile="http://hl7.org/fhir/Profile/Observation")
 public class Observation extends DomainResource {
-
-    public enum DataAbsentReason {
-        /**
-         * The value is not known
-         */
-        UNKNOWN, 
-        /**
-         * The source human does not know the value
-         */
-        ASKED, 
-        /**
-         * There is reason to expect (from the workflow) that the value may become known
-         */
-        TEMP, 
-        /**
-         * The workflow didn't lead to this value being known
-         */
-        NOTASKED, 
-        /**
-         * The information is not available due to security, privacy or related reasons
-         */
-        MASKED, 
-        /**
-         * The source system wasn't capable of supporting this element
-         */
-        UNSUPPORTED, 
-        /**
-         * The content of the data is represented in the resource narrative
-         */
-        ASTEXT, 
-        /**
-         * Some system or workflow process error means that the information is not available
-         */
-        ERROR, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static DataAbsentReason fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("unknown".equals(codeString))
-          return UNKNOWN;
-        if ("asked".equals(codeString))
-          return ASKED;
-        if ("temp".equals(codeString))
-          return TEMP;
-        if ("notasked".equals(codeString))
-          return NOTASKED;
-        if ("masked".equals(codeString))
-          return MASKED;
-        if ("unsupported".equals(codeString))
-          return UNSUPPORTED;
-        if ("astext".equals(codeString))
-          return ASTEXT;
-        if ("error".equals(codeString))
-          return ERROR;
-        throw new Exception("Unknown DataAbsentReason code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case UNKNOWN: return "unknown";
-            case ASKED: return "asked";
-            case TEMP: return "temp";
-            case NOTASKED: return "notasked";
-            case MASKED: return "masked";
-            case UNSUPPORTED: return "unsupported";
-            case ASTEXT: return "astext";
-            case ERROR: return "error";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case UNKNOWN: return "";
-            case ASKED: return "";
-            case TEMP: return "";
-            case NOTASKED: return "";
-            case MASKED: return "";
-            case UNSUPPORTED: return "";
-            case ASTEXT: return "";
-            case ERROR: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case UNKNOWN: return "The value is not known";
-            case ASKED: return "The source human does not know the value";
-            case TEMP: return "There is reason to expect (from the workflow) that the value may become known";
-            case NOTASKED: return "The workflow didn't lead to this value being known";
-            case MASKED: return "The information is not available due to security, privacy or related reasons";
-            case UNSUPPORTED: return "The source system wasn't capable of supporting this element";
-            case ASTEXT: return "The content of the data is represented in the resource narrative";
-            case ERROR: return "Some system or workflow process error means that the information is not available";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case UNKNOWN: return "unknown";
-            case ASKED: return "asked";
-            case TEMP: return "temp";
-            case NOTASKED: return "notasked";
-            case MASKED: return "masked";
-            case UNSUPPORTED: return "unsupported";
-            case ASTEXT: return "astext";
-            case ERROR: return "error";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class DataAbsentReasonEnumFactory implements EnumFactory<DataAbsentReason> {
-    public DataAbsentReason fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("unknown".equals(codeString))
-          return DataAbsentReason.UNKNOWN;
-        if ("asked".equals(codeString))
-          return DataAbsentReason.ASKED;
-        if ("temp".equals(codeString))
-          return DataAbsentReason.TEMP;
-        if ("notasked".equals(codeString))
-          return DataAbsentReason.NOTASKED;
-        if ("masked".equals(codeString))
-          return DataAbsentReason.MASKED;
-        if ("unsupported".equals(codeString))
-          return DataAbsentReason.UNSUPPORTED;
-        if ("astext".equals(codeString))
-          return DataAbsentReason.ASTEXT;
-        if ("error".equals(codeString))
-          return DataAbsentReason.ERROR;
-        throw new IllegalArgumentException("Unknown DataAbsentReason code '"+codeString+"'");
-        }
-    public String toCode(DataAbsentReason code) {
-      if (code == DataAbsentReason.UNKNOWN)
-        return "unknown";
-      if (code == DataAbsentReason.ASKED)
-        return "asked";
-      if (code == DataAbsentReason.TEMP)
-        return "temp";
-      if (code == DataAbsentReason.NOTASKED)
-        return "notasked";
-      if (code == DataAbsentReason.MASKED)
-        return "masked";
-      if (code == DataAbsentReason.UNSUPPORTED)
-        return "unsupported";
-      if (code == DataAbsentReason.ASTEXT)
-        return "astext";
-      if (code == DataAbsentReason.ERROR)
-        return "error";
-      return "?";
-      }
-    }
 
     public enum ObservationStatus {
         /**
@@ -227,6 +71,10 @@ public class Observation extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
+         * The observation status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
+         */
+        UNKNOWN, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -245,6 +93,8 @@ public class Observation extends DomainResource {
           return CANCELLED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
         }
         public String toCode() {
@@ -255,6 +105,7 @@ public class Observation extends DomainResource {
             case AMENDED: return "amended";
             case CANCELLED: return "cancelled";
             case ENTEREDINERROR: return "entered-in-error";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -266,6 +117,7 @@ public class Observation extends DomainResource {
             case AMENDED: return "";
             case CANCELLED: return "";
             case ENTEREDINERROR: return "";
+            case UNKNOWN: return "";
             default: return "?";
           }
         }
@@ -277,17 +129,19 @@ public class Observation extends DomainResource {
             case AMENDED: return "The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.";
             case CANCELLED: return "The observation is unavailable because the measurement was not started or not completed (also sometimes called 'aborted').";
             case ENTEREDINERROR: return "The observation has been withdrawn following previous Final release.";
+            case UNKNOWN: return "The observation status is unknown.  Note that 'unknown' is a value of last resort and every attempt should be made to provide a meaningful value other than 'unknown'.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case REGISTERED: return "Registered";
+            case REGISTERED: return "registered";
             case PRELIMINARY: return "preliminary";
             case FINAL: return "final";
             case AMENDED: return "amended";
             case CANCELLED: return "cancelled";
             case ENTEREDINERROR: return "entered-in-error";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -310,6 +164,8 @@ public class Observation extends DomainResource {
           return ObservationStatus.CANCELLED;
         if ("entered-in-error".equals(codeString))
           return ObservationStatus.ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return ObservationStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown ObservationStatus code '"+codeString+"'");
         }
     public String toCode(ObservationStatus code) {
@@ -325,6 +181,8 @@ public class Observation extends DomainResource {
         return "cancelled";
       if (code == ObservationStatus.ENTEREDINERROR)
         return "entered-in-error";
+      if (code == ObservationStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     }
@@ -1033,9 +891,9 @@ public class Observation extends DomainResource {
     /**
      * Provides a reason why the expected value in the element Observation.value[x] is missing.
      */
-    @Child(name="dataAbsentReason", type={CodeType.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="unknown | asked | temp | notasked +", formalDefinition="Provides a reason why the expected value in the element Observation.value[x] is missing." )
-    protected Enumeration<DataAbsentReason> dataAbsentReason;
+    @Child(name="dataAbsentReason", type={CodeableConcept.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Why the result is missing", formalDefinition="Provides a reason why the expected value in the element Observation.value[x] is missing." )
+    protected CodeableConcept dataAbsentReason;
 
     /**
      * The assessment made based on the result of the observation.
@@ -1096,9 +954,9 @@ public class Observation extends DomainResource {
     /**
      * A unique identifier for the simple observation.
      */
-    @Child(name="identifier", type={Identifier.class}, order=11, min=0, max=1)
+    @Child(name="identifier", type={Identifier.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Unique Id for this particular observation", formalDefinition="A unique identifier for the simple observation." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
 
     /**
      * The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus,
@@ -1176,7 +1034,7 @@ other observer (for example a relative or EMT), or any observation made about th
     @Description(shortDefinition="Observations related to this observation", formalDefinition="Related observations - either components, or previous observations, or statements of derivation." )
     protected List<ObservationRelatedComponent> related;
 
-    private static final long serialVersionUID = 1185478098L;
+    private static final long serialVersionUID = 1157047775L;
 
     public Observation() {
       super();
@@ -1313,19 +1171,15 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @return {@link #dataAbsentReason} (Provides a reason why the expected value in the element Observation.value[x] is missing.). This is the underlying object with id, value and extensions. The accessor "getDataAbsentReason" gives direct access to the value
+     * @return {@link #dataAbsentReason} (Provides a reason why the expected value in the element Observation.value[x] is missing.)
      */
-    public Enumeration<DataAbsentReason> getDataAbsentReasonElement() { 
+    public CodeableConcept getDataAbsentReason() { 
       if (this.dataAbsentReason == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.dataAbsentReason");
         else if (Configuration.doAutoCreate())
-          this.dataAbsentReason = new Enumeration<DataAbsentReason>(new DataAbsentReasonEnumFactory()); // bb
+          this.dataAbsentReason = new CodeableConcept(); // cc
       return this.dataAbsentReason;
-    }
-
-    public boolean hasDataAbsentReasonElement() { 
-      return this.dataAbsentReason != null && !this.dataAbsentReason.isEmpty();
     }
 
     public boolean hasDataAbsentReason() { 
@@ -1333,31 +1187,10 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @param value {@link #dataAbsentReason} (Provides a reason why the expected value in the element Observation.value[x] is missing.). This is the underlying object with id, value and extensions. The accessor "getDataAbsentReason" gives direct access to the value
+     * @param value {@link #dataAbsentReason} (Provides a reason why the expected value in the element Observation.value[x] is missing.)
      */
-    public Observation setDataAbsentReasonElement(Enumeration<DataAbsentReason> value) { 
+    public Observation setDataAbsentReason(CodeableConcept value) { 
       this.dataAbsentReason = value;
-      return this;
-    }
-
-    /**
-     * @return Provides a reason why the expected value in the element Observation.value[x] is missing.
-     */
-    public DataAbsentReason getDataAbsentReason() { 
-      return this.dataAbsentReason == null ? null : this.dataAbsentReason.getValue();
-    }
-
-    /**
-     * @param value Provides a reason why the expected value in the element Observation.value[x] is missing.
-     */
-    public Observation setDataAbsentReason(DataAbsentReason value) { 
-      if (value == null)
-        this.dataAbsentReason = null;
-      else {
-        if (this.dataAbsentReason == null)
-          this.dataAbsentReason = new Enumeration<DataAbsentReason>(new DataAbsentReasonEnumFactory());
-        this.dataAbsentReason.setValue(value);
-      }
       return this;
     }
 
@@ -1678,25 +1511,31 @@ other observer (for example a relative or EMT), or any observation made about th
     /**
      * @return {@link #identifier} (A unique identifier for the simple observation.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Observation.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier(); // cc
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
     public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #identifier} (A unique identifier for the simple observation.)
+     * @return {@link #identifier} (A unique identifier for the simple observation.)
      */
-    public Observation setIdentifier(Identifier value) { 
-      this.identifier = value;
-      return this;
+    // syntactic sugar
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -1972,7 +1811,7 @@ other observer (for example a relative or EMT), or any observation made about th
         super.listChildren(childrenList);
         childrenList.add(new Property("code", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|dateTime|Period|SampledData|string|time", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
-        childrenList.add(new Property("dataAbsentReason", "code", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, java.lang.Integer.MAX_VALUE, dataAbsentReason));
+        childrenList.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, java.lang.Integer.MAX_VALUE, dataAbsentReason));
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("applies[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the 'physiologically relevant time'. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, applies));
@@ -2005,7 +1844,11 @@ other observer (for example a relative or EMT), or any observation made about th
         dst.reliability = reliability == null ? null : reliability.copy();
         dst.bodySite = bodySite == null ? null : bodySite.copy();
         dst.method = method == null ? null : method.copy();
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.subject = subject == null ? null : subject.copy();
         dst.specimen = specimen == null ? null : specimen.copy();
         if (performer != null) {
@@ -2056,9 +1899,8 @@ other observer (for example a relative or EMT), or any observation made about th
         if (!(other instanceof Observation))
           return false;
         Observation o = (Observation) other;
-        return compareValues(dataAbsentReason, o.dataAbsentReason, true) && compareValues(comments, o.comments, true)
-           && compareValues(issued, o.issued, true) && compareValues(status, o.status, true) && compareValues(reliability, o.reliability, true)
-          ;
+        return compareValues(comments, o.comments, true) && compareValues(issued, o.issued, true) && compareValues(status, o.status, true)
+           && compareValues(reliability, o.reliability, true);
       }
 
       public boolean isEmpty() {

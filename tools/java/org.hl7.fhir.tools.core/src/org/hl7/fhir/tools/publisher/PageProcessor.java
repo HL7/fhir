@@ -48,6 +48,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.Config;
+import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.JsonSpecGenerator;
@@ -69,6 +70,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
+import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
@@ -120,6 +122,7 @@ import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -558,6 +561,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
         src = s1 + genValueSetsTable() + s3;
+      else if (com[0].equals("extensionslist"))
+        src = s1 + genExtensionsTable() + s3;
       else if (com[0].equals("igvaluesetslist"))
         src = s1 + genIGValueSetsTable() + s3;
       else if (com[0].equals("conceptmapslist"))
@@ -694,6 +699,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genExtensionsTable() {
+    StringBuilder s = new StringBuilder();
+    
+    s.append("<table class=\"list\">\r\n");
+    List<String> names = new ArrayList<String>();
+    names.addAll(workerContext.getExtensionDefinitions().keySet());
+    Collections.sort(names);
+    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+      boolean started = false;
+      for (String n : names) {
+        StructureDefinition ed = workerContext.getExtensionDefinitions().get(n);
+        if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
+          if (!started) {
+            started = true;
+            genStructureExampleCategory(s, ig.getName());            
+          }
+          genStructureExample(s, ed.getId().toLowerCase()+".html", ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
+        }
+      }
+    }
+    s.append("</table>\r\n");
+    return s.toString();
   }
 
   private String vsSource(String name) {
@@ -1898,6 +1927,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Extensiblity", "extensibility.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "extensibility-examples.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", "extensibility-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Registry", "extensibility-registry.html", mode==null || "registry".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -2212,7 +2242,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    b.append(makeHeaderTab("Conformance Packages", n+"-packages.html", "packages".equals(mode)));
+    b.append(makeHeaderTab("Profiles", n+"-packages.html", "packages".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
 
@@ -3258,6 +3288,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + publicationNotice + s3;      
       else if (com[0].equals("profilelist"))
         src = s1 + genProfilelist() + s3;  
+      else if (com[0].equals("extensionslist"))
+        src = s1 + genExtensionsTable() + s3;  
       else if (com[0].equals("igprofileslist"))
         src = s1 + genIGProfilelist() + s3;  
       else if (com[0].equals("operationslist"))
@@ -3832,101 +3864,214 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (resource.getConformancePackages().size() == 0) {
       s.append("<tr><td colspan=\"2\">No Profiles defined for this resource</td></tr>");
     } else { 
-      for (ConformancePackage ap: resource.getConformancePackages()) {
-//        if (ap.getProfiles().size() + ap.getExtensions().size() + ap.getExamples().size() + ap.getValuesets().size() > 0) {
-//          s.append("<tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ap.getTitle())+"</b>"+(Utilities.noString(ap.getDescription()) ? "<br/>"+ap.getDescription() : "") + "</td></tr>");
-//          if (ap.getProfiles().size() > 0) {
-//            s.append("<tr><td colspan=\"2\">Profiles: </td></tr>");
-//            for (ProfileDefn p : ap.getProfiles())
-//              s.append("<tr><td><a href=\""+p.getId()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a></td><td>"+Utilities.escapeXml(p.getResource().getDescription())+"</td></tr>");
-//          }
-//          if (ap.getExtensions().size() > 0) {
-//            s.append("<tr><td colspan=\"2\">Extensions: </td></tr>");
-//            for (ExtensionDefinition ed : ap.getExtensions())
-//              s.append("<tr><td><a href=\"extension-"+ed.getId()+".html\">"+Utilities.escapeXml(ed.getId())+"</a></td><td>"+Utilities.escapeXml(ed.getName()+" : "+ed.getDescription())+"</td></tr>");
-//          }
-//          if (ap.getExamples().size() > 0) {
-//            s.append("<tr><td colspan=\"2\">Examples: </td></tr>");
-//            for (Example ex : ap.getExamples())
-//              s.append("<tr><td><a href=\""+ex.getFileTitle()+".html\">"+Utilities.escapeXml(ex.getName())+"</a></td><td>"+Utilities.escapeXml(ex.getDescription())+"</td></tr>");
-//          }
-//        }
-        s.append("  <tr>\r\n");
-        s.append("    <td><a href=\"").append(ap.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
-        s.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
-        s.append(" </tr>\r\n");
+      for (ImplementationGuide ig : definitions.getSortedIgs()) {
+        boolean started = false;
+        for (ConformancePackage ap: resource.getConformancePackages()) {
+          if (ig.getCode().equals(ap.getCategory())) {
+            if (!started) {
+              started = true;
+              s.append("  <tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ig.getName())+"</b></td></tr>\r\n");
+            }
+            s.append("  <tr>\r\n");
+            s.append("    <td><a href=\"").append(ap.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
+            s.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
+            s.append(" </tr>\r\n");
+          }
+        }
       }
     }
     return s.toString();
   }
 
   private String produceExampleList(ResourceDefn resource) throws Exception {
-    StringBuilder s = new StringBuilder();
-    boolean started = false;
-    for (Example e: resource.getExamples()) {
-      //   if (!e.isInBook()) {
-      if (!started)
-        s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
-      started = true;
-      if (e.getFileTitle().equals("conformance-base") || e.getFileTitle().equals("conformance-base2") || e.getFileTitle().equals("profiles-resources"))
-        s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
-      else
-        s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
-      s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
-      s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
-      s.append("</tr>");
-    }
-    if (resource.getName().equals("ExtensionDefinition")) {
-      s.append("</table>\r\n<p>Extensions Defined as part of the specification:</p><table class=\"list\">\r\n");
-      List<String> urls = new ArrayList<String>();
-      urls.addAll(workerContext.getExtensionDefinitions().keySet());
-      Collections.sort(urls);
-      for (String url : urls) {
-        if (url.startsWith("http://hl7.org/fhir/ExtensionDefinition/")) {
-          StructureDefinition ed = workerContext.getExtensionDefinitions().get(url);
-          s.append("<tr><td><a href=\""+ed.getUserData("filename")+".html\">"+url.substring(40)+"</a></td>");
-          s.append("<td>"+Utilities.escapeXml(ed.getName())+"</td>");
-          s.append("<td><a href=\""+ed.getUserData("filename")+".xml.html\">XML</a></td>");
-          s.append("<td><a href=\""+ed.getUserData("filename")+".json.html\">JSON</a></td>");
-          s.append("</tr>\r\n");       
-        }
-      }
-    }
     if (resource.getName().equals("StructureDefinition")) {
-      started = true;
-      for (String pn : definitions.getConformancePackages().keySet()) {
-        ConformancePackage ap = definitions.getConformancePackages().get(pn);
+      return produceStructureDefinitionExamples();
+    } else {
+      StringBuilder s = new StringBuilder();
+      boolean started = false;
+      for (Example e: resource.getExamples()) {
+        //   if (!e.isInBook()) {
         if (!started)
           s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
         started = true;
-        for (ProfileDefn p : ap.getProfiles()) {
-          String ln = p.getId();
-          s.append("<tr><td><a href=\""+ln+ ".html\">"+Utilities.escapeXml(p.getResource().getDescription())+"</a></td>");
-          s.append("<td><a href=\""+ln+".profile.xml.html\">XML</a></td>");
-          s.append("<td><a href=\""+ln+".profile.json.html\">JSON</a></td>");
-          s.append("</tr>");
-        }
-      }
-      for (String rn : definitions.sortedResourceNames()) {
-        if (!rn.equals("StructureDefinition")) {
-          for (ConformancePackage ap: definitions.getResourceByName(rn).getConformancePackages()) {
-            for (ProfileDefn p : ap.getProfiles()) {
-              s.append("<tr><td><a href=\""+p.getId()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a>:"+Utilities.escapeXml(p.getResource().getDescription())+"</td>"+
-                  "<td><a href=\""+p.getTitle()+".profile.xml.html\">XML</a></td><td><a href=\""+p.getTitle()+".profile.json.html\">JSON</a></td></tr>");
-            }
-          }
-        }
-      }
-    }
+        if (e.getFileTitle().equals("conformance-base") || e.getFileTitle().equals("conformance-base2") || e.getFileTitle().equals("profiles-resources"))
+          s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
+        else
+          s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
+        s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
+        s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
+        s.append("</tr>");
 
-    //  }
-    if (started)
-      s.append("</table>\r\n");
-    return s.toString();
+      }
+
+      //  }
+      if (started)
+        s.append("</table>\r\n");
+      return s.toString();
+    }
   }
 
   
     
+  private String produceStructureDefinitionExamples() throws Exception {
+    StringBuilder s = new StringBuilder();
+    
+    s.append("<div id=\"tabs\">\r\n");
+    s.append("<ul>\r\n");
+    s.append("  <li><a href=\"#tabs-1\">Base Types</a></li>\r\n");
+    s.append("  <li><a href=\"#tabs-2\">Constraints</a></li>\r\n");
+    s.append("  <li><a href=\"#tabs-3\">Extensions</a></li>\r\n");
+    s.append("</ul>\r\n");
+    s.append("<div id=\"tabs-1\">\r\n");
+
+    // base types
+    s.append("<table class=\"list\">\r\n");
+    genStructureExampleCategory(s, "Abstract Types");
+    genStructureExample(s, "element.html", "element", "Element");
+    genStructureExample(s, "backboneelement.html", "backboneelement", "BackBoneElement");
+    genStructureExample(s, "resource.html", "resource", "Resource");
+    genStructureExample(s, "domainresource.html", "domainresource", "DomainResource");
+    
+    genStructureExampleCategory(s, "Primitive Types");
+    List<String> names = new ArrayList<String>();
+    names.addAll(definitions.getPrimitives().keySet());
+    Collections.sort(names);
+    for (String n : names) {
+      DefinedCode dc = definitions.getPrimitives().get(n);
+      genStructureExample(s, "datatypes.html#"+dc.getCode(), dc.getCode().toLowerCase(), dc.getCode());
+    }
+
+    genStructureExampleCategory(s, "Data Types");
+    names.clear();
+    names.addAll(definitions.getTypes().keySet());
+    names.addAll(definitions.getStructures().keySet());
+    names.addAll(definitions.getInfrastructure().keySet());
+    Collections.sort(names);
+    for (String n : names) {
+      org.hl7.fhir.definitions.model.TypeDefn t = definitions.getTypes().get(n);
+      if (t == null)
+        t = definitions.getStructures().get(n);
+      if (t == null)
+        t = definitions.getInfrastructure().get(n);
+      genStructureExample(s, getLinkFor(t.getName()), t.getName().toLowerCase(), t.getName());
+    }
+
+    genStructureExampleCategory(s, "Resources");
+    for (String n : definitions.sortedResourceNames()) {
+      ResourceDefn r = definitions.getResources().get(n);
+      genStructureExample(s, r.getName().toLowerCase()+".html", r.getName().toLowerCase(), r.getName());
+    }
+    s.append("</table>\r\n");
+    
+    s.append("</div>\r\n");
+    s.append("<div id=\"tabs-2\">\r\n");
+
+    s.append("<table class=\"list\">\r\n");
+    Map<String, ProfileDefn> constraints = new HashMap<String, ProfileDefn>();
+    for (String pn : definitions.getConformancePackages().keySet()) 
+      for (ProfileDefn p : definitions.getConformancePackages().get(pn).getProfiles())
+        constraints.put(p.getId(), p);
+    for (String rn : definitions.sortedResourceNames()) 
+      for (ConformancePackage ap: definitions.getResourceByName(rn).getConformancePackages()) 
+        for (ProfileDefn p : ap.getProfiles()) 
+          constraints.put(p.getId(), p);
+    names.clear();
+    names.addAll(constraints.keySet());
+    Collections.sort(names);
+    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+      boolean started = false;
+      for (String n : names) {
+        ProfileDefn p = constraints.get(n);
+        if (ig == p.getUsage()) {
+          if (!started) {
+            started = true;
+            genStructureExampleCategory(s, ig.getName());            
+          }
+          genStructureExample(s, p.getId().toLowerCase()+".html", p.getId().toLowerCase(), p.getTitle());
+        }
+      }
+    }
+    s.append("</table>\r\n");
+
+    s.append("</div>\r\n");
+    s.append("<div id=\"tabs-3\">\r\n");
+
+    s.append("<table class=\"list\">\r\n");
+    names.clear();
+    names.addAll(workerContext.getExtensionDefinitions().keySet());
+    Collections.sort(names);
+    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+      boolean started = false;
+      for (String n : names) {
+        StructureDefinition ed = workerContext.getExtensionDefinitions().get(n);
+        if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
+          if (!started) {
+            started = true;
+            genStructureExampleCategory(s, ig.getName());            
+          }
+          genStructureExample(s, ed.getId().toLowerCase()+".html", ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
+        }
+      }
+    }
+    s.append("</table>\r\n");
+    
+    s.append("</div>\r\n");
+    s.append("</div>\r\n");
+    s.append("\r\n");
+
+    s.append("<script src=\"external/jquery/jquery.js\"> </script>\r\n");
+    s.append("<script src=\"jquery-ui.min.js\"> </script>\r\n");
+    s.append("<script>\r\n");
+    s.append("try {\r\n");
+    s.append("  var currentTabIndex = sessionStorage.getItem('fhir-sdelist-tab-index');\r\n");
+    s.append("}\r\n");
+    s.append("catch(exception){\r\n");
+    s.append("  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)\r\n");
+    s.append("    alert(exception);\r\n");
+    s.append("}\r\n");
+    s.append("\r\n");
+    s.append("if (!currentTabIndex)\r\n");
+    s.append("  currentTabIndex = '0';\r\n");
+    s.append("  \r\n");
+    s.append("$( '#tabs' ).tabs({\r\n");
+    s.append("         active: currentTabIndex,\r\n");
+    s.append("         activate: function( event, ui ) {\r\n");
+    s.append("             var active = $('.selector').tabs('option', 'active');\r\n");
+    s.append("             currentTabIndex = ui.newTab.index();\r\n");
+    s.append("             try {\r\n");
+    s.append("               sessionStorage.setItem('fhir-sdelist-tab-index', currentTabIndex);\r\n");
+    s.append("             }\r\n");
+    s.append("             catch(exception){\r\n");
+    s.append("              if (navigator.userAgent.toLowerCase().indexof('msie') == -1)\r\n");
+    s.append("                alert(exception);\r\n");
+    s.append("             }\r\n");
+    s.append("         }\r\n");
+    s.append("     });\r\n");
+    s.append("</script>\r\n");
+    s.append("\r\n");
+    
+    return s.toString();
+  }
+
+  private void genStructureExampleCategory(StringBuilder s, String heading) {
+    s.append("<tr>");
+    s.append("<td colspan=\"3\"><b>"+Utilities.escapeXml(heading)+"</b></td>");
+    s.append("</tr>");
+
+  }
+
+  private void genStructureExample(StringBuilder s, String link, String basename, String description) {
+    genStructureExample(s, link, basename, description, null);  
+  }
+  
+  private void genStructureExample(StringBuilder s, String link, String basename, String description, String tail) {
+    s.append("<tr>");
+    s.append("<td><a href=\""+link+"\">"+Utilities.escapeXml(description)+"</a> "+(Utilities.noString(tail) ? "" : Utilities.escapeXml(tail))+"</td>");
+    s.append("<td><a href=\""+basename+".profile.xml.html\">XML</a></td>");
+    s.append("<td><a href=\""+basename+".profile.json.html\">JSON</a></td>");
+    s.append("</tr>");
+  }
+  
   private String produceBookExamples(ResourceDefn resource) {
     StringBuilder s = new StringBuilder();
     for (Example e: resource.getExamples()) {
@@ -4562,10 +4707,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String profileReviewLink(ProfileDefn profile) {
-    String s = profile.getUsage();
-    if (!definitions.getIgs().containsKey(s) || !definitions.getIgs().get(s).isReview())
+    if (!profile.getUsage().isReview())
       return "";
-    s = Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls");
+    String s = Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls");
     return "Use the <a href=\""+s+"\">Review Spreadsheet</a> to comment on this profile."; 
   }
 
@@ -5104,7 +5248,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
       } else if (com.length != 1)
-        throw new Exception("Instruction <%"+s2+"%> not understood parsing conformance package "+pack.getId());
+        throw new Exception("Instruction <%"+s2+"%> not understood parsing profile "+pack.getId());
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(pack.getId().toUpperCase().substring(0, 1)+pack.getId().substring(1))+s3;
       else if (com[0].equals("header"))
@@ -5124,7 +5268,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("footer3"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
-        src = s1+(workingTitle == null ? Utilities.escapeXml(pack.getTitle()+" (Conformance Package)") : workingTitle)+s3;
+        src = s1+(workingTitle == null ? Utilities.escapeXml(pack.getTitle()+" (Profile)") : workingTitle)+s3;
       else if (com[0].equals("xtitle"))
         src = s1+Utilities.escapeXml(pack.getId().toUpperCase().substring(0, 1)+pack.getId().substring(1))+s3;
       else if (com[0].equals("name"))
@@ -5208,7 +5352,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("package.search"))
         src = s1+getSearch(pack)+s3;
       else 
-        throw new Exception("Instruction <%"+s2+"%> not understood parsing conformance package "+pack.getId());
+        throw new Exception("Instruction <%"+s2+"%> not understood parsing profile "+pack.getId());
     }
     return src;
   }

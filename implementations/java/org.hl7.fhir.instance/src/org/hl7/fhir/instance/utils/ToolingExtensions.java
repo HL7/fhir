@@ -32,10 +32,13 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.httpclient.methods.DeleteMethod;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
+import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.ExtensionHelper;
 import org.hl7.fhir.instance.model.Factory;
@@ -75,6 +78,7 @@ public class ToolingExtensions {
   private static final String EXTENSION_FILTER_ONLY = "http://www.healthintersections.com.au/fhir/Profile/metadata#expandNeedsFilter";
   private static final String EXT_TYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   private static final String EXT_REFERENCE = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
+  private static final String EXT_ALLOWABLE_UNITS = "http://hl7.org/fhir/StructureDefinition/elementdefinition-question";
 
   
   // specific extension helpers
@@ -329,5 +333,22 @@ public class ToolingExtensions {
     extension.addExtension().setUrl("lang").setValue(new StringType(lang));
     extension.addExtension().setUrl("content").setValue(new StringType(value));
     element.getExtension().add(extension);
+  }
+
+  public static Type getAllowedUnits(ElementDefinition eld) {
+    for (Extension e : eld.getExtension()) 
+      if (e.getUrl().equals(EXT_ALLOWABLE_UNITS)) 
+        return e.getValue();
+    return null;
+  }
+
+  public static void setAllowableUnits(ElementDefinition eld, CodeableConcept cc) {
+    for (Extension e : eld.getExtension()) 
+      if (e.getUrl().equals(EXT_ALLOWABLE_UNITS)) {
+        e.setValue(cc);
+        return;
+      }
+    eld.getExtension().add(new Extension().setUrl(EXT_ALLOWABLE_UNITS).setValue(cc));
+ 
   }
 }
