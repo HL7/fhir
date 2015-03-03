@@ -161,6 +161,14 @@ public class DefinedCode {
   public void setProfile(StructureDefinition profile) {
     this.profile = profile;
   }
+
+  public boolean hasCode() {
+    return !Utilities.noString(code);
+  }
+
+  public boolean hasDisplay() {
+    return !Utilities.noString(display);
+  }
   
   
   

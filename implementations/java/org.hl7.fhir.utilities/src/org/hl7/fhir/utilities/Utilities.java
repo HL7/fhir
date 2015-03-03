@@ -673,4 +673,29 @@ public class Utilities {
     return b.toString();
   }
 
+  public static String humanize(String code) {
+    StringBuilder b = new StringBuilder();
+    boolean lastBreak = true;
+    for (char c : code.toCharArray()) {
+      if (Character.isAlphabetic(c)) {
+        if (lastBreak)
+          b.append(Character.toUpperCase(c));
+        else { 
+          if (Character.isUpperCase(c))
+            b.append(" ");          
+          b.append(c);
+        }
+        lastBreak = false;
+      } else {
+        b.append(" ");
+        lastBreak = true;
+      }
+    }
+    if (b.length() == 0)
+      return code;
+    else 
+      return b.toString();
+  }
+
+
 }

@@ -625,7 +625,8 @@ public class SpreadsheetParser {
 			}
 			
 			if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())) {
-			  if (cd.getReference().startsWith("http://hl7.org/fhir")) {
+			  try {
+			    if (cd.getReference().startsWith("http://hl7.org/fhir")) {
 			    // ok, it's a reference to a value set defined within this build. Since it's an absolute 
 			    // reference, it's into the base infrastructure. That's not loaded yet, so we will try
 			    // to resolve it later
@@ -654,7 +655,10 @@ public class SpreadsheetParser {
           FileInputStream input = new FileInputStream(Utilities.appendSlash(txFolder)+cd.getReference()+".json");
           cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
 			  } else
-			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
+			    throw new Exception("Unable to find source"); 
+        } catch (Exception e) {
+          throw new Exception(e.getMessage() + "for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)", e);          
+        }
 			  if (cd.getReferredValueSet() != null) {
 			    cd.getReferredValueSet().setId(FormatUtilities.makeId(cd.getReference()));
           cd.getReferredValueSet().setUserData("filename", cd.getReference()+".html");
@@ -702,6 +706,8 @@ public class SpreadsheetParser {
 			c.setId(sheet.getColumn(row, "Id"));
 			c.setCode(sheet.getColumn(row, "Code"));
       c.setDisplay(sheet.getColumn(row, "Display"));
+      if (c.hasCode() && !c.hasDisplay())
+        c.setDisplay(Utilities.humanize(c.getCode()));
       c.setSystem(sheet.getColumn(row, "System"));
 			c.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
       c.setComment(sheet.getColumn(row, "Comment"));
@@ -717,7 +723,8 @@ public class SpreadsheetParser {
 		}
 	}
 
-	private String processDefinition(String definition) {
+
+  private String processDefinition(String definition) {
     
     return definition.replace("$version$", version);
   }

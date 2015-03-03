@@ -440,6 +440,7 @@ public class Publisher implements URIResolver {
         page.log("Build local copy", LogMessageType.Process);
     }
     page.setFolders(new FolderManager(folder));
+    validationErrors = new ArrayList<ValidationMessage>();
 
     if (page.hasIG()) {
       String path = page.getIg().getOutputFolder();
@@ -500,33 +501,36 @@ public class Publisher implements URIResolver {
     loadValueSets1();
 
 
-    if (validate()) {
-      processProfiles();
-      if (page.hasIG()) {
-        processIGFiles();
-      }
-
-      if (isGenerate) {
-        page.log("Clear Directory", LogMessageType.Process);
-        if (buildFlags.get("all"))
-          Utilities.clearDirectory(page.getFolders().dstDir);
-        Utilities.createDirectory(page.getFolders().dstDir + "html");
-        Utilities.createDirectory(page.getFolders().dstDir + "examples");
-        Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "web");
-        Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "dload");
-
-        String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
-        generateECore(prsr.getECoreParseResults(), eCorePath);
-        produceSpecification(eCorePath);
-      }
-      validateXml();
-      if (isGenerate && buildFlags.get("all"))
-        produceQA();
-      page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-    } else {
+    if (!validate()) {
       page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
       throw new Exception("Errors executing build. Details logged.");
     }
+    processProfiles();
+    if (page.hasIG()) {
+      processIGFiles();
+    }
+
+    if (isGenerate) {
+      page.log("Clear Directory", LogMessageType.Process);
+      if (buildFlags.get("all"))
+        Utilities.clearDirectory(page.getFolders().dstDir);
+      Utilities.createDirectory(page.getFolders().dstDir + "html");
+      Utilities.createDirectory(page.getFolders().dstDir + "examples");
+      Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "web");
+      Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "dload");
+
+      String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
+      generateECore(prsr.getECoreParseResults(), eCorePath);
+      produceSpecification(eCorePath);
+      if (processValidationOutcomes() > 0) {
+        page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+        throw new Exception("Errors executing build. Details logged.");
+      }
+    }
+    validateXml();
+    if (isGenerate && buildFlags.get("all"))
+      produceQA();
+    page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
   }
 
   private void loadIG() throws Exception  {
@@ -902,7 +906,7 @@ public class Publisher implements URIResolver {
     buildFeedsAndMaps();
 
     page.log(" ...vocab #1", LogMessageType.Process);
-    new ValueSetImporterV2(page).execute();
+    new ValueSetImporterV2(page, validationErrors).execute();
     analyseV3();
     if (isGenerate) {
       generateConformanceStatement(true, "base");
@@ -1116,6 +1120,8 @@ public class Publisher implements URIResolver {
                 c.setDefinition(page.getDefinitions().getConstraints().get(s).getDefinition());
               else if (page.getDefinitions().hasElementDefn(s))
                 c.setDefinition(page.getDefinitions().getElementDefn(s).getDefinition());
+              else 
+                c.setDefinition("...to do...");
               bs.getCodes().add(c);
             }
           }
@@ -1257,35 +1263,39 @@ public class Publisher implements URIResolver {
     page.log("Validating", LogMessageType.Process);
     ResourceValidator val = new ResourceValidator(page.getDefinitions(), page.getTranslations(), page.getCodeSystems());
 
-    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     for (String n : page.getDefinitions().getTypes().keySet())
-      errors.addAll(val.checkStucture(n, page.getDefinitions().getTypes().get(n)));
+      validationErrors.addAll(val.checkStucture(n, page.getDefinitions().getTypes().get(n)));
     for (String n : page.getDefinitions().getStructures().keySet())
-      errors.addAll(val.checkStucture(n, page.getDefinitions().getStructures().get(n)));
+      validationErrors.addAll(val.checkStucture(n, page.getDefinitions().getStructures().get(n)));
     for (String n : page.getDefinitions().sortedResourceNames())
       if (hasBuildFlag("page-" + n.toLowerCase()))
-        errors.addAll(val.check(n, page.getDefinitions().getResources().get(n)));
+        validationErrors.addAll(val.check(n, page.getDefinitions().getResources().get(n)));
     if (hasBuildFlag("all"))
       for (String n : page.getDefinitions().getBindings().keySet())
-        errors.addAll(val.check(n, page.getDefinitions().getBindingByName(n)));
-    errors.addAll(val.checkBindings(page.getDefinitions().getBindings()));
+        validationErrors.addAll(val.check(n, page.getDefinitions().getBindingByName(n)));
+    validationErrors.addAll(val.checkBindings(page.getDefinitions().getBindings()));
 
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
-      checkExampleLinks(errors, r);
+      checkExampleLinks(validationErrors, r);
     }
     val.report();
     val.dumpParams();
+    int errorCount = processValidationOutcomes();
+    return errorCount == 0;
+  }
+
+  private int processValidationOutcomes() {
     int hintCount = 0;
     int warningCount = 0;
-    for (ValidationMessage e : errors) {
+    for (ValidationMessage e : validationErrors) {
       if (e.getLevel() == IssueSeverity.INFORMATION) {
         page.log(e.summary(), LogMessageType.Hint);
         page.getQa().hint(e.summary());
         hintCount++;
       }
     }
-    for (ValidationMessage e : errors) {
+    for (ValidationMessage e : validationErrors) {
       if (e.getLevel() == IssueSeverity.WARNING) {
         page.log(e.summary(), LogMessageType.Warning);
         page.getQa().warning(e.summary());
@@ -1293,7 +1303,7 @@ public class Publisher implements URIResolver {
       }
     }
     int errorCount = 0;
-    for (ValidationMessage e : errors) {
+    for (ValidationMessage e : validationErrors) {
       if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
         page.log(e.summary(), LogMessageType.Error);
         errorCount++;
@@ -1301,8 +1311,8 @@ public class Publisher implements URIResolver {
     }
     page.log("Errors: " + Integer.toString(errorCount) + ". Warnings: " + Integer.toString(warningCount) + ". Hints: " + Integer.toString(hintCount),
         LogMessageType.Process);
-
-    return errorCount == 0;
+    validationErrors.clear();
+    return errorCount;
   }
 
   private boolean hasBuildFlag(String n) {
@@ -1611,6 +1621,10 @@ public class Publisher implements URIResolver {
 
     for (StructureDefinition ae : page.getWorkerContext().getExtensionDefinitions().values()) 
       produceExtensionDefinition(ae);
+    if (processValidationOutcomes() > 0) {
+      page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+      throw new Exception("Errors executing build. Details logged.");
+    }
 
     for (String n : page.getDefinitions().getDictionaries().keySet()) {
       if (buildFlags.get("all")) { // || buildFlags.get("dict-" + n.toLowerCase())) {
@@ -1700,6 +1714,11 @@ public class Publisher implements URIResolver {
 
       produceV2();
       produceV3();
+
+      if (processValidationOutcomes() > 0) {
+        page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+        throw new Exception("Errors executing build. Details logged.");
+      }
 
       page.log(" ...collections ", LogMessageType.Process);
 
@@ -2321,7 +2340,7 @@ public class Publisher implements URIResolver {
     vs.setText(new Narrative());
     vs.getText().setStatus(NarrativeStatus.GENERATED);
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate("v3 valueset "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "v3 valueset "+id, vs, false, true);
 
     return vs;
   }
@@ -2463,7 +2482,7 @@ public class Publisher implements URIResolver {
 
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate("v3 value set as code system "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "v3 value set as code system "+id, vs, false, true);
     return vs;
   }
 
@@ -2559,7 +2578,7 @@ public class Publisher implements URIResolver {
     }
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate("v3 valueset "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "v3 valueset "+id, vs, false, true);
     return vs;
 
   }
@@ -3254,7 +3273,7 @@ public class Publisher implements URIResolver {
 
     if (r instanceof ValueSet) {
       ValueSet vs = (ValueSet) r;
-      new ValueSetValidator(page.getWorkerContext()).validate("Value set Example "+n, vs, false, false);
+      new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "Value set Example "+n, vs, false, false);
       if (vs.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
       vs.setUserData("path", n + ".html");
@@ -3974,6 +3993,8 @@ public class Publisher implements URIResolver {
   int warningCount = 0;
   int informationCount = 0;
 
+  private List<ValidationMessage> validationErrors;
+
   private void validateXml() throws Exception {
     if (buildFlags.get("all") && isGenerate)
       produceCoverageWarnings();
@@ -4344,7 +4365,7 @@ public class Publisher implements URIResolver {
             && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
           new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
 
-        new ValueSetValidator(page.getWorkerContext()).validate(name, vs, true, false);
+        new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, name, vs, true, false);
 
         addToResourceFeed(vs, valueSetsFeed); // todo - what should the Oids be
 
@@ -4420,7 +4441,7 @@ public class Publisher implements URIResolver {
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
       new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(name, vs, true, false);
+    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, name, vs, true, false);
 
     if (isGenerate) {
       addToResourceFeed(vs, valueSetsFeed);
@@ -4518,7 +4539,7 @@ public class Publisher implements URIResolver {
       }
     }
 
-    new ValueSetValidator(page.getWorkerContext()).validate(filename, vs, true, false);
+    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, filename, vs, true, false);
     cd.setReferredValueSet(vs);
 
     vs.setUserData("path", Utilities.changeFileExt(filename, ".html"));

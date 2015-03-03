@@ -146,6 +146,8 @@ public class BindingsParser {
       c.setId(sheet.getColumn(row, "Id"));
       c.setCode(sheet.getColumn(row, "Code"));
       c.setDisplay(sheet.getColumn(row, "Display"));
+      if (c.hasCode() && !c.hasDisplay())
+        c.setDisplay(Utilities.humanize(c.getCode()));
       c.setSystem(sheet.getColumn(row, "System"));
       c.setDefinition(sheet.getColumn(row, "Definition"));
       c.setComment(sheet.getColumn(row, "Comment"));

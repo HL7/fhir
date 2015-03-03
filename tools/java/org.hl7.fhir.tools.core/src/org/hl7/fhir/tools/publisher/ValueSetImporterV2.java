@@ -24,6 +24,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponen
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.ValueSetUtilities;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
@@ -36,13 +37,14 @@ import org.w3c.dom.Element;
 
 public class ValueSetImporterV2 {
   private static final String HTTP_separator = "/";
-
+  private List<ValidationMessage> errors; 
   private PageProcessor page;
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   
-  public ValueSetImporterV2(PageProcessor page) {
+  public ValueSetImporterV2(PageProcessor page, List<ValidationMessage> errors) {
     super();
     this.page = page;
+    this.errors = errors;
   }
 
   public void execute() throws Exception {
@@ -304,7 +306,7 @@ public class ValueSetImporterV2 {
     // v2 versioning
     // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate("v2 table "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(errors, "v2 table "+id, vs, false, true);
     return vs;
   }
 
@@ -392,7 +394,7 @@ public class ValueSetImporterV2 {
     // v2 versioning
     // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate("v2 table "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(errors, "v2 table "+id, vs, false, true);
     return vs;
   }
 
