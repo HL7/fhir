@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
+<NutritionOrder xmlns="http://hl7.org/fhir"> 
 	<id value="fiberrestricteddiet"/>
-	<!-- id = fiberrestricteddiet  file name = nutritionorder-example-fiberrestricteddiet.xml Name= Low Fat and Fiber Restricted Diet Description = Nutrition Order Fiber Restricted adn Low Fat Diet l Example
+	<!-- id = fiberrestricteddiet  file name = nutritionorder-example-fiberrestricteddiet.xml Name= Low Fat and Fiber Restricted Diet Description = Nutrition Order Fiber Restricted and Low Fat Diet l Example
 edited by Eric Haas Health eData Inc-->
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<h3>Nutrition Order Fiber Restricted adn Low Fat Diet l Example</h3>
+			<h3>Nutrition Order Fiber Restricted and Low Fat Diet l Example</h3>
 			<ul>
 				<li>
 					<b>Patient: </b>Peter Chalmers</li>
@@ -30,7 +30,7 @@ edited by Eric Haas Health eData Inc-->
 					</ol>
 				</li>
 				<li>
-					<b>Schedule: </b>three times a day starting on 2/10 ***!need input on how diets are typically scheduled ***</li>
+					<b>Schedule: </b>three times a day starting at breakfast on 2/10</li>
 			</ul>
 		</div>
 	</text>
