@@ -6,25 +6,25 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the contract</div>
   </text>
+<!--
+  <issued value="2014-08-17"/>
+ 
+  <subject>
+     <reference value="http://www.somewhere.org/patient/12345"/>
+  </subject>
 
-   <subject>
-      <reference value="http://www.somewhere.org/patient/12345"/>
-   </subject>
-
-   <type>
+  <type>
      <coding>
 	   <system value="http://hl7.org/fhir/contracttypecodes"/>
 	   <code value="disclosure"/>
 	 </coding>
   </type>
 
-   <subtype>
+  <subtype>
      <coding>
 	   <system value="http://hl7.org/fhir/contractsubtypecodes"/>
 	   <code value="disclosure-US"/>
 	 </coding>
   </subtype>
-  
-   <issued value="2014-08-17"/>
- 
+ --> 
 </Contract>
