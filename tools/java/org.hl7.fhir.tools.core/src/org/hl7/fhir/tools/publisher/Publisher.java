@@ -2025,7 +2025,7 @@ public class Publisher implements URIResolver {
 
     bytes = new ByteArrayOutputStream();
     JsonSpecGenerator genj = new JsonSpecGenerator(bytes, filename+"-definitions.html", null /*"http://hl7.org/fhir/"*/, page);
-    genj.generate(ed);
+    genj.generateExtension(ed);
     genj.close();
     String json = bytes.toString();
 

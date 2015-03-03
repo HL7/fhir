@@ -1233,9 +1233,16 @@ public class SpreadsheetParser {
 	  ElementDefn exe = new ElementDefn();
 	  exe.setName(sheet.getColumn(row, "Code"));
 	  
+	  ElementDefn exu = new ElementDefn();
+	  exu.setName("url");
+	  exe.getElements().add(exu);
+	  exu.setFixed(new UriType(ex.getUrl()));
+	  exu.getTypes().add(new TypeRef().setName("uri"));
+     
     parseExtensionElement(sheet, row, definitions, exe);
     String sl = exe.getShortDefn();
-    if (!Utilities.noString(sl)) 
+    ex.setName(ex.getDisplay());
+    if (!Utilities.noString(sl) && (!sl.contains("|") || !ex.hasName())) 
       ex.setName(sl);
     if (!ex.hasName())
       throw new Exception("Extension "+ex.getUrl()+" missing short label at "+getLocation(row));

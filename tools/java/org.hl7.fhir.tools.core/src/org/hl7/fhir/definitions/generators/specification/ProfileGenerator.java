@@ -1068,7 +1068,8 @@ public class ProfileGenerator {
 
   public void convertElements(ElementDefn src, StructureDefinition ed, String path) throws Exception {
     ElementDefinition dst = new ElementDefinition();
-    ed.setDifferential(new StructureDefinitionDifferentialComponent());
+    if (!ed.hasDifferential())
+      ed.setDifferential(new StructureDefinitionDifferentialComponent());
     ed.getDifferential().getElement().add(dst);
     String thisPath = path == null ? "Extension" : path+"."+src.getName();
     dst.setPath(thisPath);
@@ -1084,6 +1085,8 @@ public class ProfileGenerator {
     }
     if (src.getMinCardinality() != null)
       dst.setMin(src.getMinCardinality());
+    if (src.getFixed() != null)
+      dst.setFixed(src.getFixed());
     if (src.hasMustSupport())
       dst.setMustSupport(src.isMustSupport());
     if (src.hasModifier())

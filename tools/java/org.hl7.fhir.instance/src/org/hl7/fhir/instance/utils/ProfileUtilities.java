@@ -248,7 +248,7 @@ public class ProfileUtilities {
           result.getElement().add(outcome);
           baseCursor++;
           diffCursor = differential.getElement().indexOf(diffMatches.get(0))+1;
-          if (differential.getElement().size() > diffCursor && isDataType(outcome.getType())) { 
+          if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
             if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
               if (outcome.getType().size() > 1)
                 throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
