@@ -16,11 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7755</WindowHeight>
-  <WindowWidth>20490</WindowWidth>
+  <WindowHeight>10425</WindowHeight>
+  <WindowWidth>26775</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3877,7 +3878,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6403,20 +6403,25 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s138"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">General</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Example of immunizationrecommendation</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">example</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">immunizationrecommendation-example.xml</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">QICore ImmunizationRecommendation</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of QICore ImmunizationRecommendation</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">qicore</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">immunizationrecommendation-qicore-example.xml</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
@@ -6762,6 +6767,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6781,7 +6787,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6800,10 +6806,15 @@
    <Value>&quot;xml,csv,tool&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R40C6</Range>
+   <Range>R2C6,R4C6:R40C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Profiles!A2:A40&quot;</Value>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C6</Range>
+   <Type>List</Type>
+   <Value>Packages!R2C1:R20C1</Value>
   </DataValidation>
   <AutoFilter x:Range="R1C1:R2C7" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>

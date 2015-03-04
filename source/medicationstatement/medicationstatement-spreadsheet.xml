@@ -10,17 +10,17 @@
   <LastAuthor>Jean-Henri Duteau</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-01-20T15:52:16Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17835</WindowHeight>
-  <WindowWidth>1980</WindowWidth>
-  <WindowTopX>27135</WindowTopX>
-  <WindowTopY>2145</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
+  <WindowHeight>10425</WindowHeight>
+  <WindowWidth>26775</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4112,7 +4112,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R14C1:R14C24</Range>
+   <Range>R14C1:R14C24,R7C1:R7C13,R7C16:R7C24</Range>
    <Condition>
     <Value1>#REF!=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -4186,7 +4186,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R14C1:R14C24</Range>
+   <Range>R14C1:R14C24,R7C1:R7C13,R7C16:R7C24</Range>
    <Condition>
     <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -4444,17 +4444,6 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1:R7C13,R7C16:R7C24</Range>
-   <Condition>
-    <Value1>#REF!=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R19C3:R105C3,R19C15:R105C15,R7C3</Range>
    <Condition>
     <Value1>(R[1048564]C1=&quot;&quot;)&lt;&gt;(R[1048564]C[16370]=&quot;&quot;)</Value1>
@@ -4501,13 +4490,6 @@
    <Condition>
     <Value1>AND(R[1048552]C[16237]&lt;&gt;&quot;&quot;,LEFT(R[1048552]C5,1)&lt;&gt;&quot;@&quot;,LEFT(R[1048554]C1,LEN(R[1048552]C1)+1)&lt;&gt;(R[1048552]C1&amp;&quot;.&quot;),LEFT(R[1048554]C1,LEN(R[1048552]C1)+2)&lt;&gt;(&quot;!&quot;&amp;R[1048552]C1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1:R7C13,R7C16:R7C24</Range>
-   <Condition>
-    <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7047,7 +7029,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7180,11 +7161,11 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">QICore MedicationStatement</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of QICore MedicationStatement</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">qicore</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">medicationstatement-qicore-example.xml</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s141"/>
    </Row>
@@ -7521,6 +7502,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7540,6 +7522,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -7560,10 +7543,15 @@
    <Value>&quot;xml,csv,tool&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R40C6</Range>
+   <Range>R2C6:R3C6,R5C6:R40C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Profiles!A2:A40&quot;</Value>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C6</Range>
+   <Type>List</Type>
+   <Value>Packages!R2C1:R20C1</Value>
   </DataValidation>
   <AutoFilter x:Range="R1C1:R2C7" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -8957,7 +8945,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1:R8C9</Range>
+   <Range>R8C1:R8C9,R5C1:R5C9</Range>
    <Condition>
     <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -8968,13 +8956,6 @@
    <Condition>
     <Value1>AND(#REF!=&quot;&quot;,#REF!&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R5C9</Range>
-   <Condition>
-    <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
