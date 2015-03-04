@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -109,10 +109,10 @@ public class InstitutionalClaim extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case COMPLETE: return "complete";
-            case PROPOSED: return "proposed";
-            case EXPLORATORY: return "exploratory";
-            case OTHER: return "other";
+            case COMPLETE: return "Complete";
+            case PROPOSED: return "Proposed";
+            case EXPLORATORY: return "Exploratory";
+            case OTHER: return "Other";
             default: return "?";
           }
         }

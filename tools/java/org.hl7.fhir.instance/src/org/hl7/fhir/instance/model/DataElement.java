@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -127,12 +127,12 @@ public class DataElement extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case COMPARABLE: return "comparable";
-            case FULLYSPECIFIED: return "fully-specified";
-            case EQUIVALENT: return "equivalent";
-            case CONVERTABLE: return "convertable";
-            case SCALEABLE: return "scaleable";
-            case FLEXIBLE: return "flexible";
+            case COMPARABLE: return "Comparable";
+            case FULLYSPECIFIED: return "Fully Specified";
+            case EQUIVALENT: return "Equivalent";
+            case CONVERTABLE: return "Convertable";
+            case SCALEABLE: return "Scaleable";
+            case FLEXIBLE: return "Flexible";
             default: return "?";
           }
         }

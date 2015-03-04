@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -109,10 +109,10 @@ public class OralHealthClaim extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case COMPLETE: return "complete";
-            case PROPOSED: return "proposed";
-            case EXPLORATORY: return "exploratory";
-            case OTHER: return "other";
+            case COMPLETE: return "Complete";
+            case PROPOSED: return "Proposed";
+            case EXPLORATORY: return "Exploratory";
+            case OTHER: return "Other";
             default: return "?";
           }
         }
@@ -1032,11 +1032,11 @@ public class OralHealthClaim extends DomainResource {
         /**
          * The date of the extraction either known from records or patient reported estimate.
          */
-        @Child(name="extractiondate", type={DateType.class}, order=3, min=0, max=1)
+        @Child(name="extractionDate", type={DateType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Date of Extraction", formalDefinition="The date of the extraction either known from records or patient reported estimate." )
-        protected DateType extractiondate;
+        protected DateType extractionDate;
 
-        private static final long serialVersionUID = -1311739967L;
+        private static final long serialVersionUID = 352913313L;
 
       public MissingTeethComponent() {
         super();
@@ -1096,50 +1096,50 @@ public class OralHealthClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #extractiondate} (The date of the extraction either known from records or patient reported estimate.). This is the underlying object with id, value and extensions. The accessor "getExtractiondate" gives direct access to the value
+         * @return {@link #extractionDate} (The date of the extraction either known from records or patient reported estimate.). This is the underlying object with id, value and extensions. The accessor "getExtractionDate" gives direct access to the value
          */
-        public DateType getExtractiondateElement() { 
-          if (this.extractiondate == null)
+        public DateType getExtractionDateElement() { 
+          if (this.extractionDate == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MissingTeethComponent.extractiondate");
+              throw new Error("Attempt to auto-create MissingTeethComponent.extractionDate");
             else if (Configuration.doAutoCreate())
-              this.extractiondate = new DateType(); // bb
-          return this.extractiondate;
+              this.extractionDate = new DateType(); // bb
+          return this.extractionDate;
         }
 
-        public boolean hasExtractiondateElement() { 
-          return this.extractiondate != null && !this.extractiondate.isEmpty();
+        public boolean hasExtractionDateElement() { 
+          return this.extractionDate != null && !this.extractionDate.isEmpty();
         }
 
-        public boolean hasExtractiondate() { 
-          return this.extractiondate != null && !this.extractiondate.isEmpty();
+        public boolean hasExtractionDate() { 
+          return this.extractionDate != null && !this.extractionDate.isEmpty();
         }
 
         /**
-         * @param value {@link #extractiondate} (The date of the extraction either known from records or patient reported estimate.). This is the underlying object with id, value and extensions. The accessor "getExtractiondate" gives direct access to the value
+         * @param value {@link #extractionDate} (The date of the extraction either known from records or patient reported estimate.). This is the underlying object with id, value and extensions. The accessor "getExtractionDate" gives direct access to the value
          */
-        public MissingTeethComponent setExtractiondateElement(DateType value) { 
-          this.extractiondate = value;
+        public MissingTeethComponent setExtractionDateElement(DateType value) { 
+          this.extractionDate = value;
           return this;
         }
 
         /**
          * @return The date of the extraction either known from records or patient reported estimate.
          */
-        public Date getExtractiondate() { 
-          return this.extractiondate == null ? null : this.extractiondate.getValue();
+        public Date getExtractionDate() { 
+          return this.extractionDate == null ? null : this.extractionDate.getValue();
         }
 
         /**
          * @param value The date of the extraction either known from records or patient reported estimate.
          */
-        public MissingTeethComponent setExtractiondate(Date value) { 
+        public MissingTeethComponent setExtractionDate(Date value) { 
           if (value == null)
-            this.extractiondate = null;
+            this.extractionDate = null;
           else {
-            if (this.extractiondate == null)
-              this.extractiondate = new DateType();
-            this.extractiondate.setValue(value);
+            if (this.extractionDate == null)
+              this.extractionDate = new DateType();
+            this.extractionDate.setValue(value);
           }
           return this;
         }
@@ -1148,7 +1148,7 @@ public class OralHealthClaim extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("tooth", "Coding", "The code identifying which tooth is missing.", 0, java.lang.Integer.MAX_VALUE, tooth));
           childrenList.add(new Property("reason", "Coding", "Missing reason may be: E-extraction, O-other.", 0, java.lang.Integer.MAX_VALUE, reason));
-          childrenList.add(new Property("extractiondate", "date", "The date of the extraction either known from records or patient reported estimate.", 0, java.lang.Integer.MAX_VALUE, extractiondate));
+          childrenList.add(new Property("extractionDate", "date", "The date of the extraction either known from records or patient reported estimate.", 0, java.lang.Integer.MAX_VALUE, extractionDate));
         }
 
       public MissingTeethComponent copy() {
@@ -1156,7 +1156,7 @@ public class OralHealthClaim extends DomainResource {
         copyValues(dst);
         dst.tooth = tooth == null ? null : tooth.copy();
         dst.reason = reason == null ? null : reason.copy();
-        dst.extractiondate = extractiondate == null ? null : extractiondate.copy();
+        dst.extractionDate = extractionDate == null ? null : extractionDate.copy();
         return dst;
       }
 
@@ -1167,7 +1167,7 @@ public class OralHealthClaim extends DomainResource {
         if (!(other instanceof MissingTeethComponent))
           return false;
         MissingTeethComponent o = (MissingTeethComponent) other;
-        return compareDeep(tooth, o.tooth, true) && compareDeep(reason, o.reason, true) && compareDeep(extractiondate, o.extractiondate, true)
+        return compareDeep(tooth, o.tooth, true) && compareDeep(reason, o.reason, true) && compareDeep(extractionDate, o.extractionDate, true)
           ;
       }
 
@@ -1178,12 +1178,12 @@ public class OralHealthClaim extends DomainResource {
         if (!(other instanceof MissingTeethComponent))
           return false;
         MissingTeethComponent o = (MissingTeethComponent) other;
-        return compareValues(extractiondate, o.extractiondate, true);
+        return compareValues(extractionDate, o.extractionDate, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (tooth == null || tooth.isEmpty()) && (reason == null || reason.isEmpty())
-           && (extractiondate == null || extractiondate.isEmpty());
+           && (extractionDate == null || extractionDate.isEmpty());
       }
 
   }
@@ -3634,9 +3634,9 @@ public class OralHealthClaim extends DomainResource {
     /**
      * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
      */
-    @Child(name="missingteeth", type={}, order=23, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="missingTeeth", type={}, order=23, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Missing Teeth", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
-    protected List<MissingTeethComponent> missingteeth;
+    protected List<MissingTeethComponent> missingTeeth;
 
     /**
      * The high-level details of an Orthodontic Treatment Plan.
@@ -3659,7 +3659,7 @@ public class OralHealthClaim extends DomainResource {
     @Description(shortDefinition="Additional materials, documents, etc.", formalDefinition="Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission." )
     protected List<Coding> additionalMaterials;
 
-    private static final long serialVersionUID = -748490719L;
+    private static final long serialVersionUID = 1137286209L;
 
     public OralHealthClaim() {
       super();
@@ -4499,32 +4499,32 @@ public class OralHealthClaim extends DomainResource {
     }
 
     /**
-     * @return {@link #missingteeth} (A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.)
+     * @return {@link #missingTeeth} (A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.)
      */
-    public List<MissingTeethComponent> getMissingteeth() { 
-      if (this.missingteeth == null)
-        this.missingteeth = new ArrayList<MissingTeethComponent>();
-      return this.missingteeth;
+    public List<MissingTeethComponent> getMissingTeeth() { 
+      if (this.missingTeeth == null)
+        this.missingTeeth = new ArrayList<MissingTeethComponent>();
+      return this.missingTeeth;
     }
 
-    public boolean hasMissingteeth() { 
-      if (this.missingteeth == null)
+    public boolean hasMissingTeeth() { 
+      if (this.missingTeeth == null)
         return false;
-      for (MissingTeethComponent item : this.missingteeth)
+      for (MissingTeethComponent item : this.missingTeeth)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #missingteeth} (A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.)
+     * @return {@link #missingTeeth} (A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.)
      */
     // syntactic sugar
-    public MissingTeethComponent addMissingteeth() { //3
+    public MissingTeethComponent addMissingTeeth() { //3
       MissingTeethComponent t = new MissingTeethComponent();
-      if (this.missingteeth == null)
-        this.missingteeth = new ArrayList<MissingTeethComponent>();
-      this.missingteeth.add(t);
+      if (this.missingTeeth == null)
+        this.missingTeeth = new ArrayList<MissingTeethComponent>();
+      this.missingTeeth.add(t);
       return t;
     }
 
@@ -4637,7 +4637,7 @@ public class OralHealthClaim extends DomainResource {
         childrenList.add(new Property("accident", "date", "Date of an accident which these services are addressing.", 0, java.lang.Integer.MAX_VALUE, accident));
         childrenList.add(new Property("accidentType", "Coding", "Type of accident: work, auto, etc.", 0, java.lang.Integer.MAX_VALUE, accidentType));
         childrenList.add(new Property("interventionException", "Coding", "A list of intervention and exception codes which may influence the adjudication of the claim.", 0, java.lang.Integer.MAX_VALUE, interventionException));
-        childrenList.add(new Property("missingteeth", "", "A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.", 0, java.lang.Integer.MAX_VALUE, missingteeth));
+        childrenList.add(new Property("missingTeeth", "", "A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.", 0, java.lang.Integer.MAX_VALUE, missingTeeth));
         childrenList.add(new Property("orthoPlan", "", "The high-level details of an Orthodontic Treatment Plan.", 0, java.lang.Integer.MAX_VALUE, orthoPlan));
         childrenList.add(new Property("item", "", "First tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, item));
         childrenList.add(new Property("additionalMaterials", "Coding", "Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.", 0, java.lang.Integer.MAX_VALUE, additionalMaterials));
@@ -4693,10 +4693,10 @@ public class OralHealthClaim extends DomainResource {
           for (Coding i : interventionException)
             dst.interventionException.add(i.copy());
         };
-        if (missingteeth != null) {
-          dst.missingteeth = new ArrayList<MissingTeethComponent>();
-          for (MissingTeethComponent i : missingteeth)
-            dst.missingteeth.add(i.copy());
+        if (missingTeeth != null) {
+          dst.missingTeeth = new ArrayList<MissingTeethComponent>();
+          for (MissingTeethComponent i : missingTeeth)
+            dst.missingTeeth.add(i.copy());
         };
         dst.orthoPlan = orthoPlan == null ? null : orthoPlan.copy();
         if (item != null) {
@@ -4731,7 +4731,7 @@ public class OralHealthClaim extends DomainResource {
            && compareDeep(condition, o.condition, true) && compareDeep(patient, o.patient, true) && compareDeep(coverage, o.coverage, true)
            && compareDeep(exception, o.exception, true) && compareDeep(school, o.school, true) && compareDeep(accident, o.accident, true)
            && compareDeep(accidentType, o.accidentType, true) && compareDeep(interventionException, o.interventionException, true)
-           && compareDeep(missingteeth, o.missingteeth, true) && compareDeep(orthoPlan, o.orthoPlan, true)
+           && compareDeep(missingTeeth, o.missingTeeth, true) && compareDeep(orthoPlan, o.orthoPlan, true)
            && compareDeep(item, o.item, true) && compareDeep(additionalMaterials, o.additionalMaterials, true)
           ;
       }
@@ -4757,7 +4757,7 @@ public class OralHealthClaim extends DomainResource {
            && (condition == null || condition.isEmpty()) && (patient == null || patient.isEmpty()) && (coverage == null || coverage.isEmpty())
            && (exception == null || exception.isEmpty()) && (school == null || school.isEmpty()) && (accident == null || accident.isEmpty())
            && (accidentType == null || accidentType.isEmpty()) && (interventionException == null || interventionException.isEmpty())
-           && (missingteeth == null || missingteeth.isEmpty()) && (orthoPlan == null || orthoPlan.isEmpty())
+           && (missingTeeth == null || missingTeeth.isEmpty()) && (orthoPlan == null || orthoPlan.isEmpty())
            && (item == null || item.isEmpty()) && (additionalMaterials == null || additionalMaterials.isEmpty())
           ;
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -99,9 +99,9 @@ public class CarePlan extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case PLANNED: return "planned";
-            case ACTIVE: return "active";
-            case COMPLETED: return "completed";
+            case PLANNED: return "Planned";
+            case ACTIVE: return "Active";
+            case COMPLETED: return "Completed";
             default: return "?";
           }
         }
@@ -194,10 +194,10 @@ public class CarePlan extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "in-progress";
-            case ACHIEVED: return "achieved";
-            case SUSTAINING: return "sustaining";
-            case CANCELLED: return "cancelled";
+            case INPROGRESS: return "In Progress";
+            case ACHIEVED: return "Achieved";
+            case SUSTAINING: return "Sustaining";
+            case CANCELLED: return "Cancelled";
             default: return "?";
           }
         }
@@ -312,12 +312,12 @@ public class CarePlan extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case NOTSTARTED: return "not-started";
-            case SCHEDULED: return "scheduled";
-            case INPROGRESS: return "in-progress";
-            case ONHOLD: return "on-hold";
-            case COMPLETED: return "completed";
-            case CANCELLED: return "cancelled";
+            case NOTSTARTED: return "Not Started";
+            case SCHEDULED: return "Scheduled";
+            case INPROGRESS: return "In Progress";
+            case ONHOLD: return "On Hold";
+            case COMPLETED: return "Completed";
+            case CANCELLED: return "Cancelled";
             default: return "?";
           }
         }
@@ -449,13 +449,13 @@ public class CarePlan extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case DIET: return "diet";
-            case DRUG: return "drug";
-            case ENCOUNTER: return "encounter";
-            case OBSERVATION: return "observation";
-            case PROCEDURE: return "procedure";
-            case SUPPLY: return "supply";
-            case OTHER: return "other";
+            case DIET: return "Diet";
+            case DRUG: return "Drug";
+            case ENCOUNTER: return "Encounter";
+            case OBSERVATION: return "Observation";
+            case PROCEDURE: return "Procedure";
+            case SUPPLY: return "Supply";
+            case OTHER: return "Other";
             default: return "?";
           }
         }

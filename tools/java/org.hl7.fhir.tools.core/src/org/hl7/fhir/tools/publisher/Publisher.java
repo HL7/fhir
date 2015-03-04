@@ -1309,8 +1309,8 @@ public class Publisher implements URIResolver {
         errorCount++;
       }
     }
-    page.log("Errors: " + Integer.toString(errorCount) + ". Warnings: " + Integer.toString(warningCount) + ". Hints: " + Integer.toString(hintCount),
-        LogMessageType.Process);
+    if (errorCount + warningCount + hintCount > 0)
+      page.log("Errors: " + Integer.toString(errorCount) + ". Warnings: " + Integer.toString(warningCount) + ". Hints: " + Integer.toString(hintCount), LogMessageType.Process);
     validationErrors.clear();
     return errorCount;
   }
@@ -2219,6 +2219,8 @@ public class Publisher implements URIResolver {
         concept.setCode(code);
         concept.setDisplay(display);
         concept.setDefinition(textDefinition);
+        if (!concept.hasDefinition())
+          concept.setDefinition(concept.getDisplay());
         concept.setAbstract(!select);
         String d = "";
         if (deprecated) {

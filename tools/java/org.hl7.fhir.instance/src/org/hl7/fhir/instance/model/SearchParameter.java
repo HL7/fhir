@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -136,13 +136,13 @@ public class SearchParameter extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case NUMBER: return "number";
-            case DATE: return "date";
-            case STRING: return "string";
-            case TOKEN: return "token";
-            case REFERENCE: return "reference";
-            case COMPOSITE: return "composite";
-            case QUANTITY: return "quantity";
+            case NUMBER: return "Number";
+            case DATE: return "Date";
+            case STRING: return "String";
+            case TOKEN: return "Token";
+            case REFERENCE: return "Reference";
+            case COMPOSITE: return "Composite";
+            case QUANTITY: return "Quantity";
             default: return "?";
           }
         }

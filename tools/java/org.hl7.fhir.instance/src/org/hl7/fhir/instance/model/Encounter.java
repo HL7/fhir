@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -281,15 +281,15 @@ public class Encounter extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPATIENT: return "inpatient";
-            case OUTPATIENT: return "outpatient";
-            case AMBULATORY: return "ambulatory";
-            case EMERGENCY: return "emergency";
-            case HOME: return "home";
-            case FIELD: return "field";
-            case DAYTIME: return "daytime";
-            case VIRTUAL: return "virtual";
-            case OTHER: return "other";
+            case INPATIENT: return "Inpatient";
+            case OUTPATIENT: return "Outpatient";
+            case AMBULATORY: return "Ambulatory";
+            case EMERGENCY: return "Emergency";
+            case HOME: return "Home";
+            case FIELD: return "Field";
+            case DAYTIME: return "Daytime";
+            case VIRTUAL: return "Virtual";
+            case OTHER: return "Other";
             default: return "?";
           }
         }

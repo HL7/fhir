@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -99,9 +99,9 @@ public class CarePlan2 extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case PLANNED: return "planned";
-            case ACTIVE: return "active";
-            case COMPLETED: return "completed";
+            case PLANNED: return "Planned";
+            case ACTIVE: return "Active";
+            case COMPLETED: return "Completed";
             default: return "?";
           }
         }

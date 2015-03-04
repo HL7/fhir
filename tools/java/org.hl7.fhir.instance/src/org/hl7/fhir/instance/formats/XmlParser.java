@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1934,8 +1934,8 @@ public class XmlParser extends XmlParserBase {
         res.setPayeeType(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("item")) {
         res.getItem().add(parseClaimResponseItemsComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("additem")) {
-        res.getAdditem().add(parseClaimResponseAddedItemComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("addItem")) {
+        res.getAddItem().add(parseClaimResponseAddedItemComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("error")) {
         res.getError().add(parseClaimResponseErrorsComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("totalCost")) {
@@ -6564,8 +6564,8 @@ public class XmlParser extends XmlParserBase {
         res.setAccidentType(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("interventionException")) {
         res.getInterventionException().add(parseCoding(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("missingteeth")) {
-        res.getMissingteeth().add(parseOralHealthClaimMissingTeethComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("missingTeeth")) {
+        res.getMissingTeeth().add(parseOralHealthClaimMissingTeethComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("orthoPlan")) {
         res.setOrthoPlan(parseOralHealthClaimOrthodonticPlanComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("item")) {
@@ -6660,8 +6660,8 @@ public class XmlParser extends XmlParserBase {
         res.setTooth(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reason")) {
         res.setReason(parseCoding(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("extractiondate")) {
-        res.setExtractiondateElement(parseDate(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("extractionDate")) {
+        res.setExtractionDateElement(parseDate(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -12596,9 +12596,9 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.ItemsComponent e : element.getItem()) 
           composeClaimResponseItemsComponent("item", e);
       }
-      if (element.hasAdditem()) { 
-        for (ClaimResponse.AddedItemComponent e : element.getAdditem()) 
-          composeClaimResponseAddedItemComponent("additem", e);
+      if (element.hasAddItem()) { 
+        for (ClaimResponse.AddedItemComponent e : element.getAddItem()) 
+          composeClaimResponseAddedItemComponent("addItem", e);
       }
       if (element.hasError()) { 
         for (ClaimResponse.ErrorsComponent e : element.getError()) 
@@ -17712,9 +17712,9 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getInterventionException()) 
           composeCoding("interventionException", e);
       }
-      if (element.hasMissingteeth()) { 
-        for (OralHealthClaim.MissingTeethComponent e : element.getMissingteeth()) 
-          composeOralHealthClaimMissingTeethComponent("missingteeth", e);
+      if (element.hasMissingTeeth()) { 
+        for (OralHealthClaim.MissingTeethComponent e : element.getMissingTeeth()) 
+          composeOralHealthClaimMissingTeethComponent("missingTeeth", e);
       }
       if (element.hasOrthoPlan()) {
         composeOralHealthClaimOrthodonticPlanComponent("orthoPlan", element.getOrthoPlan());
@@ -17812,8 +17812,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReason()) {
         composeCoding("reason", element.getReason());
       }
-      if (element.hasExtractiondateElement()) {
-        composeDate("extractiondate", element.getExtractiondateElement());
+      if (element.hasExtractionDateElement()) {
+        composeDate("extractionDate", element.getExtractionDateElement());
       }
       xml.close(FHIR_NS, name);
     }

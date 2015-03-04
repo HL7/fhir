@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -108,10 +108,10 @@ public class Slot extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case BUSY: return "BUSY";
-            case FREE: return "FREE";
-            case BUSYUNAVAILABLE: return "BUSY-UNAVAILABLE";
-            case BUSYTENTATIVE: return "BUSY-TENTATIVE";
+            case BUSY: return "B U S Y";
+            case FREE: return "F R E E";
+            case BUSYUNAVAILABLE: return "B U S Y U N A V A I L A B L E";
+            case BUSYTENTATIVE: return "B U S Y T E N T A T I V E";
             default: return "?";
           }
         }

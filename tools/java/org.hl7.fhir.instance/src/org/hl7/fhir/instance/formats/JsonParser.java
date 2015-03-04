@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -2056,10 +2056,10 @@ public class JsonParser extends JsonParserBase {
         res.getItem().add(parseClaimResponseItemsComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("additem")) {
-      JsonArray array = json.getAsJsonArray("additem");
+    if (json.has("addItem")) {
+      JsonArray array = json.getAsJsonArray("addItem");
       for (int i = 0; i < array.size(); i++) {
-        res.getAdditem().add(parseClaimResponseAddedItemComponent(array.get(i).getAsJsonObject(), res));
+        res.getAddItem().add(parseClaimResponseAddedItemComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("error")) {
@@ -7432,10 +7432,10 @@ public class JsonParser extends JsonParserBase {
         res.getInterventionException().add(parseCoding(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("missingteeth")) {
-      JsonArray array = json.getAsJsonArray("missingteeth");
+    if (json.has("missingTeeth")) {
+      JsonArray array = json.getAsJsonArray("missingTeeth");
       for (int i = 0; i < array.size(); i++) {
-        res.getMissingteeth().add(parseOralHealthClaimMissingTeethComponent(array.get(i).getAsJsonObject(), res));
+        res.getMissingTeeth().add(parseOralHealthClaimMissingTeethComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("orthoPlan"))
@@ -7529,10 +7529,10 @@ public class JsonParser extends JsonParserBase {
       res.setTooth(parseCoding(json.getAsJsonObject("tooth")));
     if (json.has("reason"))
       res.setReason(parseCoding(json.getAsJsonObject("reason")));
-    if (json.has("extractiondate"))
-      res.setExtractiondateElement(parseDate(json.get("extractiondate").getAsString()));
-    if (json.has("_extractiondate"))
-      parseElementProperties(json.getAsJsonObject("_extractiondate"), res.getExtractiondateElement());
+    if (json.has("extractionDate"))
+      res.setExtractionDateElement(parseDate(json.get("extractionDate").getAsString()));
+    if (json.has("_extractionDate"))
+      parseElementProperties(json.getAsJsonObject("_extractionDate"), res.getExtractionDateElement());
     return res;
   }
 
@@ -14502,9 +14502,9 @@ public class JsonParser extends JsonParserBase {
           composeClaimResponseItemsComponent(null, e);
         closeArray();
       };
-      if (element.hasAdditem()) {
-        openArray("additem");
-        for (ClaimResponse.AddedItemComponent e : element.getAdditem()) 
+      if (element.hasAddItem()) {
+        openArray("addItem");
+        for (ClaimResponse.AddedItemComponent e : element.getAddItem()) 
           composeClaimResponseAddedItemComponent(null, e);
         closeArray();
       };
@@ -21218,9 +21218,9 @@ public class JsonParser extends JsonParserBase {
           composeCoding(null, e);
         closeArray();
       };
-      if (element.hasMissingteeth()) {
-        openArray("missingteeth");
-        for (OralHealthClaim.MissingTeethComponent e : element.getMissingteeth()) 
+      if (element.hasMissingTeeth()) {
+        openArray("missingTeeth");
+        for (OralHealthClaim.MissingTeethComponent e : element.getMissingTeeth()) 
           composeOralHealthClaimMissingTeethComponent(null, e);
         closeArray();
       };
@@ -21348,9 +21348,9 @@ public class JsonParser extends JsonParserBase {
       if (element.hasReason()) {
         composeCoding("reason", element.getReason());
       }
-      if (element.hasExtractiondateElement()) {
-        composeDateCore("extractiondate", element.getExtractiondateElement(), false);
-        composeDateExtras("extractiondate", element.getExtractiondateElement(), false);
+      if (element.hasExtractionDateElement()) {
+        composeDateCore("extractionDate", element.getExtractionDateElement(), false);
+        composeDateExtras("extractionDate", element.getExtractionDateElement(), false);
       }
   }
 

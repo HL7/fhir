@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -91,8 +91,8 @@ public class VisionPrescription extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case RIGHT: return "right";
-            case LEFT: return "left";
+            case RIGHT: return "Right";
+            case LEFT: return "Left";
             default: return "?";
           }
         }
@@ -181,10 +181,10 @@ public class VisionPrescription extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case UP: return "up";
-            case DOWN: return "down";
-            case IN: return "in";
-            case OUT: return "out";
+            case UP: return "Up";
+            case DOWN: return "Down";
+            case IN: return "In";
+            case OUT: return "Out";
             default: return "?";
           }
         }

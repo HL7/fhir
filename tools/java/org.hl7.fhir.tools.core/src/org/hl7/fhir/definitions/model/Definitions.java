@@ -454,6 +454,8 @@ public class Definitions {
       throw new Error("The data type context '"+value+"' is not valid @ "+context);
       
     } else if (contextType == ExtensionContext.RESOURCE) {
+      if (value.startsWith("@"))
+        value = value.substring(1);
       if (value.equals("*") || value.equals("Any"))
         return;
       String[] parts = value.split("\\.");
@@ -479,7 +481,7 @@ public class Definitions {
     while (e != null && i < parts.length) {
       if (e.getAcceptableGenericTypes().isEmpty() && hasType(e.typeCode()))
         e = getElementDefn(e.typeCode());
-      e = e.getElementByName(parts[i]);
+      e = e.getElementByName(parts[i], true);
       i++;
     }
     return e;

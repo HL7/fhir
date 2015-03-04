@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -226,15 +226,15 @@ public class Conformance extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case READ: return "read";
-            case VREAD: return "vread";
-            case UPDATE: return "update";
-            case DELETE: return "delete";
-            case HISTORYINSTANCE: return "history-instance";
-            case VALIDATE: return "validate";
-            case HISTORYTYPE: return "history-type";
-            case CREATE: return "create";
-            case SEARCHTYPE: return "search-type";
+            case READ: return "Read";
+            case VREAD: return "Vread";
+            case UPDATE: return "Update";
+            case DELETE: return "Delete";
+            case HISTORYINSTANCE: return "History Instance";
+            case VALIDATE: return "Validate";
+            case HISTORYTYPE: return "History Type";
+            case CREATE: return "Create";
+            case SEARCHTYPE: return "Search Type";
             default: return "?";
           }
         }
@@ -464,13 +464,13 @@ public class Conformance extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case NUMBER: return "number";
-            case DATE: return "date";
-            case STRING: return "string";
-            case TOKEN: return "token";
-            case REFERENCE: return "reference";
-            case COMPOSITE: return "composite";
-            case QUANTITY: return "quantity";
+            case NUMBER: return "Number";
+            case DATE: return "Date";
+            case STRING: return "String";
+            case TOKEN: return "Token";
+            case REFERENCE: return "Reference";
+            case COMPOSITE: return "Composite";
+            case QUANTITY: return "Quantity";
             default: return "?";
           }
         }
@@ -570,9 +570,9 @@ public class Conformance extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case TRANSACTION: return "transaction";
-            case SEARCHSYSTEM: return "search-system";
-            case HISTORYSYSTEM: return "history-system";
+            case TRANSACTION: return "Transaction";
+            case SEARCHSYSTEM: return "Search System";
+            case HISTORYSYSTEM: return "History System";
             default: return "?";
           }
         }
@@ -733,8 +733,8 @@ public class Conformance extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case SENDER: return "sender";
-            case RECEIVER: return "receiver";
+            case SENDER: return "Sender";
+            case RECEIVER: return "Receiver";
             default: return "?";
           }
         }
@@ -805,8 +805,8 @@ public class Conformance extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case PRODUCER: return "producer";
-            case CONSUMER: return "consumer";
+            case PRODUCER: return "Producer";
+            case CONSUMER: return "Consumer";
             default: return "?";
           }
         }

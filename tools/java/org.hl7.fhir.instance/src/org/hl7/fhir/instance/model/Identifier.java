@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -106,10 +106,10 @@ public class Identifier extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case USUAL: return "usual";
-            case OFFICIAL: return "official";
-            case TEMP: return "temp";
-            case SECONDARY: return "secondary";
+            case USUAL: return "Usual";
+            case OFFICIAL: return "Official";
+            case TEMP: return "Temp";
+            case SECONDARY: return "Secondary";
             default: return "?";
           }
         }

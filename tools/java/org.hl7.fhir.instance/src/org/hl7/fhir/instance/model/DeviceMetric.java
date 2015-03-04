@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -99,9 +99,9 @@ public class DeviceMetric extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case ON: return "on";
-            case OFF: return "off";
-            case STANDBY: return "standby";
+            case ON: return "On";
+            case OFF: return "Off";
+            case STANDBY: return "Standby";
             default: return "?";
           }
         }
@@ -350,10 +350,10 @@ public class DeviceMetric extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case MEASUREMENT: return "measurement";
-            case SETTING: return "setting";
-            case CALCULATION: return "calculation";
-            case UNSPECIFIED: return "unspecified";
+            case MEASUREMENT: return "Measurement";
+            case SETTING: return "Setting";
+            case CALCULATION: return "Calculation";
+            case UNSPECIFIED: return "Unspecified";
             default: return "?";
           }
         }
@@ -450,10 +450,10 @@ public class DeviceMetric extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case UNSPECIFIED: return "unspecified";
-            case OFFSET: return "offset";
-            case GAIN: return "gain";
-            case TWOPOINT: return "two-point";
+            case UNSPECIFIED: return "Unspecified";
+            case OFFSET: return "Offset";
+            case GAIN: return "Gain";
+            case TWOPOINT: return "Two Point";
             default: return "?";
           }
         }
@@ -550,10 +550,10 @@ public class DeviceMetric extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case NOTCALIBRATED: return "not-calibrated";
-            case CALIBRATIONREQUIRED: return "calibration-required";
-            case CALIBRATED: return "calibrated";
-            case UNSPECIFIED: return "unspecified";
+            case NOTCALIBRATED: return "Not Calibrated";
+            case CALIBRATIONREQUIRED: return "Calibration Required";
+            case CALIBRATED: return "Calibrated";
+            case UNSPECIFIED: return "Unspecified";
             default: return "?";
           }
         }

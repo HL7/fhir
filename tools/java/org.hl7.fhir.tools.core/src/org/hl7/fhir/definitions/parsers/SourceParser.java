@@ -415,6 +415,8 @@ public class SourceParser {
       ArrayList<String> codes = new ArrayList<String>();
       for (int i = 1; i <= 80; i++) {
         String s = sheet.getColumn(row, "c"+Integer.toString(i));
+        if (s.endsWith("?"))
+          s = s.substring(0, s.length()-1);
         codes.add(s);
       }
       definitions.getStatusCodes().put(path, codes); 

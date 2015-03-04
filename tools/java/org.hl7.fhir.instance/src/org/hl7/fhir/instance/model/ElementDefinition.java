@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -79,7 +79,7 @@ public class ElementDefinition extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case XMLATTR: return "xmlAttr";
+            case XMLATTR: return "Xml Attr";
             default: return "?";
           }
         }
@@ -155,9 +155,9 @@ public class ElementDefinition extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case CLOSED: return "closed";
-            case OPEN: return "open";
-            case OPENATEND: return "openAtEnd";
+            case CLOSED: return "Closed";
+            case OPEN: return "Open";
+            case OPENATEND: return "Open At End";
             default: return "?";
           }
         }
@@ -241,9 +241,9 @@ public class ElementDefinition extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case CONTAINED: return "contained";
-            case REFERENCED: return "referenced";
-            case BUNDLED: return "bundled";
+            case CONTAINED: return "Contained";
+            case REFERENCED: return "Referenced";
+            case BUNDLED: return "Bundled";
             default: return "?";
           }
         }
@@ -318,8 +318,8 @@ public class ElementDefinition extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case ERROR: return "error";
-            case WARNING: return "warning";
+            case ERROR: return "Error";
+            case WARNING: return "Warning";
             default: return "?";
           }
         }
@@ -399,9 +399,9 @@ public class ElementDefinition extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case REQUIRED: return "required";
-            case PREFERRED: return "preferred";
-            case EXAMPLE: return "example";
+            case REQUIRED: return "Required";
+            case PREFERRED: return "Preferred";
+            case EXAMPLE: return "Example";
             default: return "?";
           }
         }

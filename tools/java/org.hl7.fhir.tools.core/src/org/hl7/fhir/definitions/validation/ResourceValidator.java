@@ -303,7 +303,14 @@ public class ResourceValidator extends BaseValidator {
 			    if (path.toLowerCase().endsWith("status")) {
 			      if (rule(errors, "structure", path, definitions.getStatusCodes().containsKey(path), "Status element not registered in status-codes.xml")) {
 			        for (DefinedCode c : cd.getCodes()) {
-			          rule(errors, "structure", path, definitions.getStatusCodes().get(path).contains(c.getCode()), "Status element code \""+c.getCode()+"\" not found in status-codes.xml");
+			          boolean ok = false;
+			          for (String s : definitions.getStatusCodes().get(path)) {
+			            String[] parts = s.split("\\,");
+			            for (String p : parts)
+			              if (p.trim().equals(c.getCode()))
+			                ok = true;
+			          }
+			          rule(errors, "structure", path, ok, "Status element code \""+c.getCode()+"\" not found in status-codes.xml");
 			        }
 			      }
 			    }

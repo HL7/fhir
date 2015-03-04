@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -144,14 +144,14 @@ public class DiagnosticReport extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case REGISTERED: return "registered";
-            case PARTIAL: return "partial";
-            case FINAL: return "final";
-            case CORRECTED: return "corrected";
-            case AMENDED: return "amended";
-            case APPENDED: return "appended";
-            case CANCELLED: return "cancelled";
-            case ENTEREDINERROR: return "entered-in-error";
+            case REGISTERED: return "Registered";
+            case PARTIAL: return "Partial";
+            case FINAL: return "Final";
+            case CORRECTED: return "Corrected";
+            case AMENDED: return "Amended";
+            case APPENDED: return "Appended";
+            case CANCELLED: return "Cancelled";
+            case ENTEREDINERROR: return "Entered In Error";
             default: return "?";
           }
         }

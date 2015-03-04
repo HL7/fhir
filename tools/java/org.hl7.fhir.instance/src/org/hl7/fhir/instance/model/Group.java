@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -126,12 +126,12 @@ public class Group extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case PERSON: return "person";
-            case ANIMAL: return "animal";
-            case PRACTITIONER: return "practitioner";
-            case DEVICE: return "device";
-            case MEDICATION: return "medication";
-            case SUBSTANCE: return "substance";
+            case PERSON: return "Person";
+            case ANIMAL: return "Animal";
+            case PRACTITIONER: return "Practitioner";
+            case DEVICE: return "Device";
+            case MEDICATION: return "Medication";
+            case SUBSTANCE: return "Substance";
             default: return "?";
           }
         }

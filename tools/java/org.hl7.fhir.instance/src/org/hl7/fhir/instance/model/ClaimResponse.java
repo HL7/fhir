@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -91,8 +91,8 @@ public class ClaimResponse extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case COMPLETE: return "complete";
-            case ERROR: return "error";
+            case COMPLETE: return "Complete";
+            case ERROR: return "Error";
             default: return "?";
           }
         }
@@ -2640,9 +2640,9 @@ public class ClaimResponse extends DomainResource {
     /**
      * The first tier service adjudications for payor added services.
      */
-    @Child(name="additem", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="addItem", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Insurer added line items", formalDefinition="The first tier service adjudications for payor added services." )
-    protected List<AddedItemComponent> additem;
+    protected List<AddedItemComponent> addItem;
 
     /**
      * Mutually exclusive with Services Provided (Item).
@@ -2728,7 +2728,7 @@ public class ClaimResponse extends DomainResource {
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
     protected List<NotesComponent> note;
 
-    private static final long serialVersionUID = -2105513621L;
+    private static final long serialVersionUID = 1052460427L;
 
     public ClaimResponse() {
       super();
@@ -3185,32 +3185,32 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #additem} (The first tier service adjudications for payor added services.)
+     * @return {@link #addItem} (The first tier service adjudications for payor added services.)
      */
-    public List<AddedItemComponent> getAdditem() { 
-      if (this.additem == null)
-        this.additem = new ArrayList<AddedItemComponent>();
-      return this.additem;
+    public List<AddedItemComponent> getAddItem() { 
+      if (this.addItem == null)
+        this.addItem = new ArrayList<AddedItemComponent>();
+      return this.addItem;
     }
 
-    public boolean hasAdditem() { 
-      if (this.additem == null)
+    public boolean hasAddItem() { 
+      if (this.addItem == null)
         return false;
-      for (AddedItemComponent item : this.additem)
+      for (AddedItemComponent item : this.addItem)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #additem} (The first tier service adjudications for payor added services.)
+     * @return {@link #addItem} (The first tier service adjudications for payor added services.)
      */
     // syntactic sugar
-    public AddedItemComponent addAdditem() { //3
+    public AddedItemComponent addAddItem() { //3
       AddedItemComponent t = new AddedItemComponent();
-      if (this.additem == null)
-        this.additem = new ArrayList<AddedItemComponent>();
-      this.additem.add(t);
+      if (this.addItem == null)
+        this.addItem = new ArrayList<AddedItemComponent>();
+      this.addItem.add(t);
       return t;
     }
 
@@ -3553,7 +3553,7 @@ public class ClaimResponse extends DomainResource {
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("payeeType", "Coding", "Party to be reimbursed: Subscriber, provider, other.", 0, java.lang.Integer.MAX_VALUE, payeeType));
         childrenList.add(new Property("item", "", "The first tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, item));
-        childrenList.add(new Property("additem", "", "The first tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, additem));
+        childrenList.add(new Property("addItem", "", "The first tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, addItem));
         childrenList.add(new Property("error", "", "Mutually exclusive with Services Provided (Item).", 0, java.lang.Integer.MAX_VALUE, error));
         childrenList.add(new Property("totalCost", "Money", "The total cost of the services reported.", 0, java.lang.Integer.MAX_VALUE, totalCost));
         childrenList.add(new Property("unallocDeductable", "Money", "The amount of deductable applied which was not allocated to any particular service line.", 0, java.lang.Integer.MAX_VALUE, unallocDeductable));
@@ -3591,10 +3591,10 @@ public class ClaimResponse extends DomainResource {
           for (ItemsComponent i : item)
             dst.item.add(i.copy());
         };
-        if (additem != null) {
-          dst.additem = new ArrayList<AddedItemComponent>();
-          for (AddedItemComponent i : additem)
-            dst.additem.add(i.copy());
+        if (addItem != null) {
+          dst.addItem = new ArrayList<AddedItemComponent>();
+          for (AddedItemComponent i : addItem)
+            dst.addItem.add(i.copy());
         };
         if (error != null) {
           dst.error = new ArrayList<ErrorsComponent>();
@@ -3635,7 +3635,7 @@ public class ClaimResponse extends DomainResource {
            && compareDeep(organization, o.organization, true) && compareDeep(requestProvider, o.requestProvider, true)
            && compareDeep(requestOrganization, o.requestOrganization, true) && compareDeep(outcome, o.outcome, true)
            && compareDeep(disposition, o.disposition, true) && compareDeep(payeeType, o.payeeType, true) && compareDeep(item, o.item, true)
-           && compareDeep(additem, o.additem, true) && compareDeep(error, o.error, true) && compareDeep(totalCost, o.totalCost, true)
+           && compareDeep(addItem, o.addItem, true) && compareDeep(error, o.error, true) && compareDeep(totalCost, o.totalCost, true)
            && compareDeep(unallocDeductable, o.unallocDeductable, true) && compareDeep(totalBenefit, o.totalBenefit, true)
            && compareDeep(paymentAdjustment, o.paymentAdjustment, true) && compareDeep(paymentAdjustmentReason, o.paymentAdjustmentReason, true)
            && compareDeep(paymentDate, o.paymentDate, true) && compareDeep(paymentAmount, o.paymentAmount, true)
@@ -3660,7 +3660,7 @@ public class ClaimResponse extends DomainResource {
            && (created == null || created.isEmpty()) && (organization == null || organization.isEmpty())
            && (requestProvider == null || requestProvider.isEmpty()) && (requestOrganization == null || requestOrganization.isEmpty())
            && (outcome == null || outcome.isEmpty()) && (disposition == null || disposition.isEmpty())
-           && (payeeType == null || payeeType.isEmpty()) && (item == null || item.isEmpty()) && (additem == null || additem.isEmpty())
+           && (payeeType == null || payeeType.isEmpty()) && (item == null || item.isEmpty()) && (addItem == null || addItem.isEmpty())
            && (error == null || error.isEmpty()) && (totalCost == null || totalCost.isEmpty()) && (unallocDeductable == null || unallocDeductable.isEmpty())
            && (totalBenefit == null || totalBenefit.isEmpty()) && (paymentAdjustment == null || paymentAdjustment.isEmpty())
            && (paymentAdjustmentReason == null || paymentAdjustmentReason.isEmpty()) && (paymentDate == null || paymentDate.isEmpty())

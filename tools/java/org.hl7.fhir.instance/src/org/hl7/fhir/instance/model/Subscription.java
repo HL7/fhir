@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -108,10 +108,10 @@ public class Subscription extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case REQUESTED: return "requested";
-            case ACTIVE: return "active";
-            case ERROR: return "error";
-            case OFF: return "off";
+            case REQUESTED: return "Requested";
+            case ACTIVE: return "Active";
+            case ERROR: return "Error";
+            case OFF: return "Off";
             default: return "?";
           }
         }
@@ -217,11 +217,11 @@ public class Subscription extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case RESTHOOK: return "rest-hook";
-            case WEBSOCKET: return "websocket";
-            case EMAIL: return "email";
-            case SMS: return "sms";
-            case MESSAGE: return "message";
+            case RESTHOOK: return "Rest Hook";
+            case WEBSOCKET: return "Websocket";
+            case EMAIL: return "Email";
+            case SMS: return "Sms";
+            case MESSAGE: return "Message";
             default: return "?";
           }
         }

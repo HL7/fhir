@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -135,13 +135,13 @@ public class Observation extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case REGISTERED: return "registered";
-            case PRELIMINARY: return "preliminary";
-            case FINAL: return "final";
-            case AMENDED: return "amended";
-            case CANCELLED: return "cancelled";
-            case ENTEREDINERROR: return "entered-in-error";
-            case UNKNOWN: return "unknown";
+            case REGISTERED: return "Registered";
+            case PRELIMINARY: return "Preliminary";
+            case FINAL: return "Final";
+            case AMENDED: return "Amended";
+            case CANCELLED: return "Cancelled";
+            case ENTEREDINERROR: return "Entered In Error";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -277,13 +277,13 @@ public class Observation extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case OK: return "ok";
-            case ONGOING: return "ongoing";
-            case EARLY: return "early";
-            case QUESTIONABLE: return "questionable";
-            case CALIBRATING: return "calibrating";
-            case ERROR: return "error";
-            case UNKNOWN: return "unknown";
+            case OK: return "Ok";
+            case ONGOING: return "Ongoing";
+            case EARLY: return "Early";
+            case QUESTIONABLE: return "Questionable";
+            case CALIBRATING: return "Calibrating";
+            case ERROR: return "Error";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -419,13 +419,13 @@ public class Observation extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case HASCOMPONENT: return "has-component";
-            case HASMEMBER: return "has-member";
-            case DERIVEDFROM: return "derived-from";
-            case SEQUELTO: return "sequel-to";
-            case REPLACES: return "replaces";
-            case QUALIFIEDBY: return "qualified-by";
-            case INTERFEREDBY: return "interfered-by";
+            case HASCOMPONENT: return "Has Component";
+            case HASMEMBER: return "Has Member";
+            case DERIVEDFROM: return "Derived From";
+            case SEQUELTO: return "Sequel To";
+            case REPLACES: return "Replaces";
+            case QUALIFIEDBY: return "Qualified By";
+            case INTERFEREDBY: return "Interfered By";
             default: return "?";
           }
         }

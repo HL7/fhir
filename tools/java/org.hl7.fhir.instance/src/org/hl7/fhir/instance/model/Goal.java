@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -144,14 +144,14 @@ public class Goal extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case PROPOSED: return "proposed";
-            case PLANNED: return "planned";
-            case INPROGRESS: return "in-progress";
-            case ACHIEVED: return "achieved";
-            case SUSTAINING: return "sustaining";
-            case CANCELLED: return "cancelled";
-            case ACCEPTED: return "accepted";
-            case REJECTED: return "rejected";
+            case PROPOSED: return "Proposed";
+            case PLANNED: return "Planned";
+            case INPROGRESS: return "In Progress";
+            case ACHIEVED: return "Achieved";
+            case SUSTAINING: return "Sustaining";
+            case CANCELLED: return "Cancelled";
+            case ACCEPTED: return "Accepted";
+            case REJECTED: return "Rejected";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 3, 2015 17:16+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -161,16 +161,16 @@ public class Timing extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case HS: return "HS";
-            case WAKE: return "WAKE";
-            case AC: return "AC";
-            case ACM: return "ACM";
-            case ACD: return "ACD";
-            case ACV: return "ACV";
-            case PC: return "PC";
-            case PCM: return "PCM";
-            case PCD: return "PCD";
-            case PCV: return "PCV";
+            case HS: return "H S";
+            case WAKE: return "W A K E";
+            case AC: return "A C";
+            case ACM: return "A C M";
+            case ACD: return "A C D";
+            case ACV: return "A C V";
+            case PC: return "P C";
+            case PCM: return "P C M";
+            case PCD: return "P C D";
+            case PCV: return "P C V";
             default: return "?";
           }
         }
@@ -318,13 +318,13 @@ public class Timing extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case S: return "s";
-            case MIN: return "min";
-            case H: return "h";
-            case D: return "d";
-            case WK: return "wk";
-            case MO: return "mo";
-            case A: return "a";
+            case S: return "S";
+            case MIN: return "Min";
+            case H: return "H";
+            case D: return "D";
+            case WK: return "Wk";
+            case MO: return "Mo";
+            case A: return "A";
             default: return "?";
           }
         }

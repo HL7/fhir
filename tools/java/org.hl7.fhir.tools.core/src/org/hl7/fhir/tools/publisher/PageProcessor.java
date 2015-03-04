@@ -5507,18 +5507,20 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : definitions.getStatusCodes().keySet()) 
        names.add(n);
     Collections.sort(names);
-    
+
     for (String n : names) {
-      b.append("<tr>");
-      ElementDefn ed = getElementDefn(n);
-      if (ed == null || !ed.isModifier())
-        b.append("<td>").append(n).append("</td>");
-      else 
-        b.append("<td><b>").append(n).append("</b></td>");
-      ArrayList<String> row = definitions.getStatusCodes().get(n);
-      for (int i = 0; i < colcount; i++) 
-        b.append("<td>").append(i < row.size() ? row.get(i) : "").append("</td>");
-      b.append("</tr>\r\n");
+      if (!n.startsWith("@")) {
+        b.append("<tr>");
+        ElementDefn ed = getElementDefn(n);
+        if (ed == null || !ed.isModifier())
+          b.append("<td>").append(n).append("</td>");
+        else 
+          b.append("<td><b>").append(n).append("</b></td>");
+        ArrayList<String> row = definitions.getStatusCodes().get(n);
+        for (int i = 0; i < colcount; i++) 
+          b.append("<td>").append(i < row.size() ? row.get(i) : "").append("</td>");
+        b.append("</tr>\r\n");
+      }
     }
     
     b.append("</table>\r\n");
