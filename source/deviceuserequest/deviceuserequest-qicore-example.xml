@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
+<DeviceUseRequest xmlns="http://hl7.org/fhir">
+  <id value="qicore"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">To be filled out at a later time</div>
+  </text>
+
+  <!-- insert contents here -->
+  <device>
+    <reference value="Device/example"/>
+  </device>
+
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+
+</DeviceUseRequest>
