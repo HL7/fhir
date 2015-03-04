@@ -22536,7 +22536,7 @@
       <item id="1" code="…" desc="use NUBC codes"/>
     </version>
   </table>
-  <table id="353" state="exclude">
+  <table id="353" state="include">
     <version version="2.3.1" desc="CWE statuses">
       <item id="4" code="NA" desc="Not applicable"/>
       <item id="5" code="NASK" desc="Not asked"/>
