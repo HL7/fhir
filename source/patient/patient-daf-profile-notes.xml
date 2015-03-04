@@ -6,11 +6,11 @@
 The following are example usage scenarios for the DAF Patient profile:
 </p>
 <ul>
-	<li>Query for a Patient demographic information using identifiers such as MRN</li>
+	<li>Query for a Patient demographic information using MRN, which is a type of identifier. The MRN is identifiable by identifier.system and may be location specific.</li>
 	<li>Query for a Patient demographic information using first name, last name etc.</li>
 	<li>Query for Patients based on race, ethnicity, gender etc.</li>
 	<li>Query for Patients based on geographical area such as city, state, zipcode information</li>
-	<li>Query for Patients less than 5 years</li>
+	<li>Query for Patients less than 5 years of age</li>
 	<li>Query for Patients between ages of 25 and 50</li>
 </ul>
 
