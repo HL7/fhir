@@ -7,7 +7,7 @@
 		<value value="http://hl7.org/fhir"/>
 	</telecom>
   </contact>
-	<description value="EnteralFormulaAdditiveType :  The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to indicate the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example"/>
+	<description value="EnteralFormulaAdditiveType :  Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example"/>
 	<!--copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/ -->
 	<status value="draft"/>
 	<compose>
@@ -26,12 +26,12 @@
 				<display value="Modular carbohydrate enteral formula component"/>
 			</concept>
 			<concept>
-				<code value="GT"/>
-				<display value="???"/>
+				<code value="fiber"/>
+				<display value="Modular fiber enteral formula component"/>
 			</concept>
 			<concept>
-				<code value="NGT"/>
-				<display value="???"/>
+				<code value="water"/>
+				<display value="Added water"/>
 			</concept>
 		</include>
 	</compose>

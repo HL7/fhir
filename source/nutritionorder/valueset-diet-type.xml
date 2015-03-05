@@ -8,17 +8,17 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-	<description value="DietCode :  Codes that can be used to indicate the type of food being ordered for a patient. This value set includes all children of SNOMED CT Concepts from SCTID 226077000 Therapeutic diets (finding) and is provided as a suggestive example"/>
+	<description value="DietCode :  Codes that can be used to indicate the type of food being ordered for a patient. This value set includes all children of SNOMED CT Concepts (US Extension and Core) from SCTID 182922004 Dietary regime (Therapeutic or Preventive Procedure) and is provided as a suggestive example"/>
 	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
 	<status value="draft"/>
 	<compose>
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<filter>
-				<!--SNOMED CT - Children of SCTID: 226077000 Therapeutic diets (finding)-->
+				<!--SNOMED CT - children of SNOMED CT Concepts (US Extension and Core) from SCTID 182922004 Dietary regime (Therapeutic or Preventive Procedure) -->
 				<property value="concept"/>
 				<op value="is-a"/>
-				<value value="226077000"/>
+				<value value="182922004"/>
 			</filter>
 		</include>
 	</compose>
