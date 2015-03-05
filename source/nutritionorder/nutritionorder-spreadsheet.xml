@@ -25,7 +25,7 @@
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
   <TabRatio>896</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4023,7 +4023,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4046,7 +4045,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>43</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6621,9 +6620,9 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">Cardiac Diet</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String"> Low Sodium and Fiber Restricted Diet</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Nutrition Order Cardiac Diet Example</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Nutrition Order Low Sodium and Fiber Restricted Diet Example</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">cardiacdiet</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">nutritionorder-example-cardiacdiet.xml</Data></Cell>
     <Cell ss:StyleID="s130"/>
@@ -6984,6 +6983,7 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7003,7 +7003,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
