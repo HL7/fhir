@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
 	<id value="cardiacdiet"/>
-	<!-- id = cardiacdiet  file name = nutritionorder-example-cardiacdiet.xml  Name= Cardiac Diet  Description = Nutrition Order Cardiac Diet Canonical Example
+	<!-- id = cardiacdiet  file name = nutritionorder-example-cardiacdiet.xml  Name= Low Sodium and Fiber Restricted Diet  Description = Nutrition Order Low Sodium and Fiber Restricted Diet Example
 edited by Eric Haas Health eData Inc-->
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<h3>Nutrition Order Cardiac Diet Canonical Example</h3>
+			<h3>Nutrition Order Low Sodium and Fiber Restricted Diet Example</h3>
 			<ul>
 				<li>
 					<b>Patient: </b>Peter Chalmers</li>
