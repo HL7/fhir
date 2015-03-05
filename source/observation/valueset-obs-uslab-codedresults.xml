@@ -1,0 +1,20 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="US Laboratory Observation Profile Coded Result Codes"/>
+	<!--USLabObsCodedResult	SNOMED CT for coded results which includes Organism names, Findings, and Qualifier values.	value set	required	Y	valueset-obs-uslab-codedresults
+-->
+	<publisher value="HL7 International - Orders and Observations WG"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="SNOMED CT for coded results This value set includes all concepts from SNOMED CT"/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+		</include>
+	</compose>
+</ValueSet>

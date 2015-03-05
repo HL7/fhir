@@ -1,0 +1,20 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="US Laboratory Observation Profile Observation Name Codes"/>
+  <!--USLabObservationName	Laboratory LOINC codes	value set	required	Y	valueset-obs-uslab-codes-->
+  <publisher value="HL7 International - Orders and Observations WG"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="LOINC codes.  This value set includes all LOINCs"/>
+  <copyright value="The LOINC table, LOINC codes, and LOINC panels and forms file are copyright © 1995-2014, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+    </include>
+  </compose>
+</ValueSet>
+
