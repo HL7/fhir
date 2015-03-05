@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="USLab Specimen Type"/>
+  <name value="USLab Specimen Body Site"/>
   <publisher value="Published by:  HL7 Orders and Observations Workgroup"/>
  <!--Primary Author/Editor:  Eric M Haas, Health eData Inc"-->
   <contact>
@@ -9,7 +9,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="USLab Specimen Type: Codes to describe the Specimen. This value set includes all SNOMED CT concepts that are descendents of the Specimen Heirarchy (123038009)"/>
+  <description value="USLab Specimen Body Site: Codes to describe the specimen collection body site. This value set includes all SNOMED CT concepts that are descendents of Anatomical Structure (91723000)"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
   <compose>
@@ -23,7 +23,7 @@
       <filter>
 							<property value="concept"></property>
 							<op value="is-a"></op>
-							<value value="123038009"></value>
+							<value value="91723000"></value>
 						</filter>
     </include>
 
