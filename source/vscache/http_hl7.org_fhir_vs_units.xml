@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><id value="urn:uuid:24A87037-9D41-457A-B774-FB1526C45991"/><meta><lastUpdated value="2015-03-06T06:47:42.307+11:00"/><profile value="http://hl7.org/fhir/Profile/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes all UCUM codes
+    
+      <hr/>
+      <p>This value set does not contain a fixed number of concepts</p>
+      <h2>UCUM Codes</h2>
+      <p>This value set includes all UCUM codes</p>
+      <p>This value set includes codes defined in other code systems, using the following rules:</p>
+      <ul>
+        <li>Include all codes defined in http://unitsofmeasure.org</li>
+      </ul>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="urn:oid:2.16.840.1.113883.4.642.2.523"/></extension><url value="http://hl7.org/fhir/vs/units"/><version value="0.4.0"/><name value="UCUM Codes"/><publisher value="FHIR Project team"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom></contact><description value="This value set includes all UCUM codes"/><status value="draft"/><experimental value="true"/><compose><include><system value="http://unitsofmeasure.org"/></include></compose><expansion><timestamp value="2015-03-05T19:57:04Z"/></expansion></ValueSet>

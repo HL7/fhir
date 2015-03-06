@@ -36,7 +36,6 @@ Type
     function CreateParser(stream : TStream) : TFHIRParser;
     function exchange(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TStream;
     function fetchResource(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TFhirResource;
-    procedure encodeTags(tags : TFHIRAtomCategoryList);
     function makeMultipart(stream: TStream; streamName: string; params: TAdvStringMatch; var mp : TStream) : String;
   public
     constructor Create(url : String; json : boolean); overload;
@@ -49,11 +48,11 @@ Type
 
     function conformance : TFhirConformance;
     function transaction(bundle : TFHIRBundle) : TFHIRBundle;
-    function createResource(resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource;
-    function readResource(atype : TFhirResourceType; id : String; tags : TFHIRAtomCategoryList = nil) : TFHIRResource;
-    function updateResource(id : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource; overload;
-    function updateResource(id, ver : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource; overload; // version specific update - this is encouraged where possible
-    procedure deleteResource(atype : TFhirResourceType; id : String; tags : TFHIRAtomCategoryList);
+    function createResource(resource : TFhirResource) : TFHIRResource;
+    function readResource(atype : TFhirResourceType; id : String) : TFHIRResource;
+    function updateResource(id : String; resource : TFhirResource) : TFHIRResource; overload;
+    function updateResource(id, ver : String; resource : TFhirResource) : TFHIRResource; overload; // version specific update - this is encouraged where possible
+    procedure deleteResource(atype : TFhirResourceType; id : String);
     function search(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch) : TFHIRBundle;
     function searchPost(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch; resource : TFhirResource) : TFHIRBundle;
   end;
@@ -100,11 +99,10 @@ begin
 end;
 
 
-function TFhirClient.createResource(resource: TFhirResource; tags : TFHIRAtomCategoryList): TFHIRResource;
+function TFhirClient.createResource(resource: TFhirResource): TFHIRResource;
 Var
   src : TStream;
 begin
-  encodeTags(tags);
   src := serialise(resource);
   try
     result := nil;
@@ -120,19 +118,18 @@ begin
   end;
 end;
 
-function TFhirClient.updateResource(id : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource;
+function TFhirClient.updateResource(id : String; resource : TFhirResource) : TFHIRResource;
 begin
-  result := updateResource(id, '', resource, tags);
+  result := updateResource(id, '', resource);
 end;
 
 
-function TFhirClient.updateResource(id, ver : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource;
+function TFhirClient.updateResource(id, ver : String; resource : TFhirResource) : TFHIRResource;
 Var
   src : TStream;
 begin
   if ver <> '' then
     client.Request.RawHeaders.Values['Content-Location'] := MakeUrlPath(CODES_TFhirResourceType[resource.resourceType]+'/'+id+'/history/'+ver);
-  encodeTags(tags);
 
   src := serialise(resource);
   try
@@ -148,9 +145,8 @@ begin
   end;
 end;
 
-procedure TFhirClient.deleteResource(atype : TFhirResourceType; id : String; tags : TFHIRAtomCategoryList);
+procedure TFhirClient.deleteResource(atype : TFhirResourceType; id : String);
 begin
-  encodeTags(tags);
   exchange(MakeUrl(CODES_TFhirResourceType[aType]+'/'+id), delete, nil).free;
 end;
 
@@ -215,7 +211,6 @@ begin
   finally
     result.Free;
   end;
-
 end;
 
 function TFhirClient.searchPost(atype: TFhirResourceType; allRecords: boolean; params: TAdvStringMatch; resource: TFhirResource): TFHIRBundle;
@@ -250,6 +245,8 @@ function TFhirClient.exchange(url : String; verb : TFHIRClientHTTPVerb; source :
 var
   comp : TFHIRParser;
   ok : boolean;
+  cnt : String;
+  op : TFHIROperationOutcome;
 begin
   if FJson then
   begin
@@ -283,26 +280,36 @@ begin
     except
       on E:EIdHTTPProtocolException do
       begin
-        if StringFind(e.ErrorMessage, 'OperationOutcome') > 0 then
+        cnt := e.ErrorMessage;
+        if StringFind(cnt, 'OperationOutcome') > 0 then
         begin
+          removeBom(cnt);
           if FJson then
             comp := TFHIRJsonParser.create('en')
           else
             comp := TFHIRXmlParser.create('en');
           try
-            comp.source := TStringStream.create(e.ErrorMessage);
+            comp.source := TStringStream.create(cnt);
             comp.Parse;
             if (comp.resource <> nil) and (comp.resource.ResourceType = frtOperationOutcome) then
-              Raise EFHIRClientException.create(FhirHtmlToText(TFhirOperationOutcome(comp.resource).text.div_), comp.resource.link as TFhirOperationOutcome)
+            begin
+              op := TFhirOperationOutcome(comp.resource);
+              if (op.text <> nil) and (op.text.div_ <> nil) then
+                Raise EFHIRClientException.create(FhirHtmlToText(op.text.div_), comp.resource.link as TFhirOperationOutcome)
+              else if (op.issueList.Count > 0) and (op.issueList[0].details <> '') then
+                Raise EFHIRClientException.create(op.issueList[0].details, comp.resource.link as TFhirOperationOutcome)
+              else
+                raise exception.Create(cnt)
+            end
             else
-              raise exception.Create(e.ErrorMessage)
+              raise exception.Create(cnt)
           finally
             comp.source.free;
             comp.Free;
           end;
         end
         else
-          raise exception.Create(e.ErrorMessage)
+          raise exception.Create(cnt)
       end;
       on e : exception do
       begin
@@ -452,9 +459,8 @@ begin
   sRight := trim(sRight);
 end;
 
-function TFhirClient.readResource(atype: TFhirResourceType; id: String; tags: TFHIRAtomCategoryList): TFHIRResource;
+function TFhirClient.readResource(atype: TFhirResourceType; id: String): TFHIRResource;
 begin
-  encodeTags(tags);
 
   result := nil;
   try
@@ -478,12 +484,6 @@ end;
 procedure TFhirClient.cancelOperation;
 begin
   client.Disconnect;
-end;
-
-procedure TFhirClient.encodeTags(tags: TFHIRAtomCategoryList);
-begin
-//  if (tags <> nil) and (tags.Count > 0) then
-//    client.Request.RawHeaders.Values['Category'] := tags.AsHeader;
 end;
 
 { EFHIRClientException }

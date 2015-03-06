@@ -189,8 +189,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     workerContext  = new WorkerContext(null, new FHIRSimpleClient().initialize(tsServer), codeSystems, valueSets, conceptMaps, profiles);
   }
 
-  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au";
-  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960";
+  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
+  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:980/open";
   
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+

@@ -314,8 +314,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
         serverOk = false;
         // for this, we use the FHIR client
         IFHIRClient client = new FHIRSimpleClient();
-        // client.initialize("http://fhir.healthintersections.com.au/open");
-        client.initialize(tsServer+"/open");
+        client.initialize(tsServer);
         Map<String, String> params = new HashMap<String, String>();
         params.put("_query", "expand");
         params.put("limit", "500");
@@ -374,8 +373,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
         serverOk = false;
         // for this, we use the FHIR client
         IFHIRClient client = new FHIRSimpleClient();
-        client.initialize("http://fhir.healthintersections.com.au/open");
-        //client.initialize("http://localhost:961/open");
+        client.initialize(tsServer);
         Map<String, String> params = new HashMap<String, String>();
         params.put("_query", "validate");
         params.put("system", system);

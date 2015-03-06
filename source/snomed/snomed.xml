@@ -737,6 +737,16 @@
     <display value="United States Black"/>
     <display value="African American (ethnic group)"/>
   </concept>
+  <concept id="15108003" display="Restricted fiber diet (finding)">
+    <display value="Restricted fiber diet"/>
+    <display value="Low fiber diet"/>
+    <display value="Minimal residue diet"/>
+    <display value="LF - Low fiber diet"/>
+    <display value="Low fibre diet"/>
+    <display value="LF - Low fibre diet"/>
+    <display value="Restricted fibre diet"/>
+    <display value="Restricted fiber diet (finding)"/>
+  </concept>
   <concept id="15220000" display="Laboratory test">
     <display value="Laboratory test"/>
     <display value="Laboratory test, NOS"/>
@@ -766,12 +776,25 @@
     <display value="Medical laboratory technician"/>
     <display value="Medical laboratory technician (occupation)"/>
   </concept>
+  <concept id="160670007" display="Diabetic diet (finding)">
+    <display value="DD - Diabetic diet"/>
+    <display value="Diabetic diet"/>
+    <display value="Diabetic diet (finding)"/>
+  </concept>
   <concept id="16100001" display="Death diagnosis (contextual qualifier) (qualifier value)">
     <display value="Death diagnosis"/>
     <display value="Major cause of death"/>
     <display value="DD"/>
     <display value="Death diagnosis (contextual qualifier)"/>
     <display value="Death diagnosis (contextual qualifier) (qualifier value)"/>
+  </concept>
+  <concept id="16208003" display="Low fat diet (finding)">
+    <display value="LF - Low fat diet"/>
+    <display value="LFD - Low fat diet"/>
+    <display value="Diet - low in fat"/>
+    <display value="Low fat diet"/>
+    <display value="Low fat diet, NOS"/>
+    <display value="Low fat diet (finding)"/>
   </concept>
   <concept id="162308004" display="Throbbing headache (finding)">
     <display value="Throbbing headache"/>
@@ -1144,6 +1167,14 @@
   <concept id="225944008" display="Wound tenderness (finding)">
     <display value="Wound tenderness"/>
     <display value="Wound tenderness (finding)"/>
+  </concept>
+  <concept id="226208002" display="Fluid restricted diet">
+    <display value="Fluid restricted diet"/>
+    <display value="Fluid restricted diet (finding)"/>
+  </concept>
+  <concept id="226211001" display="Pureed diet">
+    <display value="Pureed diet"/>
+    <display value="Pureed diet (finding)"/>
   </concept>
   <concept id="226307009" display="Carbohydrate supplementation (product)">
     <display value="Carbohydrate supplementation (product)"/>
@@ -1630,6 +1661,12 @@
     <display value="Worsened"/>
     <display value="Worse"/>
     <display value="Worse (qualifier value)"/>
+  </concept>
+  <concept id="2331003" display="Carbohydrate (substance)">
+    <display value="Sugars and carbohydrates"/>
+    <display value="Carbohydrate"/>
+    <display value="Carbohydrate, NOS"/>
+    <display value="Carbohydrate (substance)"/>
   </concept>
   <concept id="233174007" display="Cardiac pacemaker procedure (procedure)">
     <display value="Cardiac pacemaker procedure"/>
@@ -2131,6 +2168,10 @@
   <concept id="25649003" display="Chronic migratory (qualifier value)">
     <display value="Chronic migratory"/>
     <display value="Chronic migratory (qualifier value)"/>
+  </concept>
+  <concept id="256674009" display="Fat (substance)">
+    <display value="Fat"/>
+    <display value="Fat (substance)"/>
   </concept>
   <concept id="257261003" display="Swab (specimen)">
     <display value="Swab"/>
@@ -3225,6 +3266,11 @@
     <display value="Superficial forearm vein"/>
     <display value="Superficial forearm vein (body structure)"/>
   </concept>
+  <concept id="30820000" display="Phosphorus (substance)">
+    <display value="Phosphorus"/>
+    <display value="Phosphorus, NOS"/>
+    <display value="Phosphorus (substance)"/>
+  </concept>
   <concept id="309049000" display="Lesion sample (specimen)">
     <display value="Lesion sample"/>
     <display value="Lesion sample (specimen)"/>
@@ -3489,6 +3535,20 @@
     <display value="Ketamine (product)"/>
     <display value="Ketamine"/>
     <display value="Ketamine (substance)"/>
+  </concept>
+  <concept id="33463005" display="Liquid substance (substance)">
+    <display value="Fluid"/>
+    <display value="Liquid substance"/>
+    <display value="Liquid substance, NOS"/>
+    <display value="Liquid, NOS"/>
+    <display value="Liquid"/>
+    <display value="Liquid substance (substance)"/>
+  </concept>
+  <concept id="33489005" display="Renal disease diet (finding)">
+    <display value="Renal diet"/>
+    <display value="Renal disease diet"/>
+    <display value="Renal disease diet, NOS"/>
+    <display value="Renal disease diet (finding)"/>
   </concept>
   <concept id="33526004" display="Laboratory reporting, computer">
     <display value="Laboratory reporting, electronic"/>
@@ -3910,6 +3970,16 @@
     <display value="Normal appearance (finding)"/>
     <display value="Normal appearance"/>
   </concept>
+  <concept id="386619000" display="Low sodium diet (finding)">
+    <display value="Low sodium diet (finding)"/>
+    <display value="Low sodium diet"/>
+    <display value="Restricted salt diet"/>
+    <display value="Reduced sodium diet"/>
+    <display value="Restricted sodium diet"/>
+    <display value="Na - Low sodium diet"/>
+    <display value="Low salt diet"/>
+    <display value="Reduced salt diet"/>
+  </concept>
   <concept id="386661006" display="Fever">
     <display value="Fever (finding)"/>
     <display value="Fever"/>
@@ -4133,6 +4203,12 @@
   <concept id="399713008" display="Specimen from uterine cervix obtained by cone biopsy (specimen)">
     <display value="Specimen from uterine cervix obtained by cone biopsy (specimen)"/>
     <display value="Specimen from uterine cervix obtained by cone biopsy"/>
+  </concept>
+  <concept id="39972003" display="Sodium (substance)">
+    <display value="Na - Sodium"/>
+    <display value="Sodium"/>
+    <display value="Sodium, NOS"/>
+    <display value="Sodium (substance)"/>
   </concept>
   <concept id="40199007" display="Supine body position (finding)">
     <display value="Lying flat on back"/>

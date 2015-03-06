@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","id":"urn:uuid:AF4A3CA2-80B2-4676-A0FA-DD05693978B4","identifier":"urn:uuid:e64817f7-fee1-4ae8-981c-3b039285c0e5","compose":{"include":[{"system":"http://loinc.org","filter":[{"property":"Type","op":"=","value":"Method"}]}]},"expansion":{"timestamp":"2015-02-03T11:23:40Z"}}

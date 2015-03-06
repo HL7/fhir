@@ -40,7 +40,7 @@ Most of the comments and guidance provided here will apply to those solutions as
 of the HL7 V3 methodology and it is front and center in the specification and the wire 
 format.  All data elements in HL7 V3 instances are derived from either the RIM or the ISO 
 data types.  In FHIR, this is true of most resources and data type elements, but not all.  
-Some resources (<a href="profile.html">Profile</a>, <a href="conformance.html">Conformance</a>, 
+Some resources (<a href="structuredefinition.html">StructureDefinition</a>, <a href="conformance.html">Conformance</a>, 
 <a href="valueset.html">ValueSet</a>, etc.) deal with content that is outside the RIM's scope.  And in a few circumstances, adjustments have been made in 
 the FHIR data types that are not yet supported in the HL7 V3 data types model.  The expectation 
 is that these changes will be supported in the next version of the V3 data types model.  The 
@@ -59,7 +59,7 @@ data type.  However, these are generally limited to attributes with business mea
 <p>Both FHIR and V3 make use of value sets to define the sets of codes that can be used for 
 attributes in particular contexts.  However, in FHIR, a <a href="valueset.html">ValueSet</a> 
 is just another type of resource, meaning it can be sent as part of an instance just like any
- other piece of data.  (The same is true of <a href="profile.html">Profile</a>, <a href="conformance.html">Conformance</a> 
+ other piece of data.  (The same is true of <a href="structuredefinition.html">StructureDefinition</a>, <a href="conformance.html">Conformance</a> 
  and other meta-level resources.)</p>
 <p>
 <b>Granularity &amp; referencing:</b> HL7 V3 models are broken into 3 main types - wrappers, 
@@ -93,7 +93,7 @@ could possibly be used in a space.  Instead, only those data elements that are e
 "most" implementations within the scope of the resource are considered part of the core resource definition.  
 (This is sometimes referred to as "The 80% rule" - if approximately 80% of systems maintaining the resource 
 will support the element, then it is part of core).  All other data elements are expected to be handled 
-using extensions.  <a href="profile.html">Profiles</a> are used both to constrain resources and to define 
+using extensions.  <a href="profiling.html">Profiles</a> are used both to constrain resources and to define 
 extensions appropriate to narrower implementation spaces.  Wire format interoperability is retained across 
 all profiles on a given resource.</p>
 <p>

@@ -309,8 +309,7 @@ public class SpecificationConceptLocator implements ConceptLocator {
         serverOk = false;
         // for this, we use the FHIR client
         IFHIRClient client = new FHIRSimpleClient();
-        //client.initialize("http://fhir.healthintersections.com.au/open");
-        client.initialize(tsServer+"/open");
+        client.initialize(tsServer);
         Map<String, String> params = new HashMap<String, String>();
         params.put("_query", "expand");
         params.put("limit", "500");

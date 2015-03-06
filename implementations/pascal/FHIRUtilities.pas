@@ -66,6 +66,7 @@ function fullResourceUri(base: String; aType : TFhirResourceType; id : String) :
 function fullResourceUri(base: String; ref : TFhirReference) : String; overload;
 function isHistoryURL(url : String) : boolean;
 procedure splitHistoryUrl(var url : String; var history : String);
+procedure RemoveBOM(var s : String);
 
 procedure listReferences(resource : TFhirResource; list : TFhirReferenceList);
 procedure listAttachments(resource : TFhirResource; list : TFhirAttachmentList);
@@ -240,7 +241,18 @@ type
   public
     function hasParameter(name : String):Boolean;
     Property NamedParameter[name : String] : TFhirBase read GetNamedParameter; default;
+    procedure AddParameter(name: String; value: TFhirType); overload;
+    procedure AddParameter(name: String; value: TFhirResource); overload;
+    procedure AddParameter(name: String; value: boolean); overload;
+    procedure AddParameter(name, value: string); overload;
   end;
+
+  TFhirResourceMetaHelper = class helper for TFhirMeta
+  public
+    function HasTag(system, code : String)  : boolean;
+  end;
+
+
 
 function ZCompressBytes(const s: TBytes): TBytes;
 function ZDecompressBytes(const s: TBytes): TBytes;
@@ -1745,6 +1757,42 @@ begin
 end;
 { TFhirParametersHelper }
 
+procedure TFhirParametersHelper.AddParameter(name: String; value: TFhirType);
+var
+  p : TFhirParametersParameter;
+begin
+  p := self.parameterList.Append;
+  p.name := name;
+  p.value := value.Link;
+end;
+
+procedure TFhirParametersHelper.AddParameter(name: String; value: TFhirResource);
+var
+  p : TFhirParametersParameter;
+begin
+  p := self.parameterList.Append;
+  p.name := name;
+  p.resource := value.Link;
+end;
+
+procedure TFhirParametersHelper.AddParameter(name: String; value: boolean);
+var
+  p : TFhirParametersParameter;
+begin
+  p := self.parameterList.Append;
+  p.name := name;
+  p.value := TFhirBoolean.Create(value);
+end;
+
+procedure TFhirParametersHelper.AddParameter(name, value: string);
+var
+  p : TFhirParametersParameter;
+begin
+  p := self.parameterList.Append;
+  p.name := name;
+  p.value := TFhirString.Create(value);
+end;
+
 function TFhirParametersHelper.GetNamedParameter(name: String): TFhirBase;
 var
   i: Integer;
@@ -1788,6 +1836,24 @@ begin
         result := true;
         break;
       end;
+end;
+
+procedure RemoveBOM(var s : String);
+begin
+  if s.startsWith(#$FEFF) then
+    s := s.substring(1);
+end;
+
+
+{ TFhirResourceMetaHelper }
+
+function TFhirResourceMetaHelper.HasTag(system, code: String): boolean;
+var
+  i : integer;
+begin
+  result := false;
+  for i := 0 to taglist.Count - 1 do
+    result := result or (taglist[i].system = system) and (taglist[i].code = code);
 end;
 
 end.

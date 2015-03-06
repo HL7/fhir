@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><OperationOutcome xmlns="http://hl7.org/fhir"><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The Snomed Concept 435681000124103 was not known</p>
+    </div></text><extension url="http://tools/cache"><valueString value="http://hl7.org/fhir/vs/consistency-type"/></extension><issue><severity value="error"/><details value="The Snomed Concept 435681000124103 was not known"/></issue></OperationOutcome>

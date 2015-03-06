@@ -30,7 +30,7 @@ Basic definitions:
 <table class="grid">
  <tr> <td>Resource</td> <td>An instance of data that is stored or exchanged</td> </tr>
  <tr> <td>Resource Definition</td> <td>Defines the data elements that are part of the resource</td> </tr>
- <tr> <td>Profile</td> <td>Additional rules about the data elements for a particular context of use. There's a specific type of resource - the <a href="profile.html">Profile Resource</a> that is used to represent a profile</td> </tr>
+ <tr> <td>Profile</td> <td>Additional rules about the data elements for a particular context of use. There's a specific type of resource - the <a href="structuredefinition.html">StructureDefinition Resource</a> that is used to represent a profile</td> </tr>
 </table>
 -->
 

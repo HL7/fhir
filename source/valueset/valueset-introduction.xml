@@ -36,7 +36,7 @@ their own distributions formats .
 <div>
 <h2>Boundaries and Relationships</h2>
 <ul>
- <li>Value sets are used in <a href="profile.html">Profiles</a>, and <a href="questionnaire.html">Questionnaires</a> to specify the allowable contents for coded elements</li>
+ <li>Value sets are used in <a href="structuredefinition.html">StructureDefinitions</a>, and <a href="questionnaire.html">Questionnaires</a> to specify the allowable contents for coded elements</li>
  <li>In addition, a specific <a href="datatypes.html#Coding">Coding</a> can reference the value set it was picked from</li>
  <li><a href="conceptmap.html">Concept Maps</a> describe mappings between value sets</li>
  <li>The ValueSet resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. Value set

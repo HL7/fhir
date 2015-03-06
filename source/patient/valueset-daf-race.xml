@@ -40,5 +40,16 @@
         <display value="White"/>
       </concept>
     </include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+      <concept>
+        <code value="UNK"/>
+        <display value="Unknown"/>
+      </concept>
+      <concept>
+        <code value="ASKU"/>
+        <display value="Asked but no answer"/>
+      </concept>
+    </include>
   </compose>    
 </ValueSet>

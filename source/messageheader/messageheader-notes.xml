@@ -7,7 +7,7 @@ Notes:
  <li>The resources referenced by the enterer, author and responsible elements may 
   all be included in the message bundle or left out on the basis that the recipient (and any intermediaries) are able to locate/resolve the resources
   independently. The former would be suitable for loosely coupled systems, and the latter for tightly coupled systems. The messaging conformance 
-  statement for an application may reference <a href="profile.html">a profile</a> that describes how the bundling occurs</li>
+  statement for an application may reference a <a href="structuredefinition.html">Structure Definition</a> that describes how the bundling occurs</li>
  <li>The actual content of the data resource is specified for each message event (see <a href="messaging.html#events">the list on the messaging page</a>). 
  Any resources referenced in the data element are always included in the bundle</li>
  <li>If <i>MessageHeader.source.endpoint</i> and <i>MessageHeader.destination.endpoint</i>, are literal URLs, then they SHOULD identify
