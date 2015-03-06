@@ -1432,6 +1432,7 @@ public class SpreadsheetParser {
 		return res;
 	}
 
+    /*
 	private ElementDefn makeExtension(ElementDefn root, String pathname,
 			int row, Definitions definitions) throws Exception {
 		String[] path = pathname.split("\\.");
@@ -1459,6 +1460,7 @@ public class SpreadsheetParser {
 		}
 		return res;
 	}
+	*/
 
 	protected Boolean parseBoolean(String s, int row, Boolean def) throws Exception {
         if (s == null || s.isEmpty())

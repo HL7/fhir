@@ -540,6 +540,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       return "";
   }
 
+  /*
   private String docPrefix(int widthSoFar, int indent, ElementDefinition elem) {
     if (widthSoFar + (elem.getShort() == null ? 0 : elem.getShort().length())+8+elem.getPath().length() > 105) {
       String ret = "\r\n  ";
@@ -551,6 +552,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     else
       return "";
   }
+  */
 
   private int writeTypeLinks(ElementDefn elem, int indent, TypeRef t) throws Exception {
     write(" <span style=\"color: darkgreen\">");
@@ -616,6 +618,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     return w;
   }
 
+    /*
   private int writeTypeLinks(ElementDefinition elem, int indent) throws Exception {
     write(" <span style=\"color: darkgreen\">");
     int i = 0;
@@ -645,6 +648,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     write("</span>");
     return w;
   }
+  */
 
   private void writeCardinality(ElementDefn elem) throws IOException {
     if (elem.getStatedInvariants().size() > 0)
@@ -687,6 +691,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     return b.toString();
   }
 
+ /*
   private String renderType(int indent, Type value) throws Exception {
     StringBuilder b = new StringBuilder();
     for (int i = 0; i < indent-2; i++)
@@ -706,5 +711,6 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     }
     return b.toString()+"\r\n"+ind;  
   }
+  */
 
 }

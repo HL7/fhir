@@ -930,6 +930,7 @@ public class ProfileGenerator {
       defineElement(null, p, p.getSnapshot(), child, r.getRoot().getName()+"."+child.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource);
 
   */
+    /*
   private String registerMapping(ConformancePackage ap, StructureDefinition p, String m) {
     for (StructureDefinitionMappingComponent map : p.getMapping()) {
       if (map.getUri().equals(m))
@@ -954,6 +955,7 @@ public class ProfileGenerator {
       map.setComments(comments);
     return map.getIdentity();
   }
+  */
 
   private void addToPaths(List<SliceHandle> myParents, String path, ElementDefinition ce, String profileName) throws Exception {
     Map<String, ElementDefinition> pmap = paths;
