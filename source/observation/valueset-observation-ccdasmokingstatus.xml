@@ -1,39 +1,48 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
 	<name value="Smoking Status"/>
 	<publisher value="FHIR OO CDA Template team"/>
 	<contact>
-    <telecom>
-		<system value="url"/>
-		<value value="http://hl7.org/fhir"/>
-	</telecom>
-  </contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
 	<!--Value Set: Smoking Status 2.16.840.1.113883.11.20.9.38 STATIC 2012-07-01
 Code System(s)  SNOMED CT 2.16.840.1.113883.6.96  Note the base resource does not allow for display terms -Gforge ticket Item and expansion doesn;t allow for time less than a seconde for instantiation so assume is to be machine generated.-->
-	<description value="This value set indicates the current smoking status of a patient. The vocabulary selected for this value set is the best approximation of the statuses in Meaningful Use (MU) Stage 1. The smoking status value set includes a special code to communicate if the smoking status is unknown"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
+	<description
+		value="This value set indicates the current smoking status of a patient. The vocabulary selected for this value set is the best approximation of the statuses in Meaningful Use (MU) Stage 1. The smoking status value set includes a special code to communicate if the smoking status is unknown"/>
+	<copyright
+		value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
 	<status value="active"/>
 	<compose>
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<version value="http://snomed.info/sct/US1000124/version/20140901"/>
 			<concept>
-        <code value="449868002"/>
-      </concept>
+				<code value="449868002"/>
+			</concept>
 			<concept>
-        <code value="428041000124106"/>
-      </concept>
+				<code value="428041000124106"/>
+			</concept>
 			<concept>
-        <code value="8517006"/>
-      </concept>
+				<code value="8517006"/>
+			</concept>
 			<concept>
-        <code value="266919005"/>
-      </concept>
+				<code value="266919005"/>
+			</concept>
 			<concept>
-        <code value="77176002"/>
-      </concept>
+				<code value="77176002"/>
+			</concept>
 			<concept>
-        <code value="266927001"/>
-      </concept>
+				<code value="266927001"/>
+			</concept>
+			<concept>
+				<code value="428071000124103"/>
+			</concept>
+			<concept>
+				<code value="428061000124105"/>
+			</concept>
 		</include>
 	</compose>
 </ValueSet>
