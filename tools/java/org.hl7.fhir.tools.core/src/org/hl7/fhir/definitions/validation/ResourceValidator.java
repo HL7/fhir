@@ -104,7 +104,7 @@ public class ResourceValidator extends BaseValidator {
 	// }
 
   public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) {
-    rule(errors, "structure", structure.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
+    rule(errors, "structure", structure.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
     checkElement(errors, structure.getName(), structure, null, null, true, false, hasSummary(structure));
   }
   
@@ -132,7 +132,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", parent.getName(), !name.equals("MailBox"), "The name 'MailBox' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("Validation"), "The name 'Validation' is not a legal name for a resource");
     rule(errors, "required",  parent.getName(), translations.hasTranslation(name), "The name '"+name+"' is not found in the file translations.xml");
-    rule(errors, "structure", parent.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
+    rule(errors, "structure", parent.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
 
     rule(errors, "required",  parent.getName(), parent.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     
