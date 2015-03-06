@@ -948,34 +948,33 @@ public class SpreadsheetParser {
 					for (String s : sheet.getColumn(row, "Request Resources")
 							.split(",")) {
 						s = s.trim();
-						if (s != "")
+						if (!s.isEmpty())
 							u.getRequestResources().add(s);
 					}
 					for (String s : sheet
 							.getColumn(row, "Request Aggregations").split("\n")) {
 						s = s.trim();
-						if (s != "")
+						if (!s.isEmpty())
 							u.getRequestAggregations().add(s);
 					}
 					for (String s : sheet.getColumn(row, "Response Resources")
 							.split(",")) {
 						s = s.trim();
-						if (s != "")
+						if (!s.isEmpty())
 							u.getResponseResources().add(s);
 					}
 					for (String s : sheet.getColumn(row,
 							"Response Aggregations").split("\n")) {
 						s = s.trim();
-						if (s != "")
+						if (!s.isEmpty())
 							u.getResponseAggregations().add(s);
 					}
 					for (String s : sheet.getColumn(row, "Follow Ups").split(
 							",")) {
 						s = s.trim();
-						if (s != "")
+						if (!s.isEmpty())
 							e.getFollowUps().add(s);
 					}
-
 				}
 			}
 		}
