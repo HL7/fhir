@@ -20,6 +20,7 @@
   <status value="draft"/>
     <define>
 	<system value="http://www.hl7.org/fhir/contractactionreason"/>
+    <caseSensitive value="true"/>    
 	<concept>
       <code value="reason-1"/>
     </concept>

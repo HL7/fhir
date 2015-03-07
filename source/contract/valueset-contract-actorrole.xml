@@ -20,6 +20,7 @@
   <status value="draft"/>
     <define>
 	<system value="http://www.hl7.org/fhir/contractactorrole"/>
+    <caseSensitive value="true"/>    
 	<concept>
       <code value="practitioner"/>
     </concept>
