@@ -314,7 +314,7 @@
             <isModifier value="false"/>
             <binding>
               <name value="CompositionAttestationMode"/>
-              <isExtensible value="false"/>
+              <strength value="required"/>
               <description value="The way in which a person authenticated a composition"/>
               <referenceReference>
                 <reference value="http://hl7.org/fhir/vs/composition-attestation-mode"/>
@@ -455,7 +455,7 @@
             <isModifier value="false"/>
             <binding>
               <name value="DocumentEventType"/>
-              <isExtensible value="false"/>
+              <strength value="required"/>
               <description value="This list of codes represents the main clinical acts being documented"/>
               <referenceReference>
                 <reference value="http://hl7.org/fhir/v3/vs/ActCode"/>
@@ -610,7 +610,7 @@
             <isModifier value="false"/>
             <binding>
               <name value="CompositionSectionType"/>
-              <isExtensible value="false"/>
+              <strength value="required"/>
               <description value="Classification of a composition / document"/>
               <referenceReference>
                 <reference value="http://hl7.org/fhir/vs/doc-section-codes"/>
@@ -1214,7 +1214,7 @@
             <max value="1"/>
             <binding>
               <name value="OrganizationIndustryClass"/>
-              <isExtensible value="true"/>
+              <strength value="extensible"/>
               <referenceUri value="http://hl7.org/fhir/v3/vs/OrganizationIndustryClass"/>
             </binding>
             <mapping>
@@ -1704,7 +1704,7 @@
           </type>
           <binding>
             <name value="LanguageAbiliityProficiency"/>
-            <isExtensible value="true"/>
+            <strength value="extensible"/>
             <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency"/>
           </binding>
         </element>
@@ -1759,7 +1759,7 @@
           </type>
           <binding>
             <name value="LanguageAbiliityMode"/>
-            <isExtensible value="true"/>
+            <strength value="extensible"/>
             <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityMode"/>
           </binding>
         </element>
@@ -1965,7 +1965,7 @@
           </type>
           <binding>
             <name value="RoleStatus"/>
-            <isExtensible value="false"/>
+            <strength value="required"/>
             <referenceUri value="http://hl7.org/fhir/v3/vs/RoleStatus"/>
           </binding>
         </element>
@@ -2020,7 +2020,7 @@
           </type>
           <binding>
             <name value="RoleCode"/>
-            <isExtensible value="true"/>
+            <strength value="extensible"/>
             <referenceUri value="http://hl7.org/fhir/v3/vs/RoleCode"/>
           </binding>
         </element>

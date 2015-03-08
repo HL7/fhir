@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -345,37 +345,44 @@ public class ElementDefinition extends Type {
       }
     }
 
-    public enum BindingConformance {
+    public enum BindingStrength {
         /**
-         * Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
+         * To be conformant, instances of this element SHALL include a code from the specified value set.
          */
         REQUIRED, 
         /**
-         * For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
+         * To be conformant, instances of this element SHALL include a code from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the valueset does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.
+         */
+        EXTENSIBLE, 
+        /**
+         * Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.
          */
         PREFERRED, 
         /**
-         * The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
+         * Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.
          */
         EXAMPLE, 
         /**
          * added to help the parsers
          */
         NULL;
-        public static BindingConformance fromCode(String codeString) throws Exception {
+        public static BindingStrength fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("required".equals(codeString))
           return REQUIRED;
+        if ("extensible".equals(codeString))
+          return EXTENSIBLE;
         if ("preferred".equals(codeString))
           return PREFERRED;
         if ("example".equals(codeString))
           return EXAMPLE;
-        throw new Exception("Unknown BindingConformance code '"+codeString+"'");
+        throw new Exception("Unknown BindingStrength code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case REQUIRED: return "required";
+            case EXTENSIBLE: return "extensible";
             case PREFERRED: return "preferred";
             case EXAMPLE: return "example";
             default: return "?";
@@ -384,6 +391,7 @@ public class ElementDefinition extends Type {
         public String getSystem() {
           switch (this) {
             case REQUIRED: return "";
+            case EXTENSIBLE: return "";
             case PREFERRED: return "";
             case EXAMPLE: return "";
             default: return "?";
@@ -391,15 +399,17 @@ public class ElementDefinition extends Type {
         }
         public String getDefinition() {
           switch (this) {
-            case REQUIRED: return "Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.";
-            case PREFERRED: return "For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.";
-            case EXAMPLE: return "The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.";
+            case REQUIRED: return "To be conformant, instances of this element SHALL include a code from the specified value set.";
+            case EXTENSIBLE: return "To be conformant, instances of this element SHALL include a code from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the valueset does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.";
+            case PREFERRED: return "Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.";
+            case EXAMPLE: return "Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
             case REQUIRED: return "Required";
+            case EXTENSIBLE: return "Extensible";
             case PREFERRED: return "Preferred";
             case EXAMPLE: return "Example";
             default: return "?";
@@ -407,25 +417,29 @@ public class ElementDefinition extends Type {
         }
     }
 
-  public static class BindingConformanceEnumFactory implements EnumFactory<BindingConformance> {
-    public BindingConformance fromCode(String codeString) throws IllegalArgumentException {
+  public static class BindingStrengthEnumFactory implements EnumFactory<BindingStrength> {
+    public BindingStrength fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("required".equals(codeString))
-          return BindingConformance.REQUIRED;
+          return BindingStrength.REQUIRED;
+        if ("extensible".equals(codeString))
+          return BindingStrength.EXTENSIBLE;
         if ("preferred".equals(codeString))
-          return BindingConformance.PREFERRED;
+          return BindingStrength.PREFERRED;
         if ("example".equals(codeString))
-          return BindingConformance.EXAMPLE;
-        throw new IllegalArgumentException("Unknown BindingConformance code '"+codeString+"'");
+          return BindingStrength.EXAMPLE;
+        throw new IllegalArgumentException("Unknown BindingStrength code '"+codeString+"'");
         }
-    public String toCode(BindingConformance code) {
-      if (code == BindingConformance.REQUIRED)
+    public String toCode(BindingStrength code) {
+      if (code == BindingStrength.REQUIRED)
         return "required";
-      if (code == BindingConformance.PREFERRED)
+      if (code == BindingStrength.EXTENSIBLE)
+        return "extensible";
+      if (code == BindingStrength.PREFERRED)
         return "preferred";
-      if (code == BindingConformance.EXAMPLE)
+      if (code == BindingStrength.EXAMPLE)
         return "example";
       return "?";
       }
@@ -1283,43 +1297,36 @@ public class ElementDefinition extends Type {
         protected StringType name;
 
         /**
-         * If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
+         * Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
          */
-        @Child(name="isExtensible", type={BooleanType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="Can additional codes be used?", formalDefinition="If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone." )
-        protected BooleanType isExtensible;
-
-        /**
-         * Indicates the degree of conformance expectations associated with this binding.
-         */
-        @Child(name="conformance", type={CodeType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="required | preferred | example", formalDefinition="Indicates the degree of conformance expectations associated with this binding." )
-        protected Enumeration<BindingConformance> conformance;
+        @Child(name="strength", type={CodeType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="required | extensible | preferred | example", formalDefinition="Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances." )
+        protected Enumeration<BindingStrength> strength;
 
         /**
          * Describes the intended use of this particular set of codes.
          */
-        @Child(name="description", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name="description", type={StringType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Human explanation of the value set", formalDefinition="Describes the intended use of this particular set of codes." )
         protected StringType description;
 
         /**
          * Points to the value set or external definition that identifies the set of codes to be used.
          */
-        @Child(name="reference", type={UriType.class, ValueSet.class}, order=5, min=0, max=1)
+        @Child(name="reference", type={UriType.class, ValueSet.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition that identifies the set of codes to be used." )
         protected Type reference;
 
-        private static final long serialVersionUID = 1041151319L;
+        private static final long serialVersionUID = -1655327998L;
 
       public ElementDefinitionBindingComponent() {
         super();
       }
 
-      public ElementDefinitionBindingComponent(StringType name, BooleanType isExtensible) {
+      public ElementDefinitionBindingComponent(StringType name, Enumeration<BindingStrength> strength) {
         super();
         this.name = name;
-        this.isExtensible = isExtensible;
+        this.strength = strength;
       }
 
         /**
@@ -1368,96 +1375,47 @@ public class ElementDefinition extends Type {
         }
 
         /**
-         * @return {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.). This is the underlying object with id, value and extensions. The accessor "getIsExtensible" gives direct access to the value
+         * @return {@link #strength} (Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.). This is the underlying object with id, value and extensions. The accessor "getStrength" gives direct access to the value
          */
-        public BooleanType getIsExtensibleElement() { 
-          if (this.isExtensible == null)
+        public Enumeration<BindingStrength> getStrengthElement() { 
+          if (this.strength == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.isExtensible");
+              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.strength");
             else if (Configuration.doAutoCreate())
-              this.isExtensible = new BooleanType(); // bb
-          return this.isExtensible;
+              this.strength = new Enumeration<BindingStrength>(new BindingStrengthEnumFactory()); // bb
+          return this.strength;
         }
 
-        public boolean hasIsExtensibleElement() { 
-          return this.isExtensible != null && !this.isExtensible.isEmpty();
+        public boolean hasStrengthElement() { 
+          return this.strength != null && !this.strength.isEmpty();
         }
 
-        public boolean hasIsExtensible() { 
-          return this.isExtensible != null && !this.isExtensible.isEmpty();
+        public boolean hasStrength() { 
+          return this.strength != null && !this.strength.isEmpty();
         }
 
         /**
-         * @param value {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.). This is the underlying object with id, value and extensions. The accessor "getIsExtensible" gives direct access to the value
+         * @param value {@link #strength} (Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.). This is the underlying object with id, value and extensions. The accessor "getStrength" gives direct access to the value
          */
-        public ElementDefinitionBindingComponent setIsExtensibleElement(BooleanType value) { 
-          this.isExtensible = value;
+        public ElementDefinitionBindingComponent setStrengthElement(Enumeration<BindingStrength> value) { 
+          this.strength = value;
           return this;
         }
 
         /**
-         * @return If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
+         * @return Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
          */
-        public boolean getIsExtensible() { 
-          return this.isExtensible == null || this.isExtensible.isEmpty() ? false : this.isExtensible.getValue();
+        public BindingStrength getStrength() { 
+          return this.strength == null ? null : this.strength.getValue();
         }
 
         /**
-         * @param value If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
+         * @param value Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
          */
-        public ElementDefinitionBindingComponent setIsExtensible(boolean value) { 
-            if (this.isExtensible == null)
-              this.isExtensible = new BooleanType();
-            this.isExtensible.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.). This is the underlying object with id, value and extensions. The accessor "getConformance" gives direct access to the value
-         */
-        public Enumeration<BindingConformance> getConformanceElement() { 
-          if (this.conformance == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.conformance");
-            else if (Configuration.doAutoCreate())
-              this.conformance = new Enumeration<BindingConformance>(new BindingConformanceEnumFactory()); // bb
-          return this.conformance;
-        }
-
-        public boolean hasConformanceElement() { 
-          return this.conformance != null && !this.conformance.isEmpty();
-        }
-
-        public boolean hasConformance() { 
-          return this.conformance != null && !this.conformance.isEmpty();
-        }
-
-        /**
-         * @param value {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.). This is the underlying object with id, value and extensions. The accessor "getConformance" gives direct access to the value
-         */
-        public ElementDefinitionBindingComponent setConformanceElement(Enumeration<BindingConformance> value) { 
-          this.conformance = value;
-          return this;
-        }
-
-        /**
-         * @return Indicates the degree of conformance expectations associated with this binding.
-         */
-        public BindingConformance getConformance() { 
-          return this.conformance == null ? null : this.conformance.getValue();
-        }
-
-        /**
-         * @param value Indicates the degree of conformance expectations associated with this binding.
-         */
-        public ElementDefinitionBindingComponent setConformance(BindingConformance value) { 
-          if (value == null)
-            this.conformance = null;
-          else {
-            if (this.conformance == null)
-              this.conformance = new Enumeration<BindingConformance>(new BindingConformanceEnumFactory());
-            this.conformance.setValue(value);
-          }
+        public ElementDefinitionBindingComponent setStrength(BindingStrength value) { 
+            if (this.strength == null)
+              this.strength = new Enumeration<BindingStrength>(new BindingStrengthEnumFactory());
+            this.strength.setValue(value);
           return this;
         }
 
@@ -1550,8 +1508,7 @@ public class ElementDefinition extends Type {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "A descriptive name for this - can be useful for generating implementation artifacts.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("isExtensible", "boolean", "If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.", 0, java.lang.Integer.MAX_VALUE, isExtensible));
-          childrenList.add(new Property("conformance", "code", "Indicates the degree of conformance expectations associated with this binding.", 0, java.lang.Integer.MAX_VALUE, conformance));
+          childrenList.add(new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, java.lang.Integer.MAX_VALUE, strength));
           childrenList.add(new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("reference[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, reference));
         }
@@ -1560,8 +1517,7 @@ public class ElementDefinition extends Type {
         ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
-        dst.isExtensible = isExtensible == null ? null : isExtensible.copy();
-        dst.conformance = conformance == null ? null : conformance.copy();
+        dst.strength = strength == null ? null : strength.copy();
         dst.description = description == null ? null : description.copy();
         dst.reference = reference == null ? null : reference.copy();
         return dst;
@@ -1574,8 +1530,8 @@ public class ElementDefinition extends Type {
         if (!(other instanceof ElementDefinitionBindingComponent))
           return false;
         ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(isExtensible, o.isExtensible, true) && compareDeep(conformance, o.conformance, true)
-           && compareDeep(description, o.description, true) && compareDeep(reference, o.reference, true);
+        return compareDeep(name, o.name, true) && compareDeep(strength, o.strength, true) && compareDeep(description, o.description, true)
+           && compareDeep(reference, o.reference, true);
       }
 
       @Override
@@ -1585,14 +1541,14 @@ public class ElementDefinition extends Type {
         if (!(other instanceof ElementDefinitionBindingComponent))
           return false;
         ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other;
-        return compareValues(name, o.name, true) && compareValues(isExtensible, o.isExtensible, true) && compareValues(conformance, o.conformance, true)
-           && compareValues(description, o.description, true);
+        return compareValues(name, o.name, true) && compareValues(strength, o.strength, true) && compareValues(description, o.description, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (isExtensible == null || isExtensible.isEmpty())
-           && (conformance == null || conformance.isEmpty()) && (description == null || description.isEmpty())
-           && (reference == null || reference.isEmpty());
+        return super.isEmpty() && (name == null || name.isEmpty()) && (strength == null || strength.isEmpty())
+           && (description == null || description.isEmpty()) && (reference == null || reference.isEmpty())
+          ;
       }
 
   }

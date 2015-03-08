@@ -40,6 +40,7 @@ import org.hl7.fhir.definitions.ecore.fhir.DefinedCode;
 import org.hl7.fhir.definitions.ecore.fhir.Definitions;
 import org.hl7.fhir.definitions.ecore.fhir.FhirFactory;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -76,7 +77,7 @@ public class BindingConverter
 
 		result.setDefinition( spec.getDefinition() );
 		result.setDescription( spec.getDescription() );
-		result.setExample( spec.isExample() );
+		result.setExample( spec.getStrength() == BindingStrength.EXAMPLE );
 		
 		result.setBinding( BindingType.get(spec.getBinding().ordinal()) );
 		

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1399,6 +1399,8 @@ public class DataElement extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="identifier", path="DataElement.identifier", description="The identifier of the data element", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="url", path="DataElement.url", description="The official URL for the data element", type="token" )
+  public static final String SP_URL = "url";
   @SearchParamDefinition(name="publisher", path="DataElement.publisher", description="Name of the publisher of the data element", type="string" )
   public static final String SP_PUBLISHER = "publisher";
   @SearchParamDefinition(name="version", path="DataElement.version", description="The version identifier of the data element", type="string" )

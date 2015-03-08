@@ -14,6 +14,7 @@ import org.hl7.fhir.instance.model.DecimalType;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumeration;
@@ -804,7 +805,7 @@ public class QuestionnaireBuilder {
   private AnswerFormat answerTypeForBinding(ElementDefinitionBindingComponent binding) {
     if (binding == null) 
       return AnswerFormat.OPENCHOICE;
-    else if (binding.getIsExtensible()) 
+    else if (binding.getStrength() != BindingStrength.REQUIRED) 
       return AnswerFormat.OPENCHOICE;
     else
       return AnswerFormat.CHOICE;

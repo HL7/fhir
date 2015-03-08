@@ -1120,14 +1120,9 @@ public class ProfileUtilities {
           String ref = pkp.resolveBinding(definition.getBinding());
           c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
           c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(ref, definition.getBinding().getName(), null)));
-          if (definition.getBinding().hasConformance() || definition.getBinding().hasIsExtensibleElement()) {
+          if (definition.getBinding().hasStrength()) {
             c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, " (", null)));
-            if (definition.getBinding().hasConformance())
-              c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, definition.getBinding().getConformance().toCode(), definition.getBinding().getConformance().getDefinition())));
-            if (definition.getBinding().hasConformance() && definition.getBinding().hasIsExtensibleElement()) 
-              c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, ", ", null)));
-            if (definition.getBinding().hasIsExtensibleElement())
-              c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, definition.getBinding().getIsExtensible() ? "extensible" : "not extensible", null)));
+            c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().getDefinition())));
             c.getPieces().add(gen.new Piece(null, ")", null));
           }
         }

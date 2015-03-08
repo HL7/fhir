@@ -37,8 +37,6 @@ import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.BindingSpecification.BindingExtensibility;
-import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -48,6 +46,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.Translations;
@@ -522,29 +521,8 @@ public class ResourceValidator extends BaseValidator {
     hint(errors, "structure", "Binding "+n, cd.getElementType() != ElementType.Unknown, "Binding is not used");
     warning(errors, "structure", "Binding "+n, cd.getBinding() != Binding.Unbound, "Need to provide a binding");
     rule(errors, "structure", "Binding "+n, cd.getElementType() != ElementType.Simple || cd.getBinding() != Binding.Unbound, "Need to provide a binding for code elements");
-    rule(errors, "structure", "Binding "+n, (cd.getElementType() == ElementType.Complex || cd.getElementType() == ElementType.Unknown) || !cd.isExample(), "Can only be an example binding if bound to Coding/CodeableConcept");
+    rule(errors, "structure", "Binding "+n, (cd.getElementType() != ElementType.Simple || cd.getStrength() == BindingStrength.REQUIRED), "Must be a required binding if bound to a code instead of a Coding/CodeableConcept");
     rule(errors, "structure", "Binding "+n, Utilities.noString(cd.getDefinition())  || (cd.getDefinition().charAt(0) == cd.getDefinition().toUpperCase().charAt(0)), "Definition cannot start with a lowercase letter");
-
-    // set these for when the profiles are generated
-    if (cd.getElementType() == ElementType.Simple) {
-      cd.setBindingStrength(BindingStrength.Required);
-      cd.setExtensibility(BindingExtensibility.Complete);
-    }
-    else if (cd.getElementType() == ElementType.Complex) {
-      cd.setExtensibility(BindingExtensibility.Extensible);
-      if (cd.isExample()) {
-        cd.setBindingStrength(BindingStrength.Example);
-      } else {
-        cd.setBindingStrength(BindingStrength.Preferred);
-      }
-    }
-    else if (cd.getBinding() == Binding.CodeList) {
-      cd.setBindingStrength(BindingStrength.Required);
-      cd.setExtensibility(BindingExtensibility.Complete);      
-    } else {
-      cd.setBindingStrength(BindingStrength.Unstated);
-      cd.setExtensibility(BindingExtensibility.Extensible);      
-    }
   }
 
   public void dumpParams() {

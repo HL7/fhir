@@ -81,8 +81,7 @@ https://www.psoppc.org/c/document_library/get_file?uuid=6034c5aa-ad07-4dbe-ab19-
     </type>
     <binding>
       <name value="Gender"/>
-      <isExtensible value="false"/>
-      <conformance value="required"/>
+      <strength value="required"/>
       <referenceReference>
         <reference value="#de42"/>
       </referenceReference>

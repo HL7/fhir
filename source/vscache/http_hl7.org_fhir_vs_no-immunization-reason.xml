@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><id value="urn:uuid:5085C0C8-374A-4427-A988-D2687804AC15"/><meta><lastUpdated value="2015-03-08T17:26:33.460+11:00"/><profile value="http://hl7.org/fhir/Profile/valueset-shareable-definition"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This value set does not contain a fixed number of concepts</p>
+      <h2>Immunization Reasons for Not Immunizing Codes</h2>
+      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example</p>
+      <p>
+        <b>Copyright Statement:</b> This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement
+      </p>
+      <p>This value set includes codes defined in other code systems, using the following rules:</p>
+      <ul>
+        <li>Include these codes as defined in 
+          <a href="v3/ActReason/index.html">http://hl7.org/fhir/v3/ActReason</a>
+          <table>
+            <tr>
+              <td>
+                <b>Code</b>
+              </td>
+              <td>
+                <b>Display</b>
+              </td>
+            </tr>
+            <tr>
+              <td>IMMUNE</td>
+              <td>immunity</td>
+              <td>Definition:Testing has shown that the patient already has immunity to the agent targeted by the immunization.</td>
+            </tr>
+            <tr>
+              <td>MEDPREC</td>
+              <td>medical precaution</td>
+              <td>Definition:The patient currently has a medical condition for which the vaccine is contraindicated or for which precaution is warranted.</td>
+            </tr>
+            <tr>
+              <td>OSTOCK</td>
+              <td>product out of stock</td>
+              <td>Definition:There was no supply of the product on hand to perform the service.</td>
+            </tr>
+            <tr>
+              <td>PATOBJ</td>
+              <td>patient objection</td>
+              <td>Definition:The patient or their guardian objects to receiving the vaccine.</td>
+            </tr>
+          </table>
+        </li>
+        <li>Include codes from http://snomed.info/sct where concept  is-a  310376006</li>
+      </ul>
+    </div></text><extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid"><valueUri value="urn:oid:2.16.840.1.113883.4.642.2.354"/></extension><url value="http://hl7.org/fhir/vs/no-immunization-reason"/><version value="0.4.0"/><name value="Immunization Reasons for Not Immunizing Codes"/><publisher value="FHIR Project team"/><contact><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom></contact><description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/><copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/><status value="draft"/><experimental value="true"/><compose><include><system value="http://hl7.org/fhir/v3/ActReason"/><concept><code value="IMMUNE"/></concept><concept><code value="MEDPREC"/></concept><concept><code value="OSTOCK"/></concept><concept><code value="PATOBJ"/></concept></include><include><system value="http://snomed.info/sct"/><filter><property value="concept"/><op value="is-a"/><value value="310376006"/></filter></include></compose><expansion><extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#closed"><valueBoolean value="true"/></extension><timestamp value="2015-03-08T06:28:26Z"/><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Definition:Testing has shown that the patient already has immunity to the agent targeted by the immunization."/></extension><system value="http://hl7.org/fhir/v3/ActReason"/><code value="IMMUNE"/><display value="immunity"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Definition:The patient currently has a medical condition for which the vaccine is contraindicated or for which precaution is warranted."/></extension><system value="http://hl7.org/fhir/v3/ActReason"/><code value="MEDPREC"/><display value="medical precaution"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Definition:There was no supply of the product on hand to perform the service."/></extension><system value="http://hl7.org/fhir/v3/ActReason"/><code value="OSTOCK"/><display value="product out of stock"/></contains><contains><extension url="http://hl7.org/fhir/Profile/tools-extensions#definition"><valueString value="Definition:The patient or their guardian objects to receiving the vaccine."/></extension><system value="http://hl7.org/fhir/v3/ActReason"/><code value="PATOBJ"/><display value="patient objection"/></contains><contains><system value="http://snomed.info/sct"/><code value="171257003"/><display value="No consent - Tetanus/low dose diphtheria vaccine (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171265000"/><display value="No consent - pertussis immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171266004"/><display value="No consent - diphtheria immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171267008"/><display value="No consent - tetanus immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171268003"/><display value="No consent - polio immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171269006"/><display value="No consent - measles immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171270007"/><display value="No consent - rubella immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171271006"/><display value="No consent - BCG (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171272004"/><display value="No consent - influenza immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171280006"/><display value="No consent for measles, mumps and rubella vaccine (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171283008"/><display value="No consent for any primary immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171285001"/><display value="No consent - pre-school vaccinations (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171286000"/><display value="No consent - school exit vaccinations (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171291004"/><display value="No consent - Haemophilus influenzae type B immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171292006"/><display value="No consent pneumococcal immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="171293001"/><display value="No consent for measles/rubella vaccine (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="268559007"/><display value="No consent for any immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="310839003"/><display value="No consent for MMR1 (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="310840001"/><display value="No consent for second measles, mumps and rubella vaccine (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="314768003"/><display value="No consent DTP immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="314769006"/><display value="No consent tetanus plus diphtheria immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="314936001"/><display value="No consent for meningitis C immunization (finding)"/></contains><contains><system value="http://snomed.info/sct"/><code value="407598009"/><display value="No consent for third Hemophilus influenzae type B vaccine booster (finding)"/></contains></expansion></ValueSet>

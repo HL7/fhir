@@ -91,8 +91,7 @@
         <isModifier value="false"/>
         <binding>
           <name value="ObservationStatus"/>
-          <isExtensible value="false"/>
-          <conformance value="required"/>
+          <strength value="required"/>
           <referenceReference>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
           </referenceReference>
@@ -201,8 +200,7 @@
         <isModifier value="false"/>
         <binding>
           <name value="DiagnosticRequests"/>
-          <isExtensible value="true"/>
-          <conformance value="example"/>
+          <strength value="example"/>
           <referenceReference>
             <reference value="http://hl7.org/fhir/vs/diagnostic-requests"/>
           </referenceReference>
@@ -221,8 +219,7 @@
         <isModifier value="false"/>
         <binding>
           <name value="BodySite"/>
-          <isExtensible value="true"/>
-          <conformance value="example"/>
+          <strength value="example"/>
           <referenceReference>
             <reference value="http://hl7.org/fhir/vs/body-site"/>
           </referenceReference>
@@ -262,8 +259,7 @@
         <isModifier value="false"/>
         <binding>
           <name value="DiagnosticServiceSection"/>
-          <isExtensible value="true"/>
-          <conformance value="preferred"/>
+          <strength value="preferred"/>
           <referenceReference>
             <reference value="http://hl7.org/fhir/vs/diagnostic-service-sections"/>
           </referenceReference>
@@ -305,8 +301,7 @@
         <isModifier value="false"/>
         <binding>
           <name value="DiagnosticResultGroupNames"/>
-          <isExtensible value="true"/>
-          <conformance value="preferred"/>
+          <strength value="preferred"/>
           <referenceReference>
             <reference value="http://hl7.org/fhir/vs/report-names"/>
           </referenceReference>
@@ -426,8 +421,7 @@
         <isModifier value="false"/>
         <binding>
           <name value="DiagnosisCodes"/>
-          <isExtensible value="true"/>
-          <conformance value="example"/>
+          <strength value="example"/>
           <referenceReference>
             <reference value="http://hl7.org/fhir/vs/clinical-findings"/>
           </referenceReference>

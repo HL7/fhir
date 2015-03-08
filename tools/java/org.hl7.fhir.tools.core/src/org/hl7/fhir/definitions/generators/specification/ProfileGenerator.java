@@ -39,9 +39,6 @@ import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.BindingSpecification.BindingExtensibility;
-import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
-import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
 import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -60,7 +57,6 @@ import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.ElementDefinition;
-import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ElementDefinition.ConstraintSeverity;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
@@ -640,32 +636,7 @@ public class ProfileGenerator {
 
     ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
     dst.setName(src.getName());
-    if (src.getBindingStrength() != null) {
-      dst.setConformance(convert(src.getBindingStrength()));
-      dst.setIsExtensible(src.getExtensibility() == BindingExtensibility.Extensible);
-    } else {
-      if (src.getElementType() == ElementType.Simple) {
-        dst.setConformance(convert(BindingStrength.Required));
-        dst.setIsExtensible(false);
-      }
-      else if (src.getElementType() == ElementType.Complex) {
-        dst.setIsExtensible(true);
-        if (src.isExample()) {
-          dst.setConformance(convert(BindingStrength.Example));
-        } else {
-          dst.setConformance(convert(BindingStrength.Preferred));
-        }
-      }
-      else {
-        dst.setConformance(convert(BindingStrength.Unstated));
-        dst.setIsExtensible(true);
-      }
-    }
-    if (src.getExtensible() != null)
-      dst.setIsExtensible(src.getExtensible());
-    if (src.getConformance() != null)
-      dst.setConformance(src.getConformance());
-    
+    dst.setStrength(src.getStrength());    
     dst.setDescription(src.getDefinition());
     if (src.getBinding() != Binding.Unbound)
       dst.setReference(buildReference(src));    
@@ -697,21 +668,6 @@ public class ProfileGenerator {
       throw new Exception("not done yet");
     }
   }
-
-  private BindingConformance convert(org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength bindingStrength) throws Exception {
-    if (bindingStrength == null)
-      return null;
-    if (bindingStrength == org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength.Preferred)
-      return BindingConformance.PREFERRED;
-    if (bindingStrength == org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength.Required)
-      return BindingConformance.REQUIRED;
-    if (bindingStrength == org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength.Example)
-      return BindingConformance.EXAMPLE;
-    if (bindingStrength == org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength.Unstated)
-      return null;
-    throw new Exception("unknown value BindingStrength."+bindingStrength.toString());
-  }
-
 
   /**
    * note: snapshot implies that we are generating a resource or a data type; for other profiles, the snapshot is generated elsewhere

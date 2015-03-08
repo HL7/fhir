@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -51,6 +51,10 @@ public class NutritionOrder extends DomainResource {
          */
         PROPOSED, 
         /**
+         * The request is in preliminary form prior to being sent.
+         */
+        DRAFT, 
+        /**
          * The request has been planned.
          */
         PLANNED, 
@@ -71,17 +75,9 @@ public class NutritionOrder extends DomainResource {
          */
         COMPLETED, 
         /**
-         * The prescription was entered in error and therefore nullified.
+         * The request has been withdrawn and is no longer actionable.
          */
-        ENTEREDINERROR, 
-        /**
-         * Actions implied by the prescription have been permanently halted, before all of them occurred.
-         */
-        STOPPED, 
-        /**
-         * The prescription was replaced by a newer one, which encompasses all the information in the previous one.
-         */
-        SUPERCEDED, 
+        CANCELLED, 
         /**
          * added to help the parsers
          */
@@ -91,6 +87,8 @@ public class NutritionOrder extends DomainResource {
                 return null;
         if ("proposed".equals(codeString))
           return PROPOSED;
+        if ("draft".equals(codeString))
+          return DRAFT;
         if ("planned".equals(codeString))
           return PLANNED;
         if ("requested".equals(codeString))
@@ -101,67 +99,59 @@ public class NutritionOrder extends DomainResource {
           return ONHOLD;
         if ("completed".equals(codeString))
           return COMPLETED;
-        if ("entered-in-error".equals(codeString))
-          return ENTEREDINERROR;
-        if ("stopped".equals(codeString))
-          return STOPPED;
-        if ("superceded".equals(codeString))
-          return SUPERCEDED;
+        if ("cancelled".equals(codeString))
+          return CANCELLED;
         throw new Exception("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case PROPOSED: return "proposed";
+            case DRAFT: return "draft";
             case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case ACTIVE: return "active";
             case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered-in-error";
-            case STOPPED: return "stopped";
-            case SUPERCEDED: return "superceded";
+            case CANCELLED: return "cancelled";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
             case PROPOSED: return "";
+            case DRAFT: return "";
             case PLANNED: return "";
             case REQUESTED: return "";
             case ACTIVE: return "";
             case ONHOLD: return "";
             case COMPLETED: return "";
-            case ENTEREDINERROR: return "";
-            case STOPPED: return "";
-            case SUPERCEDED: return "";
+            case CANCELLED: return "";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
             case PROPOSED: return "The request has been proposed.";
+            case DRAFT: return "The request is in preliminary form prior to being sent.";
             case PLANNED: return "The request has been planned.";
             case REQUESTED: return "The request has been placed.";
             case ACTIVE: return "The request is 'actionable', but not all actions that are implied by it have occurred yet.";
             case ONHOLD: return "Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called 'suspended'.";
             case COMPLETED: return "All actions that are implied by the prescription have occurred (this will rarely be made explicit).";
-            case ENTEREDINERROR: return "The prescription was entered in error and therefore nullified.";
-            case STOPPED: return "Actions implied by the prescription have been permanently halted, before all of them occurred.";
-            case SUPERCEDED: return "The prescription was replaced by a newer one, which encompasses all the information in the previous one.";
+            case CANCELLED: return "The request has been withdrawn and is no longer actionable.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
             case PROPOSED: return "Proposed";
+            case DRAFT: return "Draft";
             case PLANNED: return "Planned";
             case REQUESTED: return "Requested";
             case ACTIVE: return "Active";
-            case ONHOLD: return "On Hold";
+            case ONHOLD: return "On-Hold";
             case COMPLETED: return "Completed";
-            case ENTEREDINERROR: return "Entered In Error";
-            case STOPPED: return "Stopped";
-            case SUPERCEDED: return "Superceded";
+            case CANCELLED: return "Cancelled";
             default: return "?";
           }
         }
@@ -174,6 +164,8 @@ public class NutritionOrder extends DomainResource {
                 return null;
         if ("proposed".equals(codeString))
           return NutritionOrderStatus.PROPOSED;
+        if ("draft".equals(codeString))
+          return NutritionOrderStatus.DRAFT;
         if ("planned".equals(codeString))
           return NutritionOrderStatus.PLANNED;
         if ("requested".equals(codeString))
@@ -184,17 +176,15 @@ public class NutritionOrder extends DomainResource {
           return NutritionOrderStatus.ONHOLD;
         if ("completed".equals(codeString))
           return NutritionOrderStatus.COMPLETED;
-        if ("entered-in-error".equals(codeString))
-          return NutritionOrderStatus.ENTEREDINERROR;
-        if ("stopped".equals(codeString))
-          return NutritionOrderStatus.STOPPED;
-        if ("superceded".equals(codeString))
-          return NutritionOrderStatus.SUPERCEDED;
+        if ("cancelled".equals(codeString))
+          return NutritionOrderStatus.CANCELLED;
         throw new IllegalArgumentException("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
     public String toCode(NutritionOrderStatus code) {
       if (code == NutritionOrderStatus.PROPOSED)
         return "proposed";
+      if (code == NutritionOrderStatus.DRAFT)
+        return "draft";
       if (code == NutritionOrderStatus.PLANNED)
         return "planned";
       if (code == NutritionOrderStatus.REQUESTED)
@@ -205,12 +195,8 @@ public class NutritionOrder extends DomainResource {
         return "on-hold";
       if (code == NutritionOrderStatus.COMPLETED)
         return "completed";
-      if (code == NutritionOrderStatus.ENTEREDINERROR)
-        return "entered-in-error";
-      if (code == NutritionOrderStatus.STOPPED)
-        return "stopped";
-      if (code == NutritionOrderStatus.SUPERCEDED)
-        return "superceded";
+      if (code == NutritionOrderStatus.CANCELLED)
+        return "cancelled";
       return "?";
       }
     }
@@ -1639,7 +1625,7 @@ public class NutritionOrder extends DomainResource {
      * The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.
      */
     @Child(name="status", type={CodeType.class}, order=11, min=0, max=1)
-    @Description(shortDefinition="proposed | planned | requested | active | on-hold | completed | entered-in-error | stopped | superceded", formalDefinition="The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended." )
+    @Description(shortDefinition="proposed | draft | planned | requested | active | on-hold | completed | cancelled", formalDefinition="The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended." )
     protected Enumeration<NutritionOrderStatus> status;
 
     private static final long serialVersionUID = -966362649L;

@@ -96,8 +96,7 @@
     <isModifier value="false"/>
     <binding>
       <name value="Language"/>
-      <isExtensible value="false"/>
-      <conformance value="required"/>
+      <strength value="required"/>
       <description value="xml:lang (BCP-47)"/>
       <referenceUri value="http://tools.ietf.org/html/bcp47"/>
     </binding>

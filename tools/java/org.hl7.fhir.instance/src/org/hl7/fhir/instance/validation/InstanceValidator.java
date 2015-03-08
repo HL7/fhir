@@ -13,7 +13,7 @@ import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ElementDefinition;
-import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
@@ -1210,12 +1210,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   }
                   c = c.getNextSibling();
                 }
-                if (!any && binding.getConformance() == BindingConformance.REQUIRED)
+                if (!any && binding.getStrength() == BindingStrength.REQUIRED)
                   warning(errors, "code-unknown", path, found, "No code provided, and value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+") is required");
                 if (any)
-                  if (binding.getConformance() == BindingConformance.EXAMPLE)
+                  if (binding.getStrength() == BindingStrength.PREFERRED)
                     hint(errors, "code-unknown", path, found, "None of the codes are in the example value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+")");
-                  else 
+                  else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
                     warning(errors, "code-unknown", path, found, "None of the codes are in the expected value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+")");
               }
             } catch (Exception e) {

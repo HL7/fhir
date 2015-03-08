@@ -225,8 +225,7 @@
     <maxLength value="13"/>
     <binding>
       <name value="Gender"/>
-      <isExtensible value="false"/>
-      <conformance value="required"/>
+      <strength value="required"/>
       <referenceReference>
         <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset">
           <valueReference>

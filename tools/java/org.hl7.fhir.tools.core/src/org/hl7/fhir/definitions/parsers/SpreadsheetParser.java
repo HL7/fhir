@@ -75,7 +75,7 @@ import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DecimalType;
-import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
@@ -597,12 +597,13 @@ public class SpreadsheetParser {
          throw new Exception("binding "+cd.getName()+" is missing a reference");
 
       cd.setDescription(sheet.getColumn(row, "Description"));
-      cd.setExample(parseBoolean(sheet.getColumn(row, "Example"), row, false));
-      if (isProfile || cd.getBinding() == Binding.Reference) {
-        cd.setExtensible(parseFullBoolean(sheet.getColumn(row, "Extensible"), row, false));
-        cd.setConformance(BindingConformance.fromCode(sheet.getColumn(row, "Conformance")));
-      }
-
+      if (parseBoolean(sheet.getColumn(row, "Example"), row, false))
+        cd.setStrength(BindingStrength.EXAMPLE);
+      else if (parseBoolean(sheet.getColumn(row, "Extensible"), row, false))
+        cd.setStrength(BindingStrength.EXTENSIBLE);
+      else 
+        cd.setStrength(BindingsParser.readBindingStrength(sheet.getColumn(row, "Conformance")));
+        
 			cd.setId(registry.idForName(cd.getName()));
 			cd.setSource(name);
       cd.setUri(sheet.getColumn(row, "Uri"));
@@ -683,21 +684,6 @@ public class SpreadsheetParser {
 		
 		return result;
 	}
-
-	private Boolean parseFullBoolean(String s, int row, boolean b) throws Exception {
-        if (s == null || s.isEmpty())
-            return null;
-    s = s.toLowerCase();
-    if (s.equalsIgnoreCase("y") || s.equalsIgnoreCase("yes")
-        || s.equalsIgnoreCase("true") || s.equalsIgnoreCase("1"))
-      return true;
-    else if (s.equals("false") || s.equals("0") || s.equals("f")
-        || s.equals("n") || s.equals("no"))
-      return false;
-    else
-      throw new Exception("unable to process boolean value: " + s + " in " + getLocation(row));
-  }
-
 
   private void parseCodes(List<DefinedCode> codes, Sheet sheet)
 			throws Exception {
@@ -1461,21 +1447,6 @@ public class SpreadsheetParser {
 	}
 	*/
 
-	protected Boolean parseBoolean(String s, int row, Boolean def) throws Exception {
-        if (s == null || s.isEmpty())
-            return def;
-		s = s.toLowerCase();
-		if (s.equalsIgnoreCase("y") || s.equalsIgnoreCase("yes")
-				|| s.equalsIgnoreCase("true") || s.equalsIgnoreCase("1"))
-			return true;
-        else if (s.equals("false") || s.equals("0") || s.equals("f")
-				|| s.equals("n") || s.equals("no"))
-			return false;
-		else
-			throw new Exception("unable to process boolean value: " + s
-					+ " in " + getLocation(row));
-	}
-
 	private String getLocation(int row) {
 		return name + ", sheet \""+sheetname+"\", row " + Integer.toString(row + 2);
 	}
@@ -1491,5 +1462,21 @@ public class SpreadsheetParser {
   public void setFolder(String folder) {
     this.folder = folder;
   }
+
+  protected Boolean parseBoolean(String s, int row, Boolean def) throws Exception {
+    if (s == null || s.isEmpty())
+      return def;
+    s = s.toLowerCase();
+    if (s.equalsIgnoreCase("y") || s.equalsIgnoreCase("yes")
+        || s.equalsIgnoreCase("true") || s.equalsIgnoreCase("1"))
+      return true;
+    else if (s.equals("false") || s.equals("0") || s.equals("f")
+        || s.equals("n") || s.equals("no"))
+      return false;
+    else
+      throw new Exception("unable to process boolean value: " + s
+          + " in " + getLocation(row));
+  }
+
 
 }

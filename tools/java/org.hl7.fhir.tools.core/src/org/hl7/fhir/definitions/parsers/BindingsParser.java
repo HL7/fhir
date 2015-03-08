@@ -33,8 +33,8 @@ import java.util.List;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.BindingSpecification.BindingExtensibility;
 import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.utilities.Utilities;
@@ -85,6 +85,7 @@ public class BindingsParser {
 	    cd.setId(registry.idForName(cd.getName()));
 	    cd.setSource(filename);
 	    cd.setUri(sheet.getColumn(row, "Uri"));
+	    cd.setStrength(readBindingStrength(sheet.getColumn(row, "Conformance")));
 	    String oid = sheet.getColumn(row, "Oid");
 	    if (!Utilities.noString(oid))
 	      cd.setVsOid(oid); // no cs oid in this case
@@ -98,14 +99,14 @@ public class BindingsParser {
 	  }
 	}
 
-	public static BindingExtensibility readExtensibility(String s) throws Exception {
-    s = s.toLowerCase();
-    if (s == null || "".equals(s) || "complete".equals(s))
-      return BindingSpecification.BindingExtensibility.Complete;
-    if (s.equals("extensible"))
-      return BindingSpecification.BindingExtensibility.Extensible;
-    throw new Exception("Unknown Binding Extensibility: "+s);
-  }
+//	public static BindingExtensibility readExtensibility(String s) throws Exception {
+//    s = s.toLowerCase();
+//    if (s == null || "".equals(s) || "complete".equals(s))
+//      return BindingSpecification.BindingExtensibility.Complete;
+//    if (s.equals("extensible"))
+//      return BindingSpecification.BindingExtensibility.Extensible;
+//    throw new Exception("Unknown Binding Extensibility: "+s);
+//  }
 
   public static BindingSpecification.Binding readBinding(String s) throws Exception {
 		s = s.toLowerCase();
@@ -122,17 +123,17 @@ public class BindingsParser {
 		throw new Exception("Unknown Binding: "+s);
 	}
 		
-	public static BindingSpecification.BindingStrength readBindingStrength(String s) throws Exception {
+	public static BindingStrength readBindingStrength(String s) throws Exception {
     s = s.toLowerCase();
-    if (s == null || "".equals(s))
-      return BindingSpecification.BindingStrength.Unstated;
-    if (s.equals("required"))
-      return BindingSpecification.BindingStrength.Required;
+    if (s.equals("required") || s.equals(""))
+      return BindingStrength.REQUIRED;
+    if (s.equals("extensible"))
+      return BindingStrength.EXTENSIBLE;
     if (s.equals("preferred"))
-      return BindingSpecification.BindingStrength.Preferred;
+      return BindingStrength.PREFERRED;
     if (s.equals("example"))
-      return BindingSpecification.BindingStrength.Example;
-    throw new Exception("Unknown Binding Strength: "+s);
+      return BindingStrength.EXAMPLE;
+    throw new Exception("Unknown Binding Strength: '"+s+"'");
   }
 
   public boolean loadCodes(BindingSpecification cd) throws Exception {

@@ -60,7 +60,6 @@ import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.ConformancePackage;
@@ -98,7 +97,7 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.ElementDefinition;
-import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
@@ -1626,10 +1625,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String getBindingTypeDesc(ElementDefinitionBindingComponent binding) {
-    if (binding.getConformance() == null)
+    if (binding.getStrength() == null)
       return "";
     else
-      return binding.getConformance().toCode() +(binding.getIsExtensible() ? "(extensible)" : "");
+      return binding.getStrength().getDisplay();
   }
 
   private void scanForUsage(StringBuilder b, BindingSpecification cd, ElementDefn e, String ref) {
@@ -1648,15 +1647,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String getBSTypeDesc(BindingSpecification cd) {
-    if (cd == null || cd.getBindingStrength() == null) // partial build
+    if (cd == null || cd.getStrength() == null) // partial build
       return "Unknown";
-    switch (cd.getBindingStrength()) {
-    case Required: return "(<a href=\"terminologies.html#code\">Fixed</a>)";
-    case Preferred: return "(<a href=\"terminologies.html#incomplete\">Incomplete</a>)";
-    case Example: return "(<a href=\"terminologies.html#example\">Example</a>)";
-    default:
-      return "Unknown";
-    }
+    return "(<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>)";
   }
 
   private String generateCodeDefinition(String name) {
@@ -2460,6 +2453,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   */
 
   private String genBindingsTable() {
+    assert(false);
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
     s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Type</b></td><td><b>Reference</b></td></tr>\r\n");
@@ -2479,9 +2473,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             s.append("Code List");
           else if (cd.getBinding() == Binding.Unbound)
             s.append("??");
-          else if (cd.isExample())
-            s.append("Value Set (Example Only)");
-          else
+          else 
             s.append("Value Set");
 
           if (cd.getBinding() == Binding.Special) {
@@ -2541,12 +2533,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (cd.getBinding() == Binding.Unbound) {
           s.append("Definition: "+Utilities.escapeXml(cd.getDefinition()));
         } else if (cd.getBinding() == Binding.CodeList) {
-          if (cd.getBindingStrength() == BindingStrength.Preferred)
-            s.append("Preferred codes: ");
-          else if (cd.getBindingStrength() == BindingStrength.Example)
-            s.append("Suggested codes: ");
-          else // if (cd.getBindingStrength() == BindingStrength.Required)
-            s.append("Required codes: ");
+          assert(cd.getStrength() == BindingStrength.REQUIRED);
+          s.append("Required codes: ");
           s.append("    <table class=\"codes\">\r\n");
           boolean hasComment = false;
           boolean hasDefinition = false;
@@ -2564,16 +2552,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           }
           s.append("    </table>\r\n");
         } else if (cd.getBinding() == Binding.ValueSet) {
-          if (cd.getBindingStrength() == BindingStrength.Preferred)
-            s.append("Preferred codes: ");
-          else if (cd.getBindingStrength() == BindingStrength.Example)
-            s.append("Suggested codes: ");
-          else // if (cd.getBindingStrength() == BindingStrength.Required)
-            s.append("Required codes: ");
           if (cd.hasReference())
             s.append("<a href=\""+cd.getReference()+"\">Value Set "+cd.getDescription()+"</a>");
           else
             s.append("Value Set "+cd.getDescription());
+          s.append(" (<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>)");
         } else if (cd.getBinding() == Binding.Reference) {
             s.append("See <a href=\""+cd.getReference()+"\">"+cd.getReference()+"</a>");
         } else if (cd.getBinding() == Binding.Special) {
@@ -4446,10 +4429,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String summariseBinding(ElementDefinitionBindingComponent binding, String path, boolean canDotext) {
-    if (binding.getConformance() == null || binding.getConformance() == BindingConformance.EXAMPLE || binding.getConformance() == BindingConformance.NULL)
+    if (binding.getStrength() == null || binding.getStrength() == BindingStrength.EXAMPLE || binding.getStrength() == BindingStrength.NULL)
       return null;
     String desc = binding.getDescription() == null ? describeReference(binding) : binding.getDescription();
-    return "<li><i>"+path+"</i> "+(binding.getConformance() == BindingConformance.PREFERRED ? "should" : "must")+" come from "+desc+"</li>";
+    return "<li><i>"+path+"</i> "+(binding.getStrength() == BindingStrength.PREFERRED ? "should" : "must")+" come from "+desc+"</li>";
   }
 
   private String describeReference(ElementDefinitionBindingComponent binding) {
@@ -4670,8 +4653,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
               vss = "<a href=\""+vs.getUserData("path")+"\">"+Utilities.escapeXml(vs.getName())+"</a>";
           }
         }
-        b.append("<tr><td>").append(path).append("</td><td>").append(tx.getName()).append("</td><td>").append(tx.getConformance() == null ? "" : tx.getConformance().toCode()).append(tx.getIsExtensible() ? " (extensible)" : "")
-                .append("</td><td>").append(vss).append("</td></tr>\r\n");
+        b.append("<tr><td>").append(path).append("</td><td>").append(tx.getName()).append("</td><td>").append(tx.getStrength().toCode()).append("</td><td>").append(vss).append("</td></tr>\r\n");
       }
       b.append("</table>\r\n");
       return b.toString();

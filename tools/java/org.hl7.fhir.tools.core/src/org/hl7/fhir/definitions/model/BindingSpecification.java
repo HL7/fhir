@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
-import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.Utilities;
@@ -59,18 +59,6 @@ public class BindingSpecification {
     Special
   }
   
-  public enum BindingStrength {
-    Unstated,
-    Required,
-    Preferred,
-    Example
-  }
-
-  public enum BindingExtensibility {
-    Complete,
-    Extensible
-  }
-
   public enum ElementType {
     Unknown,
     Simple,
@@ -85,11 +73,8 @@ public class BindingSpecification {
 	private Binding binding;
   private String reference;
   private String description;
-  private boolean example;
 
   // for profiles:
-  private BindingConformance conformance;
-  private Boolean extensible;
   
   // allow ability to override metadata defaults
   private String uri; // used as the official value set identifier if provided, else one will be synthesized. For when code list is actually a value set defined elsewhere
@@ -101,8 +86,7 @@ public class BindingSpecification {
   private String vsOid;
 	
 	// these are implied by the use of the binding at the specification level
-  private BindingStrength bindingStrength;
-  private BindingExtensibility extensibility;
+  private BindingStrength strength;
 
   // analysis during run time
   private ElementType elementType = ElementType.Unknown;
@@ -157,14 +141,6 @@ public class BindingSpecification {
     this.binding = binding;
   }
 
-  public BindingStrength getBindingStrength() {
-    return bindingStrength;
-  }
-
-  public void setBindingStrength(BindingStrength bindingStrength) {
-    this.bindingStrength = bindingStrength;
-  }
-
   public String getReference() {
     return reference;
   }
@@ -196,23 +172,13 @@ public class BindingSpecification {
   public void setSource(String source) {
     this.source = source;
   }
-
-
   
-  public BindingConformance getConformance() {
-    return conformance;
+  public BindingStrength getStrength() {
+    return strength;
   }
 
-  public void setConformance(BindingConformance conformance) {
-    this.conformance = conformance;
-  }
-
-  public Boolean getExtensible() {
-    return extensible;
-  }
-
-  public void setExtensible(Boolean extensible) {
-    this.extensible = extensible;
+  public void setStrength(BindingStrength strength) {
+    this.strength = strength;
   }
 
   public static BindingSpecification getBindingFromList(
@@ -232,14 +198,6 @@ public class BindingSpecification {
 
   public void setUseContexts(List<String> useContexts) {
     this.useContexts = useContexts;
-  }
-
-  public BindingExtensibility getExtensibility() {
-    return extensibility;
-  }
-
-  public void setExtensibility(BindingExtensibility extensibility) {
-    this.extensibility = extensibility;
   }
 
   public boolean hasExternalCodes() {
@@ -317,14 +275,6 @@ public class BindingSpecification {
       hasParent = hasParent || c.hasParent();
     }
     return hasParent;
-  }
-
-   public boolean isExample() {
-    return example;
-  }
-
-  public void setExample(boolean example) {
-    this.example = example;
   }
 
   public ElementType getElementType() {

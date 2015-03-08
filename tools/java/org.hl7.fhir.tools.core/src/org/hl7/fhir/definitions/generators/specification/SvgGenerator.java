@@ -11,7 +11,6 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -19,6 +18,7 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -812,11 +812,13 @@ public class SvgGenerator extends BaseGenerator {
   private String describeBinding(ElementDefn e) {
     BindingSpecification b = definitions.getBindingByName(e.getBindingName());
     if (e.hasBinding() && b.getBinding() != Binding.Unbound) {
-      if (b.getBindingStrength() == BindingStrength.Example)
+      if (b.getStrength() == BindingStrength.EXAMPLE)
         return " \u00AB ("+e.getBindingName()+") \u00BB";
-      else if (b.getBindingStrength() == BindingStrength.Preferred)
+      else if (b.getStrength() == BindingStrength.PREFERRED)
+        return " \u00AB "+e.getBindingName()+"? \u00BB";
+      else if (b.getStrength() == BindingStrength.EXTENSIBLE)
         return " \u00AB "+e.getBindingName()+"+ \u00BB";
-      else // if (b.getBindingStrength() == BindingStrength.Required)
+      else // if (b.getBindingStrength() == BindingStrength.REQUIRED)
         return " \u00AB "+e.getBindingName()+" \u00BB";
     } else
       return "";
@@ -865,7 +867,7 @@ public class SvgGenerator extends BaseGenerator {
         if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {
           BindingSpecification b = definitions.getBindingByName(e.getBindingName());
           xml.text(" \u00AB ");
-          if (b.getBindingStrength() == BindingStrength.Example) {
+          if (b.getStrength() == BindingStrength.EXAMPLE) {
             xml.text("(");
             xml.attribute("xlink:href", getBindingLink(e));
             xml.open("a");
@@ -873,14 +875,21 @@ public class SvgGenerator extends BaseGenerator {
             xml.text(e.getBindingName());
             xml.close("a");
             xml.text(")");
-          } else if (b.getBindingStrength() == BindingStrength.Preferred) {
+          } else if (b.getStrength() == BindingStrength.PREFERRED) {
             xml.attribute("xlink:href", getBindingLink(e));
             xml.open("a");
             xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
             xml.text(e.getBindingName());
             xml.close("a");
             xml.text("+");
-          } else if (b.getBindingStrength() == BindingStrength.Required) {
+          } else if (b.getStrength() == BindingStrength.EXTENSIBLE) {
+            xml.attribute("xlink:href", getBindingLink(e));
+            xml.open("a");
+            xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
+            xml.text(e.getBindingName());
+            xml.close("a");
+            xml.text("+");
+          } else if (b.getStrength() == BindingStrength.REQUIRED) {
             xml.attribute("xlink:href", getBindingLink(e));
             xml.open("a");
             xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Mar 5, 2015 01:31+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -579,7 +579,7 @@ public class DocumentReference extends DomainResource {
      * The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).
      */
     @Child(name="type", type={CodeableConcept.class}, order=3, min=1, max=1)
-    @Description(shortDefinition="Precice type of document", formalDefinition="The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.)." )
+    @Description(shortDefinition="Precise type of document", formalDefinition="The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.)." )
     protected CodeableConcept type;
 
     /**
@@ -1486,7 +1486,7 @@ public class DocumentReference extends DomainResource {
   public static final String SP_FORMAT = "format";
   @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
   public static final String SP_PERIOD = "period";
-  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precice type of document", type="token" )
+  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precise type of document", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/What authenticated the document", type="reference" )
   public static final String SP_AUTHENTICATOR = "authenticator";
