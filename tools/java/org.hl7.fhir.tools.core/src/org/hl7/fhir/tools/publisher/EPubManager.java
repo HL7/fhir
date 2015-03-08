@@ -305,6 +305,8 @@ public class EPubManager implements FileNotifier {
   }
 
   private void check(XhtmlNode node, String href, String base) throws FileNotFoundException, Exception {
+    if (href == null)
+      throw new Exception("no ref at "+node.allText());
     if (href.startsWith("http:") || href.startsWith("https:") || href.startsWith("ftp:") || href.startsWith("mailto:"))
       return;
     String path = href;

@@ -109,8 +109,9 @@ public class WorkerContext {
     return extensionDefinitions;
   }
 
-  public void setTerminologyServices(ITerminologyServices terminologyServices) {
-    this.terminologyServices = terminologyServices;    
+  public WorkerContext setTerminologyServices(ITerminologyServices terminologyServices) {
+    this.terminologyServices = terminologyServices;   
+    return this;
   }
 
   public WorkerContext clone(IFHIRClient altClient) {

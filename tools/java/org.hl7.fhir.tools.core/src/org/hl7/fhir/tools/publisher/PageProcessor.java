@@ -4880,6 +4880,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setIni(IniFile ini) {
     this.ini = ini;
+    for (String s : ini.getPropertyNames("page-titles")) {
+      definitions.getPageTitles().put(s, ini.getStringProperty("page-titles", s));
+    }
   }
 
   public EPubManager getEpub() {
@@ -5120,6 +5123,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           url = definitions.getSrcFile(linkText)+".html#"+linkText;
         } else if (definitions.hasPrimitiveType(linkText)) {
           url = "datatypes.html#"+linkText;
+        } else if (definitions.getPageTitles().containsKey(linkText)) {
+          url = definitions.getPageTitles().get(linkText);
         } else {
           System.out.println("Error (#3): Unresolved logical URL "+linkText);
           //        throw new Exception("Unresolved logical URL "+url);

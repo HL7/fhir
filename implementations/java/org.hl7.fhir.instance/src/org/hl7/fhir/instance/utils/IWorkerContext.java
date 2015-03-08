@@ -98,6 +98,14 @@ public interface IWorkerContext {
 	public ITerminologyServices getTerminologyServices() throws Exception;
 	
 	/**
+	 * 
+	 * @return a handle to the terminology services associated with this worker context
+	 * 
+	 * @throws Exception
+	 */
+	public IWorkerContext setTerminologyServices(ITerminologyServices value);
+	
+	/**
 	 * Get a generator that can generate narrative for the instance
 	 * 
 	 * @return a prepared generator

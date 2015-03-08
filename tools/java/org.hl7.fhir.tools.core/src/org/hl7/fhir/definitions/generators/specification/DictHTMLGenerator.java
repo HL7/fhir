@@ -506,6 +506,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
           url = definitions.getSrcFile(linkText)+".html#"+linkText;
         } else if (definitions.hasPrimitiveType(linkText)) {
           url = "datatypes.html#"+linkText;
+        } else if (definitions.getPageTitles().containsKey(linkText)) {
+          url = definitions.getPageTitles().get(linkText);
         } else {
           System.out.println("Error (#1): Unresolved logical URL "+linkText);
           //        throw new Exception("Unresolved logical URL "+url);

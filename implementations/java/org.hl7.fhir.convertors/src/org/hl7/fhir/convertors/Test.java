@@ -30,19 +30,15 @@ package org.hl7.fhir.convertors;
   
 */
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
-import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.IParser;
-import org.hl7.fhir.instance.formats.IParser.OutputStyle;
-import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.utils.FHIRTerminologyServices;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.UcumEssenceService;
 
 public class Test {
+  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
+  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:980/open";
+  
 
 	public static final String DEF_PATH = "c:\\work\\org.hl7.fhir\\build\\implementations\\java\\org.hl7.fhir.convertors\\samples\\";
 	public static final String UCUM_PATH = "c:\\work\\org.hl7.fhir\\build\\implementations\\java\\org.hl7.fhir.convertors\\samples\\ucum-essence.xml";
@@ -50,15 +46,19 @@ public class Test {
 	
 	public static void main(String[] args) {
 		try {
-			CCDAConverter c = new CCDAConverter(new UcumEssenceService(UCUM_PATH), WorkerContext.fromPack(Utilities.path(SRC_PATH, "validation.zip")));
-			Bundle a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
-			String fx = DEF_PATH + "output.xml";
-			IParser x = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-			x.compose(new FileOutputStream(fx),  a);
-			String fj = DEF_PATH + "output.json";
-			IParser j = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-			j.compose(new FileOutputStream(fj),  a);
-			System.out.println("done. save as "+fx+" and "+fj);
+//			CCDAConverter c = new CCDAConverter(new UcumEssenceService(UCUM_PATH), WorkerContext.fromPack(Utilities.path(SRC_PATH, "validation.zip")));
+//			Bundle a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
+//			String fx = DEF_PATH + "output.xml";
+//			IParser x = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+//			x.compose(new FileOutputStream(fx),  a);
+//			String fj = DEF_PATH + "output.json";
+//			IParser j = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+//			j.compose(new FileOutputStream(fj),  a);
+//			System.out.println("done. save as "+fx+" and "+fj);
+		  ArgonautConverter c = new ArgonautConverter(new UcumEssenceService(UCUM_PATH), WorkerContext.fromPack(Utilities.path(SRC_PATH, "validation.zip")).setTerminologyServices(new FHIRTerminologyServices(DEV_TS_SERVER)));
+		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_ed", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
+		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_emergency", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
+		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\fileX", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

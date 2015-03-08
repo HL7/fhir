@@ -159,7 +159,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
     } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
-      StructureDefinition p = ctxt.fetchResource(StructureDefinition.class, "test");
+      StructureDefinition p = context.getProfiles().get(r.getResourceType().toString());
       generateByProfile(r, p /* context.getProfiles().get(r.getResourceType().toString()) */, true); // todo: make this manageable externally 
     } else if (context.getProfiles().containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
       generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 

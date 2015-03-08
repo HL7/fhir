@@ -901,10 +901,7 @@ public class CCDAConverter {
 		  
 		// SHALL contain at least one [1..*] id (8551).
 		for (Element e : cda.getChildren(so, "id"))
-			if (obs.getIdentifier() == null) // only one in FHIR
-			  obs.setIdentifier(convert.makeIdentifierFromII(e));
-			else 
-			  obs.getExtension().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/additional-id", convert.makeIdentifierFromII(e), false));
+			obs.getIdentifier().add(convert.makeIdentifierFromII(e));
 
 		
 		// SHALL contain exactly one [1..1] statusCode (CONF:8553/455/14809).
@@ -1064,8 +1061,7 @@ public class CCDAConverter {
 
 		// SHALL contain at least one [1..*] id (CONF:7282).
 		for (Element e : cda.getChildren(organizer, "id")) 
-	  	if (obs.getIdentifier() == null) 
-	  	  obs.setIdentifier(convert.makeIdentifierFromII(e));
+	  	obs.getIdentifier().add(convert.makeIdentifierFromII(e));
 		
 		// SHALL contain exactly one [1..1] code (CONF:19176).
 		//  This code SHALL contain exactly one [1..1] @code="46680005" Vital signs (CodeSystem: SNOMED-CT 2.16.840.1.113883.6.96 STATIC) (CONF:19177).
@@ -1094,8 +1090,7 @@ public class CCDAConverter {
 
 		//	SHALL contain at least one [1..*] id (CONF:7300).
 		for (Element e : cda.getChildren(observation, "id")) 
-	  	if (obs.getIdentifier() == null) 
-	  	  obs.setIdentifier(convert.makeIdentifierFromII(e));
+	  	obs.getIdentifier().add(convert.makeIdentifierFromII(e));
 		
 		// SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Vital Sign Result Value Set 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
 		obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(observation, "code"))); // all loinc codes 

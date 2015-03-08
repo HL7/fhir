@@ -102,6 +102,7 @@ public class Definitions {
   private Map<String, String> typePages = new HashMap<String, String>();
   private Map<String, ImplementationGuide> igs = new HashMap<String, ImplementationGuide>();
   private List<ImplementationGuide> sortedIgs = new ArrayList<ImplementationGuide>();
+  private Map<String, String> pageTitles = new HashMap<String, String>();
   
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -485,6 +486,10 @@ public class Definitions {
       i++;
     }
     return e;
+  }
+
+  public Map<String, String> getPageTitles() {
+    return pageTitles;
   }
 
 
