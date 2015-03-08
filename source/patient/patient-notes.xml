@@ -28,7 +28,7 @@ multiple numbers because of mergers of patient record systems over time.
 <a name="links"> </a>
 <h2>Linking Patients</h2>
 <p>The <i>link</i> element is used to assert that patient resources refer to the same person. This element is used
-to support three distinct scenario's where multiple records of the same person exist:</p>
+to support the following scenarios where multiple patient records exist:</p>
 
 <h3>Duplicate Patient records</h3>
 <p>Managing Patient registration is a well known difficult problem. Around 2% of registrations are in error, 
@@ -53,7 +53,7 @@ being more complete or more authorative than another. In such cases, links of ty
 other patient records. It is not a requirement that such links are bilateral. 
 </p>
 
-<h3>Patient vs Person vs Patient.Link</h3>
+<h2>Patient vs Person vs Patient.Link</h2>
 <p>
 The Person resource on the surface appears to be very similar to the Patient resource, and the usage for it is very similar
 to using the Patient.Link capability.<br/>
@@ -72,7 +72,7 @@ the person record if they want their details updated, or if they no longer need 
 as they've moved from the area.
 </p>
   
-<h3>Patient.Contact vs RelatedPerson</h3>
+<h2>Patient.Contact vs RelatedPerson</h2>
 <p>
 The contact component on the Patient Resource should be used for storing persons to contact information.
 Where a system has a separate record for other people for purposes other than just the contact details, The RelatedPerson
