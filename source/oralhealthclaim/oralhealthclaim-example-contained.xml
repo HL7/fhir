@@ -72,7 +72,7 @@
          <value value="12345"/>
       </identifier>
       <plan value="CBI35"/>
-      <subplan value="123"/>
+      <subPlan value="123"/>
       <dependent value="0"/>
       <sequence value="1"/>
       <subscriber>

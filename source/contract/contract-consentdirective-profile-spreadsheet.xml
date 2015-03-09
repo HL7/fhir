@@ -1059,7 +1059,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="101" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="121.5"/>
+   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="158.25"/>
    <Column ss:StyleID="s85" ss:Width="67.5"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="59.25"/>
    <Column ss:StyleID="s85" ss:Width="227.25"/>
@@ -1443,11 +1443,11 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ConsentDirective.subtype</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">ConsentDirective.subType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Contract.subtype</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Contract.subType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2224,11 +2224,11 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ConsentDirective.term.subtype</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">ConsentDirective.term.subType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Contract.term.subtype</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Contract.term.subType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4164,7 +4164,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>46</TopRowBottomPane>
+   <TopRowBottomPane>29</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4182,7 +4182,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>53</ActiveRow>
+     <ActiveRow>34</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

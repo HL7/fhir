@@ -108,10 +108,10 @@
      <system value="http://fdi.org/fhir/oraltoothcodes"/>
      <code value="21"/>
    </bodySite>
-   <subsite>
+   <subSite>
      <system value="http://fdi.org/fhir/oralsurfacecodes"/>
      <code value="L"/>
-   </subsite>
+   </subSite>
   </item>
 
   <item>
