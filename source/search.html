@@ -176,7 +176,7 @@ behaves. These are the defined parameter types:
 <%codelist SearchParamType%>
 <p>
 The search parameters can also have "modifiers" appended to them that control
-their behavior. The kind of modifiers that can be used depend on the type
+their behavior. The kinds of modifiers that can be used depend on the type
 of parameter.
 </p>
 
@@ -282,7 +282,7 @@ As an example, the following search searches for all the procedures in a patient
 <a name="string" />
 <h4>string</h4>
 <p>
-The string parameter refer to simple string searches against sequences of characters.
+The string parameter refers to simple string searches against sequences of characters.
 Matches are case- and accent- insensitive. By default, a match exists if a portion of
 the parameter value contains the specified string. It is at the discretion of the
 server whether to do a left-partial search. The modifier :exact can be used to indicate
@@ -338,7 +338,7 @@ Note that the namespace URI and code both must be <a href="#escaping">escaped</a
  <tr> <td>:not</td> <td>reverse the code matching described in the paragraph above</td> </tr>
  <tr> <td>:above</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource subsumes the specified search code (e.g. the search concept has an is-a relationship with the coding in the resource)</td> </tr>
  <tr> <td>:below</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource is subsumed by the specified search code (e.g. the coding in the resource has an is-a relationship with the search concept)</td> </tr>
- <tr> <td>:in</td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a referecnce to ValueSet.identifier)</td> </tr>
+ <tr> <td>:in</td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a reference to ValueSet.identifier)</td> </tr>
  <tr> <td>:not-in</td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set</td> </tr>
 </table>
 <p>
@@ -700,7 +700,7 @@ is an invalid include path because it does not end with a Reference or a URI.
 <p>
 When looking for the references indicated by an include path, all occurrences of
 the component last encountered
-on the that path need to be considered, including occurrences of that same
+on that path need to be considered, including occurrences of that same
 component reachable via deeper (nested) relations. An example is the include path
 Composition.section.content, where the content reference on the highest level
 Section is included, but also those reachable via the nested section relationship.

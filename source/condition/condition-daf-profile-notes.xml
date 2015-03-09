@@ -19,7 +19,7 @@ The following are example usage scenarios for the DAF Condition profile:
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<p><b>Representing No known Problems:</b> No known Problems will be represented using the DAFProblem List with no entries and with an empty reason.</p>
+	<p><b>Representing No known Problems:</b> No known Problems will be represented using the DAFProblem List with no entries and a valid code in the List's emptyReason element.</p>
 	
 	<p><b>Specifying Patients as part of the Condition Queries:</b> DAF Condition profile supports the querying the problems for a particular patient. In order to achieve this in implementation, it is recommended to use Patient.identifier field to precisely identify the problems relevant to the patient. While other parameters such as  Patient.name, Patient.given could be used for the query, it could lead to incorrect Patient matching and/or inefficient queries when systems are not tuned. </p>
 	
