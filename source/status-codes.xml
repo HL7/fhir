@@ -7,19 +7,19 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
-  <LastSaved>2015-03-04T04:03:20Z</LastSaved>
+  <LastSaved>2015-03-08T06:04:14Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13740</WindowHeight>
-  <WindowWidth>1980</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowHeight>4395</WindowHeight>
+  <WindowWidth>20550</WindowWidth>
+  <WindowTopX>-15</WindowTopX>
+  <WindowTopY>4350</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -174,7 +174,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="53" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="54" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:Width="314.25"/>
@@ -591,7 +591,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">received</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">rejected</Data></Cell>
@@ -603,14 +603,14 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.item.status</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">received</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">rejected</Data></Cell>
@@ -622,12 +622,13 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.status</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s33"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">received</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">rejected</Data></Cell>
@@ -639,7 +640,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticReport.status</Data></Cell>
@@ -1052,6 +1053,25 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OrderResponse.orderStatus</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">pending</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">review</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">aborted,error</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">replaced</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">cancelled</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ProcedureRequest.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">proposed</Data></Cell>
@@ -1251,11 +1271,11 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
-   <SplitHorizontal>1200</SplitHorizontal>
-   <TopRowBottomPane>30</TopRowBottomPane>
+   <SplitHorizontal>1845</SplitHorizontal>
+   <TopRowBottomPane>40</TopRowBottomPane>
    <SplitVertical>4515</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
-   <ActivePane>0</ActivePane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1265,17 +1285,16 @@
     <Pane>
      <Number>1</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>40</ActiveRow>
-     <RangeSelection>R41</RangeSelection>
+     <ActiveRow>43</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>41</ActiveRow>
-     <ActiveCol>15</ActiveCol>
+     <ActiveRow>43</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

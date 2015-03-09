@@ -36,7 +36,7 @@
     practices in the order/fulfillment cycle, there's no formal
     rules about what is allowed
   -->
-  <code value="complete"/>
+  <orderStatus value="completed"/>
   
   <!-- 
     the lab report that the lab provides as a token of its 
