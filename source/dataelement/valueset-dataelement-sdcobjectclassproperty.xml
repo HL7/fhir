@@ -1,5 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="sdc-object-class-property"/>
   <name value="DataElement SDC Object Class"/>
   <publisher value="Office of the National Coordinator for Health IT"/>
   <contact>
