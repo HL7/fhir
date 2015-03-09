@@ -6,7 +6,7 @@
 The following are example usage scenarios for the DAF Condition profile:
 </p>
 <ul>
-	<li>Query for a Patients problem list</li>
+	<li>Query for a Patients problem list (see DAFListCondition)</li>
 	<li>Query for all patients who have had a specific condition,problem,finding</li>
 	<li>Query for problems experienced by patients during a time period</li>
 	<li>Query for problems based on the problem concern status</li>
