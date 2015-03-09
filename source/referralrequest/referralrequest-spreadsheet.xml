@@ -20,11 +20,12 @@
    <Path>Macintosh HD:Users:cnanjo:repository:fhir:trunk:build:source:referralrequest:Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>10425</WindowHeight>
-  <WindowWidth>26775</WindowWidth>
+  <WindowHeight>10125</WindowHeight>
+  <WindowWidth>24195</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6589,7 +6590,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7364,7 +7364,7 @@
     <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been transmitted, but not yet acknowledged by the recipient</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">For consistency, please change to &quot;requested&quot;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s140"><Data ss:Type="String">active</Data></Cell>
@@ -7375,7 +7375,7 @@
     <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been acknowledged by the recipient, and is in the process of being actioned</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">For consistency, please change to &quot;in-progress&quot;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s140"><Data ss:Type="String">cancelled</Data></Cell>
@@ -7897,6 +7897,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7916,6 +7917,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
