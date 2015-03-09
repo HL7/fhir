@@ -20,8 +20,8 @@
    <Path>Macintosh HD:Users:cnanjo:repository:fhir:trunk:build:source:referralrequest:Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>10125</WindowHeight>
-  <WindowWidth>24195</WindowWidth>
+  <WindowHeight>10785</WindowHeight>
+  <WindowWidth>26010</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>9</ActiveSheet>
@@ -7389,7 +7389,7 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">refused</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">rejected</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
@@ -7917,8 +7917,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
