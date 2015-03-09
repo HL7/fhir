@@ -8,7 +8,7 @@ The following are example usage scenarios for the DAF Encounter profile:
 <ul>
 	<li>Query for encounters experienced by a Patient</li>
 	<li>Query for all encounters during a time period</li>
-	<li>Query for all encounters based on class(e.g outpatient,inpatient) and specific encounter type(e.g diabetes,cancer)</li>
+	<li>Query for all encounters based on class(e.g. outpatient,inpatient) and specific encounter reason (e.g diabetes,cancer)</li>
 	<li>Query for encounters based on location</li>
 </ul>
 

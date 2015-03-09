@@ -10,18 +10,18 @@
   <LastAuthor>nbashyam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-12-08T02:06:50Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12960</WindowHeight>
-  <WindowWidth>24240</WindowWidth>
+  <WindowHeight>9885</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>60</WindowTopY>
+  <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
-  <RefModeR1C1/>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1318,7 +1318,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">dafEncounterType</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DAFEncounterType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2109,7 +2109,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Encounter.location.location</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Location)</Data><NamedCell
@@ -3871,7 +3871,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3885,11 +3885,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3939,7 +3940,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R100C24</Range>
+   <Range>R35C1:R100C24,R34C1:R34C7,R34C9:R34C24,R2C1:R33C24</Range>
    <Condition>
     <Value1>RC6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3992,9 +3993,27 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R100C24</Range>
+   <Range>R35C1:R100C24,R34C1:R34C7,R34C9:R34C24,R2C1:R33C24</Range>
    <Condition>
     <Value1>LEFT(RC4,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R34C8</Range>
+   <Condition>
+    <Value1>R[-2]C3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(R[-2]C&lt;&gt;&quot;&quot;,R[-2]C1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R34C8</Range>
+   <Condition>
+    <Value1>LEFT(R[-2]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
@@ -9807,9 +9826,9 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unpublished notes</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">dafEncounterType</Data></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">This value set defines a set of codes that can be used to indicate the type of encounter.</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="28.5">
+    <Cell ss:StyleID="s92"><Data ss:Type="String">DAFEncounterType</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Encounter type Value set to describe the type of encounter.</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Y</Data></Cell>
@@ -9825,7 +9844,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="38.25">
     <Cell ss:StyleID="s103"><Data ss:Type="String">DAFEncounterReasonValueset</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Value set to describe the specific encounter code</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Encounter Diagnoses Value set to describe the specific encounter code.</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
@@ -10304,8 +10323,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
