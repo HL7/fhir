@@ -1,37 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
-<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medication.xsd">
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd">
   <id value="qicore"/>
-
-  <!-- insert contents here -->
-
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">123456789: Penicillin VK oral suspension 125mg/5ml</div>
-  </text>
-
-  <name value="Penicillin VK oral suspension 125mg/5ml"/>
+  <name value="Salmeterol/fluticason"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
-      <code value="323418000"/>
-      <display value="Phenoxymethylpenicillin 125mg/5mL oral solution (product)"/>
-    </coding>
-    <coding>
-      <system value="http://nehta.gov.au/amt/v2"/>
-      <code value="22571011000036102"/>
-      <display value="phenoxymethylpenicillin 125 mg / 5 mL oral liquid, 5 mL measure"/>
+      <code value="411106009"/>
+      <display value="25ug Flutacisone + 250ug Salmeterol"/>
     </coding>
   </code>
   <isBrand value="false"/>
+  <!--Seretide;Advair;Adoair;Foxaire;Viani-->
   <kind value="product"/>
   <product>
+    <extension url="http://hl7.org/fhir/StructureDefinition/medication-usualRoute" >
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="447694001" />
+          <display value="Respiratory tract route"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>
-        <code value="37595005"/>
-        <display value="Suspension"/>
+        <code value="421606006"/>
+        <display value="Aerosol spray"/>
       </coding>
     </form>
+    <ingredient>
+      <extension url="http://hl7.org/fhir/StructureDefinition/medication-isActiveIngredient" >
+        <valueBoolean value="true"/>
+      </extension>
+      <item>
+        <display value="flutacisone"/>
+      </item>
+      <amount>
+        <numerator>
+          <value value="25"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="ug"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+          <code value="PUFF"/>
+        </denominator>
+      </amount>
+    </ingredient>
+    <ingredient>
+      <extension url="http://hl7.org/fhir/StructureDefinition/medication-isActiveIngredient" >
+        <valueBoolean value="true"/>
+      </extension>
+      <item>
+        <display value="salmeterol"/>
+      </item>
+      <amount>
+        <numerator>
+          <value value="250"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="ug"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+          <code value="PUFF"/>
+        </denominator>
+      </amount>
+    </ingredient>
   </product>
 </Medication>

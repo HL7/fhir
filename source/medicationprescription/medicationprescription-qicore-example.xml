@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
 <MedicationPrescription xmlns="http://hl7.org/fhir"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medicationprescription.xsd">
@@ -28,6 +27,9 @@
   </medication>
 
   <dosageInstruction>
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType" >
+      <valueCode value="initial" />
+    </extension>
     <scheduledTiming>
       <repeat>
         <frequency value="3"/>

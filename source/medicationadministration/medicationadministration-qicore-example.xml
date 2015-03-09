@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
 <MedicationAdministration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medicationAdministration.xsd">
   <id value="qicore"/>
 <text>
@@ -10,7 +9,7 @@
       <p>to patient ref: a23</p>
     </div>
   </text>
-<!--  -->
+<!-- http://hl7.org/fhir/StructureDefinition/medicationadministration- -->
   <status value="completed"/>
   <patient>
     <reference value="Patient/example"/>
@@ -24,11 +23,14 @@
   <effectiveTimePeriod>
   <start value="2012-06-01T14:30:00+01:00"/>
   <end value="2012-06-01T14:30:00+01:00"/>
-</effectiveTimePeriod>
+  </effectiveTimePeriod>
   <medication>
     <reference value="Medication/example"/>
   </medication>
   <dosage>
+    <extension url="http://hl7.org/fhir/StructureDefinition/medicationadministration-attestationType" >
+      <valueCode value="performed" />
+    </extension>
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>
