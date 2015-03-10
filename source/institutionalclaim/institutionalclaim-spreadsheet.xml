@@ -1523,7 +1523,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">F02</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">up</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">right</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3821,9 +3821,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>40</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3839,8 +3839,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>41</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>21</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
