@@ -1,24 +1,137 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-    <h2>Notes:</h2>
-    <ul>
-			<li>Placer/Filler (HL7 v2)</li>
+	<h2>Typical Status Transition Examples:</h2>
+
+	<h3>Typical Flow of statuses for an appointment:</h3>
 			<p>
-				The appointment information is effectively the same between the filler and placer, and given the nature of the
-				fhir resource, there is only a single resource for both purposes. The Placer is the actor that performs the
-				PUT or POST operation on the resource, and the filler is the actor that receives these resource messages and
-				processes the information and makes a decision if the appointment can be used.
-				<em>Brian: Does this seem right that the filler and placer are applied in this way?</em>
+				Slot.freeBusyType = FREE
 			</p>
-			<li>Interaction with other Standards</li>
 			<p>
-				The strong desire is that implementers of this resource should consider providing this resource
-				in the iCalendar format as an alternative representation. Many 3rd party applications and component providers 
-				have parsers and user interface controls to display this information.
-				This may lower the entry point to integrate outside the health-care specific applications, and into the 
-				consumer space. This would permit the easier creation of a mobile application that creates appointments
-				in the devices native calendar.<br/>
-				The iCalendar specification can be found at <a href="http://www.ietf.org/rfc/rfc2445.txt">http://www.ietf.org/rfc/rfc2445.txt</a>.
+				<i>(An appointment request is created)</i><br/>
+				Appointment.status = pending<br/>
+				Appointment.participant.status = needs-action<br/>
+				Slot.freeBusyType = BUSY-TENTATIVE<br/>
 			</p>
-    </ul>
+			<p>
+				<i>(The appointment is accepts as described – by all participants)</i><br/>
+				AppointmentResponse.participantStatus = accepted<br/>
+			</p>
+			<p>
+				<i>(The appointment is confirmed as accepted by all participants)</i><br/>
+				Appointment.participant.status = accepted<br/>
+				Appointment.status = booked<br/>
+				Slot.freeBusyType = BUSY<br/>
+			</p>
+			<p>
+				(Optional: Preparation for the appointment begins – could be preparing a room for the appointment etc.)<br/>
+				Encounter.status = planned (optional)<br/>
+				Encounter.location.status = planned
+			</p>
+			<p>
+				<i>(The patient arrives for the appointment, often sitting in a waiting room)</i><br/>
+				Appointment.status = arrived<br/>
+				Encounter.status = arrived<br/>
+				Encounter.location.status = present
+			</p>
+			<p>
+				<i>(The practitioner and the patient meet and the provision of the service begins, appointment is finished with now)</i><br/>
+				Encounter.status = in-progress<br/>
+				Appointment.status = fulfilled
+			</p>
+			<p>
+				<i>(The encounter concludes)</i><br/>
+				Encounter.status = finished
+			</p>
+
+	<h3>Flow for the rejection/cancellation of an appointment</h3>
+			<p>
+				Slot.freeBusyType = FREE
+			</p>
+			<p>
+				Appointment.status = pending<br/>
+				Appointment.participant.status = needs-action<br/>
+				Slot.freeBusyType = BUSY-TENTATIVE
+			</p>
+			<p>
+				AppointmentResponse.participantStatus = declined
+			</p>
+			<p>
+				Appointment.participant.status = declined<br/>
+				Appointment.status = cancelled<br/>
+				Slot.freeBusyType = FREE
+			</p>
+
+	<h3>Flow for re-negotiation:</h3>
+			<p>
+				Slot.freeBusyType = FREE
+			</p>
+			<p>
+				Appointment.status = pending<br/>
+				Appointment.participant(Brian).status = needs-action<br/>
+				Appointment.participant(Peter).status = needs-action<br/>
+				Slot.freeBusyType = BUSY-TENTATIVE
+			</p>
+			<p>
+				AppointmentResponse(Brian).participantStatus = accepted
+			</p>
+			<p>
+				Appointment.participant(Brian).status = accepted
+			</p>
+			<p>
+				AppointmentResponse(Peter).participantStatus = tentative (with new time)
+			</p>
+			<p>
+				Appointment (new time details updated)<br/>
+				Appointment.participant(Brian).status = needs-action<br/>
+				Appointment.participant(Peter).status = needs-action
+			</p>
+			<p>
+				AppointmentResponse(Brian).participantStatus = accepted
+			</p>
+			<p>
+				Appointment.participant(Brian).status = accepted
+			</p>
+			<p>
+				AppointmentResponse(Peter).participantStatus = accepted
+			</p>
+			<p>
+				Appointment.participant(Peter).status = accepted<br/>
+				Appointment.participantstatus = accepted<br/>
+				Appointment.status = booked<br/>
+				Slot.freeBusyType = BUSY
+			</p>
+
+	<h3>Flow for a patient no-show:</h3>
+			<p>
+				<i>… (from typical status flow)</i><br/>
+				Appointent.participant.status = accepted<br/>
+				Appointment.status = booked<br/>
+				Slot.freeBusyType = BUSY
+			</p>
+			<p>
+				Appointment.status = noshow<br/>
+				(Note that no encounter is created)
+			</p>
+	
+	
+	<h2>Notes:</h2>
+	<ul>
+		<li>Placer/Filler (HL7 v2)</li>
+		<p>
+			The appointment information is effectively the same between the filler and placer, and given the nature of the
+			fhir resource, there is only a single resource for both purposes. The Placer is the actor that performs the
+			PUT or POST operation on the resource, and the filler is the actor that receives these resource messages and
+			processes the information and makes a decision if the appointment can be used.
+		</p>
+		<li>Interaction with other Standards</li>
+		<p>
+			The strong desire is that implementers of this resource should consider providing this resource
+			in the iCalendar format as an alternative representation. Many 3rd party applications and component providers
+			have parsers and user interface controls to display this information.
+			This may lower the entry point to integrate outside the health-care specific applications, and into the
+			consumer space. This would permit the easier creation of a mobile application that creates appointments
+			in the devices native calendar.<br/>
+			The iCalendar specification can be found at <a href="http://www.ietf.org/rfc/rfc2445.txt">http://www.ietf.org/rfc/rfc2445.txt</a>.
+		</p>
+	</ul>
 </div>

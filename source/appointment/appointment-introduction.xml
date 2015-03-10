@@ -136,5 +136,12 @@
       The mappings to the iCAL standard has been provided to guide implementation of gateways between
       FHIR servers and iCAL systems.
     </p>
+		<h3>Appointment Locations and Participation</h3>
+		<p>
+			The Location of the appointment is to be defined by using a participant that references a location
+			or HealthcareService.<br/>
+			This permits the location to also have its availability checked via a schedule and any
+			conflicts more easily managed.
+		</p>
   </div>
 </div>

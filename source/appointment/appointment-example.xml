@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Appointment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/appointment.xsd">
-  <id value="example"/>
+	<id value="example"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>
 	</text>
-	<priority value="5">
-	</priority>
 	<status value="booked" />
 	<type>
 		<coding>
@@ -14,12 +12,10 @@
 			<display value="General Discussion" />
 		</coding>
 	</type>
+	<priority value="5" />
 	<description value="Discussion on the results of your recent MRI" />
 	<start value="2013-12-10T09:00:00Z" />
 	<end value="2013-12-10T11:00:00Z" />
-	<location>
-		<reference value="Location/1" />
-	</location>
 	<comment value="Further expand on the results of the MRI and determine the next actions that may be appropriate." />
 	<participant>
 		<actor>
@@ -42,9 +38,17 @@
 		<required value="required" />
 		<status value="accepted" />
 	</participant>
+	<participant>
+		<actor>
+			<reference value="Location/1" />
+			<display value="South Wing, second floor" />
+		</actor>
+		<required value="required" />
+		<status value="accepted" />
+	</participant>
 	<lastModifiedBy>
 		<reference value="Practitioner/example"/>
-			<display value="Dr Adam Careful" />
+		<display value="Dr Adam Careful" />
 	</lastModifiedBy>
 	<lastModified value="2012-09-17"/>
 </Appointment>
