@@ -29,20 +29,6 @@
       <system value="http://hl7.org/fhir/provenance-participant-type"/>
       <code value="person"/>
     </type>
-    <reference value="mailto:grahame@healthintersections.com.au"/>
     <display value="Grahame Grieve"/>
-  </agent>
-  <!-- actually, this example was extracted from ISO 21090 -->
-  <agent>
-    <role>
-      <system value="http://hl7.org/fhir/provenance-participant-role"/>
-      <code value="source"/>
-    </role>
-    <type>
-      <system value="http://hl7.org/fhir/provenance-participant-type"/>
-      <code value="document"/>
-    </type>
-    <reference value="urn:iso:std:21090"/>
-    <display value="ISO 21090"/>
   </agent>
 </Provenance>
