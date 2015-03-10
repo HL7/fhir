@@ -700,6 +700,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + definitions.getDictionaries().get(name) + s3;        
       else if (com[0].equals("dictionary.view"))
         src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-QuantitativeLab-dataelements") + s3;        
+      else if (com[0].equals("search-param-pack") && resource instanceof SearchParameter)
+        src = s1 + ((SearchParameter) resource).getUserData("pack") + s3;        
+      else if (com[0].equals("search-param-name") && resource instanceof SearchParameter)
+        src = s1 + ((SearchParameter) resource).getName() + s3;        
+      else if (com[0].equals("search-param-url") && resource instanceof SearchParameter)
+        src = s1 + ((SearchParameter) resource).getUrl() + s3;        
+      else if (com[0].equals("search-param-type") && resource instanceof SearchParameter)
+        src = s1 + ((SearchParameter) resource).getType().toCode() + s3;        
+      else if (com[0].equals("search-param-definition") && resource instanceof SearchParameter)
+        src = s1 + ((SearchParameter) resource).getDescription() + s3;        
+      else if (com[0].equals("search-param-paths") && resource instanceof SearchParameter)
+        src = s1 + (((SearchParameter) resource).hasXpath() ? ((SearchParameter) resource).getXpath() : "") + s3;        
+      else if (com[0].equals("search-param-targets") && resource instanceof SearchParameter) {
+        CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+        for (CodeType t : ((SearchParameter) resource).getTarget())
+          b.append(t.asStringValue());
+        src = s1 + b.toString() + s3;
+      }
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -5384,8 +5402,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           if (name.equals(sp.getName())) 
             p = sp;
         b.append("<tr><td>"+p.getName()+"</td><td><a href=\"search.html#"+p.getType().toCode()+"\">"+p.getType().toCode()+"</a></td>" +
-            "<td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+p.getXpath()+(p.getType() == SearchParamType.REFERENCE ? asText(p.getTarget()) : "")+"</td>" +
-            "<td><a href=\""+pack.getId()+"-sp-"+p.getId()+".xml.html\">XML</a> / <a href=\""+pack.getId()+"-sp-"+p.getId()+".json.html\">JSON</a></td></tr>\r\n");
+            "<td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+(p.hasXpath() ? p.getXpath() : "")+(p.getType() == SearchParamType.REFERENCE && p.hasTarget() ? asText(p.getTarget()) : "")+"</td>" +
+            "<td><a href=\""+p.getId()+".xml.html\">XML</a> / <a href=\""+p.getId()+".json.html\">JSON</a></td></tr>\r\n");
       }
       b.append("</table>\r\n");
       s.append(b.toString());

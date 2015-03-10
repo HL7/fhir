@@ -428,7 +428,7 @@ public class ProfileGenerator {
     names.addAll(r.getSearchParams().keySet());
     Collections.sort(names);
     for (String pn : names) {
-      pack.getSearchParameters().add(makeSearchParam(p, r.getName(), r.getSearchParams().get(pn)));
+      pack.getSearchParameters().add(makeSearchParam(p, r.getName()+"-"+pn.replace("_", ""), r.getName(), r.getSearchParams().get(pn)));
     }
     containedSlices.clear();
 
@@ -513,7 +513,7 @@ public class ProfileGenerator {
     names.addAll(resource.getSearchParams().keySet());
     Collections.sort(names);
     for (String pn : names) {
-      pack.getSearchParameters().add(makeSearchParam(p, resource.getName(), resource.getSearchParams().get(pn)));
+      pack.getSearchParameters().add(makeSearchParam(p, pack.getId()+"-"+resource.getName()+"-"+pn, resource.getName(), resource.getSearchParams().get(pn)));
     }
     StructureDefinition base = definitions.getSnapShotForBase(p.getBase());
     
@@ -568,9 +568,9 @@ public class ProfileGenerator {
     return null;
   }
 
-  public SearchParameter makeSearchParam(StructureDefinition p, String rn, SearchParameterDefn spd) throws Exception  {
+  public SearchParameter makeSearchParam(StructureDefinition p, String id, String rn, SearchParameterDefn spd) throws Exception  {
     SearchParameter sp = new SearchParameter();
-    sp.setId(rn.toLowerCase()+"-"+spd.getCode().replace("_", "").replace("[", "").replace("]", ""));
+    sp.setId(id.replace("[", "").replace("]", ""));
     sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
     sp.setName(spd.getCode());
     sp.setDate(genDate.getTime());

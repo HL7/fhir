@@ -2019,7 +2019,7 @@ public class Publisher implements URIResolver {
         p.setPublisher("HL7 FHIR Project");
         p.setName(rd.getName());
         p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
-        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).makeSearchParam(p, rd.getName(), spd);
+        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
         bundle.addEntry().setResource(sp);
       }
     } else
@@ -3487,6 +3487,9 @@ public class Publisher implements URIResolver {
     for (ProfileDefn profile : pack.getProfiles())
       produceProfile(resourceName, pack, profile);
 
+    for (SearchParameter sp : pack.getSearchParameters())
+      producePackSearchParameter(resourceName, pack, sp);
+    
     String intro = pack.getIntroduction() != null ? page.loadXmlNotesFromFile(pack.getIntroduction(), false, null, null, null) : null;
     String notes = pack.getNotes() != null ? page.loadXmlNotesFromFile(pack.getNotes(), false, null, null, null) : null;
 
@@ -3502,6 +3505,28 @@ public class Publisher implements URIResolver {
 //    if (examples != null) {
 //      for (String en : examples.keySet()) {
 //        processExample(examples.get(en), null, profile.getSource());
+  }
+
+  private void producePackSearchParameter(String resourceName, ConformancePackage pack, SearchParameter sp) throws Exception {
+    String title = sp.getId();
+    sp.setUserData("pack", pack.getId());
+
+    XmlParser comp = new XmlParser();
+    comp.setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + title + ".xml"), sp);
+    JsonParser jcomp = new JsonParser();
+    jcomp.setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + title + ".json"), sp);
+
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-search-parameter.html");
+    src = page.processPageIncludes(sp.getId()+".html", src, "??", null, sp, null);
+    page.getEpub().registerFile(title + ".html", "SearchParameter " + sp.getName(), EPubManager.XHTML_TYPE);
+    TextFile.stringToFile(src, page.getFolders().dstDir + title + ".html");
+
+    String json = resource2Json(sp);
+    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("SearchParameter " + sp.getName()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
+    html = page.processPageIncludes(sp.getId(), json, "??", null, sp, null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + title + ".json.html");
+    page.getEpub().registerExternal(title + ".json.html");
   }
 
   private void produceProfile(String resourceName, ConformancePackage pack, ProfileDefn profile) throws Exception {
