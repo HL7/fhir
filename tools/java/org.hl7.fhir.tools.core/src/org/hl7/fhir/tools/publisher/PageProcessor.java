@@ -185,7 +185,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public PageProcessor(String tsServer) throws URISyntaxException {
     super();
     this.tsServer = tsServer;
-    workerContext  = new WorkerContext(null, new FHIRSimpleClient().initialize(tsServer), codeSystems, valueSets, conceptMaps, profiles);
+    FHIRSimpleClient client = new FHIRSimpleClient();
+    try {
+      client.initialize(tsServer);
+    } catch(Exception e) {
+      System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
+    }
+    workerContext  = new WorkerContext(null, client, codeSystems, valueSets, conceptMaps, profiles);
   }
 
   public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
