@@ -135,7 +135,14 @@ ETag: W/"3141"
 </pre>
 <h3>Security</h3>
 <p>
-Using HTTPS is optional, but all production exchange of healthcare data SHOULD use SSL and additional security as appropriate. See <a href="security.html#http">HTTP Security</a> for further information.
+Using HTTPS is optional, but all production exchange of healthcare data SHOULD use SSL and 
+additional security as appropriate. See <a href="security.html#http">HTTP Security</a> for further information.
+</p>
+<p>
+The choice of whether to return 403 or 404 depends upon the specific situation and specific 
+local policies, regulations, and laws. The decision of which error to use will include consideration 
+of whether disclosure of the existence of relevant records is considered an acceptable 
+disclosure of PI or  a prohibited disclosure of PI.
 </p>
 <p>
 Note: to support browser-based client applications, recommend that servers SHOULD implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the operations documented here.

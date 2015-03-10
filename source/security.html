@@ -126,7 +126,18 @@ SSL SHOULD be used for all production data exchange.
 <p>
 To support browser-based client applications, recommend that servers SHOULD implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the <a href="http.html">REST operations</a>.  
 </p>
-
+<p>
+The choice of whether to return 403 or 404 depends upon the specific situation and specific 
+local policies, regulations, and laws. The decision of which error to use will include consideration 
+of whether disclosure of the existence of relevant records is considered an acceptable 
+disclosure of PI or  a prohibited disclosure of PI.
+</p>
+<p>
+Chained search implementations need to observe the restrictions on a user in the chained 
+search, and that it would be normal to simply omit resources from the search if the user is not 
+authorized, but a server may elect to add an operationOutcome to indicate that additional 
+resources may be available if other access tokens are used (e.g. break the glass). 
+</p>
 <a name="authentication"> </a>
 <h2>Authentication</h2>
 <p>
