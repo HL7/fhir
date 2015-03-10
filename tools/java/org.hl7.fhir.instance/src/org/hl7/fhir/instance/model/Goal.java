@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -294,6 +294,16 @@ public class Goal extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Goal addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #patient} (Identifies the patient/subject whose intended care is described by the plan.)
      */
@@ -509,6 +519,16 @@ public class Goal extends DomainResource {
         this.concern = new ArrayList<Reference>();
       this.concern.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Goal addConcern(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.concern == null)
+        this.concern = new ArrayList<Reference>();
+      this.concern.add(t);
+      return this;
     }
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -65,7 +65,7 @@ public class ReferralRequest extends DomainResource {
         /**
          * The recipient has declined to accept the referral.
          */
-        REFUSED, 
+        REJECTED, 
         /**
          * The referral has been completely actioned.
          */
@@ -85,8 +85,8 @@ public class ReferralRequest extends DomainResource {
           return ACTIVE;
         if ("cancelled".equals(codeString))
           return CANCELLED;
-        if ("refused".equals(codeString))
-          return REFUSED;
+        if ("rejected".equals(codeString))
+          return REJECTED;
         if ("completed".equals(codeString))
           return COMPLETED;
         throw new Exception("Unknown Referralstatus code '"+codeString+"'");
@@ -97,7 +97,7 @@ public class ReferralRequest extends DomainResource {
             case SENT: return "sent";
             case ACTIVE: return "active";
             case CANCELLED: return "cancelled";
-            case REFUSED: return "refused";
+            case REJECTED: return "rejected";
             case COMPLETED: return "completed";
             default: return "?";
           }
@@ -108,7 +108,7 @@ public class ReferralRequest extends DomainResource {
             case SENT: return "";
             case ACTIVE: return "";
             case CANCELLED: return "";
-            case REFUSED: return "";
+            case REJECTED: return "";
             case COMPLETED: return "";
             default: return "?";
           }
@@ -119,7 +119,7 @@ public class ReferralRequest extends DomainResource {
             case SENT: return "The referral has been transmitted, but not yet acknowledged by the recipient.";
             case ACTIVE: return "The referral has been acknowledged by the recipient, and is in the process of being actioned.";
             case CANCELLED: return "The referral has been cancelled without being completed. For example it is no longer needed.";
-            case REFUSED: return "The recipient has declined to accept the referral.";
+            case REJECTED: return "The recipient has declined to accept the referral.";
             case COMPLETED: return "The referral has been completely actioned.";
             default: return "?";
           }
@@ -130,7 +130,7 @@ public class ReferralRequest extends DomainResource {
             case SENT: return "Sent";
             case ACTIVE: return "Active";
             case CANCELLED: return "Cancelled";
-            case REFUSED: return "Refused";
+            case REJECTED: return "Rejected";
             case COMPLETED: return "Completed";
             default: return "?";
           }
@@ -150,8 +150,8 @@ public class ReferralRequest extends DomainResource {
           return Referralstatus.ACTIVE;
         if ("cancelled".equals(codeString))
           return Referralstatus.CANCELLED;
-        if ("refused".equals(codeString))
-          return Referralstatus.REFUSED;
+        if ("rejected".equals(codeString))
+          return Referralstatus.REJECTED;
         if ("completed".equals(codeString))
           return Referralstatus.COMPLETED;
         throw new IllegalArgumentException("Unknown Referralstatus code '"+codeString+"'");
@@ -165,8 +165,8 @@ public class ReferralRequest extends DomainResource {
         return "active";
       if (code == Referralstatus.CANCELLED)
         return "cancelled";
-      if (code == Referralstatus.REFUSED)
-        return "refused";
+      if (code == Referralstatus.REJECTED)
+        return "rejected";
       if (code == Referralstatus.COMPLETED)
         return "completed";
       return "?";
@@ -177,7 +177,7 @@ public class ReferralRequest extends DomainResource {
      * The workflow status of the referral or transfer of care request.
      */
     @Child(name="status", type={CodeType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="draft | sent | active | cancelled | refused | completed", formalDefinition="The workflow status of the referral or transfer of care request." )
+    @Description(shortDefinition="draft | sent | active | cancelled | rejected | completed", formalDefinition="The workflow status of the referral or transfer of care request." )
     protected Enumeration<Referralstatus> status;
 
     /**
@@ -389,6 +389,16 @@ public class ReferralRequest extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ReferralRequest addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #type} (An indication of the type of referral (or where applicable the type of transfer of care) request.)
      */
@@ -572,6 +582,16 @@ public class ReferralRequest extends DomainResource {
         this.recipient = new ArrayList<Reference>();
       this.recipient.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ReferralRequest addRecipient(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
+      this.recipient.add(t);
+      return this;
     }
 
     /**
@@ -779,6 +799,16 @@ public class ReferralRequest extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ReferralRequest addServiceRequested(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.serviceRequested == null)
+        this.serviceRequested = new ArrayList<CodeableConcept>();
+      this.serviceRequested.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #supportingInformation} (Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.)
      */
@@ -807,6 +837,16 @@ public class ReferralRequest extends DomainResource {
         this.supportingInformation = new ArrayList<Reference>();
       this.supportingInformation.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ReferralRequest addSupportingInformation(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      this.supportingInformation.add(t);
+      return this;
     }
 
     /**

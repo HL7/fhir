@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -687,6 +687,16 @@ public class RiskAssessment extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public RiskAssessment addBasis(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.basis == null)
+        this.basis = new ArrayList<Reference>();
+      this.basis.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #basis} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
@@ -724,6 +734,16 @@ public class RiskAssessment extends DomainResource {
         this.prediction = new ArrayList<RiskAssessmentPredictionComponent>();
       this.prediction.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public RiskAssessment addPrediction(RiskAssessmentPredictionComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.prediction == null)
+        this.prediction = new ArrayList<RiskAssessmentPredictionComponent>();
+      this.prediction.add(t);
+      return this;
     }
 
     /**

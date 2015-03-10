@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -427,9 +427,9 @@ public class DiagnosticReport extends DomainResource {
     /**
      * The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.
      */
-    @Child(name="identifier", type={Identifier.class}, order=6, min=0, max=1)
+    @Child(name="identifier", type={Identifier.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Id for external references to this report", formalDefinition="The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
 
     /**
      * Details concerning a test requested.
@@ -521,7 +521,7 @@ public class DiagnosticReport extends DomainResource {
     @Description(shortDefinition="Entire Report as issued", formalDefinition="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent." )
     protected List<Attachment> presentedForm;
 
-    private static final long serialVersionUID = -1237974006L;
+    private static final long serialVersionUID = 140402748L;
 
     public DiagnosticReport() {
       super();
@@ -776,24 +776,40 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #identifier} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DiagnosticReport.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier(); // cc
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
     public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #identifier} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
+     * @return {@link #identifier} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
      */
-    public DiagnosticReport setIdentifier(Identifier value) { 
-      this.identifier = value;
+    // syntactic sugar
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticReport addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
       return this;
     }
 
@@ -825,6 +841,16 @@ public class DiagnosticReport extends DomainResource {
         this.requestDetail = new ArrayList<Reference>();
       this.requestDetail.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticReport addRequestDetail(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.requestDetail == null)
+        this.requestDetail = new ArrayList<Reference>();
+      this.requestDetail.add(t);
+      return this;
     }
 
     /**
@@ -939,6 +965,16 @@ public class DiagnosticReport extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DiagnosticReport addSpecimen(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.specimen == null)
+        this.specimen = new ArrayList<Reference>();
+      this.specimen.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Details about the specimens on which this diagnostic report is based.)
      */
@@ -988,6 +1024,16 @@ public class DiagnosticReport extends DomainResource {
         this.result = new ArrayList<Reference>();
       this.result.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticReport addResult(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.result == null)
+        this.result = new ArrayList<Reference>();
+      this.result.add(t);
+      return this;
     }
 
     /**
@@ -1041,6 +1087,16 @@ public class DiagnosticReport extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DiagnosticReport addImagingStudy(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.imagingStudy == null)
+        this.imagingStudy = new ArrayList<Reference>();
+      this.imagingStudy.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #imagingStudy} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
@@ -1090,6 +1146,16 @@ public class DiagnosticReport extends DomainResource {
         this.image = new ArrayList<DiagnosticReportImageComponent>();
       this.image.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticReport addImage(DiagnosticReportImageComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.image == null)
+        this.image = new ArrayList<DiagnosticReportImageComponent>();
+      this.image.add(t);
+      return this;
     }
 
     /**
@@ -1171,6 +1237,16 @@ public class DiagnosticReport extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DiagnosticReport addCodedDiagnosis(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.codedDiagnosis == null)
+        this.codedDiagnosis = new ArrayList<CodeableConcept>();
+      this.codedDiagnosis.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #presentedForm} (Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.)
      */
@@ -1199,6 +1275,16 @@ public class DiagnosticReport extends DomainResource {
         this.presentedForm = new ArrayList<Attachment>();
       this.presentedForm.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticReport addPresentedForm(Attachment t) { //3
+      if (t == null)
+        return this;
+      if (this.presentedForm == null)
+        this.presentedForm = new ArrayList<Attachment>();
+      this.presentedForm.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1231,7 +1317,11 @@ public class DiagnosticReport extends DomainResource {
         dst.subject = subject == null ? null : subject.copy();
         dst.performer = performer == null ? null : performer.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         if (requestDetail != null) {
           dst.requestDetail = new ArrayList<Reference>();
           for (Reference i : requestDetail)

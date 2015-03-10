@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -273,6 +273,16 @@ public class DataElement extends DomainResource {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public DataElementContactComponent addTelecom(ContactPoint t) { //3
+          if (t == null)
+            return this;
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -910,6 +920,16 @@ public class DataElement extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DataElement addUseContext(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #experimental} (A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
@@ -1177,6 +1197,16 @@ public class DataElement extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DataElement addContact(DataElementContactComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.contact == null)
+        this.contact = new ArrayList<DataElementContactComponent>();
+      this.contact.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #granularity} (Identifies how precise the data element is in its definition.). This is the underlying object with id, value and extensions. The accessor "getGranularity" gives direct access to the value
      */
@@ -1256,6 +1286,16 @@ public class DataElement extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DataElement addMapping(DataElementMappingComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.mapping == null)
+        this.mapping = new ArrayList<DataElementMappingComponent>();
+      this.mapping.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #element} (Defines the structure, type, allowed values and other constraining characteristics of the data element.)
      */
@@ -1284,6 +1324,16 @@ public class DataElement extends DomainResource {
         this.element = new ArrayList<ElementDefinition>();
       this.element.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DataElement addElement(ElementDefinition t) { //3
+      if (t == null)
+        return this;
+      if (this.element == null)
+        this.element = new ArrayList<ElementDefinition>();
+      this.element.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

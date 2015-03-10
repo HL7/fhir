@@ -159,4 +159,12 @@ public static Coding makeCoding(String code) throws Exception {
   return c;
 }
  
+	public static Reference makeReference(String url, String text) {
+		Reference rr = new Reference();
+		rr.setReference(url);
+		if (!Utilities.noString(text))
+			rr.setDisplay(text);
+		return rr;
+	}
+
 }

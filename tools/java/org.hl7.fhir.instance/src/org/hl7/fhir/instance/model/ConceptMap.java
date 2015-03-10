@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -317,6 +317,16 @@ public class ConceptMap extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConceptMapContactComponent addTelecom(ContactPoint t) { //3
+          if (t == null)
+            return this;
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the concept map.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -526,6 +536,16 @@ public class ConceptMap extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConceptMapElementComponent addDependsOn(OtherElementComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.dependsOn == null)
+            this.dependsOn = new ArrayList<OtherElementComponent>();
+          this.dependsOn.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #map} (A concept from the target value set that this concept maps to.)
          */
@@ -554,6 +574,16 @@ public class ConceptMap extends DomainResource {
             this.map = new ArrayList<ConceptMapElementMapComponent>();
           this.map.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ConceptMapElementComponent addMap(ConceptMapElementMapComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.map == null)
+            this.map = new ArrayList<ConceptMapElementMapComponent>();
+          this.map.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1096,6 +1126,16 @@ public class ConceptMap extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConceptMapElementMapComponent addProduct(OtherElementComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.product == null)
+            this.product = new ArrayList<OtherElementComponent>();
+          this.product.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("codeSystem", "uri", "The code system of the target code (if the target is a value set that cross code systems).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
@@ -1518,6 +1558,16 @@ public class ConceptMap extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ConceptMap addContact(ConceptMapContactComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.contact == null)
+        this.contact = new ArrayList<ConceptMapContactComponent>();
+      this.contact.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #description} (A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
@@ -1906,6 +1956,16 @@ public class ConceptMap extends DomainResource {
         this.element = new ArrayList<ConceptMapElementComponent>();
       this.element.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ConceptMap addElement(ConceptMapElementComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.element == null)
+        this.element = new ArrayList<ConceptMapElementComponent>();
+      this.element.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

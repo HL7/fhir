@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -323,6 +323,16 @@ public class Patient extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ContactComponent addRelationship(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.relationship == null)
+            this.relationship = new ArrayList<CodeableConcept>();
+          this.relationship.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #name} (A name associated with the person.)
          */
@@ -375,6 +385,16 @@ public class Patient extends DomainResource {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ContactComponent addTelecom(ContactPoint t) { //3
+          if (t == null)
+            return this;
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return this;
         }
 
         /**
@@ -1066,6 +1086,16 @@ public class Patient extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Patient addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #name} (A name associated with the individual.)
      */
@@ -1096,6 +1126,16 @@ public class Patient extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Patient addName(HumanName t) { //3
+      if (t == null)
+        return this;
+      if (this.name == null)
+        this.name = new ArrayList<HumanName>();
+      this.name.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
      */
@@ -1124,6 +1164,16 @@ public class Patient extends DomainResource {
         this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Patient addTelecom(ContactPoint t) { //3
+      if (t == null)
+        return this;
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
+      this.telecom.add(t);
+      return this;
     }
 
     /**
@@ -1340,6 +1390,16 @@ public class Patient extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Patient addAddress(Address t) { //3
+      if (t == null)
+        return this;
+      if (this.address == null)
+        this.address = new ArrayList<Address>();
+      this.address.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #maritalStatus} (This field contains a patient's most recent marital (civil) status.)
      */
@@ -1431,6 +1491,16 @@ public class Patient extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Patient addPhoto(Attachment t) { //3
+      if (t == null)
+        return this;
+      if (this.photo == null)
+        this.photo = new ArrayList<Attachment>();
+      this.photo.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #contact} (A contact party (e.g. guardian, partner, friend) for the patient.)
      */
@@ -1459,6 +1529,16 @@ public class Patient extends DomainResource {
         this.contact = new ArrayList<ContactComponent>();
       this.contact.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Patient addContact(ContactComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.contact == null)
+        this.contact = new ArrayList<ContactComponent>();
+      this.contact.add(t);
+      return this;
     }
 
     /**
@@ -1515,6 +1595,16 @@ public class Patient extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Patient addCommunication(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.communication == null)
+        this.communication = new ArrayList<CodeableConcept>();
+      this.communication.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #careProvider} (Patient's nominated care provider.)
      */
@@ -1543,6 +1633,16 @@ public class Patient extends DomainResource {
         this.careProvider = new ArrayList<Reference>();
       this.careProvider.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Patient addCareProvider(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.careProvider == null)
+        this.careProvider = new ArrayList<Reference>();
+      this.careProvider.add(t);
+      return this;
     }
 
     /**
@@ -1626,6 +1726,16 @@ public class Patient extends DomainResource {
         this.link = new ArrayList<PatientLinkComponent>();
       this.link.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Patient addLink(PatientLinkComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.link == null)
+        this.link = new ArrayList<PatientLinkComponent>();
+      this.link.add(t);
+      return this;
     }
 
     /**

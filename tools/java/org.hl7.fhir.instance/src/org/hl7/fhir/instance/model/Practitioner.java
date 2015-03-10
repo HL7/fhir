@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -308,6 +308,16 @@ public class Practitioner extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public PractitionerPractitionerRoleComponent addSpecialty(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.specialty == null)
+            this.specialty = new ArrayList<CodeableConcept>();
+          this.specialty.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
          */
@@ -362,6 +372,16 @@ public class Practitioner extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public PractitionerPractitionerRoleComponent addLocation(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.location == null)
+            this.location = new ArrayList<Reference>();
+          this.location.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #location} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The location(s) at which this practitioner provides care.)
          */
@@ -411,6 +431,16 @@ public class Practitioner extends DomainResource {
             this.healthcareService = new ArrayList<Reference>();
           this.healthcareService.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public PractitionerPractitionerRoleComponent addHealthcareService(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.healthcareService == null)
+            this.healthcareService = new ArrayList<Reference>();
+          this.healthcareService.add(t);
+          return this;
         }
 
         /**
@@ -572,6 +602,16 @@ public class Practitioner extends DomainResource {
             this.identifier = new ArrayList<Identifier>();
           this.identifier.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public PractitionerQualificationComponent addIdentifier(Identifier t) { //3
+          if (t == null)
+            return this;
+          if (this.identifier == null)
+            this.identifier = new ArrayList<Identifier>();
+          this.identifier.add(t);
+          return this;
         }
 
         /**
@@ -822,6 +862,16 @@ public class Practitioner extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Practitioner addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #name} (A name associated with the person.)
      */
@@ -876,6 +926,16 @@ public class Practitioner extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Practitioner addTelecom(ContactPoint t) { //3
+      if (t == null)
+        return this;
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
+      this.telecom.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #address} (The postal address where the practitioner can be found or visited or to which mail can be delivered.)
      */
@@ -904,6 +964,16 @@ public class Practitioner extends DomainResource {
         this.address = new ArrayList<Address>();
       this.address.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Practitioner addAddress(Address t) { //3
+      if (t == null)
+        return this;
+      if (this.address == null)
+        this.address = new ArrayList<Address>();
+      this.address.add(t);
+      return this;
     }
 
     /**
@@ -1034,6 +1104,16 @@ public class Practitioner extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Practitioner addPhoto(Attachment t) { //3
+      if (t == null)
+        return this;
+      if (this.photo == null)
+        this.photo = new ArrayList<Attachment>();
+      this.photo.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #practitionerRole} (The list of Roles/Organizations that the Practitioner is associated with.)
      */
@@ -1062,6 +1142,16 @@ public class Practitioner extends DomainResource {
         this.practitionerRole = new ArrayList<PractitionerPractitionerRoleComponent>();
       this.practitionerRole.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Practitioner addPractitionerRole(PractitionerPractitionerRoleComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.practitionerRole == null)
+        this.practitionerRole = new ArrayList<PractitionerPractitionerRoleComponent>();
+      this.practitionerRole.add(t);
+      return this;
     }
 
     /**
@@ -1094,6 +1184,16 @@ public class Practitioner extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Practitioner addQualification(PractitionerQualificationComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.qualification == null)
+        this.qualification = new ArrayList<PractitionerQualificationComponent>();
+      this.qualification.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #communication} (A language the practitioner is able to use in patient communication.)
      */
@@ -1122,6 +1222,16 @@ public class Practitioner extends DomainResource {
         this.communication = new ArrayList<CodeableConcept>();
       this.communication.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Practitioner addCommunication(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.communication == null)
+        this.communication = new ArrayList<CodeableConcept>();
+      this.communication.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

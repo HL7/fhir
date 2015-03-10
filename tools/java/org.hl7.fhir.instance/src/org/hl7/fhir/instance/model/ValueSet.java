@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -273,6 +273,16 @@ public class ValueSet extends DomainResource {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ValueSetContactComponent addTelecom(ContactPoint t) { //3
+          if (t == null)
+            return this;
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -528,6 +538,16 @@ public class ValueSet extends DomainResource {
             this.concept = new ArrayList<ConceptDefinitionComponent>();
           this.concept.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ValueSetDefineComponent addConcept(ConceptDefinitionComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.concept == null)
+            this.concept = new ArrayList<ConceptDefinitionComponent>();
+          this.concept.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -855,6 +875,16 @@ public class ValueSet extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConceptDefinitionComponent addDesignation(ConceptDefinitionDesignationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.designation == null)
+            this.designation = new ArrayList<ConceptDefinitionDesignationComponent>();
+          this.designation.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #concept} (Child Concepts (is-a / contains).)
          */
@@ -883,6 +913,16 @@ public class ValueSet extends DomainResource {
             this.concept = new ArrayList<ConceptDefinitionComponent>();
           this.concept.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ConceptDefinitionComponent addConcept(ConceptDefinitionComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.concept == null)
+            this.concept = new ArrayList<ConceptDefinitionComponent>();
+          this.concept.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1256,6 +1296,16 @@ public class ValueSet extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ValueSetComposeComponent addInclude(ConceptSetComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.include == null)
+            this.include = new ArrayList<ConceptSetComponent>();
+          this.include.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #exclude} (Exclude one or more codes from the value set.)
          */
@@ -1284,6 +1334,16 @@ public class ValueSet extends DomainResource {
             this.exclude = new ArrayList<ConceptSetComponent>();
           this.exclude.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ValueSetComposeComponent addExclude(ConceptSetComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.exclude == null)
+            this.exclude = new ArrayList<ConceptSetComponent>();
+          this.exclude.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1507,6 +1567,16 @@ public class ValueSet extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConceptSetComponent addConcept(ConceptReferenceComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.concept == null)
+            this.concept = new ArrayList<ConceptReferenceComponent>();
+          this.concept.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #filter} (Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.)
          */
@@ -1535,6 +1605,16 @@ public class ValueSet extends DomainResource {
             this.filter = new ArrayList<ConceptSetFilterComponent>();
           this.filter.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ConceptSetComponent addFilter(ConceptSetFilterComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.filter == null)
+            this.filter = new ArrayList<ConceptSetFilterComponent>();
+          this.filter.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1747,6 +1827,16 @@ public class ValueSet extends DomainResource {
             this.designation = new ArrayList<ConceptDefinitionDesignationComponent>();
           this.designation.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ConceptReferenceComponent addDesignation(ConceptDefinitionDesignationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.designation == null)
+            this.designation = new ArrayList<ConceptDefinitionDesignationComponent>();
+          this.designation.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -2146,6 +2236,16 @@ public class ValueSet extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ValueSetExpansionComponent addContains(ValueSetExpansionContainsComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.contains == null)
+            this.contains = new ArrayList<ValueSetExpansionContainsComponent>();
+          this.contains.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -2513,6 +2613,16 @@ public class ValueSet extends DomainResource {
             this.contains = new ArrayList<ValueSetExpansionContainsComponent>();
           this.contains.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ValueSetExpansionContainsComponent addContains(ValueSetExpansionContainsComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.contains == null)
+            this.contains = new ArrayList<ValueSetExpansionContainsComponent>();
+          this.contains.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -3002,6 +3112,16 @@ public class ValueSet extends DomainResource {
         this.contact = new ArrayList<ValueSetContactComponent>();
       this.contact.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ValueSet addContact(ValueSetContactComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.contact == null)
+        this.contact = new ArrayList<ValueSetContactComponent>();
+      this.contact.add(t);
+      return this;
     }
 
     /**

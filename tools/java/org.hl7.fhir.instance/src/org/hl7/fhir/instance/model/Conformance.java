@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -933,6 +933,16 @@ public class Conformance extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConformanceContactComponent addTelecom(ContactPoint t) { //3
+          if (t == null)
+            return this;
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the conformance.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -1572,6 +1582,16 @@ public class Conformance extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConformanceRestComponent addResource(ConformanceRestResourceComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.resource == null)
+            this.resource = new ArrayList<ConformanceRestResourceComponent>();
+          this.resource.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #interaction} (A specification of restful operations supported by the system.)
          */
@@ -1602,6 +1622,16 @@ public class Conformance extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConformanceRestComponent addInteraction(SystemInteractionComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.interaction == null)
+            this.interaction = new ArrayList<SystemInteractionComponent>();
+          this.interaction.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #operation} (Definition of an operation or a named query and with its parameters and their meaning and type.)
          */
@@ -1630,6 +1660,16 @@ public class Conformance extends DomainResource {
             this.operation = new ArrayList<ConformanceRestOperationComponent>();
           this.operation.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ConformanceRestComponent addOperation(ConformanceRestOperationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.operation == null)
+            this.operation = new ArrayList<ConformanceRestOperationComponent>();
+          this.operation.add(t);
+          return this;
         }
 
         /**
@@ -1869,6 +1909,16 @@ public class Conformance extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConformanceRestSecurityComponent addService(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.service == null)
+            this.service = new ArrayList<CodeableConcept>();
+          this.service.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #description} (General description of how security works.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
@@ -1946,6 +1996,16 @@ public class Conformance extends DomainResource {
             this.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
           this.certificate.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ConformanceRestSecurityComponent addCertificate(ConformanceRestSecurityCertificateComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.certificate == null)
+            this.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
+          this.certificate.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -2378,6 +2438,16 @@ public class Conformance extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConformanceRestResourceComponent addInteraction(ResourceInteractionComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.interaction == null)
+            this.interaction = new ArrayList<ResourceInteractionComponent>();
+          this.interaction.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #versioning} (Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
          */
@@ -2734,6 +2804,16 @@ public class Conformance extends DomainResource {
             this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
           this.searchParam.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ConformanceRestResourceComponent addSearchParam(ConformanceRestResourceSearchParamComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.searchParam == null)
+            this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+          this.searchParam.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -3929,6 +4009,16 @@ public class Conformance extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConformanceMessagingComponent addEvent(ConformanceMessagingEventComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.event == null)
+            this.event = new ArrayList<ConformanceMessagingEventComponent>();
+          this.event.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("endpoint", "uri", "An address to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint));
@@ -4210,6 +4300,16 @@ public class Conformance extends DomainResource {
             this.protocol = new ArrayList<Coding>();
           this.protocol.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ConformanceMessagingEventComponent addProtocol(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.protocol == null)
+            this.protocol = new ArrayList<Coding>();
+          this.protocol.add(t);
+          return this;
         }
 
         /**
@@ -5063,6 +5163,16 @@ public class Conformance extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Conformance addContact(ConformanceContactComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.contact == null)
+        this.contact = new ArrayList<ConformanceContactComponent>();
+      this.contact.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
@@ -5571,6 +5681,16 @@ public class Conformance extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Conformance addProfile(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.profile == null)
+        this.profile = new ArrayList<Reference>();
+      this.profile.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #profile} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
@@ -5622,6 +5742,16 @@ public class Conformance extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Conformance addRest(ConformanceRestComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.rest == null)
+        this.rest = new ArrayList<ConformanceRestComponent>();
+      this.rest.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #messaging} (A description of the messaging capabilities of the solution.)
      */
@@ -5652,6 +5782,16 @@ public class Conformance extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Conformance addMessaging(ConformanceMessagingComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.messaging == null)
+        this.messaging = new ArrayList<ConformanceMessagingComponent>();
+      this.messaging.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #document} (A document definition.)
      */
@@ -5680,6 +5820,16 @@ public class Conformance extends DomainResource {
         this.document = new ArrayList<ConformanceDocumentComponent>();
       this.document.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Conformance addDocument(ConformanceDocumentComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.document == null)
+        this.document = new ArrayList<ConformanceDocumentComponent>();
+      this.document.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

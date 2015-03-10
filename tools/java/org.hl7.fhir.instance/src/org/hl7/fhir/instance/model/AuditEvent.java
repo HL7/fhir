@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1217,6 +1217,16 @@ public class AuditEvent extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public AuditEventEventComponent addSubtype(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.subtype == null)
+            this.subtype = new ArrayList<CodeableConcept>();
+          this.subtype.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #action} (Indicator for type of action performed during the event that generated the audit.). This is the underlying object with id, value and extensions. The accessor "getAction" gives direct access to the value
          */
@@ -1568,6 +1578,16 @@ public class AuditEvent extends DomainResource {
             this.role = new ArrayList<CodeableConcept>();
           this.role.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public AuditEventParticipantComponent addRole(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.role == null)
+            this.role = new ArrayList<CodeableConcept>();
+          this.role.add(t);
+          return this;
         }
 
         /**
@@ -2230,6 +2250,16 @@ public class AuditEvent extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public AuditEventSourceComponent addType(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.type == null)
+            this.type = new ArrayList<Coding>();
+          this.type.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("site", "string", "Logical source location within the healthcare enterprise network.", 0, java.lang.Integer.MAX_VALUE, site));
@@ -2772,6 +2802,16 @@ public class AuditEvent extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public AuditEventObjectComponent addDetail(AuditEventObjectDetailComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.detail == null)
+            this.detail = new ArrayList<AuditEventObjectDetailComponent>();
+          this.detail.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifies a specific instance of the participant object. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -3093,6 +3133,16 @@ public class AuditEvent extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public AuditEvent addParticipant(AuditEventParticipantComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.participant == null)
+        this.participant = new ArrayList<AuditEventParticipantComponent>();
+      this.participant.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #source} (Application systems and processes.)
      */
@@ -3145,6 +3195,16 @@ public class AuditEvent extends DomainResource {
         this.object = new ArrayList<AuditEventObjectComponent>();
       this.object.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public AuditEvent addObject(AuditEventObjectComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.object == null)
+        this.object = new ArrayList<AuditEventObjectComponent>();
+      this.object.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

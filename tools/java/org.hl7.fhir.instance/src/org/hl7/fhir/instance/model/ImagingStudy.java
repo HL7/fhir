@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1994,6 +1994,16 @@ public class ImagingStudy extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ImagingStudySeriesComponent addInstance(ImagingStudySeriesInstanceComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.instance == null)
+            this.instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
+          this.instance.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("number", "integer", "The Numeric identifier of this series in the study.", 0, java.lang.Integer.MAX_VALUE, number));
@@ -2853,6 +2863,16 @@ public class ImagingStudy extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ImagingStudy addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #order} (A list of the diagnostic orders that resulted in this imaging study being performed.)
      */
@@ -2881,6 +2901,16 @@ public class ImagingStudy extends DomainResource {
         this.order = new ArrayList<Reference>();
       this.order.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ImagingStudy addOrder(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.order == null)
+        this.order = new ArrayList<Reference>();
+      this.order.add(t);
+      return this;
     }
 
     /**
@@ -3269,6 +3299,16 @@ public class ImagingStudy extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ImagingStudy addProcedure(Coding t) { //3
+      if (t == null)
+        return this;
+      if (this.procedure == null)
+        this.procedure = new ArrayList<Coding>();
+      this.procedure.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #interpreter} (Who read study and interpreted the images.)
      */
@@ -3390,6 +3430,16 @@ public class ImagingStudy extends DomainResource {
         this.series = new ArrayList<ImagingStudySeriesComponent>();
       this.series.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ImagingStudy addSeries(ImagingStudySeriesComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.series == null)
+        this.series = new ArrayList<ImagingStudySeriesComponent>();
+      this.series.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

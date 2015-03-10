@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -547,6 +547,16 @@ public class Composition extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public CompositionEventComponent addCode(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.code == null)
+            this.code = new ArrayList<CodeableConcept>();
+          this.code.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #period} (The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time.)
          */
@@ -599,6 +609,16 @@ public class Composition extends DomainResource {
             this.detail = new ArrayList<Reference>();
           this.detail.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public CompositionEventComponent addDetail(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.detail == null)
+            this.detail = new ArrayList<Reference>();
+          this.detail.add(t);
+          return this;
         }
 
         /**
@@ -804,6 +824,16 @@ public class Composition extends DomainResource {
             this.section = new ArrayList<SectionComponent>();
           this.section.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public SectionComponent addSection(SectionComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.section == null)
+            this.section = new ArrayList<SectionComponent>();
+          this.section.add(t);
+          return this;
         }
 
         /**
@@ -1332,6 +1362,16 @@ public class Composition extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Composition addAuthor(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.author == null)
+        this.author = new ArrayList<Reference>();
+      this.author.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #author} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).)
      */
@@ -1369,6 +1409,16 @@ public class Composition extends DomainResource {
         this.attester = new ArrayList<CompositionAttesterComponent>();
       this.attester.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Composition addAttester(CompositionAttesterComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.attester == null)
+        this.attester = new ArrayList<CompositionAttesterComponent>();
+      this.attester.add(t);
+      return this;
     }
 
     /**
@@ -1445,6 +1495,16 @@ public class Composition extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Composition addEvent(CompositionEventComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.event == null)
+        this.event = new ArrayList<CompositionEventComponent>();
+      this.event.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #encounter} (Describes the clinical encounter or type of care this documentation is associated with.)
      */
@@ -1517,6 +1577,16 @@ public class Composition extends DomainResource {
         this.section = new ArrayList<SectionComponent>();
       this.section.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Composition addSection(SectionComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.section == null)
+        this.section = new ArrayList<SectionComponent>();
+      this.section.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

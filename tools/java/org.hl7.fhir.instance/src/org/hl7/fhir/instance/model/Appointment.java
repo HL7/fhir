@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -463,6 +463,16 @@ public class Appointment extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public AppointmentParticipantComponent addType(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.type == null)
+            this.type = new ArrayList<CodeableConcept>();
+          this.type.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #actor} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
          */
@@ -814,6 +824,16 @@ public class Appointment extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Appointment addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #priority} (The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
@@ -1121,6 +1141,16 @@ public class Appointment extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Appointment addSlot(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.slot == null)
+        this.slot = new ArrayList<Reference>();
+      this.slot.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #slot} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
      */
@@ -1307,6 +1337,16 @@ public class Appointment extends DomainResource {
         this.participant = new ArrayList<AppointmentParticipantComponent>();
       this.participant.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Appointment addParticipant(AppointmentParticipantComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.participant == null)
+        this.participant = new ArrayList<AppointmentParticipantComponent>();
+      this.participant.add(t);
+      return this;
     }
 
     /**

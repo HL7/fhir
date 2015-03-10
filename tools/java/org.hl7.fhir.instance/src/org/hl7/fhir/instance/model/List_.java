@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -205,6 +205,16 @@ public class List_ extends DomainResource {
             this.flag = new ArrayList<CodeableConcept>();
           this.flag.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ListEntryComponent addFlag(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.flag == null)
+            this.flag = new ArrayList<CodeableConcept>();
+          this.flag.add(t);
+          return this;
         }
 
         /**
@@ -504,6 +514,16 @@ public class List_ extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public List_ addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #code} (This code defines the purpose of the list - why it was created.)
      */
@@ -773,6 +793,16 @@ public class List_ extends DomainResource {
         this.entry = new ArrayList<ListEntryComponent>();
       this.entry.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public List_ addEntry(ListEntryComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.entry == null)
+        this.entry = new ArrayList<ListEntryComponent>();
+      this.entry.add(t);
+      return this;
     }
 
     /**

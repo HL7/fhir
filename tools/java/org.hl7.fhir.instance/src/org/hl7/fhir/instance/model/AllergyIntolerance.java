@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -735,6 +735,16 @@ public class AllergyIntolerance extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public AllergyIntoleranceEventComponent addManifestation(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.manifestation == null)
+            this.manifestation = new ArrayList<CodeableConcept>();
+          this.manifestation.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #description} (Text description about the Reaction as a whole, including details of the manifestation if required.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
@@ -1180,6 +1190,16 @@ public class AllergyIntolerance extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public AllergyIntolerance addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
     }
 
     /**
@@ -1660,6 +1680,16 @@ public class AllergyIntolerance extends DomainResource {
         this.event = new ArrayList<AllergyIntoleranceEventComponent>();
       this.event.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public AllergyIntolerance addEvent(AllergyIntoleranceEventComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.event == null)
+        this.event = new ArrayList<AllergyIntoleranceEventComponent>();
+      this.event.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

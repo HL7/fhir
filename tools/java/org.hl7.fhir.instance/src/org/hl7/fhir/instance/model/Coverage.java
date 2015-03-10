@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -95,9 +95,9 @@ public class Coverage extends DomainResource {
     /**
      * Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
      */
-    @Child(name="subplan", type={StringType.class}, order=6, min=0, max=1)
+    @Child(name="subPlan", type={StringType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="An identifier for the subsection of the plan", formalDefinition="Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID." )
-    protected StringType subplan;
+    protected StringType subPlan;
 
     /**
      * A unique identifier for a dependent under the coverage.
@@ -144,7 +144,7 @@ public class Coverage extends DomainResource {
     protected List<Contract> contractTarget;
 
 
-    private static final long serialVersionUID = 1420850573L;
+    private static final long serialVersionUID = 1036128685L;
 
     public Coverage() {
       super();
@@ -272,6 +272,16 @@ public class Coverage extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Coverage addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #group} (Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.). This is the underlying object with id, value and extensions. The accessor "getGroup" gives direct access to the value
      */
@@ -371,50 +381,50 @@ public class Coverage extends DomainResource {
     }
 
     /**
-     * @return {@link #subplan} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.). This is the underlying object with id, value and extensions. The accessor "getSubplan" gives direct access to the value
+     * @return {@link #subPlan} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.). This is the underlying object with id, value and extensions. The accessor "getSubPlan" gives direct access to the value
      */
-    public StringType getSubplanElement() { 
-      if (this.subplan == null)
+    public StringType getSubPlanElement() { 
+      if (this.subPlan == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Coverage.subplan");
+          throw new Error("Attempt to auto-create Coverage.subPlan");
         else if (Configuration.doAutoCreate())
-          this.subplan = new StringType(); // bb
-      return this.subplan;
+          this.subPlan = new StringType(); // bb
+      return this.subPlan;
     }
 
-    public boolean hasSubplanElement() { 
-      return this.subplan != null && !this.subplan.isEmpty();
+    public boolean hasSubPlanElement() { 
+      return this.subPlan != null && !this.subPlan.isEmpty();
     }
 
-    public boolean hasSubplan() { 
-      return this.subplan != null && !this.subplan.isEmpty();
+    public boolean hasSubPlan() { 
+      return this.subPlan != null && !this.subPlan.isEmpty();
     }
 
     /**
-     * @param value {@link #subplan} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.). This is the underlying object with id, value and extensions. The accessor "getSubplan" gives direct access to the value
+     * @param value {@link #subPlan} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.). This is the underlying object with id, value and extensions. The accessor "getSubPlan" gives direct access to the value
      */
-    public Coverage setSubplanElement(StringType value) { 
-      this.subplan = value;
+    public Coverage setSubPlanElement(StringType value) { 
+      this.subPlan = value;
       return this;
     }
 
     /**
      * @return Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
      */
-    public String getSubplan() { 
-      return this.subplan == null ? null : this.subplan.getValue();
+    public String getSubPlan() { 
+      return this.subPlan == null ? null : this.subPlan.getValue();
     }
 
     /**
      * @param value Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
      */
-    public Coverage setSubplan(String value) { 
+    public Coverage setSubPlan(String value) { 
       if (Utilities.noString(value))
-        this.subplan = null;
+        this.subPlan = null;
       else {
-        if (this.subplan == null)
-          this.subplan = new StringType();
-        this.subplan.setValue(value);
+        if (this.subPlan == null)
+          this.subPlan = new StringType();
+        this.subPlan.setValue(value);
       }
       return this;
     }
@@ -607,6 +617,16 @@ public class Coverage extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Coverage addContract(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.contract == null)
+        this.contract = new ArrayList<Reference>();
+      this.contract.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #contract} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The policy(s) which constitute this insurance coverage.)
      */
@@ -636,7 +656,7 @@ public class Coverage extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "The main (and possibly only) identifier for the coverage - often referred to as a Subscriber Id, Certificate number or Personal Health Number or Case ID.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("group", "string", "Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.", 0, java.lang.Integer.MAX_VALUE, group));
         childrenList.add(new Property("plan", "string", "Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.", 0, java.lang.Integer.MAX_VALUE, plan));
-        childrenList.add(new Property("subplan", "string", "Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.", 0, java.lang.Integer.MAX_VALUE, subplan));
+        childrenList.add(new Property("subPlan", "string", "Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.", 0, java.lang.Integer.MAX_VALUE, subPlan));
         childrenList.add(new Property("dependent", "integer", "A unique identifier for a dependent under the coverage.", 0, java.lang.Integer.MAX_VALUE, dependent));
         childrenList.add(new Property("sequence", "integer", "An optional counter for a particular instance of the identified coverage which increments upon each renewal.", 0, java.lang.Integer.MAX_VALUE, sequence));
         childrenList.add(new Property("subscriber", "Reference(Patient)", "The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.", 0, java.lang.Integer.MAX_VALUE, subscriber));
@@ -657,7 +677,7 @@ public class Coverage extends DomainResource {
         };
         dst.group = group == null ? null : group.copy();
         dst.plan = plan == null ? null : plan.copy();
-        dst.subplan = subplan == null ? null : subplan.copy();
+        dst.subPlan = subPlan == null ? null : subPlan.copy();
         dst.dependent = dependent == null ? null : dependent.copy();
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.subscriber = subscriber == null ? null : subscriber.copy();
@@ -683,7 +703,7 @@ public class Coverage extends DomainResource {
         Coverage o = (Coverage) other;
         return compareDeep(issuer, o.issuer, true) && compareDeep(period, o.period, true) && compareDeep(type, o.type, true)
            && compareDeep(identifier, o.identifier, true) && compareDeep(group, o.group, true) && compareDeep(plan, o.plan, true)
-           && compareDeep(subplan, o.subplan, true) && compareDeep(dependent, o.dependent, true) && compareDeep(sequence, o.sequence, true)
+           && compareDeep(subPlan, o.subPlan, true) && compareDeep(dependent, o.dependent, true) && compareDeep(sequence, o.sequence, true)
            && compareDeep(subscriber, o.subscriber, true) && compareDeep(network, o.network, true) && compareDeep(contract, o.contract, true)
           ;
       }
@@ -695,14 +715,14 @@ public class Coverage extends DomainResource {
         if (!(other instanceof Coverage))
           return false;
         Coverage o = (Coverage) other;
-        return compareValues(group, o.group, true) && compareValues(plan, o.plan, true) && compareValues(subplan, o.subplan, true)
+        return compareValues(group, o.group, true) && compareValues(plan, o.plan, true) && compareValues(subPlan, o.subPlan, true)
            && compareValues(dependent, o.dependent, true) && compareValues(sequence, o.sequence, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (issuer == null || issuer.isEmpty()) && (period == null || period.isEmpty())
            && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty()) && (group == null || group.isEmpty())
-           && (plan == null || plan.isEmpty()) && (subplan == null || subplan.isEmpty()) && (dependent == null || dependent.isEmpty())
+           && (plan == null || plan.isEmpty()) && (subPlan == null || subPlan.isEmpty()) && (dependent == null || dependent.isEmpty())
            && (sequence == null || sequence.isEmpty()) && (subscriber == null || subscriber.isEmpty())
            && (network == null || network.isEmpty()) && (contract == null || contract.isEmpty());
       }
@@ -726,7 +746,7 @@ public class Coverage extends DomainResource {
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="identifier", path="Coverage.identifier", description="The primary identifier of the insured", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="subplan", path="Coverage.subplan", description="Sub-plan identifier", type="token" )
+  @SearchParamDefinition(name="subplan", path="Coverage.subPlan", description="Sub-plan identifier", type="token" )
   public static final String SP_SUBPLAN = "subplan";
 
 }

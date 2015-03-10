@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1812,6 +1812,16 @@ public class Bundle extends Resource {
       return t;
     }
 
+    // syntactic sugar
+    public Bundle addLink(BundleLinkComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.link == null)
+        this.link = new ArrayList<BundleLinkComponent>();
+      this.link.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #entry} (An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).)
      */
@@ -1840,6 +1850,16 @@ public class Bundle extends Resource {
         this.entry = new ArrayList<BundleEntryComponent>();
       this.entry.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Bundle addEntry(BundleEntryComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.entry == null)
+        this.entry = new ArrayList<BundleEntryComponent>();
+      this.entry.add(t);
+      return this;
     }
 
     /**

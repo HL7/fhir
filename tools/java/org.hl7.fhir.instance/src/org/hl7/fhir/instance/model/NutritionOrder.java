@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -281,6 +281,16 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public NutritionOrderOralDietComponent addType(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.type == null)
+            this.type = new ArrayList<CodeableConcept>();
+          this.type.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #scheduled} (The time period and frequency at which the diet should be given.)
          */
@@ -335,6 +345,16 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public NutritionOrderOralDietComponent addNutrients(NutritionOrderOralDietNutrientsComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.nutrients == null)
+            this.nutrients = new ArrayList<NutritionOrderOralDietNutrientsComponent>();
+          this.nutrients.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #texture} (Class that describes any texture modifications required for the patient to safely consume various types of solid foods.)
          */
@@ -365,6 +385,16 @@ public class NutritionOrder extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public NutritionOrderOralDietComponent addTexture(NutritionOrderOralDietTextureComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.texture == null)
+            this.texture = new ArrayList<NutritionOrderOralDietTextureComponent>();
+          this.texture.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #fluidConsistencyType} (Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.)
          */
@@ -393,6 +423,16 @@ public class NutritionOrder extends DomainResource {
             this.fluidConsistencyType = new ArrayList<CodeableConcept>();
           this.fluidConsistencyType.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public NutritionOrderOralDietComponent addFluidConsistencyType(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.fluidConsistencyType == null)
+            this.fluidConsistencyType = new ArrayList<CodeableConcept>();
+          this.fluidConsistencyType.add(t);
+          return this;
         }
 
         /**
@@ -1758,6 +1798,16 @@ public class NutritionOrder extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public NutritionOrder addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
@@ -1877,6 +1927,16 @@ public class NutritionOrder extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public NutritionOrder addAllergyIntolerance(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.allergyIntolerance == null)
+        this.allergyIntolerance = new ArrayList<Reference>();
+      this.allergyIntolerance.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #allergyIntolerance} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
      */
@@ -1928,6 +1988,16 @@ public class NutritionOrder extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public NutritionOrder addFoodPreferenceModifier(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.foodPreferenceModifier == null)
+        this.foodPreferenceModifier = new ArrayList<CodeableConcept>();
+      this.foodPreferenceModifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #excludeFoodModifier} (This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.)
      */
@@ -1956,6 +2026,16 @@ public class NutritionOrder extends DomainResource {
         this.excludeFoodModifier = new ArrayList<CodeableConcept>();
       this.excludeFoodModifier.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public NutritionOrder addExcludeFoodModifier(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.excludeFoodModifier == null)
+        this.excludeFoodModifier = new ArrayList<CodeableConcept>();
+      this.excludeFoodModifier.add(t);
+      return this;
     }
 
     /**
@@ -2010,6 +2090,16 @@ public class NutritionOrder extends DomainResource {
         this.supplement = new ArrayList<NutritionOrderSupplementComponent>();
       this.supplement.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public NutritionOrder addSupplement(NutritionOrderSupplementComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.supplement == null)
+        this.supplement = new ArrayList<NutritionOrderSupplementComponent>();
+      this.supplement.add(t);
+      return this;
     }
 
     /**

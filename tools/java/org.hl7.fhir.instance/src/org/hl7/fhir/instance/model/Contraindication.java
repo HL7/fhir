@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -483,6 +483,16 @@ public class Contraindication extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Contraindication addImplicated(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.implicated == null)
+        this.implicated = new ArrayList<Reference>();
+      this.implicated.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #implicated} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the resource representing the current activity or proposed activity that.)
      */
@@ -730,6 +740,16 @@ public class Contraindication extends DomainResource {
         this.mitigation = new ArrayList<ContraindicationMitigationComponent>();
       this.mitigation.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Contraindication addMitigation(ContraindicationMitigationComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.mitigation == null)
+        this.mitigation = new ArrayList<ContraindicationMitigationComponent>();
+      this.mitigation.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

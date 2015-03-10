@@ -73,6 +73,10 @@ public class ResourceAddress {
 		return this.baseServiceUri;
 	}
 	
+	public <T extends Resource> URI resolveOperationURLFromClass(Class<T> resourceClass, String name, String parameters) {
+		return baseServiceUri.resolve(nameForClass(resourceClass) +"/$"+name+"?"+ parameters);
+	}
+	
 	public <T extends Resource> URI resolveSearchUri(Class<T> resourceClass, Map<String,String> parameters) {
 		return appendHttpParameters(baseServiceUri.resolve(nameForClass(resourceClass) +"/_search"), parameters);
 	}
@@ -181,6 +185,7 @@ public class ResourceAddress {
 		return baseServiceUri.resolve(nameForClass(resourceClass) +"/"+id+"/_history/"+version + "/_tags/_delete");
 	}
 	
+
 	public <T extends Resource> String nameForClass(Class<T> resourceClass) {
 		String res = resourceClass.getSimpleName();
 		if (res.equals("List_"))

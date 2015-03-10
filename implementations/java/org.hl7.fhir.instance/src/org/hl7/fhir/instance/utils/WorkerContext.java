@@ -20,6 +20,7 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.Parameters;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -370,6 +371,11 @@ public class WorkerContext {
       throw new Error("call to NullClient");
     }
 
+		@Override
+    public <T extends Resource> Parameters operateType(Class<T> resourceClass, String name, Parameters params) {
+      throw new Error("call to NullClient");
+    }
+
   }
 
   public StructureDefinition getExtensionStructure(StructureDefinition context, String url) throws Exception {
@@ -377,6 +383,8 @@ public class WorkerContext {
       throw new Error("Contained extensions not done yet");
 	  } else {
 		  StructureDefinition res = extensionDefinitions.get(url);
+		  if (res == null)
+		  	res = profiles.get(url);
 		  if (res == null)
 			  return null;
 		  if (res.getSnapshot() == null || res.getSnapshot().getElement().isEmpty())

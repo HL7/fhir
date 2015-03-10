@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -717,6 +717,16 @@ public class DeviceComponent extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DeviceComponent addOperationalStatus(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.operationalStatus == null)
+        this.operationalStatus = new ArrayList<CodeableConcept>();
+      this.operationalStatus.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #parameterGroup} (Describes the parameter group supported by the current device component that is based on some nomenclature, e.g., cardiovascular.)
      */
@@ -818,6 +828,16 @@ public class DeviceComponent extends DomainResource {
         this.productionSpecification = new ArrayList<DeviceComponentProductionSpecificationComponent>();
       this.productionSpecification.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DeviceComponent addProductionSpecification(DeviceComponentProductionSpecificationComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.productionSpecification == null)
+        this.productionSpecification = new ArrayList<DeviceComponentProductionSpecificationComponent>();
+      this.productionSpecification.add(t);
+      return this;
     }
 
     /**

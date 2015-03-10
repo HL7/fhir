@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -856,6 +856,16 @@ public class CarePlan extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public CarePlanGoalComponent addConcern(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.concern == null)
+            this.concern = new ArrayList<Reference>();
+          this.concern.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #concern} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.)
          */
@@ -1176,6 +1186,16 @@ public class CarePlan extends DomainResource {
             this.actionResulting = new ArrayList<Reference>();
           this.actionResulting.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public CarePlanActivityComponent addActionResulting(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.actionResulting == null)
+            this.actionResulting = new ArrayList<Reference>();
+          this.actionResulting.add(t);
+          return this;
         }
 
         /**
@@ -1643,6 +1663,16 @@ public class CarePlan extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public CarePlanActivitySimpleComponent addPerformer(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.performer == null)
+            this.performer = new ArrayList<Reference>();
+          this.performer.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #performer} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who's expected to be involved in the activity.)
          */
@@ -1973,6 +2003,16 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public CarePlan addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #patient} (Identifies the patient/subject whose intended care is described by the plan.)
      */
@@ -2165,6 +2205,16 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public CarePlan addConcern(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.concern == null)
+        this.concern = new ArrayList<Reference>();
+      this.concern.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #concern} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
      */
@@ -2216,6 +2266,16 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public CarePlan addParticipant(CarePlanParticipantComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.participant == null)
+        this.participant = new ArrayList<CarePlanParticipantComponent>();
+      this.participant.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #goal} (Describes the intended objective(s) of carrying out the Care Plan.)
      */
@@ -2246,6 +2306,16 @@ public class CarePlan extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public CarePlan addGoal(CarePlanGoalComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.goal == null)
+        this.goal = new ArrayList<CarePlanGoalComponent>();
+      this.goal.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #activity} (Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
      */
@@ -2274,6 +2344,16 @@ public class CarePlan extends DomainResource {
         this.activity = new ArrayList<CarePlanActivityComponent>();
       this.activity.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public CarePlan addActivity(CarePlanActivityComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.activity == null)
+        this.activity = new ArrayList<CarePlanActivityComponent>();
+      this.activity.add(t);
+      return this;
     }
 
     /**

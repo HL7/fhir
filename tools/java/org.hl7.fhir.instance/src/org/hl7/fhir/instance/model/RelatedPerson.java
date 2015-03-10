@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -254,6 +254,16 @@ public class RelatedPerson extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public RelatedPerson addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #patient} (The patient this person is related to.)
      */
@@ -376,6 +386,16 @@ public class RelatedPerson extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public RelatedPerson addTelecom(ContactPoint t) { //3
+      if (t == null)
+        return this;
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
+      this.telecom.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
@@ -477,6 +497,16 @@ public class RelatedPerson extends DomainResource {
         this.photo = new ArrayList<Attachment>();
       this.photo.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public RelatedPerson addPhoto(Attachment t) { //3
+      if (t == null)
+        return this;
+      if (this.photo == null)
+        this.photo = new ArrayList<Attachment>();
+      this.photo.add(t);
+      return this;
     }
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -656,6 +656,16 @@ public class MedicationStatement extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public MedicationStatement addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #patient} (The person or animal who is /was taking the medication.)
      */
@@ -908,6 +918,16 @@ public class MedicationStatement extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public MedicationStatement addReasonNotGiven(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.reasonNotGiven == null)
+        this.reasonNotGiven = new ArrayList<CodeableConcept>();
+      this.reasonNotGiven.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #reasonForUse} (A reason for why the medication is being/was taken.)
      */
@@ -1103,6 +1123,16 @@ public class MedicationStatement extends DomainResource {
         this.dosage = new ArrayList<MedicationStatementDosageComponent>();
       this.dosage.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public MedicationStatement addDosage(MedicationStatementDosageComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.dosage == null)
+        this.dosage = new ArrayList<MedicationStatementDosageComponent>();
+      this.dosage.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

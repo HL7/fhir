@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2205,6 +2205,16 @@ public class ElementDefinition extends Type {
       return t;
     }
 
+    // syntactic sugar
+    public ElementDefinition addCode(Coding t) { //3
+      if (t == null)
+        return this;
+      if (this.code == null)
+        this.code = new ArrayList<Coding>();
+      this.code.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #slicing} (Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).)
      */
@@ -2603,6 +2613,16 @@ public class ElementDefinition extends Type {
       return t;
     }
 
+    // syntactic sugar
+    public ElementDefinition addType(TypeRefComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.type == null)
+        this.type = new ArrayList<TypeRefComponent>();
+      this.type.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #nameReference} (Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.). This is the underlying object with id, value and extensions. The accessor "getNameReference" gives direct access to the value
      */
@@ -2906,6 +2926,16 @@ public class ElementDefinition extends Type {
       return t;
     }
 
+    // syntactic sugar
+    public ElementDefinition addConstraint(ElementDefinitionConstraintComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.constraint == null)
+        this.constraint = new ArrayList<ElementDefinitionConstraintComponent>();
+      this.constraint.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #mustSupport} (If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.). This is the underlying object with id, value and extensions. The accessor "getMustSupport" gives direct access to the value
      */
@@ -3093,6 +3123,16 @@ public class ElementDefinition extends Type {
         this.mapping = new ArrayList<ElementDefinitionMappingComponent>();
       this.mapping.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ElementDefinition addMapping(ElementDefinitionMappingComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.mapping == null)
+        this.mapping = new ArrayList<ElementDefinitionMappingComponent>();
+      this.mapping.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

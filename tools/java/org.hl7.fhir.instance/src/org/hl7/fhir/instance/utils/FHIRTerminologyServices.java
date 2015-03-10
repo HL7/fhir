@@ -64,7 +64,7 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 		p_in.addParameter().setName("system").setValue(new UriType(system));
 		p_in.addParameter().setName("code").setValue(new CodeType(code));
 		if (!Utilities.noString(display))
-  		p_in.addParameter().setName("display").setValue(new StringType(display));
+		p_in.addParameter().setName("display").setValue(new StringType(display));
 		p_in.addParameter().setName("identifier").setValue(new UriType("http://www.healthintersections.com.au/fhir/ValueSet/anything"));
 		Parameters p_out = client.operateType(ValueSet.class, "validate", p_in);
 		boolean ok = false;

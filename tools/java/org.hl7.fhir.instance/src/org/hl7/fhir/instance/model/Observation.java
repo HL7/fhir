@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -884,7 +884,7 @@ public class Observation extends DomainResource {
     /**
      * The information determined as a result of making the observation, if the information has a simple value.
      */
-    @Child(name="value", type={Quantity.class, CodeableConcept.class, Attachment.class, Ratio.class, DateTimeType.class, Period.class, SampledData.class, StringType.class, TimeType.class}, order=1, min=0, max=1)
+    @Child(name="value", type={Quantity.class, CodeableConcept.class, StringType.class, Range.class, Ratio.class, SampledData.class, Attachment.class, TimeType.class, DateTimeType.class, Period.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Actual result", formalDefinition="The information determined as a result of making the observation, if the information has a simple value." )
     protected Type value;
 
@@ -1098,10 +1098,19 @@ other observer (for example a relative or EMT), or any observation made about th
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
-    public Attachment getValueAttachment() throws Exception { 
-      if (!(this.value instanceof Attachment))
-        throw new Exception("Type mismatch: the type Attachment was expected, but "+this.value.getClass().getName()+" was encountered");
-      return (Attachment) this.value;
+    public StringType getValueStringType() throws Exception { 
+      if (!(this.value instanceof StringType))
+        throw new Exception("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
+      return (StringType) this.value;
+    }
+
+    /**
+     * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
+     */
+    public Range getValueRange() throws Exception { 
+      if (!(this.value instanceof Range))
+        throw new Exception("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
+      return (Range) this.value;
     }
 
     /**
@@ -1111,6 +1120,33 @@ other observer (for example a relative or EMT), or any observation made about th
       if (!(this.value instanceof Ratio))
         throw new Exception("Type mismatch: the type Ratio was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Ratio) this.value;
+    }
+
+    /**
+     * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
+     */
+    public SampledData getValueSampledData() throws Exception { 
+      if (!(this.value instanceof SampledData))
+        throw new Exception("Type mismatch: the type SampledData was expected, but "+this.value.getClass().getName()+" was encountered");
+      return (SampledData) this.value;
+    }
+
+    /**
+     * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
+     */
+    public Attachment getValueAttachment() throws Exception { 
+      if (!(this.value instanceof Attachment))
+        throw new Exception("Type mismatch: the type Attachment was expected, but "+this.value.getClass().getName()+" was encountered");
+      return (Attachment) this.value;
+    }
+
+    /**
+     * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
+     */
+    public TimeType getValueTimeType() throws Exception { 
+      if (!(this.value instanceof TimeType))
+        throw new Exception("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
+      return (TimeType) this.value;
     }
 
     /**
@@ -1129,33 +1165,6 @@ other observer (for example a relative or EMT), or any observation made about th
       if (!(this.value instanceof Period))
         throw new Exception("Type mismatch: the type Period was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Period) this.value;
-    }
-
-    /**
-     * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
-     */
-    public SampledData getValueSampledData() throws Exception { 
-      if (!(this.value instanceof SampledData))
-        throw new Exception("Type mismatch: the type SampledData was expected, but "+this.value.getClass().getName()+" was encountered");
-      return (SampledData) this.value;
-    }
-
-    /**
-     * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
-     */
-    public StringType getValueStringType() throws Exception { 
-      if (!(this.value instanceof StringType))
-        throw new Exception("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
-      return (StringType) this.value;
-    }
-
-    /**
-     * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
-     */
-    public TimeType getValueTimeType() throws Exception { 
-      if (!(this.value instanceof TimeType))
-        throw new Exception("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
-      return (TimeType) this.value;
     }
 
     public boolean hasValue() { 
@@ -1538,6 +1547,16 @@ other observer (for example a relative or EMT), or any observation made about th
       return t;
     }
 
+    // syntactic sugar
+    public Observation addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #subject} (The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus,
 other observer (for example a relative or EMT), or any observation made about the subject.)
@@ -1653,6 +1672,16 @@ other observer (for example a relative or EMT), or any observation made about th
         this.performer = new ArrayList<Reference>();
       this.performer.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Observation addPerformer(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.performer == null)
+        this.performer = new ArrayList<Reference>();
+      this.performer.add(t);
+      return this;
     }
 
     /**
@@ -1777,6 +1806,16 @@ other observer (for example a relative or EMT), or any observation made about th
       return t;
     }
 
+    // syntactic sugar
+    public Observation addReferenceRange(ObservationReferenceRangeComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.referenceRange == null)
+        this.referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
+      this.referenceRange.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #related} (Related observations - either components, or previous observations, or statements of derivation.)
      */
@@ -1807,10 +1846,20 @@ other observer (for example a relative or EMT), or any observation made about th
       return t;
     }
 
+    // syntactic sugar
+    public Observation addRelated(ObservationRelatedComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.related == null)
+        this.related = new ArrayList<ObservationRelatedComponent>();
+      this.related.add(t);
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("code", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|dateTime|Period|SampledData|string|time", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
+        childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, java.lang.Integer.MAX_VALUE, dataAbsentReason));
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -564,6 +564,16 @@ public class Procedure extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Procedure addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #patient} (The person on whom the procedure was performed.)
      */
@@ -662,6 +672,16 @@ public class Procedure extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Procedure addBodySite(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.bodySite == null)
+        this.bodySite = new ArrayList<CodeableConcept>();
+      this.bodySite.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #indication} (The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.)
      */
@@ -692,6 +712,16 @@ public class Procedure extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Procedure addIndication(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.indication == null)
+        this.indication = new ArrayList<CodeableConcept>();
+      this.indication.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #performer} (Limited to 'real' people rather than equipment.)
      */
@@ -720,6 +750,16 @@ public class Procedure extends DomainResource {
         this.performer = new ArrayList<ProcedurePerformerComponent>();
       this.performer.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Procedure addPerformer(ProcedurePerformerComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.performer == null)
+        this.performer = new ArrayList<ProcedurePerformerComponent>();
+      this.performer.add(t);
+      return this;
     }
 
     /**
@@ -869,6 +909,16 @@ public class Procedure extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Procedure addReport(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.report == null)
+        this.report = new ArrayList<Reference>();
+      this.report.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #report} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.)
      */
@@ -918,6 +968,16 @@ public class Procedure extends DomainResource {
         this.complication = new ArrayList<CodeableConcept>();
       this.complication.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Procedure addComplication(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.complication == null)
+        this.complication = new ArrayList<CodeableConcept>();
+      this.complication.add(t);
+      return this;
     }
 
     /**
@@ -997,6 +1057,16 @@ public class Procedure extends DomainResource {
         this.relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
       this.relatedItem.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Procedure addRelatedItem(ProcedureRelatedItemComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.relatedItem == null)
+        this.relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
+      this.relatedItem.add(t);
+      return this;
     }
 
     /**

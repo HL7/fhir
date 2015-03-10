@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1199,6 +1199,16 @@ public class MessageHeader extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public MessageHeader addDestination(MessageDestinationComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.destination == null)
+        this.destination = new ArrayList<MessageDestinationComponent>();
+      this.destination.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #enterer} (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
@@ -1417,6 +1427,16 @@ public class MessageHeader extends DomainResource {
         this.data = new ArrayList<Reference>();
       this.data.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public MessageHeader addData(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.data == null)
+        this.data = new ArrayList<Reference>();
+      this.data.add(t);
+      return this;
     }
 
     /**

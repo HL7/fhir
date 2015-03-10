@@ -415,7 +415,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return;
     } else if (e instanceof ElementDefinition) {
       x.addText("todo-bundle");
-    } else if (!(e instanceof Attachment))
+    } else if (!(e instanceof Attachment) && !(e instanceof Narrative))
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
   }
 
@@ -660,7 +660,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           first = false;
         } else
           sp.addText("; ");
-        sp.addText("{"+describeSystem(c.getSystem())+" code '"+c.getCode()+"' = '"+lookupCode(c.getSystem(), c.getCode())+"', given as '"+c.getDisplay()+"'}");
+        sp.addText("{"+describeSystem(c.getSystem())+" code '"+c.getCode()+"' = '"+lookupCode(c.getSystem(), c.getCode())+(c.hasDisplay() ? "', given as '"+c.getDisplay()+"'}" : ""));
       }
       sp.addText(")");
     } else {

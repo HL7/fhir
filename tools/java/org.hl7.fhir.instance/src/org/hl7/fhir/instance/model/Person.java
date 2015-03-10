@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -517,6 +517,16 @@ public class Person extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Person addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #name} (A name associated with the person.)
      */
@@ -547,6 +557,16 @@ public class Person extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Person addName(HumanName t) { //3
+      if (t == null)
+        return this;
+      if (this.name == null)
+        this.name = new ArrayList<HumanName>();
+      this.name.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
      */
@@ -575,6 +595,16 @@ public class Person extends DomainResource {
         this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Person addTelecom(ContactPoint t) { //3
+      if (t == null)
+        return this;
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
+      this.telecom.add(t);
+      return this;
     }
 
     /**
@@ -703,6 +733,16 @@ public class Person extends DomainResource {
         this.address = new ArrayList<Address>();
       this.address.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Person addAddress(Address t) { //3
+      if (t == null)
+        return this;
+      if (this.address == null)
+        this.address = new ArrayList<Address>();
+      this.address.add(t);
+      return this;
     }
 
     /**
@@ -846,6 +886,16 @@ public class Person extends DomainResource {
         this.link = new ArrayList<PersonLinkComponent>();
       this.link.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Person addLink(PersonLinkComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.link == null)
+        this.link = new ArrayList<PersonLinkComponent>();
+      this.link.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

@@ -59,6 +59,7 @@ public class Test {
 		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_ed", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
 		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_emergency", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
 		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\fileX", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
+		  System.out.println("All done. "+Integer.toString(c.getErrors())+" errors, "+Integer.toString(c.getWarnings())+" warnings");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

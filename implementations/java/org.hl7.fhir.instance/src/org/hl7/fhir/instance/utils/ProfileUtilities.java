@@ -87,10 +87,10 @@ public class ProfileUtilities {
  * @return A Map containing the name of the element child (not the path) and the child itself (an Element)
  * @throws Exception 
  */
-  public static Map<String, ElementDefinition> getChildMap(StructureDefinition profile, String path, String nameReference) throws Exception {
-    HashMap<String, ElementDefinition> res = new HashMap<String, ElementDefinition>(); 
+  public static List<ElementDefinition> getChildMap(StructureDefinition profile, String name, String path, String nameReference) throws Exception {
+    List<ElementDefinition> res = new ArrayList<ElementDefinition>(); 
     
-    // if we have a name reference, we have to fid it, and iterate it's children
+    // if we have a name reference, we have to find it, and iterate it's children
     if (nameReference != null) {
     	boolean found = false;
       for (ElementDefinition e : profile.getSnapshot().getElement()) {
@@ -115,12 +115,12 @@ public class ProfileUtilities {
         if (path.length() > p.length())
         {
           // The path navigates further into the referenced element, so go ahead along the path over there
-          return getChildMap(profile, e.getNameReference()+"."+path.substring(p.length()+1), null);
+          return getChildMap(profile, name, e.getNameReference()+"."+path.substring(p.length()+1), null);
         }
         else
         {
           // The path we are looking for is actually this element, but since it defers it definition, go get the referenced element
-          return getChildMap(profile, e.getNameReference(), null);
+          return getChildMap(profile, name, e.getNameReference(), null);
         }
       } 
       else if (p.startsWith(path+".")) 
@@ -131,7 +131,7 @@ public class ProfileUtilities {
           
           // Only add direct children, not any deeper paths
           if (!tail.contains(".")) {
-            res.put(tail, e);
+            res.add(e);
           }
         }
       }
@@ -140,8 +140,8 @@ public class ProfileUtilities {
   }
 
   
-  public static Map<String, ElementDefinition> getChildMap(StructureDefinition profile, ElementDefinition element) throws Exception {
-	  	return getChildMap(profile, element.getPath(), null);
+  public static List<ElementDefinition> getChildMap(StructureDefinition profile, ElementDefinition element) throws Exception {
+	  	return getChildMap(profile, element.getName(), element.getPath(), null);
   }
   
 

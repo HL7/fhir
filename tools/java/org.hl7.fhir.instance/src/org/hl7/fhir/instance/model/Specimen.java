@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -513,6 +513,16 @@ public class Specimen extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public SpecimenTreatmentComponent addAdditive(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.additive == null)
+            this.additive = new ArrayList<Reference>();
+          this.additive.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #additive} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Material used in the processing step.)
          */
@@ -660,6 +670,16 @@ public class Specimen extends DomainResource {
             this.identifier = new ArrayList<Identifier>();
           this.identifier.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public SpecimenContainerComponent addIdentifier(Identifier t) { //3
+          if (t == null)
+            return this;
+          if (this.identifier == null)
+            this.identifier = new ArrayList<Identifier>();
+          this.identifier.add(t);
+          return this;
         }
 
         /**
@@ -990,6 +1010,16 @@ public class Specimen extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Specimen addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #type} (The kind of material that forms the specimen.)
      */
@@ -1042,6 +1072,16 @@ public class Specimen extends DomainResource {
         this.parent = new ArrayList<Reference>();
       this.parent.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Specimen addParent(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.parent == null)
+        this.parent = new ArrayList<Reference>();
+      this.parent.add(t);
+      return this;
     }
 
     /**
@@ -1231,6 +1271,16 @@ public class Specimen extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Specimen addTreatment(SpecimenTreatmentComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.treatment == null)
+        this.treatment = new ArrayList<SpecimenTreatmentComponent>();
+      this.treatment.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #container} (The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.)
      */
@@ -1259,6 +1309,16 @@ public class Specimen extends DomainResource {
         this.container = new ArrayList<SpecimenContainerComponent>();
       this.container.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Specimen addContainer(SpecimenContainerComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.container == null)
+        this.container = new ArrayList<SpecimenContainerComponent>();
+      this.container.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

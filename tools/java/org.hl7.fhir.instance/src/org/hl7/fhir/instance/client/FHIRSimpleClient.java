@@ -47,8 +47,11 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.instance.model.Parameters;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.instance.model.Parameters.ParametersParameterComponent;
+import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.Version;
@@ -88,6 +91,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 	private FeedFormat preferredFeedFormat;
 	private HttpHost proxy;
 	private int maxResultSetSize = -1;//_count
+	private Conformance conf;
 	
 	//Pass enpoint for client - URI
 	public FHIRSimpleClient() {
@@ -117,8 +121,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 	}
 	
 	private void checkConformance() {
-//    Conformance conf = getConformanceStatement();
-    
+    conf = getConformanceStatement();
   }
 
   @Override
@@ -153,6 +156,8 @@ public class FHIRSimpleClient implements IFHIRClient {
 	
 	@Override
 	public Conformance getConformanceStatement() throws EFhirClientException {
+		if (conf != null)
+			return conf;
 		return getConformanceStatement(false);
 	}
 	
@@ -404,6 +409,33 @@ public class FHIRSimpleClient implements IFHIRClient {
   }
 	
 	@Override
+  public <T extends Resource> Parameters operateType(Class<T> resourceClass, String name, Parameters params) {
+  	boolean complex = false;
+  	for (ParametersParameterComponent p : params.getParameter())
+  		complex = complex || !(p.getValue() instanceof PrimitiveType);
+  	Parameters searchResults = null;
+  	if (complex) {
+  		throw new Error("not done yet");
+  	} else {
+			String ps = "";
+  		try {
+  			for (ParametersParameterComponent p : params.getParameter())
+  				ps += p.getName() + "=" + ((PrimitiveType) p.getValue()).asStringValue()+"&";    	  
+  			ResourceRequest<T> result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveOperationURLFromClass(resourceClass, name, ps), getPreferredResourceFormat(), proxy);
+  			result.addErrorStatus(410);//gone
+  			result.addErrorStatus(404);//unknown
+  			result.addSuccessStatus(200);//Only one for now
+  			if(result.isUnsuccessfulRequest()) 
+  				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
+  			return (Parameters) result.getPayload();
+  		} catch (Exception e) {
+  			handleException("Error performing operation '"+name+"' with parameters " + ps, e);  		
+  		}
+  		return null;
+  	}
+  }
+
+  @Override
 	public Bundle transaction(Bundle batch) {
 		Bundle transactionResult = null;
 		try {

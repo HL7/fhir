@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -648,6 +648,16 @@ public class MedicationDispense extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public MedicationDispenseSubstitutionComponent addReason(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.reason == null)
+            this.reason = new ArrayList<CodeableConcept>();
+          this.reason.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #responsibleParty} (The person or organization that has primary responsibility for the substitution.)
          */
@@ -676,6 +686,16 @@ public class MedicationDispense extends DomainResource {
             this.responsibleParty = new ArrayList<Reference>();
           this.responsibleParty.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public MedicationDispenseSubstitutionComponent addResponsibleParty(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.responsibleParty == null)
+            this.responsibleParty = new ArrayList<Reference>();
+          this.responsibleParty.add(t);
+          return this;
         }
 
         /**
@@ -1090,6 +1110,16 @@ public class MedicationDispense extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public MedicationDispense addAuthorizingPrescription(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.authorizingPrescription == null)
+        this.authorizingPrescription = new ArrayList<Reference>();
+      this.authorizingPrescription.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #authorizingPrescription} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the medication order that is being dispensed against.)
      */
@@ -1399,6 +1429,16 @@ public class MedicationDispense extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public MedicationDispense addReceiver(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.receiver == null)
+        this.receiver = new ArrayList<Reference>();
+      this.receiver.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #receiver} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
      */
@@ -1485,6 +1525,16 @@ public class MedicationDispense extends DomainResource {
         this.dosageInstruction = new ArrayList<MedicationDispenseDosageInstructionComponent>();
       this.dosageInstruction.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public MedicationDispense addDosageInstruction(MedicationDispenseDosageInstructionComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.dosageInstruction == null)
+        this.dosageInstruction = new ArrayList<MedicationDispenseDosageInstructionComponent>();
+      this.dosageInstruction.add(t);
+      return this;
     }
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -288,6 +288,16 @@ public class ClaimResponse extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ItemsComponent addAdjudication(ItemAdjudicationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.adjudication == null)
+            this.adjudication = new ArrayList<ItemAdjudicationComponent>();
+          this.adjudication.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #detail} (The second tier service adjudications for submitted services.)
          */
@@ -316,6 +326,16 @@ public class ClaimResponse extends DomainResource {
             this.detail = new ArrayList<ItemDetailComponent>();
           this.detail.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ItemsComponent addDetail(ItemDetailComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.detail == null)
+            this.detail = new ArrayList<ItemDetailComponent>();
+          this.detail.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -572,11 +592,11 @@ public class ClaimResponse extends DomainResource {
         /**
          * The third tier service adjudications for submitted services.
          */
-        @Child(name="subdetail", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="subDetail", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Subdetail line items", formalDefinition="The third tier service adjudications for submitted services." )
-        protected List<ItemSubdetailComponent> subdetail;
+        protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = -812538L;
+        private static final long serialVersionUID = 2096682387L;
 
       public ItemDetailComponent() {
         super();
@@ -662,41 +682,61 @@ public class ClaimResponse extends DomainResource {
           return t;
         }
 
-        /**
-         * @return {@link #subdetail} (The third tier service adjudications for submitted services.)
-         */
-        public List<ItemSubdetailComponent> getSubdetail() { 
-          if (this.subdetail == null)
-            this.subdetail = new ArrayList<ItemSubdetailComponent>();
-          return this.subdetail;
+    // syntactic sugar
+        public ItemDetailComponent addAdjudication(DetailAdjudicationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.adjudication == null)
+            this.adjudication = new ArrayList<DetailAdjudicationComponent>();
+          this.adjudication.add(t);
+          return this;
         }
 
-        public boolean hasSubdetail() { 
-          if (this.subdetail == null)
+        /**
+         * @return {@link #subDetail} (The third tier service adjudications for submitted services.)
+         */
+        public List<SubDetailComponent> getSubDetail() { 
+          if (this.subDetail == null)
+            this.subDetail = new ArrayList<SubDetailComponent>();
+          return this.subDetail;
+        }
+
+        public boolean hasSubDetail() { 
+          if (this.subDetail == null)
             return false;
-          for (ItemSubdetailComponent item : this.subdetail)
+          for (SubDetailComponent item : this.subDetail)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #subdetail} (The third tier service adjudications for submitted services.)
+         * @return {@link #subDetail} (The third tier service adjudications for submitted services.)
          */
     // syntactic sugar
-        public ItemSubdetailComponent addSubdetail() { //3
-          ItemSubdetailComponent t = new ItemSubdetailComponent();
-          if (this.subdetail == null)
-            this.subdetail = new ArrayList<ItemSubdetailComponent>();
-          this.subdetail.add(t);
+        public SubDetailComponent addSubDetail() { //3
+          SubDetailComponent t = new SubDetailComponent();
+          if (this.subDetail == null)
+            this.subDetail = new ArrayList<SubDetailComponent>();
+          this.subDetail.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ItemDetailComponent addSubDetail(SubDetailComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.subDetail == null)
+            this.subDetail = new ArrayList<SubDetailComponent>();
+          this.subDetail.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
           childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
-          childrenList.add(new Property("subdetail", "", "The third tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, subdetail));
+          childrenList.add(new Property("subDetail", "", "The third tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
         }
 
       public ItemDetailComponent copy() {
@@ -708,10 +748,10 @@ public class ClaimResponse extends DomainResource {
           for (DetailAdjudicationComponent i : adjudication)
             dst.adjudication.add(i.copy());
         };
-        if (subdetail != null) {
-          dst.subdetail = new ArrayList<ItemSubdetailComponent>();
-          for (ItemSubdetailComponent i : subdetail)
-            dst.subdetail.add(i.copy());
+        if (subDetail != null) {
+          dst.subDetail = new ArrayList<SubDetailComponent>();
+          for (SubDetailComponent i : subDetail)
+            dst.subDetail.add(i.copy());
         };
         return dst;
       }
@@ -724,7 +764,7 @@ public class ClaimResponse extends DomainResource {
           return false;
         ItemDetailComponent o = (ItemDetailComponent) other;
         return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(adjudication, o.adjudication, true)
-           && compareDeep(subdetail, o.subdetail, true);
+           && compareDeep(subDetail, o.subDetail, true);
       }
 
       @Override
@@ -739,7 +779,7 @@ public class ClaimResponse extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (sequenceLinkId == null || sequenceLinkId.isEmpty()) && (adjudication == null || adjudication.isEmpty())
-           && (subdetail == null || subdetail.isEmpty());
+           && (subDetail == null || subDetail.isEmpty());
       }
 
   }
@@ -920,7 +960,7 @@ public class ClaimResponse extends DomainResource {
   }
 
     @Block()
-    public static class ItemSubdetailComponent extends BackboneElement {
+    public static class SubDetailComponent extends BackboneElement {
         /**
          * A service line number.
          */
@@ -937,11 +977,11 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -1143083130L;
 
-      public ItemSubdetailComponent() {
+      public SubDetailComponent() {
         super();
       }
 
-      public ItemSubdetailComponent(IntegerType sequenceLinkId) {
+      public SubDetailComponent(IntegerType sequenceLinkId) {
         super();
         this.sequenceLinkId = sequenceLinkId;
       }
@@ -952,7 +992,7 @@ public class ClaimResponse extends DomainResource {
         public IntegerType getSequenceLinkIdElement() { 
           if (this.sequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ItemSubdetailComponent.sequenceLinkId");
+              throw new Error("Attempt to auto-create SubDetailComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
               this.sequenceLinkId = new IntegerType(); // bb
           return this.sequenceLinkId;
@@ -969,7 +1009,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public ItemSubdetailComponent setSequenceLinkIdElement(IntegerType value) { 
+        public SubDetailComponent setSequenceLinkIdElement(IntegerType value) { 
           this.sequenceLinkId = value;
           return this;
         }
@@ -984,7 +1024,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value A service line number.
          */
-        public ItemSubdetailComponent setSequenceLinkId(int value) { 
+        public SubDetailComponent setSequenceLinkId(int value) { 
             if (this.sequenceLinkId == null)
               this.sequenceLinkId = new IntegerType();
             this.sequenceLinkId.setValue(value);
@@ -1021,14 +1061,24 @@ public class ClaimResponse extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public SubDetailComponent addAdjudication(SubdetailAdjudicationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.adjudication == null)
+            this.adjudication = new ArrayList<SubdetailAdjudicationComponent>();
+          this.adjudication.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
           childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
         }
 
-      public ItemSubdetailComponent copy() {
-        ItemSubdetailComponent dst = new ItemSubdetailComponent();
+      public SubDetailComponent copy() {
+        SubDetailComponent dst = new SubDetailComponent();
         copyValues(dst);
         dst.sequenceLinkId = sequenceLinkId == null ? null : sequenceLinkId.copy();
         if (adjudication != null) {
@@ -1043,9 +1093,9 @@ public class ClaimResponse extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ItemSubdetailComponent))
+        if (!(other instanceof SubDetailComponent))
           return false;
-        ItemSubdetailComponent o = (ItemSubdetailComponent) other;
+        SubDetailComponent o = (SubDetailComponent) other;
         return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(adjudication, o.adjudication, true)
           ;
       }
@@ -1054,9 +1104,9 @@ public class ClaimResponse extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ItemSubdetailComponent))
+        if (!(other instanceof SubDetailComponent))
           return false;
-        ItemSubdetailComponent o = (ItemSubdetailComponent) other;
+        SubDetailComponent o = (SubDetailComponent) other;
         return compareValues(sequenceLinkId, o.sequenceLinkId, true);
       }
 
@@ -1483,6 +1533,16 @@ public class ClaimResponse extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public AddedItemComponent addAdjudication(AddedItemAdjudicationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.adjudication == null)
+            this.adjudication = new ArrayList<AddedItemAdjudicationComponent>();
+          this.adjudication.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #detail} (The second tier service adjudications for payor added services.)
          */
@@ -1511,6 +1571,16 @@ public class ClaimResponse extends DomainResource {
             this.detail = new ArrayList<AddedItemsDetailComponent>();
           this.detail.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public AddedItemComponent addDetail(AddedItemsDetailComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.detail == null)
+            this.detail = new ArrayList<AddedItemsDetailComponent>();
+          this.detail.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1868,6 +1938,16 @@ public class ClaimResponse extends DomainResource {
             this.adjudication = new ArrayList<AddedItemDetailAdjudicationComponent>();
           this.adjudication.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public AddedItemsDetailComponent addAdjudication(AddedItemDetailAdjudicationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.adjudication == null)
+            this.adjudication = new ArrayList<AddedItemDetailAdjudicationComponent>();
+          this.adjudication.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -2764,6 +2844,16 @@ public class ClaimResponse extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ClaimResponse addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #request} (Original request resource referrence.)
      */
@@ -3184,6 +3274,16 @@ public class ClaimResponse extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ClaimResponse addItem(ItemsComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.item == null)
+        this.item = new ArrayList<ItemsComponent>();
+      this.item.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #addItem} (The first tier service adjudications for payor added services.)
      */
@@ -3214,6 +3314,16 @@ public class ClaimResponse extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ClaimResponse addAddItem(AddedItemComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.addItem == null)
+        this.addItem = new ArrayList<AddedItemComponent>();
+      this.addItem.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #error} (Mutually exclusive with Services Provided (Item).)
      */
@@ -3242,6 +3352,16 @@ public class ClaimResponse extends DomainResource {
         this.error = new ArrayList<ErrorsComponent>();
       this.error.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ClaimResponse addError(ErrorsComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.error == null)
+        this.error = new ArrayList<ErrorsComponent>();
+      this.error.add(t);
+      return this;
     }
 
     /**
@@ -3537,6 +3657,16 @@ public class ClaimResponse extends DomainResource {
         this.note = new ArrayList<NotesComponent>();
       this.note.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ClaimResponse addNote(NotesComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.note == null)
+        this.note = new ArrayList<NotesComponent>();
+      this.note.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

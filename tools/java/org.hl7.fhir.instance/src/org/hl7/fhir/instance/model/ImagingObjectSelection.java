@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -201,6 +201,16 @@ public class ImagingObjectSelection extends DomainResource {
             this.series = new ArrayList<SeriesComponent>();
           this.series.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public StudyComponent addSeries(SeriesComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.series == null)
+            this.series = new ArrayList<SeriesComponent>();
+          this.series.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -406,6 +416,16 @@ public class ImagingObjectSelection extends DomainResource {
             this.instance = new ArrayList<InstanceComponent>();
           this.instance.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public SeriesComponent addInstance(InstanceComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.instance == null)
+            this.instance = new ArrayList<InstanceComponent>();
+          this.instance.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -662,6 +682,16 @@ public class ImagingObjectSelection extends DomainResource {
             this.frames = new ArrayList<FramesComponent>();
           this.frames.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public InstanceComponent addFrames(FramesComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.frames == null)
+            this.frames = new ArrayList<FramesComponent>();
+          this.frames.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1236,6 +1266,16 @@ public class ImagingObjectSelection extends DomainResource {
         this.study = new ArrayList<StudyComponent>();
       this.study.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ImagingObjectSelection addStudy(StudyComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.study == null)
+        this.study = new ArrayList<StudyComponent>();
+      this.study.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

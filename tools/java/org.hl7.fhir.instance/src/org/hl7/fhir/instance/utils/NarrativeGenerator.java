@@ -159,7 +159,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
     } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
-      StructureDefinition p = ctxt.fetchResource(StructureDefinition.class, "test");
+      StructureDefinition p = context.getProfiles().get(r.getResourceType().toString());
       generateByProfile(r, p /* context.getProfiles().get(r.getResourceType().toString()) */, true); // todo: make this manageable externally 
     } else if (context.getProfiles().containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
       generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
@@ -415,7 +415,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return;
     } else if (e instanceof ElementDefinition) {
       x.addText("todo-bundle");
-    } else if (!(e instanceof Attachment))
+    } else if (!(e instanceof Attachment) && !(e instanceof Narrative))
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
   }
 
@@ -660,7 +660,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           first = false;
         } else
           sp.addText("; ");
-        sp.addText("{"+describeSystem(c.getSystem())+" code '"+c.getCode()+"' = '"+lookupCode(c.getSystem(), c.getCode())+"', given as '"+c.getDisplay()+"'}");
+        sp.addText("{"+describeSystem(c.getSystem())+" code '"+c.getCode()+"' = '"+lookupCode(c.getSystem(), c.getCode())+(c.hasDisplay() ? "', given as '"+c.getDisplay()+"'}" : ""));
       }
       sp.addText(")");
     } else {

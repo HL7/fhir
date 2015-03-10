@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -819,6 +819,16 @@ public class PaymentReconciliation extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public PaymentReconciliation addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #request} (Original request resource reference.)
      */
@@ -1244,6 +1254,16 @@ public class PaymentReconciliation extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public PaymentReconciliation addDetail(DetailsComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.detail == null)
+        this.detail = new ArrayList<DetailsComponent>();
+      this.detail.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #form} (The form to be used for printing the content.)
      */
@@ -1320,6 +1340,16 @@ public class PaymentReconciliation extends DomainResource {
         this.note = new ArrayList<NotesComponent>();
       this.note.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public PaymentReconciliation addNote(NotesComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.note == null)
+        this.note = new ArrayList<NotesComponent>();
+      this.note.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

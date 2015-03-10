@@ -18,6 +18,7 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingCom
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.HumanName;
@@ -59,7 +60,24 @@ import org.xmlpull.v1.builder.xpath.jaxen.expr.LiteralExpr;
  */
 public class InstanceValidator extends BaseValidator implements IResourceValidator {
   
-  // configuration items
+	public class ElementInfo {
+
+		private String name;
+		private WrapperElement element;
+		private String path;
+		public ElementDefinition definition;
+    public int count;
+
+		public ElementInfo(String name, WrapperElement element, String path, int count) {
+	    this.name = name;
+	    this.element = element;
+	    this.path = path;
+	    this.count = count;
+    }
+
+  }
+
+	// configuration items
   private CheckDisplayOption checkDisplay;
   @Override
   public CheckDisplayOption getCheckDisplay() {
@@ -624,86 +642,221 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   	}
     rule(errors, "invalid", stack.getLiteralPath(), !empty(element), "Elements must have some content (@value, extensions, or children elements)");
     
-    Map<String, ElementDefinition> children = ProfileUtilities.getChildMap(profile, definition.getPath(), definition.getNameReference());
-    for (ElementDefinition child : children.values()) {
-    	if (child.getRepresentation().isEmpty()) {
-    		List<WrapperElement> list = new ArrayList<WrapperElement>();  
-    		element.getNamedChildrenWithWildcard(tail(child.getPath()), list);
-    		if (child.getMin() > 0) {
-    			rule(errors, "structure", stack.getLiteralPath(), list.size() > 0, "Element "+tail(child.getPath())+" is required");
+    // get the list of direct defined children, including slices
+    List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
+
+    // 1. List the children, and remember their exact path (convenience)
+    List<ElementInfo> children = new ArrayList<InstanceValidator.ElementInfo>();
+    ChildIterator iter = new ChildIterator(stack.getLiteralPath(), element);
+    while (iter.next()) 
+    	children.add(new ElementInfo(iter.name(), iter.element(), iter.path(), iter.count()));
+    
+    // 2. assign children to a definition
+    // for each definition, for each child, check whether it belongs in the slice 
+    ElementDefinition slice = null;
+    for (ElementDefinition ed : childDefinitions) {
+    	boolean process = true;
+    	// where are we with slicing
+    	if (ed.hasSlicing()) {
+    		if (slice != null && slice.getPath().equals(ed.getPath()))
+    			throw new Exception("Slice encountered midway through path on "+slice.getPath());
+    		slice = ed;
+    		process = false;
+    	} else if (slice != null && !slice.getPath().equals(ed.getPath()))
+    		slice = null;
+
+    	if (process) {
+    		for (ElementInfo ei : children) {
+    			boolean match = false;
+    			if (slice == null) {
+    				match = nameMatches(ei.name, tail(ed.getPath()));
+    			} else {
+    				if (nameMatches(ei.name, tail(ed.getPath())))
+    					match = sliceMatches(ei.element, ei.path, slice, ed, profile);
+    			}
+    			if (match) {
+    				if (rule(errors, "invalid", ei.path, ei.definition == null, "Element matches more than one slice")) 
+    					ei.definition = ed;
+    			}
     		}
-    		if (child.hasMax() && !child.getMax().equals("*")) {
-    			rule(errors, "structure", stack.getLiteralPath(), list.size() <= Integer.parseInt(child.getMax()), "Element "+tail(child.getPath())+" can only occur "+child.getMax()+" time"+(child.getMax().equals("1") ? "" : "s"));
+    	}
+    	}
+    for (ElementInfo ei : children) 
+  		rule(errors, "invalid", ei.path, ei.definition != null, "Element does not match any slice");
+    
+    // 3. report any definitions that have a cardinality problem
+    for (ElementDefinition ed : childDefinitions) {
+    	if (ed.getRepresentation().isEmpty()) { // ignore xml attributes
+    	int count = 0;
+      for (ElementInfo ei : children) 
+      	if (ei.definition == ed)
+      		count++;
+  		if (ed.getMin() > 0) {
+  			rule(errors, "structure", stack.getLiteralPath(), count >= ed.getMin(), "Element "+tail(ed.getPath())+" @ "+stack.getLiteralPath()+": min required = "+Integer.toString(ed.getMin())+", but only found "+Integer.toString(count));
+  		}
+  		if (ed.hasMax() && !ed.getMax().equals("*")) {
+  			rule(errors, "structure", stack.getLiteralPath(), count <= Integer.parseInt(ed.getMax()), "Element "+tail(ed.getPath())+" @ "+stack.getLiteralPath()+": max allowed = "+Integer.toString(ed.getMin())+", but found "+Integer.toString(count));
+  		}
+      
+    	}
+    }
+    // 4. check order if any slices are orderd. (todo)
+
+    // 5. inspect each child for validity
+    for (ElementInfo ei : children) {
+    	if (ei.definition != null) {
+    		String type = null;
+    		ElementDefinition typeDefn = null;
+    		if (ei.definition.getType().size() == 1 && !ei.definition.getType().get(0).getCode().equals("*"))
+    			type = ei.definition.getType().get(0).getCode();
+    		else if (ei.definition.getType().size() == 1 && ei.definition.getType().get(0).getCode().equals("*")) {
+          String prefix = tail(ei.definition.getPath());
+          assert prefix.endsWith("[x]");
+          type = ei.name.substring(prefix.length()-3);
+          if (isPrimitiveType(type))
+            type = Utilities.uncapitalize(type);
+    		} else if (ei.definition.getType().size() > 1) {
+            String prefix = tail(ei.definition.getPath());
+            assert prefix.endsWith("[x]");
+            prefix = prefix.substring(0, prefix.length()-3);
+            for (TypeRefComponent t : ei.definition.getType())
+              if ((prefix+Utilities.capitalize(t.getCode())).equals(ei.name))
+                type = t.getCode();
+            if (type == null) {
+        			TypeRefComponent trc = ei.definition.getType().get(0);
+        			if(trc.getCode().equals("Reference"))
+        				type = "Reference";
+              else 
+    				    throw new Exception("multiple types ("+describeTypes(ei.definition.getType())+") @ "+stack.getLiteralPath()+"/f:"+ei.name);
+            }
+    		} else if (ei.definition.getNameReference() != null) {
+    			typeDefn = resolveNameReference(profile.getSnapshot(), ei.definition.getNameReference());
+    		}
+
+    		if (type != null) {
+    			if (type.startsWith("@")) {
+    				ei.definition = findElement(profile, type.substring(1));
+    				type = null;
+    			}
+    		}       
+    		NodeStack localStack = stack.push(ei.element, ei.count, ei.definition, type == null ? typeDefn : resolveType(type));
+    		assert(ei.path.equals(localStack.getLiteralPath()));
+
+    		if (type != null) {
+    			if (typeIsPrimitive(type)) 
+    				checkPrimitive(errors, ei.path, type, ei.definition, ei.element);
+    			else {
+    				if (type.equals("Identifier"))
+    					checkIdentifier(ei.path, ei.element, ei.definition);
+    				else if (type.equals("Coding"))
+    					checkCoding(errors, ei.path, ei.element, profile, ei.definition);
+    				else if (type.equals("CodeableConcept"))
+    					checkCodeableConcept(errors, ei.path, ei.element, profile, ei.definition);
+    				else if (type.equals("Reference"))
+    					checkReference(errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
+
+    				if (type.equals("Extension"))
+            checkExtension(errors, ei.path, ei.element, profile, localStack);          
+    				else if (type.equals("Resource"))
+    					validateContains(errors, ei.path, ei.definition, definition, ei.element, localStack, !isBundleEntry(ei.path)); //    if (str.matches(".*([.,/])work\\1$"))
+    				else {
+    					StructureDefinition p = getProfileForType(type); 
+            if (rule(errors, "structure", ei.path, p != null, "Unknown type "+type)) {
+    						validateElement(errors, p, p.getSnapshot().getElement().get(0), profile, ei.definition, ei.element, type, localStack);
+    					}
+    				}
+    			}
+    		} else {
+    			if (rule(errors, "structure", stack.getLiteralPath(), ei.definition != null, "Unrecognised Content "+ei.name))
+    				validateElement(errors, profile, ei.definition, null, null, ei.element, type, localStack);
     		}
     	}
     }
-    ChildIterator ci = new ChildIterator(stack.getLiteralPath(), element);
-    while (ci.next()) {
-      ElementDefinition child = children.get(ci.name());
-      String type = null;
-      ElementDefinition typeDefn = null;
-      if (child == null) {
-        child = getDefinitionByTailNameChoice(children, ci.name());
-        if (child != null)
-          type = ci.name().substring(tail(child.getPath()).length() - 3);
-      } else {
-      	if (child.getType().size() == 1)
-      		type = child.getType().get(0).getCode();
-      	else if (child.getType().size() > 1 )
-      	{
-      		TypeRefComponent trc = child.getType().get(0);
-
-      		if(trc.getCode().equals("Reference"))
-      			type = "Reference";
-      		else
-      			throw new Exception("multiple types ("+describeTypes(child.getType())+") @ "+stack.getLiteralPath()+"/f:"+ci.name());
-      	} else if (child.getNameReference() != null) {
-      		typeDefn = resolveNameReference(profile.getSnapshot(), child.getNameReference());
-      	}
-
-        if (type != null) {
-          if (type.startsWith("@")) {
-            child = findElement(profile, type.substring(1));
-            type = null;
-          }
-        }       
-      }
-      NodeStack localStack = stack.push(ci.element(), ci.count(), child, type == null ? typeDefn : resolveType(type));
-
-      assert(ci.path().equals(localStack.getLiteralPath()));
-
-      if (type != null) {
-        if (typeIsPrimitive(type)) 
-          checkPrimitive(errors, ci.path(), type, child, ci.element());
-        else {
-          if (type.equals("Identifier"))
-            checkIdentifier(ci.path(), ci.element(), child);
-          else if (type.equals("Coding"))
-            checkCoding(errors, ci.path(), ci.element(), profile, child);
-          else if (type.equals("CodeableConcept"))
-            checkCodeableConcept(errors, ci.path(), ci.element(), profile, child);
-          else if (type.equals("Reference"))
-            checkReference(errors, ci.path(), ci.element(), profile, child, actualType, localStack);
-
-          if (type.equals("Extension"))
-            checkExtension(errors, ci.path(), ci.element(), profile, localStack);          
-          else if (type.equals("Resource"))
-            validateContains(errors, ci.path(), child, definition, ci.element(), localStack, !isBundleEntry(ci.path())); //    if (str.matches(".*([.,/])work\\1$"))
-          else {
-            StructureDefinition p = getProfileForType(type); 
-            if (rule(errors, "structure", ci.path(), p != null, "Unknown type "+type)) {
-              validateElement(errors, p, p.getSnapshot().getElement().get(0), profile, child, ci.element(), type, localStack);
-            }
-          }
-        }
-      } else {
-        if (rule(errors, "structure", stack.getLiteralPath(), child != null, "Unrecognised Content "+ci.name()))
-          validateElement(errors, profile, child, null, null, ci.element(), type, localStack);
-      }
-    }
   }
 
-  private ElementDefinition resolveNameReference(StructureDefinitionSnapshotComponent snapshot, String name) {
+  /**
+   * 
+   * @param element - the candidate that might be in the slice
+   * @param path - for reporting any errors. the XPath for the element
+   * @param slice - the definition of how slicing is determined
+   * @param ed - the slice for which to test membership
+   * @return
+   * @throws Exception 
+   */
+  private boolean sliceMatches(WrapperElement element, String path, ElementDefinition slice, ElementDefinition ed, StructureDefinition profile) throws Exception {
+  	if (!slice.getSlicing().hasDiscriminator())
+  		return false; // cannot validate in this case
+	  for (StringType s : slice.getSlicing().getDiscriminator()) {
+	  	String discriminator = s.getValue();
+	  	ElementDefinition criteria = getCriteriaForDiscriminator(path, ed, discriminator, profile);
+	  	if (discriminator.equals("url") && criteria.getPath().equals("Extension.url")) {
+	  		if (!element.getAttribute("url").equals(((UriType) criteria.getFixed()).asStringValue()))
+	  			return false;
+	  	} else {	  		
+	  		Element value = getValueForDiscriminator(element, discriminator, criteria);
+	  		if (!valueMatchesCriteria(value, criteria))
+	  			return false;
+	  	}
+	  }
+	  return true;
+  } 
+  
+	private boolean valueMatchesCriteria(Element value, ElementDefinition criteria) {
+		throw new Error("validation of slices not done yet");
+  }
+	
+	private Element getValueForDiscriminator(WrapperElement element, String discriminator, ElementDefinition criteria) {
+		throw new Error("validation of slices not done yet");
+  }
+	
+	private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition ed, String discriminator, StructureDefinition profile) throws Exception {
+    List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, ed);
+    List<ElementDefinition> snapshot = null;	
+    if (childDefinitions.isEmpty()) {
+    	// going to look at the type
+    	if (ed.getType().size() == 0)
+    		throw new Exception("Error in profile for "+path+" no children, no type");
+    	if (ed.getType().size() > 1)
+    		throw new Exception("Error in profile for "+path+" multiple types defined in slice discriminator");
+    	StructureDefinition type;
+    	if (ed.getType().get(0).hasProfile())
+    		type = context.getExtensionStructure(profile, ed.getType().get(0).getProfile());
+    	else
+    		type = context.getExtensionStructure(profile, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode());
+    	snapshot = type.getSnapshot().getElement();
+    	ed = snapshot.get(0);
+    } else {
+      snapshot = profile.getSnapshot().getElement();	
+    }
+		String originalPath = ed.getPath();
+		String goal = originalPath+"."+discriminator;
+
+		int index = snapshot.indexOf(ed);
+		assert (index > -1);
+		index++;
+		while (index < snapshot.size() && !snapshot.get(index).getPath().equals(originalPath)) {
+			if (snapshot.get(index).getPath().equals(goal))
+				return snapshot.get(index);
+			index++;
+		}
+		throw new Error("Unable to find discriminator definition for "+goal+" at "+path);
+  }
+	
+	private boolean isPrimitiveType(String type) {
+    return
+        type.equalsIgnoreCase("boolean") || type.equalsIgnoreCase("integer") || type.equalsIgnoreCase("string") || type.equalsIgnoreCase("decimal") || 
+        type.equalsIgnoreCase("uri") || type.equalsIgnoreCase("base64Binary") || type.equalsIgnoreCase("instant") || type.equalsIgnoreCase("date") || 
+        type.equalsIgnoreCase("dateTime") || type.equalsIgnoreCase("time") || type.equalsIgnoreCase("code") || type.equalsIgnoreCase("oid") || type.equalsIgnoreCase("id");
+  }
+  
+  private boolean nameMatches(String name, String tail) {
+	  if (tail.endsWith("[x]"))
+	    return name.startsWith(tail.substring(0,  tail.length()-3)); 
+	  else
+	    return (name.equals(tail));
+  }
+  
+	private ElementDefinition resolveNameReference(StructureDefinitionSnapshotComponent snapshot, String name) {
   	for (ElementDefinition ed : snapshot.getElement())
   		if (name.equals(ed.getName()))
   			return ed;
@@ -869,16 +1022,16 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return null;
   }
   private String getBaseType(StructureDefinition profile, String pr) {
-    if (pr.startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-      // this just has to be a base type
-      return pr.substring(40);
-    } else {
+//    if (pr.startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+//      // this just has to be a base type
+//      return pr.substring(40);
+//    } else {
       StructureDefinition p = resolveProfile(profile, pr);
       if (p == null)
         return null;
       else
         return p.getSnapshot().getElement().get(0).getType().get(0).getCode();
-    }
+//    }
   }
   
   private StructureDefinition resolveProfile(StructureDefinition profile, String pr) {
@@ -1017,10 +1170,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return null;
   }
 
-  private ElementDefinition getDefinitionByTailNameChoice(Map<String, ElementDefinition> children, String name) {
-    for (String n : children.keySet()) {
+  private ElementDefinition getDefinitionByTailNameChoice(List<ElementDefinition> children, String name) {
+    for (ElementDefinition ed : children) {
+    	String n = tail(ed.getPath());
       if (n.endsWith("[x]") && name.startsWith(n.substring(0, n.length()-3))) {
-        return children.get(n);
+        return ed;
       }
     }
     return null;

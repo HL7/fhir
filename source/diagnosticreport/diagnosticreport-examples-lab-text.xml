@@ -64,7 +64,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986932-16258709"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:30:00"/>
+    <diagnosticDateTime value="2012-04-05T23:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -130,7 +130,7 @@ Comment: *PLEASE NOTE AMENDED REPORT*
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968932-16258708"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:30:00"/>
+    <diagnosticDateTime value="2012-04-05T23:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -203,7 +203,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:55:00"/>
+    <diagnosticDateTime value="2012-04-05T23:55:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -254,7 +254,7 @@ Anti-Factor Xa Comment:
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968942-16258706"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:40:00"/>
+    <diagnosticDateTime value="2012-04-05T23:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -302,7 +302,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986942-16258705"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:40:00"/>
+    <diagnosticDateTime value="2012-04-05T23:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -354,7 +354,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968972-16258704"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:10:00"/>
+    <diagnosticDateTime value="2012-04-05T23:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -405,7 +405,7 @@ CK                828     IU/L   ( &lt;175     )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986972-16258703"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:10:00"/>
+    <diagnosticDateTime value="2012-04-05T23:10:00Z"/>
    </DiagnosticReport>
 
 
@@ -449,7 +449,7 @@ TSH                       0.01    L  mIU/L   ( 0.1-4.0  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968972-16258702"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:10:00"/>
+    <diagnosticDateTime value="2012-04-05T23:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -506,7 +506,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968972-16258701"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:10:00"/>
+    <diagnosticDateTime value="2012-04-05T23:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -564,7 +564,7 @@ C-React Prot      152     mg/L   ( &lt;5       )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:30:00"/>
+    <diagnosticDateTime value="2012-04-05T23:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -633,7 +633,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:30:00"/>
+    <diagnosticDateTime value="2012-04-05T23:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -690,7 +690,7 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:40:00"/>
+    <diagnosticDateTime value="2012-04-05T22:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -785,7 +785,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:40:00"/>
+    <diagnosticDateTime value="2012-04-05T22:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -839,7 +839,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986912-16258695"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:50:00"/>
+    <diagnosticDateTime value="2012-04-05T19:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -886,7 +886,7 @@ Comment: The Potassium result has been checked.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986912-16258694"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:50:00"/>
+    <diagnosticDateTime value="2012-04-05T19:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -943,7 +943,7 @@ Baso         0.1      0.0      0.1      0.1      0.1   x10^9/L   0.0-0.1
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968912-16258693"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:50:00"/>
+    <diagnosticDateTime value="2012-04-05T19:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1024,7 +1024,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:31:00"/>
+    <diagnosticDateTime value="2012-04-05T23:31:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1070,7 +1070,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968941-16258690"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:21:00"/>
+    <diagnosticDateTime value="2012-04-05T23:21:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1127,7 +1127,7 @@ Baso                  0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986941-16258689"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:21:00"/>
+    <diagnosticDateTime value="2012-04-05T23:21:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1185,7 +1185,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1254,7 +1254,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1317,7 +1317,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1382,7 +1382,7 @@ Troponin I        0.03    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
 
@@ -1448,7 +1448,7 @@ Troponin I        0.03    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1536,7 +1536,7 @@ Comment: Please note moderate thrombocytopenia persists. Please
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1600,7 +1600,7 @@ Protein Total      65     g/L    ( 65-85    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:23:00"/>
+    <diagnosticDateTime value="2012-04-05T23:23:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1692,7 +1692,7 @@ Conclusion: Suggestive of infection.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:23:00"/>
+    <diagnosticDateTime value="2012-04-05T23:23:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1752,7 +1752,7 @@ Hrs Since Dose No Info  No Info                            HH:MM
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:25:00"/>
+    <diagnosticDateTime value="2012-04-05T23:25:00Z"/>
    </DiagnosticReport>
 
 
@@ -1818,7 +1818,7 @@ Lipase             87     IU/L   ( &lt;60      )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:25:00"/>
+    <diagnosticDateTime value="2012-04-05T23:25:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1901,7 +1901,7 @@ Comment: Instrument differential and parameters reported.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:25:00"/>
+    <diagnosticDateTime value="2012-04-05T23:25:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1944,7 +1944,7 @@ INR               1.2                                            0.8-1.3
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968931-16258678"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -1993,7 +1993,7 @@ Albumin            26     g/L    ( 35-50    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968931-16258677"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2066,7 +2066,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:19:00"/>
+    <diagnosticDateTime value="2012-04-05T23:19:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2121,7 +2121,7 @@ INR               3.0H                                           0.8-1.3
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2178,7 +2178,7 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2247,7 +2247,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:00:00"/>
+    <diagnosticDateTime value="2012-04-05T23:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2328,7 +2328,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:15:00"/>
+    <diagnosticDateTime value="2012-04-05T23:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2388,7 +2388,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:30:00"/>
+    <diagnosticDateTime value="2012-04-05T22:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2453,7 +2453,7 @@ Protein Total      77     g/L    ( 65-85    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:30:00"/>
+    <diagnosticDateTime value="2012-04-05T22:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2522,7 +2522,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:30:00"/>
+    <diagnosticDateTime value="2012-04-05T22:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2589,7 +2589,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:56:00"/>
+    <diagnosticDateTime value="2012-04-05T22:56:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2656,7 +2656,7 @@ Protein Total      70     g/L    ( 65-85    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:56:00"/>
+    <diagnosticDateTime value="2012-04-05T22:56:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2740,7 +2740,7 @@ Comment: Mild neutropenia.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:56:00"/>
+    <diagnosticDateTime value="2012-04-05T22:56:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2821,7 +2821,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:13:00"/>
+    <diagnosticDateTime value="2012-04-05T23:13:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2902,7 +2902,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:13:00"/>
+    <diagnosticDateTime value="2012-04-05T23:13:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -2983,7 +2983,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T23:01:00"/>
+    <diagnosticDateTime value="2012-04-05T23:01:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3064,7 +3064,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:58:00"/>
+    <diagnosticDateTime value="2012-04-05T22:58:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3137,7 +3137,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:57:00"/>
+    <diagnosticDateTime value="2012-04-05T22:57:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3214,7 +3214,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:58:00"/>
+    <diagnosticDateTime value="2012-04-05T22:58:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3295,7 +3295,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:36:00"/>
+    <diagnosticDateTime value="2012-04-05T22:36:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3379,7 +3379,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:36:00"/>
+    <diagnosticDateTime value="2012-04-05T22:36:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3428,7 +3428,7 @@ Specimen Type:  Serum
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:20:00"/>
+    <diagnosticDateTime value="2012-04-05T22:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3489,7 +3489,7 @@ HBsAB Titre                                            :      44 IU/L
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:20:00"/>
+    <diagnosticDateTime value="2012-04-05T22:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3570,7 +3570,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:33:00"/>
+    <diagnosticDateTime value="2012-04-05T22:33:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3625,7 +3625,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:40:00"/>
+    <diagnosticDateTime value="2012-04-05T21:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3706,7 +3706,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:30:00"/>
+    <diagnosticDateTime value="2012-04-05T22:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3754,7 +3754,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968970-16258652"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T22:20:00"/>
+    <diagnosticDateTime value="2012-04-05T22:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3809,7 +3809,7 @@ Anaerobic bottle             4   days                 Negative
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3890,7 +3890,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:28:00"/>
+    <diagnosticDateTime value="2012-04-05T22:28:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -3985,7 +3985,7 @@ perinatal or neonatal infection.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4066,7 +4066,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:25:00"/>
+    <diagnosticDateTime value="2012-04-05T22:25:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4119,7 +4119,7 @@ Comment: sample not protected from light ward notified for
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968950-16258646"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:20:00"/>
+    <diagnosticDateTime value="2012-04-05T20:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4170,7 +4170,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986950-16258645"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:20:00"/>
+    <diagnosticDateTime value="2012-04-05T20:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4220,7 +4220,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986950-16258644"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:20:00"/>
+    <diagnosticDateTime value="2012-04-05T20:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4289,7 +4289,7 @@ Conclusion: No clinical information provided.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968950-16258643"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:20:00"/>
+    <diagnosticDateTime value="2012-04-05T20:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4368,7 +4368,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:24:00"/>
+    <diagnosticDateTime value="2012-04-05T22:24:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4425,7 +4425,7 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:20:00"/>
+    <diagnosticDateTime value="2012-04-05T22:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4504,7 +4504,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:20:00"/>
+    <diagnosticDateTime value="2012-04-05T22:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4564,7 +4564,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:00:00"/>
+    <diagnosticDateTime value="2012-04-05T22:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4629,7 +4629,7 @@ C-React Prot        4     mg/L   ( &lt;5       )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:00:00"/>
+    <diagnosticDateTime value="2012-04-05T22:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4698,7 +4698,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:00:00"/>
+    <diagnosticDateTime value="2012-04-05T22:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4779,7 +4779,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:18:00"/>
+    <diagnosticDateTime value="2012-04-05T22:18:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4831,7 +4831,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968920-16258635"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T22:10:00"/>
+    <diagnosticDateTime value="2012-04-05T22:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4886,7 +4886,7 @@ Protein Total      69     g/L    ( 65-85    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968920-16258634"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T22:10:00"/>
+    <diagnosticDateTime value="2012-04-05T22:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -4956,7 +4956,7 @@ Comment: Note neutrophilia.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986920-16258633"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T22:10:00"/>
+    <diagnosticDateTime value="2012-04-05T22:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5006,7 +5006,7 @@ Troponin I        0.02    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:05:00"/>
+    <diagnosticDateTime value="2012-04-05T22:05:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5056,7 +5056,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:00:00"/>
+    <diagnosticDateTime value="2012-04-05T22:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5106,7 +5106,7 @@ NTRC
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:00:00"/>
+    <diagnosticDateTime value="2012-04-05T22:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5163,7 +5163,7 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:00:00"/>
+    <diagnosticDateTime value="2012-04-05T22:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5232,7 +5232,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:00:00"/>
+    <diagnosticDateTime value="2012-04-05T22:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5277,7 +5277,7 @@ Urea              6.1     mmol/L ( 2.5-8.3  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968889-16258627"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T22:11:00"/>
+    <diagnosticDateTime value="2012-04-05T22:11:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5334,7 +5334,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986889-16258626"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T22:11:00"/>
+    <diagnosticDateTime value="2012-04-05T22:11:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5424,7 +5424,7 @@ culture.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:00:00"/>
+    <diagnosticDateTime value="2012-04-05T22:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5505,7 +5505,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:13:00"/>
+    <diagnosticDateTime value="2012-04-05T22:13:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5550,7 +5550,7 @@ Protein/Creat Ratio              30   mg/mmol Creat   ( 15-35    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968769-16258623"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:11:00"/>
+    <diagnosticDateTime value="2012-04-05T18:11:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5607,7 +5607,7 @@ GROIN SWAB                    VRE not detected
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:00:00"/>
+    <diagnosticDateTime value="2012-04-05T20:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5655,7 +5655,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986859-16258621"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:50:00"/>
+    <diagnosticDateTime value="2012-04-05T21:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5712,7 +5712,7 @@ CK                 43     IU/L   ( &lt;175     )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968859-16258620"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:50:00"/>
+    <diagnosticDateTime value="2012-04-05T21:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5788,7 +5788,7 @@ Conclusion: Known beta thalassaemia minor. Suggest repeat FBE for an
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986859-16258619"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:50:00"/>
+    <diagnosticDateTime value="2012-04-05T21:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5848,7 +5848,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:05:00"/>
+    <diagnosticDateTime value="2012-04-05T22:05:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5927,7 +5927,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T22:05:00"/>
+    <diagnosticDateTime value="2012-04-05T22:05:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -5972,7 +5972,7 @@ Protein/Creat Ratio             232 H mg/mmol Creat   ( 15-35    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968849-16258616"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:58:00"/>
+    <diagnosticDateTime value="2012-04-05T21:58:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6037,7 +6037,7 @@ No Growth -Detection limit 10^7 CFU/L
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968849-16258615"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:58:00"/>
+    <diagnosticDateTime value="2012-04-05T21:58:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6101,7 +6101,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:40:00"/>
+    <diagnosticDateTime value="2012-04-05T21:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6158,7 +6158,7 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:40:00"/>
+    <diagnosticDateTime value="2012-04-05T21:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6227,7 +6227,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:40:00"/>
+    <diagnosticDateTime value="2012-04-05T21:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6273,7 +6273,7 @@ Troponin I        0.04    ug/L   (See Below )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968829-16258611"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:53:00"/>
+    <diagnosticDateTime value="2012-04-05T21:53:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6340,7 +6340,7 @@ Conclusion: Note persistent anaemia.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986829-16258610"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:53:00"/>
+    <diagnosticDateTime value="2012-04-05T21:53:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6389,7 +6389,7 @@ Albumin            28     g/L    ( 35-50    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986819-16258609"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:40:00"/>
+    <diagnosticDateTime value="2012-04-05T21:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6449,7 +6449,7 @@ Comment: Intra-op
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968819-16258608"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:40:00"/>
+    <diagnosticDateTime value="2012-04-05T21:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6505,7 +6505,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968809-16258607"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6586,7 +6586,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:52:00"/>
+    <diagnosticDateTime value="2012-04-05T21:52:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6659,7 +6659,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:49:00"/>
+    <diagnosticDateTime value="2012-04-05T21:49:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6725,7 +6725,7 @@ C-React Prot        5     mg/L   ( &lt;5       )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:40:00"/>
+    <diagnosticDateTime value="2012-04-05T21:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6794,7 +6794,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:40:00"/>
+    <diagnosticDateTime value="2012-04-05T21:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6846,7 +6846,7 @@ LIPIDS
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:44:00"/>
+    <diagnosticDateTime value="2012-04-05T21:44:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6911,7 +6911,7 @@ investigation, please contact the Microbiology Registrar.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:00:00"/>
+    <diagnosticDateTime value="2012-04-05T21:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -6969,7 +6969,7 @@ Standard culture:   ++ Mixed upper respiratory tract flora
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968868-16258600"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7034,7 +7034,7 @@ No Growth -Detection limit 10^7 CFU/L
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968868-16258599"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7077,7 +7077,7 @@ Anaerobic bottle             4   days                 Negative
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968868-16258598"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7131,7 +7131,7 @@ Comment: The requested tests were not completed as no
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7203,7 +7203,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7274,7 +7274,7 @@ culture or special media are required.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7337,7 +7337,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:25:00"/>
+    <diagnosticDateTime value="2012-04-05T21:25:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7395,7 +7395,7 @@ Troponin I        0.02    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:25:00"/>
+    <diagnosticDateTime value="2012-04-05T21:25:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7467,7 +7467,7 @@ Comment: * Please note: no specimen received.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:25:00"/>
+    <diagnosticDateTime value="2012-04-05T21:25:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7530,7 +7530,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:30:00"/>
+    <diagnosticDateTime value="2012-04-05T21:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7611,7 +7611,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:26:00"/>
+    <diagnosticDateTime value="2012-04-05T21:26:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7692,7 +7692,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:22:00"/>
+    <diagnosticDateTime value="2012-04-05T21:22:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7737,7 +7737,7 @@ Urea              7.0     mmol/L ( 2.5-8.3  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986808-16258588"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:10:00"/>
+    <diagnosticDateTime value="2012-04-05T21:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7810,7 +7810,7 @@ Comment: Please note fall in haemoglobin and platelet count since
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968808-16258587"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:10:00"/>
+    <diagnosticDateTime value="2012-04-05T21:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7855,7 +7855,7 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986818-16258586"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:10:00"/>
+    <diagnosticDateTime value="2012-04-05T20:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7900,7 +7900,7 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968818-16258586"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:10:00"/>
+    <diagnosticDateTime value="2012-04-05T20:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -7969,7 +7969,7 @@ Conclusion: Please note fall in haemoglobin since the previous
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968818-16258585"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:10:00"/>
+    <diagnosticDateTime value="2012-04-05T20:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8022,7 +8022,7 @@ Antithrombin (Functional)         88     %      (80-120)
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986818-16258584"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:10:00"/>
+    <diagnosticDateTime value="2012-04-05T20:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8070,7 +8070,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968818-16258583"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:10:00"/>
+    <diagnosticDateTime value="2012-04-05T20:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8137,7 +8137,7 @@ Presumptive  negative for pneumococcal pneumonia.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:17:00"/>
+    <diagnosticDateTime value="2012-04-05T21:17:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8182,7 +8182,7 @@ Urea             16.4     mmol/L ( 2.5-8.3  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968897-16258581"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:05:00"/>
+    <diagnosticDateTime value="2012-04-05T21:05:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8238,7 +8238,7 @@ yeasts                                    Occasional
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968887-16258579"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T21:10:00"/>
+    <diagnosticDateTime value="2012-04-05T21:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8319,7 +8319,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:08:00"/>
+    <diagnosticDateTime value="2012-04-05T21:08:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8372,7 +8372,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T16:52:00"/>
+    <diagnosticDateTime value="2012-04-05T16:52:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8437,7 +8437,7 @@ No Growth -Detection limit 10^7 CFU/L
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968867-16258576"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:20:00"/>
+    <diagnosticDateTime value="2012-04-05T20:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8514,7 +8514,7 @@ No Growth -Detection limit 10^7 CFU/L
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T21:00:00"/>
+    <diagnosticDateTime value="2012-04-05T21:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8579,7 +8579,7 @@ No Growth -Detection limit 10^7 CFU/L
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968857-16258574"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:45:00"/>
+    <diagnosticDateTime value="2012-04-05T20:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8627,7 +8627,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968847-16258573"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:59:00"/>
+    <diagnosticDateTime value="2012-04-05T20:59:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8682,7 +8682,7 @@ Protein Total      55     g/L    ( 65-85    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968847-16258572"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:59:00"/>
+    <diagnosticDateTime value="2012-04-05T20:59:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8757,7 +8757,7 @@ Conclusion: Increase in leucocyte count since the last examination.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968847-16258571"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:59:00"/>
+    <diagnosticDateTime value="2012-04-05T20:59:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8834,7 +8834,7 @@ No Growth -Detection limit 10^7 CFU/L
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:45:00"/>
+    <diagnosticDateTime value="2012-04-05T20:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8877,7 +8877,7 @@ Cortisol Diurnal Variation:AM (0800 - 0900): 150 - 650 nmol/L
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968827-16258569"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:10:00"/>
+    <diagnosticDateTime value="2012-04-05T20:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8923,7 +8923,7 @@ Osmolality        290     mosm/kg( 280-300  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968827-16258568"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:10:00"/>
+    <diagnosticDateTime value="2012-04-05T20:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -8968,7 +8968,7 @@ Urine Osmolality                618   mmol/L          ( 50-1200  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986827-16258567"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:10:00"/>
+    <diagnosticDateTime value="2012-04-05T20:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9049,7 +9049,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:59:00"/>
+    <diagnosticDateTime value="2012-04-05T20:59:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9094,7 +9094,7 @@ Urine Osmolality                612   mmol/L          ( 50-1200  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986817-16258565"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:15:00"/>
+    <diagnosticDateTime value="2012-04-05T20:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9140,7 +9140,7 @@ Osmolality        295     mosm/kg( 280-300  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968817-16258564"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:15:00"/>
+    <diagnosticDateTime value="2012-04-05T20:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9204,7 +9204,7 @@ Protein Total      73     g/L    ( 65-85    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:55:00"/>
+    <diagnosticDateTime value="2012-04-05T20:55:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9283,7 +9283,7 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:55:00"/>
+    <diagnosticDateTime value="2012-04-05T20:55:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9328,7 +9328,7 @@ Urea              4.1     mmol/L ( 2.5-8.3  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968807-16258561"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:56:00"/>
+    <diagnosticDateTime value="2012-04-05T20:56:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9385,7 +9385,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986807-16258560"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:56:00"/>
+    <diagnosticDateTime value="2012-04-05T20:56:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9466,7 +9466,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:56:00"/>
+    <diagnosticDateTime value="2012-04-05T20:56:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9547,7 +9547,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:52:00"/>
+    <diagnosticDateTime value="2012-04-05T20:52:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9604,7 +9604,7 @@ call 1-800-555-2123 to contact the State Department of Health.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968886-16258557"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:52:00"/>
+    <diagnosticDateTime value="2012-04-05T20:52:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9659,7 +9659,7 @@ Anaerobic bottle             4   days                 Negative
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:57:00"/>
+    <diagnosticDateTime value="2012-04-05T18:57:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9732,7 +9732,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:52:00"/>
+    <diagnosticDateTime value="2012-04-05T20:52:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9782,7 +9782,7 @@ Troponin I        0.02    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:30:00"/>
+    <diagnosticDateTime value="2012-04-05T20:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9832,7 +9832,7 @@ C-React Prot      149     mg/L   ( &lt;5       )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:40:00"/>
+    <diagnosticDateTime value="2012-04-05T20:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9887,7 +9887,7 @@ Anaerobic bottle             4   days                 Negative
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:40:00"/>
+    <diagnosticDateTime value="2012-04-05T20:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -9939,7 +9939,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:39:00"/>
+    <diagnosticDateTime value="2012-04-05T20:39:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10008,7 +10008,7 @@ Old Ref Ranges prior to 27th April 2004
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:39:00"/>
+    <diagnosticDateTime value="2012-04-05T20:39:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10079,7 +10079,7 @@ LIPIDS
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:39:00"/>
+    <diagnosticDateTime value="2012-04-05T20:39:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10148,7 +10148,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:39:00"/>
+    <diagnosticDateTime value="2012-04-05T20:39:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10205,7 +10205,7 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:39:00"/>
+    <diagnosticDateTime value="2012-04-05T20:39:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10283,7 +10283,7 @@ Comment: Instrument differential and parameters reported.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:39:00"/>
+    <diagnosticDateTime value="2012-04-05T20:39:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10338,7 +10338,7 @@ Anaerobic bottle             4   days                 Negative
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:39:00"/>
+    <diagnosticDateTime value="2012-04-05T20:39:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10424,7 +10424,7 @@ Timentin         S
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:25:00"/>
+    <diagnosticDateTime value="2012-04-05T20:25:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10484,7 +10484,7 @@ Standard culture:   +++  Mixed upper respiratory tract flora
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968826-16258522"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:38:00"/>
+    <diagnosticDateTime value="2012-04-05T20:38:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10565,7 +10565,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:36:00"/>
+    <diagnosticDateTime value="2012-04-05T20:36:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10623,7 +10623,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:20:00"/>
+    <diagnosticDateTime value="2012-04-05T20:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10666,7 +10666,7 @@ Anaerobic bottle             4   days                 Negative
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968806-16258519"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:06:00"/>
+    <diagnosticDateTime value="2012-04-05T20:06:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10721,7 +10721,7 @@ Protein Total      56     g/L    ( 65-85    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968885-16258518"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:00:00"/>
+    <diagnosticDateTime value="2012-04-05T20:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10803,7 +10803,7 @@ Film Comment : Red cells show some microcytes, elongated cells and mildly
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968885-16258517"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:00:00"/>
+    <diagnosticDateTime value="2012-04-05T20:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10875,7 +10875,7 @@ CULTURE
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -10956,7 +10956,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:21:00"/>
+    <diagnosticDateTime value="2012-04-05T20:21:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11013,7 +11013,7 @@ RECTAL SWAB                   VRE not detected
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:00:00"/>
+    <diagnosticDateTime value="2012-04-05T20:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11063,7 +11063,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:00:00"/>
+    <diagnosticDateTime value="2012-04-05T20:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11111,7 +11111,7 @@ Comment: The requested tests were not completed as the
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968855-16258510"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:12:00"/>
+    <diagnosticDateTime value="2012-04-05T20:12:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11159,7 +11159,7 @@ Comment: The specimen received was mislabeled. The ward has  been
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986855-16258509"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:12:00"/>
+    <diagnosticDateTime value="2012-04-05T20:12:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11228,7 +11228,7 @@ Old Ref Ranges prior to 27th April 2004
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:30:00"/>
+    <diagnosticDateTime value="2012-04-05T19:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11288,7 +11288,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:30:00"/>
+    <diagnosticDateTime value="2012-04-05T19:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11340,7 +11340,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:30:00"/>
+    <diagnosticDateTime value="2012-04-05T19:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11409,7 +11409,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:30:00"/>
+    <diagnosticDateTime value="2012-04-05T19:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11474,7 +11474,7 @@ C-React Prot       12     mg/L   ( &lt;5       )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:30:00"/>
+    <diagnosticDateTime value="2012-04-05T19:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11529,7 +11529,7 @@ Anaerobic bottle             4   days                 Negative
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:04:00"/>
+    <diagnosticDateTime value="2012-04-05T20:04:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11586,7 +11586,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968815-16258501"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:04:00"/>
+    <diagnosticDateTime value="2012-04-05T20:04:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11641,7 +11641,7 @@ Protein Total      51     g/L    ( 65-85    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968815-16258500"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:04:00"/>
+    <diagnosticDateTime value="2012-04-05T20:04:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11710,7 +11710,7 @@ Conclusion: Please note fall in haemoglobin since the previous
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986815-16258499"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T20:04:00"/>
+    <diagnosticDateTime value="2012-04-05T20:04:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11791,7 +11791,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:08:00"/>
+    <diagnosticDateTime value="2012-04-05T20:08:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11872,7 +11872,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:05:00"/>
+    <diagnosticDateTime value="2012-04-05T20:05:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11925,7 +11925,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:50:00"/>
+    <diagnosticDateTime value="2012-04-05T19:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -11994,7 +11994,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:50:00"/>
+    <diagnosticDateTime value="2012-04-05T19:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12056,7 +12056,7 @@ Troponin I        0.03    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:50:00"/>
+    <diagnosticDateTime value="2012-04-05T19:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12122,7 +12122,7 @@ streptococci and diphtheroid bacilli.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986894-16258492"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:40:00"/>
+    <diagnosticDateTime value="2012-04-05T19:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12203,7 +12203,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:02:00"/>
+    <diagnosticDateTime value="2012-04-05T20:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12259,7 +12259,7 @@ G1691A Substitution Result:
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:00:00"/>
+    <diagnosticDateTime value="2012-04-05T20:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12307,7 +12307,7 @@ MicroAlb/Creat Ratio           5.66 H mg/mmol creat   ( &lt;2.5     )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986874-16258489"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:57:00"/>
+    <diagnosticDateTime value="2012-04-05T19:57:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12388,7 +12388,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T20:00:00"/>
+    <diagnosticDateTime value="2012-04-05T20:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12440,7 +12440,7 @@ Protein Total      64     g/L    ( 65-85    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986854-16258486"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:40:00"/>
+    <diagnosticDateTime value="2012-04-05T19:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12497,7 +12497,7 @@ Baso         0.0      0.1      0.0      0.0      0.0   x10^9/L   0.0-0.1
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968854-16258485"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:40:00"/>
+    <diagnosticDateTime value="2012-04-05T19:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12578,7 +12578,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:54:00"/>
+    <diagnosticDateTime value="2012-04-05T19:54:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12642,7 +12642,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:45:00"/>
+    <diagnosticDateTime value="2012-04-05T19:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12709,7 +12709,7 @@ Protein Total      65     g/L    ( 65-85    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:45:00"/>
+    <diagnosticDateTime value="2012-04-05T19:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12781,7 +12781,7 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:45:00"/>
+    <diagnosticDateTime value="2012-04-05T19:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12862,7 +12862,7 @@ emergence of resistance  and clinical failure.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968834-16258480"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T17:00:00"/>
+    <diagnosticDateTime value="2012-04-05T17:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12908,7 +12908,7 @@ C-React Prot       24     mg/L   ( &lt;5       )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968824-16258479"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:45:00"/>
+    <diagnosticDateTime value="2012-04-05T19:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -12978,7 +12978,7 @@ Comment: FBE with BMAT. Report to follow.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968824-16258478"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:45:00"/>
+    <diagnosticDateTime value="2012-04-05T19:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13032,7 +13032,7 @@ Comment: The requested tests were not completed as no sample was
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:45:00"/>
+    <diagnosticDateTime value="2012-04-05T19:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13089,7 +13089,7 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:45:00"/>
+    <diagnosticDateTime value="2012-04-05T19:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13158,7 +13158,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:45:00"/>
+    <diagnosticDateTime value="2012-04-05T19:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13208,7 +13208,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:40:00"/>
+    <diagnosticDateTime value="2012-04-05T19:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13267,7 +13267,7 @@ Comment: The requested tests were not completed as no
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:40:00"/>
+    <diagnosticDateTime value="2012-04-05T19:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13327,7 +13327,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:40:00"/>
+    <diagnosticDateTime value="2012-04-05T19:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13395,7 +13395,7 @@ Comment: Haemolysed. Some tests (*) unavailable.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:40:00"/>
+    <diagnosticDateTime value="2012-04-05T19:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13471,7 +13471,7 @@ Comment: * Specimen clotted. ED informed.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:40:00"/>
+    <diagnosticDateTime value="2012-04-05T19:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13552,7 +13552,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:43:00"/>
+    <diagnosticDateTime value="2012-04-05T19:43:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13620,7 +13620,7 @@ No Growth After 2 Days.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:21:00"/>
+    <diagnosticDateTime value="2012-04-05T19:21:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13680,7 +13680,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:28:00"/>
+    <diagnosticDateTime value="2012-04-05T19:28:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13737,7 +13737,7 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:28:00"/>
+    <diagnosticDateTime value="2012-04-05T19:28:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13809,7 +13809,7 @@ Comment: Please note mild neutrophilia
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:28:00"/>
+    <diagnosticDateTime value="2012-04-05T19:28:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13865,7 +13865,7 @@ Pathologist: To Follow
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968833-16258462"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:20:00"/>
+    <diagnosticDateTime value="2012-04-05T19:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13922,7 +13922,7 @@ Pathologist: To Follow
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968853-16258461"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:23:00"/>
+    <diagnosticDateTime value="2012-04-05T19:23:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -13982,7 +13982,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:24:00"/>
+    <diagnosticDateTime value="2012-04-05T19:24:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14047,7 +14047,7 @@ C-React Prot      109     mg/L   ( &lt;5       )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:24:00"/>
+    <diagnosticDateTime value="2012-04-05T19:24:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14126,7 +14126,7 @@ Comment: Please note mild neutrophilia and mild monocytosis
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:24:00"/>
+    <diagnosticDateTime value="2012-04-05T19:24:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14183,7 +14183,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:20:00"/>
+    <diagnosticDateTime value="2012-04-05T19:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14252,7 +14252,7 @@ Pathologist: To Follow
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:21:00"/>
+    <diagnosticDateTime value="2012-04-05T19:21:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14323,7 +14323,7 @@ the Blood Bank.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:15:00"/>
+    <diagnosticDateTime value="2012-04-05T19:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14396,7 +14396,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:20:00"/>
+    <diagnosticDateTime value="2012-04-05T19:20:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14437,7 +14437,7 @@ Albumin            22     g/L    ( 35-50    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968823-16258453"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14515,7 +14515,7 @@ and diphtheroid bacilli.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:00:00"/>
+    <diagnosticDateTime value="2012-04-05T19:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14571,7 +14571,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986803-16258451"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T19:00:00"/>
+    <diagnosticDateTime value="2012-04-05T19:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14642,7 +14642,7 @@ the Blood Bank.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:10:00"/>
+    <diagnosticDateTime value="2012-04-05T19:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14715,7 +14715,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:11:00"/>
+    <diagnosticDateTime value="2012-04-05T19:11:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14783,7 +14783,7 @@ Comment: The CKMB was not measured on this sample. It has
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:55:00"/>
+    <diagnosticDateTime value="2012-04-05T18:55:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14856,7 +14856,7 @@ Comment: Please note fall in haemoglobin and platelet count since
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:55:00"/>
+    <diagnosticDateTime value="2012-04-05T18:55:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -14924,7 +14924,7 @@ Comment
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T17:15:00"/>
+    <diagnosticDateTime value="2012-04-05T17:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15005,7 +15005,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T19:04:00"/>
+    <diagnosticDateTime value="2012-04-05T19:04:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15060,7 +15060,7 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:50:00"/>
+    <diagnosticDateTime value="2012-04-05T18:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15115,7 +15115,7 @@ Comment: A troponin has been measured for this patient in
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:50:00"/>
+    <diagnosticDateTime value="2012-04-05T18:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15187,7 +15187,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:45:00"/>
+    <diagnosticDateTime value="2012-04-05T18:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15247,7 +15247,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:58:00"/>
+    <diagnosticDateTime value="2012-04-05T18:58:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15314,7 +15314,7 @@ Protein Total      47     g/L    ( 65-85    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:58:00"/>
+    <diagnosticDateTime value="2012-04-05T18:58:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15387,7 +15387,7 @@ Comment: Please note fall in haemoglobin and platelet count since
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:58:00"/>
+    <diagnosticDateTime value="2012-04-05T18:58:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15437,7 +15437,7 @@ NTRC
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:30:00"/>
+    <diagnosticDateTime value="2012-04-05T18:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15498,7 +15498,7 @@ Albumin            34     g/L    ( 35-50    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:30:00"/>
+    <diagnosticDateTime value="2012-04-05T18:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15567,7 +15567,7 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:30:00"/>
+    <diagnosticDateTime value="2012-04-05T18:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15622,7 +15622,7 @@ Anaerobic bottle             4   days                 Negative
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:57:00"/>
+    <diagnosticDateTime value="2012-04-05T18:57:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15683,7 +15683,7 @@ General Comments:
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:56:00"/>
+    <diagnosticDateTime value="2012-04-05T18:56:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15744,7 +15744,7 @@ Standard culture:   +++  Mixed upper respiratory tract flora
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968822-16258433"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:05:00"/>
+    <diagnosticDateTime value="2012-04-05T18:05:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15839,7 +15839,7 @@ Comment: Post platelet increment
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T17:45:00"/>
+    <diagnosticDateTime value="2012-04-05T17:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15878,7 +15878,7 @@ Lipase            741     IU/L   ( &lt;60      )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968891-16258431"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -15939,7 +15939,7 @@ Albumin            27     g/L    ( 35-50    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T17:45:00"/>
+    <diagnosticDateTime value="2012-04-05T17:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16016,7 +16016,7 @@ Comment: Instrument differential and parameters reported.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T17:45:00"/>
+    <diagnosticDateTime value="2012-04-05T17:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16081,7 +16081,7 @@ Conclusion: ? Post-op.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986851-16258425"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16162,7 +16162,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:54:00"/>
+    <diagnosticDateTime value="2012-04-05T18:54:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16212,7 +16212,7 @@ NTRS
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:46:00"/>
+    <diagnosticDateTime value="2012-04-05T18:46:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16274,7 +16274,7 @@ Post Dose (Peak) level : Not recommended
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:46:00"/>
+    <diagnosticDateTime value="2012-04-05T18:46:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16339,7 +16339,7 @@ C-React Prot       19     mg/L   ( &lt;5       )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:46:00"/>
+    <diagnosticDateTime value="2012-04-05T18:46:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16412,7 +16412,7 @@ Comment: Note: mild neutrophilia. Instrument differential and
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:46:00"/>
+    <diagnosticDateTime value="2012-04-05T18:46:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16489,7 +16489,7 @@ No Growth -Detection limit 10^7 CFU/L
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:45:00"/>
+    <diagnosticDateTime value="2012-04-05T18:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16537,7 +16537,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968821-16258418"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:49:00"/>
+    <diagnosticDateTime value="2012-04-05T18:49:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16591,7 +16591,7 @@ Comment: The CKMB was not measured on this sample. It has
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968821-16258417"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:49:00"/>
+    <diagnosticDateTime value="2012-04-05T18:49:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16652,7 +16652,7 @@ Comment: Please note fall in haemoglobin and platelet count since
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968821-16258416"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:49:00"/>
+    <diagnosticDateTime value="2012-04-05T18:49:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16689,7 +16689,7 @@ Blank Report?
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986811-16258415"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T17:50:00"/>
+    <diagnosticDateTime value="2012-04-05T17:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16743,7 +16743,7 @@ sera. This serum sample has been stored for 3 months.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968811-16258414"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T17:50:00"/>
+    <diagnosticDateTime value="2012-04-05T17:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16783,7 +16783,7 @@ HIV-1/2 Ag/Ab Combo by Architect:
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968811-16258413"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T17:50:00"/>
+    <diagnosticDateTime value="2012-04-05T17:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16828,7 +16828,7 @@ Antinuclear abs     TF
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986811-16258412"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T17:50:00"/>
+    <diagnosticDateTime value="2012-04-05T17:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16879,7 +16879,7 @@ Old Ref Ranges prior to 27th April 2004
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986811-16258411"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T17:50:00"/>
+    <diagnosticDateTime value="2012-04-05T17:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16937,7 +16937,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986811-16258410"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T17:50:00"/>
+    <diagnosticDateTime value="2012-04-05T17:50:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -16987,7 +16987,7 @@ NTRESR
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T11:45:00"/>
+    <diagnosticDateTime value="2012-04-05T11:45:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17037,7 +17037,7 @@ NTRESR
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T08:30:00"/>
+    <diagnosticDateTime value="2012-04-05T08:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17085,7 +17085,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z564933-16258407"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:30:00"/>
+    <diagnosticDateTime value="2012-04-05T18:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17130,7 +17130,7 @@ Urea              6.8     mmol/L ( 2.5-8.3  )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z564933-16258406"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:30:00"/>
+    <diagnosticDateTime value="2012-04-05T18:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17187,7 +17187,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z564933-16258405"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:30:00"/>
+    <diagnosticDateTime value="2012-04-05T18:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17242,7 +17242,7 @@ Anaerobic bottle             4   days                 Negative
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:44:00"/>
+    <diagnosticDateTime value="2012-04-05T18:44:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17281,7 +17281,7 @@ NTRF
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968890-16258403"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:40:00"/>
+    <diagnosticDateTime value="2012-04-05T18:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17324,7 +17324,7 @@ Anaerobic bottle             4   days                 Negative
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986890-16258402"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:40:00"/>
+    <diagnosticDateTime value="2012-04-05T18:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17372,7 +17372,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986890-16258401"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:40:00"/>
+    <diagnosticDateTime value="2012-04-05T18:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17430,7 +17430,7 @@ C-React Prot      184     mg/L   ( &lt;5       )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986890-16258400"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:40:00"/>
+    <diagnosticDateTime value="2012-04-05T18:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17498,7 +17498,7 @@ Conclusion: Please note fall in haemoglobin since the previous
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968890-16258399"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:40:00"/>
+    <diagnosticDateTime value="2012-04-05T18:40:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17555,7 +17555,7 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:30:00"/>
+    <diagnosticDateTime value="2012-04-05T18:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17636,7 +17636,7 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:30:00"/>
+    <diagnosticDateTime value="2012-04-05T18:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17701,7 +17701,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:35:00"/>
+    <diagnosticDateTime value="2012-04-05T18:35:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17770,7 +17770,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:35:00"/>
+    <diagnosticDateTime value="2012-04-05T18:35:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17813,7 +17813,7 @@ Anaerobic bottle             4   days                 Negative
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986850-16258393"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17866,7 +17866,7 @@ C-React Prot       54     mg/L   ( &lt;5       )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986850-16258392"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17929,7 +17929,7 @@ Conclusion: ? Cause of persistent mild thrombocytopenia.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968850-16258391"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -17984,7 +17984,7 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:15:00"/>
+    <diagnosticDateTime value="2012-04-05T18:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18048,7 +18048,7 @@ Protein Total      80     g/L    ( 65-85    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:18:00"/>
+    <diagnosticDateTime value="2012-04-05T18:18:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18117,7 +18117,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:18:00"/>
+    <diagnosticDateTime value="2012-04-05T18:18:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18186,7 +18186,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:18:00"/>
+    <diagnosticDateTime value="2012-04-05T18:18:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18232,7 +18232,7 @@ Troponin I        1.02    ug/L   (See Below )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968830-16258387"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:15:00"/>
+    <diagnosticDateTime value="2012-04-05T18:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18275,7 +18275,7 @@ Anaerobic bottle             4   days                 Negative
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986820-16258386"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:15:00"/>
+    <diagnosticDateTime value="2012-04-05T18:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18330,7 +18330,7 @@ INR               1.0                                            0.8-1.3
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:15:00"/>
+    <diagnosticDateTime value="2012-04-05T18:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18383,7 +18383,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:15:00"/>
+    <diagnosticDateTime value="2012-04-05T18:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18455,7 +18455,7 @@ Comment: Please note mild neutrophilia
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:15:00"/>
+    <diagnosticDateTime value="2012-04-05T18:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18519,7 +18519,7 @@ Protein Total      67     g/L    ( 65-85    )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:15:00"/>
+    <diagnosticDateTime value="2012-04-05T18:15:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18578,7 +18578,7 @@ Comments / Steps Taken
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:02:00"/>
+    <diagnosticDateTime value="2012-04-05T18:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18651,7 +18651,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:24:00"/>
+    <diagnosticDateTime value="2012-04-05T18:24:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18719,7 +18719,7 @@ Conclusion: * Film shows fibrin strands suggestive of a partially
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968810-16258378"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:05:00"/>
+    <diagnosticDateTime value="2012-04-05T18:05:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18776,7 +18776,7 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18848,7 +18848,7 @@ Comment: Please note mild monocytosis
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18905,7 +18905,7 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -18950,7 +18950,7 @@ HbA1c(HPLC)               %      (See Below)
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986799-16258374"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19036,7 +19036,7 @@ Conclusion: Recent tissue damage/trauma.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968799-16258373"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19090,7 +19090,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968799-16258372"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19145,7 +19145,7 @@ Amylase            51     IU/L   ( 22-100   )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968799-16258371"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19219,7 +19219,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19300,7 +19300,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:18:00"/>
+    <diagnosticDateTime value="2012-04-05T18:18:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19352,7 +19352,7 @@ Amylase           390 IU/L
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19418,7 +19418,7 @@ streptococci, diphtheroid bacilli \T\ gram negative bacilli.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986769-16258366"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:11:00"/>
+    <diagnosticDateTime value="2012-04-05T18:11:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19479,7 +19479,7 @@ No Beta haemolytic streptococci isolated.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19544,7 +19544,7 @@ be processed.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19595,7 +19595,7 @@ sera. This serum sample has been stored for 3 months.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968749-16258363"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19638,7 +19638,7 @@ Anaerobic bottle             4   days                 Negative
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968749-16258362"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19691,7 +19691,7 @@ C-React Prot       44     mg/L   ( &lt;5       )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968749-16258361"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19753,7 +19753,7 @@ Conclusion: Suggest repeat FBE to confirm platelet count.
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986749-16258360"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19811,7 +19811,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:02:00"/>
+    <diagnosticDateTime value="2012-04-05T18:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19880,7 +19880,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:02:00"/>
+    <diagnosticDateTime value="2012-04-05T18:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -19961,7 +19961,7 @@ Note: Reference Ranges shown are for arterial blood only.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:10:00"/>
+    <diagnosticDateTime value="2012-04-05T18:10:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20017,7 +20017,7 @@ G1691A Substitution Result:
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:02:00"/>
+    <diagnosticDateTime value="2012-04-05T18:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20075,7 +20075,7 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:02:00"/>
+    <diagnosticDateTime value="2012-04-05T18:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20140,7 +20140,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:02:00"/>
+    <diagnosticDateTime value="2012-04-05T18:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20218,7 +20218,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:02:00"/>
+    <diagnosticDateTime value="2012-04-05T18:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20282,7 +20282,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:02:00"/>
+    <diagnosticDateTime value="2012-04-05T18:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20347,7 +20347,7 @@ Lupus Inhibitor Comment:
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:02:00"/>
+    <diagnosticDateTime value="2012-04-05T18:02:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20384,7 +20384,7 @@ Blank Report?
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z986729-16258349"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T17:12:00"/>
+    <diagnosticDateTime value="2012-04-05T17:12:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20433,7 +20433,7 @@ Albumin            23     g/L    ( 35-50    )
       <system value="http://acme.com/lab/reports"/>
       <value value="12Z968798-16258348"/>
     </identifier>
-    <diagnosticDateTime value="2012-04-05T17:30:00"/>
+    <diagnosticDateTime value="2012-04-05T17:30:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20512,7 +20512,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20581,7 +20581,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20641,7 +20641,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20709,7 +20709,7 @@ EtOH              0.02    gm%
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T18:00:00"/>
+    <diagnosticDateTime value="2012-04-05T18:00:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20778,7 +20778,7 @@ Old Ref Ranges prior to 27th April 2004
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T17:39:00"/>
+    <diagnosticDateTime value="2012-04-05T17:39:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20831,7 +20831,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T17:39:00"/>
+    <diagnosticDateTime value="2012-04-05T17:39:00Z"/>
    </DiagnosticReport>
 
     </resource>
@@ -20902,7 +20902,7 @@ LIPIDS
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>
-    <diagnosticDateTime value="2012-04-05T17:39:00"/>
+    <diagnosticDateTime value="2012-04-05T17:39:00Z"/>
    </DiagnosticReport>
 
     </resource>

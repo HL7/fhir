@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -200,6 +200,16 @@ public class Medication extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public MedicationProductComponent addIngredient(MedicationProductIngredientComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.ingredient == null)
+            this.ingredient = new ArrayList<MedicationProductIngredientComponent>();
+          this.ingredient.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #batch} (Information about a group of medication produced or packaged from one production run.)
          */
@@ -228,6 +238,16 @@ public class Medication extends DomainResource {
             this.batch = new ArrayList<MedicationProductBatchComponent>();
           this.batch.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public MedicationProductComponent addBatch(MedicationProductBatchComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.batch == null)
+            this.batch = new ArrayList<MedicationProductBatchComponent>();
+          this.batch.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -655,6 +675,16 @@ public class Medication extends DomainResource {
             this.content = new ArrayList<MedicationPackageContentComponent>();
           this.content.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public MedicationPackageComponent addContent(MedicationPackageContentComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.content == null)
+            this.content = new ArrayList<MedicationPackageContentComponent>();
+          this.content.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {

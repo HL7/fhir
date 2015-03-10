@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -129,6 +129,16 @@ public class ClinicalAssessment extends DomainResource {
             this.item = new ArrayList<Reference>();
           this.item.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ClinicalAssessmentInvestigationsComponent addItem(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.item == null)
+            this.item = new ArrayList<Reference>();
+          this.item.add(t);
+          return this;
         }
 
         /**
@@ -895,6 +905,16 @@ public class ClinicalAssessment extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ClinicalAssessment addProblem(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.problem == null)
+        this.problem = new ArrayList<Reference>();
+      this.problem.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #problem} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. This a list of the general problems/conditions for a patient.)
      */
@@ -1020,6 +1040,16 @@ public class ClinicalAssessment extends DomainResource {
         this.investigations = new ArrayList<ClinicalAssessmentInvestigationsComponent>();
       this.investigations.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ClinicalAssessment addInvestigations(ClinicalAssessmentInvestigationsComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.investigations == null)
+        this.investigations = new ArrayList<ClinicalAssessmentInvestigationsComponent>();
+      this.investigations.add(t);
+      return this;
     }
 
     /**
@@ -1150,6 +1180,16 @@ public class ClinicalAssessment extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ClinicalAssessment addDiagnosis(ClinicalAssessmentDiagnosisComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.diagnosis == null)
+        this.diagnosis = new ArrayList<ClinicalAssessmentDiagnosisComponent>();
+      this.diagnosis.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #resolved} (Diagnoses/conditions resolved since the last assessment.)
      */
@@ -1180,6 +1220,16 @@ public class ClinicalAssessment extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ClinicalAssessment addResolved(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.resolved == null)
+        this.resolved = new ArrayList<CodeableConcept>();
+      this.resolved.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #ruledOut} (Diagnosis considered not possible.)
      */
@@ -1208,6 +1258,16 @@ public class ClinicalAssessment extends DomainResource {
         this.ruledOut = new ArrayList<ClinicalAssessmentRuledOutComponent>();
       this.ruledOut.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ClinicalAssessment addRuledOut(ClinicalAssessmentRuledOutComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.ruledOut == null)
+        this.ruledOut = new ArrayList<ClinicalAssessmentRuledOutComponent>();
+      this.ruledOut.add(t);
+      return this;
     }
 
     /**
@@ -1331,6 +1391,16 @@ public class ClinicalAssessment extends DomainResource {
         this.action = new ArrayList<Reference>();
       this.action.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ClinicalAssessment addAction(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.action == null)
+        this.action = new ArrayList<Reference>();
+      this.action.add(t);
+      return this;
     }
 
     /**

@@ -37,6 +37,7 @@ import java.util.Map;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.instance.model.Parameters;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 
@@ -379,4 +380,15 @@ public interface IFHIRClient {
 	 * @throws Exception 
 	 */
   public ValueSet expandValueset(ValueSet source) throws Exception;
+
+
+  /**
+   * Invoke an operation at the type level
+   * 
+   * @param resourceClass - the type on which to perform the operation
+   * @param name - the name of the operation to invoke
+   * @param params - parameters to pass to the operation. If the parameters are all simple, a GET will be performed
+   * @return
+   */
+	public <T extends Resource> Parameters operateType(Class<T> resourceClass, String name, Parameters params);
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -631,6 +631,16 @@ public class Encounter extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public EncounterParticipantComponent addType(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.type == null)
+            this.type = new ArrayList<CodeableConcept>();
+          this.type.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #period} (The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period.)
          */
@@ -981,6 +991,16 @@ public class Encounter extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public EncounterHospitalizationComponent addSpecialCourtesy(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.specialCourtesy == null)
+            this.specialCourtesy = new ArrayList<CodeableConcept>();
+          this.specialCourtesy.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #specialArrangement} (Wheelchair, translator, stretcher, etc.)
          */
@@ -1009,6 +1029,16 @@ public class Encounter extends DomainResource {
             this.specialArrangement = new ArrayList<CodeableConcept>();
           this.specialArrangement.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public EncounterHospitalizationComponent addSpecialArrangement(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.specialArrangement == null)
+            this.specialArrangement = new ArrayList<CodeableConcept>();
+          this.specialArrangement.add(t);
+          return this;
         }
 
         /**
@@ -1634,6 +1664,16 @@ public class Encounter extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Encounter addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #status} (planned | arrived | in-progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
@@ -1709,6 +1749,16 @@ public class Encounter extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Encounter addStatusHistory(EncounterStatusHistoryComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.statusHistory == null)
+        this.statusHistory = new ArrayList<EncounterStatusHistoryComponent>();
+      this.statusHistory.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
      */
@@ -1782,6 +1832,16 @@ public class Encounter extends DomainResource {
         this.type = new ArrayList<CodeableConcept>();
       this.type.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Encounter addType(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
+      this.type.add(t);
+      return this;
     }
 
     /**
@@ -1900,6 +1960,16 @@ public class Encounter extends DomainResource {
         this.participant = new ArrayList<EncounterParticipantComponent>();
       this.participant.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Encounter addParticipant(EncounterParticipantComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.participant == null)
+        this.participant = new ArrayList<EncounterParticipantComponent>();
+      this.participant.add(t);
+      return this;
     }
 
     /**
@@ -2048,6 +2118,16 @@ public class Encounter extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Encounter addIndication(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.indication == null)
+        this.indication = new ArrayList<Reference>();
+      this.indication.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #indication} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
      */
@@ -2133,6 +2213,16 @@ public class Encounter extends DomainResource {
         this.location = new ArrayList<EncounterLocationComponent>();
       this.location.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Encounter addLocation(EncounterLocationComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.location == null)
+        this.location = new ArrayList<EncounterLocationComponent>();
+      this.location.add(t);
+      return this;
     }
 
     /**

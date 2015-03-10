@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -124,6 +124,16 @@ public class HealthcareService extends DomainResource {
             this.specialty = new ArrayList<CodeableConcept>();
           this.specialty.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ServiceTypeComponent addSpecialty(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.specialty == null)
+            this.specialty = new ArrayList<CodeableConcept>();
+          this.specialty.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -235,6 +245,16 @@ public class HealthcareService extends DomainResource {
             this.daysOfWeek = new ArrayList<CodeableConcept>();
           this.daysOfWeek.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public HealthcareServiceAvailableTimeComponent addDaysOfWeek(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.daysOfWeek == null)
+            this.daysOfWeek = new ArrayList<CodeableConcept>();
+          this.daysOfWeek.add(t);
+          return this;
         }
 
         /**
@@ -875,6 +895,16 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public HealthcareService addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #location} (The location where this healthcare service may be provided.)
      */
@@ -971,6 +1001,16 @@ public class HealthcareService extends DomainResource {
         this.serviceType = new ArrayList<ServiceTypeComponent>();
       this.serviceType.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public HealthcareService addServiceType(ServiceTypeComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.serviceType == null)
+        this.serviceType = new ArrayList<ServiceTypeComponent>();
+      this.serviceType.add(t);
+      return this;
     }
 
     /**
@@ -1320,6 +1360,16 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public HealthcareService addAvailableTime(HealthcareServiceAvailableTimeComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.availableTime == null)
+        this.availableTime = new ArrayList<HealthcareServiceAvailableTimeComponent>();
+      this.availableTime.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #notAvailableTime} (Not avail times - need better description.)
      */
@@ -1348,6 +1398,16 @@ public class HealthcareService extends DomainResource {
         this.notAvailableTime = new ArrayList<HealthcareServiceNotAvailableTimeComponent>();
       this.notAvailableTime.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public HealthcareService addNotAvailableTime(HealthcareServiceNotAvailableTimeComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.notAvailableTime == null)
+        this.notAvailableTime = new ArrayList<HealthcareServiceNotAvailableTimeComponent>();
+      this.notAvailableTime.add(t);
+      return this;
     }
 
     /**
@@ -1532,6 +1592,16 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public HealthcareService addContactPoint(ContactPoint t) { //3
+      if (t == null)
+        return this;
+      if (this.contactPoint == null)
+        this.contactPoint = new ArrayList<ContactPoint>();
+      this.contactPoint.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #characteristic} (Collection of Characteristics (attributes).)
      */
@@ -1560,6 +1630,16 @@ public class HealthcareService extends DomainResource {
         this.characteristic = new ArrayList<CodeableConcept>();
       this.characteristic.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public HealthcareService addCharacteristic(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.characteristic == null)
+        this.characteristic = new ArrayList<CodeableConcept>();
+      this.characteristic.add(t);
+      return this;
     }
 
     /**
@@ -1592,6 +1672,16 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public HealthcareService addReferralMethod(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.referralMethod == null)
+        this.referralMethod = new ArrayList<CodeableConcept>();
+      this.referralMethod.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #setting} (The setting where this service can be provided, such is in home, or at location in organisation.)
      */
@@ -1620,6 +1710,16 @@ public class HealthcareService extends DomainResource {
         this.setting = new ArrayList<CodeableConcept>();
       this.setting.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public HealthcareService addSetting(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.setting == null)
+        this.setting = new ArrayList<CodeableConcept>();
+      this.setting.add(t);
+      return this;
     }
 
     /**
@@ -1652,6 +1752,16 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public HealthcareService addTargetGroup(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.targetGroup == null)
+        this.targetGroup = new ArrayList<CodeableConcept>();
+      this.targetGroup.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #coverageArea} (Need better description.)
      */
@@ -1680,6 +1790,16 @@ public class HealthcareService extends DomainResource {
         this.coverageArea = new ArrayList<CodeableConcept>();
       this.coverageArea.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public HealthcareService addCoverageArea(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.coverageArea == null)
+        this.coverageArea = new ArrayList<CodeableConcept>();
+      this.coverageArea.add(t);
+      return this;
     }
 
     /**
@@ -1712,6 +1832,16 @@ public class HealthcareService extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public HealthcareService addCatchmentArea(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.catchmentArea == null)
+        this.catchmentArea = new ArrayList<CodeableConcept>();
+      this.catchmentArea.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #serviceCode} (List of the specific.)
      */
@@ -1740,6 +1870,16 @@ public class HealthcareService extends DomainResource {
         this.serviceCode = new ArrayList<CodeableConcept>();
       this.serviceCode.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public HealthcareService addServiceCode(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.serviceCode == null)
+        this.serviceCode = new ArrayList<CodeableConcept>();
+      this.serviceCode.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -51,9 +51,9 @@ public class ProcedureRequest extends DomainResource {
          */
         PROPOSED, 
         /**
-         * The request has been planned.
+         * The request is in preliminary form, prior to being requested.
          */
-        PLANNED, 
+        DRAFT, 
         /**
          * The request has been placed.
          */
@@ -95,8 +95,8 @@ public class ProcedureRequest extends DomainResource {
                 return null;
         if ("proposed".equals(codeString))
           return PROPOSED;
-        if ("planned".equals(codeString))
-          return PLANNED;
+        if ("draft".equals(codeString))
+          return DRAFT;
         if ("requested".equals(codeString))
           return REQUESTED;
         if ("received".equals(codeString))
@@ -118,7 +118,7 @@ public class ProcedureRequest extends DomainResource {
         public String toCode() {
           switch (this) {
             case PROPOSED: return "proposed";
-            case PLANNED: return "planned";
+            case DRAFT: return "draft";
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
@@ -133,7 +133,7 @@ public class ProcedureRequest extends DomainResource {
         public String getSystem() {
           switch (this) {
             case PROPOSED: return "";
-            case PLANNED: return "";
+            case DRAFT: return "";
             case REQUESTED: return "";
             case RECEIVED: return "";
             case ACCEPTED: return "";
@@ -148,7 +148,7 @@ public class ProcedureRequest extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case PROPOSED: return "The request has been proposed.";
-            case PLANNED: return "The request has been planned.";
+            case DRAFT: return "The request is in preliminary form, prior to being requested.";
             case REQUESTED: return "The request has been placed.";
             case RECEIVED: return "The receiving system has received the request but not yet decided whether it will be performed.";
             case ACCEPTED: return "The receiving system has accepted the request, but work has not yet commenced.";
@@ -163,7 +163,7 @@ public class ProcedureRequest extends DomainResource {
         public String getDisplay() {
           switch (this) {
             case PROPOSED: return "Proposed";
-            case PLANNED: return "Planned";
+            case DRAFT: return "Draft";
             case REQUESTED: return "Requested";
             case RECEIVED: return "Received";
             case ACCEPTED: return "Accepted";
@@ -184,8 +184,8 @@ public class ProcedureRequest extends DomainResource {
                 return null;
         if ("proposed".equals(codeString))
           return ProcedureRequestStatus.PROPOSED;
-        if ("planned".equals(codeString))
-          return ProcedureRequestStatus.PLANNED;
+        if ("draft".equals(codeString))
+          return ProcedureRequestStatus.DRAFT;
         if ("requested".equals(codeString))
           return ProcedureRequestStatus.REQUESTED;
         if ("received".equals(codeString))
@@ -207,8 +207,8 @@ public class ProcedureRequest extends DomainResource {
     public String toCode(ProcedureRequestStatus code) {
       if (code == ProcedureRequestStatus.PROPOSED)
         return "proposed";
-      if (code == ProcedureRequestStatus.PLANNED)
-        return "planned";
+      if (code == ProcedureRequestStatus.DRAFT)
+        return "draft";
       if (code == ProcedureRequestStatus.REQUESTED)
         return "requested";
       if (code == ProcedureRequestStatus.RECEIVED)
@@ -404,7 +404,7 @@ public class ProcedureRequest extends DomainResource {
      * The status of the order.
      */
     @Child(name="status", type={CodeType.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | aborted", formalDefinition="The status of the order." )
+    @Description(shortDefinition="proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted", formalDefinition="The status of the order." )
     protected Enumeration<ProcedureRequestStatus> status;
 
     /**
@@ -487,6 +487,16 @@ public class ProcedureRequest extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ProcedureRequest addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
     }
 
     /**
@@ -622,6 +632,16 @@ public class ProcedureRequest extends DomainResource {
         this.indication = new ArrayList<CodeableConcept>();
       this.indication.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ProcedureRequest addIndication(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.indication == null)
+        this.indication = new ArrayList<CodeableConcept>();
+      this.indication.add(t);
+      return this;
     }
 
     /**

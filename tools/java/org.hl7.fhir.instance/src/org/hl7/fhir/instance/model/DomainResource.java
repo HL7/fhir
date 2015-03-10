@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -153,6 +153,16 @@ public abstract class DomainResource extends Resource {
       return t;
     }
 
+    // syntactic sugar
+    public DomainResource addExtension(Extension t) { //3
+      if (t == null)
+        return this;
+      if (this.extension == null)
+        this.extension = new ArrayList<Extension>();
+      this.extension.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #modifierExtension} (May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.)
      */
@@ -181,6 +191,16 @@ public abstract class DomainResource extends Resource {
         this.modifierExtension = new ArrayList<Extension>();
       this.modifierExtension.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DomainResource addModifierExtension(Extension t) { //3
+      if (t == null)
+        return this;
+      if (this.modifierExtension == null)
+        this.modifierExtension = new ArrayList<Extension>();
+      this.modifierExtension.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

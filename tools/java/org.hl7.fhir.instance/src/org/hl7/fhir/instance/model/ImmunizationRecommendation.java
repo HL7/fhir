@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -294,6 +294,16 @@ public class ImmunizationRecommendation extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ImmunizationRecommendationRecommendationComponent addDateCriterion(ImmunizationRecommendationRecommendationDateCriterionComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.dateCriterion == null)
+            this.dateCriterion = new ArrayList<ImmunizationRecommendationRecommendationDateCriterionComponent>();
+          this.dateCriterion.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #protocol} (Contains information about the protocol under which the vaccine was administered.)
          */
@@ -348,6 +358,16 @@ public class ImmunizationRecommendation extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ImmunizationRecommendationRecommendationComponent addSupportingImmunization(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.supportingImmunization == null)
+            this.supportingImmunization = new ArrayList<Reference>();
+          this.supportingImmunization.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #supportingImmunization} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Immunization event history that supports the status and recommendation.)
          */
@@ -397,6 +417,16 @@ public class ImmunizationRecommendation extends DomainResource {
             this.supportingPatientInformation = new ArrayList<Reference>();
           this.supportingPatientInformation.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ImmunizationRecommendationRecommendationComponent addSupportingPatientInformation(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.supportingPatientInformation == null)
+            this.supportingPatientInformation = new ArrayList<Reference>();
+          this.supportingPatientInformation.add(t);
+          return this;
         }
 
         /**
@@ -959,6 +989,16 @@ public class ImmunizationRecommendation extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public ImmunizationRecommendation addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #patient} (The patient for whom the recommendations are for.)
      */
@@ -1031,6 +1071,16 @@ public class ImmunizationRecommendation extends DomainResource {
         this.recommendation = new ArrayList<ImmunizationRecommendationRecommendationComponent>();
       this.recommendation.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public ImmunizationRecommendation addRecommendation(ImmunizationRecommendationRecommendationComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.recommendation == null)
+        this.recommendation = new ArrayList<ImmunizationRecommendationRecommendationComponent>();
+      this.recommendation.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

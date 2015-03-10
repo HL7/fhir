@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -415,6 +415,16 @@ public class FamilyHistory extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public FamilyHistoryRelationComponent addCondition(FamilyHistoryRelationConditionComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.condition == null)
+            this.condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
+          this.condition.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "This will either be a name or a description.  E.g. 'Aunt Susan', 'my cousin with the red hair'.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -784,6 +794,16 @@ public class FamilyHistory extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public FamilyHistory addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #patient} (The person who this history concerns.)
      */
@@ -954,6 +974,16 @@ public class FamilyHistory extends DomainResource {
         this.relation = new ArrayList<FamilyHistoryRelationComponent>();
       this.relation.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public FamilyHistory addRelation(FamilyHistoryRelationComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.relation == null)
+        this.relation = new ArrayList<FamilyHistoryRelationComponent>();
+      this.relation.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

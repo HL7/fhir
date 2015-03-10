@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -403,6 +403,16 @@ public class Communication extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Communication addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #category} (The type of message such as alert, notification, reminder, instruction, etc.)
      */
@@ -496,6 +506,16 @@ public class Communication extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Communication addRecipient(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
+      this.recipient.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The entity (e.g., person, organization, clinical information system, or device) which is the target of the communication.)
      */
@@ -535,6 +555,16 @@ public class Communication extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Communication addPayload(CommunicationPayloadComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.payload == null)
+        this.payload = new ArrayList<CommunicationPayloadComponent>();
+      this.payload.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #medium} (The communication medium, e.g., email, fax.)
      */
@@ -563,6 +593,16 @@ public class Communication extends DomainResource {
         this.medium = new ArrayList<CodeableConcept>();
       this.medium.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Communication addMedium(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.medium == null)
+        this.medium = new ArrayList<CodeableConcept>();
+      this.medium.add(t);
+      return this;
     }
 
     /**
@@ -784,6 +824,16 @@ public class Communication extends DomainResource {
         this.reason = new ArrayList<CodeableConcept>();
       this.reason.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Communication addReason(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      this.reason.add(t);
+      return this;
     }
 
     /**

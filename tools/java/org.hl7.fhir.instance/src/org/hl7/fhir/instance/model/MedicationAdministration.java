@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -601,6 +601,16 @@ public class MedicationAdministration extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public MedicationAdministration addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #status} (Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
@@ -897,6 +907,16 @@ public class MedicationAdministration extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public MedicationAdministration addReasonNotGiven(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.reasonNotGiven == null)
+        this.reasonNotGiven = new ArrayList<CodeableConcept>();
+      this.reasonNotGiven.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #reasonGiven} (A code indicating why the medication was given.)
      */
@@ -925,6 +945,16 @@ public class MedicationAdministration extends DomainResource {
         this.reasonGiven = new ArrayList<CodeableConcept>();
       this.reasonGiven.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public MedicationAdministration addReasonGiven(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.reasonGiven == null)
+        this.reasonGiven = new ArrayList<CodeableConcept>();
+      this.reasonGiven.add(t);
+      return this;
     }
 
     /**
@@ -1036,6 +1066,16 @@ public class MedicationAdministration extends DomainResource {
         this.device = new ArrayList<Reference>();
       this.device.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public MedicationAdministration addDevice(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.device == null)
+        this.device = new ArrayList<Reference>();
+      this.device.add(t);
+      return this;
     }
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -694,6 +694,16 @@ public class Supply extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public SupplyDispenseComponent addReceiver(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.receiver == null)
+            this.receiver = new ArrayList<Reference>();
+          this.receiver.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #receiver} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the Supply.)
          */
@@ -1049,6 +1059,16 @@ public class Supply extends DomainResource {
         this.dispense = new ArrayList<SupplyDispenseComponent>();
       this.dispense.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Supply addDispense(SupplyDispenseComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.dispense == null)
+        this.dispense = new ArrayList<SupplyDispenseComponent>();
+      this.dispense.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

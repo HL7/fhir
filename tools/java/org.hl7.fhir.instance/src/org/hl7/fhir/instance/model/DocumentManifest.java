@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -293,6 +293,16 @@ public class DocumentManifest extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DocumentManifest addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
@@ -362,6 +372,16 @@ public class DocumentManifest extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DocumentManifest addRecipient(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
+      this.recipient.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A patient, practitioner, or organization for which this set of documents is intended.)
      */
@@ -423,6 +443,16 @@ public class DocumentManifest extends DomainResource {
         this.author = new ArrayList<Reference>();
       this.author.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DocumentManifest addAuthor(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.author == null)
+        this.author = new ArrayList<Reference>();
+      this.author.add(t);
+      return this;
     }
 
     /**
@@ -654,6 +684,16 @@ public class DocumentManifest extends DomainResource {
         this.content = new ArrayList<Reference>();
       this.content.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DocumentManifest addContent(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.content == null)
+        this.content = new ArrayList<Reference>();
+      this.content.add(t);
+      return this;
     }
 
     /**

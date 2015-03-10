@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -300,6 +300,16 @@ public class AppointmentResponse extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public AppointmentResponse addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #appointment} (Parent appointment that this response is replying to.)
      */
@@ -374,6 +384,16 @@ public class AppointmentResponse extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public AppointmentResponse addParticipantType(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.participantType == null)
+        this.participantType = new ArrayList<CodeableConcept>();
+      this.participantType.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #individual} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
@@ -402,6 +422,16 @@ public class AppointmentResponse extends DomainResource {
         this.individual = new ArrayList<Reference>();
       this.individual.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public AppointmentResponse addIndividual(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.individual == null)
+        this.individual = new ArrayList<Reference>();
+      this.individual.add(t);
+      return this;
     }
 
     /**

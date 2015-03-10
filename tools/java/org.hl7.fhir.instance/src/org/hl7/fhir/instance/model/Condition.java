@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -226,6 +226,16 @@ public class Condition extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ConditionStageComponent addAssessment(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.assessment == null)
+            this.assessment = new ArrayList<Reference>();
+          this.assessment.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #assessment} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reference to a formal record of the evidence on which the staging assessment is based.)
          */
@@ -359,6 +369,16 @@ public class Condition extends DomainResource {
             this.detail = new ArrayList<Reference>();
           this.detail.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ConditionEvidenceComponent addDetail(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.detail == null)
+            this.detail = new ArrayList<Reference>();
+          this.detail.add(t);
+          return this;
         }
 
         /**
@@ -999,6 +1019,16 @@ public class Condition extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Condition addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #subject} (Indicates the patient who the condition record is associated with.)
      */
@@ -1453,6 +1483,16 @@ public class Condition extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Condition addEvidence(ConditionEvidenceComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.evidence == null)
+        this.evidence = new ArrayList<ConditionEvidenceComponent>();
+      this.evidence.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #location} (The anatomical location where this condition manifests itself.)
      */
@@ -1481,6 +1521,16 @@ public class Condition extends DomainResource {
         this.location = new ArrayList<ConditionLocationComponent>();
       this.location.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Condition addLocation(ConditionLocationComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.location == null)
+        this.location = new ArrayList<ConditionLocationComponent>();
+      this.location.add(t);
+      return this;
     }
 
     /**
@@ -1513,6 +1563,16 @@ public class Condition extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Condition addDueTo(ConditionDueToComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.dueTo == null)
+        this.dueTo = new ArrayList<ConditionDueToComponent>();
+      this.dueTo.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #occurredFollowing} (Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.)
      */
@@ -1541,6 +1601,16 @@ public class Condition extends DomainResource {
         this.occurredFollowing = new ArrayList<ConditionOccurredFollowingComponent>();
       this.occurredFollowing.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Condition addOccurredFollowing(ConditionOccurredFollowingComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.occurredFollowing == null)
+        this.occurredFollowing = new ArrayList<ConditionOccurredFollowingComponent>();
+      this.occurredFollowing.add(t);
+      return this;
     }
 
     /**

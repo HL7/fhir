@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -398,6 +398,16 @@ public class CarePlan2 extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public CarePlan2 addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #patient} (Identifies the patient/subject whose intended care is described by the plan.)
      */
@@ -590,6 +600,16 @@ public class CarePlan2 extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public CarePlan2 addConcern(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.concern == null)
+        this.concern = new ArrayList<Reference>();
+      this.concern.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #concern} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
      */
@@ -639,6 +659,16 @@ public class CarePlan2 extends DomainResource {
         this.participant = new ArrayList<CarePlan2ParticipantComponent>();
       this.participant.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public CarePlan2 addParticipant(CarePlan2ParticipantComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.participant == null)
+        this.participant = new ArrayList<CarePlan2ParticipantComponent>();
+      this.participant.add(t);
+      return this;
     }
 
     /**
@@ -720,6 +750,16 @@ public class CarePlan2 extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public CarePlan2 addGoal(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.goal == null)
+        this.goal = new ArrayList<Reference>();
+      this.goal.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #goal} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Describes the intended objective(s) of carrying out the Care Plan.)
      */
@@ -769,6 +809,16 @@ public class CarePlan2 extends DomainResource {
         this.activity = new ArrayList<Reference>();
       this.activity.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public CarePlan2 addActivity(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.activity == null)
+        this.activity = new ArrayList<Reference>();
+      this.activity.add(t);
+      return this;
     }
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -287,6 +287,16 @@ public class SearchParameter extends DomainResource {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public SearchParameterContactComponent addTelecom(ContactPoint t) { //3
+          if (t == null)
+            return this;
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -607,6 +617,16 @@ public class SearchParameter extends DomainResource {
         this.contact = new ArrayList<SearchParameterContactComponent>();
       this.contact.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public SearchParameter addContact(SearchParameterContactComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.contact == null)
+        this.contact = new ArrayList<SearchParameterContactComponent>();
+      this.contact.add(t);
+      return this;
     }
 
     /**

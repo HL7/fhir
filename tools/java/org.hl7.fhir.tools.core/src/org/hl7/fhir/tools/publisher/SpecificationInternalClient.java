@@ -15,6 +15,7 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.instance.model.Parameters;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
@@ -202,6 +203,11 @@ public class SpecificationInternalClient implements IFHIRClient {
   @Override
   public ValueSet expandValueset(ValueSet source) throws Exception {
     throw new Error("expandValueset not supported by the internal specification client");
+  }
+
+  @Override
+  public <T extends Resource> Parameters operateType(Class<T> resourceClass, String name, Parameters params) {
+    throw new Error("operateType not supported by the internal specification client");
   }
 
 

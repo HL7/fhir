@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -419,6 +419,16 @@ public class EpisodeOfCare extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public EpisodeOfCareCareTeamComponent addRole(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.role == null)
+            this.role = new ArrayList<CodeableConcept>();
+          this.role.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #period} (The period of time that this practitioner is performing some role within the episode of care.)
          */
@@ -635,6 +645,16 @@ public class EpisodeOfCare extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public EpisodeOfCare addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #currentStatus} (planned | active | onhold | finished | withdrawn | other.). This is the underlying object with id, value and extensions. The accessor "getCurrentStatus" gives direct access to the value
      */
@@ -710,6 +730,16 @@ public class EpisodeOfCare extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public EpisodeOfCare addStatusHistory(EpisodeOfCareStatusHistoryComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.statusHistory == null)
+        this.statusHistory = new ArrayList<EpisodeOfCareStatusHistoryComponent>();
+      this.statusHistory.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #type} (The type can be very important in processing as this could be used in determining if the episodeofcare is relevant to specific government reporting, or other types of classifications.)
      */
@@ -738,6 +768,16 @@ public class EpisodeOfCare extends DomainResource {
         this.type = new ArrayList<CodeableConcept>();
       this.type.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public EpisodeOfCare addType(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
+      this.type.add(t);
+      return this;
     }
 
     /**
@@ -882,6 +922,16 @@ public class EpisodeOfCare extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public EpisodeOfCare addCondition(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.condition == null)
+        this.condition = new ArrayList<Reference>();
+      this.condition.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #condition} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.)
      */
@@ -1019,6 +1069,16 @@ public class EpisodeOfCare extends DomainResource {
         this.careTeam = new ArrayList<EpisodeOfCareCareTeamComponent>();
       this.careTeam.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public EpisodeOfCare addCareTeam(EpisodeOfCareCareTeamComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.careTeam == null)
+        this.careTeam = new ArrayList<EpisodeOfCareCareTeamComponent>();
+      this.careTeam.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

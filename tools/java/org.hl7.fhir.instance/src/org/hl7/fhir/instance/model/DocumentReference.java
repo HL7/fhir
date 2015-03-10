@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -453,6 +453,16 @@ public class DocumentReference extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public DocumentReferenceContextComponent addEvent(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.event == null)
+            this.event = new ArrayList<CodeableConcept>();
+          this.event.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #period} (The time period over which the service that is described by the document was provided.)
          */
@@ -762,6 +772,16 @@ public class DocumentReference extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DocumentReference addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #subject} (Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
      */
@@ -931,6 +951,16 @@ public class DocumentReference extends DomainResource {
         this.author = new ArrayList<Reference>();
       this.author.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DocumentReference addAuthor(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.author == null)
+        this.author = new ArrayList<Reference>();
+      this.author.add(t);
+      return this;
     }
 
     /**
@@ -1218,6 +1248,16 @@ public class DocumentReference extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DocumentReference addRelatesTo(DocumentReferenceRelatesToComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.relatesTo == null)
+        this.relatesTo = new ArrayList<DocumentReferenceRelatesToComponent>();
+      this.relatesTo.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
@@ -1297,6 +1337,16 @@ public class DocumentReference extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DocumentReference addConfidentiality(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.confidentiality == null)
+        this.confidentiality = new ArrayList<CodeableConcept>();
+      this.confidentiality.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #content} (The document or url to the document along with critical metadata to prove content has integrity.)
      */
@@ -1325,6 +1375,16 @@ public class DocumentReference extends DomainResource {
         this.content = new ArrayList<Attachment>();
       this.content.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DocumentReference addContent(Attachment t) { //3
+      if (t == null)
+        return this;
+      if (this.content == null)
+        this.content = new ArrayList<Attachment>();
+      this.content.add(t);
+      return this;
     }
 
     /**

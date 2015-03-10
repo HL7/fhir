@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -318,6 +318,16 @@ public class Meta extends Type {
       return t;
     }
 
+    // syntactic sugar
+    public Meta addSecurity(Coding t) { //3
+      if (t == null)
+        return this;
+      if (this.security == null)
+        this.security = new ArrayList<Coding>();
+      this.security.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #tag} (Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.)
      */
@@ -346,6 +356,16 @@ public class Meta extends Type {
         this.tag = new ArrayList<Coding>();
       this.tag.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Meta addTag(Coding t) { //3
+      if (t == null)
+        return this;
+      if (this.tag == null)
+        this.tag = new ArrayList<Coding>();
+      this.tag.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

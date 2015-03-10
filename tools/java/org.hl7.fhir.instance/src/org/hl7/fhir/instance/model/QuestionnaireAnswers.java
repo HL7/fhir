@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -402,6 +402,16 @@ public class QuestionnaireAnswers extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public GroupComponent addGroup(GroupComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.group == null)
+            this.group = new ArrayList<GroupComponent>();
+          this.group.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #question} (Set of questions within this group. The order of questions within the group is relevant.)
          */
@@ -430,6 +440,16 @@ public class QuestionnaireAnswers extends DomainResource {
             this.question = new ArrayList<QuestionComponent>();
           this.question.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public GroupComponent addQuestion(QuestionComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.question == null)
+            this.question = new ArrayList<QuestionComponent>();
+          this.question.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -657,6 +677,16 @@ public class QuestionnaireAnswers extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public QuestionComponent addAnswer(QuestionAnswerComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.answer == null)
+            this.answer = new ArrayList<QuestionAnswerComponent>();
+          this.answer.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
          */
@@ -685,6 +715,16 @@ public class QuestionnaireAnswers extends DomainResource {
             this.group = new ArrayList<GroupComponent>();
           this.group.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public QuestionComponent addGroup(GroupComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.group == null)
+            this.group = new ArrayList<GroupComponent>();
+          this.group.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {

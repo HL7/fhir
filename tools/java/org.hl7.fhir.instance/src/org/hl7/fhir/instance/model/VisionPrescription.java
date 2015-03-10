@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1197,6 +1197,16 @@ public class VisionPrescription extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public VisionPrescription addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #dateWritten} (The date (and perhaps time) when the prescription was written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
@@ -1443,6 +1453,16 @@ public class VisionPrescription extends DomainResource {
         this.dispense = new ArrayList<VisionPrescriptionDispenseComponent>();
       this.dispense.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public VisionPrescription addDispense(VisionPrescriptionDispenseComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.dispense == null)
+        this.dispense = new ArrayList<VisionPrescriptionDispenseComponent>();
+      this.dispense.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

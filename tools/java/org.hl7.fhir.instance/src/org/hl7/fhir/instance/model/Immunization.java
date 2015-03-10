@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -97,6 +97,16 @@ public class Immunization extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ImmunizationExplanationComponent addReason(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.reason == null)
+            this.reason = new ArrayList<CodeableConcept>();
+          this.reason.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #reasonNotGiven} (Reason why a vaccine was not administered.)
          */
@@ -125,6 +135,16 @@ public class Immunization extends DomainResource {
             this.reasonNotGiven = new ArrayList<CodeableConcept>();
           this.reasonNotGiven.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ImmunizationExplanationComponent addReasonNotGiven(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.reasonNotGiven == null)
+            this.reasonNotGiven = new ArrayList<CodeableConcept>();
+          this.reasonNotGiven.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1040,6 +1060,16 @@ public class Immunization extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Immunization addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #date} (Date vaccine administered or was to be administered.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
@@ -1687,6 +1717,16 @@ public class Immunization extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Immunization addReaction(ImmunizationReactionComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.reaction == null)
+        this.reaction = new ArrayList<ImmunizationReactionComponent>();
+      this.reaction.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #vaccinationProtocol} (Contains information about the protocol(s) under which the vaccine was administered.)
      */
@@ -1715,6 +1755,16 @@ public class Immunization extends DomainResource {
         this.vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
       this.vaccinationProtocol.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Immunization addVaccinationProtocol(ImmunizationVaccinationProtocolComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.vaccinationProtocol == null)
+        this.vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
+      this.vaccinationProtocol.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

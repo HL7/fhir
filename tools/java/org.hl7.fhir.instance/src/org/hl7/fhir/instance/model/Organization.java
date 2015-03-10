@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -264,6 +264,16 @@ public class Organization extends DomainResource {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public OrganizationContactComponent addTelecom(ContactPoint t) { //3
+          if (t == null)
+            return this;
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return this;
         }
 
         /**
@@ -501,6 +511,16 @@ public class Organization extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Organization addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #name} (A name associated with the organization.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
@@ -604,6 +624,16 @@ public class Organization extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Organization addTelecom(ContactPoint t) { //3
+      if (t == null)
+        return this;
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
+      this.telecom.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #address} (An address for the organization.)
      */
@@ -632,6 +662,16 @@ public class Organization extends DomainResource {
         this.address = new ArrayList<Address>();
       this.address.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Organization addAddress(Address t) { //3
+      if (t == null)
+        return this;
+      if (this.address == null)
+        this.address = new ArrayList<Address>();
+      this.address.add(t);
+      return this;
     }
 
     /**
@@ -708,6 +748,16 @@ public class Organization extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public Organization addContact(OrganizationContactComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.contact == null)
+        this.contact = new ArrayList<OrganizationContactComponent>();
+      this.contact.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #location} (Location(s) the organization uses to provide services.)
      */
@@ -736,6 +786,16 @@ public class Organization extends DomainResource {
         this.location = new ArrayList<Reference>();
       this.location.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public Organization addLocation(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.location == null)
+        this.location = new ArrayList<Reference>();
+      this.location.add(t);
+      return this;
     }
 
     /**

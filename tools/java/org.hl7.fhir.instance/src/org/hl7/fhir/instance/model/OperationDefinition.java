@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -289,6 +289,16 @@ public class OperationDefinition extends DomainResource {
             this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public OperationDefinitionContactComponent addTelecom(ContactPoint t) { //3
+          if (t == null)
+            return this;
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -763,6 +773,16 @@ public class OperationDefinition extends DomainResource {
             this.part = new ArrayList<OperationDefinitionParameterPartComponent>();
           this.part.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public OperationDefinitionParameterComponent addPart(OperationDefinitionParameterPartComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.part == null)
+            this.part = new ArrayList<OperationDefinitionParameterPartComponent>();
+          this.part.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -1586,6 +1606,16 @@ public class OperationDefinition extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public OperationDefinition addContact(OperationDefinitionContactComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.contact == null)
+        this.contact = new ArrayList<OperationDefinitionContactComponent>();
+      this.contact.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
@@ -2178,6 +2208,16 @@ public class OperationDefinition extends DomainResource {
         this.parameter = new ArrayList<OperationDefinitionParameterComponent>();
       this.parameter.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public OperationDefinition addParameter(OperationDefinitionParameterComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.parameter == null)
+        this.parameter = new ArrayList<OperationDefinitionParameterComponent>();
+      this.parameter.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

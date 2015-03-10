@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -583,9 +583,9 @@ public class VisionClaim extends DomainResource {
         /**
          * A list of references from the Insurer to which these services pertain.
          */
-        @Child(name="preauthref", type={StringType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="preAuthRef", type={StringType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Pre-Authorization/Determination Reference", formalDefinition="A list of references from the Insurer to which these services pertain." )
-        protected List<StringType> preauthref;
+        protected List<StringType> preAuthRef;
 
         /**
          * The Coverages adjudication details.
@@ -606,7 +606,7 @@ public class VisionClaim extends DomainResource {
         @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
         protected Coding originalRuleset;
 
-        private static final long serialVersionUID = 450222500L;
+        private static final long serialVersionUID = -2053473948L;
 
       public CoverageComponent() {
         super();
@@ -828,54 +828,54 @@ public class VisionClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
+         * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
-        public List<StringType> getPreauthref() { 
-          if (this.preauthref == null)
-            this.preauthref = new ArrayList<StringType>();
-          return this.preauthref;
+        public List<StringType> getPreAuthRef() { 
+          if (this.preAuthRef == null)
+            this.preAuthRef = new ArrayList<StringType>();
+          return this.preAuthRef;
         }
 
-        public boolean hasPreauthref() { 
-          if (this.preauthref == null)
+        public boolean hasPreAuthRef() { 
+          if (this.preAuthRef == null)
             return false;
-          for (StringType item : this.preauthref)
+          for (StringType item : this.preAuthRef)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
+         * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
     // syntactic sugar
-        public StringType addPreauthrefElement() {//2 
+        public StringType addPreAuthRefElement() {//2 
           StringType t = new StringType();
-          if (this.preauthref == null)
-            this.preauthref = new ArrayList<StringType>();
-          this.preauthref.add(t);
+          if (this.preAuthRef == null)
+            this.preAuthRef = new ArrayList<StringType>();
+          this.preAuthRef.add(t);
           return t;
         }
 
         /**
-         * @param value {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
+         * @param value {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
-        public CoverageComponent addPreauthref(String value) { //1
+        public CoverageComponent addPreAuthRef(String value) { //1
           StringType t = new StringType();
           t.setValue(value);
-          if (this.preauthref == null)
-            this.preauthref = new ArrayList<StringType>();
-          this.preauthref.add(t);
+          if (this.preAuthRef == null)
+            this.preAuthRef = new ArrayList<StringType>();
+          this.preAuthRef.add(t);
           return this;
         }
 
         /**
-         * @param value {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
+         * @param value {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
-        public boolean hasPreauthref(String value) { 
-          if (this.preauthref == null)
+        public boolean hasPreAuthRef(String value) { 
+          if (this.preAuthRef == null)
             return false;
-          for (StringType v : this.preauthref)
+          for (StringType v : this.preAuthRef)
             if (v.equals(value)) // string
               return true;
           return false;
@@ -956,7 +956,7 @@ public class VisionClaim extends DomainResource {
           childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
           childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
           childrenList.add(new Property("relationship", "Coding", "The relationship of the patient to the subscriber.", 0, java.lang.Integer.MAX_VALUE, relationship));
-          childrenList.add(new Property("preauthref", "string", "A list of references from the Insurer to which these services pertain.", 0, java.lang.Integer.MAX_VALUE, preauthref));
+          childrenList.add(new Property("preAuthRef", "string", "A list of references from the Insurer to which these services pertain.", 0, java.lang.Integer.MAX_VALUE, preAuthRef));
           childrenList.add(new Property("claimResponse", "Reference(ClaimResponse)", "The Coverages adjudication details.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
           childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         }
@@ -969,10 +969,10 @@ public class VisionClaim extends DomainResource {
         dst.coverage = coverage == null ? null : coverage.copy();
         dst.businessArrangement = businessArrangement == null ? null : businessArrangement.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
-        if (preauthref != null) {
-          dst.preauthref = new ArrayList<StringType>();
-          for (StringType i : preauthref)
-            dst.preauthref.add(i.copy());
+        if (preAuthRef != null) {
+          dst.preAuthRef = new ArrayList<StringType>();
+          for (StringType i : preAuthRef)
+            dst.preAuthRef.add(i.copy());
         };
         dst.claimResponse = claimResponse == null ? null : claimResponse.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
@@ -988,7 +988,7 @@ public class VisionClaim extends DomainResource {
         CoverageComponent o = (CoverageComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(focal, o.focal, true) && compareDeep(coverage, o.coverage, true)
            && compareDeep(businessArrangement, o.businessArrangement, true) && compareDeep(relationship, o.relationship, true)
-           && compareDeep(preauthref, o.preauthref, true) && compareDeep(claimResponse, o.claimResponse, true)
+           && compareDeep(preAuthRef, o.preAuthRef, true) && compareDeep(claimResponse, o.claimResponse, true)
            && compareDeep(originalRuleset, o.originalRuleset, true);
       }
 
@@ -1000,13 +1000,13 @@ public class VisionClaim extends DomainResource {
           return false;
         CoverageComponent o = (CoverageComponent) other;
         return compareValues(sequence, o.sequence, true) && compareValues(focal, o.focal, true) && compareValues(businessArrangement, o.businessArrangement, true)
-           && compareValues(preauthref, o.preauthref, true);
+           && compareValues(preAuthRef, o.preAuthRef, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (focal == null || focal.isEmpty())
            && (coverage == null || coverage.isEmpty()) && (businessArrangement == null || businessArrangement.isEmpty())
-           && (relationship == null || relationship.isEmpty()) && (preauthref == null || preauthref.isEmpty())
+           && (relationship == null || relationship.isEmpty()) && (preAuthRef == null || preAuthRef.isEmpty())
            && (claimResponse == null || claimResponse.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
           ;
       }
@@ -1114,9 +1114,9 @@ public class VisionClaim extends DomainResource {
         /**
          * A region or surface of the site, eg. limb region or tooth surface(s).
          */
-        @Child(name="subsite", type={Coding.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="subSite", type={Coding.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Service Sub-location", formalDefinition="A region or surface of the site, eg. limb region or tooth surface(s)." )
-        protected List<Coding> subsite;
+        protected List<Coding> subSite;
 
         /**
          * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
@@ -1132,7 +1132,7 @@ public class VisionClaim extends DomainResource {
         @Description(shortDefinition="Additional items", formalDefinition="Second tier of goods and services." )
         protected List<DetailComponent> detail;
 
-        private static final long serialVersionUID = -1140048455L;
+        private static final long serialVersionUID = -702367271L;
 
       public ItemsComponent() {
         super();
@@ -1604,33 +1604,43 @@ public class VisionClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #subsite} (A region or surface of the site, eg. limb region or tooth surface(s).)
+         * @return {@link #subSite} (A region or surface of the site, eg. limb region or tooth surface(s).)
          */
-        public List<Coding> getSubsite() { 
-          if (this.subsite == null)
-            this.subsite = new ArrayList<Coding>();
-          return this.subsite;
+        public List<Coding> getSubSite() { 
+          if (this.subSite == null)
+            this.subSite = new ArrayList<Coding>();
+          return this.subSite;
         }
 
-        public boolean hasSubsite() { 
-          if (this.subsite == null)
+        public boolean hasSubSite() { 
+          if (this.subSite == null)
             return false;
-          for (Coding item : this.subsite)
+          for (Coding item : this.subSite)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #subsite} (A region or surface of the site, eg. limb region or tooth surface(s).)
+         * @return {@link #subSite} (A region or surface of the site, eg. limb region or tooth surface(s).)
          */
     // syntactic sugar
-        public Coding addSubsite() { //3
+        public Coding addSubSite() { //3
           Coding t = new Coding();
-          if (this.subsite == null)
-            this.subsite = new ArrayList<Coding>();
-          this.subsite.add(t);
+          if (this.subSite == null)
+            this.subSite = new ArrayList<Coding>();
+          this.subSite.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public ItemsComponent addSubSite(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.subSite == null)
+            this.subSite = new ArrayList<Coding>();
+          this.subSite.add(t);
+          return this;
         }
 
         /**
@@ -1663,6 +1673,16 @@ public class VisionClaim extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ItemsComponent addModifier(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
+          this.modifier.add(t);
+          return this;
+        }
+
         /**
          * @return {@link #detail} (Second tier of goods and services.)
          */
@@ -1693,6 +1713,16 @@ public class VisionClaim extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public ItemsComponent addDetail(DetailComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.detail == null)
+            this.detail = new ArrayList<DetailComponent>();
+          this.detail.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
@@ -1708,7 +1738,7 @@ public class VisionClaim extends DomainResource {
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("bodySite", "Coding", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
-          childrenList.add(new Property("subsite", "Coding", "A region or surface of the site, eg. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subsite));
+          childrenList.add(new Property("subSite", "Coding", "A region or surface of the site, eg. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subSite));
           childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("detail", "", "Second tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
@@ -1733,10 +1763,10 @@ public class VisionClaim extends DomainResource {
         dst.net = net == null ? null : net.copy();
         dst.udi = udi == null ? null : udi.copy();
         dst.bodySite = bodySite == null ? null : bodySite.copy();
-        if (subsite != null) {
-          dst.subsite = new ArrayList<Coding>();
-          for (Coding i : subsite)
-            dst.subsite.add(i.copy());
+        if (subSite != null) {
+          dst.subSite = new ArrayList<Coding>();
+          for (Coding i : subSite)
+            dst.subSite.add(i.copy());
         };
         if (modifier != null) {
           dst.modifier = new ArrayList<Coding>();
@@ -1762,7 +1792,7 @@ public class VisionClaim extends DomainResource {
            && compareDeep(diagnosisLinkId, o.diagnosisLinkId, true) && compareDeep(service, o.service, true)
            && compareDeep(serviceDate, o.serviceDate, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
            && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
-           && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(subsite, o.subsite, true)
+           && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(subSite, o.subSite, true)
            && compareDeep(modifier, o.modifier, true) && compareDeep(detail, o.detail, true);
       }
 
@@ -1784,7 +1814,7 @@ public class VisionClaim extends DomainResource {
            && (service == null || service.isEmpty()) && (serviceDate == null || serviceDate.isEmpty())
            && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
            && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
-           && (udi == null || udi.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (subsite == null || subsite.isEmpty())
+           && (udi == null || udi.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (subSite == null || subSite.isEmpty())
            && (modifier == null || modifier.isEmpty()) && (detail == null || detail.isEmpty());
       }
 
@@ -2190,6 +2220,16 @@ public class VisionClaim extends DomainResource {
             this.subDetail = new ArrayList<SubDetailComponent>();
           this.subDetail.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public DetailComponent addSubDetail(SubDetailComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.subDetail == null)
+            this.subDetail = new ArrayList<SubDetailComponent>();
+          this.subDetail.add(t);
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -2948,6 +2988,16 @@ public class VisionClaim extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public VisionClaim addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #ruleset} (The version of the specification on which this instance relies.)
      */
@@ -3504,6 +3554,16 @@ public class VisionClaim extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public VisionClaim addDiagnosis(DiagnosisComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.diagnosis == null)
+        this.diagnosis = new ArrayList<DiagnosisComponent>();
+      this.diagnosis.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #condition} (List of patient conditions for which care is sought.)
      */
@@ -3532,6 +3592,16 @@ public class VisionClaim extends DomainResource {
         this.condition = new ArrayList<Coding>();
       this.condition.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public VisionClaim addCondition(Coding t) { //3
+      if (t == null)
+        return this;
+      if (this.condition == null)
+        this.condition = new ArrayList<Coding>();
+      this.condition.add(t);
+      return this;
     }
 
     /**
@@ -3608,6 +3678,16 @@ public class VisionClaim extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public VisionClaim addCoverage(CoverageComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.coverage == null)
+        this.coverage = new ArrayList<CoverageComponent>();
+      this.coverage.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #exception} (Factors which may influence the applicability of coverage.)
      */
@@ -3636,6 +3716,16 @@ public class VisionClaim extends DomainResource {
         this.exception = new ArrayList<Coding>();
       this.exception.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public VisionClaim addException(Coding t) { //3
+      if (t == null)
+        return this;
+      if (this.exception == null)
+        this.exception = new ArrayList<Coding>();
+      this.exception.add(t);
+      return this;
     }
 
     /**
@@ -3790,6 +3880,16 @@ public class VisionClaim extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public VisionClaim addInterventionException(Coding t) { //3
+      if (t == null)
+        return this;
+      if (this.interventionException == null)
+        this.interventionException = new ArrayList<Coding>();
+      this.interventionException.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #item} (First tier of goods and services.)
      */
@@ -3820,6 +3920,16 @@ public class VisionClaim extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public VisionClaim addItem(ItemsComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.item == null)
+        this.item = new ArrayList<ItemsComponent>();
+      this.item.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #additionalMaterials} (Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.)
      */
@@ -3848,6 +3958,16 @@ public class VisionClaim extends DomainResource {
         this.additionalMaterials = new ArrayList<Coding>();
       this.additionalMaterials.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public VisionClaim addAdditionalMaterials(Coding t) { //3
+      if (t == null)
+        return this;
+      if (this.additionalMaterials == null)
+        this.additionalMaterials = new ArrayList<Coding>();
+      this.additionalMaterials.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

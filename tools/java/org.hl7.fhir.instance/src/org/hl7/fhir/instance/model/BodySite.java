@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -461,6 +461,16 @@ public class BodySite extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public BodySite addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #specificLocation} (The Specific and identified anatomical location.)
      */
@@ -513,6 +523,16 @@ public class BodySite extends DomainResource {
         this.relativeLocation = new ArrayList<BodySiteRelativeLocationComponent>();
       this.relativeLocation.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public BodySite addRelativeLocation(BodySiteRelativeLocationComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.relativeLocation == null)
+        this.relativeLocation = new ArrayList<BodySiteRelativeLocationComponent>();
+      this.relativeLocation.add(t);
+      return this;
     }
 
     /**
@@ -592,6 +612,16 @@ public class BodySite extends DomainResource {
         this.image = new ArrayList<Attachment>();
       this.image.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public BodySite addImage(Attachment t) { //3
+      if (t == null)
+        return this;
+      if (this.image == null)
+        this.image = new ArrayList<Attachment>();
+      this.image.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {

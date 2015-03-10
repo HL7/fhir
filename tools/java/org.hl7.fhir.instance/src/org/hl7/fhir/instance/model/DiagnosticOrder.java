@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 8, 2015 16:52+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -50,6 +50,10 @@ public class DiagnosticOrder extends DomainResource {
          * The request has been proposed.
          */
         PROPOSED, 
+        /**
+         * the request is in preliminary form prior to being sent.
+         */
+        DRAFT, 
         /**
          * The request has been planned.
          */
@@ -79,6 +83,10 @@ public class DiagnosticOrder extends DomainResource {
          */
         COMPLETED, 
         /**
+         * the request has been withdrawn.
+         */
+        CANCELLED, 
+        /**
          * The request has been held by originating system/user request.
          */
         SUSPENDED, 
@@ -99,6 +107,8 @@ public class DiagnosticOrder extends DomainResource {
                 return null;
         if ("proposed".equals(codeString))
           return PROPOSED;
+        if ("draft".equals(codeString))
+          return DRAFT;
         if ("planned".equals(codeString))
           return PLANNED;
         if ("requested".equals(codeString))
@@ -113,6 +123,8 @@ public class DiagnosticOrder extends DomainResource {
           return REVIEW;
         if ("completed".equals(codeString))
           return COMPLETED;
+        if ("cancelled".equals(codeString))
+          return CANCELLED;
         if ("suspended".equals(codeString))
           return SUSPENDED;
         if ("rejected".equals(codeString))
@@ -124,6 +136,7 @@ public class DiagnosticOrder extends DomainResource {
         public String toCode() {
           switch (this) {
             case PROPOSED: return "proposed";
+            case DRAFT: return "draft";
             case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
@@ -131,6 +144,7 @@ public class DiagnosticOrder extends DomainResource {
             case INPROGRESS: return "in-progress";
             case REVIEW: return "review";
             case COMPLETED: return "completed";
+            case CANCELLED: return "cancelled";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
             case FAILED: return "failed";
@@ -140,6 +154,7 @@ public class DiagnosticOrder extends DomainResource {
         public String getSystem() {
           switch (this) {
             case PROPOSED: return "";
+            case DRAFT: return "";
             case PLANNED: return "";
             case REQUESTED: return "";
             case RECEIVED: return "";
@@ -147,6 +162,7 @@ public class DiagnosticOrder extends DomainResource {
             case INPROGRESS: return "";
             case REVIEW: return "";
             case COMPLETED: return "";
+            case CANCELLED: return "";
             case SUSPENDED: return "";
             case REJECTED: return "";
             case FAILED: return "";
@@ -156,6 +172,7 @@ public class DiagnosticOrder extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case PROPOSED: return "The request has been proposed.";
+            case DRAFT: return "the request is in preliminary form prior to being sent.";
             case PLANNED: return "The request has been planned.";
             case REQUESTED: return "The request has been placed.";
             case RECEIVED: return "The receiving system has received the order, but not yet decided whether it will be performed.";
@@ -163,6 +180,7 @@ public class DiagnosticOrder extends DomainResource {
             case INPROGRESS: return "The work to fulfill the order is happening.";
             case REVIEW: return "The work is complete, and the outcomes are being reviewed for approval.";
             case COMPLETED: return "The work has been complete, the report(s) released, and no further work is planned.";
+            case CANCELLED: return "the request has been withdrawn.";
             case SUSPENDED: return "The request has been held by originating system/user request.";
             case REJECTED: return "The receiving system has declined to fulfill the request.";
             case FAILED: return "The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.";
@@ -172,13 +190,15 @@ public class DiagnosticOrder extends DomainResource {
         public String getDisplay() {
           switch (this) {
             case PROPOSED: return "Proposed";
+            case DRAFT: return "Draft";
             case PLANNED: return "Planned";
             case REQUESTED: return "Requested";
             case RECEIVED: return "Received";
             case ACCEPTED: return "Accepted";
-            case INPROGRESS: return "In Progress";
+            case INPROGRESS: return "In-Progress";
             case REVIEW: return "Review";
             case COMPLETED: return "Completed";
+            case CANCELLED: return "Cancelled";
             case SUSPENDED: return "Suspended";
             case REJECTED: return "Rejected";
             case FAILED: return "Failed";
@@ -194,6 +214,8 @@ public class DiagnosticOrder extends DomainResource {
                 return null;
         if ("proposed".equals(codeString))
           return DiagnosticOrderStatus.PROPOSED;
+        if ("draft".equals(codeString))
+          return DiagnosticOrderStatus.DRAFT;
         if ("planned".equals(codeString))
           return DiagnosticOrderStatus.PLANNED;
         if ("requested".equals(codeString))
@@ -208,6 +230,8 @@ public class DiagnosticOrder extends DomainResource {
           return DiagnosticOrderStatus.REVIEW;
         if ("completed".equals(codeString))
           return DiagnosticOrderStatus.COMPLETED;
+        if ("cancelled".equals(codeString))
+          return DiagnosticOrderStatus.CANCELLED;
         if ("suspended".equals(codeString))
           return DiagnosticOrderStatus.SUSPENDED;
         if ("rejected".equals(codeString))
@@ -219,6 +243,8 @@ public class DiagnosticOrder extends DomainResource {
     public String toCode(DiagnosticOrderStatus code) {
       if (code == DiagnosticOrderStatus.PROPOSED)
         return "proposed";
+      if (code == DiagnosticOrderStatus.DRAFT)
+        return "draft";
       if (code == DiagnosticOrderStatus.PLANNED)
         return "planned";
       if (code == DiagnosticOrderStatus.REQUESTED)
@@ -233,6 +259,8 @@ public class DiagnosticOrder extends DomainResource {
         return "review";
       if (code == DiagnosticOrderStatus.COMPLETED)
         return "completed";
+      if (code == DiagnosticOrderStatus.CANCELLED)
+        return "cancelled";
       if (code == DiagnosticOrderStatus.SUSPENDED)
         return "suspended";
       if (code == DiagnosticOrderStatus.REJECTED)
@@ -349,7 +377,7 @@ public class DiagnosticOrder extends DomainResource {
          * The status for the event.
          */
         @Child(name="status", type={CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="proposed | planned | requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", formalDefinition="The status for the event." )
+        @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", formalDefinition="The status for the event." )
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
@@ -621,7 +649,7 @@ public class DiagnosticOrder extends DomainResource {
          * The status of this individual item within the order.
          */
         @Child(name="status", type={CodeType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="proposed | planned | requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", formalDefinition="The status of this individual item within the order." )
+        @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", formalDefinition="The status of this individual item within the order." )
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
@@ -694,6 +722,16 @@ public class DiagnosticOrder extends DomainResource {
             this.specimen = new ArrayList<Reference>();
           this.specimen.add(t);
           return t;
+        }
+
+    // syntactic sugar
+        public DiagnosticOrderItemComponent addSpecimen(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.specimen == null)
+            this.specimen = new ArrayList<Reference>();
+          this.specimen.add(t);
+          return this;
         }
 
         /**
@@ -833,6 +871,16 @@ public class DiagnosticOrder extends DomainResource {
           return t;
         }
 
+    // syntactic sugar
+        public DiagnosticOrderItemComponent addEvent(DiagnosticOrderEventComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.event == null)
+            this.event = new ArrayList<DiagnosticOrderEventComponent>();
+          this.event.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -968,7 +1016,7 @@ public class DiagnosticOrder extends DomainResource {
      * The status of the order.
      */
     @Child(name="status", type={CodeType.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="proposed | planned | requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", formalDefinition="The status of the order." )
+    @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", formalDefinition="The status of the order." )
     protected Enumeration<DiagnosticOrderStatus> status;
 
     /**
@@ -1116,6 +1164,16 @@ public class DiagnosticOrder extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DiagnosticOrder addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
@@ -1239,6 +1297,16 @@ public class DiagnosticOrder extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DiagnosticOrder addSupportingInformation(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      this.supportingInformation.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #supportingInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Additional clinical information about the patient or specimen that may influence test interpretations.)
      */
@@ -1276,6 +1344,16 @@ public class DiagnosticOrder extends DomainResource {
         this.specimen = new ArrayList<Reference>();
       this.specimen.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticOrder addSpecimen(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.specimen == null)
+        this.specimen = new ArrayList<Reference>();
+      this.specimen.add(t);
+      return this;
     }
 
     /**
@@ -1427,6 +1505,16 @@ public class DiagnosticOrder extends DomainResource {
       return t;
     }
 
+    // syntactic sugar
+    public DiagnosticOrder addEvent(DiagnosticOrderEventComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.event == null)
+        this.event = new ArrayList<DiagnosticOrderEventComponent>();
+      this.event.add(t);
+      return this;
+    }
+
     /**
      * @return {@link #item} (The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.)
      */
@@ -1455,6 +1543,16 @@ public class DiagnosticOrder extends DomainResource {
         this.item = new ArrayList<DiagnosticOrderItemComponent>();
       this.item.add(t);
       return t;
+    }
+
+    // syntactic sugar
+    public DiagnosticOrder addItem(DiagnosticOrderItemComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.item == null)
+        this.item = new ArrayList<DiagnosticOrderItemComponent>();
+      this.item.add(t);
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1553,13 +1651,13 @@ public class DiagnosticOrder extends DomainResource {
 
   @SearchParamDefinition(name="orderer", path="DiagnosticOrder.orderer", description="Who ordered the test", type="reference" )
   public static final String SP_ORDERER = "orderer";
-  @SearchParamDefinition(name="status", path="DiagnosticOrder.status", description="proposed | planned | requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="status", path="DiagnosticOrder.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="DiagnosticOrder.subject", description="Who and/or what test is about", type="reference" )
   public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="item-status", path="DiagnosticOrder.item.status", description="proposed | planned | requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="item-status", path="DiagnosticOrder.item.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", type="token" )
   public static final String SP_ITEMSTATUS = "item-status";
-  @SearchParamDefinition(name="event-status", path="DiagnosticOrder.event.status", description="proposed | planned | requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="event-status", path="DiagnosticOrder.event.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", type="token" )
   public static final String SP_EVENTSTATUS = "event-status";
   @SearchParamDefinition(name="actor", path="DiagnosticOrder.event.actor|DiagnosticOrder.item.event.actor", description="Who recorded or did this", type="reference" )
   public static final String SP_ACTOR = "actor";
@@ -1567,7 +1665,7 @@ public class DiagnosticOrder extends DomainResource {
   public static final String SP_CODE = "code";
   @SearchParamDefinition(name="encounter", path="DiagnosticOrder.encounter", description="The encounter that this diagnostic order is associated with", type="reference" )
   public static final String SP_ENCOUNTER = "encounter";
-  @SearchParamDefinition(name="item-past-status", path="DiagnosticOrder.item.event.status", description="proposed | planned | requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="item-past-status", path="DiagnosticOrder.item.event.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", type="token" )
   public static final String SP_ITEMPASTSTATUS = "item-past-status";
   @SearchParamDefinition(name="patient", path="DiagnosticOrder.subject", description="Who and/or what test is about", type="reference" )
   public static final String SP_PATIENT = "patient";
