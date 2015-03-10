@@ -1,34 +1,31 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-    <h2>Notes:</h2>
-    <ul>
-			<li>
-				<h3>Interaction with other Standards</h3>
-				<p>
-					The strong desire is that implementers of this resource should consider providing this resource
-					in the iCalendar format as an alternative representation. Many 3rd party applications and component providers
-					have parsers and user interface controls to display this information.
-					This may lower the entry point to integrate outside the health-care specific applications, and into the
-					consumer space. This would permit the easier creation of a mobile application that creates appointments
-					in the devices native calendar.<br/>
-					The iCalendar specification can be found at <a href="http://www.ietf.org/rfc/rfc2445.txt">http://www.ietf.org/rfc/rfc2445.txt</a>.
-				</p>
-			</li>
-			<li>
-				<h3>Slots - not a contained resource</h3>
-				<p>
-					Due to the dynamic nature of slots they are not included as a part of this resource.
-				</p>
-				<p>
-					It is anticipated that this resource is likely to be updated intermittently when the scope 
-					of slots is changed, i.e. to change the period of slots in the planning horizon.
-					This could be performed each night to move the start and end date forward to 
-					keep the planning horizon as exactly 4 weeks.
-				</p>
-				<p>
-					The slot resource however is anticipated to be updated regularly as the appointments
-					that reference it are changed.
-				</p>
-			</li>
-		</ul>
+	<h2>Notes:</h2>
+
+	<h3>Interaction with other Standards</h3>
+	<p>
+		The strong desire is that implementers of this resource should consider providing this resource
+		in the iCalendar format as an alternative representation. Many 3rd party applications and component providers
+		have parsers and user interface controls to display this information.
+		This may lower the entry point to integrate outside the health-care specific applications, and into the
+		consumer space. This would permit the easier creation of a mobile application that creates appointments
+		in the devices native calendar.<br/>
+		The iCalendar specification can be found at <a href="http://www.ietf.org/rfc/rfc2445.txt">http://www.ietf.org/rfc/rfc2445.txt</a>.
+	</p>
+
+	<h3>Slots - not a contained resource</h3>
+	<p>
+		Due to the dynamic nature of slots they are not included as a part of this resource.
+	</p>
+	<p>
+		It is anticipated that this resource is likely to be updated intermittently when the scope
+		of slots is changed, i.e. to change the period of slots in the planning horizon.
+		This could be performed each night to move the start and end date forward to
+		keep the planning horizon as exactly 4 weeks.
+	</p>
+	<p>
+		The slot resource however is anticipated to be updated very regularly as the appointments
+		that reference them are created/updated/cancelled.
+	</p>
+
 </div>

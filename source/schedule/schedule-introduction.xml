@@ -3,30 +3,20 @@
 	<div>
 		<h2>Scope and Usage</h2>
 		<p>
-			Need to describe Searching for "Schedule's" that belong to a HealthcareService using Categories, or 
-			where using pracitioners or locations as the actor, then the "type" field is expected to be used to store the
-			service categories.
-			Advice to use as an actor.
+			Schedule resources provide a container for time-slots that can be booked using an appointment,
+			It provides the window of time (period) that slots are defined for and what type of appointments can be booked.<br/>
+			The schedule does not provide any information about actual appointments. This seperation also greatly assists where
+			access to the appointments would not be permitted for security or privacy reasons, and still being able
+			to determine if an appointment might be available.
 		</p>
-		<p>
-			Also consider 
-		</p>
-	</div>
-    <div>
-		<h2>Scope and Usage</h2>
-		<p>
-      Schedule resources provide a container for time-slots that can be booked using an appointment,
-      It provides the window of time (period) that slots are defined for and what type of appointments can be booked.
-      They do not provide any information about actual appointments.
-    </p>
-		<p>
-			In HL7 v2.7 (and the RIM) this resource is defined as a schedule (which in fhir is a simple recurrence):
-		</p>
-	<blockquote>
+
+		<h3>
+			Context
+		</h3>
 		<p>
 			A schedule controls the dates and times available for the performance of a service
 			and/or the use of a resource.  One schedule applies to one service or resource, since
-			each service or resource can be reserved independently of the others.  
+			each service or resource can be reserved independently of the others.
 			(If two or more services, people, locations, or things cannot be reserved independently
 			of one another, they are considered to be one activity or resource.)  A schedule consists
 			of slots of time during which the controlled service or resource is potentially available
@@ -38,23 +28,49 @@
 			appointment.
 		</p>
 		<p>
-		The real-world, non-automated analog of the schedule described above is a standard
-		appointment book.  These books are generally organized with rows of time slots, during
-		which a service or resource is available.
+			The real-world, non-automated analog of the schedule described above is a standard
+			appointment book.  These books are generally organized with rows of time slots, during
+			which a service or resource is available.
 		</p>
 		<p>
 			A slot is one unit on a schedule.  A slot represents the smallest unit of time or quantity
 			that a service or resource may be booked.  Depending on the nature of the service or
-			resource, there may be more than one defined slot at a given instant of time.  
+			resource, there may be more than one defined slot at a given instant of time.
 			For example, if a service is an open group therapy session with twelve available seats,
 			then there are twelve slots for the given block of time.
 		</p>
-	</blockquote>
-	<p>
-    It is expected that servers could expose this information as an alternate representation
-    using the iCalendar free/busy format, joining the information in slot resources that reference
-    this Schedule resource.
-  </p>
+
+		<h3>Actor - What the schedule applies to</h3>
+		<p>
+			The schedule belongs to a single owner, the actor. This is normally a HealthcareService, Practitioner, Location
+			or Device. When booking an appoitment, multiple schedules may need to be checked depending on the configuration
+			of the system.
+		</p>
+		<p>
+			If an appointment has 2 practitioners, a specific medical device and a room then there could be a schedule for
+			each of these resources that may need to be consulted to ensure that no collisions occur.<br/>
+			If the schedule needed to be consulted, then there would be one created covering the planning horizon for the
+			time of the appointment.
+		</p>
+
+		<h3>Checking availability - Searching</h3>
+		<p>
+			When checking availability for an appointment, the creator of the appointment should check
+			that the see what schedules are applicable, then check for available slots within these schedules.
+		</p>
+		<p>
+			The searching could be done via the properties of the referenced actors, such as the ServiceCategory
+			on the HealthcareService, or the Address on a Location.
+		</p>
+		<p>
+			The type property can be used to filter the types of appointments that can be booked within the appointment.
+			These can be filtered down further by specifying types on the slots too.<br/>
+			The terminology bound to this property will be the same as that used on appointment and slot too.
+		</p>
+		<p>
+			If all slots are busy, the caller could find some slots that they believe are close enough, and request
+			for the appointment in these slot(s)<br/>
+			(the appointment may be given a higher precedence and allocated in an overbooked status if business rules permit)
+		</p>
+	</div>
 </div>
-</div>
-	
