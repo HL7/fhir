@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -983,18 +983,18 @@ public class ReferralRequest extends DomainResource {
     return ResourceType.ReferralRequest;
    }
 
-  @SearchParamDefinition(name="patient", path="ReferralRequest.patient", description="Who the referral is about", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="status", path="ReferralRequest.status", description="The status of the referral", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="priority", path="ReferralRequest.priority", description="The priority assigned to the referral", type="token" )
-  public static final String SP_PRIORITY = "priority";
-  @SearchParamDefinition(name="type", path="ReferralRequest.type", description="The type of the referral", type="token" )
-  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="specialty", path="ReferralRequest.specialty", description="The specialty that the referral is for", type="token" )
   public static final String SP_SPECIALTY = "specialty";
+  @SearchParamDefinition(name="patient", path="ReferralRequest.patient", description="Who the referral is about", type="reference" )
+  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="recipient", path="ReferralRequest.recipient", description="The person that the referral was sent to", type="reference" )
   public static final String SP_RECIPIENT = "recipient";
+  @SearchParamDefinition(name="type", path="ReferralRequest.type", description="The type of the referral", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="priority", path="ReferralRequest.priority", description="The priority assigned to the referral", type="token" )
+  public static final String SP_PRIORITY = "priority";
+  @SearchParamDefinition(name="status", path="ReferralRequest.status", description="The status of the referral", type="token" )
+  public static final String SP_STATUS = "status";
 
 }
 

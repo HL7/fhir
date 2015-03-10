@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -587,10 +587,10 @@ public class DeviceUseStatement extends DomainResource {
     return ResourceType.DeviceUseStatement;
    }
 
-  @SearchParamDefinition(name="patient", path="DeviceUseStatement.subject", description="Search by subject - a patient", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="subject", path="DeviceUseStatement.subject", description="Search by subject", type="reference" )
   public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="patient", path="DeviceUseStatement.subject", description="Search by subject - a patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
 
 }
 

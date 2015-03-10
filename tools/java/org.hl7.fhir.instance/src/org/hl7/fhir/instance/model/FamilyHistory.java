@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1050,10 +1050,10 @@ public class FamilyHistory extends DomainResource {
     return ResourceType.FamilyHistory;
    }
 
-  @SearchParamDefinition(name="patient", path="FamilyHistory.patient", description="The identity of a subject to list family history items for", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="date", path="FamilyHistory.date", description="When history was captured/updated", type="date" )
   public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="patient", path="FamilyHistory.patient", description="The identity of a subject to list family history items for", type="reference" )
+  public static final String SP_PATIENT = "patient";
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1255,20 +1255,20 @@ public class Medication extends DomainResource {
     return ResourceType.Medication;
    }
 
-  @SearchParamDefinition(name="content", path="Medication.package.content.item", description="A product in the package", type="reference" )
-  public static final String SP_CONTENT = "content";
-  @SearchParamDefinition(name="form", path="Medication.product.form", description="powder | tablets | carton +", type="token" )
-  public static final String SP_FORM = "form";
   @SearchParamDefinition(name="container", path="Medication.package.container", description="E.g. box, vial, blister-pack", type="token" )
   public static final String SP_CONTAINER = "container";
-  @SearchParamDefinition(name="manufacturer", path="Medication.manufacturer", description="Manufacturer of the item", type="reference" )
-  public static final String SP_MANUFACTURER = "manufacturer";
-  @SearchParamDefinition(name="name", path="Medication.name", description="Common / Commercial name", type="string" )
-  public static final String SP_NAME = "name";
-  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.item", description="The product contained", type="reference" )
-  public static final String SP_INGREDIENT = "ingredient";
   @SearchParamDefinition(name="code", path="Medication.code", description="Codes that identify this medication", type="token" )
   public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.item", description="The product contained", type="reference" )
+  public static final String SP_INGREDIENT = "ingredient";
+  @SearchParamDefinition(name="form", path="Medication.product.form", description="powder | tablets | carton +", type="token" )
+  public static final String SP_FORM = "form";
+  @SearchParamDefinition(name="name", path="Medication.name", description="Common / Commercial name", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="content", path="Medication.package.content.item", description="A product in the package", type="reference" )
+  public static final String SP_CONTENT = "content";
+  @SearchParamDefinition(name="manufacturer", path="Medication.manufacturer", description="Manufacturer of the item", type="reference" )
+  public static final String SP_MANUFACTURER = "manufacturer";
 
 }
 

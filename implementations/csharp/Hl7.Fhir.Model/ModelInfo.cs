@@ -55,6 +55,15 @@ namespace Hl7.Fhir.Model
             /// uses 
             /// </summary>
             public string[] Path { get; set; }
+
+            /// <summary>
+            /// Where this search parameter's Type == "reference", 
+            /// which resource types this search parameter relates to.
+            /// </summary>
+            /// <example>
+            /// Appointment patient search parameter (path = actor, but only when a reference to a patient)
+            /// </example>
+            public ResourceType[] Target { get; set; }
         }
 
 

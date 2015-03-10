@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -590,16 +590,16 @@ public class Substance extends DomainResource {
     return ResourceType.Substance;
    }
 
-  @SearchParamDefinition(name="substance", path="Substance.ingredient.substance", description="A component of the substance", type="reference" )
-  public static final String SP_SUBSTANCE = "substance";
-  @SearchParamDefinition(name="quantity", path="Substance.instance.quantity", description="Amount of substance in the package", type="number" )
-  public static final String SP_QUANTITY = "quantity";
-  @SearchParamDefinition(name="type", path="Substance.type", description="The type of the substance", type="token" )
-  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="identifier", path="Substance.instance.identifier", description="Identifier of the package/container", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="quantity", path="Substance.instance.quantity", description="Amount of substance in the package", type="number" )
+  public static final String SP_QUANTITY = "quantity";
+  @SearchParamDefinition(name="substance", path="Substance.ingredient.substance", description="A component of the substance", type="reference" )
+  public static final String SP_SUBSTANCE = "substance";
   @SearchParamDefinition(name="expiry", path="Substance.instance.expiry", description="When no longer valid to use", type="date" )
   public static final String SP_EXPIRY = "expiry";
+  @SearchParamDefinition(name="type", path="Substance.type", description="The type of the substance", type="token" )
+  public static final String SP_TYPE = "type";
 
 }
 

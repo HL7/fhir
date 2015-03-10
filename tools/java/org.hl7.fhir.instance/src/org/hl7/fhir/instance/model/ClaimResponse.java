@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2613,6 +2613,481 @@ public class ClaimResponse extends DomainResource {
 
   }
 
+    @Block()
+    public static class CoverageComponent extends BackboneElement {
+        /**
+         * A service line item.
+         */
+        @Child(name="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Service instance identifier", formalDefinition="A service line item." )
+        protected IntegerType sequence;
+
+        /**
+         * The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
+         */
+        @Child(name="focal", type={BooleanType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Is the focal Coverage", formalDefinition="The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated." )
+        protected BooleanType focal;
+
+        /**
+         * Reference to the program or plan identification, underwriter or payor.
+         */
+        @Child(name="coverage", type={Coverage.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="Insurance information", formalDefinition="Reference to the program or plan identification, underwriter or payor." )
+        protected Reference coverage;
+
+        /**
+         * The actual object that is the target of the reference (Reference to the program or plan identification, underwriter or payor.)
+         */
+        protected Coverage coverageTarget;
+
+        /**
+         * The contract number of a business agreement which describes the terms and conditions.
+         */
+        @Child(name="businessArrangement", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Business agreement", formalDefinition="The contract number of a business agreement which describes the terms and conditions." )
+        protected StringType businessArrangement;
+
+        /**
+         * The relationship of the patient to the subscriber.
+         */
+        @Child(name="relationship", type={Coding.class}, order=5, min=1, max=1)
+        @Description(shortDefinition="Patient relationship to subscriber", formalDefinition="The relationship of the patient to the subscriber." )
+        protected Coding relationship;
+
+        /**
+         * A list of references from the Insurer to which these services pertain.
+         */
+        @Child(name="preAuthRef", type={StringType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Pre-Authorization/Determination Reference", formalDefinition="A list of references from the Insurer to which these services pertain." )
+        protected List<StringType> preAuthRef;
+
+        /**
+         * The Coverages adjudication details.
+         */
+        @Child(name="claimResponse", type={ClaimResponse.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="Adjudication results", formalDefinition="The Coverages adjudication details." )
+        protected Reference claimResponse;
+
+        /**
+         * The actual object that is the target of the reference (The Coverages adjudication details.)
+         */
+        protected ClaimResponse claimResponseTarget;
+
+        /**
+         * The style (standard) and version of the original material which was converted into this resource.
+         */
+        @Child(name="originalRuleset", type={Coding.class}, order=8, min=0, max=1)
+        @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
+        protected Coding originalRuleset;
+
+        private static final long serialVersionUID = -2053473948L;
+
+      public CoverageComponent() {
+        super();
+      }
+
+      public CoverageComponent(IntegerType sequence, BooleanType focal, Reference coverage, Coding relationship) {
+        super();
+        this.sequence = sequence;
+        this.focal = focal;
+        this.coverage = coverage;
+        this.relationship = relationship;
+      }
+
+        /**
+         * @return {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
+         */
+        public IntegerType getSequenceElement() { 
+          if (this.sequence == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.sequence");
+            else if (Configuration.doAutoCreate())
+              this.sequence = new IntegerType(); // bb
+          return this.sequence;
+        }
+
+        public boolean hasSequenceElement() { 
+          return this.sequence != null && !this.sequence.isEmpty();
+        }
+
+        public boolean hasSequence() { 
+          return this.sequence != null && !this.sequence.isEmpty();
+        }
+
+        /**
+         * @param value {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
+         */
+        public CoverageComponent setSequenceElement(IntegerType value) { 
+          this.sequence = value;
+          return this;
+        }
+
+        /**
+         * @return A service line item.
+         */
+        public int getSequence() { 
+          return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
+        }
+
+        /**
+         * @param value A service line item.
+         */
+        public CoverageComponent setSequence(int value) { 
+            if (this.sequence == null)
+              this.sequence = new IntegerType();
+            this.sequence.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
+         */
+        public BooleanType getFocalElement() { 
+          if (this.focal == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.focal");
+            else if (Configuration.doAutoCreate())
+              this.focal = new BooleanType(); // bb
+          return this.focal;
+        }
+
+        public boolean hasFocalElement() { 
+          return this.focal != null && !this.focal.isEmpty();
+        }
+
+        public boolean hasFocal() { 
+          return this.focal != null && !this.focal.isEmpty();
+        }
+
+        /**
+         * @param value {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
+         */
+        public CoverageComponent setFocalElement(BooleanType value) { 
+          this.focal = value;
+          return this;
+        }
+
+        /**
+         * @return The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
+         */
+        public boolean getFocal() { 
+          return this.focal == null || this.focal.isEmpty() ? false : this.focal.getValue();
+        }
+
+        /**
+         * @param value The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
+         */
+        public CoverageComponent setFocal(boolean value) { 
+            if (this.focal == null)
+              this.focal = new BooleanType();
+            this.focal.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
+         */
+        public Reference getCoverage() { 
+          if (this.coverage == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.coverage");
+            else if (Configuration.doAutoCreate())
+              this.coverage = new Reference(); // cc
+          return this.coverage;
+        }
+
+        public boolean hasCoverage() { 
+          return this.coverage != null && !this.coverage.isEmpty();
+        }
+
+        /**
+         * @param value {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
+         */
+        public CoverageComponent setCoverage(Reference value) { 
+          this.coverage = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #coverage} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
+         */
+        public Coverage getCoverageTarget() { 
+          if (this.coverageTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.coverage");
+            else if (Configuration.doAutoCreate())
+              this.coverageTarget = new Coverage(); // aa
+          return this.coverageTarget;
+        }
+
+        /**
+         * @param value {@link #coverage} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
+         */
+        public CoverageComponent setCoverageTarget(Coverage value) { 
+          this.coverageTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
+         */
+        public StringType getBusinessArrangementElement() { 
+          if (this.businessArrangement == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.businessArrangement");
+            else if (Configuration.doAutoCreate())
+              this.businessArrangement = new StringType(); // bb
+          return this.businessArrangement;
+        }
+
+        public boolean hasBusinessArrangementElement() { 
+          return this.businessArrangement != null && !this.businessArrangement.isEmpty();
+        }
+
+        public boolean hasBusinessArrangement() { 
+          return this.businessArrangement != null && !this.businessArrangement.isEmpty();
+        }
+
+        /**
+         * @param value {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
+         */
+        public CoverageComponent setBusinessArrangementElement(StringType value) { 
+          this.businessArrangement = value;
+          return this;
+        }
+
+        /**
+         * @return The contract number of a business agreement which describes the terms and conditions.
+         */
+        public String getBusinessArrangement() { 
+          return this.businessArrangement == null ? null : this.businessArrangement.getValue();
+        }
+
+        /**
+         * @param value The contract number of a business agreement which describes the terms and conditions.
+         */
+        public CoverageComponent setBusinessArrangement(String value) { 
+          if (Utilities.noString(value))
+            this.businessArrangement = null;
+          else {
+            if (this.businessArrangement == null)
+              this.businessArrangement = new StringType();
+            this.businessArrangement.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #relationship} (The relationship of the patient to the subscriber.)
+         */
+        public Coding getRelationship() { 
+          if (this.relationship == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.relationship");
+            else if (Configuration.doAutoCreate())
+              this.relationship = new Coding(); // cc
+          return this.relationship;
+        }
+
+        public boolean hasRelationship() { 
+          return this.relationship != null && !this.relationship.isEmpty();
+        }
+
+        /**
+         * @param value {@link #relationship} (The relationship of the patient to the subscriber.)
+         */
+        public CoverageComponent setRelationship(Coding value) { 
+          this.relationship = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
+         */
+        public List<StringType> getPreAuthRef() { 
+          if (this.preAuthRef == null)
+            this.preAuthRef = new ArrayList<StringType>();
+          return this.preAuthRef;
+        }
+
+        public boolean hasPreAuthRef() { 
+          if (this.preAuthRef == null)
+            return false;
+          for (StringType item : this.preAuthRef)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
+         */
+    // syntactic sugar
+        public StringType addPreAuthRefElement() {//2 
+          StringType t = new StringType();
+          if (this.preAuthRef == null)
+            this.preAuthRef = new ArrayList<StringType>();
+          this.preAuthRef.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
+         */
+        public CoverageComponent addPreAuthRef(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.preAuthRef == null)
+            this.preAuthRef = new ArrayList<StringType>();
+          this.preAuthRef.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
+         */
+        public boolean hasPreAuthRef(String value) { 
+          if (this.preAuthRef == null)
+            return false;
+          for (StringType v : this.preAuthRef)
+            if (v.equals(value)) // string
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #claimResponse} (The Coverages adjudication details.)
+         */
+        public Reference getClaimResponse() { 
+          if (this.claimResponse == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
+            else if (Configuration.doAutoCreate())
+              this.claimResponse = new Reference(); // cc
+          return this.claimResponse;
+        }
+
+        public boolean hasClaimResponse() { 
+          return this.claimResponse != null && !this.claimResponse.isEmpty();
+        }
+
+        /**
+         * @param value {@link #claimResponse} (The Coverages adjudication details.)
+         */
+        public CoverageComponent setClaimResponse(Reference value) { 
+          this.claimResponse = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #claimResponse} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Coverages adjudication details.)
+         */
+        public ClaimResponse getClaimResponseTarget() { 
+          if (this.claimResponseTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
+            else if (Configuration.doAutoCreate())
+              this.claimResponseTarget = new ClaimResponse(); // aa
+          return this.claimResponseTarget;
+        }
+
+        /**
+         * @param value {@link #claimResponse} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Coverages adjudication details.)
+         */
+        public CoverageComponent setClaimResponseTarget(ClaimResponse value) { 
+          this.claimResponseTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
+         */
+        public Coding getOriginalRuleset() { 
+          if (this.originalRuleset == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.originalRuleset");
+            else if (Configuration.doAutoCreate())
+              this.originalRuleset = new Coding(); // cc
+          return this.originalRuleset;
+        }
+
+        public boolean hasOriginalRuleset() { 
+          return this.originalRuleset != null && !this.originalRuleset.isEmpty();
+        }
+
+        /**
+         * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
+         */
+        public CoverageComponent setOriginalRuleset(Coding value) { 
+          this.originalRuleset = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("sequence", "integer", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
+          childrenList.add(new Property("focal", "boolean", "The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.", 0, java.lang.Integer.MAX_VALUE, focal));
+          childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
+          childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
+          childrenList.add(new Property("relationship", "Coding", "The relationship of the patient to the subscriber.", 0, java.lang.Integer.MAX_VALUE, relationship));
+          childrenList.add(new Property("preAuthRef", "string", "A list of references from the Insurer to which these services pertain.", 0, java.lang.Integer.MAX_VALUE, preAuthRef));
+          childrenList.add(new Property("claimResponse", "Reference(ClaimResponse)", "The Coverages adjudication details.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
+          childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
+        }
+
+      public CoverageComponent copy() {
+        CoverageComponent dst = new CoverageComponent();
+        copyValues(dst);
+        dst.sequence = sequence == null ? null : sequence.copy();
+        dst.focal = focal == null ? null : focal.copy();
+        dst.coverage = coverage == null ? null : coverage.copy();
+        dst.businessArrangement = businessArrangement == null ? null : businessArrangement.copy();
+        dst.relationship = relationship == null ? null : relationship.copy();
+        if (preAuthRef != null) {
+          dst.preAuthRef = new ArrayList<StringType>();
+          for (StringType i : preAuthRef)
+            dst.preAuthRef.add(i.copy());
+        };
+        dst.claimResponse = claimResponse == null ? null : claimResponse.copy();
+        dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof CoverageComponent))
+          return false;
+        CoverageComponent o = (CoverageComponent) other;
+        return compareDeep(sequence, o.sequence, true) && compareDeep(focal, o.focal, true) && compareDeep(coverage, o.coverage, true)
+           && compareDeep(businessArrangement, o.businessArrangement, true) && compareDeep(relationship, o.relationship, true)
+           && compareDeep(preAuthRef, o.preAuthRef, true) && compareDeep(claimResponse, o.claimResponse, true)
+           && compareDeep(originalRuleset, o.originalRuleset, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof CoverageComponent))
+          return false;
+        CoverageComponent o = (CoverageComponent) other;
+        return compareValues(sequence, o.sequence, true) && compareValues(focal, o.focal, true) && compareValues(businessArrangement, o.businessArrangement, true)
+           && compareValues(preAuthRef, o.preAuthRef, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (focal == null || focal.isEmpty())
+           && (coverage == null || coverage.isEmpty()) && (businessArrangement == null || businessArrangement.isEmpty())
+           && (relationship == null || relationship.isEmpty()) && (preAuthRef == null || preAuthRef.isEmpty())
+           && (claimResponse == null || claimResponse.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
+          ;
+      }
+
+  }
+
     /**
      * The Response Business Identifier.
      */
@@ -2808,7 +3283,14 @@ public class ClaimResponse extends DomainResource {
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
     protected List<NotesComponent> note;
 
-    private static final long serialVersionUID = 1052460427L;
+    /**
+     * Financial instrument by which payment information for health care.
+     */
+    @Child(name="coverage", type={}, order=25, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
+    protected List<CoverageComponent> coverage;
+
+    private static final long serialVersionUID = -815831366L;
 
     public ClaimResponse() {
       super();
@@ -3669,6 +4151,46 @@ public class ClaimResponse extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #coverage} (Financial instrument by which payment information for health care.)
+     */
+    public List<CoverageComponent> getCoverage() { 
+      if (this.coverage == null)
+        this.coverage = new ArrayList<CoverageComponent>();
+      return this.coverage;
+    }
+
+    public boolean hasCoverage() { 
+      if (this.coverage == null)
+        return false;
+      for (CoverageComponent item : this.coverage)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #coverage} (Financial instrument by which payment information for health care.)
+     */
+    // syntactic sugar
+    public CoverageComponent addCoverage() { //3
+      CoverageComponent t = new CoverageComponent();
+      if (this.coverage == null)
+        this.coverage = new ArrayList<CoverageComponent>();
+      this.coverage.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public ClaimResponse addCoverage(CoverageComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.coverage == null)
+        this.coverage = new ArrayList<CoverageComponent>();
+      this.coverage.add(t);
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -3696,6 +4218,7 @@ public class ClaimResponse extends DomainResource {
         childrenList.add(new Property("reserved", "Coding", "Status of funds reservation (For provider, for Patient, None).", 0, java.lang.Integer.MAX_VALUE, reserved));
         childrenList.add(new Property("form", "Coding", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
         childrenList.add(new Property("note", "", "Note text.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
       }
 
       public ClaimResponse copy() {
@@ -3746,6 +4269,11 @@ public class ClaimResponse extends DomainResource {
           for (NotesComponent i : note)
             dst.note.add(i.copy());
         };
+        if (coverage != null) {
+          dst.coverage = new ArrayList<CoverageComponent>();
+          for (CoverageComponent i : coverage)
+            dst.coverage.add(i.copy());
+        };
         return dst;
       }
 
@@ -3770,7 +4298,7 @@ public class ClaimResponse extends DomainResource {
            && compareDeep(paymentAdjustment, o.paymentAdjustment, true) && compareDeep(paymentAdjustmentReason, o.paymentAdjustmentReason, true)
            && compareDeep(paymentDate, o.paymentDate, true) && compareDeep(paymentAmount, o.paymentAmount, true)
            && compareDeep(paymentRef, o.paymentRef, true) && compareDeep(reserved, o.reserved, true) && compareDeep(form, o.form, true)
-           && compareDeep(note, o.note, true);
+           && compareDeep(note, o.note, true) && compareDeep(coverage, o.coverage, true);
       }
 
       @Override
@@ -3796,7 +4324,7 @@ public class ClaimResponse extends DomainResource {
            && (paymentAdjustmentReason == null || paymentAdjustmentReason.isEmpty()) && (paymentDate == null || paymentDate.isEmpty())
            && (paymentAmount == null || paymentAmount.isEmpty()) && (paymentRef == null || paymentRef.isEmpty())
            && (reserved == null || reserved.isEmpty()) && (form == null || form.isEmpty()) && (note == null || note.isEmpty())
-          ;
+           && (coverage == null || coverage.isEmpty());
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -144,7 +144,19 @@ public class Coverage extends DomainResource {
     protected List<Contract> contractTarget;
 
 
-    private static final long serialVersionUID = 1036128685L;
+    /**
+     * Persons for whom this coverage provides health insurance.
+     */
+    @Child(name="subject", type={Patient.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Covered parties", formalDefinition="Persons for whom this coverage provides health insurance." )
+    protected List<Reference> subject;
+    /**
+     * The actual objects that are the target of the reference (Persons for whom this coverage provides health insurance.)
+     */
+    protected List<Patient> subjectTarget;
+
+
+    private static final long serialVersionUID = -856660048L;
 
     public Coverage() {
       super();
@@ -648,6 +660,67 @@ public class Coverage extends DomainResource {
       return r;
     }
 
+    /**
+     * @return {@link #subject} (Persons for whom this coverage provides health insurance.)
+     */
+    public List<Reference> getSubject() { 
+      if (this.subject == null)
+        this.subject = new ArrayList<Reference>();
+      return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      if (this.subject == null)
+        return false;
+      for (Reference item : this.subject)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #subject} (Persons for whom this coverage provides health insurance.)
+     */
+    // syntactic sugar
+    public Reference addSubject() { //3
+      Reference t = new Reference();
+      if (this.subject == null)
+        this.subject = new ArrayList<Reference>();
+      this.subject.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public Coverage addSubject(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.subject == null)
+        this.subject = new ArrayList<Reference>();
+      this.subject.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #subject} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Persons for whom this coverage provides health insurance.)
+     */
+    public List<Patient> getSubjectTarget() { 
+      if (this.subjectTarget == null)
+        this.subjectTarget = new ArrayList<Patient>();
+      return this.subjectTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #subject} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Persons for whom this coverage provides health insurance.)
+     */
+    public Patient addSubjectTarget() { 
+      Patient r = new Patient();
+      if (this.subjectTarget == null)
+        this.subjectTarget = new ArrayList<Patient>();
+      this.subjectTarget.add(r);
+      return r;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("issuer", "Reference(Organization)", "The program or plan underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, issuer));
@@ -662,6 +735,7 @@ public class Coverage extends DomainResource {
         childrenList.add(new Property("subscriber", "Reference(Patient)", "The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.", 0, java.lang.Integer.MAX_VALUE, subscriber));
         childrenList.add(new Property("network", "Identifier", "The identifier for a community of providers.", 0, java.lang.Integer.MAX_VALUE, network));
         childrenList.add(new Property("contract", "Reference(Contract)", "The policy(s) which constitute this insurance coverage.", 0, java.lang.Integer.MAX_VALUE, contract));
+        childrenList.add(new Property("subject", "Reference(Patient)", "Persons for whom this coverage provides health insurance.", 0, java.lang.Integer.MAX_VALUE, subject));
       }
 
       public Coverage copy() {
@@ -687,6 +761,11 @@ public class Coverage extends DomainResource {
           for (Reference i : contract)
             dst.contract.add(i.copy());
         };
+        if (subject != null) {
+          dst.subject = new ArrayList<Reference>();
+          for (Reference i : subject)
+            dst.subject.add(i.copy());
+        };
         return dst;
       }
 
@@ -705,7 +784,7 @@ public class Coverage extends DomainResource {
            && compareDeep(identifier, o.identifier, true) && compareDeep(group, o.group, true) && compareDeep(plan, o.plan, true)
            && compareDeep(subPlan, o.subPlan, true) && compareDeep(dependent, o.dependent, true) && compareDeep(sequence, o.sequence, true)
            && compareDeep(subscriber, o.subscriber, true) && compareDeep(network, o.network, true) && compareDeep(contract, o.contract, true)
-          ;
+           && compareDeep(subject, o.subject, true);
       }
 
       @Override
@@ -724,7 +803,8 @@ public class Coverage extends DomainResource {
            && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty()) && (group == null || group.isEmpty())
            && (plan == null || plan.isEmpty()) && (subPlan == null || subPlan.isEmpty()) && (dependent == null || dependent.isEmpty())
            && (sequence == null || sequence.isEmpty()) && (subscriber == null || subscriber.isEmpty())
-           && (network == null || network.isEmpty()) && (contract == null || contract.isEmpty());
+           && (network == null || network.isEmpty()) && (contract == null || contract.isEmpty()) && (subject == null || subject.isEmpty())
+          ;
       }
 
   @Override
@@ -732,22 +812,24 @@ public class Coverage extends DomainResource {
     return ResourceType.Coverage;
    }
 
-  @SearchParamDefinition(name="plan", path="Coverage.plan", description="A plan or policy identifier", type="token" )
-  public static final String SP_PLAN = "plan";
-  @SearchParamDefinition(name="issuer", path="Coverage.issuer", description="The identity of the insurer", type="reference" )
-  public static final String SP_ISSUER = "issuer";
-  @SearchParamDefinition(name="sequence", path="Coverage.sequence", description="Sequence number", type="token" )
-  public static final String SP_SEQUENCE = "sequence";
-  @SearchParamDefinition(name="dependent", path="Coverage.dependent", description="Dependent number", type="token" )
-  public static final String SP_DEPENDENT = "dependent";
-  @SearchParamDefinition(name="group", path="Coverage.group", description="Group identifier", type="token" )
-  public static final String SP_GROUP = "group";
-  @SearchParamDefinition(name="type", path="Coverage.type", description="The kind of coverage", type="token" )
-  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="identifier", path="Coverage.identifier", description="The primary identifier of the insured", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="sequence", path="Coverage.sequence", description="Sequence number", type="token" )
+  public static final String SP_SEQUENCE = "sequence";
   @SearchParamDefinition(name="subplan", path="Coverage.subPlan", description="Sub-plan identifier", type="token" )
   public static final String SP_SUBPLAN = "subplan";
+  @SearchParamDefinition(name="subject", path="Coverage.subject", description="Covered party", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="type", path="Coverage.type", description="The kind of coverage", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="plan", path="Coverage.plan", description="A plan or policy identifier", type="token" )
+  public static final String SP_PLAN = "plan";
+  @SearchParamDefinition(name="dependent", path="Coverage.dependent", description="Dependent number", type="token" )
+  public static final String SP_DEPENDENT = "dependent";
+  @SearchParamDefinition(name="issuer", path="Coverage.issuer", description="The identity of the insurer", type="reference" )
+  public static final String SP_ISSUER = "issuer";
+  @SearchParamDefinition(name="group", path="Coverage.group", description="Group identifier", type="token" )
+  public static final String SP_GROUP = "group";
 
 }
 

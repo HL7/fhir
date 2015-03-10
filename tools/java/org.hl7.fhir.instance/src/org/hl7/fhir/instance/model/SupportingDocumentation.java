@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -932,14 +932,14 @@ public class SupportingDocumentation extends DomainResource {
     return ResourceType.SupportingDocumentation;
    }
 
-  @SearchParamDefinition(name="author", path="SupportingDocumentation.author", description="The person who generated this resource", type="reference" )
-  public static final String SP_AUTHOR = "author";
-  @SearchParamDefinition(name="patient", path="SupportingDocumentation.subject", description="The patient to  whom the documents refer", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="subject", path="SupportingDocumentation.subject", description="The patient to  whom the documents refer", type="reference" )
-  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="identifier", path="SupportingDocumentation.identifier", description="The business identifier of the Eligibility", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="author", path="SupportingDocumentation.author", description="The person who generated this resource", type="reference" )
+  public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="subject", path="SupportingDocumentation.subject", description="The patient to  whom the documents refer", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="patient", path="SupportingDocumentation.subject", description="The patient to  whom the documents refer", type="reference" )
+  public static final String SP_PATIENT = "patient";
 
 }
 

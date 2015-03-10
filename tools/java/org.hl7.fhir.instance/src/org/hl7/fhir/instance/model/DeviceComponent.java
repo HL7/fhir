@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -945,10 +945,10 @@ public class DeviceComponent extends DomainResource {
     return ResourceType.DeviceComponent;
    }
 
-  @SearchParamDefinition(name="source", path="DeviceComponent.source", description="The device source", type="reference" )
-  public static final String SP_SOURCE = "source";
   @SearchParamDefinition(name="parent", path="DeviceComponent.parent", description="The parent DeviceComponent resource", type="reference" )
   public static final String SP_PARENT = "parent";
+  @SearchParamDefinition(name="source", path="DeviceComponent.source", description="The device source", type="reference" )
+  public static final String SP_SOURCE = "source";
   @SearchParamDefinition(name="type", path="DeviceComponent.type", description="The device component type", type="token" )
   public static final String SP_TYPE = "type";
 

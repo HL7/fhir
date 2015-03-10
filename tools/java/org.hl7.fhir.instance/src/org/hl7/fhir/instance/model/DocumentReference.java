@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1528,50 +1528,50 @@ public class DocumentReference extends DomainResource {
     return ResourceType.DocumentReference;
    }
 
-  @SearchParamDefinition(name="location", path="DocumentReference.content.url", description="Uri where the data can be found", type="string" )
-  public static final String SP_LOCATION = "location";
-  @SearchParamDefinition(name="indexed", path="DocumentReference.indexed", description="When this document reference created", type="date" )
-  public static final String SP_INDEXED = "indexed";
-  @SearchParamDefinition(name="status", path="DocumentReference.status", description="current | superceded | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="relatesto", path="DocumentReference.relatesTo.target", description="Target of the relationship", type="reference" )
-  public static final String SP_RELATESTO = "relatesto";
-  @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
-  public static final String SP_RELATION = "relation";
-  @SearchParamDefinition(name="class", path="DocumentReference.class", description="High-level classification of document", type="token" )
-  public static final String SP_CLASS = "class";
-  @SearchParamDefinition(name="format", path="DocumentReference.format", description="Format/content rules for the document", type="token" )
-  public static final String SP_FORMAT = "format";
+  @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier|DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
   @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
   public static final String SP_PERIOD = "period";
-  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precise type of document", type="token" )
-  public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/What authenticated the document", type="reference" )
-  public static final String SP_AUTHENTICATOR = "authenticator";
-  @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
-  public static final String SP_RELATIONSHIP = "relationship";
-  @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
-  public static final String SP_AUTHOR = "author";
-  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="custodian", path="DocumentReference.custodian", description="Org which maintains the document", type="reference" )
   public static final String SP_CUSTODIAN = "custodian";
-  @SearchParamDefinition(name="facility", path="DocumentReference.context.facilityType", description="Kind of facility where patient was seen", type="token" )
-  public static final String SP_FACILITY = "facility";
+  @SearchParamDefinition(name="indexed", path="DocumentReference.indexed", description="When this document reference created", type="date" )
+  public static final String SP_INDEXED = "indexed";
+  @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
+  public static final String SP_AUTHOR = "author";
   @SearchParamDefinition(name="created", path="DocumentReference.created", description="Document creation time", type="date" )
   public static final String SP_CREATED = "created";
-  @SearchParamDefinition(name="event", path="DocumentReference.context.event", description="Main Clinical Acts Documented", type="token" )
-  public static final String SP_EVENT = "event";
   @SearchParamDefinition(name="confidentiality", path="DocumentReference.confidentiality", description="Sensitivity of source document", type="token" )
   public static final String SP_CONFIDENTIALITY = "confidentiality";
+  @SearchParamDefinition(name="format", path="DocumentReference.format", description="Format/content rules for the document", type="token" )
+  public static final String SP_FORMAT = "format";
   @SearchParamDefinition(name="description", path="DocumentReference.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="language", path="DocumentReference.content.language", description="Human language of the content (BCP-47)", type="token" )
   public static final String SP_LANGUAGE = "language";
-  @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier|DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precise type of document", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
+  public static final String SP_RELATION = "relation";
+  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="location", path="DocumentReference.content.url", description="Uri where the data can be found", type="string" )
+  public static final String SP_LOCATION = "location";
+  @SearchParamDefinition(name="relatesto", path="DocumentReference.relatesTo.target", description="Target of the relationship", type="reference" )
+  public static final String SP_RELATESTO = "relatesto";
+  @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
+  public static final String SP_RELATIONSHIP = "relationship";
+  @SearchParamDefinition(name="event", path="DocumentReference.context.event", description="Main Clinical Acts Documented", type="token" )
+  public static final String SP_EVENT = "event";
+  @SearchParamDefinition(name="class", path="DocumentReference.class", description="High-level classification of document", type="token" )
+  public static final String SP_CLASS = "class";
+  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/What authenticated the document", type="reference" )
+  public static final String SP_AUTHENTICATOR = "authenticator";
+  @SearchParamDefinition(name="facility", path="DocumentReference.context.facilityType", description="Kind of facility where patient was seen", type="token" )
+  public static final String SP_FACILITY = "facility";
+  @SearchParamDefinition(name="status", path="DocumentReference.status", description="current | superceded | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -921,14 +921,14 @@ public class CarePlan2 extends DomainResource {
     return ResourceType.CarePlan2;
    }
 
-  @SearchParamDefinition(name="patient", path="CarePlan2.patient", description="Who care plan is for", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="condition", path="CarePlan2.concern", description="Health issues this plan addresses", type="reference" )
-  public static final String SP_CONDITION = "condition";
-  @SearchParamDefinition(name="participant", path="CarePlan2.participant.member", description="Who is involved", type="reference" )
-  public static final String SP_PARTICIPANT = "participant";
   @SearchParamDefinition(name="date", path="CarePlan2.period", description="Time period plan covers", type="date" )
   public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="condition", path="CarePlan2.concern", description="Health issues this plan addresses", type="reference" )
+  public static final String SP_CONDITION = "condition";
+  @SearchParamDefinition(name="patient", path="CarePlan2.patient", description="Who care plan is for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="participant", path="CarePlan2.participant.member", description="Who is involved", type="reference" )
+  public static final String SP_PARTICIPANT = "participant";
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2431,32 +2431,32 @@ public class Encounter extends DomainResource {
     return ResourceType.Encounter;
    }
 
-  @SearchParamDefinition(name="participant-type", path="Encounter.participant.type", description="Role of participant in encounter", type="token" )
-  public static final String SP_PARTICIPANTTYPE = "participant-type";
+  @SearchParamDefinition(name="date", path="Encounter.period", description="A date within the period the Encounter lasted", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="identifier", path="Encounter.identifier", description="Identifier(s) by which this encounter is known", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
   @SearchParamDefinition(name="episodeofcare", path="Encounter.episodeOfCare", description="An episode of care that this encounter should be recorded against", type="reference" )
   public static final String SP_EPISODEOFCARE = "episodeofcare";
-  @SearchParamDefinition(name="status", path="Encounter.status", description="planned | arrived | in-progress | onleave | finished | cancelled", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="participant-type", path="Encounter.participant.type", description="Role of participant in encounter", type="token" )
+  public static final String SP_PARTICIPANTTYPE = "participant-type";
+  @SearchParamDefinition(name="length", path="Encounter.length", description="Length of encounter in days", type="number" )
+  public static final String SP_LENGTH = "length";
+  @SearchParamDefinition(name="part-of", path="Encounter.partOf", description="Another Encounter this encounter is part of", type="reference" )
+  public static final String SP_PARTOF = "part-of";
+  @SearchParamDefinition(name="type", path="Encounter.type", description="Specific type of encounter", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="patient", path="Encounter.patient", description="The patient present at the encounter", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="location-period", path="Encounter.location.period", description="Time period during which the patient was present at the location", type="date" )
+  public static final String SP_LOCATIONPERIOD = "location-period";
   @SearchParamDefinition(name="location", path="Encounter.location.location", description="Location the encounter takes place", type="reference" )
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="indication", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference" )
   public static final String SP_INDICATION = "indication";
-  @SearchParamDefinition(name="date", path="Encounter.period", description="A date within the period the Encounter lasted", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="type", path="Encounter.type", description="Specific type of encounter", type="token" )
-  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="special-arrangement", path="Encounter.hospitalization.specialArrangement", description="Wheelchair, translator, stretcher, etc", type="token" )
   public static final String SP_SPECIALARRANGEMENT = "special-arrangement";
-  @SearchParamDefinition(name="part-of", path="Encounter.partOf", description="Another Encounter this encounter is part of", type="reference" )
-  public static final String SP_PARTOF = "part-of";
-  @SearchParamDefinition(name="patient", path="Encounter.patient", description="The patient present at the encounter", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="length", path="Encounter.length", description="Length of encounter in days", type="number" )
-  public static final String SP_LENGTH = "length";
-  @SearchParamDefinition(name="identifier", path="Encounter.identifier", description="Identifier(s) by which this encounter is known", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="location-period", path="Encounter.location.period", description="Time period during which the patient was present at the location", type="date" )
-  public static final String SP_LOCATIONPERIOD = "location-period";
+  @SearchParamDefinition(name="status", path="Encounter.status", description="planned | arrived | in-progress | onleave | finished | cancelled", type="token" )
+  public static final String SP_STATUS = "status";
 
 }
 

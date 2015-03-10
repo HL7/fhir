@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -475,10 +475,10 @@ public class Alert extends DomainResource {
     return ResourceType.Alert;
    }
 
-  @SearchParamDefinition(name="patient", path="Alert.subject", description="The identity of a subject to list alerts for", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="subject", path="Alert.subject", description="The identity of a subject to list alerts for", type="reference" )
   public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="patient", path="Alert.subject", description="The identity of a subject to list alerts for", type="reference" )
+  public static final String SP_PATIENT = "patient";
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -831,16 +831,16 @@ public class Contraindication extends DomainResource {
     return ResourceType.Contraindication;
    }
 
-  @SearchParamDefinition(name="category", path="Contraindication.category", description="E.g. Drug-drug, duplicate therapy, etc.", type="token" )
-  public static final String SP_CATEGORY = "category";
-  @SearchParamDefinition(name="implicated", path="Contraindication.implicated", description="Problem resource", type="reference" )
-  public static final String SP_IMPLICATED = "implicated";
-  @SearchParamDefinition(name="patient", path="Contraindication.patient", description="Associated patient", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="date", path="Contraindication.date", description="When identified", type="date" )
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="identifier", path="Contraindication.identifier", description="Unique id for the contraindication", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="patient", path="Contraindication.patient", description="Associated patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="implicated", path="Contraindication.implicated", description="Problem resource", type="reference" )
+  public static final String SP_IMPLICATED = "implicated";
+  @SearchParamDefinition(name="category", path="Contraindication.category", description="E.g. Drug-drug, duplicate therapy, etc.", type="token" )
+  public static final String SP_CATEGORY = "category";
 
 }
 

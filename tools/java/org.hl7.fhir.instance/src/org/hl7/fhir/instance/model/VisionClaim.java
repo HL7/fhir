@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -4117,14 +4117,14 @@ public class VisionClaim extends DomainResource {
     return ResourceType.VisionClaim;
    }
 
+  @SearchParamDefinition(name="identifier", path="VisionClaim.identifier", description="The primary identifier of the financial resource", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="use", path="VisionClaim.use", description="The kind of financial resource", type="token" )
+  public static final String SP_USE = "use";
   @SearchParamDefinition(name="patient", path="VisionClaim.patient", description="Patient", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="priority", path="VisionClaim.priority", description="Processing priority requested", type="token" )
   public static final String SP_PRIORITY = "priority";
-  @SearchParamDefinition(name="use", path="VisionClaim.use", description="The kind of financial resource", type="token" )
-  public static final String SP_USE = "use";
-  @SearchParamDefinition(name="identifier", path="VisionClaim.identifier", description="The primary identifier of the financial resource", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

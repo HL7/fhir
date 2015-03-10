@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2204,30 +2204,30 @@ public class StructureDefinition extends DomainResource {
     return ResourceType.StructureDefinition;
    }
 
-  @SearchParamDefinition(name="valueset", path="StructureDefinition.snapshot.element.binding.reference[x]", description="A vocabulary binding code", type="reference" )
-  public static final String SP_VALUESET = "valueset";
-  @SearchParamDefinition(name="status", path="StructureDefinition.status", description="The current status of the profile", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="description", path="StructureDefinition.description", description="Text search in the description of the profile", type="string" )
-  public static final String SP_DESCRIPTION = "description";
-  @SearchParamDefinition(name="name", path="StructureDefinition.name", description="Name of the profile", type="string" )
-  public static final String SP_NAME = "name";
-  @SearchParamDefinition(name="path", path="StructureDefinition.snapshot.element.path|StructureDefinition.differential.element.path", description="A path that is constrained in the profile", type="token" )
-  public static final String SP_PATH = "path";
-  @SearchParamDefinition(name="code", path="StructureDefinition.code", description="A code for the profile", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="type", path="StructureDefinition.type", description="type | resource | constraint | extension", type="token" )
-  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="date", path="StructureDefinition.date", description="The profile publication date", type="date" )
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="identifier", path="StructureDefinition.identifier", description="The identifier of the profile", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="url", path="StructureDefinition.url", description="Literal URL used to reference this StructureDefinition", type="token" )
-  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="path", path="StructureDefinition.snapshot.element.path|StructureDefinition.differential.element.path", description="A path that is constrained in the profile", type="token" )
+  public static final String SP_PATH = "path";
+  @SearchParamDefinition(name="code", path="StructureDefinition.code", description="A code for the profile", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="valueset", path="StructureDefinition.snapshot.element.binding.reference[x]", description="A vocabulary binding code", type="reference" )
+  public static final String SP_VALUESET = "valueset";
+  @SearchParamDefinition(name="name", path="StructureDefinition.name", description="Name of the profile", type="string" )
+  public static final String SP_NAME = "name";
   @SearchParamDefinition(name="publisher", path="StructureDefinition.publisher", description="Name of the publisher of the profile", type="string" )
   public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="description", path="StructureDefinition.description", description="Text search in the description of the profile", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="type", path="StructureDefinition.type", description="type | resource | constraint | extension", type="token" )
+  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="version", path="StructureDefinition.version", description="The version identifier of the profile", type="token" )
   public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="url", path="StructureDefinition.url", description="Literal URL used to reference this StructureDefinition", type="token" )
+  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="status", path="StructureDefinition.status", description="The current status of the profile", type="token" )
+  public static final String SP_STATUS = "status";
 
 }
 

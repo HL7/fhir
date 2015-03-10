@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * Provenance information that describes the activity that led to the creation of a set of resources. This information can be used to help determine their reliability or trace where the information in them came from. The focus of the provenance resource is record keeping, audit and traceability, and not explicit statements of clinical significance.
+ * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g., Document Completion - has the artifact been legally authenticated), all of which may impact Security, Privacy, and Trust policies.
  */
 @ResourceDef(name="Provenance", profile="http://hl7.org/fhir/Profile/Provenance")
 public class Provenance extends DomainResource {
@@ -162,11 +162,11 @@ public class Provenance extends DomainResource {
         protected Coding type;
 
         /**
-         * Identity of participant. May be a logical or physical uri and maybe absolute or relative.
+         * Identity of participant as a Resource or uri.
          */
-        @Child(name="reference", type={UriType.class}, order=3, min=1, max=1)
-        @Description(shortDefinition="Identity of agent (urn or url)", formalDefinition="Identity of participant. May be a logical or physical uri and maybe absolute or relative." )
-        protected UriType reference;
+        @Child(name="reference", type={UriType.class, Practitioner.class, RelatedPerson.class, Patient.class, Device.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Identity of agent", formalDefinition="Identity of participant as a Resource or uri." )
+        protected Type reference;
 
         /**
          * Human-readable description of the participant.
@@ -175,17 +175,16 @@ public class Provenance extends DomainResource {
         @Description(shortDefinition="Human description of participant", formalDefinition="Human-readable description of the participant." )
         protected StringType display;
 
-        private static final long serialVersionUID = 14713896L;
+        private static final long serialVersionUID = -689391376L;
 
       public ProvenanceAgentComponent() {
         super();
       }
 
-      public ProvenanceAgentComponent(Coding role, Coding type, UriType reference) {
+      public ProvenanceAgentComponent(Coding role, Coding type) {
         super();
         this.role = role;
         this.type = type;
-        this.reference = reference;
       }
 
         /**
@@ -237,19 +236,28 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @return {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
+         * @return {@link #reference} (Identity of participant as a Resource or uri.)
          */
-        public UriType getReferenceElement() { 
-          if (this.reference == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProvenanceAgentComponent.reference");
-            else if (Configuration.doAutoCreate())
-              this.reference = new UriType(); // bb
+        public Type getReference() { 
           return this.reference;
         }
 
-        public boolean hasReferenceElement() { 
-          return this.reference != null && !this.reference.isEmpty();
+        /**
+         * @return {@link #reference} (Identity of participant as a Resource or uri.)
+         */
+        public UriType getReferenceUriType() throws Exception { 
+          if (!(this.reference instanceof UriType))
+            throw new Exception("Type mismatch: the type UriType was expected, but "+this.reference.getClass().getName()+" was encountered");
+          return (UriType) this.reference;
+        }
+
+        /**
+         * @return {@link #reference} (Identity of participant as a Resource or uri.)
+         */
+        public Reference getReferenceReference() throws Exception { 
+          if (!(this.reference instanceof Reference))
+            throw new Exception("Type mismatch: the type Reference was expected, but "+this.reference.getClass().getName()+" was encountered");
+          return (Reference) this.reference;
         }
 
         public boolean hasReference() { 
@@ -257,27 +265,10 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @param value {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
+         * @param value {@link #reference} (Identity of participant as a Resource or uri.)
          */
-        public ProvenanceAgentComponent setReferenceElement(UriType value) { 
+        public ProvenanceAgentComponent setReference(Type value) { 
           this.reference = value;
-          return this;
-        }
-
-        /**
-         * @return Identity of participant. May be a logical or physical uri and maybe absolute or relative.
-         */
-        public String getReference() { 
-          return this.reference == null ? null : this.reference.getValue();
-        }
-
-        /**
-         * @param value Identity of participant. May be a logical or physical uri and maybe absolute or relative.
-         */
-        public ProvenanceAgentComponent setReference(String value) { 
-            if (this.reference == null)
-              this.reference = new UriType();
-            this.reference.setValue(value);
           return this;
         }
 
@@ -334,7 +325,7 @@ public class Provenance extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "Coding", "The role that the participant played.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("type", "Coding", "The type of the participant.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("reference", "uri", "Identity of participant. May be a logical or physical uri and maybe absolute or relative.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("reference[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device)", "Identity of participant as a Resource or uri.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("display", "string", "Human-readable description of the participant.", 0, java.lang.Integer.MAX_VALUE, display));
         }
 
@@ -366,7 +357,7 @@ public class Provenance extends DomainResource {
         if (!(other instanceof ProvenanceAgentComponent))
           return false;
         ProvenanceAgentComponent o = (ProvenanceAgentComponent) other;
-        return compareValues(reference, o.reference, true) && compareValues(display, o.display, true);
+        return compareValues(display, o.display, true);
       }
 
       public boolean isEmpty() {
@@ -732,11 +723,11 @@ public class Provenance extends DomainResource {
     /**
      * A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
      */
-    @Child(name="integritySignature", type={StringType.class}, order=8, min=0, max=1)
+    @Child(name="integritySignature", type={Base64BinaryType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Base64 signature (DigSig) - integrity check", formalDefinition="A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation." )
-    protected StringType integritySignature;
+    protected Base64BinaryType integritySignature;
 
-    private static final long serialVersionUID = 1908377639L;
+    private static final long serialVersionUID = -1796008378L;
 
     public Provenance() {
       super();
@@ -1070,12 +1061,12 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #integritySignature} (A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.). This is the underlying object with id, value and extensions. The accessor "getIntegritySignature" gives direct access to the value
      */
-    public StringType getIntegritySignatureElement() { 
+    public Base64BinaryType getIntegritySignatureElement() { 
       if (this.integritySignature == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.integritySignature");
         else if (Configuration.doAutoCreate())
-          this.integritySignature = new StringType(); // bb
+          this.integritySignature = new Base64BinaryType(); // bb
       return this.integritySignature;
     }
 
@@ -1090,7 +1081,7 @@ public class Provenance extends DomainResource {
     /**
      * @param value {@link #integritySignature} (A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.). This is the underlying object with id, value and extensions. The accessor "getIntegritySignature" gives direct access to the value
      */
-    public Provenance setIntegritySignatureElement(StringType value) { 
+    public Provenance setIntegritySignatureElement(Base64BinaryType value) { 
       this.integritySignature = value;
       return this;
     }
@@ -1098,19 +1089,19 @@ public class Provenance extends DomainResource {
     /**
      * @return A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
      */
-    public String getIntegritySignature() { 
+    public byte[] getIntegritySignature() { 
       return this.integritySignature == null ? null : this.integritySignature.getValue();
     }
 
     /**
      * @param value A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
      */
-    public Provenance setIntegritySignature(String value) { 
-      if (Utilities.noString(value))
+    public Provenance setIntegritySignature(byte[] value) { 
+      if (value == null)
         this.integritySignature = null;
       else {
         if (this.integritySignature == null)
-          this.integritySignature = new StringType();
+          this.integritySignature = new Base64BinaryType();
         this.integritySignature.setValue(value);
       }
       return this;
@@ -1126,7 +1117,7 @@ public class Provenance extends DomainResource {
         childrenList.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
         childrenList.add(new Property("agent", "", "An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity));
-        childrenList.add(new Property("integritySignature", "string", "A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.", 0, java.lang.Integer.MAX_VALUE, integritySignature));
+        childrenList.add(new Property("integritySignature", "base64Binary", "A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.", 0, java.lang.Integer.MAX_VALUE, integritySignature));
       }
 
       public Provenance copy() {
@@ -1202,18 +1193,18 @@ public class Provenance extends DomainResource {
 
   @SearchParamDefinition(name="patient", path="", description="A patient that the target resource(s) refer to", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="location", path="Provenance.location", description="Where the activity occurred, if relevant", type="reference" )
-  public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="start", path="Provenance.period.start", description="Starting time with inclusive boundary", type="date" )
   public static final String SP_START = "start";
-  @SearchParamDefinition(name="partytype", path="Provenance.agent.type", description="e.g. Resource | Person | Application | Record | Document +", type="token" )
-  public static final String SP_PARTYTYPE = "partytype";
-  @SearchParamDefinition(name="target", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
-  public static final String SP_TARGET = "target";
-  @SearchParamDefinition(name="party", path="Provenance.agent.reference", description="Identity of agent (urn or url)", type="token" )
-  public static final String SP_PARTY = "party";
   @SearchParamDefinition(name="end", path="Provenance.period.end", description="End time with inclusive boundary, if not ongoing", type="date" )
   public static final String SP_END = "end";
+  @SearchParamDefinition(name="location", path="Provenance.location", description="Where the activity occurred, if relevant", type="reference" )
+  public static final String SP_LOCATION = "location";
+  @SearchParamDefinition(name="partytype", path="Provenance.agent.type", description="e.g. Resource | Person | Application | Record | Document +", type="token" )
+  public static final String SP_PARTYTYPE = "partytype";
+  @SearchParamDefinition(name="party", path="Provenance.agent.reference[x]", description="Identity of agent", type="reference" )
+  public static final String SP_PARTY = "party";
+  @SearchParamDefinition(name="target", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
+  public static final String SP_TARGET = "target";
 
 }
 

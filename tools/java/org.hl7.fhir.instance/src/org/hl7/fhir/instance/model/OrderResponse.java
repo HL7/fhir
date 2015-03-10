@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 12:12+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -724,16 +724,16 @@ public class OrderResponse extends DomainResource {
     return ResourceType.OrderResponse;
    }
 
-  @SearchParamDefinition(name="patient", path="", description="The patient the reuqest order is related to", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="fulfillment", path="OrderResponse.fulfillment", description="Details of the outcome of performing the order", type="reference" )
-  public static final String SP_FULFILLMENT = "fulfillment";
+  @SearchParamDefinition(name="date", path="OrderResponse.date", description="When the response was made", type="date" )
+  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="request", path="OrderResponse.request", description="The order that this is a response to", type="reference" )
   public static final String SP_REQUEST = "request";
   @SearchParamDefinition(name="code", path="OrderResponse.orderStatus", description="pending | review | rejected | error | accepted | cancelled | replaced | aborted | completed", type="token" )
   public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="date", path="OrderResponse.date", description="When the response was made", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="patient", path="", description="The patient the reuqest order is related to", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="fulfillment", path="OrderResponse.fulfillment", description="Details of the outcome of performing the order", type="reference" )
+  public static final String SP_FULFILLMENT = "fulfillment";
   @SearchParamDefinition(name="who", path="OrderResponse.who", description="Who made the response", type="reference" )
   public static final String SP_WHO = "who";
 
