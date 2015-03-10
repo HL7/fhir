@@ -1237,7 +1237,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The absolute geographic location </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML)</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The absolute geographic location of the Location, expressed in with the WGS84 datum (This is the same co-ordinate system used in KML)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">For mobile applications and automated route-finding knowing the exact location of the Location is required</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1269,7 +1269,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Longitude as expressed in KML</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Longitude with WGS84 datum</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1301,7 +1301,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Latitude as expressed in KML</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Latitude with WGS84 datum</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1333,7 +1333,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Altitude as expressed in KML</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Altitude with WGS84 datum</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
