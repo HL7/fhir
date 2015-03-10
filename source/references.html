@@ -240,11 +240,12 @@ bundle first when a <a href="#Resource">resource reference</a> is encountered.
 </div>
 <p>
 then the application should look for any entry in the bundle where either the
-entry.id or the entry.link[self] matches the reference URL exactly:
+entry.id matches the reference URL exactly:
 </p>
 <div class="example">
 <pre class="xml">
-   .. bundle ..
+  .. bundle ..
+  &lt>base value="http://acme.com/fhir"/&gt;
   &lt;item>
     &lt;Organization xmlns="http://hl7.org/fhir">
        &lt;id value="23"/&gt;
@@ -266,7 +267,9 @@ entry.id or the entry.link[self] matches the reference URL exactly:
 </div>
 <p>
 In the second case, the match is based on a specific version of the
-resource. If the resource reference cannot be resolved
+resource. Note that the matching is based on full URLs by prepending
+the base for the entry (see <a href="bundle.html#resolving">"Bundles" for further information</a>).
+If the resource reference cannot be resolved
 in the bundle, the application SHOULD be able to retrieve the resource by
 following the provided URL directly. If it can't, it will have to use some
 other implementation-specific method for resolving how to find the resource.
