@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
 <Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
   <id value="qicore"/>
@@ -7,38 +6,44 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar
-        2012</p>
+      <p>Dr Ronald Heart is a cardiologist at Acme Hospital</p>
     </div>
   </text>
 
   <identifier>
     <system value="http://www.acme.org/practitioners"/>
-    <value value="23"/>
+    <value value="24"/>
   </identifier>
   <name>
-    <family value="Careful"/>
-    <given value="Adam"/>
+    <family value="Heart"/>
+    <given value="Ronald"/>
     <prefix value="Dr"/>
   </name>
 
-		<practitionerRole>
+  <practitionerRole>
 
-  <managingOrganization>
-    <reference value="Organization/1"/>
-  </managingOrganization>
+    <managingOrganization>
+      <reference value="Organization/1"/>
+    </managingOrganization>
 
-  <!-- Referring Practitioner for the first 3 months of 2012 -->
-  <role>
-    <coding>
-      <system value="http://hl7.org/fhir/v2/0286"/>
-      <code value="RP"/>
-    </coding>
-  </role>
+    <role>
+      <coding>
+        <system value="http://hl7.org/fhir/practitioner-role"/>
+        <code value="doctor"/>
+        <display value="Doctor"/>
+      </coding>
+    </role>
+    <specialty>
+      <extension url="http://hl7.org/fhir/StructureDefinition/practitioner-primaryInd" >
+        <valueBoolean value="true"/>
+      </extension>
+      <coding>
+        <system value="http://hl7.org/fhir/practitioner-specialty"/>
+        <code value="cardio"/>
+        <display value="Cardiologist"/>
+      </coding>
+    </specialty>
 
-  <period>
-    <start value="2012-01-01"/>
-    <end value="2012-03-31"/>
-  </period>
-		</practitionerRole>
+  </practitionerRole>
+
 </Practitioner>
