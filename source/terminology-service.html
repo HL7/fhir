@@ -97,10 +97,18 @@ A server SHOULD publish the additional code systems that it supports through int
 using the <a href="??">http://hl7.org/fhir/StructureDefinition/supported-system extension:</a>
 </p>
 <pre class="json">
- "http://hl7.org/fhir/StructureDefinition/supported-system" : [
-   { "valueUri" : "http://loinc.org" }
- ],
+{
+ "resourceType" : "Conformance",
+ "extension" : [
+   { 
+     "url" : "http://hl7.org/fhir/StructureDefinition/supported-system",
+     "valueUri" : "http://loinc.org" 
+   }]  
+}
 </pre>
+<p>
+This extension is added to the root <a href="conformance.html">Conformance Statement</a>.
+</p>
 
 <h4>Implementation Note</h4>
 <p>When a terminology server exposes an external code system, it makes a set of services available
