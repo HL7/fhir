@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
 <Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
   <id value="qicore"/>
   <text>
     <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient @example</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient @qicore</div>
   </text>
-  <status value="in-progress" />
+  <status value="finished" />
   <class value="inpatient" />
   <patient>
-    <reference value="Patient/example"/>
+    <reference value="Patient/qicore"/>
   </patient>
+
+  <hospitalization>
+    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-admission">
+      <valueDateTime value="2015-02-09T00:00:00Z"/>
+    </extension>
+
+    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-discharge">
+      <valueDateTime value="2015-02-20T00:00:00Z"/>
+    </extension>
+  </hospitalization>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/encounter-primaryCondition">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="39065001"/>
+        <display value="Burn of ear"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition">
+    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-condition">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="110182002" />
+          <display value="burn of forehead"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-conditionRole">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="398192003" />
+          <display value="Co-morbid conditions (finding)"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </extension>
+
+
+
 </Encounter>

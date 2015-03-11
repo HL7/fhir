@@ -33,6 +33,13 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
       </div>
   </text>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticreport-locationPerformed">
+    <valueReference>
+      <reference value="Location/example"/>
+    </valueReference>
+  </extension>
+
   <!--
   all the data items (= Observations) are contained
   in this diagnostic report. It would be equally
