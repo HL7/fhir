@@ -10,19 +10,18 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-11T02:40:08Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4365</WindowHeight>
-  <WindowWidth>20550</WindowWidth>
-  <WindowTopX>-15</WindowTopX>
-  <WindowTopY>-15</WindowTopY>
+  <WindowHeight>9885</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <TabRatio>913</TabRatio>
-  <ActiveSheet>5</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -918,14 +917,6 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
-  </Style>
-  <Style ss:ID="s169">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#D8D8D8" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -4011,6 +4002,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -13390,7 +13382,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -13534,6 +13525,7 @@
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="85" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="35.25">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="118.5"/>
+   <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="321"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Committee Notes</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -14113,7 +14105,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:Index="3" ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s169"><Data ss:Type="String">!Observation.identifier.label </Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">!Observation.identifier.label </Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s107"/>
@@ -14360,7 +14352,7 @@
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="105.75">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
@@ -14369,7 +14361,7 @@
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Observation){http://hl7.org/fhir/Profile/obs-uslab-uslabobscode}|Reference(Observation){http://hl7.org/fhir/Profile/obs-uslab-slabobsquantity}|Reference(Observation){http://hl7.org/fhir/Profile/obs-uslab-uslabobsother}|Reference(Observation){http://hl7.org/fhir/Profile/obs-uslab-uslabobsratio}</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Observation){http://hl7.org/fhir/StructureDefinition/obs-uslab-uslabobscode}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/obs-uslab-slabobsquantity}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/obs-uslab-uslabobsother}|Reference(Observation){http://hl7.org/fhir/StructureDefinition/obs-uslab-uslabobsratio}</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
@@ -15772,12 +15764,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>21</TopRowVisible>
+   <TopRowVisible>24</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>31</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
