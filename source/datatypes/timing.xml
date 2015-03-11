@@ -973,7 +973,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">A timing schedule that specifies an event that may occur multiple times</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Specifies an event that may occur multiple times. Timing schedules are used for to record when things are expected or requested to occur.</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Need to able to track proposed timing schedules. There are several different ways to do this: one or more specified times, a simple rules like three times a day, or  before/after meals</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
