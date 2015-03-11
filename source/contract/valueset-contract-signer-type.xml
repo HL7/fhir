@@ -1,15 +1,7 @@
 <ValueSet xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   
-  <text>
-    
-    <status value="generated"/>
-    
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      This value set is from <a href="http://www.astm.org/Standards/E1762.htm">ASTM E1762-05</a>
-    </div>
-  </text>
-  <name value="Contract Signer Type Codes"/>
+  <name value="Signature Type Codes"/>
   <publisher value="ASTM"/>
   
   <contact>
@@ -20,7 +12,7 @@
   </contact>
   <copyright value="These codes are excerpted from ASTM Standard, E1762-95(2013) - Standard Guide for Electronic Authenticaiton of Health Care Information, Copyright by ASTM International, 100 Barr Harbor Drive, West Conshohocken, PA 19428. Copies of this standard are available through the ASTM Web Site at www.astm.org. "/>
   <status value="draft"/>
-  <description value="The Digital Signature Purposes."/>
+  <description value="The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness."/>
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/contractsignertypecodes"/>

@@ -29,6 +29,7 @@
       <system value="http://hl7.org/fhir/provenance-participant-type"/>
       <code value="person"/>
     </type>
+    <referenceUri value="mailto:grahame@healthintersections.com.au"></referenceUri>
     <display value="Grahame Grieve"/>
   </agent>
 </Provenance>
