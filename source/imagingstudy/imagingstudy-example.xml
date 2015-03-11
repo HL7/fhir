@@ -30,7 +30,9 @@
       <number value="1"/>
       <uid value="urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903"/>
       <sopclass value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
-      <url value="http://localhost/fhir/Binary/1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+      <content>
+        <url value="http://localhost/fhir/Binary/1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+      </content>
     </instance>
   </series>   
 </ImagingStudy>
