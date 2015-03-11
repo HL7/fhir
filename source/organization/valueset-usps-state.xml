@@ -9,6 +9,7 @@
   </telecom>
   </contact>
   <description value="This value set defines two letter USPS alphabetic codes."/>
+  <copyright value="On July 1, 1963, the Post Office Department implemented the five-digit ZIP Code, which was placed after the state name in the last line of an address. To provide room for the ZIP Code, the Department issued two-letter abbreviations for all states and territories. Publication 59, Abbreviations for Use with ZIP Code, issued by the Department in October 1963.   Currently there is no copyright restrictions on this value set"></copyright>
   <status value="draft"/>
   <compose>
     <include>

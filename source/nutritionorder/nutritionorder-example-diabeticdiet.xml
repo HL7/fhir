@@ -98,7 +98,7 @@ edited by Eric Haas Health eData Inc-->
 				<units value="d"/>
 			</repeat>
 		</scheduled>
-		<nutrients>
+		<nutrient>
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
@@ -112,7 +112,7 @@ edited by Eric Haas Health eData Inc-->
 				<system value="http://unitsofmeasure.org"/>
 				<code value="g"/>
 			</amount>
-		</nutrients>
+		</nutrient>
 	</oralDiet>
 	<status value="active"/>
 </NutritionOrder>

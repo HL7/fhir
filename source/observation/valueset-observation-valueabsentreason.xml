@@ -16,26 +16,27 @@
 		<caseSensitive value="true"/>
 		<concept>
 			<code value="unknown"/>
+			<display value="Unknown"/>
 			<definition value="The value is not known"/>
 		</concept>
 		<concept>
-			<code value="asked"/>
+			<code value="asked"/><display value="Asked"/>
 			<definition value="The source human does not know the value"/>
 		</concept>
 		<concept>
-			<code value="temp"/>
+			<code value="temp"/><display value="Temp"/>
 			<definition value="There is reason to expect (from the workflow) that the value may become known"/>
 		</concept>
 		<concept>
-			<code value="notasked"/>
+			<code value="notasked"/><display value="Notasked"/>
 			<definition value="The workflow didn&#39;t lead to this value being known"/>
 		</concept>
 		<concept>
-			<code value="masked"/>
+			<code value="masked"/><display value="Masked"/>
 			<definition value="The information is not available due to security, privacy or related reasons"/>
 		</concept>
 		<concept>
-			<code value="unsupported"/>
+			<code value="unsupported"/><display value="Unsupported"/>
 			<definition value="The source system wasn&#39;t capable of supporting this element"/>
 		</concept>
 		<concept>
@@ -43,7 +44,7 @@
 			<definition value="The content of the data is represented in the resource narrative"/>
 		</concept>
 		<concept>
-			<code value="error"/>
+			<code value="error"/><display value="Error"/>
 			<definition value="Some system or workflow process error means that the information is not available"/>
 		</concept>
 	</define>

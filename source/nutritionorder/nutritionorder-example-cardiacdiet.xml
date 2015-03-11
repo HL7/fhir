@@ -117,7 +117,7 @@ edited by Eric Haas Health eData Inc-->
 			</repeat>
 		</scheduled>
 -->
-		<nutrients>
+		<nutrient>
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
@@ -131,8 +131,8 @@ edited by Eric Haas Health eData Inc-->
 				<system value="http://unitsofmeasure.org"/>
 				<code value="g"/>
 			</amount>
-		</nutrients>
-		<nutrients>
+		</nutrient>
+		<nutrient>
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
@@ -146,7 +146,7 @@ edited by Eric Haas Health eData Inc-->
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mL"/>
 			</amount>
-		</nutrients>
+		</nutrient>
 		<instruction value="Starting on 2/10 breakfast, maximum 400 ml fluids per meal"></instruction>
 	</oralDiet>
 	<status value="active"/>
