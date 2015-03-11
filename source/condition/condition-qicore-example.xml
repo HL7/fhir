@@ -11,7 +11,7 @@
   </subject>
   <code>
     <coding>
-      <system value="http://snomed.info/sct"/>
+      <system value="http://hl7.org/fhir/vs/daf-problem"/>
       <code value="39065001"/>
       <display value="Burn of ear"/>
     </coding>
@@ -49,4 +49,22 @@
     <text value="Left Ear"/>
   </code>
  </location>
+ <extension url="http://hl7.org/fhir/StructureDefinition/condition-contributionToDeath">
+   <valueCodeableConcept>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="410591008" />
+       <display value="Definitely present (qualifier value)"/>
+     </coding>
+   </valueCodeableConcept>
+ </extension>
+ <extension url="http://hl7.org/fhir/StructureDefinition/condition-criticality">
+   <valueCodeableConcept>
+     <coding>
+       <system value="http://hl7.org/fhir/vs/condition-severity"/>
+       <code value="399166001" />
+       <display value="Fatal"/>
+     </coding>
+   </valueCodeableConcept>
+ </extension>
 </Condition>
