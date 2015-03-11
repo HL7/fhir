@@ -34,7 +34,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </div>
   </text>
 
-  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticreport-locationPerformed">
+  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed">
     <valueReference>
       <reference value="Location/example"/>
     </valueReference>
