@@ -18,7 +18,7 @@
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
   <TabRatio>814</TabRatio>
-  <ActiveSheet>11</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -2031,7 +2031,7 @@
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">USLabDiagnosis</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">USLabAdjunctDiagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3884,6 +3884,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3905,8 +3906,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>30</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -16670,7 +16670,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -16690,7 +16689,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
