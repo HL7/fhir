@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Using CPT with FHIR%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%txheader%>
+
+<h2>Using CPT with FHIR</h2>
+
+<h3>Summary</h3>
+
+<table class="grid">
+ <tr><td>Source</td><td>CPT is made managed by the <a href="http://www.ama-assn.org/ama">American Medical Association</a></td></tr>
+ <tr><td>System</td><td>The URI <a href="http://www.ama-assn.org/go/cpt">http://www.ama-assn.org/go/cpt</a> identifies the CPT code system</td></tr>
+ <tr><td>Version</td><td>Where a version is appropriate, use the year of release e.g. 2014</td></tr>
+ <tr><td>Code</td><td>"Code" in the CPT tables (a 5 character code)</td></tr>
+ <tr><td>Display</td><td>"Description" in the CPT tables</td></tr>
+ <tr><td>Filter Properties</td><td>None defined</td></tr>
+</table>
+
+<h3>Version Issues</h3>
+<p>
+CPT is released each October. CPT versions are identified simply by the year of their release. 
+</p>
+
+<h3>Example Usage</h3>
+
+<pre class="xml" fragment="Coding">
+  &lt;coding&gt;
+    &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
+    &lt;version value=&quot;2014&quot;/&gt;
+    &lt;code value=&quot;31502&quot;/&gt;
+    &lt;display value=&quot;Tracheotomy tube change prior to establishment of fistula tract&quot;/&gt;
+  &lt;/coding&gt;
+</pre>
+
+<h3>Copyright/License Issues</h3>
+
+<p>
+CPT is a registered trademark of the American Medical Association. The AMA holds the copyright for the CPT coding system.
+</p>
+<p>
+When Value Sets include CPT codes, the copyright element should include the text "CPT copyright 2014 American Medical Association. All rights reserved.".
+</p>
+
+<h3>CPT Filter Properties</h3>
+
+<p>
+No filter properties have been defined at this time.
+</p>
+
+<h3>Implicit Value Sets</h3>
+
+<p>
+The value set URL http://hl7.org/fhir/vs/cpt is a value set that includes all CPT codes.
+</p>
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

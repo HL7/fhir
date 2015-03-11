@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
+ <id value="cpt-all"/>
+  <url value="http://hl7.org/fhir/ValueSet/cpt-all"/>
+  <name value="All CPT codes"/>
+  <publisher value="HL7 FHIR project"/>
+  <description value="A value set that includes all CPT codes"/>
+  <copyright value="CPT copyright 2014 American Medical Association. All rights reserved."/>
+  <status value="active"/>
+  <date value="2015-03-12"/>
+  <compose>
+    <include>
+      <system value="http://www.ama-assn.org/go/cpt"/>
+    </include>
+  </compose>
+</ValueSet>
