@@ -16,7 +16,7 @@
   <status value="draft"/>
   <define>
     
-   <system value="http://hl7.org/fhir/contractsignertypecodes"/>
+   <system value="http://hl7.org/fhir/valueset-signature-type"/>
     
    <caseSensitive value="true"/>  
     <concept>

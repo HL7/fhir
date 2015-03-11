@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 
 
       
@@ -954,13 +954,40 @@ Signature
 See also <a href="datatypes-examples.html#Signature">Examples</a>, <a href="datatypes-definitions.html#Signature">Detailed Descriptions</a> and <a href="datatypes-mappings.html#Signature">Mappings</a>.
 </p>
 <p>
-todo
+A Signature holds a Digital Signature and supporting context in a FHIR accessible form. The non-repudiation proof is provided through the XML-Signature blob. 
 </p>
 [%dt Signature%]
 <p>
-todo
+The Signature.blob is base64 encoded XML-Signature. The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature. Where the content that is signed is separate from the signature itself. 
 </p>
-
+<p>
+The Signature should conform to XAdES-X-L for support of Long Term signatures. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation. 
+</p>
+<p>
+Where the signed content is a FHIR Resource(s), the signature is accross the the XML form of the resource(s).
+</p>
+<p>
+The content should be canonicalized using the "Canonical XML 1.1. with Comments".
+</p>
+<p>
+The Signature should use the hashing algorithm sha256. The XML-Signature indicates the algorithm used. Other hashing algoirthms should be expected to have been used, signature validation policy would determine acceptability.
+</p>
+<p>
+The Signature Shall include a “CommitmentTypeIndication” element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). 
+The Signature.type shall contain the same values as committmentTypeIndication.
+</p>
+<p>
+There are three levels of signature verification: 
+<ol>
+   <li>	verifying that the Digital Signature block itself has integrity through verifying the signature across the XML-Signature, </li>
+   <li> confirming that the signer was authentic, not revoked, and appropriate to the signature purpose, </li>
+   <li> confirming that the signed content of interest are unmodified using the hash algorithm.</li>
+</ol>
+</p>
+<p>
+Deviations from these guidelines would need to be expressed in site policy, and would be enumerated in the XML-Signature block. 
+For example some environments may choose a different XAdES profile, hashing algorithm, policy identifier, or signature purpose vocabulary. 
+</p>
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Signature%]
