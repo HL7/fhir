@@ -6,7 +6,13 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Burgers UMC, South Wing, second floor</div>
   </text>
-  <identifier>
+	<extension url="http://hl7.org/fhir/StructureDefinition/location-alias">
+		<valueString value="Burgers University Medical Center, South Wing, second floor" />
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/location-alias">
+		<valueString value="BU MC, SW, F2" />
+	</extension>
+	<identifier>
     <value value="B1-S.F2" />
   </identifier>
   <name value="South Wing, second floor"/>
