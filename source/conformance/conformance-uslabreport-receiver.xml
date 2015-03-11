@@ -313,7 +313,7 @@
 	<format value="xml"/>
 	<format value="json"/>
 	<!-- EH:  need to distinguish when receiver in server mode  = Pull: The source is a server, and the destination is a client. When the client wants to use the data, it uses a combination of search and read so the users can find the data they need
-Push/Pull: The source is a server, and the destination is a client. On a regular basis, the destination queries the server for it's history, and replicates the changes in its own copy of the database
+Push/Pull: The source is a server, and the destination is a client. On a regular basis, the destination queries the server for its history, and replicates the changes in its own copy of the database
 ...
 or when receiver in client  mode  =Push: The source is a client, and when new data is available, it uses create, update, and transaction to push data to the destination, which is a server -->
 	<rest>

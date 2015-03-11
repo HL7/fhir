@@ -106,7 +106,7 @@
     Observations are often coded in multiple code systems.
       - LOINC
 		- or SNOMED
-      -and/or the source system may provides it's own "local" code, which may be less or more granular than LOINC.
+      -and/or the source system may provides its own "local" code, which may be less or more granular than LOINC.
 	In this example there is only LOINC
   -->
 	<code>

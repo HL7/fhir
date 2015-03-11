@@ -11,7 +11,7 @@ in a FHIR resource, that can used as the basis for validation, and code, report 
 <div> 
 <h2>Boundaries and Relationships</h2> 
 <ul>
- <li>Every extension in a resource refers directly to it's definition</li>
+ <li>Every extension in a resource refers directly to its definition</li>
  <li>ExtensionDefinitions are used by <a href="profile.html">Profile</a> instances when specifying that extensions are used in a resource</li>
 </ul>
 

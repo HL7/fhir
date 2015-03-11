@@ -53,8 +53,8 @@ This is one very common area where significant clinical safety risks occur in pr
 should be familiar with the content in <a href="terminologies.html">Using Codes in resources</a>.
 </p>
 <p>
-Each value set has 2 different URLs that can be used to reference it, it's logical identifier, and 
-it's location. 
+Each value set has 2 different URLs that can be used to reference it, its logical identifier, and 
+its location. 
 </p>
 <p>
 The location of the value set is a URL by which it may be retrieved, usually from a FHIR 

@@ -222,7 +222,7 @@
               <repeats value="false"/>
               <question>
                 <!-- This *has* to be treated as a distinct question, not a characteristic of the code.
-                  - it has it's own properties and could map to its own data element.  That makes it
+                  - it has its own properties and could map to its own data element.  That makes it
                   a question in its own right.  It would be possible for display software to render
                   the question so that the question text doesn't display when it's the same as the text
                   of the corresponding answer.  Alternatively, we could petition to allow question.text

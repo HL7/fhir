@@ -10,7 +10,7 @@
     Observations are often coded in multiple code systems.
       - Loinc provides a very specific code (though not usefully more specific in this particular case)
       - snomed provides a clinically relevant code that is usually less granular than LOINC
-      - the source system provides it's own code, which may be less or more granular than LOINC
+      - the source system provides its own code, which may be less or more granular than LOINC
   -->
   <code>
     <!-- LOINC - always recommended to have a LOINC code -->

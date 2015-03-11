@@ -129,7 +129,7 @@ Each entry element SHALL contain a resource.
 
 <p>
 Bundle has a 'base' element, which is used to resolve relative references present in the bundled resources. 
-In the case that the bundle includes resources with different bases, each entry can also assert it's 
+In the case that the bundle includes resources with different bases, each entry can also assert its 
 applicable base if this is different to the overall base. A base SHOULD always be specified, either
 in the bundle itself, or on each entry.
 </p>

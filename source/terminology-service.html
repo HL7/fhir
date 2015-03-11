@@ -163,7 +163,7 @@ of the current codes in the value set. This is known as <a href="valueset-operat
 As a summary, the client passes the server the following information:
 </p>
 <ul>
- <li> the value set (either by its URL on the RESTful interface, by it's logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
+ <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
  <li> (Optionally) a text filter to use to restrict the codes that are returned (e.g. user input text). It is left to server discretion to choose how to apply the text filter</li>
  <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>
@@ -343,7 +343,7 @@ However this is not an efficient way to test whether a code is valid, and for so
 provides <a href="valueset-operations.html#validate">a "validate" operation</a>. The client passes the server the following information:
 </p>
 <ul>
- <li> the value set (either by its URL on the RESTful interface, by it's logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
+ <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
  <li> the code value (either a code+system, a Coding data type, or a CodeableConcept</li>
  <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>

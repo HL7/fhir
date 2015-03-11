@@ -9,7 +9,7 @@ All other search parameters are named aliases for existing content in
 the resource. In some cases, though not all, the search parameter name
 is the same as the element that it searches, but this is not required. 
 Searching for extensions is the same - define a name that identifies 
-the value extension by it's URL, and then searches can filter based on
+the value extension by its URL, and then searches can filter based on
 the value of the extension.
 </p>
 </div>

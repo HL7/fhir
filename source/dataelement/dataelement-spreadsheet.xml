@@ -1345,7 +1345,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The copyright statement does not apply to values for the data element, only to it's definition</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The copyright statement does not apply to values for the data element, only to its definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">./inboundRelationship[typeCode=SUBJ]/source[classCode=CONTRACT,moodCode=EVN].text</Data><NamedCell
