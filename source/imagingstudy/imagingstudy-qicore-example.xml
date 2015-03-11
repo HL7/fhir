@@ -7,13 +7,6 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</div>
   </text>
-  <started value="2011-01-01T11:01:20+03:00"/>
-  <patient>
-    <reference value="Patient/dicom"/>
-  </patient>
-  <uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
-  <numberOfSeries value="1"/>
-  <numberOfInstances value="1"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDose">
     <valueRange>
       <low>
@@ -34,6 +27,13 @@
       <code value="s" />
     </valueQuantity>
   </extension>
+  <started value="2011-01-01T11:01:20+03:00"/>
+  <patient>
+    <reference value="Patient/dicom"/>
+  </patient>
+  <uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
+  <numberOfSeries value="1"/>
+  <numberOfInstances value="1"/>
   <series>
     <number value="3"/>
     <modality value="CT"/>
