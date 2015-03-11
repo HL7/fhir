@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1134,20 +1134,20 @@ public class Supply extends DomainResource {
     return ResourceType.Supply;
    }
 
-  @SearchParamDefinition(name="identifier", path="Supply.identifier", description="Unique identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="kind", path="Supply.kind", description="The kind of supply (central, non-stock, etc)", type="token" )
-  public static final String SP_KIND = "kind";
   @SearchParamDefinition(name="patient", path="Supply.patient", description="Patient for whom the item is supplied", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="supplier", path="Supply.dispense.supplier", description="Dispenser", type="reference" )
-  public static final String SP_SUPPLIER = "supplier";
-  @SearchParamDefinition(name="dispenseid", path="Supply.dispense.identifier", description="External identifier", type="token" )
-  public static final String SP_DISPENSEID = "dispenseid";
-  @SearchParamDefinition(name="dispensestatus", path="Supply.dispense.status", description="in-progress | dispensed | abandoned", type="token" )
-  public static final String SP_DISPENSESTATUS = "dispensestatus";
   @SearchParamDefinition(name="status", path="Supply.status", description="requested | dispensed | received | failed | cancelled", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="dispenseid", path="Supply.dispense.identifier", description="External identifier", type="token" )
+  public static final String SP_DISPENSEID = "dispenseid";
+  @SearchParamDefinition(name="identifier", path="Supply.identifier", description="Unique identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="supplier", path="Supply.dispense.supplier", description="Dispenser", type="reference" )
+  public static final String SP_SUPPLIER = "supplier";
+  @SearchParamDefinition(name="kind", path="Supply.kind", description="The kind of supply (central, non-stock, etc)", type="token" )
+  public static final String SP_KIND = "kind";
+  @SearchParamDefinition(name="dispensestatus", path="Supply.dispense.status", description="in-progress | dispensed | abandoned", type="token" )
+  public static final String SP_DISPENSESTATUS = "dispensestatus";
 
 }
 

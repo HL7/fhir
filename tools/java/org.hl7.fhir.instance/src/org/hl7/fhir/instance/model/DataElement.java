@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.instance.model.annotations.Description;
 @ResourceDef(name="DataElement", profile="http://hl7.org/fhir/Profile/DataElement")
 public class DataElement extends DomainResource {
 
-    public enum DataelementGranularity {
+    public enum DataelementSpecificity {
         /**
          * The data element is sufficiently well-constrained that multiple pieces of data captured according to the constraints of the data element will be comparable (though in some cases, a degree of automated conversion/normalization may be required).
          */
@@ -75,7 +75,7 @@ public class DataElement extends DomainResource {
          * added to help the parsers
          */
         NULL;
-        public static DataelementGranularity fromCode(String codeString) throws Exception {
+        public static DataelementSpecificity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("comparable".equals(codeString))
@@ -90,7 +90,7 @@ public class DataElement extends DomainResource {
           return SCALEABLE;
         if ("flexible".equals(codeString))
           return FLEXIBLE;
-        throw new Exception("Unknown DataelementGranularity code '"+codeString+"'");
+        throw new Exception("Unknown DataelementSpecificity code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -138,37 +138,37 @@ public class DataElement extends DomainResource {
         }
     }
 
-  public static class DataelementGranularityEnumFactory implements EnumFactory<DataelementGranularity> {
-    public DataelementGranularity fromCode(String codeString) throws IllegalArgumentException {
+  public static class DataelementSpecificityEnumFactory implements EnumFactory<DataelementSpecificity> {
+    public DataelementSpecificity fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("comparable".equals(codeString))
-          return DataelementGranularity.COMPARABLE;
+          return DataelementSpecificity.COMPARABLE;
         if ("fully-specified".equals(codeString))
-          return DataelementGranularity.FULLYSPECIFIED;
+          return DataelementSpecificity.FULLYSPECIFIED;
         if ("equivalent".equals(codeString))
-          return DataelementGranularity.EQUIVALENT;
+          return DataelementSpecificity.EQUIVALENT;
         if ("convertable".equals(codeString))
-          return DataelementGranularity.CONVERTABLE;
+          return DataelementSpecificity.CONVERTABLE;
         if ("scaleable".equals(codeString))
-          return DataelementGranularity.SCALEABLE;
+          return DataelementSpecificity.SCALEABLE;
         if ("flexible".equals(codeString))
-          return DataelementGranularity.FLEXIBLE;
-        throw new IllegalArgumentException("Unknown DataelementGranularity code '"+codeString+"'");
+          return DataelementSpecificity.FLEXIBLE;
+        throw new IllegalArgumentException("Unknown DataelementSpecificity code '"+codeString+"'");
         }
-    public String toCode(DataelementGranularity code) {
-      if (code == DataelementGranularity.COMPARABLE)
+    public String toCode(DataelementSpecificity code) {
+      if (code == DataelementSpecificity.COMPARABLE)
         return "comparable";
-      if (code == DataelementGranularity.FULLYSPECIFIED)
+      if (code == DataelementSpecificity.FULLYSPECIFIED)
         return "fully-specified";
-      if (code == DataelementGranularity.EQUIVALENT)
+      if (code == DataelementSpecificity.EQUIVALENT)
         return "equivalent";
-      if (code == DataelementGranularity.CONVERTABLE)
+      if (code == DataelementSpecificity.CONVERTABLE)
         return "convertable";
-      if (code == DataelementGranularity.SCALEABLE)
+      if (code == DataelementSpecificity.SCALEABLE)
         return "scaleable";
-      if (code == DataelementGranularity.FLEXIBLE)
+      if (code == DataelementSpecificity.FLEXIBLE)
         return "flexible";
       return "?";
       }
@@ -639,10 +639,10 @@ public class DataElement extends DomainResource {
     protected StringType name;
 
     /**
-     * A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.
+     * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of data element definitions.
      */
     @Child(name="useContext", type={CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions." )
+    @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of data element definitions." )
     protected List<CodeableConcept> useContext;
 
     /**
@@ -690,9 +690,9 @@ public class DataElement extends DomainResource {
     /**
      * Identifies how precise the data element is in its definition.
      */
-    @Child(name="granularity", type={CodeType.class}, order=11, min=0, max=1)
+    @Child(name="specificity", type={CodeType.class}, order=11, min=0, max=1)
     @Description(shortDefinition="comparable | fully-specified | equivalent | convertable | scaleable | flexible", formalDefinition="Identifies how precise the data element is in its definition." )
-    protected Enumeration<DataelementGranularity> granularity;
+    protected Enumeration<DataelementSpecificity> specificity;
 
     /**
      * Identifies a specification (other than a terminology) that the elements that make up the DataElement hav some correspondance with.
@@ -708,7 +708,7 @@ public class DataElement extends DomainResource {
     @Description(shortDefinition="Definition of element", formalDefinition="Defines the structure, type, allowed values and other constraining characteristics of the data element." )
     protected List<ElementDefinition> element;
 
-    private static final long serialVersionUID = -1382939787L;
+    private static final long serialVersionUID = -1444116299L;
 
     public DataElement() {
       super();
@@ -891,7 +891,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #useContext} (A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.)
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of data element definitions.)
      */
     public List<CodeableConcept> getUseContext() { 
       if (this.useContext == null)
@@ -909,7 +909,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #useContext} (A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.)
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of data element definitions.)
      */
     // syntactic sugar
     public CodeableConcept addUseContext() { //3
@@ -1208,50 +1208,50 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #granularity} (Identifies how precise the data element is in its definition.). This is the underlying object with id, value and extensions. The accessor "getGranularity" gives direct access to the value
+     * @return {@link #specificity} (Identifies how precise the data element is in its definition.). This is the underlying object with id, value and extensions. The accessor "getSpecificity" gives direct access to the value
      */
-    public Enumeration<DataelementGranularity> getGranularityElement() { 
-      if (this.granularity == null)
+    public Enumeration<DataelementSpecificity> getSpecificityElement() { 
+      if (this.specificity == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DataElement.granularity");
+          throw new Error("Attempt to auto-create DataElement.specificity");
         else if (Configuration.doAutoCreate())
-          this.granularity = new Enumeration<DataelementGranularity>(new DataelementGranularityEnumFactory()); // bb
-      return this.granularity;
+          this.specificity = new Enumeration<DataelementSpecificity>(new DataelementSpecificityEnumFactory()); // bb
+      return this.specificity;
     }
 
-    public boolean hasGranularityElement() { 
-      return this.granularity != null && !this.granularity.isEmpty();
+    public boolean hasSpecificityElement() { 
+      return this.specificity != null && !this.specificity.isEmpty();
     }
 
-    public boolean hasGranularity() { 
-      return this.granularity != null && !this.granularity.isEmpty();
+    public boolean hasSpecificity() { 
+      return this.specificity != null && !this.specificity.isEmpty();
     }
 
     /**
-     * @param value {@link #granularity} (Identifies how precise the data element is in its definition.). This is the underlying object with id, value and extensions. The accessor "getGranularity" gives direct access to the value
+     * @param value {@link #specificity} (Identifies how precise the data element is in its definition.). This is the underlying object with id, value and extensions. The accessor "getSpecificity" gives direct access to the value
      */
-    public DataElement setGranularityElement(Enumeration<DataelementGranularity> value) { 
-      this.granularity = value;
+    public DataElement setSpecificityElement(Enumeration<DataelementSpecificity> value) { 
+      this.specificity = value;
       return this;
     }
 
     /**
      * @return Identifies how precise the data element is in its definition.
      */
-    public DataelementGranularity getGranularity() { 
-      return this.granularity == null ? null : this.granularity.getValue();
+    public DataelementSpecificity getSpecificity() { 
+      return this.specificity == null ? null : this.specificity.getValue();
     }
 
     /**
      * @param value Identifies how precise the data element is in its definition.
      */
-    public DataElement setGranularity(DataelementGranularity value) { 
+    public DataElement setSpecificity(DataelementSpecificity value) { 
       if (value == null)
-        this.granularity = null;
+        this.specificity = null;
       else {
-        if (this.granularity == null)
-          this.granularity = new Enumeration<DataelementGranularity>(new DataelementGranularityEnumFactory());
-        this.granularity.setValue(value);
+        if (this.specificity == null)
+          this.specificity = new Enumeration<DataelementSpecificity>(new DataelementSpecificityEnumFactory());
+        this.specificity.setValue(value);
       }
       return this;
     }
@@ -1342,14 +1342,14 @@ public class DataElement extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the data element when it is referenced in a StructureDefinition, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("useContext", "CodeableConcept", "A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of data element definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("status", "code", "The status of the data element.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("date", "dateTime", "The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("granularity", "code", "Identifies how precise the data element is in its definition.", 0, java.lang.Integer.MAX_VALUE, granularity));
+        childrenList.add(new Property("specificity", "code", "Identifies how precise the data element is in its definition.", 0, java.lang.Integer.MAX_VALUE, specificity));
         childrenList.add(new Property("mapping", "", "Identifies a specification (other than a terminology) that the elements that make up the DataElement hav some correspondance with.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("element", "ElementDefinition", "Defines the structure, type, allowed values and other constraining characteristics of the data element.", 0, java.lang.Integer.MAX_VALUE, element));
       }
@@ -1376,7 +1376,7 @@ public class DataElement extends DomainResource {
           for (DataElementContactComponent i : contact)
             dst.contact.add(i.copy());
         };
-        dst.granularity = granularity == null ? null : granularity.copy();
+        dst.specificity = specificity == null ? null : specificity.copy();
         if (mapping != null) {
           dst.mapping = new ArrayList<DataElementMappingComponent>();
           for (DataElementMappingComponent i : mapping)
@@ -1404,7 +1404,7 @@ public class DataElement extends DomainResource {
         return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
            && compareDeep(name, o.name, true) && compareDeep(useContext, o.useContext, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(status, o.status, true) && compareDeep(date, o.date, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(granularity, o.granularity, true)
+           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(specificity, o.specificity, true)
            && compareDeep(mapping, o.mapping, true) && compareDeep(element, o.element, true);
       }
 
@@ -1417,7 +1417,7 @@ public class DataElement extends DomainResource {
         DataElement o = (DataElement) other;
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
            && compareValues(experimental, o.experimental, true) && compareValues(status, o.status, true) && compareValues(date, o.date, true)
-           && compareValues(copyright, o.copyright, true) && compareValues(publisher, o.publisher, true) && compareValues(granularity, o.granularity, true)
+           && compareValues(copyright, o.copyright, true) && compareValues(publisher, o.publisher, true) && compareValues(specificity, o.specificity, true)
           ;
       }
 
@@ -1426,7 +1426,7 @@ public class DataElement extends DomainResource {
            && (version == null || version.isEmpty()) && (name == null || name.isEmpty()) && (useContext == null || useContext.isEmpty())
            && (experimental == null || experimental.isEmpty()) && (status == null || status.isEmpty())
            && (date == null || date.isEmpty()) && (copyright == null || copyright.isEmpty()) && (publisher == null || publisher.isEmpty())
-           && (contact == null || contact.isEmpty()) && (granularity == null || granularity.isEmpty())
+           && (contact == null || contact.isEmpty()) && (specificity == null || specificity.isEmpty())
            && (mapping == null || mapping.isEmpty()) && (element == null || element.isEmpty());
       }
 
@@ -1435,26 +1435,26 @@ public class DataElement extends DomainResource {
     return ResourceType.DataElement;
    }
 
+  @SearchParamDefinition(name="status", path="DataElement.status", description="The current status of the data element", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="description", path="DataElement.element.definition", description="Text search in the description of the data element.  This corresponds to the definition of the first DataElement.element.", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="name", path="DataElement.name", description="Name of the data element", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="context", path="DataElement.useContext", description="A use context assigned to the data element", type="token" )
+  public static final String SP_CONTEXT = "context";
+  @SearchParamDefinition(name="code", path="DataElement.element.code", description="A code for the data element (server may choose to do subsumption)", type="token" )
+  public static final String SP_CODE = "code";
   @SearchParamDefinition(name="date", path="DataElement.date", description="The data element publication date", type="date" )
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="identifier", path="DataElement.identifier", description="The identifier of the data element", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="code", path="DataElement.element.code", description="A code for the data element (server may choose to do subsumption)", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="name", path="DataElement.name", description="Name of the data element", type="string" )
-  public static final String SP_NAME = "name";
-  @SearchParamDefinition(name="context", path="DataElement.useContext", description="A category assigned to the data element (server may choose to do subsumption)", type="token" )
-  public static final String SP_CONTEXT = "context";
-  @SearchParamDefinition(name="publisher", path="DataElement.publisher", description="Name of the publisher of the data element", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
-  @SearchParamDefinition(name="description", path="DataElement.element.definition", description="Text search in the description of the data element.  This corresponds to the definition of the first DataElement.element.", type="string" )
-  public static final String SP_DESCRIPTION = "description";
-  @SearchParamDefinition(name="version", path="DataElement.version", description="The version identifier of the data element", type="string" )
-  public static final String SP_VERSION = "version";
   @SearchParamDefinition(name="url", path="DataElement.url", description="The official URL for the data element", type="token" )
   public static final String SP_URL = "url";
-  @SearchParamDefinition(name="status", path="DataElement.status", description="The current status of the data element", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="publisher", path="DataElement.publisher", description="Name of the publisher of the data element", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="version", path="DataElement.version", description="The version identifier of the data element", type="string" )
+  public static final String SP_VERSION = "version";
 
 }
 

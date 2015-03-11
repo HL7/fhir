@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1535,14 +1535,16 @@ public class VisionPrescription extends DomainResource {
     return ResourceType.VisionPrescription;
    }
 
-  @SearchParamDefinition(name="identifier", path="VisionPrescription.identifier", description="Return prescriptions with this external identity", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="patient", path="VisionPrescription.patient", description="The identity of a patient to list dispenses  for", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="datewritten", path="VisionPrescription.dateWritten", description="Return prescriptions written on this date", type="date" )
   public static final String SP_DATEWRITTEN = "datewritten";
+  @SearchParamDefinition(name="patient", path="VisionPrescription.patient", description="The identity of a patient to list dispenses  for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="prescriber", path="VisionPrescription.prescriber", description="Who authorizes the Vision product", type="reference" )
+  public static final String SP_PRESCRIBER = "prescriber";
   @SearchParamDefinition(name="encounter", path="VisionPrescription.encounter", description="Return prescriptions with this encounter identity", type="reference" )
   public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="identifier", path="VisionPrescription.identifier", description="Return prescriptions with this external identity", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1358,16 +1358,16 @@ period.)
     return ResourceType.DeviceMetric;
    }
 
-  @SearchParamDefinition(name="parent", path="DeviceMetric.parent", description="The parent DeviceMetric resource", type="reference" )
-  public static final String SP_PARENT = "parent";
-  @SearchParamDefinition(name="identifier", path="DeviceMetric.identifier", description="The identifier of the metric", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="source", path="DeviceMetric.source", description="The device resource", type="reference" )
-  public static final String SP_SOURCE = "source";
-  @SearchParamDefinition(name="type", path="DeviceMetric.type", description="The component type", type="token" )
-  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="category", path="DeviceMetric.category", description="The category of the metric", type="token" )
   public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="source", path="DeviceMetric.source", description="The device resource", type="reference" )
+  public static final String SP_SOURCE = "source";
+  @SearchParamDefinition(name="parent", path="DeviceMetric.parent", description="The parent DeviceMetric resource", type="reference" )
+  public static final String SP_PARENT = "parent";
+  @SearchParamDefinition(name="type", path="DeviceMetric.type", description="The component type", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="identifier", path="DeviceMetric.identifier", description="The identifier of the metric", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

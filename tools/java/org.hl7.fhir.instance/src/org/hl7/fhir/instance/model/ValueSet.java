@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2120,13 +2120,20 @@ public class ValueSet extends DomainResource {
         protected DateTimeType timestamp;
 
         /**
+         * A Parameter that controlled the expansion process. These paameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.
+         */
+        @Child(name="parameter", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Parameter that controlled the expansion process", formalDefinition="A Parameter that controlled the expansion process. These paameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion." )
+        protected List<ValueSetExpansionParameterComponent> parameter;
+
+        /**
          * The codes that are contained in the value set expansion.
          */
-        @Child(name="contains", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="contains", type={}, order=4, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Codes in the value set", formalDefinition="The codes that are contained in the value set expansion." )
         protected List<ValueSetExpansionContainsComponent> contains;
 
-        private static final long serialVersionUID = -1193480660L;
+        private static final long serialVersionUID = 1120549747L;
 
       public ValueSetExpansionComponent() {
         super();
@@ -2207,6 +2214,46 @@ public class ValueSet extends DomainResource {
         }
 
         /**
+         * @return {@link #parameter} (A Parameter that controlled the expansion process. These paameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.)
+         */
+        public List<ValueSetExpansionParameterComponent> getParameter() { 
+          if (this.parameter == null)
+            this.parameter = new ArrayList<ValueSetExpansionParameterComponent>();
+          return this.parameter;
+        }
+
+        public boolean hasParameter() { 
+          if (this.parameter == null)
+            return false;
+          for (ValueSetExpansionParameterComponent item : this.parameter)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #parameter} (A Parameter that controlled the expansion process. These paameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.)
+         */
+    // syntactic sugar
+        public ValueSetExpansionParameterComponent addParameter() { //3
+          ValueSetExpansionParameterComponent t = new ValueSetExpansionParameterComponent();
+          if (this.parameter == null)
+            this.parameter = new ArrayList<ValueSetExpansionParameterComponent>();
+          this.parameter.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public ValueSetExpansionComponent addParameter(ValueSetExpansionParameterComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.parameter == null)
+            this.parameter = new ArrayList<ValueSetExpansionParameterComponent>();
+          this.parameter.add(t);
+          return this;
+        }
+
+        /**
          * @return {@link #contains} (The codes that are contained in the value set expansion.)
          */
         public List<ValueSetExpansionContainsComponent> getContains() { 
@@ -2250,6 +2297,7 @@ public class ValueSet extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("timestamp", "dateTime", "The time at which the expansion was produced by the expanding system.", 0, java.lang.Integer.MAX_VALUE, timestamp));
+          childrenList.add(new Property("parameter", "", "A Parameter that controlled the expansion process. These paameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.", 0, java.lang.Integer.MAX_VALUE, parameter));
           childrenList.add(new Property("contains", "", "The codes that are contained in the value set expansion.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
 
@@ -2258,6 +2306,11 @@ public class ValueSet extends DomainResource {
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
+        if (parameter != null) {
+          dst.parameter = new ArrayList<ValueSetExpansionParameterComponent>();
+          for (ValueSetExpansionParameterComponent i : parameter)
+            dst.parameter.add(i.copy());
+        };
         if (contains != null) {
           dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
           for (ValueSetExpansionContainsComponent i : contains)
@@ -2274,7 +2327,7 @@ public class ValueSet extends DomainResource {
           return false;
         ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(timestamp, o.timestamp, true)
-           && compareDeep(contains, o.contains, true);
+           && compareDeep(parameter, o.parameter, true) && compareDeep(contains, o.contains, true);
       }
 
       @Override
@@ -2289,7 +2342,194 @@ public class ValueSet extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (timestamp == null || timestamp.isEmpty())
-           && (contains == null || contains.isEmpty());
+           && (parameter == null || parameter.isEmpty()) && (contains == null || contains.isEmpty())
+          ;
+      }
+
+  }
+
+    @Block()
+    public static class ValueSetExpansionParameterComponent extends BackboneElement {
+        /**
+         * The name of the parameter.
+         */
+        @Child(name="name", type={StringType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Name as assigned by server", formalDefinition="The name of the parameter." )
+        protected StringType name;
+
+        /**
+         * The value of the parameter.
+         */
+        @Child(name="value", type={StringType.class, BooleanType.class, IntegerType.class, DecimalType.class, UriType.class, CodeType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Value of the parameter", formalDefinition="The value of the parameter." )
+        protected Type value;
+
+        private static final long serialVersionUID = 1172641169L;
+
+      public ValueSetExpansionParameterComponent() {
+        super();
+      }
+
+      public ValueSetExpansionParameterComponent(StringType name) {
+        super();
+        this.name = name;
+      }
+
+        /**
+         * @return {@link #name} (The name of the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ValueSetExpansionParameterComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (The name of the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public ValueSetExpansionParameterComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name of the parameter.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of the parameter.
+         */
+        public ValueSetExpansionParameterComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #value} (The value of the parameter.)
+         */
+        public Type getValue() { 
+          return this.value;
+        }
+
+        /**
+         * @return {@link #value} (The value of the parameter.)
+         */
+        public StringType getValueStringType() throws Exception { 
+          if (!(this.value instanceof StringType))
+            throw new Exception("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (StringType) this.value;
+        }
+
+        /**
+         * @return {@link #value} (The value of the parameter.)
+         */
+        public BooleanType getValueBooleanType() throws Exception { 
+          if (!(this.value instanceof BooleanType))
+            throw new Exception("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (BooleanType) this.value;
+        }
+
+        /**
+         * @return {@link #value} (The value of the parameter.)
+         */
+        public IntegerType getValueIntegerType() throws Exception { 
+          if (!(this.value instanceof IntegerType))
+            throw new Exception("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (IntegerType) this.value;
+        }
+
+        /**
+         * @return {@link #value} (The value of the parameter.)
+         */
+        public DecimalType getValueDecimalType() throws Exception { 
+          if (!(this.value instanceof DecimalType))
+            throw new Exception("Type mismatch: the type DecimalType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (DecimalType) this.value;
+        }
+
+        /**
+         * @return {@link #value} (The value of the parameter.)
+         */
+        public UriType getValueUriType() throws Exception { 
+          if (!(this.value instanceof UriType))
+            throw new Exception("Type mismatch: the type UriType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (UriType) this.value;
+        }
+
+        /**
+         * @return {@link #value} (The value of the parameter.)
+         */
+        public CodeType getValueCodeType() throws Exception { 
+          if (!(this.value instanceof CodeType))
+            throw new Exception("Type mismatch: the type CodeType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (CodeType) this.value;
+        }
+
+        public boolean hasValue() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        /**
+         * @param value {@link #value} (The value of the parameter.)
+         */
+        public ValueSetExpansionParameterComponent setValue(Type value) { 
+          this.value = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "The name of the parameter.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("value[x]", "string|boolean|integer|decimal|uri|code", "The value of the parameter.", 0, java.lang.Integer.MAX_VALUE, value));
+        }
+
+      public ValueSetExpansionParameterComponent copy() {
+        ValueSetExpansionParameterComponent dst = new ValueSetExpansionParameterComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ValueSetExpansionParameterComponent))
+          return false;
+        ValueSetExpansionParameterComponent o = (ValueSetExpansionParameterComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ValueSetExpansionParameterComponent))
+          return false;
+        ValueSetExpansionParameterComponent o = (ValueSetExpansionParameterComponent) other;
+        return compareValues(name, o.name, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   }
@@ -2711,104 +2951,111 @@ public class ValueSet extends DomainResource {
     protected StringType name;
 
     /**
+     * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.
+     */
+    @Child(name="useContext", type={CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions." )
+    protected List<CodeableConcept> useContext;
+
+    /**
      * If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
      */
-    @Child(name="immutable", type={BooleanType.class}, order=4, min=0, max=1)
+    @Child(name="immutable", type={BooleanType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Indicates whether or not any change to the content logical definition may occur", formalDefinition="If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change." )
     protected BooleanType immutable;
 
     /**
      * The name of the individual or organization that published the value set.
      */
-    @Child(name="publisher", type={StringType.class}, order=5, min=0, max=1)
+    @Child(name="publisher", type={StringType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the value set." )
     protected StringType publisher;
 
     /**
      * Contacts to assist a user in finding and communicating with the publisher.
      */
-    @Child(name="contact", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="contact", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
     protected List<ValueSetContactComponent> contact;
 
     /**
      * A free text natural language description of the use of the value set - reason for definition, "the semantic space" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.
      */
-    @Child(name="description", type={StringType.class}, order=7, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Human language description of the value set", formalDefinition="A free text natural language description of the use of the value set - reason for definition, 'the semantic space' to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set." )
     protected StringType description;
 
     /**
      * Explains why this value set is needed and why it's been constrained as it has.
      */
-    @Child(name="requirements", type={StringType.class}, order=8, min=0, max=1)
+    @Child(name="requirements", type={StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Why is this needed?", formalDefinition="Explains why this value set is needed and why it's been constrained as it has." )
     protected StringType requirements;
 
     /**
      * A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
      */
-    @Child(name="copyright", type={StringType.class}, order=9, min=0, max=1)
+    @Child(name="copyright", type={StringType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Use and/or Publishing restrictions", formalDefinition="A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set." )
     protected StringType copyright;
 
     /**
      * The status of the value set.
      */
-    @Child(name="status", type={CodeType.class}, order=10, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the value set." )
     protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name="experimental", type={BooleanType.class}, order=11, min=0, max=1)
+    @Child(name="experimental", type={BooleanType.class}, order=12, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * Whether this is intended to be used with an extensible binding or not.
      */
-    @Child(name="extensible", type={BooleanType.class}, order=12, min=0, max=1)
+    @Child(name="extensible", type={BooleanType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Whether this is intended to be used with an extensible binding", formalDefinition="Whether this is intended to be used with an extensible binding or not." )
     protected BooleanType extensible;
 
     /**
      * The date that the value set status was last changed.
      */
-    @Child(name="date", type={DateTimeType.class}, order=13, min=0, max=1)
+    @Child(name="date", type={DateTimeType.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Date for given status", formalDefinition="The date that the value set status was last changed." )
     protected DateTimeType date;
 
     /**
      * If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
      */
-    @Child(name="stableDate", type={DateType.class}, order=14, min=0, max=1)
+    @Child(name="stableDate", type={DateType.class}, order=15, min=0, max=1)
     @Description(shortDefinition="Fixed date for the version of all referenced code systems and value sets", formalDefinition="If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date." )
     protected DateType stableDate;
 
     /**
      * When value set defines its own codes.
      */
-    @Child(name="define", type={}, order=15, min=0, max=1)
+    @Child(name="define", type={}, order=16, min=0, max=1)
     @Description(shortDefinition="When value set defines its own codes", formalDefinition="When value set defines its own codes." )
     protected ValueSetDefineComponent define;
 
     /**
      * When value set includes codes from elsewhere.
      */
-    @Child(name="compose", type={}, order=16, min=0, max=1)
+    @Child(name="compose", type={}, order=17, min=0, max=1)
     @Description(shortDefinition="When value set includes codes from elsewhere", formalDefinition="When value set includes codes from elsewhere." )
     protected ValueSetComposeComponent compose;
 
     /**
      * A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.
      */
-    @Child(name="expansion", type={}, order=17, min=0, max=1)
+    @Child(name="expansion", type={}, order=18, min=0, max=1)
     @Description(shortDefinition="Used when the value set is 'expanded'", formalDefinition="A value set can also be 'expanded', where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed." )
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = -542150714L;
+    private static final long serialVersionUID = 193601097L;
 
     public ValueSet() {
       super();
@@ -2987,6 +3234,46 @@ public class ValueSet extends DomainResource {
           this.name = new StringType();
         this.name.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.)
+     */
+    public List<CodeableConcept> getUseContext() { 
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      return this.useContext;
+    }
+
+    public boolean hasUseContext() { 
+      if (this.useContext == null)
+        return false;
+      for (CodeableConcept item : this.useContext)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.)
+     */
+    // syntactic sugar
+    public CodeableConcept addUseContext() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public ValueSet addUseContext(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
       return this;
     }
 
@@ -3582,6 +3869,7 @@ public class ValueSet extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name describing the value set.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the value set.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -3605,6 +3893,11 @@ public class ValueSet extends DomainResource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
+        if (useContext != null) {
+          dst.useContext = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : useContext)
+            dst.useContext.add(i.copy());
+        };
         dst.immutable = immutable == null ? null : immutable.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         if (contact != null) {
@@ -3638,12 +3931,12 @@ public class ValueSet extends DomainResource {
           return false;
         ValueSet o = (ValueSet) other;
         return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
-           && compareDeep(name, o.name, true) && compareDeep(immutable, o.immutable, true) && compareDeep(publisher, o.publisher, true)
-           && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(copyright, o.copyright, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(extensible, o.extensible, true) && compareDeep(date, o.date, true) && compareDeep(stableDate, o.stableDate, true)
-           && compareDeep(define, o.define, true) && compareDeep(compose, o.compose, true) && compareDeep(expansion, o.expansion, true)
-          ;
+           && compareDeep(name, o.name, true) && compareDeep(useContext, o.useContext, true) && compareDeep(immutable, o.immutable, true)
+           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
+           && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
+           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(extensible, o.extensible, true)
+           && compareDeep(date, o.date, true) && compareDeep(stableDate, o.stableDate, true) && compareDeep(define, o.define, true)
+           && compareDeep(compose, o.compose, true) && compareDeep(expansion, o.expansion, true);
       }
 
       @Override
@@ -3662,8 +3955,9 @@ public class ValueSet extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (version == null || version.isEmpty()) && (name == null || name.isEmpty()) && (immutable == null || immutable.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
+           && (version == null || version.isEmpty()) && (name == null || name.isEmpty()) && (useContext == null || useContext.isEmpty())
+           && (immutable == null || immutable.isEmpty()) && (publisher == null || publisher.isEmpty())
+           && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
            && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
            && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (extensible == null || extensible.isEmpty()) && (date == null || date.isEmpty()) && (stableDate == null || stableDate.isEmpty())
@@ -3676,28 +3970,30 @@ public class ValueSet extends DomainResource {
     return ResourceType.ValueSet;
    }
 
-  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="token" )
-  public static final String SP_REFERENCE = "reference";
-  @SearchParamDefinition(name="identifier", path="ValueSet.identifier", description="The identifier for the value set", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
   @SearchParamDefinition(name="system", path="ValueSet.define.system", description="The system for any codes defined by this value set", type="token" )
   public static final String SP_SYSTEM = "system";
-  @SearchParamDefinition(name="code", path="ValueSet.define.concept.code", description="A code defined in the value set", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="name", path="ValueSet.name", description="The name of the value set", type="string" )
-  public static final String SP_NAME = "name";
-  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
-  @SearchParamDefinition(name="description", path="ValueSet.description", description="Text search in the description of the value set", type="string" )
-  public static final String SP_DESCRIPTION = "description";
-  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
-  public static final String SP_VERSION = "version";
-  @SearchParamDefinition(name="url", path="ValueSet.url", description="The logical url for the value set", type="token" )
-  public static final String SP_URL = "url";
   @SearchParamDefinition(name="status", path="ValueSet.status", description="The status of the value set", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="description", path="ValueSet.description", description="Text search in the description of the value set", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="name", path="ValueSet.name", description="The name of the value set", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="context", path="ValueSet.useContext", description="A use context assigned to the value set", type="token" )
+  public static final String SP_CONTEXT = "context";
+  @SearchParamDefinition(name="code", path="ValueSet.define.concept.code", description="A code defined in the value set", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="identifier", path="ValueSet.identifier", description="The identifier for the value set", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="token" )
+  public static final String SP_REFERENCE = "reference";
+  @SearchParamDefinition(name="url", path="ValueSet.url", description="The logical url for the value set", type="token" )
+  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
+  public static final String SP_VERSION = "version";
 
 }
 

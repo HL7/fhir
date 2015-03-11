@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -39,7 +39,7 @@ import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
- * Specifies an event that may occur multiple times. Timing schedules are used for to record when things are expected or requested to occur.
+ * Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur.
  */
 @DatatypeDef(name="Timing")
 public class Timing extends Type {

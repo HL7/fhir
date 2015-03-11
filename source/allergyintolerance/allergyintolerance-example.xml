@@ -17,10 +17,10 @@
     <reference value="Practitioner/example"/>
   </recorder>
   
-  <!-- the subject (patient) that actually has the risk of adverse reaction -->
-  <subject>
+  <!-- the patient that actually has the risk of adverse reaction -->
+  <patient>
     <reference value="Patient/example"/>
-  </subject>
+  </patient>
 
   <!-- subtance - either coded, or text. A few times, 
     there's a full description of a complex substance - in these caes, use the

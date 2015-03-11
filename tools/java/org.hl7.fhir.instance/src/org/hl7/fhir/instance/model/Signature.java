@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ public class Signature extends Type {
      * An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.
      */
     @Child(name="type", type={Coding.class}, order=0, min=1, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Indication of the reason the entity signed the document", formalDefinition="An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document." )
+    @Description(shortDefinition="Indication of the reason the entity signed the object(s)", formalDefinition="An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document." )
     protected List<Coding> type;
 
     /**
@@ -64,10 +64,10 @@ public class Signature extends Type {
     protected Type who;
 
     /**
-     * The actual signature, encoded as a base64 blob (for JSON).
+     * The base64 encoding of the XML-Signature.
      */
     @Child(name="blob", type={Base64BinaryType.class}, order=3, min=1, max=1)
-    @Description(shortDefinition="The actual XML Dig-Sig", formalDefinition="The actual signature, encoded as a base64 blob (for JSON)." )
+    @Description(shortDefinition="The actual XML Dig-Sig", formalDefinition="The base64 encoding of the XML-Signature." )
     protected Base64BinaryType blob;
 
     private static final long serialVersionUID = 1072581988L;
@@ -206,7 +206,7 @@ public class Signature extends Type {
     }
 
     /**
-     * @return {@link #blob} (The actual signature, encoded as a base64 blob (for JSON).). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
+     * @return {@link #blob} (The base64 encoding of the XML-Signature.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
      */
     public Base64BinaryType getBlobElement() { 
       if (this.blob == null)
@@ -226,7 +226,7 @@ public class Signature extends Type {
     }
 
     /**
-     * @param value {@link #blob} (The actual signature, encoded as a base64 blob (for JSON).). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
+     * @param value {@link #blob} (The base64 encoding of the XML-Signature.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
      */
     public Signature setBlobElement(Base64BinaryType value) { 
       this.blob = value;
@@ -234,14 +234,14 @@ public class Signature extends Type {
     }
 
     /**
-     * @return The actual signature, encoded as a base64 blob (for JSON).
+     * @return The base64 encoding of the XML-Signature.
      */
     public byte[] getBlob() { 
       return this.blob == null ? null : this.blob.getValue();
     }
 
     /**
-     * @param value The actual signature, encoded as a base64 blob (for JSON).
+     * @param value The base64 encoding of the XML-Signature.
      */
     public Signature setBlob(byte[] value) { 
         if (this.blob == null)
@@ -255,7 +255,7 @@ public class Signature extends Type {
         childrenList.add(new Property("type", "Coding", "An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("when", "instant", "When the digital signature was signed.", 0, java.lang.Integer.MAX_VALUE, when));
         childrenList.add(new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient)", "A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key).", 0, java.lang.Integer.MAX_VALUE, who));
-        childrenList.add(new Property("blob", "base64Binary", "The actual signature, encoded as a base64 blob (for JSON).", 0, java.lang.Integer.MAX_VALUE, blob));
+        childrenList.add(new Property("blob", "base64Binary", "The base64 encoding of the XML-Signature.", 0, java.lang.Integer.MAX_VALUE, blob));
       }
 
       public Signature copy() {

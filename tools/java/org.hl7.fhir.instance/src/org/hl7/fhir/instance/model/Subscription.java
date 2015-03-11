@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1235,20 +1235,20 @@ public class Subscription extends DomainResource {
     return ResourceType.Subscription;
    }
 
-  @SearchParamDefinition(name="payload", path="Subscription.channel.payload", description="Mimetype to send, or blank for no payload", type="string" )
-  public static final String SP_PAYLOAD = "payload";
   @SearchParamDefinition(name="criteria", path="Subscription.criteria", description="Rule for server push criteria", type="string" )
   public static final String SP_CRITERIA = "criteria";
-  @SearchParamDefinition(name="contact", path="Subscription.contact", description="Contact details for source (e.g. troubleshooting)", type="token" )
-  public static final String SP_CONTACT = "contact";
-  @SearchParamDefinition(name="tag", path="Subscription.tag.term", description="The term that identifies the tag", type="string" )
-  public static final String SP_TAG = "tag";
-  @SearchParamDefinition(name="type", path="Subscription.channel.type", description="rest-hook | websocket | email | sms | message", type="token" )
-  public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="url", path="Subscription.channel.url", description="Where the channel points to", type="string" )
-  public static final String SP_URL = "url";
   @SearchParamDefinition(name="status", path="Subscription.status", description="requested | active | error | off", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="tag", path="Subscription.tag.term", description="The term that identifies the tag", type="string" )
+  public static final String SP_TAG = "tag";
+  @SearchParamDefinition(name="payload", path="Subscription.channel.payload", description="Mimetype to send, or blank for no payload", type="string" )
+  public static final String SP_PAYLOAD = "payload";
+  @SearchParamDefinition(name="type", path="Subscription.channel.type", description="rest-hook | websocket | email | sms | message", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="contact", path="Subscription.contact", description="Contact details for source (e.g. troubleshooting)", type="token" )
+  public static final String SP_CONTACT = "contact";
+  @SearchParamDefinition(name="url", path="Subscription.channel.url", description="Where the channel points to", type="string" )
+  public static final String SP_URL = "url";
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -417,7 +417,19 @@ public class DocumentReference extends DomainResource {
         @Description(shortDefinition="Kind of facility where patient was seen", formalDefinition="The kind of facility where the patient was seen." )
         protected CodeableConcept facilityType;
 
-        private static final long serialVersionUID = -1762960949L;
+        /**
+         * The Patient Information as known when the document was published. May be a reference to a version specific, or contained.
+         */
+        @Child(name="sourcePatientInfo", type={Patient.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Source patient info", formalDefinition="The Patient Information as known when the document was published. May be a reference to a version specific, or contained." )
+        protected Reference sourcePatientInfo;
+
+        /**
+         * The actual object that is the target of the reference (The Patient Information as known when the document was published. May be a reference to a version specific, or contained.)
+         */
+        protected Patient sourcePatientInfoTarget;
+
+        private static final long serialVersionUID = -1713244786L;
 
       public DocumentReferenceContextComponent() {
         super();
@@ -511,11 +523,56 @@ public class DocumentReference extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #sourcePatientInfo} (The Patient Information as known when the document was published. May be a reference to a version specific, or contained.)
+         */
+        public Reference getSourcePatientInfo() { 
+          if (this.sourcePatientInfo == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DocumentReferenceContextComponent.sourcePatientInfo");
+            else if (Configuration.doAutoCreate())
+              this.sourcePatientInfo = new Reference(); // cc
+          return this.sourcePatientInfo;
+        }
+
+        public boolean hasSourcePatientInfo() { 
+          return this.sourcePatientInfo != null && !this.sourcePatientInfo.isEmpty();
+        }
+
+        /**
+         * @param value {@link #sourcePatientInfo} (The Patient Information as known when the document was published. May be a reference to a version specific, or contained.)
+         */
+        public DocumentReferenceContextComponent setSourcePatientInfo(Reference value) { 
+          this.sourcePatientInfo = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #sourcePatientInfo} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Patient Information as known when the document was published. May be a reference to a version specific, or contained.)
+         */
+        public Patient getSourcePatientInfoTarget() { 
+          if (this.sourcePatientInfoTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DocumentReferenceContextComponent.sourcePatientInfo");
+            else if (Configuration.doAutoCreate())
+              this.sourcePatientInfoTarget = new Patient(); // aa
+          return this.sourcePatientInfoTarget;
+        }
+
+        /**
+         * @param value {@link #sourcePatientInfo} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Patient Information as known when the document was published. May be a reference to a version specific, or contained.)
+         */
+        public DocumentReferenceContextComponent setSourcePatientInfoTarget(Patient value) { 
+          this.sourcePatientInfoTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("event", "CodeableConcept", "This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a 'History and Physical Report' in which the procedure being documented is necessarily a 'History and Physical' act.", 0, java.lang.Integer.MAX_VALUE, event));
           childrenList.add(new Property("period", "Period", "The time period over which the service that is described by the document was provided.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("facilityType", "CodeableConcept", "The kind of facility where the patient was seen.", 0, java.lang.Integer.MAX_VALUE, facilityType));
+          childrenList.add(new Property("sourcePatientInfo", "Reference(Patient)", "The Patient Information as known when the document was published. May be a reference to a version specific, or contained.", 0, java.lang.Integer.MAX_VALUE, sourcePatientInfo));
         }
 
       public DocumentReferenceContextComponent copy() {
@@ -528,6 +585,7 @@ public class DocumentReference extends DomainResource {
         };
         dst.period = period == null ? null : period.copy();
         dst.facilityType = facilityType == null ? null : facilityType.copy();
+        dst.sourcePatientInfo = sourcePatientInfo == null ? null : sourcePatientInfo.copy();
         return dst;
       }
 
@@ -539,7 +597,7 @@ public class DocumentReference extends DomainResource {
           return false;
         DocumentReferenceContextComponent o = (DocumentReferenceContextComponent) other;
         return compareDeep(event, o.event, true) && compareDeep(period, o.period, true) && compareDeep(facilityType, o.facilityType, true)
-          ;
+           && compareDeep(sourcePatientInfo, o.sourcePatientInfo, true);
       }
 
       @Override
@@ -554,7 +612,8 @@ public class DocumentReference extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (event == null || event.isEmpty()) && (period == null || period.isEmpty())
-           && (facilityType == null || facilityType.isEmpty());
+           && (facilityType == null || facilityType.isEmpty()) && (sourcePatientInfo == null || sourcePatientInfo.isEmpty())
+          ;
       }
 
   }
@@ -1528,50 +1587,50 @@ public class DocumentReference extends DomainResource {
     return ResourceType.DocumentReference;
    }
 
-  @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier|DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
-  public static final String SP_PERIOD = "period";
-  @SearchParamDefinition(name="custodian", path="DocumentReference.custodian", description="Org which maintains the document", type="reference" )
-  public static final String SP_CUSTODIAN = "custodian";
+  @SearchParamDefinition(name="location", path="DocumentReference.content.url", description="Uri where the data can be found", type="string" )
+  public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="indexed", path="DocumentReference.indexed", description="When this document reference created", type="date" )
   public static final String SP_INDEXED = "indexed";
+  @SearchParamDefinition(name="status", path="DocumentReference.status", description="current | superceded | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
   public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
-  public static final String SP_AUTHOR = "author";
-  @SearchParamDefinition(name="created", path="DocumentReference.created", description="Document creation time", type="date" )
-  public static final String SP_CREATED = "created";
-  @SearchParamDefinition(name="confidentiality", path="DocumentReference.confidentiality", description="Sensitivity of source document", type="token" )
-  public static final String SP_CONFIDENTIALITY = "confidentiality";
+  @SearchParamDefinition(name="relatesto", path="DocumentReference.relatesTo.target", description="Target of the relationship", type="reference" )
+  public static final String SP_RELATESTO = "relatesto";
+  @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
+  public static final String SP_RELATION = "relation";
+  @SearchParamDefinition(name="class", path="DocumentReference.class", description="High-level classification of document", type="token" )
+  public static final String SP_CLASS = "class";
   @SearchParamDefinition(name="format", path="DocumentReference.format", description="Format/content rules for the document", type="token" )
   public static final String SP_FORMAT = "format";
+  @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
+  public static final String SP_PERIOD = "period";
+  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precise type of document", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/What authenticated the document", type="reference" )
+  public static final String SP_AUTHENTICATOR = "authenticator";
+  @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
+  public static final String SP_RELATIONSHIP = "relationship";
+  @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
+  public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="custodian", path="DocumentReference.custodian", description="Org which maintains the document", type="reference" )
+  public static final String SP_CUSTODIAN = "custodian";
+  @SearchParamDefinition(name="facility", path="DocumentReference.context.facilityType", description="Kind of facility where patient was seen", type="token" )
+  public static final String SP_FACILITY = "facility";
+  @SearchParamDefinition(name="created", path="DocumentReference.created", description="Document creation time", type="date" )
+  public static final String SP_CREATED = "created";
+  @SearchParamDefinition(name="event", path="DocumentReference.context.event", description="Main Clinical Acts Documented", type="token" )
+  public static final String SP_EVENT = "event";
+  @SearchParamDefinition(name="confidentiality", path="DocumentReference.confidentiality", description="Sensitivity of source document", type="token" )
+  public static final String SP_CONFIDENTIALITY = "confidentiality";
   @SearchParamDefinition(name="description", path="DocumentReference.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="language", path="DocumentReference.content.language", description="Human language of the content (BCP-47)", type="token" )
   public static final String SP_LANGUAGE = "language";
-  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precise type of document", type="token" )
-  public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
-  public static final String SP_RELATION = "relation";
-  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="location", path="DocumentReference.content.url", description="Uri where the data can be found", type="string" )
-  public static final String SP_LOCATION = "location";
-  @SearchParamDefinition(name="relatesto", path="DocumentReference.relatesTo.target", description="Target of the relationship", type="reference" )
-  public static final String SP_RELATESTO = "relatesto";
-  @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
-  public static final String SP_RELATIONSHIP = "relationship";
-  @SearchParamDefinition(name="event", path="DocumentReference.context.event", description="Main Clinical Acts Documented", type="token" )
-  public static final String SP_EVENT = "event";
-  @SearchParamDefinition(name="class", path="DocumentReference.class", description="High-level classification of document", type="token" )
-  public static final String SP_CLASS = "class";
-  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/What authenticated the document", type="reference" )
-  public static final String SP_AUTHENTICATOR = "authenticator";
-  @SearchParamDefinition(name="facility", path="DocumentReference.context.facilityType", description="Kind of facility where patient was seen", type="token" )
-  public static final String SP_FACILITY = "facility";
-  @SearchParamDefinition(name="status", path="DocumentReference.status", description="current | superceded | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier|DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

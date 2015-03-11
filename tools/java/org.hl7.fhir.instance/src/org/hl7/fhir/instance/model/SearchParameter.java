@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1149,18 +1149,18 @@ public class SearchParameter extends DomainResource {
     return ResourceType.SearchParameter;
    }
 
-  @SearchParamDefinition(name="name", path="SearchParameter.name", description="Name of search parameter", type="string" )
-  public static final String SP_NAME = "name";
   @SearchParamDefinition(name="description", path="SearchParameter.description", description="Documentation for  search parameter", type="string" )
   public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="name", path="SearchParameter.name", description="Name of search parameter", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="target", path="SearchParameter.target", description="Types of resource (if a resource reference)", type="token" )
+  public static final String SP_TARGET = "target";
+  @SearchParamDefinition(name="base", path="SearchParameter.base", description="The resource type this search parameter applies to", type="token" )
+  public static final String SP_BASE = "base";
   @SearchParamDefinition(name="type", path="SearchParameter.type", description="number | date | string | token | reference | composite | quantity", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="url", path="SearchParameter.url", description="Literal URL used to reference this search parameter", type="token" )
   public static final String SP_URL = "url";
-  @SearchParamDefinition(name="base", path="SearchParameter.base", description="The resource type this search parameter applies to", type="token" )
-  public static final String SP_BASE = "base";
-  @SearchParamDefinition(name="target", path="SearchParameter.target", description="Types of resource (if a resource reference)", type="token" )
-  public static final String SP_TARGET = "target";
 
 }
 

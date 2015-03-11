@@ -10,10 +10,10 @@
     <reference value="Practitioner/13"/>
   </recorder>
   
-  <!-- the subject (patient) that actually has the risk of adverse reaction -->
-  <subject>
+  <!-- the patient that actually has the risk of adverse reaction -->
+  <patient>
     <reference value="Patient/example"/>
-  </subject>
+  </patient>
 
   <!-- subtance, coded from RxNorm -->
   <substance>

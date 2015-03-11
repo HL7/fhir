@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -3268,38 +3268,40 @@ public class AuditEvent extends DomainResource {
     return ResourceType.AuditEvent;
    }
 
-  @SearchParamDefinition(name="date", path="AuditEvent.event.dateTime", description="Time when the event occurred on source", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="address", path="AuditEvent.participant.network.identifier", description="Identifier for the network access point of the user device", type="token" )
-  public static final String SP_ADDRESS = "address";
-  @SearchParamDefinition(name="patientid", path="", description="The id of the patient (one of multiple kinds of participations)", type="token" )
-  public static final String SP_PATIENTID = "patientid";
-  @SearchParamDefinition(name="source", path="AuditEvent.source.identifier", description="The id of source where event originated", type="token" )
-  public static final String SP_SOURCE = "source";
-  @SearchParamDefinition(name="type", path="AuditEvent.event.type", description="Type/identifier of event", type="token" )
-  public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="altid", path="AuditEvent.participant.altId", description="Alternative User id e.g. authentication", type="token" )
-  public static final String SP_ALTID = "altid";
-  @SearchParamDefinition(name="reference", path="AuditEvent.object.reference", description="Specific instance of resource (e.g. versioned)", type="reference" )
-  public static final String SP_REFERENCE = "reference";
   @SearchParamDefinition(name="site", path="AuditEvent.source.site", description="Logical source location within the enterprise", type="token" )
   public static final String SP_SITE = "site";
-  @SearchParamDefinition(name="subtype", path="AuditEvent.event.subtype", description="More specific type/id for the event", type="token" )
-  public static final String SP_SUBTYPE = "subtype";
+  @SearchParamDefinition(name="desc", path="AuditEvent.object.name", description="Instance-specific descriptor for Object", type="string" )
+  public static final String SP_DESC = "desc";
+  @SearchParamDefinition(name="type", path="AuditEvent.event.type", description="Type/identifier of event", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="date", path="AuditEvent.event.dateTime", description="Time when the event occurred on source", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="reference", path="AuditEvent.object.reference", description="Specific instance of resource (e.g. versioned)", type="reference" )
+  public static final String SP_REFERENCE = "reference";
   @SearchParamDefinition(name="identity", path="AuditEvent.object.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
   public static final String SP_IDENTITY = "identity";
   @SearchParamDefinition(name="patient", path="", description="A patient that the .object.reference refers to", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="object-type", path="AuditEvent.object.type", description="Object type being audited", type="token" )
-  public static final String SP_OBJECTTYPE = "object-type";
+  @SearchParamDefinition(name="altid", path="AuditEvent.participant.altId", description="Alternative User id e.g. authentication", type="token" )
+  public static final String SP_ALTID = "altid";
+  @SearchParamDefinition(name="patientid", path="", description="The id of the patient (one of multiple kinds of participations)", type="token" )
+  public static final String SP_PATIENTID = "patientid";
+  @SearchParamDefinition(name="source", path="AuditEvent.source.identifier", description="The id of source where event originated", type="token" )
+  public static final String SP_SOURCE = "source";
+  @SearchParamDefinition(name="address", path="AuditEvent.participant.network.identifier", description="Identifier for the network access point of the user device", type="token" )
+  public static final String SP_ADDRESS = "address";
+  @SearchParamDefinition(name="subtype", path="AuditEvent.event.subtype", description="More specific type/id for the event", type="token" )
+  public static final String SP_SUBTYPE = "subtype";
   @SearchParamDefinition(name="name", path="AuditEvent.participant.name", description="Human-meaningful name for the user", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="action", path="AuditEvent.event.action", description="Type of action performed during the event", type="token" )
   public static final String SP_ACTION = "action";
+  @SearchParamDefinition(name="participant", path="AuditEvent.participant.reference", description="Direct reference to resource", type="reference" )
+  public static final String SP_PARTICIPANT = "participant";
+  @SearchParamDefinition(name="object-type", path="AuditEvent.object.type", description="Object type being audited", type="token" )
+  public static final String SP_OBJECTTYPE = "object-type";
   @SearchParamDefinition(name="user", path="AuditEvent.participant.userId", description="Unique identifier for the user", type="token" )
   public static final String SP_USER = "user";
-  @SearchParamDefinition(name="desc", path="AuditEvent.object.name", description="Instance-specific descriptor for Object", type="string" )
-  public static final String SP_DESC = "desc";
 
 }
 

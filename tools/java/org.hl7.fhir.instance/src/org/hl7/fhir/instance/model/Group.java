@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -844,24 +844,24 @@ public class Group extends DomainResource {
     return ResourceType.Group;
    }
 
-  @SearchParamDefinition(name="actual", path="Group.actual", description="Descriptive or actual", type="token" )
-  public static final String SP_ACTUAL = "actual";
-  @SearchParamDefinition(name="identifier", path="Group.identifier", description="Unique id", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="characteristic-value", path="", description="A composite of both characteristic and value", type="composite" )
-  public static final String SP_CHARACTERISTICVALUE = "characteristic-value";
-  @SearchParamDefinition(name="code", path="Group.code", description="The kind of resources contained", type="token" )
-  public static final String SP_CODE = "code";
   @SearchParamDefinition(name="member", path="Group.member", description="Who is in group", type="reference" )
   public static final String SP_MEMBER = "member";
-  @SearchParamDefinition(name="exclude", path="Group.characteristic.exclude", description="Group includes or excludes", type="token" )
-  public static final String SP_EXCLUDE = "exclude";
-  @SearchParamDefinition(name="type", path="Group.type", description="The type of resources the group contains", type="token" )
-  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="characteristic-value", path="", description="A composite of both characteristic and value", type="composite" )
+  public static final String SP_CHARACTERISTICVALUE = "characteristic-value";
   @SearchParamDefinition(name="value", path="Group.characteristic.value[x]", description="Value held by characteristic", type="token" )
   public static final String SP_VALUE = "value";
+  @SearchParamDefinition(name="actual", path="Group.actual", description="Descriptive or actual", type="token" )
+  public static final String SP_ACTUAL = "actual";
+  @SearchParamDefinition(name="exclude", path="Group.characteristic.exclude", description="Group includes or excludes", type="token" )
+  public static final String SP_EXCLUDE = "exclude";
+  @SearchParamDefinition(name="code", path="Group.code", description="The kind of resources contained", type="token" )
+  public static final String SP_CODE = "code";
   @SearchParamDefinition(name="characteristic", path="Group.characteristic.code", description="Kind of characteristic", type="token" )
   public static final String SP_CHARACTERISTIC = "characteristic";
+  @SearchParamDefinition(name="type", path="Group.type", description="The type of resources the group contains", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="identifier", path="Group.identifier", description="Unique id", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

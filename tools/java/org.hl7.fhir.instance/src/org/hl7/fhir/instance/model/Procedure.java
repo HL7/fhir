@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -122,14 +122,14 @@ public class Procedure extends DomainResource {
         /**
          * The practitioner who was involved in the procedure.
          */
-        @Child(name="person", type={Practitioner.class}, order=1, min=0, max=1)
+        @Child(name="person", type={Practitioner.class, Patient.class, RelatedPerson.class}, order=1, min=0, max=1)
         @Description(shortDefinition="The reference to the practitioner", formalDefinition="The practitioner who was involved in the procedure." )
         protected Reference person;
 
         /**
          * The actual object that is the target of the reference (The practitioner who was involved in the procedure.)
          */
-        protected Practitioner personTarget;
+        protected Resource personTarget;
 
         /**
          * E.g. surgeon, anaethetist, endoscopist.
@@ -138,7 +138,7 @@ public class Procedure extends DomainResource {
         @Description(shortDefinition="The role the person was in", formalDefinition="E.g. surgeon, anaethetist, endoscopist." )
         protected CodeableConcept role;
 
-        private static final long serialVersionUID = -749890249L;
+        private static final long serialVersionUID = -1975652413L;
 
       public ProcedurePerformerComponent() {
         super();
@@ -171,19 +171,14 @@ public class Procedure extends DomainResource {
         /**
          * @return {@link #person} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who was involved in the procedure.)
          */
-        public Practitioner getPersonTarget() { 
-          if (this.personTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProcedurePerformerComponent.person");
-            else if (Configuration.doAutoCreate())
-              this.personTarget = new Practitioner(); // aa
+        public Resource getPersonTarget() { 
           return this.personTarget;
         }
 
         /**
          * @param value {@link #person} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who was involved in the procedure.)
          */
-        public ProcedurePerformerComponent setPersonTarget(Practitioner value) { 
+        public ProcedurePerformerComponent setPersonTarget(Resource value) { 
           this.personTarget = value;
           return this;
         }
@@ -214,7 +209,7 @@ public class Procedure extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("person", "Reference(Practitioner)", "The practitioner who was involved in the procedure.", 0, java.lang.Integer.MAX_VALUE, person));
+          childrenList.add(new Property("person", "Reference(Practitioner|Patient|RelatedPerson)", "The practitioner who was involved in the procedure.", 0, java.lang.Integer.MAX_VALUE, person));
           childrenList.add(new Property("role", "CodeableConcept", "E.g. surgeon, anaethetist, endoscopist.", 0, java.lang.Integer.MAX_VALUE, role));
         }
 
@@ -1227,10 +1222,12 @@ public class Procedure extends DomainResource {
     return ResourceType.Procedure;
    }
 
-  @SearchParamDefinition(name="date", path="Procedure.date", description="The date the procedure was performed on", type="date" )
-  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="patient", path="Procedure.patient", description="The identity of a patient to list procedures  for", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="performer", path="Procedure.performer.person", description="The reference to the practitioner", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+  @SearchParamDefinition(name="date", path="Procedure.date", description="The date the procedure was performed on", type="date" )
+  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="type", path="Procedure.type", description="Type of procedure", type="token" )
   public static final String SP_TYPE = "type";
 

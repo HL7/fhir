@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1525,32 +1525,32 @@ public class ClinicalAssessment extends DomainResource {
     return ResourceType.ClinicalAssessment;
    }
 
-  @SearchParamDefinition(name="date", path="ClinicalAssessment.date", description="When the assessment occurred", type="date" )
-  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="previous", path="ClinicalAssessment.previous", description="Reference to last assessment", type="reference" )
   public static final String SP_PREVIOUS = "previous";
-  @SearchParamDefinition(name="assessor", path="ClinicalAssessment.assessor", description="The clinicial performing the assessment", type="reference" )
-  public static final String SP_ASSESSOR = "assessor";
-  @SearchParamDefinition(name="careplan", path="ClinicalAssessment.careplan", description="A specific careplan that prompted this assessment", type="reference" )
-  public static final String SP_CAREPLAN = "careplan";
-  @SearchParamDefinition(name="diagnosis", path="ClinicalAssessment.diagnosis.item", description="Specific text or code for diagnosis", type="token" )
-  public static final String SP_DIAGNOSIS = "diagnosis";
-  @SearchParamDefinition(name="ruledout", path="ClinicalAssessment.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
-  public static final String SP_RULEDOUT = "ruledout";
-  @SearchParamDefinition(name="problem", path="ClinicalAssessment.problem", description="General assessment of patient state", type="reference" )
-  public static final String SP_PROBLEM = "problem";
   @SearchParamDefinition(name="referral", path="ClinicalAssessment.referral", description="A specific referral that lead to this assessment", type="reference" )
   public static final String SP_REFERRAL = "referral";
+  @SearchParamDefinition(name="diagnosis", path="ClinicalAssessment.diagnosis.item", description="Specific text or code for diagnosis", type="token" )
+  public static final String SP_DIAGNOSIS = "diagnosis";
+  @SearchParamDefinition(name="problem", path="ClinicalAssessment.problem", description="General assessment of patient state", type="reference" )
+  public static final String SP_PROBLEM = "problem";
+  @SearchParamDefinition(name="careplan", path="ClinicalAssessment.careplan", description="A specific careplan that prompted this assessment", type="reference" )
+  public static final String SP_CAREPLAN = "careplan";
+  @SearchParamDefinition(name="date", path="ClinicalAssessment.date", description="When the assessment occurred", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="ruledout", path="ClinicalAssessment.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
+  public static final String SP_RULEDOUT = "ruledout";
+  @SearchParamDefinition(name="assessor", path="ClinicalAssessment.assessor", description="The clinicial performing the assessment", type="reference" )
+  public static final String SP_ASSESSOR = "assessor";
   @SearchParamDefinition(name="patient", path="ClinicalAssessment.patient", description="The patient being asssesed", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="investigation", path="ClinicalAssessment.investigations.item", description="Record of a specific investigation", type="reference" )
-  public static final String SP_INVESTIGATION = "investigation";
-  @SearchParamDefinition(name="action", path="ClinicalAssessment.action", description="Actions taken during assessment", type="reference" )
-  public static final String SP_ACTION = "action";
-  @SearchParamDefinition(name="plan", path="ClinicalAssessment.plan", description="Plan of action after assessment", type="reference" )
-  public static final String SP_PLAN = "plan";
   @SearchParamDefinition(name="resolved", path="ClinicalAssessment.resolved", description="Diagnosies/conditions resolved since previous assessment", type="token" )
   public static final String SP_RESOLVED = "resolved";
+  @SearchParamDefinition(name="plan", path="ClinicalAssessment.plan", description="Plan of action after assessment", type="reference" )
+  public static final String SP_PLAN = "plan";
+  @SearchParamDefinition(name="action", path="ClinicalAssessment.action", description="Actions taken during assessment", type="reference" )
+  public static final String SP_ACTION = "action";
+  @SearchParamDefinition(name="investigation", path="ClinicalAssessment.investigations.item", description="Record of a specific investigation", type="reference" )
+  public static final String SP_INVESTIGATION = "investigation";
 
 }
 

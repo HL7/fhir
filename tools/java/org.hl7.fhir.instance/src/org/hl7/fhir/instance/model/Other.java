@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -351,14 +351,14 @@ public class Other extends DomainResource {
     return ResourceType.Other;
    }
 
-  @SearchParamDefinition(name="code", path="Other.code", description="Kind of Resource", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="subject", path="Other.subject", description="Identifies the", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="created", path="Other.created", description="When created", type="date" )
-  public static final String SP_CREATED = "created";
   @SearchParamDefinition(name="patient", path="Other.subject", description="Identifies the", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="created", path="Other.created", description="When created", type="date" )
+  public static final String SP_CREATED = "created";
+  @SearchParamDefinition(name="subject", path="Other.subject", description="Identifies the", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="code", path="Other.code", description="Kind of Resource", type="token" )
+  public static final String SP_CODE = "code";
 
 }
 

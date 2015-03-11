@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -220,9 +220,9 @@ public class NutritionOrder extends DomainResource {
         /**
          * Class that defines the details of any nutrient modifications required for the oral diet.
          */
-        @Child(name="nutrients", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="nutrient", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Required  nutrient modifications", formalDefinition="Class that defines the details of any nutrient modifications required for the oral diet." )
-        protected List<NutritionOrderOralDietNutrientsComponent> nutrients;
+        protected List<NutritionOrderOralDietNutrientComponent> nutrient;
 
         /**
          * Class that describes any texture modifications required for the patient to safely consume various types of solid foods.
@@ -245,7 +245,7 @@ public class NutritionOrder extends DomainResource {
         @Description(shortDefinition="Instructions or additional information about the oral diet", formalDefinition="Additional instructions or information pertaining to the oral diet." )
         protected StringType instruction;
 
-        private static final long serialVersionUID = -1825879074L;
+        private static final long serialVersionUID = -1101476668L;
 
       public NutritionOrderOralDietComponent() {
         super();
@@ -316,42 +316,42 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #nutrients} (Class that defines the details of any nutrient modifications required for the oral diet.)
+         * @return {@link #nutrient} (Class that defines the details of any nutrient modifications required for the oral diet.)
          */
-        public List<NutritionOrderOralDietNutrientsComponent> getNutrients() { 
-          if (this.nutrients == null)
-            this.nutrients = new ArrayList<NutritionOrderOralDietNutrientsComponent>();
-          return this.nutrients;
+        public List<NutritionOrderOralDietNutrientComponent> getNutrient() { 
+          if (this.nutrient == null)
+            this.nutrient = new ArrayList<NutritionOrderOralDietNutrientComponent>();
+          return this.nutrient;
         }
 
-        public boolean hasNutrients() { 
-          if (this.nutrients == null)
+        public boolean hasNutrient() { 
+          if (this.nutrient == null)
             return false;
-          for (NutritionOrderOralDietNutrientsComponent item : this.nutrients)
+          for (NutritionOrderOralDietNutrientComponent item : this.nutrient)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #nutrients} (Class that defines the details of any nutrient modifications required for the oral diet.)
+         * @return {@link #nutrient} (Class that defines the details of any nutrient modifications required for the oral diet.)
          */
     // syntactic sugar
-        public NutritionOrderOralDietNutrientsComponent addNutrients() { //3
-          NutritionOrderOralDietNutrientsComponent t = new NutritionOrderOralDietNutrientsComponent();
-          if (this.nutrients == null)
-            this.nutrients = new ArrayList<NutritionOrderOralDietNutrientsComponent>();
-          this.nutrients.add(t);
+        public NutritionOrderOralDietNutrientComponent addNutrient() { //3
+          NutritionOrderOralDietNutrientComponent t = new NutritionOrderOralDietNutrientComponent();
+          if (this.nutrient == null)
+            this.nutrient = new ArrayList<NutritionOrderOralDietNutrientComponent>();
+          this.nutrient.add(t);
           return t;
         }
 
     // syntactic sugar
-        public NutritionOrderOralDietComponent addNutrients(NutritionOrderOralDietNutrientsComponent t) { //3
+        public NutritionOrderOralDietComponent addNutrient(NutritionOrderOralDietNutrientComponent t) { //3
           if (t == null)
             return this;
-          if (this.nutrients == null)
-            this.nutrients = new ArrayList<NutritionOrderOralDietNutrientsComponent>();
-          this.nutrients.add(t);
+          if (this.nutrient == null)
+            this.nutrient = new ArrayList<NutritionOrderOralDietNutrientComponent>();
+          this.nutrient.add(t);
           return this;
         }
 
@@ -488,7 +488,7 @@ public class NutritionOrder extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of oral diet or diet restrictions that describe what can be consumed orally (i.e., take via the mouth).", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("scheduled", "Timing", "The time period and frequency at which the diet should be given.", 0, java.lang.Integer.MAX_VALUE, scheduled));
-          childrenList.add(new Property("nutrients", "", "Class that defines the details of any nutrient modifications required for the oral diet.", 0, java.lang.Integer.MAX_VALUE, nutrients));
+          childrenList.add(new Property("nutrient", "", "Class that defines the details of any nutrient modifications required for the oral diet.", 0, java.lang.Integer.MAX_VALUE, nutrient));
           childrenList.add(new Property("texture", "", "Class that describes any texture modifications required for the patient to safely consume various types of solid foods.", 0, java.lang.Integer.MAX_VALUE, texture));
           childrenList.add(new Property("fluidConsistencyType", "CodeableConcept", "Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.", 0, java.lang.Integer.MAX_VALUE, fluidConsistencyType));
           childrenList.add(new Property("instruction", "string", "Additional instructions or information pertaining to the oral diet.", 0, java.lang.Integer.MAX_VALUE, instruction));
@@ -503,10 +503,10 @@ public class NutritionOrder extends DomainResource {
             dst.type.add(i.copy());
         };
         dst.scheduled = scheduled == null ? null : scheduled.copy();
-        if (nutrients != null) {
-          dst.nutrients = new ArrayList<NutritionOrderOralDietNutrientsComponent>();
-          for (NutritionOrderOralDietNutrientsComponent i : nutrients)
-            dst.nutrients.add(i.copy());
+        if (nutrient != null) {
+          dst.nutrient = new ArrayList<NutritionOrderOralDietNutrientComponent>();
+          for (NutritionOrderOralDietNutrientComponent i : nutrient)
+            dst.nutrient.add(i.copy());
         };
         if (texture != null) {
           dst.texture = new ArrayList<NutritionOrderOralDietTextureComponent>();
@@ -529,7 +529,7 @@ public class NutritionOrder extends DomainResource {
         if (!(other instanceof NutritionOrderOralDietComponent))
           return false;
         NutritionOrderOralDietComponent o = (NutritionOrderOralDietComponent) other;
-        return compareDeep(type, o.type, true) && compareDeep(scheduled, o.scheduled, true) && compareDeep(nutrients, o.nutrients, true)
+        return compareDeep(type, o.type, true) && compareDeep(scheduled, o.scheduled, true) && compareDeep(nutrient, o.nutrient, true)
            && compareDeep(texture, o.texture, true) && compareDeep(fluidConsistencyType, o.fluidConsistencyType, true)
            && compareDeep(instruction, o.instruction, true);
       }
@@ -546,14 +546,14 @@ public class NutritionOrder extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (scheduled == null || scheduled.isEmpty())
-           && (nutrients == null || nutrients.isEmpty()) && (texture == null || texture.isEmpty()) && (fluidConsistencyType == null || fluidConsistencyType.isEmpty())
+           && (nutrient == null || nutrient.isEmpty()) && (texture == null || texture.isEmpty()) && (fluidConsistencyType == null || fluidConsistencyType.isEmpty())
            && (instruction == null || instruction.isEmpty());
       }
 
   }
 
     @Block()
-    public static class NutritionOrderOralDietNutrientsComponent extends BackboneElement {
+    public static class NutritionOrderOralDietNutrientComponent extends BackboneElement {
         /**
          * Identifies the type of nutrient that is being modified such as carbohydrate or sodium.
          */
@@ -570,7 +570,7 @@ public class NutritionOrder extends DomainResource {
 
         private static final long serialVersionUID = 1042462093L;
 
-      public NutritionOrderOralDietNutrientsComponent() {
+      public NutritionOrderOralDietNutrientComponent() {
         super();
       }
 
@@ -580,7 +580,7 @@ public class NutritionOrder extends DomainResource {
         public CodeableConcept getModifier() { 
           if (this.modifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create NutritionOrderOralDietNutrientsComponent.modifier");
+              throw new Error("Attempt to auto-create NutritionOrderOralDietNutrientComponent.modifier");
             else if (Configuration.doAutoCreate())
               this.modifier = new CodeableConcept(); // cc
           return this.modifier;
@@ -593,7 +593,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @param value {@link #modifier} (Identifies the type of nutrient that is being modified such as carbohydrate or sodium.)
          */
-        public NutritionOrderOralDietNutrientsComponent setModifier(CodeableConcept value) { 
+        public NutritionOrderOralDietNutrientComponent setModifier(CodeableConcept value) { 
           this.modifier = value;
           return this;
         }
@@ -604,7 +604,7 @@ public class NutritionOrder extends DomainResource {
         public Quantity getAmount() { 
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create NutritionOrderOralDietNutrientsComponent.amount");
+              throw new Error("Attempt to auto-create NutritionOrderOralDietNutrientComponent.amount");
             else if (Configuration.doAutoCreate())
               this.amount = new Quantity(); // cc
           return this.amount;
@@ -617,7 +617,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @param value {@link #amount} (The quantity of the specified nutrient to include in diet.)
          */
-        public NutritionOrderOralDietNutrientsComponent setAmount(Quantity value) { 
+        public NutritionOrderOralDietNutrientComponent setAmount(Quantity value) { 
           this.amount = value;
           return this;
         }
@@ -628,8 +628,8 @@ public class NutritionOrder extends DomainResource {
           childrenList.add(new Property("amount", "Quantity", "The quantity of the specified nutrient to include in diet.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
-      public NutritionOrderOralDietNutrientsComponent copy() {
-        NutritionOrderOralDietNutrientsComponent dst = new NutritionOrderOralDietNutrientsComponent();
+      public NutritionOrderOralDietNutrientComponent copy() {
+        NutritionOrderOralDietNutrientComponent dst = new NutritionOrderOralDietNutrientComponent();
         copyValues(dst);
         dst.modifier = modifier == null ? null : modifier.copy();
         dst.amount = amount == null ? null : amount.copy();
@@ -640,9 +640,9 @@ public class NutritionOrder extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof NutritionOrderOralDietNutrientsComponent))
+        if (!(other instanceof NutritionOrderOralDietNutrientComponent))
           return false;
-        NutritionOrderOralDietNutrientsComponent o = (NutritionOrderOralDietNutrientsComponent) other;
+        NutritionOrderOralDietNutrientComponent o = (NutritionOrderOralDietNutrientComponent) other;
         return compareDeep(modifier, o.modifier, true) && compareDeep(amount, o.amount, true);
       }
 
@@ -650,9 +650,9 @@ public class NutritionOrder extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof NutritionOrderOralDietNutrientsComponent))
+        if (!(other instanceof NutritionOrderOralDietNutrientComponent))
           return false;
-        NutritionOrderOralDietNutrientsComponent o = (NutritionOrderOralDietNutrientsComponent) other;
+        NutritionOrderOralDietNutrientComponent o = (NutritionOrderOralDietNutrientComponent) other;
         return true;
       }
 
@@ -2272,26 +2272,26 @@ public class NutritionOrder extends DomainResource {
     return ResourceType.NutritionOrder;
    }
 
-  @SearchParamDefinition(name="identifier", path="NutritionOrder.identifier", description="Return nutrition orders with this external identity", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="datetime", path="NutritionOrder.dateTime", description="Return nutrition orders requested on this date", type="date" )
-  public static final String SP_DATETIME = "datetime";
-  @SearchParamDefinition(name="provider", path="NutritionOrder.orderer", description="The identify of the provider who placed the nutrition order", type="reference" )
-  public static final String SP_PROVIDER = "provider";
   @SearchParamDefinition(name="patient", path="NutritionOrder.patient", description="The identity of the person who requires the diet, formula or nutritional supplement", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="supplement", path="NutritionOrder.supplement.type", description="Type of supplement product requested", type="token" )
-  public static final String SP_SUPPLEMENT = "supplement";
-  @SearchParamDefinition(name="formula", path="NutritionOrder.enteralFormula.baseFormulaType", description="Type of enteral or infant formula", type="token" )
-  public static final String SP_FORMULA = "formula";
-  @SearchParamDefinition(name="encounter", path="NutritionOrder.encounter", description="Return nutrition orders with this encounter identity", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
-  @SearchParamDefinition(name="oraldiet", path="NutritionOrder.oralDiet.type", description="Type of diet that can be consumed orally (i.e., take via the mouth).", type="token" )
-  public static final String SP_ORALDIET = "oraldiet";
   @SearchParamDefinition(name="status", path="NutritionOrder.status", description="Status of the nutrition order.", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="supplement", path="NutritionOrder.supplement.type", description="Type of supplement product requested", type="token" )
+  public static final String SP_SUPPLEMENT = "supplement";
+  @SearchParamDefinition(name="oraldiet", path="NutritionOrder.oralDiet.type", description="Type of diet that can be consumed orally (i.e., take via the mouth).", type="token" )
+  public static final String SP_ORALDIET = "oraldiet";
+  @SearchParamDefinition(name="provider", path="NutritionOrder.orderer", description="The identify of the provider who placed the nutrition order", type="reference" )
+  public static final String SP_PROVIDER = "provider";
+  @SearchParamDefinition(name="encounter", path="NutritionOrder.encounter", description="Return nutrition orders with this encounter identity", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="datetime", path="NutritionOrder.dateTime", description="Return nutrition orders requested on this date", type="date" )
+  public static final String SP_DATETIME = "datetime";
   @SearchParamDefinition(name="additive", path="NutritionOrder.enteralFormula.additiveType", description="Type of module component to add to the feeding", type="token" )
   public static final String SP_ADDITIVE = "additive";
+  @SearchParamDefinition(name="identifier", path="NutritionOrder.identifier", description="Return nutrition orders with this external identity", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="formula", path="NutritionOrder.enteralFormula.baseFormulaType", description="Type of enteral or infant formula", type="token" )
+  public static final String SP_FORMULA = "formula";
 
 }
 

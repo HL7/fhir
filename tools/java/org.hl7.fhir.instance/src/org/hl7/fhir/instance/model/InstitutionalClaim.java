@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -4059,14 +4059,14 @@ public class InstitutionalClaim extends DomainResource {
     return ResourceType.InstitutionalClaim;
    }
 
-  @SearchParamDefinition(name="identifier", path="InstitutionalClaim.identifier", description="The primary identifier of the financial resource", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="use", path="InstitutionalClaim.use", description="The kind of financial resource", type="token" )
-  public static final String SP_USE = "use";
   @SearchParamDefinition(name="patient", path="InstitutionalClaim.patient", description="Patient", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="priority", path="InstitutionalClaim.priority", description="Processing priority requested", type="token" )
   public static final String SP_PRIORITY = "priority";
+  @SearchParamDefinition(name="use", path="InstitutionalClaim.use", description="The kind of financial resource", type="token" )
+  public static final String SP_USE = "use";
+  @SearchParamDefinition(name="identifier", path="InstitutionalClaim.identifier", description="The primary identifier of the financial resource", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

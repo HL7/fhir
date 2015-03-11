@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -721,13 +721,13 @@ public class Provenance extends DomainResource {
     protected List<ProvenanceEntityComponent> entity;
 
     /**
-     * A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
+     * A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.
      */
-    @Child(name="integritySignature", type={Base64BinaryType.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="Base64 signature (DigSig) - integrity check", formalDefinition="A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation." )
-    protected Base64BinaryType integritySignature;
+    @Child(name="signature", type={Signature.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Signature on target", formalDefinition="A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated." )
+    protected List<Signature> signature;
 
-    private static final long serialVersionUID = -1796008378L;
+    private static final long serialVersionUID = 800452939L;
 
     public Provenance() {
       super();
@@ -1059,51 +1059,42 @@ public class Provenance extends DomainResource {
     }
 
     /**
-     * @return {@link #integritySignature} (A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.). This is the underlying object with id, value and extensions. The accessor "getIntegritySignature" gives direct access to the value
+     * @return {@link #signature} (A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.)
      */
-    public Base64BinaryType getIntegritySignatureElement() { 
-      if (this.integritySignature == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Provenance.integritySignature");
-        else if (Configuration.doAutoCreate())
-          this.integritySignature = new Base64BinaryType(); // bb
-      return this.integritySignature;
+    public List<Signature> getSignature() { 
+      if (this.signature == null)
+        this.signature = new ArrayList<Signature>();
+      return this.signature;
     }
 
-    public boolean hasIntegritySignatureElement() { 
-      return this.integritySignature != null && !this.integritySignature.isEmpty();
-    }
-
-    public boolean hasIntegritySignature() { 
-      return this.integritySignature != null && !this.integritySignature.isEmpty();
+    public boolean hasSignature() { 
+      if (this.signature == null)
+        return false;
+      for (Signature item : this.signature)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #integritySignature} (A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.). This is the underlying object with id, value and extensions. The accessor "getIntegritySignature" gives direct access to the value
+     * @return {@link #signature} (A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.)
      */
-    public Provenance setIntegritySignatureElement(Base64BinaryType value) { 
-      this.integritySignature = value;
-      return this;
+    // syntactic sugar
+    public Signature addSignature() { //3
+      Signature t = new Signature();
+      if (this.signature == null)
+        this.signature = new ArrayList<Signature>();
+      this.signature.add(t);
+      return t;
     }
 
-    /**
-     * @return A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
-     */
-    public byte[] getIntegritySignature() { 
-      return this.integritySignature == null ? null : this.integritySignature.getValue();
-    }
-
-    /**
-     * @param value A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
-     */
-    public Provenance setIntegritySignature(byte[] value) { 
-      if (value == null)
-        this.integritySignature = null;
-      else {
-        if (this.integritySignature == null)
-          this.integritySignature = new Base64BinaryType();
-        this.integritySignature.setValue(value);
-      }
+    // syntactic sugar
+    public Provenance addSignature(Signature t) { //3
+      if (t == null)
+        return this;
+      if (this.signature == null)
+        this.signature = new ArrayList<Signature>();
+      this.signature.add(t);
       return this;
     }
 
@@ -1117,7 +1108,7 @@ public class Provenance extends DomainResource {
         childrenList.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
         childrenList.add(new Property("agent", "", "An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity));
-        childrenList.add(new Property("integritySignature", "base64Binary", "A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.", 0, java.lang.Integer.MAX_VALUE, integritySignature));
+        childrenList.add(new Property("signature", "Signature", "A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.", 0, java.lang.Integer.MAX_VALUE, signature));
       }
 
       public Provenance copy() {
@@ -1147,7 +1138,11 @@ public class Provenance extends DomainResource {
           for (ProvenanceEntityComponent i : entity)
             dst.entity.add(i.copy());
         };
-        dst.integritySignature = integritySignature == null ? null : integritySignature.copy();
+        if (signature != null) {
+          dst.signature = new ArrayList<Signature>();
+          for (Signature i : signature)
+            dst.signature.add(i.copy());
+        };
         return dst;
       }
 
@@ -1164,7 +1159,7 @@ public class Provenance extends DomainResource {
         Provenance o = (Provenance) other;
         return compareDeep(target, o.target, true) && compareDeep(period, o.period, true) && compareDeep(recorded, o.recorded, true)
            && compareDeep(reason, o.reason, true) && compareDeep(location, o.location, true) && compareDeep(policy, o.policy, true)
-           && compareDeep(agent, o.agent, true) && compareDeep(entity, o.entity, true) && compareDeep(integritySignature, o.integritySignature, true)
+           && compareDeep(agent, o.agent, true) && compareDeep(entity, o.entity, true) && compareDeep(signature, o.signature, true)
           ;
       }
 
@@ -1175,15 +1170,14 @@ public class Provenance extends DomainResource {
         if (!(other instanceof Provenance))
           return false;
         Provenance o = (Provenance) other;
-        return compareValues(recorded, o.recorded, true) && compareValues(policy, o.policy, true) && compareValues(integritySignature, o.integritySignature, true)
-          ;
+        return compareValues(recorded, o.recorded, true) && compareValues(policy, o.policy, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (target == null || target.isEmpty()) && (period == null || period.isEmpty())
            && (recorded == null || recorded.isEmpty()) && (reason == null || reason.isEmpty()) && (location == null || location.isEmpty())
            && (policy == null || policy.isEmpty()) && (agent == null || agent.isEmpty()) && (entity == null || entity.isEmpty())
-           && (integritySignature == null || integritySignature.isEmpty());
+           && (signature == null || signature.isEmpty());
       }
 
   @Override
@@ -1191,20 +1185,22 @@ public class Provenance extends DomainResource {
     return ResourceType.Provenance;
    }
 
+  @SearchParamDefinition(name="sigtype", path="Provenance.signature.type", description="Indication of the reason the entity signed the object(s)", type="token" )
+  public static final String SP_SIGTYPE = "sigtype";
   @SearchParamDefinition(name="patient", path="", description="A patient that the target resource(s) refer to", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="start", path="Provenance.period.start", description="Starting time with inclusive boundary", type="date" )
-  public static final String SP_START = "start";
-  @SearchParamDefinition(name="end", path="Provenance.period.end", description="End time with inclusive boundary, if not ongoing", type="date" )
-  public static final String SP_END = "end";
   @SearchParamDefinition(name="location", path="Provenance.location", description="Where the activity occurred, if relevant", type="reference" )
   public static final String SP_LOCATION = "location";
+  @SearchParamDefinition(name="start", path="Provenance.period.start", description="Starting time with inclusive boundary", type="date" )
+  public static final String SP_START = "start";
   @SearchParamDefinition(name="partytype", path="Provenance.agent.type", description="e.g. Resource | Person | Application | Record | Document +", type="token" )
   public static final String SP_PARTYTYPE = "partytype";
-  @SearchParamDefinition(name="party", path="Provenance.agent.reference[x]", description="Identity of agent", type="reference" )
-  public static final String SP_PARTY = "party";
   @SearchParamDefinition(name="target", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
   public static final String SP_TARGET = "target";
+  @SearchParamDefinition(name="party", path="Provenance.agent.reference[x]", description="Identity of agent", type="reference" )
+  public static final String SP_PARTY = "party";
+  @SearchParamDefinition(name="end", path="Provenance.period.end", description="End time with inclusive boundary, if not ongoing", type="date" )
+  public static final String SP_END = "end";
 
 }
 

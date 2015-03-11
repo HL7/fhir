@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1143,10 +1143,16 @@ public class ProcedureRequest extends DomainResource {
     return ResourceType.ProcedureRequest;
    }
 
-  @SearchParamDefinition(name="subject", path="ProcedureRequest.subject", description="Search by subject", type="reference" )
-  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="orderer", path="ProcedureRequest.orderer", description="Ordering Party", type="reference" )
+  public static final String SP_ORDERER = "orderer";
   @SearchParamDefinition(name="patient", path="ProcedureRequest.subject", description="Search by subject - a patient", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="subject", path="ProcedureRequest.subject", description="Search by subject", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="performer", path="ProcedureRequest.performer", description="Performer", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+  @SearchParamDefinition(name="encounter", path="ProcedureRequest.encounter", description="Encounter", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
 
 }
 

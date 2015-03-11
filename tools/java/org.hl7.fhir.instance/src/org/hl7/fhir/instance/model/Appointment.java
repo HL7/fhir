@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 10, 2015 19:02+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1448,10 +1448,6 @@ public class Appointment extends DomainResource {
     return ResourceType.Appointment;
    }
 
-  @SearchParamDefinition(name="date", path="Appointment.start", description="Appointment date/time.", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="actor", path="Appointment.participant.actor", description="Any one of the individuals participating in the appointment", type="reference" )
-  public static final String SP_ACTOR = "actor";
   @SearchParamDefinition(name="partstatus", path="Appointment.participant.status", description="The Participation status of the subject, or other participant on the appointment. Can be used to locate participants that have not responded to meeting requests.", type="token" )
   public static final String SP_PARTSTATUS = "partstatus";
   @SearchParamDefinition(name="patient", path="Appointment.participant.actor", description="One of the individuals of the appointment is this patient", type="reference" )
@@ -1460,6 +1456,10 @@ public class Appointment extends DomainResource {
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="status", path="Appointment.status", description="The overall status of the appointment", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="actor", path="Appointment.participant.actor", description="Any one of the individuals participating in the appointment", type="reference" )
+  public static final String SP_ACTOR = "actor";
+  @SearchParamDefinition(name="date", path="Appointment.start", description="Appointment date/time.", type="date" )
+  public static final String SP_DATE = "date";
 
 }
 
