@@ -12,6 +12,10 @@ Usually, resources specific to particular types of issues (health <a href="condi
 in some cases, particularly important information (a latex or severe food allergy) migt be highlighted as an <b>Alert</b> as well as the more typical
 resource.
 </p>
+<p>
+The Alert resource should not be used for Allergies / Adverse Reactions (use <a href="allergyintolerance.html">AllergyIntolerance</a>, or to record Alarms 
+raised by devices attached to the patient (yet to be added to the specification).
+</p>
 </div>
 
 </div>

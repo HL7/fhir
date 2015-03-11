@@ -8,9 +8,5 @@ The Alert resource is sometimes known as "patient notes" and MAY be used to warn
  <li>Issues that impact on the ability to provide care (e.g patient has a big dog at home)</li>
  <li>Financial matters (e.g. patient is a bad debtor)</li>
 </ul>
-<p>
-The Alert resource should not be used for Allergies / Adverse Reactions (use <a href="allergyintolerance.html">AllergyIntolerance</a>, or to record Alarms 
-raised by devices attached to the patient (DSTU - under development).
-</p>
 
 </div>
