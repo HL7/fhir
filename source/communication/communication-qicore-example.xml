@@ -7,6 +7,16 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Patient has very high serum potassium</div>
   </text>
 
+    <extension url="http://hl7.org/fhir/StructureDefinition/communication-reasonNotPerformed">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
+          <code value="EIE" />
+          <display value="entered in error"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+
   <!-- insert contents here -->
     <identifier>
 		<label value="Paging System"/>
@@ -35,7 +45,7 @@
       <reference value="Observation/643666aa12f"/>
     </contentReference>
   </payload>
-  <status value="completed"/>
+  <status value="suspended"/>
   <sent value="2014-12-12T18:01:10-08:00"/>
   <subject>
     <reference value="Patient/1"/>

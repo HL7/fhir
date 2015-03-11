@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
 <Alert xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/alert.xsd">
   <id value="qicore"/>
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Large Dog warning for Peter Patient</div>
   </text>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/alert-period">
+    <valuePeriod>
+      <start value="2015-01-09"/>
+      <end value="2015-02-28"/>
+    </valuePeriod>
+  </extension>
+
   <category>
     <coding>
       <system value="local"/>
@@ -15,7 +22,7 @@
     <text value="admin"/>
 
   </category>
-  <status value="active"/>
+  <status value="inactive"/>
   <subject>
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
