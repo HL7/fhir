@@ -55,7 +55,7 @@ this is not safe.
 <h3>Note for CDA aware readers</h3>
 
 <p>
-May uesrs of this specification are familiar with the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">Clinical Document Architecture</a> (CDA) and related specifications.
+Many users of this specification are familiar with the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">Clinical Document Architecture</a> (CDA) and related specifications.
 CDA is a primary design input to the composition resource (other principle inputs are other HL7 document specifications, and EN13606). There are two important structural 
 differences between CDA and the composition resource:
 </p>
