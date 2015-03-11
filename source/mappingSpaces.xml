@@ -178,5 +178,12 @@
     <id>cpha3pharm</id>
     <sort>20</sort>
   </space>
+  <space>
+    <url>http://www.healthit.gov/quality-data-model</url>
+    <columnName>QDM Mapping</columnName>
+    <title>Quality Data Model</title>
+    <id>qdm</id>
+    <sort>21</sort>
+  </space>
   
 </mappingSpaces>
