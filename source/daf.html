@@ -130,11 +130,32 @@ Additional resources such as <a href="provenance.html">Provenance</a>, <a href="
 
 <h3>Conformance Requirements</h3>
 <p>
-The DAF Conformance statements which define the expected capabilities of each of the DAF actors are listed below:
+This section defines conformance requirements for DAF actors.
 </p>
+<p>
+In the context of DAF profiles, <i>Supported</i> on any data element SHALL be interpreted as follows:
 <ul>
-      <li><a href="conformance-daf-query-requestor.html">DAF Requestor</a> - DAF Requestors are responsible for creating and initiating the queries for patients or populations.</li>
-      <li><a href="conformance-daf-query-responder.html">DAF Responder</a>- DAF Responders are responsible to provide responses to the queries submitted by the requestors.</li>
+      <li>DAF Responders SHALL be capable of including the data element as part of the query results.</li>
+	  <li>DAF Requestors SHALL be capable of processing resource instances containing the data elements.</li>
+	  <li>In situations where information on a particular data element is not present and the reason is unknown, DAF Responders SHALL NOT include the data elements in the resource instance returned as part of the query results.</li>
+	  <li>When querying DAF Responders, DAF Requestors SHALL interpret missing data elements within resource instances as data not present in the DAF Responder's systems.</li>
+	  <li>In situations where information on a particular data element is missing and the DAF Responder knows the precise reason for the absence of data, DAF Responders SHALL send the reason for the missing information using values from the value set where they exist or using the dataAbsentReason extension.</li>
+	  <li>DAF Requestors SHALL be able to process resource instances containing data elements asserting missing information.</li>
+</ul>
+</p>
+
+<p>
+<b>Value Set bindings and interpretation:</b> In the context of DAF profiles, value set bindings of (required, extensible) for specific data elements SHALL be interpreted as follows:
+<ul>
+	<li>DAF Responders SHALL use the codes from the value sets identified by the DAF profiles, unless the value set does not contain codes that can be used at any level of granularity. For example, If the value set allows red, green and blue and your concept is "navy", you can't use a new code, you have to use "blue".  However, if your concept is "white", you can use a new code.</li>
+</ul>
+
+The following are the additional conformance requirements for each of the DAF actors.
+</p>
+
+<ul>
+      <li><a href="conformance-daf-query-requestor.html">DAF Requestor actor</a> - DAF Requestors are responsible for creating and initiating the queries for patients or populations.</li>
+      <li><a href="conformance-daf-query-responder.html">DAF Responder actor</a>- DAF Responders are responsible to provide responses to the queries submitted by the requestors.</li>
 </ul>
 
 <h3>Author Information</h3>
