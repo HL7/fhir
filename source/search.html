@@ -58,7 +58,9 @@ the results that are returned.
 <a name="all"> </a>
 <h4>Parameters for all resources</h4>
 <p>
-These parameters are <a href="resource.html#search">defined that apply to all resources</a>: [%allparams%].
+These parameters are <a href="resource.html#search">defined that apply to all resources</a>: [%allparams%]. In addition, the search 
+parameters <a href="#text">_text</a>, <a href="#count">_count</a>, <a href="#include">_include</a> and <a href="#summary">_summary</a> 
+(documented below) also apply to all resources.
 </p>
 <p>
 The search parameter _id refers to the logical id of the resource, and can be used when the search context specifies a resource type:
@@ -626,7 +628,7 @@ multiple parameters that comes earliest in the specified sort order
 when ordering the returned resources. </li>
 </ul>
 
-
+<a name="count"> </a>
 <h4>Page Count</h4>
 
 <p>
@@ -655,7 +657,7 @@ handle ongoing updates to the resources while the search
 is proceeding.
 </p>
 
-<a name="include" />
+<a name="include"> </a>
 <h4>Including other resources in result (_include)</h4>
 <p>
 Clients may request that the engine return additional resources related to

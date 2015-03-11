@@ -587,26 +587,12 @@ creating duplicate resources for the same record. For example, a client posting 
 <h3>search</h3>
 <p>
 This interaction searches a set of resources based on some filter criteria. The interaction can be performed by several different HTTP commands.
-To search all resources at once:
-</p>
-<pre>
-  GET [base]?[parameters] {&amp;_format=[mime-type]}
-</pre>
-<p>
-To search a single resource type:
 </p>
 <pre>
   GET [base]/[type]?[parameters] {&amp;_format=[mime-type]}
 </pre>
 <p>
-To search a <a href="extras.html#compartments">compartment</a>, either all possible resources, or a single resource type, respectively:
-</p>
-<pre>
-  GET [base]/[Compartment]/[id]/*?[parameters]  {&amp;_format=[mime-type]}
-  GET [base]/[Compartment]/[id]/[type]?[parameters]  {&amp;_format=[mime-type]}
-</pre>
-<p>
-Note that there is a specific operation defined to support <a href="patient-operations.html#everything">fetching an entire patient record</a>.
+This searches all resources of a particular type using the criteria represented in the parameters. 
 </p>
 <p>
 Because of the way that some user agents and proxies treat <code>GET</code> and <code>POST</code> requests, in addition
@@ -631,6 +617,35 @@ list into pages if appropriate. The server MAY also return an OperationOutcome r
 if one is sent it SHALL not include any errors, and it shall be marked with an <a href="search-entry-mode.html">entry
 mode</a> of <code>include</code>.
 </p>
+<h4>Variant Searches</h4>
+<p>
+To search a <a href="extras.html#compartments">compartment</a>, either all possible resources, or for a particular resource type, respectively:
+</p>
+<pre>
+  GET [base]/[Compartment]/[id]/*?[parameters]  {&amp;_format=[mime-type]}
+  GET [base]/[Compartment]/[id]/[type]?[parameters]  {&amp;_format=[mime-type]}
+</pre>
+<p>
+For example, to retrieve all the observation resources for a particular LOINC code associated with a particular encounter:
+</p>
+<pre>
+  GET [base]/Encounter/23423445/Observation?code=2951-2  {&amp;_format=[mime-type]}
+</pre>
+<p>
+Note that there are a specific operations defined to support fetching <a href="patient-operations.html#everything">an entire patient record</a>
+or <a href="encounter-operations.html#everything">all record for an encounter</a>.
+</p>
+<p>
+Finally, it's possible to search all resources at once:
+</p>
+<pre>
+  GET [base]?[parameters] {&amp;_format=[mime-type]}
+</pre>
+<p>
+When searching all resources at once, only the parameters defined for all resources 
+can be used.
+</p>
+
 
 <a name="conformance"> </a>
 <h3>conformance</h3>
