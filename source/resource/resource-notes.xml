@@ -98,7 +98,11 @@ in particular implementations or contexts of use.
 <p>
 Meta is used in the following places: [%dtusage Meta%]
 </p>
-  
+<p>
+Note that the RESTful API defines some <a href="operations.html">Operations</a> that provide
+<a href="resource-operations.html#meta">direct read and write access</a> to the <i>meta</a> element.   
+</p>
+
 <a name="implicitRules"> </a>
   
 <h3>Implicit Rules</h3>

@@ -891,43 +891,50 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genOperationList() throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">");
+    for (ResourceDefn r : definitions.getBaseResources().values()) {
+      genOperationDetails(b, r.getName(), r);
+    }
     for (String n : definitions.sortedResourceNames()) {
       ResourceDefn r = definitions.getResourceByName(n);
-      for (Operation op : r.getOperations()) {
-        b.append("<tr><td><a href=\"").append(n.toLowerCase()).append("-operations.html#").append(op.getName()).append("\">");
-        b.append(Utilities.escapeXml(op.getTitle()));
-        b.append("</a></td><td>");
-        boolean first = true;
-        if (op.isSystem()) {
-          first = false;
-          b.append("[base]/$");
-          b.append(op.getName());
-        }
-        if (op.isType()) {
-          if (first) 
-            first = false;
-          else 
-            b.append(" | ");
-          b.append("[base]/");
-          b.append(n);
-          b.append("/$");
-          b.append(op.getName());
-        }
-        if (op.isInstance()) {
-          if (first) 
-            first = false;
-          else 
-            b.append(" | ");
-          b.append("[base]/");
-          b.append(n);
-          b.append("/[id]/$");
-          b.append(op.getName());
-        }
-        b.append("</td></tr>");
-      }
+      genOperationDetails(b, n, r);
     }
     b.append("</table>");
     return b.toString();
+  }
+
+  private void genOperationDetails(StringBuilder b, String n, ResourceDefn r) {
+    for (Operation op : r.getOperations()) {
+      b.append("<tr><td><a href=\"").append(n.toLowerCase()).append("-operations.html#").append(op.getName()).append("\">");
+      b.append(Utilities.escapeXml(op.getTitle()));
+      b.append("</a></td><td>");
+      boolean first = true;
+      if (op.isSystem()) {
+        first = false;
+        b.append("[base]/$");
+        b.append(op.getName());
+      }
+      if (op.isType()) {
+        if (first) 
+          first = false;
+        else 
+          b.append(" | ");
+        b.append("[base]/");
+        b.append(n);
+        b.append("/$");
+        b.append(op.getName());
+      }
+      if (op.isInstance()) {
+        if (first) 
+          first = false;
+        else 
+          b.append(" | ");
+        b.append("[base]/");
+        b.append(n);
+        b.append("/[id]/$");
+        b.append(op.getName());
+      }
+      b.append("</td></tr>");
+    }
   }
 
   private String genProfilelist() throws Exception {

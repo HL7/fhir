@@ -32,12 +32,8 @@ Operations have the following general properties:
  <li>The operations are subject to the same security arrangements as the RESTful API</li>
  <li>The URIs for the operation end points are based on the existing RESTful API address scheme</li>
  <li>The operations may make use of the existing repository of resources in their definitions</li>
+ <li>Operations are performed against a specific resource, a resource type, or the whole system</li>
 </ul>
-
-<p>
-Note: the definition of these services does not prevent the use of other
-kinds of services that are not dependent on and/or not integrated with the RESTful API.
-</p>
 
 <a name="defined"> </a>
 <h3>FHIR defined Operations</h3>
@@ -46,10 +42,25 @@ This specification defines several operations:
 </p>
 <%operationslist%>
 <p>
+Notes:
+</p>
+<ul>
+ <li>The special operations on the <code>meta</code> element also operate on previous version (/_history/) - they are the only ones</li>
+</ul>
+
+<a name="extensibility"> </a>
+<h3>Implementations Defined Operations</h3>
+<p>
 Implementations are able to define their own operations in addition to
 those defined here. Name clashes between operations defined
 by different implementers can be resolved by use of the
 <a href="conformance.html">conformance statement</a>.
+</p>
+<p>
+In addition, the definition of these operations  or additional run time operations does not 
+prevent the use of other kinds of operations that are not dependent on and/or not integrated 
+with the RESTful API, as long as their addressing scheme does not clash with the scheme 
+defined herein.
 </p>
 
 <a name="defining"> </a>
