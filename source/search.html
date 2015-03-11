@@ -32,7 +32,7 @@ in the RESTful framework:
 For this RESTful search (see <a href="http.html#search">definition in RESTful API</a>), the parameters are a series
 of name=[value] pairs encoded in the URL or as an
 application/x-www-form-urlencoded submission for a POST.
-The server returns the results in the HTTP response as a bundle (in XML, an atom feed)
+The server returns the results in the HTTP response as a <a href="bundle.html">bundle</a>
 which includes the resources that are the results of the search. The server can also
 include additional resources in the result set, such as <a href="operationoutcome.html">OperationOutcome</a>
 resources. Clients should ignore resources that don't have the expected type.
@@ -801,7 +801,7 @@ display a warning message to the user or take some other action.
 </p>
 <p>
 In the case of a RESTful search, these parameters are encoded in the
-self link in the atom feed that is returned:
+self link in the bundle that is returned:
 </p>
 <pre class="xml">
   &lt;link&gt;

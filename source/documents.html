@@ -113,7 +113,7 @@ Document Bundles may be signed using digital signatures following the rules laid
 the <a href="signatures.html">digital signatures</a> page.
 The signature SHOULD be provided by a listed attester of the document and the signature
 SHOULD contain a <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_blank">KeyInfo
-element</a> that contains a KeyName element whose value is a URI that matches the Atom <i>link</i>
+element</a> that contains a KeyName element whose value is a URI that matches the bundle <i>base</i> + <i>resource.id</i>
 element value for the matching attester resource.
 </p>
 <p>
