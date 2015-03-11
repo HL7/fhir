@@ -3450,7 +3450,7 @@ public class Publisher implements URIResolver {
     if (vs.getId() == null)
       throw new Exception("Resource has no id: "+vs.getName()+" ("+vs.getUrl()+")");
     if (ResourceUtilities.getById(dest, ResourceType.ValueSet, vs.getId()) != null)
-      throw new Exception("Attempt to add duplicate value set " + vs.getId());
+      throw new Exception("Attempt to add duplicate value set " + vs.getId()+" ("+vs.getName()+")");
     if (vs.getText() == null || vs.getText().getDiv() == null)
       throw new Exception("Example Value Set " + vs.getId() + " does not have any narrative");
 

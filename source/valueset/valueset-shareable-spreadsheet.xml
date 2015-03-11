@@ -1652,7 +1652,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">ValueSet.define.concept.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
@@ -1681,7 +1681,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">ValueSet.define.concept.definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
@@ -2776,7 +2776,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2935,7 +2936,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C11:R4C14,R7C11:R7C14,R12C11:R13C14,R15C11:R21C14</Range>
+   <Range>R4C11:R4C14,R7C11:R7C14,R15C11:R21C14,R10C11:R13C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,#REF!)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -3005,13 +3006,6 @@
    <Range>R12C4,R14C4,R16C4</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C11:R11C14</Range>
-   <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,#REF!)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>

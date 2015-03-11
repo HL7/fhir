@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-05T01:23:03Z</LastSaved>
-  <Version>12.00</Version>
+  <LastSaved>2015-03-11T05:38:43Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -24,7 +24,7 @@
   <WindowWidth>14385</WindowWidth>
   <WindowTopX>14115</WindowTopX>
   <WindowTopY>90</WindowTopY>
-  <ActiveSheet>10</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1170,7 +1170,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">UseContext</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ConformanceUseContext</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">class</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1178,9 +1178,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Assist with indexing and finding</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Content intends to support these contexts</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A set of terms from external terminologies describe contexts in which this DataElement is expected to be used (jurisdictions, clinical specialties, application architectures, etc), and that may be used to assist with indexing and searching of data element definitions.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of data element definitions.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3814,7 +3814,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3827,12 +3827,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4839,7 +4838,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">DataElement.useContext</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">A category assigned to the data element (server may choose to do subsumption)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">A use context assigned to the data element</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">url</Data></Cell>
@@ -4990,6 +4989,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5009,7 +5009,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -7512,13 +7512,13 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C3:R28C3</Range>
+   <Range>R2C3:R27C3</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R28C4</Range>
+   <Range>R2C4:R27C4</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y&quot;</Value>
@@ -7527,49 +7527,49 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R28C13</Range>
+   <Range>R2C1:R27C13</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R28C1</Range>
+   <Range>R4C1:R27C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R28C3</Range>
+   <Range>R2C2:R27C3</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R28C5</Range>
+   <Range>R2C5:R27C5</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC3=&quot;unbound&quot;)&lt;&gt;(RC=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R28C6</Range>
+   <Range>R2C6:R27C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC&lt;&gt;&quot;&quot;)&lt;&gt;(RC3=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R28C10</Range>
+   <Range>R2C7:R27C10</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R28C13</Range>
+   <Range>R2C1:R27C13</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -7577,6 +7577,13 @@
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7690,7 +7697,7 @@
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s143"><Data ss:Type="String">flexible</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s120"/>
@@ -8183,7 +8190,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

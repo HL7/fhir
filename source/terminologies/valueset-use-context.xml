@@ -1,0 +1,27 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="use-context"/>
+  <name value="Context of Use ValueSet"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts"/>
+  <status value="draft"/>
+  <compose>
+    <import value="http://hl7.org/fhir/vs/usps-state"/> <!-- states -->
+    <import value="http://hl7.org/fhir/vs/practitioner-specialty"/> <!-- specialties, assuming this will get fixed up -->
+    <include>
+      <!-- ISO 2 letter country codes -->
+      <system value="urn:iso:std:iso:3166"/>
+    </include>
+    <include>
+      <!-- ISO region codes -->
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+    </include>
+    <!-- todo: human / veternary -->
+  </compose>
+</ValueSet>
+
