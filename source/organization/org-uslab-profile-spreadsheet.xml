@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-10T20:06:33Z</LastSaved>
+  <LastSaved>2015-03-11T20:46:25Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,9 +18,9 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>5985</WindowHeight>
   <WindowWidth>25260</WindowWidth>
-  <WindowTopX>-15</WindowTopX>
-  <WindowTopY>-15</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <WindowTopX>135</WindowTopX>
+  <WindowTopY>90</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -900,6 +900,9 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s169">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1034,9 +1037,9 @@
  <Worksheet ss:Name="USLabOrderFacility">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=USLabOrderFacility!R1C4:R104C24" ss:Hidden="1"/>
+    ss:RefersTo="=USLabOrderFacility!R1C4:R106C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="105" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="107" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="114.75"
    ss:DefaultRowHeight="22.5">
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="170.25"/>
@@ -1179,7 +1182,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">determine (psuedo)code for generation.</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.text</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!Organization.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1208,7 +1211,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.text.status</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!Organization.text.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1253,17 +1256,78 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">&lt;identifier&gt;&lt;use value=&quot;official&quot;/&gt;&lt;label value=&quot;NPI&quot;/&gt;&lt;value/&gt;&lt;assigner&gt;&lt;reference value=&quot;https://nppes.cms.hhs.gov/NPPES/&quot;/&gt;&lt;display value=&quot;The Centers for Medicare and Medicaid Services (CMS)  National Plan and Provider Enumeration System (NPPES&quot;/&gt;&lt;/assigner&gt;&lt;/identifier&gt;</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">label|true|openAtEnd</Data><NamedCell
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">system|true|open</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">The first identifier shall be the NPI facility ID.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">ORC.21.10:Organization Identifier:ST:C(R/RE):::1..20:= , EI datatypeORC.21.10:Organization Identifier:ST:C(R/RE):::1..20:= , EI datatype&#10;&#10;</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.identifier.use</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">ORC.21.10:Organization Identifier:ST:C(R/RE):::1..20:= , EI datatypeORC.21.10:Organization Identifier:ST:C(R/RE):::1..20:= , EI datatype&#10;&#10;</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.identifier.system</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">uri</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">urn:oid:2.16.840.1.113883.4.6</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">OID for National Provider Identifier (NPI)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">See https://nppes.cms.hhs.gov/NPPES/</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1477,7 +1541,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.address.extension</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!Organization.address.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3920,11 +3984,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>50</TabColorIndex>
-   <TopRowVisible>18</TopRowVisible>
+   <Selected/>
+   <TopRowVisible>10</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>17</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -3932,34 +3997,34 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C21:R104C23</Range>
+   <Range>R2C21:R106C23</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;N/A&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R104C7</Range>
+   <Range>R2C7:R106C7</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;0..0,0..1,1..1,0..*,1..*,[n]..[m]&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C9:R104C9</Range>
+   <Range>R3C9:R106C9</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C10:R104C10</Range>
+   <Range>R3C10:R106C10</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C11:R104C11</Range>
+   <Range>R2C11:R106C11</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
@@ -3971,11 +4036,18 @@
    <CellRangeList/>
    <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
-  <AutoFilter x:Range="R1C4:R104C24"
+  <AutoFilter x:Range="R1C4:R106C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R22C5</Range>
+   <Range>R2C5:R24C5</Range>
+   <Condition>
+    <Value1>NOT(ISERROR(SEARCH(&quot;!&quot;,RC)))</Value1>
+    <Format Style='color:#9C0006;background:#FFC7CE'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C5:R4C5</Range>
    <Condition>
     <Value1>NOT(ISERROR(SEARCH(&quot;!&quot;,RC)))</Value1>
     <Format Style='color:#9C0006;background:#FFC7CE'/>
@@ -3985,9 +4057,9 @@
  <Worksheet ss:Name="USLabPerformingLab">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=USLabPerformingLab!R1C5:R111C24"/>
+    ss:RefersTo="=USLabPerformingLab!R1C5:R113C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="112" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="114" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="174"
    ss:DefaultRowHeight="20.25">
    <Column ss:Index="2" ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="134.25"/>
@@ -4133,7 +4205,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">determine (psuedo)code for generation.</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.text</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!Organization.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4162,7 +4234,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.text.status</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!Organization.text.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4188,7 +4260,7 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="22.5">
     <Cell ss:StyleID="s104"><Data ss:Type="String">OBX.23.10:Organization Identifier:ST:C(R/RE):::1..20:=   Is constraining to CLIA too tight  ( how to give choice?)</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">For the US producing laboratories, which are CLIA certified, the CLIA identifier should be used for the organization identifier</Data></Cell>
@@ -4196,7 +4268,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="Number">1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4206,13 +4278,75 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">&lt;identifier&gt;&lt;use value=&quot;official&quot;/&gt;&lt;label value=&quot;CLIA&quot;/&gt;&lt;value/&gt;&lt;assigner&gt;&lt;reference value=&quot;http://www.cms.gov/Regulations-and-Guidance/Legislation/CLIA/index.html&quot;/&gt;&lt;display value=&quot;The Centers for Medicare and Medicaid Services (CMS)  Clinical Laboratory Improvement Amendments (CLIA)&quot;/&gt;&lt;/assigner&gt;&lt;/identifier&gt;</Data><NamedCell
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">system|true|open</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">The first identifier shall be the NPI facility ID.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="22.5">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">OBX.23.10:Organization Identifier:ST:C(R/RE):::1..20:=   Is constraining to CLIA too tight  ( how to give choice?)</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.identifier.use</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">CLIA Number</Data><NamedCell
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="22.5">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">OBX.23.10:Organization Identifier:ST:C(R/RE):::1..20:=   Is constraining to CLIA too tight  ( how to give choice?)</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.identifier.system</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">uri</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">urn:oid:2.16.840.1.113883.4.7</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">OID for CLIA</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">See https://www.cms.gov/Regulations-and-Guidance/Legislation/CLIA/Laboratory_Registry.html</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4221,8 +4355,8 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">OBX.23.10:Organization Identifier:ST:C(R/RE):::1..20:=   Is constraining to CLIA too tight  , value required</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="22.5">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">OBX.23.10:Organization Identifier:ST:C(R/RE):::1..20:=   Is constraining to CLIA too tight  ( how to give choice?)</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"/>
@@ -4242,7 +4376,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">NPI  organization Identifier</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">CLIA Number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4311,11 +4445,11 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">11/18/2014 EH: must support,  structurally this is string as code </Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">11/18/2014 EH: must support,  structurally this is string as code - build issue</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.address.extension</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!Organization.address.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -7067,12 +7201,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>21</TabColorIndex>
-   <Selected/>
    <TopRowVisible>3</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>10</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -7080,21 +7213,21 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C21:R111C23</Range>
+   <Range>R2C21:R113C23</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;N/A&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R111C7</Range>
+   <Range>R2C7:R113C7</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;0..0,0..1,1..1,0..*,1..*,[n]..[m]&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C9:R111C9</Range>
+   <Range>R3C9:R113C9</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
@@ -7107,23 +7240,23 @@
    <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C10:R111C10</Range>
+   <Range>R3C10:R113C10</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C11:R111C11</Range>
+   <Range>R2C11:R113C11</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
    <ErrorHide/>
   </DataValidation>
-  <AutoFilter x:Range="R1C5:R111C24"
+  <AutoFilter x:Range="R1C5:R113C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R1C5:R24C5</Range>
+   <Range>R1C5:R26C5</Range>
    <Condition>
     <Value1>NOT(ISERROR(SEARCH(&quot;!&quot;,RC)))</Value1>
     <Format Style='color:#9C0006;background:#FFC7CE'/>
@@ -7132,10 +7265,10 @@
  </Worksheet>
  <Worksheet ss:Name="USLabCCTarget">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=USLabCCTarget!R1C4:R108C24"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=USLabCCTarget!R1C4:R110C24"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="109" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="111" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="95.25"
    ss:DefaultRowHeight="24">
    <Column ss:Index="5" ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="231"/>
@@ -7277,7 +7410,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">determine (psuedo)code for generation.</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.text</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!Organization.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -7306,7 +7439,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.text.status</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!Organization.text.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -7332,15 +7465,16 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">can have either name or id - use the NPI pattern for now</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="22.5">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">11/19/2014 EH: shall have generated text narrative</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">USlabCCFacilityNPI</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="Number">1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7350,11 +7484,41 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">&lt;identifier&gt;&lt;use value=&quot;official&quot;/&gt;&lt;label value=&quot;NPI&quot;/&gt;&lt;value/&gt;&lt;assigner&gt;&lt;reference value=&quot;https://nppes.cms.hhs.gov/NPPES/&quot;/&gt;&lt;display value=&quot;The Centers for Medicare and Medicaid Services (CMS)  National Plan and Provider Enumeration System (NPPES&quot;/&gt;&lt;/assigner&gt;&lt;/identifier&gt;</Data><NamedCell
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">system|true|open</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">The first identifier shall be the NPI facility ID.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="22.5">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">11/19/2014 EH: shall have generated text narrative</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.identifier.use</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7364,8 +7528,41 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">11/18/2014 EH: must have value</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="22.5">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">11/19/2014 EH: shall have generated text narrative</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.identifier.system</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">uri</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">urn:oid:2.16.840.1.113883.4.6</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">OID for National Provider Identifier (NPI)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">See https://nppes.cms.hhs.gov/NPPES/</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="22.5">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">11/19/2014 EH: shall have generated text narrative</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -10148,11 +10345,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>40</TabColorIndex>
-   <TopRowVisible>18</TopRowVisible>
+   <TopRowVisible>15</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -10160,34 +10357,34 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C21:R108C23</Range>
+   <Range>R2C21:R110C23</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;N/A&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R108C7</Range>
+   <Range>R2C7:R110C7</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;0..0,0..1,1..1,0..*,1..*,[n]..[m]&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C9:R108C9</Range>
+   <Range>R3C9:R110C9</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C10:R108C10</Range>
+   <Range>R3C10:R110C10</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C11:R108C11</Range>
+   <Range>R2C11:R110C11</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
@@ -10199,11 +10396,11 @@
    <CellRangeList/>
    <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
-  <AutoFilter x:Range="R1C4:R108C24"
+  <AutoFilter x:Range="R1C4:R110C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R29C5</Range>
+   <Range>R2C5:R31C5</Range>
    <Condition>
     <Value1>NOT(ISERROR(SEARCH(&quot;!&quot;,RC)))</Value1>
     <Format Style='color:#9C0006;background:#FFC7CE'/>
@@ -13481,6 +13678,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>50</TabColorIndex>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -17180,7 +17384,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Two letter USPS alphabetic codes. </Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">valueset-usps-state</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -17637,6 +17841,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>51</TabColorIndex>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
