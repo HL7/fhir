@@ -8,7 +8,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="This value set defines a set of codes that can be used to indicate how an individual parcitipates in an encounter"/>
+  <description value="This value set defines a set of codes that can be used to indicate how an individual participates in an encounter"/>
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/participant-type"/>
