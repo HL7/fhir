@@ -139,7 +139,7 @@ public class ArgonautConverter extends ConverterBase {
 	  c.setSystem(ResourceUtilities.FHIR_LANGUAGE);
 	  c.setCode(patchLanguage(cda.getChild(l, "languageCode").getAttribute("code")));
 	  cc.getCoding().add(c);
-		pat.getCommunication().add(cc); 
+		pat.addCommunication().setLanguage(cc); 
 
 		// todo: this got broken.... lang.setMode(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
 //		cc.getExtension().add(Factory.newExtension(CcdaExtensions.NAME_LANG_PROF, convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")), false));
