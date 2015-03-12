@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
 <FamilyHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familyhistory.xsd">
   <id value="qicore"/>
   <text>
@@ -18,10 +17,12 @@
 
     <relationship>
       <coding>
-        <system value="http://hl7.org/fhir/familial-relationship"/>
-        <code value="father"/>
+        <system value="http://hl7.org/fhir/v3/vs/FamilyMember"/>
+        <code value="FTH"/>
+        <display value="FATHER"/>
       </coding>
     </relationship>
+
     <condition>
       <type>
       <coding>
@@ -31,14 +32,49 @@
       </coding>
       <text value='Heart Attack'/>
       </type>
+      <onsetAge>
+        <value value="74" />
+        <units value="a" />
+        <system value="http://unitsofmeasure.org" />
+      </onsetAge>
+      <note value="Was fishing at the time. At least he went doing someting he loved." />
 
-
-    <onsetAge>
-      <value value="74" />
-      <units value="a" />
-      <system value="http://unitsofmeasure.org" />
-    </onsetAge>
-    <note value="Was fishing at the time. At least he went doing someting he loved." />
+      <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-severity">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/vs/condition-severity"/>
+            <code value="399166001"/>
+            <display value="Fatal"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
     </condition>
+
+  </relation>
+
+  <relation>
+
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/vs/FamilyMember"/>
+        <code value="MTH"/>
+        <display value="Mother"/>
+      </coding>
+    </relationship>
+
+    <condition>
+      <type>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="315619001"/>
+        <display value="Myocardial Infarction"/>
+      </coding>
+      <text value='Heart Attack'/>
+      </type>
+      <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-didNotHave">
+        <valueBoolean value="true"/>
+      </extension>
+    </condition>
+
   </relation>
 </FamilyHistory>
