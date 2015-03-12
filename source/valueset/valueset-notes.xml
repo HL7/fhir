@@ -200,5 +200,49 @@ value set define and compose offer no support for defining these, but this does 
 extensions or other knowledge to introduce such groups as an implementation feature. 
 </p>
 
+<h3>Code systems with detailed metadata</h3>
+<p>
+Sometimes code systems may be used to represent more complex information than just 
+code, display name and code system.  For example a code system of drug information, 
+of observation types, of locations, and other similar registry-type information.  
+In FHIR, these are handled by splitting the concept into two distinct parts - the 
+<b>ValueSet</b> resource is used to manage the codes, display names and relationships.  
+A separate "detail" resource (e.g. <a href="medication.html">Medication</a> for 
+drugs, <a href="dataelement.html">DataElement</a> for observation types, 
+<a href="location.html">Location</a> for location, etc.) is used to convey detailed 
+information (dose form &amp; strength, allowed data type or permitted values, address &amp;
+hours of operation, etc.)  One "detail" resource instance is created for each code.
+</p>
+<p>
+This division accomplishes several things:
+</p>
+<ul>
+<li>It allows generic systems that support terminology management to perform standard 
+terminology operations on code systems dealing with complex structures - code lookup, 
+validation, subsumption testing, mapping and translation.</li>
+<li>It allows information to be exchanged about individual medications, data elements 
+and locations.  Codes can't be retrieved individually in FHIR - it is necessary to 
+retrieve the entire resource.  By packaging the detailed information in separate 
+resources, independent retrieval and update is possible.</li>
+<li>It supports use-cases for sharing medication, location, observation type and 
+similar information in circumstances where the code may be unknown, unavailable or 
+occasionally non-existent (e.g. custom compounds, non-registered locations).  Having 
+a distinct resource supports these capabilties which would not be possible using 
+<b>ValueSet</b>.</li>
+</ul>
+<p>
+Note that this division in FHIR does not imply that a similar division is required in 
+the internal representation used by systems exposing a FHIR interface.  Similarly, some 
+systems may choose to only expose or maintain one aspect of such information types (i.e. 
+only the discrete resource instances or only the value set.)
+</p>
+<p>
+The linkage between the "detail" resource and the <b>ValueSet</b> is accomplished via the 
+<code>code</code> element (or equivalent) on the detail resource.  As well, the "name" or 
+"title" on the detail resource generally corresponds with the display name on the matching 
+code.  Most detail resources will also have an "identifier" element.  This <i>can</i> be
+set to the same value and namespace as the code, but if the only identifier a resource has
+is its defining code, it may be better to omit the identifier entirely.
+</p>
 
 </div>
