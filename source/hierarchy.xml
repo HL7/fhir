@@ -122,6 +122,7 @@ todo: compartments
 					<page title="SDC Introduction" filename="sdc-intro.html"/>
 					<page title="SDC Security" filename="sdc-security.html"/>
 				</page>
+				<page title="Quality Improvement Core (QICore)" filename="qicore.html"/>
 				<page title="Structured Data Capture - Data Element Exchange" filename="sdc-de.html"/>
 				<page title="US Laboratory Order Implementation" filename="uslaborder.html">
 					<page title="USLabOrder Documentation" filename="uslaborder-guide.html"/>

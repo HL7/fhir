@@ -118,6 +118,7 @@ todo: compartments
 					<page title="DAF Outstanding Issues" filename="daf-outstandingissues.html"/>
 				</page>
 				<page title="EHRS Functional model - Record Lifecycle Events" filename="ehrs-rle.html"/>
+				<page title="Quality Improvement Core (QICore)" filename="qicore.html"/>
 				<page title="Structured Data Capture" filename="sdc.html">
 					<page title="SDC Introduction" filename="sdc-intro.html"/>
 					<page title="SDC Security" filename="sdc-security.html"/>
