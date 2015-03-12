@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="GoalCategory"/>
+  <publisher value="HL7 International - CQI WG"/>
+  <contact>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.hl7.org/Special/committees/cqi/"/>
+  </telecom>
+  </contact>
+  <description value="goal category - a specific code indicating the type of goal. This value set includes all concepts from SNOMED CT"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
+  <status value="draft"/>
+  <compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+		</include>
+  </compose>
+</ValueSet>
