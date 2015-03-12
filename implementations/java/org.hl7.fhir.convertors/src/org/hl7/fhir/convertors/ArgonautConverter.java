@@ -28,6 +28,7 @@ import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.ucum.UcumService;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -61,6 +62,9 @@ public class ArgonautConverter extends ConverterBase {
 		for (String f : source.list()) {
 			convert(sourceFolder, destFolder, f);
 		}
+		ZipGenerator zip = new ZipGenerator("C:\\work\\com.healthintersections.fhir\\argonaut\\output\\output.zip");
+		zip.addFiles("C:\\work\\com.healthintersections.fhir\\argonaut\\output", "", "xml", null);
+		
 	}
 
 
@@ -75,7 +79,7 @@ public class ArgonautConverter extends ConverterBase {
     	Element doc = cda.getElement();
 //    	cda.checkTemplateId(doc, "2.16.840.1.113883.10.20.22.1.1");
     	Convert convert = new Convert(cda, ucumSvc);
-    	saveResource(makeSubject(cda, convert, doc), Utilities.path(destFolder, "patient-"+filename), "http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient");
+    	saveResource(makeSubject(cda, convert, doc, "patient-"+filename), Utilities.path(destFolder, "patient-"+filename), "http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient");
     } catch (Exception e) {
     	throw new Error("Unable to process "+Utilities.path(sourceFolder, filename)+": "+e.getMessage(), e);
     }
@@ -93,12 +97,13 @@ public class ArgonautConverter extends ConverterBase {
   }
 
 
-	private Patient makeSubject(CDAUtilities cda, Convert convert, Element doc) throws Exception {
+	private Patient makeSubject(CDAUtilities cda, Convert convert, Element doc, String id) throws Exception {
 		Element rt = cda.getChild(doc, "recordTarget");
 		Element pr = cda.getChild(rt, "patientRole");
 		Element p = cda.getChild(pr, "patient");
 		
-		Patient pat = (Patient) ResourceFactory.createReference("Patient");
+		Patient pat = new Patient();
+		pat.setId(id);
 		for (Element e : cda.getChildren(pr, "id"))
 			pat.getIdentifier().add(convert.makeIdentifierFromII(e));
 
