@@ -14,7 +14,7 @@
 
 <h2>Quality Improvement Core (QICore) Implementation Guide</h2>
 
-<i><p>In April 2015, this FHIR Implementation Guide will undergo a DSTU ballot. The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance statements it defines, although comments on the underlying resources will also be accepted. This guide will be balloted separately from the FHIR specification itself.</p></i>
+<p><i>In April 2015, this FHIR Implementation Guide will undergo a DSTU ballot. The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance statements it defines, although comments on the underlying resources will also be accepted. This guide will be balloted separately from the FHIR specification itself.</i></p>
 
 <h3>Summary</h3>
 
@@ -51,7 +51,7 @@
 
 <p>Some of the above topics are under active investigation and will be topics of future standards efforts.</p>
 
-<h3><a name="#harmonization"></a>Relationship to Other Initiatives</h3>
+<h3><a name="harmonization"></a>Relationship to Other Initiatives</h3>
 
 <p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="daf.html">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
 
@@ -198,11 +198,11 @@
 
 <h2>Understanding the QICore Profiles</h2>
 
-<h3><a name="#extensions"></a>Extensions></h3>
+<h3><a name="extensions"></a>Extensions</h3>
 
 <p>QICore adds a variety of extensions to core FHIR classes. These extensions derive from two primary sources: the Quality  Improvement Domain Analysis Model (QIDAM), and from the Quality Data Model (QDM). Profile pages contain definitions of extensions as well as mappings that document the origin of the extensions.</p>
 
-<h3><a name="#mustsupport"></a>MustSupport Flag</h3>
+<h3><a name="mustsupport"></a>MustSupport Flag</h3>
 
 <p>Certain elements in the QICore profiles have a "MustSupport" flag. The FHIR standard states: "Labelling an element MustSupport means that implementations that produce or consume resources SHALL provide "support" for the element in some meaningful way...When a profile does this, it SHALL also make clear exactly what kind of "support" is required, as this can mean many things." In the QICore quality profiles, the MustSupport flag is used to indicate whether the element must be supported in rules and measures. More specifically, labelling an element as MustSupport means that a rule or measure interpreter must understand and process the element. Specific applications can modify the profiles and set MustSupport flags to true if they will process additional elements, but setting a MustSupport flag from true to false is noncompliant.</p>
 
@@ -215,18 +215,18 @@
 	<li>Rule and measure interpreters are expected to recognize and process all MustSupport elements.</li>
 </ul>
 
-<h3><a name="#modifying"></a>Modifying Attributes</h3>
+<h3><a name="modifying"></a>Modifying Attributes</h3>
 
 <p>Is-Modifier is a boolean property of an element, indicating that the value of that element may change the interpretation of the resource. Typical examples of elements that are labeled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty". Decision support and quality implementations must always check the values of modifying elements. For example, in processing an Immunization resource, the application must inspect the "wasNotGiven" element to distinguish whether the immunization was given or was not given to the patient.</p>
 
 <p>Inclusion of modifying elements is a departure from the previous version of the QICore profiles, where profiles were developed for each meaning of each modifying attribute. For example, the Condition resource was represented using two profiles, CQF-Condition, representing the occurrence of the condition, and CQF-ConditionRefuted, representing the non-occurrence of the condition. However, it was felt the proliferation of profiles under this approach led to a non-sustainable situation, particularly in light of the future need to expand QICore by incorporatation third-party profiles, such as those being developed by CIMI. The current approach requires rule and measure authors to make explicit checks in their rules and measures.</p>
 
-<h3><a name="#bindings"></a>Terminology Bindings</h3>
+<h3><a name="bindings"></a>Terminology Bindings</h3>
 
 <p>Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data owners to translate local data into the required vocabulary. As a U.S. Realm product, QICore recommends value sets and vocabularies required by Meaningful Use. DAF provides the FHIR realization of these requirements. Because QICore is expected to be applied outside the U.S. Realm, and also in clinical settings where local terminologies exist, U.S. Realm bindings are preferred but not required in the QICore profiles. When and if Meaningful Use adopts QICore, QUICK, and CQL, the preferred bindings would become required by policy, in that context.</p>
 
 
-<h3><a name="#conformance"></a>Conformance Requirements</h3>
+<h3><a name="conformance"></a>Conformance Requirements</h3>
 
 <p>TBD</p>
 
