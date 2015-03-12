@@ -7,7 +7,7 @@
   <ig code="ehrfm"   name="EHRS Functional model - Record Lifecycle Events" page="ehrs-rle.html" review=""/>
   <ig code="daf"     name="Data Access Framework" page="daf.html" review=""/>
   <ig code="uslab"   name="US Lab Profile" page="uslabreport.html" review=""/>
-  <ig code="cqf"     name="Clinical Quality Framework" page="cqf.html" review=""/>
+  <ig code="cqf"     name="Quality Improvement Core" page="qicore.html" review=""/>
   <ig code="sdc"     name="Structured Data Capture Project" page="sdc.html" review=""/>
   <ig code="cqmf"    name="Clinical Quality Measure Framework" page="" review=""/>
   <ig code="ihe"     name="IHE Profiles" page="" review=""/>
