@@ -4660,7 +4660,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (ed.hasBinding()) {
         String path = ed.getPath();
         if (ed.getType().size() == 1 && ed.getType().get(0).getCode().equals("Extension"))
-          path = path + "{"+ed.getType().get(0).getProfile()+"}";
+          path = path + "<br/>"+ed.getType().get(0).getProfile();
         txlist.add(path);
         txmap.put(path, ed.getBinding());
       }
