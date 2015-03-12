@@ -318,7 +318,7 @@ depending on culture and context.
 A token type is a parameter that searches on a code or identifier value
 where the value may have a URI that scopes its meaning (from a <a href="datatypes.html#Coding">Coding</a>,
 a <a href="datatypes.html#CodeableConcept">CodeableConcept</a> or an <a href="datatypes.html#Identifier">Identifier</a> type, and also
-from a <a href="datatypes.html#code">code</a> where the URI is implicit).
+from a <a href="datatypes.html#code">code</a> where the URI is implicit, or for a boolean).
 </p>
 <p>
 If the parameter has no modifier, the search is performed against
@@ -357,7 +357,15 @@ Here are some example searches:
  <tr><td><pre> GET [base]/Patient?gender=male</pre></td><td>Search for any patient with a gender that has a code "male", irrespective of the system. Note that this usually isn't very useful - systems generally define symbols where overlap is coincidental and not informative</td></tr>
  <tr><td><pre> GET [base]/Patient?gender=http://hl7.org/fhir/v2/0001|M</pre></td><td>Search for any patient with a gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
  <tr><td><pre> GET [base]/Patient?gender:text=male</pre></td><td>Search for any patient with a gender that has a text "male" associated with it (note: this will include "female")</td></tr>
+ <tr><td><pre> GET [base]/Patient?active=true</pre></td><td>Search for any patients that are active</td></tr>
 </table>
+
+<p>
+Note about the use of token search parameters for boolean fields: the boolean values 'true' and 'false' are also represented
+as formal codes in the <a href="special-values.html">Special Values</a> code system, which is useful when boolean values 
+need to be represented in a <a href="datatypes.html#coding">Coding</a> data type. The namespace for these codes is 
+http://hl7.org/fhir/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
+</p>
 
 <a name="quantity" />
 <h4>quantity</h4>

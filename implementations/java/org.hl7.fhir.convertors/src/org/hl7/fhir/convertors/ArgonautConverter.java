@@ -63,8 +63,8 @@ public class ArgonautConverter extends ConverterBase {
 			convert(sourceFolder, destFolder, f);
 		}
 		ZipGenerator zip = new ZipGenerator("C:\\work\\com.healthintersections.fhir\\argonaut\\output\\output.zip");
-		zip.addFiles("C:\\work\\com.healthintersections.fhir\\argonaut\\output", "", "xml", null);
-		
+		zip.addFiles("C:\\work\\com.healthintersections.fhir\\argonaut\\output\\", "", "xml", null);
+		zip.close();
 	}
 
 
