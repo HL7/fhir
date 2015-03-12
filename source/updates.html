@@ -31,7 +31,7 @@ It's possible to be fully FHIR conformant and claim to support the Patient resou
 In the case of extensions, the very nature of a concept being an extension means that the designers of the specification expected that fewer than "most" systems would support the element, though support might very widely by context.  An extension might be used by 100% of systems in some country, discipline, etc. while be used by absolutely no systems in another context.  In any event, there is no guarantee that an arbitrary receiver will recognize and be able to persist any given extension.
 </p>
 <p>
-In order to know whether a particular data element is likely to be stored by a given server, a client should check the <a href="conformance.html">Conformance statement</a> of that server.  If, for a given resource, the <a href="structuredefinition.html">StructureDefinition</a> pointed to indicates that the element or extension is "mustSupport=true", then it is likely that the system will be capable of storing and returning that data element.
+In order to know whether a particular data element is likely to be stored by a given server, a client should check the <a href="conformance.html">Conformance statement</a> of that server.  If, for a given resource, the <a href="structuredefinition.html">StructureDefinition</a> pointed to indicates that the element or extension is "mustSupport=true", then and the server is capable of storing and returning data in general, then it would be expected that the system will be capable of storing and returning that data element.  (Some servers such as decision support system might not be capable of storing or returning any received data.)
 </p>
 <p>
 All of these concerns around possibly not storing resource elements or extensions can hold whether the data is sent using <a href="http.html">REST</a>, <a href="messaging.html">Messaging</a> or <a href="services.html">Services</a>.  However, with <a href="documents.html">documents</a>, a consuming system is expected to accept the entire contents of the document without losing any information or altering it in any way.
@@ -60,16 +60,16 @@ Servers receiving updates from multiple sources may choose to be selective about
 One approach commonly followed by HL7 version 2 messaging interfaces is to not update any elements not included in an instance.  For example, if a Patient instance were received with no telecom or contact information, all existing telecom and contact information would be retained and only those elements included in the instance would be updated.  This same approach can be followed with FHIR, however, unlike HL7 v2, FHIR does not have a defined construct to use to indicate that a particular data element should explicitly be set to empty.  Systems wishing to fully emulate v2 behavior will need to use an extension to mirror this behavior.
 </p>
 
-<h3>Ramifications of storage variations</h3>
+<h3>Ramifications of storage/retrieval variations</h3>
 <p>
-While changing data from what is submitted in update and create requests is possible, it should not be considered "standard" behavior.  It creates several challenges:
+While changing data prior to storage or prior to returning query results is possible, it should not be considered "standard" behavior.  It creates several challenges:
 </p>
 <ul>
 <li>
 Digital signatures will no longer be valid.  Any change to submitted data will break standard signatures.  In theory, this could be mitigated by using a custom canonicalization for the signature that excludes maliable elements.  However, this would require both sender and receiver to agree on the alternate signature canonicalization.  The signature would still be considered invalid by systems that weren't party to the agreement.
 </li>
 <li>
-Workflows can be made more complex.  A system that sends a create and then sends an update presuming that it has seen the most "current" version, could accidentally overwrite information set by the server as part of the create process.  (This can be mitigated by not returning an up-to-date <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETag</a>.)
+Workflows can be made more complex.  A system that sends a create and then sends an update presuming that it has seen the most "current" version, could accidentally overwrite information set by the server as part of the create process.
 </li>
 <li>
 Audit becomes more complicated.  The <a href="auditevent.html">AuditEvent</a> resource points to a specific resource version when tracking what data was returned by a query.  If the record is modified when it is returned, then the audit record will likely need to be supplemented with information about what elements were filtered.
@@ -81,6 +81,22 @@ Multiple views of the same information by different people (or even by the same 
 If data is lost as part of the transmission process, then multiple stages of transmission (or even round-tripping of data) could result in significant degradation as information passes through multiple systems.
 </li>
 </ul>
+
+<h3>Mitigation approaches for storage/retrieval variations</h3>
+<p>
+FHIR does provide a couple of mechanisms that can help with the issue of a system that has received only partial data overwriting data that was filtered from its record::
+</p>
+<ul>
+<li>
+For systems that enforce the use of <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETags</a> for updates, the server can choose to not include an ETag when returning resource instances that have been modified in some way.  This will prevent updates from being performed.
+</li>
+<li>
+The <a href="http://hl7.org/fhir/v3/vs/SecurityIntegrityObservationValue/index.html#REDACTED">REDACTED</a> <a href="security-labels.html">Security Label</a> can be used to flag data that has had information removed.
+</li>
+</ul>
+<p>
+Note that using either of the above mechanisms may constitute a security breach in circumstances where the individual or system accessing the data should not know that the record they're reviewing has been modified in any way.  (The presence of digital signatures would present a similar issue.)
+</p>
 
 </div>
 
