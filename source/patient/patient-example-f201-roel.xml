@@ -94,11 +94,14 @@
         </telecom>
     </contact>
     <communication>
+      <language>
             <coding>
                 <system value="urn:std:iso:639-1"/>
                 <code value="nl-NL"/>
                 <display value="Dutch"/>
             </coding>
+      </language>
+      <preferred value="true" />
     </communication>
     <managingOrganization>
         <reference value="Organization/f201"/>

@@ -67,6 +67,7 @@
     </telecom>
   </contact>
   <communication>
+    <language>
     <coding>
       <system value="urn:ietf:bcp:47"/>
       <!-- IETF language tag -->
@@ -74,6 +75,8 @@
       <display value="Dutch"/>
     </coding>
     <text value="Nederlands"/>
+    </language>
+    <preferred value="true" />
   </communication>
   <managingOrganization>
     <reference value="Organization/f001"/>
