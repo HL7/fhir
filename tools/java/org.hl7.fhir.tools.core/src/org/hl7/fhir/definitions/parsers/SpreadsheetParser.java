@@ -521,8 +521,19 @@ public class SpreadsheetParser {
               if (ex == null)
                 throw new Exception("Search Param "+pack.getTitle()+"/"+n+" refers to unknown extension '"+p+"' "+ getLocation(row));
               e = definitions.getElementDefn("Extension");
-              if (ex.getContextType() != ExtensionContext.RESOURCE)
+              if (ex.getContextType() != ExtensionContext.RESOURCE || !ex.hasContext())
                 throw new Exception("Search Param "+pack.getTitle()+"/"+n+" refers to an extension that is not tied to a particular resource path '"+p+"' "+ getLocation(row));
+              path = ex.getContext().get(0).getValue();
+              if (Utilities.noString(path))
+                throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has no path");
+              if (path.contains("."))
+                path = path.substring(0, path.indexOf('.'));
+              root2 = definitions.getResourceByName(path);
+              if (root2 == null)
+                  throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has an invalid path (resource not found)");
+              if (root2 != null && root2.getSearchParams().containsKey(n))
+                throw new Exception("Search Param "+root2.getName()+"/"+n+": duplicate name "+ getLocation(row));
+              
               for (StringType t : ex.getContext()) 
                 pn.add(t.getValue()+".extension{"+ex.getUrl()+"}");
             } else if (p.contains(".extension{")) {
@@ -552,6 +563,7 @@ public class SpreadsheetParser {
 
           sp.setXpath(new XPathQueryGenerator(definitions, log, null).generateXpath(pn));
         }
+        sp.setBase(root2.getName());
         sp.setId(pack.getId()+"-"+(root2 == null ? "all" : root2.getName())+"-"+sp.getName());
         sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
         pack.getSearchParameters().add(sp);
