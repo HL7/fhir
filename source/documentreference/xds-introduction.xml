@@ -71,7 +71,7 @@ the relationships between the XDS tranasction and the FHIR resources.
   <td>Identifiers</td>
   <td>The different identifiers go in different places, depending on the nature of the identifier:
    <ul>
-    <li><b>entryUUID</b>: <a href="resources.html#metadata">Logical Id</a> of the DocumentReference/DocumentManifest resource</li>
+    <li><b>entryUUID</b>: <a href="resource.html#metadata">Logical Id</a> of the DocumentReference/DocumentManifest resource</li>
     <li><b>uniqueId</b>: DocumentReference.masterIdentier - the identifier of the document itself</li>
     <li><b>homeCommunityId &amp; repositoryUniqueId</b>: These data items are not needed in a FHIR context because the document reference is directly available. If it's still needed for XDS service calls, use a service parameter by the name same name. Where the homeCommunityId is needed in a manifest, an <a href="extensibility.html">extension</a> is defined (http://hl7.org/fhir/StructureDefinition/xdshomeCommunityId, which contains a <a href="datatypes.html#uri">uri</a>)</li>
    </ul>  

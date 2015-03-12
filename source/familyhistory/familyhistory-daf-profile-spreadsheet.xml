@@ -10,7 +10,7 @@
   <LastAuthor>nbashyam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-12-06T20:24:26Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3831,7 +3831,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5817,14 +5816,14 @@
     <Cell ss:StyleID="s131"><Data ss:Type="String">familyhistorycondition</Data></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">familyhistory.relation.condition.type</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">FamilyHistory.relation.condition.type</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Search for a history of a particular condition within a patient's family.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s134"><Data ss:Type="String">relationship</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">familyhistory.relation.relationship</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">FamilyHistory.relation.relationship</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Search for family history of members based on relationship</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6025,6 +6024,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6044,7 +6044,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

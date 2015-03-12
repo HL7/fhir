@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 23:41+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1510,10 +1510,10 @@ public class ImagingStudy extends DomainResource {
         protected StringType description;
 
         /**
-         * Sequence that contains attributes from the.
+         * Number of SOP Instances in Series.
          */
         @Child(name="numberOfInstances", type={IntegerType.class}, order=5, min=1, max=1)
-        @Description(shortDefinition="Number of Series Related Instances (0020,1209)", formalDefinition="Sequence that contains attributes from the." )
+        @Description(shortDefinition="Number of Series Related Instances (0020,1209)", formalDefinition="Number of SOP Instances in Series." )
         protected IntegerType numberOfInstances;
 
         /**
@@ -1524,10 +1524,10 @@ public class ImagingStudy extends DomainResource {
         protected Enumeration<InstanceAvailability> availability;
 
         /**
-         * WADO-RS URI where Series is available.
+         * WADO-RS resource where the Series is available.
          */
         @Child(name="url", type={UriType.class}, order=7, min=0, max=1)
-        @Description(shortDefinition="Retrieve URI (0008,1115 > 0008,1190)", formalDefinition="WADO-RS URI where Series is available." )
+        @Description(shortDefinition="Retrieve URI (0008,1115 > 0008,1190)", formalDefinition="WADO-RS resource where the Series is available." )
         protected UriType url;
 
         /**
@@ -1538,20 +1538,27 @@ public class ImagingStudy extends DomainResource {
         protected Coding bodySite;
 
         /**
-         * The date when the series was started.
+         * Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code, map from (0020, 0060).
          */
-        @Child(name="dateTime", type={DateTimeType.class}, order=9, min=0, max=1)
-        @Description(shortDefinition="When the series started", formalDefinition="The date when the series was started." )
+        @Child(name="laterality", type={Coding.class}, order=9, min=0, max=1)
+        @Description(shortDefinition="Body part laterality", formalDefinition="Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code, map from (0020, 0060)." )
+        protected Coding laterality;
+
+        /**
+         * The date and time when the series was started.
+         */
+        @Child(name="dateTime", type={DateTimeType.class}, order=10, min=0, max=1)
+        @Description(shortDefinition="When the series started", formalDefinition="The date and time when the series was started." )
         protected DateTimeType dateTime;
 
         /**
-         * A single image taken from a patient.
+         * A single SOP Instance within the series, e.g., an image, or presentation state.
          */
-        @Child(name="instance", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="A single instance taken from a patient (image or other)", formalDefinition="A single image taken from a patient." )
+        @Child(name="instance", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="A single instance taken from a patient (image or other)", formalDefinition="A single SOP Instance within the series, e.g., an image, or presentation state." )
         protected List<ImagingStudySeriesInstanceComponent> instance;
 
-        private static final long serialVersionUID = -1442035574L;
+        private static final long serialVersionUID = -1143115731L;
 
       public ImagingStudySeriesComponent() {
         super();
@@ -1749,7 +1756,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #numberOfInstances} (Sequence that contains attributes from the.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
+         * @return {@link #numberOfInstances} (Number of SOP Instances in Series.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
          */
         public IntegerType getNumberOfInstancesElement() { 
           if (this.numberOfInstances == null)
@@ -1769,7 +1776,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #numberOfInstances} (Sequence that contains attributes from the.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
+         * @param value {@link #numberOfInstances} (Number of SOP Instances in Series.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
          */
         public ImagingStudySeriesComponent setNumberOfInstancesElement(IntegerType value) { 
           this.numberOfInstances = value;
@@ -1777,14 +1784,14 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return Sequence that contains attributes from the.
+         * @return Number of SOP Instances in Series.
          */
         public int getNumberOfInstances() { 
           return this.numberOfInstances == null || this.numberOfInstances.isEmpty() ? 0 : this.numberOfInstances.getValue();
         }
 
         /**
-         * @param value Sequence that contains attributes from the.
+         * @param value Number of SOP Instances in Series.
          */
         public ImagingStudySeriesComponent setNumberOfInstances(int value) { 
             if (this.numberOfInstances == null)
@@ -1843,7 +1850,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #url} (WADO-RS URI where Series is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #url} (WADO-RS resource where the Series is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public UriType getUrlElement() { 
           if (this.url == null)
@@ -1863,7 +1870,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #url} (WADO-RS URI where Series is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @param value {@link #url} (WADO-RS resource where the Series is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public ImagingStudySeriesComponent setUrlElement(UriType value) { 
           this.url = value;
@@ -1871,14 +1878,14 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return WADO-RS URI where Series is available.
+         * @return WADO-RS resource where the Series is available.
          */
         public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
-         * @param value WADO-RS URI where Series is available.
+         * @param value WADO-RS resource where the Series is available.
          */
         public ImagingStudySeriesComponent setUrl(String value) { 
           if (Utilities.noString(value))
@@ -1916,7 +1923,31 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #dateTime} (The date when the series was started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+         * @return {@link #laterality} (Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code, map from (0020, 0060).)
+         */
+        public Coding getLaterality() { 
+          if (this.laterality == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImagingStudySeriesComponent.laterality");
+            else if (Configuration.doAutoCreate())
+              this.laterality = new Coding(); // cc
+          return this.laterality;
+        }
+
+        public boolean hasLaterality() { 
+          return this.laterality != null && !this.laterality.isEmpty();
+        }
+
+        /**
+         * @param value {@link #laterality} (Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code, map from (0020, 0060).)
+         */
+        public ImagingStudySeriesComponent setLaterality(Coding value) { 
+          this.laterality = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #dateTime} (The date and time when the series was started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
         public DateTimeType getDateTimeElement() { 
           if (this.dateTime == null)
@@ -1936,7 +1967,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #dateTime} (The date when the series was started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+         * @param value {@link #dateTime} (The date and time when the series was started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
         public ImagingStudySeriesComponent setDateTimeElement(DateTimeType value) { 
           this.dateTime = value;
@@ -1944,14 +1975,14 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return The date when the series was started.
+         * @return The date and time when the series was started.
          */
         public Date getDateTime() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
-         * @param value The date when the series was started.
+         * @param value The date and time when the series was started.
          */
         public ImagingStudySeriesComponent setDateTime(Date value) { 
           if (value == null)
@@ -1965,7 +1996,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #instance} (A single image taken from a patient.)
+         * @return {@link #instance} (A single SOP Instance within the series, e.g., an image, or presentation state.)
          */
         public List<ImagingStudySeriesInstanceComponent> getInstance() { 
           if (this.instance == null)
@@ -1983,7 +2014,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #instance} (A single image taken from a patient.)
+         * @return {@link #instance} (A single SOP Instance within the series, e.g., an image, or presentation state.)
          */
     // syntactic sugar
         public ImagingStudySeriesInstanceComponent addInstance() { //3
@@ -2010,12 +2041,13 @@ public class ImagingStudy extends DomainResource {
           childrenList.add(new Property("modality", "code", "The modality of this series sequence.", 0, java.lang.Integer.MAX_VALUE, modality));
           childrenList.add(new Property("uid", "oid", "Formal identifier for this series.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("description", "string", "A description of the series.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("numberOfInstances", "integer", "Sequence that contains attributes from the.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
+          childrenList.add(new Property("numberOfInstances", "integer", "Number of SOP Instances in Series.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
           childrenList.add(new Property("availability", "code", "Availability of series (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
-          childrenList.add(new Property("url", "uri", "WADO-RS URI where Series is available.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("url", "uri", "WADO-RS resource where the Series is available.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("bodySite", "Coding", "Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
-          childrenList.add(new Property("dateTime", "dateTime", "The date when the series was started.", 0, java.lang.Integer.MAX_VALUE, dateTime));
-          childrenList.add(new Property("instance", "", "A single image taken from a patient.", 0, java.lang.Integer.MAX_VALUE, instance));
+          childrenList.add(new Property("laterality", "Coding", "Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code, map from (0020, 0060).", 0, java.lang.Integer.MAX_VALUE, laterality));
+          childrenList.add(new Property("dateTime", "dateTime", "The date and time when the series was started.", 0, java.lang.Integer.MAX_VALUE, dateTime));
+          childrenList.add(new Property("instance", "", "A single SOP Instance within the series, e.g., an image, or presentation state.", 0, java.lang.Integer.MAX_VALUE, instance));
         }
 
       public ImagingStudySeriesComponent copy() {
@@ -2029,6 +2061,7 @@ public class ImagingStudy extends DomainResource {
         dst.availability = availability == null ? null : availability.copy();
         dst.url = url == null ? null : url.copy();
         dst.bodySite = bodySite == null ? null : bodySite.copy();
+        dst.laterality = laterality == null ? null : laterality.copy();
         dst.dateTime = dateTime == null ? null : dateTime.copy();
         if (instance != null) {
           dst.instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
@@ -2048,7 +2081,8 @@ public class ImagingStudy extends DomainResource {
         return compareDeep(number, o.number, true) && compareDeep(modality, o.modality, true) && compareDeep(uid, o.uid, true)
            && compareDeep(description, o.description, true) && compareDeep(numberOfInstances, o.numberOfInstances, true)
            && compareDeep(availability, o.availability, true) && compareDeep(url, o.url, true) && compareDeep(bodySite, o.bodySite, true)
-           && compareDeep(dateTime, o.dateTime, true) && compareDeep(instance, o.instance, true);
+           && compareDeep(laterality, o.laterality, true) && compareDeep(dateTime, o.dateTime, true) && compareDeep(instance, o.instance, true)
+          ;
       }
 
       @Override
@@ -2068,7 +2102,8 @@ public class ImagingStudy extends DomainResource {
         return super.isEmpty() && (number == null || number.isEmpty()) && (modality == null || modality.isEmpty())
            && (uid == null || uid.isEmpty()) && (description == null || description.isEmpty()) && (numberOfInstances == null || numberOfInstances.isEmpty())
            && (availability == null || availability.isEmpty()) && (url == null || url.isEmpty()) && (bodySite == null || bodySite.isEmpty())
-           && (dateTime == null || dateTime.isEmpty()) && (instance == null || instance.isEmpty());
+           && (laterality == null || laterality.isEmpty()) && (dateTime == null || dateTime.isEmpty())
+           && (instance == null || instance.isEmpty());
       }
 
   }
@@ -2097,10 +2132,10 @@ public class ImagingStudy extends DomainResource {
         protected OidType sopclass;
 
         /**
-         * The type of the instance.
+         * A human-friendly SOP Class name.
          */
         @Child(name="type", type={StringType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Type of instance (image etc) (0004,1430)", formalDefinition="The type of the instance." )
+        @Description(shortDefinition="Type of instance (image etc) (0004,1430)", formalDefinition="A human-friendly SOP Class name." )
         protected StringType type;
 
         /**
@@ -2111,25 +2146,13 @@ public class ImagingStudy extends DomainResource {
         protected StringType title;
 
         /**
-         * WADO-RS url where image is available.
+         * Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented by inline encoding, or by a URL reference to a WADO-RS service that makes the instance available. Multiple content attachments may be used for alternate representations of the instance.
          */
-        @Child(name="url", type={UriType.class}, order=6, min=0, max=1)
-        @Description(shortDefinition="WADO-RS service where instance is available  (0008,1199 > 0008,1190)", formalDefinition="WADO-RS url where image is available." )
-        protected UriType url;
+        @Child(name="content", type={Attachment.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Content of the instance", formalDefinition="Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented by inline encoding, or by a URL reference to a WADO-RS service that makes the instance available. Multiple content attachments may be used for alternate representations of the instance." )
+        protected List<Attachment> content;
 
-        /**
-         * A FHIR resource with content for this instance.
-         */
-        @Child(name="attachment", type={}, order=7, min=0, max=1)
-        @Description(shortDefinition="Content for this instance", formalDefinition="A FHIR resource with content for this instance." )
-        protected Reference attachment;
-
-        /**
-         * The actual object that is the target of the reference (A FHIR resource with content for this instance.)
-         */
-        protected Resource attachmentTarget;
-
-        private static final long serialVersionUID = -2008450480L;
+        private static final long serialVersionUID = -1296330397L;
 
       public ImagingStudySeriesInstanceComponent() {
         super();
@@ -2277,7 +2300,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (The type of the instance.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @return {@link #type} (A human-friendly SOP Class name.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public StringType getTypeElement() { 
           if (this.type == null)
@@ -2297,7 +2320,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (The type of the instance.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @param value {@link #type} (A human-friendly SOP Class name.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public ImagingStudySeriesInstanceComponent setTypeElement(StringType value) { 
           this.type = value;
@@ -2305,14 +2328,14 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return The type of the instance.
+         * @return A human-friendly SOP Class name.
          */
         public String getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
-         * @param value The type of the instance.
+         * @param value A human-friendly SOP Class name.
          */
         public ImagingStudySeriesInstanceComponent setType(String value) { 
           if (Utilities.noString(value))
@@ -2375,90 +2398,42 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #url} (WADO-RS url where image is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #content} (Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented by inline encoding, or by a URL reference to a WADO-RS service that makes the instance available. Multiple content attachments may be used for alternate representations of the instance.)
          */
-        public UriType getUrlElement() { 
-          if (this.url == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.url");
-            else if (Configuration.doAutoCreate())
-              this.url = new UriType(); // bb
-          return this.url;
+        public List<Attachment> getContent() { 
+          if (this.content == null)
+            this.content = new ArrayList<Attachment>();
+          return this.content;
         }
 
-        public boolean hasUrlElement() { 
-          return this.url != null && !this.url.isEmpty();
-        }
-
-        public boolean hasUrl() { 
-          return this.url != null && !this.url.isEmpty();
+        public boolean hasContent() { 
+          if (this.content == null)
+            return false;
+          for (Attachment item : this.content)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #url} (WADO-RS url where image is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #content} (Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented by inline encoding, or by a URL reference to a WADO-RS service that makes the instance available. Multiple content attachments may be used for alternate representations of the instance.)
          */
-        public ImagingStudySeriesInstanceComponent setUrlElement(UriType value) { 
-          this.url = value;
-          return this;
+    // syntactic sugar
+        public Attachment addContent() { //3
+          Attachment t = new Attachment();
+          if (this.content == null)
+            this.content = new ArrayList<Attachment>();
+          this.content.add(t);
+          return t;
         }
 
-        /**
-         * @return WADO-RS url where image is available.
-         */
-        public String getUrl() { 
-          return this.url == null ? null : this.url.getValue();
-        }
-
-        /**
-         * @param value WADO-RS url where image is available.
-         */
-        public ImagingStudySeriesInstanceComponent setUrl(String value) { 
-          if (Utilities.noString(value))
-            this.url = null;
-          else {
-            if (this.url == null)
-              this.url = new UriType();
-            this.url.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #attachment} (A FHIR resource with content for this instance.)
-         */
-        public Reference getAttachment() { 
-          if (this.attachment == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.attachment");
-            else if (Configuration.doAutoCreate())
-              this.attachment = new Reference(); // cc
-          return this.attachment;
-        }
-
-        public boolean hasAttachment() { 
-          return this.attachment != null && !this.attachment.isEmpty();
-        }
-
-        /**
-         * @param value {@link #attachment} (A FHIR resource with content for this instance.)
-         */
-        public ImagingStudySeriesInstanceComponent setAttachment(Reference value) { 
-          this.attachment = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #attachment} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A FHIR resource with content for this instance.)
-         */
-        public Resource getAttachmentTarget() { 
-          return this.attachmentTarget;
-        }
-
-        /**
-         * @param value {@link #attachment} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A FHIR resource with content for this instance.)
-         */
-        public ImagingStudySeriesInstanceComponent setAttachmentTarget(Resource value) { 
-          this.attachmentTarget = value;
+    // syntactic sugar
+        public ImagingStudySeriesInstanceComponent addContent(Attachment t) { //3
+          if (t == null)
+            return this;
+          if (this.content == null)
+            this.content = new ArrayList<Attachment>();
+          this.content.add(t);
           return this;
         }
 
@@ -2467,10 +2442,9 @@ public class ImagingStudy extends DomainResource {
           childrenList.add(new Property("number", "integer", "The number of this image in the series.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("uid", "oid", "Formal identifier for this image.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("sopclass", "oid", "DICOM Image type.", 0, java.lang.Integer.MAX_VALUE, sopclass));
-          childrenList.add(new Property("type", "string", "The type of the instance.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "string", "A human-friendly SOP Class name.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("title", "string", "The description of the instance.", 0, java.lang.Integer.MAX_VALUE, title));
-          childrenList.add(new Property("url", "uri", "WADO-RS url where image is available.", 0, java.lang.Integer.MAX_VALUE, url));
-          childrenList.add(new Property("attachment", "Reference(Any)", "A FHIR resource with content for this instance.", 0, java.lang.Integer.MAX_VALUE, attachment));
+          childrenList.add(new Property("content", "Attachment", "Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented by inline encoding, or by a URL reference to a WADO-RS service that makes the instance available. Multiple content attachments may be used for alternate representations of the instance.", 0, java.lang.Integer.MAX_VALUE, content));
         }
 
       public ImagingStudySeriesInstanceComponent copy() {
@@ -2481,8 +2455,11 @@ public class ImagingStudy extends DomainResource {
         dst.sopclass = sopclass == null ? null : sopclass.copy();
         dst.type = type == null ? null : type.copy();
         dst.title = title == null ? null : title.copy();
-        dst.url = url == null ? null : url.copy();
-        dst.attachment = attachment == null ? null : attachment.copy();
+        if (content != null) {
+          dst.content = new ArrayList<Attachment>();
+          for (Attachment i : content)
+            dst.content.add(i.copy());
+        };
         return dst;
       }
 
@@ -2494,8 +2471,8 @@ public class ImagingStudy extends DomainResource {
           return false;
         ImagingStudySeriesInstanceComponent o = (ImagingStudySeriesInstanceComponent) other;
         return compareDeep(number, o.number, true) && compareDeep(uid, o.uid, true) && compareDeep(sopclass, o.sopclass, true)
-           && compareDeep(type, o.type, true) && compareDeep(title, o.title, true) && compareDeep(url, o.url, true)
-           && compareDeep(attachment, o.attachment, true);
+           && compareDeep(type, o.type, true) && compareDeep(title, o.title, true) && compareDeep(content, o.content, true)
+          ;
       }
 
       @Override
@@ -2506,34 +2483,33 @@ public class ImagingStudy extends DomainResource {
           return false;
         ImagingStudySeriesInstanceComponent o = (ImagingStudySeriesInstanceComponent) other;
         return compareValues(number, o.number, true) && compareValues(uid, o.uid, true) && compareValues(sopclass, o.sopclass, true)
-           && compareValues(type, o.type, true) && compareValues(title, o.title, true) && compareValues(url, o.url, true)
-          ;
+           && compareValues(type, o.type, true) && compareValues(title, o.title, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (number == null || number.isEmpty()) && (uid == null || uid.isEmpty())
            && (sopclass == null || sopclass.isEmpty()) && (type == null || type.isEmpty()) && (title == null || title.isEmpty())
-           && (url == null || url.isEmpty()) && (attachment == null || attachment.isEmpty());
+           && (content == null || content.isEmpty());
       }
 
   }
 
     /**
-     * Date and Time the study started.
+     * Date and Time the study started. Timezone Offset From UTC.
      */
     @Child(name="started", type={DateTimeType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="When the study was started (0008,0020)+(0008,0030)", formalDefinition="Date and Time the study started." )
+    @Description(shortDefinition="When the study was started (0008,0020)+(0008,0030)", formalDefinition="Date and Time the study started. Timezone Offset From UTC." )
     protected DateTimeType started;
 
     /**
-     * The patient for whom the images are of.
+     * The patient imaged in the study.
      */
     @Child(name="patient", type={Patient.class}, order=1, min=1, max=1)
-    @Description(shortDefinition="Who the images are of", formalDefinition="The patient for whom the images are of." )
+    @Description(shortDefinition="Who the images are of", formalDefinition="The patient imaged in the study." )
     protected Reference patient;
 
     /**
-     * The actual object that is the target of the reference (The patient for whom the images are of.)
+     * The actual object that is the target of the reference (The patient imaged in the study.)
      */
     protected Patient patientTarget;
 
@@ -2597,10 +2573,10 @@ public class ImagingStudy extends DomainResource {
     protected Enumeration<InstanceAvailability> availability;
 
     /**
-     * WADO-RS URI where Study is available.
+     * WADO-RS resource where Study is available.
      */
     @Child(name="url", type={UriType.class}, order=9, min=0, max=1)
-    @Description(shortDefinition="Retrieve URI (0008,1190)", formalDefinition="WADO-RS URI where Study is available." )
+    @Description(shortDefinition="Retrieve URI (0008,1190)", formalDefinition="WADO-RS resource where Study is available." )
     protected UriType url;
 
     /**
@@ -2644,10 +2620,10 @@ public class ImagingStudy extends DomainResource {
     protected Practitioner interpreterTarget;
 
     /**
-     * Institution-generated description or classification of the Study (component) performed.
+     * Institution-generated description or classification of the Study performed.
      */
     @Child(name="description", type={StringType.class}, order=15, min=0, max=1)
-    @Description(shortDefinition="Institution-generated description (0008,1030)", formalDefinition="Institution-generated description or classification of the Study (component) performed." )
+    @Description(shortDefinition="Institution-generated description (0008,1030)", formalDefinition="Institution-generated description or classification of the Study performed." )
     protected StringType description;
 
     /**
@@ -2672,7 +2648,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #started} (Date and Time the study started.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
+     * @return {@link #started} (Date and Time the study started. Timezone Offset From UTC.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
      */
     public DateTimeType getStartedElement() { 
       if (this.started == null)
@@ -2692,7 +2668,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @param value {@link #started} (Date and Time the study started.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
+     * @param value {@link #started} (Date and Time the study started. Timezone Offset From UTC.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
      */
     public ImagingStudy setStartedElement(DateTimeType value) { 
       this.started = value;
@@ -2700,14 +2676,14 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return Date and Time the study started.
+     * @return Date and Time the study started. Timezone Offset From UTC.
      */
     public Date getStarted() { 
       return this.started == null ? null : this.started.getValue();
     }
 
     /**
-     * @param value Date and Time the study started.
+     * @param value Date and Time the study started. Timezone Offset From UTC.
      */
     public ImagingStudy setStarted(Date value) { 
       if (value == null)
@@ -2721,7 +2697,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} (The patient for whom the images are of.)
+     * @return {@link #patient} (The patient imaged in the study.)
      */
     public Reference getPatient() { 
       if (this.patient == null)
@@ -2737,7 +2713,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} (The patient for whom the images are of.)
+     * @param value {@link #patient} (The patient imaged in the study.)
      */
     public ImagingStudy setPatient(Reference value) { 
       this.patient = value;
@@ -2745,7 +2721,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient for whom the images are of.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient imaged in the study.)
      */
     public Patient getPatientTarget() { 
       if (this.patientTarget == null)
@@ -2757,7 +2733,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient for whom the images are of.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient imaged in the study.)
      */
     public ImagingStudy setPatientTarget(Patient value) { 
       this.patientTarget = value;
@@ -3082,7 +3058,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (WADO-RS URI where Study is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (WADO-RS resource where Study is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -3102,7 +3078,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (WADO-RS URI where Study is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (WADO-RS resource where Study is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ImagingStudy setUrlElement(UriType value) { 
       this.url = value;
@@ -3110,14 +3086,14 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return WADO-RS URI where Study is available.
+     * @return WADO-RS resource where Study is available.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value WADO-RS URI where Study is available.
+     * @param value WADO-RS resource where Study is available.
      */
     public ImagingStudy setUrl(String value) { 
       if (Utilities.noString(value))
@@ -3354,7 +3330,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #description} (Institution-generated description or classification of the Study (component) performed.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #description} (Institution-generated description or classification of the Study performed.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
       if (this.description == null)
@@ -3374,7 +3350,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @param value {@link #description} (Institution-generated description or classification of the Study (component) performed.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #description} (Institution-generated description or classification of the Study performed.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public ImagingStudy setDescriptionElement(StringType value) { 
       this.description = value;
@@ -3382,14 +3358,14 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return Institution-generated description or classification of the Study (component) performed.
+     * @return Institution-generated description or classification of the Study performed.
      */
     public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value Institution-generated description or classification of the Study (component) performed.
+     * @param value Institution-generated description or classification of the Study performed.
      */
     public ImagingStudy setDescription(String value) { 
       if (Utilities.noString(value))
@@ -3444,8 +3420,8 @@ public class ImagingStudy extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("started", "dateTime", "Date and Time the study started.", 0, java.lang.Integer.MAX_VALUE, started));
-        childrenList.add(new Property("patient", "Reference(Patient)", "The patient for whom the images are of.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("started", "dateTime", "Date and Time the study started. Timezone Offset From UTC.", 0, java.lang.Integer.MAX_VALUE, started));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The patient imaged in the study.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("uid", "oid", "Formal identifier for the study.", 0, java.lang.Integer.MAX_VALUE, uid));
         childrenList.add(new Property("accession", "Identifier", "Accession Number.", 0, java.lang.Integer.MAX_VALUE, accession));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers for the study.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -3453,13 +3429,13 @@ public class ImagingStudy extends DomainResource {
         childrenList.add(new Property("modalityList", "code", "A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).", 0, java.lang.Integer.MAX_VALUE, modalityList));
         childrenList.add(new Property("referrer", "Reference(Practitioner)", "The requesting/referring physician.", 0, java.lang.Integer.MAX_VALUE, referrer));
         childrenList.add(new Property("availability", "code", "Availability of study (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
-        childrenList.add(new Property("url", "uri", "WADO-RS URI where Study is available.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "WADO-RS resource where Study is available.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("numberOfSeries", "integer", "Number of Series in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfSeries));
         childrenList.add(new Property("numberOfInstances", "integer", "Number of SOP Instances in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
         childrenList.add(new Property("clinicalInformation", "string", "Diagnoses etc provided with request.", 0, java.lang.Integer.MAX_VALUE, clinicalInformation));
         childrenList.add(new Property("procedure", "Coding", "Type of procedure performed.", 0, java.lang.Integer.MAX_VALUE, procedure));
         childrenList.add(new Property("interpreter", "Reference(Practitioner)", "Who read study and interpreted the images.", 0, java.lang.Integer.MAX_VALUE, interpreter));
-        childrenList.add(new Property("description", "string", "Institution-generated description or classification of the Study (component) performed.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("description", "string", "Institution-generated description or classification of the Study performed.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("series", "", "Each study has one or more series of image instances.", 0, java.lang.Integer.MAX_VALUE, series));
       }
 

@@ -40,7 +40,7 @@ variety of architectures and scenarios.
 <h3>Framework</h3>
 <p>
 FHIR is based on "Resources" which are the common building block
-for all exchanges.  Each resource has the following <a href="resources.html">common features</a>:
+for all exchanges.  Each resource has the following <a href="resource.html">common features</a>:
 </p>
 <ul>
  <li>A URL that identifies it</li>
@@ -114,7 +114,7 @@ Each resource consists of:
 <ul>
   <li><b>resourceType</b> (line 2) - Required: FHIR defines many different types of resources. See <a href="resourcelist.html">the full index</a></li>
   <li><b>id</b> (line 3) - The id of the resource. Always present when a resource is exchanged, except during the create operation (below)</li>
-  <li><b>meta</b> (lines 4 - 7) - Usually Present: <a href="resources.html#meta">Common use/context data to all resources</a> and managed by the infrastructure. Missing if there is no metadata</li>
+  <li><b>meta</b> (lines 4 - 7) - Usually Present: <a href="resource.html#meta">Common use/context data to all resources</a> and managed by the infrastructure. Missing if there is no metadata</li>
   <li><b>text</b> (lines 12 - 17) - Recommended: XHTML that provides a <a href="narrative.html">human readable representation</a> for the resource</li>
   <li><b>extension</b> (lines 12 - 17) - Optional: <a href="extensibility.html">Extensions</a> defined by the extensibility framework</li>
   <li><b>data</b> (lines 18 - 43) - Optional: data elements defined for each type of resource</li>

@@ -121,7 +121,11 @@ public class FHIRSimpleClient implements IFHIRClient {
 	}
 	
 	private void checkConformance() {
+	  try {
     conf = getConformanceStatement();
+	  } catch (Throwable e) {
+	    
+	  }
 	}
 	
 	@Override

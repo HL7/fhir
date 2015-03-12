@@ -356,7 +356,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       else if (cd.getName().equals("FHIRContentType"))
         write("  <li>"+path+" of <a href=\"terminologies.html#fhircontenttypes\"> any defined Resource or Data Type name</a></li>\r\n");
       else 
-        write("  <li>"+path+" of <a href=\"datatypes.html\"> any defined data Type name</a> (including <a href=\"resources.html#Resource\">Resource</a>)</li>\r\n");
+        write("  <li>"+path+" of <a href=\"datatypes.html\"> any defined data Type name</a> (including <a href=\"resource.html#Resource\">Resource</a>)</li>\r\n");
       
     } else {
       String bs = "<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";

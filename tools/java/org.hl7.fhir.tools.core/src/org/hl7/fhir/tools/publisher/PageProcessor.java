@@ -1988,7 +1988,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String resourcesHeader(String mode) {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
-    b.append(makeHeaderTab("Resource Definitions", "resources.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Resource Definitions", "resource.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "resources-examples.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", "resources-definitions.html", mode==null || "definitions".equals(mode)));
     b.append("</ul>\r\n");
@@ -2598,7 +2598,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           else if (cd.getName().equals("FHIRContentType"))
             s.append("See the <a href=\"terminologies.html#fhircontenttypes\"> list of defined Resource and Data Types</a>");
           else 
-            s.append("<a href=\"datatypes.html\">Any defined data Type name</a> (including <a href=\"resources.html#Resource\">Resource</a>)");
+            s.append("<a href=\"datatypes.html\">Any defined data Type name</a> (including <a href=\"resource.html#Resource\">Resource</a>)");
         }        
         s.append("</td></tr>\r\n");
       }

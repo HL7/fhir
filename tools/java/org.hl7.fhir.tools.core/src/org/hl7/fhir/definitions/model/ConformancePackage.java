@@ -152,6 +152,13 @@ public class ConformancePackage {
   public Map<String, MappingSpace> getMappingSpaces() {
     return mappingSpaces;
   }
+  public StructureDefinition getExtension(String url) {
+    for (StructureDefinition st : extensions) {
+      if (st.getUrl().equals(url))
+        return st;
+    }
+    return null;
+  }
 
   
   

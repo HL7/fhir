@@ -2,72 +2,82 @@
 <!--
 
 todo: compartments
+signatures.html
+
 -->
 <fhir>
 	<page title="Home" note="(map + search) - focus on useful links" filename="index.html">
 		<page title="Documentation" filename="documentation.html">
-			<page title="Table of Contents" filename="toc.html"/>
+
+    <page title="Table of Contents" filename="toc.html"/>
 			<page title="License and Legal Terms" filename="license.html"/>
 			<page title="Community and Credits" filename="credits.html"/>
-			<page title="FHIR Timelines" filename="timelines.html"/>
 			<page title="Version History" filename="history.html"/>
 			<page title="Outstanding Issues" filename="todo.html"/>
+
 			<page title="Summary" filename="summary.html"/>
 			<page title="Introduction" filename="overview.html">
 				<page title="Developer Introduction" filename="overview-dev.html"/>
 			</page>
-			<page title="Comparison" filename="comparison.html">
-				<page title="v2 Messaging" filename="comparison-v2.html"/>
-				<page title="v3 Messaging" filename="comparison-v3.html"/>
-				<page title="CDA" filename="comparison-cda.html"/>
-				<page title="Other Specifications" filename="comparison-other.html"/>
-			</page>
-			<page title="Coming Challenges" filename="change.html"/>
-			<page title="EHR FM map" filename="ehr-fm.html"/>
-			<page title="Definitions" filename="resource-definitions.html">
-				<page type="resource" resource="Resource"/>
-				<page type="resource" resource="DomainResource"/>
-			</page>
-			<page title="Element Definition" filename="elementdefinition.html">
-				<page title="Element Definition Examples" filename="elementdefinition-examples.html"/>
-				<page title="Element Definition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
-				<page title="Element Definition Mappings" filename="elementdefinition-mappings.html"/>
-			</page>
+			<page title="FHIR Timelines" filename="timelines.html"/>
+			<page title="Inter-version Compatibility" filename="compatibility.html"/>
+
+			<page type="resource" resource="Resource">
+  			<page title="Definitions" filename="resource-definitions.html"/>
+      </page>
 			<page title="Conformance" filename="conformance-rules.html"/>
-			<page title="Tags, Bundles, Compartments" filename="extras.html">
-				<page title="Examples" filename="extras-examples.html"/>
-				<page title="Definitions" filename="extras-definitions.html"/>
-				<page title="Patient Compartment" filename="compartment-patient.html"/>
-			</page>
 			<page title="References" filename="references.html">
 				<page title="Definitions" filename="references-definitions.html"/>
+			</page>
+			<page title="Compartment Based Access" filename="extras.html">
+				<page title="Patient Compartment" filename="compartment-patient.html"/>
+				<page title="Encounter Compartment" filename="compartment-encounter.html"/>
+				<page title="RelatedPerson Compartment" filename="compartment-relatedPerson.html"/>
+				<page title="Practitioner Compartment" filename="compartment-practitioner.html"/>
+				<page title="Device Compartment" filename="compartment-device.html"/>
 			</page>
 			<page title="Narrative" filename="narrative.html">
 				<page title="Narrative Example" filename="narrative-example.html"/>
 				<page title="Definitions" filename="narrative-definitions.html"/>
 			</page>
-			<page title="Formats" filename="formats.html">
-				<page title="XML" filename="xml.html"/>
-				<page title="JSON" filename="json.html"/>
-			</page>
 			<page title="Extensibility" filename="extensibility.html">
 				<page title="Examples" filename="extensibility-examples.html"/>
 				<page title="Definitions" filename="extensibility-definitions.html"/>
+				<page title="Registry" filename="extensibility-registry.html"/>
+			</page>
+			<page title="Formats" filename="formats.html">
+				<page title="XML" filename="xml.html"/>
+				<page title="JSON" filename="json.html"/>
 			</page>
 			<page title="Data Types" filename="datatypes.html">
 				<page title="Examples" filename="datatypes-examples.html"/>
 				<page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
 				<page title="Mappings" filename="datatypes-mappings.html"/>
 			</page>
+			<page type="resource" resource="DomainResource"/>
+			<page title="Element Definition" filename="element.html">
+				<page title="Element Detailed Descriptions" filename="element-definitions.html"/>
+			</page>
+			<page title="BackboneElement" filename="backboneelement-definitions.html">
+				<page title="BackboneElement Detailed Descriptions" filename="backboneelement-definitions.html"/>
+			</page>
+			<page title="ElementDefinition" filename="elementdefinition.html">
+				<page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
+				<page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
+				<page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
+			</page>
+
 			<page title="Using Codes" filename="terminologies.html">
 				<page title="Systems" filename="terminologies-systems.html">
 					<page title="SNOMED CT" filename="snomedct.html"/>
 					<page title="RxNorm" filename="rxnorm.html"/>
 					<page title="LOINC" filename="loinc.html"/>
+					<page title="UCUM" filename="ucum.html"/>
 					<page title="NCI Metothesuaras" filename="ncimeta.html"/>
 					<page title="NDFRT" filename="ndfrt.html"/>
 					<page title="UNII" filename="unii.html"/>
 					<page title="CVX" filename="cvx.html"/>
+					<page title="CPT" filename="cpt.html"/>
 				</page>
 				<page title="Value Sets" filename="terminologies-valuesets.html">
 					<pages type="valueset" filename="template-valueset.html"/>
@@ -82,8 +92,21 @@ todo: compartments
 				<page title="Concept Maps" filename="terminologies-conceptmaps.html"/>
 				<page title="Service" filename="terminology-service.html"/>
 			</page>
+      
+			<page title="Comparison" filename="comparison.html">
+				<page title="v2 Messaging" filename="comparison-v2.html"/>
+				<page title="v3 Messaging" filename="comparison-v3.html"/>
+				<page title="CDA" filename="comparison-cda.html"/>
+				<page title="Other Specifications" filename="comparison-other.html"/>
+			</page>
+			<page title="Coming Challenges" filename="change.html"/>
+			<page title="How FHIR fits into an EHR" filename="ehr-fm.html"/>
+			<page title="Status Code Map" filename="sc.html"/>
+			<page title="W5 Map" filename="w5.html"/>
+      
 			<page title="Ballot Intro" filename="ballot-intro.html"/>
 		</page>
+    
 		<page title="Implementation" filename="implementation.html">
 			<page title="RESTful API" filename="http.html">
 				<page title="Search" filename="search.html"/>
@@ -92,23 +115,26 @@ todo: compartments
 			<page title="Operations" filename="operations.html">
 				<page title="Example" filename="op-example-request.html"/>
 			</page>
+			<page title="Documents" filename="documents.html">
+        <page title="CDA on FHIR" filename="cda-intro.html"/>
+      </page>
 			<page title="Messaging" filename="messaging.html"/>
-			<page title="Documents" filename="documents.html"/>
-			<page title="Downloads" filename="downloads.html"/>
-			<page title="Using Resources" filename="use.html"/>
-			<page title="Support" filename="support.html"/>
-			<page title="Managing Resource Identity" filename="managing.html"/>
 			<page title="Services / SOA" filename="services.html"/>
+
+			<page title="Downloads" filename="downloads.html"/>
+			<page title="Managing Resource Identity" filename="managing.html"/>
 			<page title="Interaction Patterns" filename="pushpull.html"/>
-			<page title="Profiling FHIR" filename="profiling.html">
-				<page title="Examples" filename="profiling-examples.html"/>
-				<page title="Profile List" filename="profilelist.html"/>
-				<page title="Common Usages" filename="usecases.html"/>
-			</page>
+      <page title="Managing Updates" filename="updates.html"/>
+			<page title="Support" filename="support.html"/>
+			<page title="Integrated Examples" filename="integrated-examples.html"/>
 			<page title="Security" filename="security.html">
 				<page title="Security Labels" filename="security-labels.html"/>
 			</page>
-			<page title="Integrated Examples" filename="integrated-examples.html"/>
+
+			<page title="Profiling FHIR" filename="profiling.html">
+				<page title="Examples" filename="profiling-examples.html"/>
+				<page title="Common Usages" filename="usecases.html"/>
+			</page>
 			<page title="Implementation Guides" filename="iglist.html">
 				<page title="Argonaut Project" filename="argonauts.html"/>
 				<page title="Data Access Framework (DAF)" filename="daf.html">
@@ -117,6 +143,7 @@ todo: compartments
 					<page title="DAF Medication Profiles Usage" filename="daf-medicationusage.html"/>
 					<page title="DAF Outstanding Issues" filename="daf-outstandingissues.html"/>
 				</page>
+        <page title="CQF Implementation Guide" filename="qicore.html"/>
 				<page title="EHRS Functional model - Record Lifecycle Events" filename="ehrs-rle.html"/>
 				<page title="Quality Improvement Core (QICore)" filename="qicore.html"/>
 				<page title="Structured Data Capture" filename="sdc.html">
@@ -136,6 +163,8 @@ todo: compartments
 					</page>
 				</page>
 			</page>
+		  <page title="Profile List" filename="profilelist.html"/>
+			<page title="Using Resources" filename="use.html"/>
 		</page>
 		<page title="Resources" filename="resourcelist.html"/>
 		<!--    Every Resource below has structure:

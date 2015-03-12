@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 11, 2015 21:45+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 11, 2015 23:41+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -490,14 +490,14 @@ public class ClinicalAssessment extends DomainResource {
     protected Patient patientTarget;
 
     /**
-     * The clinicial performing the assessment.
+     * The clinician performing the assessment.
      */
     @Child(name="assessor", type={Practitioner.class}, order=1, min=1, max=1)
-    @Description(shortDefinition="The clinicial performing the assessment", formalDefinition="The clinicial performing the assessment." )
+    @Description(shortDefinition="The clinician performing the assessment", formalDefinition="The clinician performing the assessment." )
     protected Reference assessor;
 
     /**
-     * The actual object that is the target of the reference (The clinicial performing the assessment.)
+     * The actual object that is the target of the reference (The clinician performing the assessment.)
      */
     protected Practitioner assessorTarget;
 
@@ -694,7 +694,7 @@ public class ClinicalAssessment extends DomainResource {
     }
 
     /**
-     * @return {@link #assessor} (The clinicial performing the assessment.)
+     * @return {@link #assessor} (The clinician performing the assessment.)
      */
     public Reference getAssessor() { 
       if (this.assessor == null)
@@ -710,7 +710,7 @@ public class ClinicalAssessment extends DomainResource {
     }
 
     /**
-     * @param value {@link #assessor} (The clinicial performing the assessment.)
+     * @param value {@link #assessor} (The clinician performing the assessment.)
      */
     public ClinicalAssessment setAssessor(Reference value) { 
       this.assessor = value;
@@ -718,7 +718,7 @@ public class ClinicalAssessment extends DomainResource {
     }
 
     /**
-     * @return {@link #assessor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The clinicial performing the assessment.)
+     * @return {@link #assessor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
      */
     public Practitioner getAssessorTarget() { 
       if (this.assessorTarget == null)
@@ -730,7 +730,7 @@ public class ClinicalAssessment extends DomainResource {
     }
 
     /**
-     * @param value {@link #assessor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The clinicial performing the assessment.)
+     * @param value {@link #assessor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
      */
     public ClinicalAssessment setAssessorTarget(Practitioner value) { 
       this.assessorTarget = value;
@@ -1415,7 +1415,7 @@ public class ClinicalAssessment extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient being asssesed.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("assessor", "Reference(Practitioner)", "The clinicial performing the assessment.", 0, java.lang.Integer.MAX_VALUE, assessor));
+        childrenList.add(new Property("assessor", "Reference(Practitioner)", "The clinician performing the assessment.", 0, java.lang.Integer.MAX_VALUE, assessor));
         childrenList.add(new Property("date", "dateTime", "The point in time at which the assessment was concluded (not when it was recorded).", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("previous", "Reference(ClinicalAssessment)", "A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.", 0, java.lang.Integer.MAX_VALUE, previous));
@@ -1539,7 +1539,7 @@ public class ClinicalAssessment extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="ruledout", path="ClinicalAssessment.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
   public static final String SP_RULEDOUT = "ruledout";
-  @SearchParamDefinition(name="assessor", path="ClinicalAssessment.assessor", description="The clinicial performing the assessment", type="reference" )
+  @SearchParamDefinition(name="assessor", path="ClinicalAssessment.assessor", description="The clinician performing the assessment", type="reference" )
   public static final String SP_ASSESSOR = "assessor";
   @SearchParamDefinition(name="patient", path="ClinicalAssessment.patient", description="The patient being asssesed", type="reference" )
   public static final String SP_PATIENT = "patient";

@@ -217,7 +217,7 @@ about the information in the resource. For further information, see
 <h3>Further Information</h3>
 <ul>
   <li><a href="conformance-rules.html">Conformance Rules</a></li>
-  <li><a href="resources.html">Resource Definitions</a></li>
+  <li><a href="resource.html">Resource Definitions</a></li>
   <li><a href="references.html">References between Resources</a></li>
   <li><a href="narrative.html">Narratives</a></li>
   <li><a href="formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>

@@ -42,6 +42,7 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
+import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.ConformancePackage;
@@ -77,6 +78,8 @@ import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DecimalType;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.instance.model.SearchParameter;
+import org.hl7.fhir.instance.model.SearchParameter.SearchParamType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.Factory;
@@ -466,6 +469,93 @@ public class SpreadsheetParser {
 		return result;
 	}
 
+  /* for profiles that have a "search" tab not tied to a structure */
+  private void readSearchParams(ConformancePackage pack, Sheet sheet, String prefix) throws Exception {
+    for (int row = 0; row < sheet.rows.size(); row++) {
+
+      if (!sheet.hasColumn(row, "Name"))
+        throw new Exception("Search Param has no name "+ getLocation(row));
+      String n = sheet.getColumn(row, "Name");
+      if (!n.startsWith("!")) {
+        SearchParameter sp = new SearchParameter();
+        if (!sheet.hasColumn(row, "Type"))
+          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has no type "+ getLocation(row));
+        if (n.endsWith("-before") || n.endsWith("-after"))
+          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" includes relative time "+ getLocation(row));
+//        if (!n.toLowerCase().equals(n))
+//          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" must be all lowercase "+ getLocation(row));
+        sp.setName(n);
+        String d = sheet.getColumn(row, "Description");
+        sp.setType(SearchParamType.fromCode(sheet.getColumn(row, "Type")));
+        List<String> pn = new ArrayList<String>();
+        String path = sheet.getColumn(row, "Path");
+        if (Utilities.noString(path))
+          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has no path");
+        if (!path.contains(".") && !path.startsWith("#"))
+          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has an invalid path: "+path);
+        ResourceDefn root2 = null;
+        if (!path.startsWith("#")) {
+          path = path.substring(0, path.indexOf('.'));
+          root2 = definitions.getResourceByName(path);
+          if (root2 == null)
+            throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has an invalid path (resource not found)");
+        }
+        if (!Utilities.noString(sheet.getColumn(row, "Target Types"))) 
+          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has manually specified targets (not allowed)");
+
+        if (root2 != null && root2.getSearchParams().containsKey(n))
+          throw new Exception("Search Param "+root2.getName()+"/"+n+": duplicate name "+ getLocation(row));
+
+        if (sp.getType() == SearchParamType.COMPOSITE) {
+          throw new Exception("not supported");
+        } else {
+          String[] pl = sheet.getColumn(row, "Path").split("\\|");
+          for (String pi : pl) {
+            String p = pi.trim();
+            ElementDefn e = null;
+            if (Utilities.noString(p))
+              throw new Exception("Search Param "+root2.getName()+"/"+n+": empty path "+ getLocation(row));
+            if (p.startsWith("#")) {
+              // root less extension search parameter
+              StructureDefinition ex = pack.getExtension(prefix+p.substring(1));
+              if (ex == null)
+                throw new Exception("Search Param "+pack.getTitle()+"/"+n+" refers to unknown extension '"+p+"' "+ getLocation(row));
+              e = definitions.getElementDefn("Extension");
+              pn.add("*.extension{"+ex.getUrl()+"}");
+            } else if (p.contains(".extension{")) {
+              String url = extractExtensionUrl(p);
+              StructureDefinition ex = extensionDefinitions.get(url); // not created yet?
+              if (ex == null)
+                throw new Exception("Search Param "+pack.getTitle()+"/"+n+" refers to unknown extension '"+url+"' "+ getLocation(row));
+              if (Utilities.noString(d))
+                d = ex.getDescription();
+              e = definitions.getElementDefn("Extension");
+              pn.add(p);
+            } else if (!p.startsWith("!") && !p.startsWith("Extension{") ) {
+              e = root2.getRoot().getElementForPath(p, definitions, "search param", true); 
+            }
+            if (Utilities.noString(d) && e != null)
+              d = e.getShortDefn();
+            if (d == null)
+              throw new Exception("Search Param "+root2.getName()+"/"+n+" has no description "+ getLocation(row));
+            if (e != null)
+              pn.add(p);
+            if (sp.getType() == SearchParamType.REFERENCE) {
+              // no check?
+            } else if (e != null && e.typeCode().startsWith("Reference("))
+              throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+sp.getType().toCode()+", but the element type is "+e.typeCode());
+            sp.setDescription(d);
+          }
+
+          sp.setXpath(new XPathQueryGenerator(definitions, log, null).generateXpath(pn));
+        }
+        sp.setId(pack.getId()+"-"+(root2 == null ? "all" : root2.getName())+"-"+sp.getName());
+        sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
+        pack.getSearchParameters().add(sp);
+      }
+    }
+  }
+  
   private void readSearchParams(ResourceDefn root2, Sheet sheet, boolean forProfile) throws Exception {
     
     if (sheet != null)
@@ -475,6 +565,8 @@ public class SpreadsheetParser {
           throw new Exception("Search Param has no name "+ getLocation(row));
         String n = sheet.getColumn(row, "Name");
         if (!n.startsWith("!")) {
+//          if (!n.toLowerCase().equals(n))
+//            throw new Exception("Search Param "+root2.getName()+"/"+n+" must be all lowercase "+ getLocation(row));
 
           if (!sheet.hasColumn(row, "Type"))
             throw new Exception("Search Param "+root2.getName()+"/"+n+" has no type "+ getLocation(row));
@@ -552,7 +644,7 @@ public class SpreadsheetParser {
 	}
 
 	private String extractExtensionUrl(String p) {
-    String url = p.substring(10);
+    String url = p.substring(p.indexOf("{")+1);
     return url.substring(0, url.length()-1);
   }
 
@@ -756,6 +848,17 @@ public class SpreadsheetParser {
       
 	    this.profileExtensionBase = ap.metadata("extension.uri");
 
+      sheet = loadSheet("Extensions");
+      if (sheet != null) {
+        int row = 0;
+        while (row < sheet.rows.size()) {
+          if (sheet.getColumn(row, "Code").startsWith("!"))
+            row++;
+          else 
+            row = processExtension(null, sheet, row, definitions, ap.metadata("extension.uri"), ap);
+        }
+      }
+
 	    List<String> namedSheets = new ArrayList<String>();
 
 	    if (ap.getMetadata().containsKey("published.structure")) {
@@ -770,17 +873,8 @@ public class SpreadsheetParser {
 	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false, usage));
 	      i++;
 	    }
-
-	    sheet = loadSheet("Extensions");
-	    if (sheet != null) {
-	      int row = 0;
-	      while (row < sheet.rows.size()) {
-	        if (sheet.getColumn(row, "Code").startsWith("!"))
-	          row++;
-	        else 
-	          row = processExtension(null, sheet, row, definitions, ap.metadata("extension.uri"), ap);
-	      }
-	    }
+	    if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
+	      readSearchParams(ap, xls.getSheets().get("Search"), this.profileExtensionBase);
 
 	  } catch (Exception e) {
 	    throw new Exception("exception parsing pack "+ap.getSource()+": "+e.getMessage(), e);

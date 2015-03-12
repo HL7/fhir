@@ -3520,7 +3520,8 @@ public class Publisher implements URIResolver {
     src = page.processPageIncludes(sp.getId()+".html", src, "??", null, sp, null);
     page.getEpub().registerFile(title + ".html", "SearchParameter " + sp.getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + ".html");
-
+    cloneToXhtml(title, "Search Parameter "+sp.getName(), false, "searchparam-instance");
+    
     String json = resource2Json(sp);
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("SearchParameter " + sp.getName()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
