@@ -27,6 +27,9 @@
       </table>
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+    <valueTime value="14:35:45"/>
+  </extension>
 
   <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
   <identifier>
