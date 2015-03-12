@@ -5822,14 +5822,14 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">ed-objectclass</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">!ed-objectclass</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">#objectClass</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">The version identifier of the data element</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s136"><Data ss:Type="String">ed-property</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">!ed-property</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s137"><Data ss:Type="String">#property</Data></Cell>

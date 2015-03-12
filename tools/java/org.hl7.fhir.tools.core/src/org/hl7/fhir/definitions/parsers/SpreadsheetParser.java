@@ -521,7 +521,10 @@ public class SpreadsheetParser {
               if (ex == null)
                 throw new Exception("Search Param "+pack.getTitle()+"/"+n+" refers to unknown extension '"+p+"' "+ getLocation(row));
               e = definitions.getElementDefn("Extension");
-              pn.add("*.extension{"+ex.getUrl()+"}");
+              if (ex.getContextType() != ExtensionContext.RESOURCE)
+                throw new Exception("Search Param "+pack.getTitle()+"/"+n+" refers to an extension that is not tied to a particular resource path '"+p+"' "+ getLocation(row));
+              for (StringType t : ex.getContext()) 
+                pn.add(t.getValue()+".extension{"+ex.getUrl()+"}");
             } else if (p.contains(".extension{")) {
               String url = extractExtensionUrl(p);
               StructureDefinition ex = extensionDefinitions.get(url); // not created yet?
