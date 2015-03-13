@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 11, 2015 23:41+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 13, 2015 18:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -752,6 +752,143 @@ public class Patient extends DomainResource {
   }
 
     @Block()
+    public static class PatientCommunicationComponent extends BackboneElement {
+        /**
+         * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.
+         */
+        @Child(name="language", type={CodeableConcept.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="The language which can be used to communicate with the patient about his or her health", formalDefinition="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. 'en' for English, or 'en-US' for American English versus 'en-EN' for England English." )
+        protected CodeableConcept language;
+
+        /**
+         * Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level).
+         */
+        @Child(name="preferred", type={BooleanType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Language preference indicator", formalDefinition="Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level)." )
+        protected BooleanType preferred;
+
+        private static final long serialVersionUID = 633792918L;
+
+      public PatientCommunicationComponent() {
+        super();
+      }
+
+      public PatientCommunicationComponent(CodeableConcept language) {
+        super();
+        this.language = language;
+      }
+
+        /**
+         * @return {@link #language} (The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.)
+         */
+        public CodeableConcept getLanguage() { 
+          if (this.language == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PatientCommunicationComponent.language");
+            else if (Configuration.doAutoCreate())
+              this.language = new CodeableConcept(); // cc
+          return this.language;
+        }
+
+        public boolean hasLanguage() { 
+          return this.language != null && !this.language.isEmpty();
+        }
+
+        /**
+         * @param value {@link #language} (The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.)
+         */
+        public PatientCommunicationComponent setLanguage(CodeableConcept value) { 
+          this.language = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #preferred} (Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level).). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
+         */
+        public BooleanType getPreferredElement() { 
+          if (this.preferred == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PatientCommunicationComponent.preferred");
+            else if (Configuration.doAutoCreate())
+              this.preferred = new BooleanType(); // bb
+          return this.preferred;
+        }
+
+        public boolean hasPreferredElement() { 
+          return this.preferred != null && !this.preferred.isEmpty();
+        }
+
+        public boolean hasPreferred() { 
+          return this.preferred != null && !this.preferred.isEmpty();
+        }
+
+        /**
+         * @param value {@link #preferred} (Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level).). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
+         */
+        public PatientCommunicationComponent setPreferredElement(BooleanType value) { 
+          this.preferred = value;
+          return this;
+        }
+
+        /**
+         * @return Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level).
+         */
+        public boolean getPreferred() { 
+          return this.preferred == null || this.preferred.isEmpty() ? false : this.preferred.getValue();
+        }
+
+        /**
+         * @param value Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level).
+         */
+        public PatientCommunicationComponent setPreferred(boolean value) { 
+            if (this.preferred == null)
+              this.preferred = new BooleanType();
+            this.preferred.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("language", "CodeableConcept", "The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. 'en' for English, or 'en-US' for American English versus 'en-EN' for England English.", 0, java.lang.Integer.MAX_VALUE, language));
+          childrenList.add(new Property("preferred", "boolean", "Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level).", 0, java.lang.Integer.MAX_VALUE, preferred));
+        }
+
+      public PatientCommunicationComponent copy() {
+        PatientCommunicationComponent dst = new PatientCommunicationComponent();
+        copyValues(dst);
+        dst.language = language == null ? null : language.copy();
+        dst.preferred = preferred == null ? null : preferred.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PatientCommunicationComponent))
+          return false;
+        PatientCommunicationComponent o = (PatientCommunicationComponent) other;
+        return compareDeep(language, o.language, true) && compareDeep(preferred, o.preferred, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PatientCommunicationComponent))
+          return false;
+        PatientCommunicationComponent o = (PatientCommunicationComponent) other;
+        return compareValues(preferred, o.preferred, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (language == null || language.isEmpty()) && (preferred == null || preferred.isEmpty())
+          ;
+      }
+
+  }
+
+    @Block()
     public static class PatientLinkComponent extends BackboneElement {
         /**
          * The other patient resource that the link refers to.
@@ -1008,9 +1145,9 @@ public class Patient extends DomainResource {
     /**
      * Languages which may be used to communicate with the patient about his or her health.
      */
-    @Child(name="communication", type={CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Languages which may be used to communicate with the patient about his or her health", formalDefinition="Languages which may be used to communicate with the patient about his or her health." )
-    protected List<CodeableConcept> communication;
+    @Child(name="communication", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="A list of Languages which may be used to communicate with the patient about his or her health", formalDefinition="Languages which may be used to communicate with the patient about his or her health." )
+    protected List<PatientCommunicationComponent> communication;
 
     /**
      * Patient's nominated care provider.
@@ -1050,7 +1187,7 @@ public class Patient extends DomainResource {
     @Description(shortDefinition="Whether this patient's record is in active use", formalDefinition="Whether this patient record is in active use." )
     protected BooleanType active;
 
-    private static final long serialVersionUID = 125593046L;
+    private static final long serialVersionUID = -1856730773L;
 
     public Patient() {
       super();
@@ -1568,16 +1705,16 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #communication} (Languages which may be used to communicate with the patient about his or her health.)
      */
-    public List<CodeableConcept> getCommunication() { 
+    public List<PatientCommunicationComponent> getCommunication() { 
       if (this.communication == null)
-        this.communication = new ArrayList<CodeableConcept>();
+        this.communication = new ArrayList<PatientCommunicationComponent>();
       return this.communication;
     }
 
     public boolean hasCommunication() { 
       if (this.communication == null)
         return false;
-      for (CodeableConcept item : this.communication)
+      for (PatientCommunicationComponent item : this.communication)
         if (!item.isEmpty())
           return true;
       return false;
@@ -1587,20 +1724,20 @@ public class Patient extends DomainResource {
      * @return {@link #communication} (Languages which may be used to communicate with the patient about his or her health.)
      */
     // syntactic sugar
-    public CodeableConcept addCommunication() { //3
-      CodeableConcept t = new CodeableConcept();
+    public PatientCommunicationComponent addCommunication() { //3
+      PatientCommunicationComponent t = new PatientCommunicationComponent();
       if (this.communication == null)
-        this.communication = new ArrayList<CodeableConcept>();
+        this.communication = new ArrayList<PatientCommunicationComponent>();
       this.communication.add(t);
       return t;
     }
 
     // syntactic sugar
-    public Patient addCommunication(CodeableConcept t) { //3
+    public Patient addCommunication(PatientCommunicationComponent t) { //3
       if (t == null)
         return this;
       if (this.communication == null)
-        this.communication = new ArrayList<CodeableConcept>();
+        this.communication = new ArrayList<PatientCommunicationComponent>();
       this.communication.add(t);
       return this;
     }
@@ -1798,7 +1935,7 @@ public class Patient extends DomainResource {
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("animal", "", "This element has a value if the patient is an animal.", 0, java.lang.Integer.MAX_VALUE, animal));
-        childrenList.add(new Property("communication", "CodeableConcept", "Languages which may be used to communicate with the patient about his or her health.", 0, java.lang.Integer.MAX_VALUE, communication));
+        childrenList.add(new Property("communication", "", "Languages which may be used to communicate with the patient about his or her health.", 0, java.lang.Integer.MAX_VALUE, communication));
         childrenList.add(new Property("careProvider", "Reference(Organization|Practitioner)", "Patient's nominated care provider.", 0, java.lang.Integer.MAX_VALUE, careProvider));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "Organization that is the custodian of the patient record.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("link", "", "Link to another patient resource that concerns the same actual person.", 0, java.lang.Integer.MAX_VALUE, link));
@@ -1846,8 +1983,8 @@ public class Patient extends DomainResource {
         };
         dst.animal = animal == null ? null : animal.copy();
         if (communication != null) {
-          dst.communication = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : communication)
+          dst.communication = new ArrayList<PatientCommunicationComponent>();
+          for (PatientCommunicationComponent i : communication)
             dst.communication.add(i.copy());
         };
         if (careProvider != null) {

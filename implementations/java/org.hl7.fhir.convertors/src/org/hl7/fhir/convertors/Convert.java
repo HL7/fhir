@@ -278,13 +278,18 @@ public class Convert {
 	  }
 	  if (e.getAttribute("value") != null) {
 	  	String[] url = e.getAttribute("value").split(":");
-	  	if (url.length == 1)
+	  	if (url.length == 1) {
 	  		c.setValue(url[0].trim());
-	  	else {
+	  		c.setSystem(ContactPointSystem.PHONE);
+	  	} else {
 	  		if (url[0].equals("tel"))
 	  			c.setSystem(ContactPointSystem.PHONE);
 	  		else if (url[0].equals("mailto"))
 	  			c.setSystem(ContactPointSystem.EMAIL);
+	  		else if (e.getAttribute("value").contains(":"))
+	  			c.setSystem(ContactPointSystem.URL);
+	  		else 
+	  			c.setSystem(ContactPointSystem.PHONE);
 	  		c.setValue(url[1].trim());
 	  	}
 	  }

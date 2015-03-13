@@ -55,7 +55,7 @@ public class Test {
 //			IParser j = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
 //			j.compose(new FileOutputStream(fj),  a);
 //			System.out.println("done. save as "+fx+" and "+fj);
-		  ArgonautConverter c = new ArgonautConverter(new UcumEssenceService(UCUM_PATH), WorkerContext.fromPack(Utilities.path(SRC_PATH, "validation.zip")).setTerminologyServices(new FHIRTerminologyServices(DEV_TS_SERVER)));
+		  ArgonautConverter c = new ArgonautConverter(new UcumEssenceService(UCUM_PATH), Utilities.path(SRC_PATH, "validation-min.zip"), new FHIRTerminologyServices(DEV_TS_SERVER));
 		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_ed", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
 		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_emergency", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
 		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\fileX", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");

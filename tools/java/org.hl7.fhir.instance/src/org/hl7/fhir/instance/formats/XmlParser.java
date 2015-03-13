@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Mar 11, 2015 23:41+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 13, 2015 18:02+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1370,6 +1370,10 @@ public class XmlParser extends XmlParserBase {
         res.setNameElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestor")) {
         res.setRequestorElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("location")) {
+        res.setLocation(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("policy")) {
+        res.getPolicy().add(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("media")) {
         res.setMedia(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("network")) {
@@ -7155,7 +7159,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("animal")) {
         res.setAnimal(parsePatientAnimalComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("communication")) {
-        res.getCommunication().add(parseCodeableConcept(xpp));
+        res.getCommunication().add(parsePatientPatientCommunicationComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("careProvider")) {
         res.getCareProvider().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("managingOrganization")) {
@@ -7212,6 +7216,24 @@ public class XmlParser extends XmlParserBase {
         res.setBreed(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("genderStatus")) {
         res.setGenderStatus(parseCodeableConcept(xpp));
+      } else if (!parseBackboneContent(eventType, xpp, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    return res;
+  }
+
+  protected Patient.PatientCommunicationComponent parsePatientPatientCommunicationComponent(XmlPullParser xpp, Patient owner) throws Exception {
+    Patient.PatientCommunicationComponent res = new Patient.PatientCommunicationComponent();
+    parseBackboneAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("language")) {
+        res.setLanguage(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("preferred")) {
+        res.setPreferredElement(parseBoolean(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -12167,6 +12189,13 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRequestorElement()) {
         composeBoolean("requestor", element.getRequestorElement());
+      }
+      if (element.hasLocation()) {
+        composeReference("location", element.getLocation());
+      }
+      if (element.hasPolicy()) { 
+        for (UriType e : element.getPolicy()) 
+          composeUri("policy", e);
       }
       if (element.hasMedia()) {
         composeCoding("media", element.getMedia());
@@ -18500,8 +18529,8 @@ public class XmlParser extends XmlParserBase {
         composePatientAnimalComponent("animal", element.getAnimal());
       }
       if (element.hasCommunication()) { 
-        for (CodeableConcept e : element.getCommunication()) 
-          composeCodeableConcept("communication", e);
+        for (Patient.PatientCommunicationComponent e : element.getCommunication()) 
+          composePatientPatientCommunicationComponent("communication", e);
       }
       if (element.hasCareProvider()) { 
         for (Reference e : element.getCareProvider()) 
@@ -18565,6 +18594,21 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasGenderStatus()) {
         composeCodeableConcept("genderStatus", element.getGenderStatus());
+      }
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  protected void composePatientPatientCommunicationComponent(String name, Patient.PatientCommunicationComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      if (element.hasLanguage()) {
+        composeCodeableConcept("language", element.getLanguage());
+      }
+      if (element.hasPreferredElement()) {
+        composeBoolean("preferred", element.getPreferredElement());
       }
       xml.close(FHIR_NS, name);
     }

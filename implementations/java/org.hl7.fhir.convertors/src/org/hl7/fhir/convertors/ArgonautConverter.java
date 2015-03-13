@@ -22,13 +22,17 @@ import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceFactory;
 import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.utils.FHIRTerminologyServices;
+import org.hl7.fhir.instance.utils.ITerminologyServices;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.InstanceValidator;
+import org.hl7.fhir.instance.validation.ValidationEngine;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.ucum.UcumEssenceService;
 import org.hl7.fhir.utilities.ucum.UcumService;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -36,17 +40,26 @@ import org.w3c.dom.Element;
 public class ArgonautConverter extends ConverterBase {
 
 	private UcumService ucumSvc;
-	private WorkerContext context;
+	private ValidationEngine validator;
 	int errors = 0;
 	int warnings = 0;
 	
-	protected ArgonautConverter(UcumService ucumSvc, WorkerContext context) {
+	public ArgonautConverter(UcumService ucumSvc, String path, ITerminologyServices tx) throws Exception {
 	  super();
 	  this.ucumSvc = ucumSvc;
-	  this.context = context;
+	  validator = new ValidationEngine();
+	  validator.readDefinitions(path);
+	  if (tx != null)
+	  	validator.getContext().setTerminologyServices(tx);
+	  
   }
 
 	
+	public ArgonautConverter(UcumEssenceService ucumEssenceService) {
+	  // TODO Auto-generated constructor stub
+  }
+
+
 	public int getErrors() {
 		return errors;
 	}
@@ -79,14 +92,14 @@ public class ArgonautConverter extends ConverterBase {
     	Element doc = cda.getElement();
 //    	cda.checkTemplateId(doc, "2.16.840.1.113883.10.20.22.1.1");
     	Convert convert = new Convert(cda, ucumSvc);
-    	saveResource(makeSubject(cda, convert, doc, "patient-"+filename), Utilities.path(destFolder, "patient-"+filename), "http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient");
+    	saveResource(makeSubject(cda, convert, doc, "patient-"+Utilities.changeFileExt(filename, "")), Utilities.path(destFolder, "patient-"+filename), "http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient");
     } catch (Exception e) {
     	throw new Error("Unable to process "+Utilities.path(sourceFolder, filename)+": "+e.getMessage(), e);
     }
   }
 	
 	private void saveResource(DomainResource resource, String path, String profile) throws Exception {
-		NarrativeGenerator generator = new NarrativeGenerator("", context);
+		NarrativeGenerator generator = new NarrativeGenerator("", validator.getContext());
 		generator.generate(resource);
 	  XmlParser parser = new XmlParser();
 	  parser.setOutputStyle(OutputStyle.PRETTY);
@@ -165,16 +178,15 @@ public class ArgonautConverter extends ConverterBase {
   }
 
 	private void validate(String filename, String url) throws Exception {
-	  InstanceValidator val = new InstanceValidator(context);
-	  StructureDefinition def = context.getProfiles().get(url);
+	  StructureDefinition def = validator.getContext().getProfiles().get(url);
 	  if (def == null)
 	  	throw new Exception("Unable to find Structure Definition "+url);
 	  
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setNamespaceAware(true);
-		DocumentBuilder builder = factory.newDocumentBuilder();
-		Document doc = builder.parse(new FileInputStream(filename));
-	  List<ValidationMessage> msgs = val.validate(doc, def);
+		validator.reset();
+		validator.setProfile(def);
+		validator.setSource(validator.loadFromFile(filename));
+		validator.process();
+	  List<ValidationMessage> msgs = validator.getOutputs();
 	  boolean ok = false;
 	  for (ValidationMessage m : msgs) {
 	  	if (m.getLevel() != IssueSeverity.INFORMATION)

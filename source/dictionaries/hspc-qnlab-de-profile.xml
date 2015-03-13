@@ -2,7 +2,7 @@
 <!-- processed by StringTemplate -->
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="hspc-QuantitativeLab-dataelements-$de_id$"/>
+  <id value="hspc-qnlab-de-$de_id$"/>
   <url value="http://hl7.org/fhir/StructureDefinition/$de_id$"/>
   <name value="HSPC Standard Quantitative Lab: $de_name$"/>
   <publisher value="HSPC"/>

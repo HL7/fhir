@@ -4806,7 +4806,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String baseLink(StructureDefinition structure) throws Exception {
     if (structure.getBase().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-      String name = structure.getBase().substring(28);
+      String name = structure.getBase().substring(40);
       if (definitions.hasResource(name))
         return "<a href=\""+name.toLowerCase()+".html\">"+name+"</a>";
       else if (definitions.hasElementDefn(name))

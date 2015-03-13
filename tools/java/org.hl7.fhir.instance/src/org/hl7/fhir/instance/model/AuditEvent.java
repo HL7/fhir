@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 11, 2015 23:41+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 13, 2015 18:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1488,7 +1488,7 @@ public class AuditEvent extends DomainResource {
         /**
          * Direct reference to a resource that identifies the participant.
          */
-        @Child(name="reference", type={Practitioner.class, Patient.class, Device.class}, order=2, min=0, max=1)
+        @Child(name="reference", type={Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Direct reference to resource", formalDefinition="Direct reference to a resource that identifies the participant." )
         protected Reference reference;
 
@@ -1526,20 +1526,39 @@ public class AuditEvent extends DomainResource {
         protected BooleanType requestor;
 
         /**
+         * Where the event occurred.
+         */
+        @Child(name="location", type={Location.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="Where", formalDefinition="Where the event occurred." )
+        protected Reference location;
+
+        /**
+         * The actual object that is the target of the reference (Where the event occurred.)
+         */
+        protected Location locationTarget;
+
+        /**
+         * The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.
+         */
+        @Child(name="policy", type={UriType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Policy that authorized event", formalDefinition="The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used." )
+        protected List<UriType> policy;
+
+        /**
          * Type of media involved. Used when the event is about exporting/importing onto media.
          */
-        @Child(name="media", type={Coding.class}, order=7, min=0, max=1)
+        @Child(name="media", type={Coding.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Type of media", formalDefinition="Type of media involved. Used when the event is about exporting/importing onto media." )
         protected Coding media;
 
         /**
          * Logical network location for application activity, if the activity has a network location.
          */
-        @Child(name="network", type={}, order=8, min=0, max=1)
+        @Child(name="network", type={}, order=10, min=0, max=1)
         @Description(shortDefinition="Logical network location for application activity", formalDefinition="Logical network location for application activity, if the activity has a network location." )
         protected AuditEventParticipantNetworkComponent network;
 
-        private static final long serialVersionUID = 339756070L;
+        private static final long serialVersionUID = -424356495L;
 
       public AuditEventParticipantComponent() {
         super();
@@ -1822,6 +1841,104 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
+         * @return {@link #location} (Where the event occurred.)
+         */
+        public Reference getLocation() { 
+          if (this.location == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AuditEventParticipantComponent.location");
+            else if (Configuration.doAutoCreate())
+              this.location = new Reference(); // cc
+          return this.location;
+        }
+
+        public boolean hasLocation() { 
+          return this.location != null && !this.location.isEmpty();
+        }
+
+        /**
+         * @param value {@link #location} (Where the event occurred.)
+         */
+        public AuditEventParticipantComponent setLocation(Reference value) { 
+          this.location = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the event occurred.)
+         */
+        public Location getLocationTarget() { 
+          if (this.locationTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AuditEventParticipantComponent.location");
+            else if (Configuration.doAutoCreate())
+              this.locationTarget = new Location(); // aa
+          return this.locationTarget;
+        }
+
+        /**
+         * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the event occurred.)
+         */
+        public AuditEventParticipantComponent setLocationTarget(Location value) { 
+          this.locationTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #policy} (The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.)
+         */
+        public List<UriType> getPolicy() { 
+          if (this.policy == null)
+            this.policy = new ArrayList<UriType>();
+          return this.policy;
+        }
+
+        public boolean hasPolicy() { 
+          if (this.policy == null)
+            return false;
+          for (UriType item : this.policy)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #policy} (The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.)
+         */
+    // syntactic sugar
+        public UriType addPolicyElement() {//2 
+          UriType t = new UriType();
+          if (this.policy == null)
+            this.policy = new ArrayList<UriType>();
+          this.policy.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #policy} (The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.)
+         */
+        public AuditEventParticipantComponent addPolicy(String value) { //1
+          UriType t = new UriType();
+          t.setValue(value);
+          if (this.policy == null)
+            this.policy = new ArrayList<UriType>();
+          this.policy.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #policy} (The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.)
+         */
+        public boolean hasPolicy(String value) { 
+          if (this.policy == null)
+            return false;
+          for (UriType v : this.policy)
+            if (v.equals(value)) // uri
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #media} (Type of media involved. Used when the event is about exporting/importing onto media.)
          */
         public Coding getMedia() { 
@@ -1872,11 +1989,13 @@ public class AuditEvent extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
-          childrenList.add(new Property("reference", "Reference(Practitioner|Patient|Device)", "Direct reference to a resource that identifies the participant.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("reference", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Direct reference to a resource that identifies the participant.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("userId", "string", "Unique identifier for the user actively participating in the event.", 0, java.lang.Integer.MAX_VALUE, userId));
           childrenList.add(new Property("altId", "string", "Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.", 0, java.lang.Integer.MAX_VALUE, altId));
           childrenList.add(new Property("name", "string", "Human-meaningful name for the user.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("requestor", "boolean", "Indicator that the user is or is not the requestor, or initiator, for the event being audited.", 0, java.lang.Integer.MAX_VALUE, requestor));
+          childrenList.add(new Property("location", "Reference(Location)", "Where the event occurred.", 0, java.lang.Integer.MAX_VALUE, location));
+          childrenList.add(new Property("policy", "uri", "The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.", 0, java.lang.Integer.MAX_VALUE, policy));
           childrenList.add(new Property("media", "Coding", "Type of media involved. Used when the event is about exporting/importing onto media.", 0, java.lang.Integer.MAX_VALUE, media));
           childrenList.add(new Property("network", "", "Logical network location for application activity, if the activity has a network location.", 0, java.lang.Integer.MAX_VALUE, network));
         }
@@ -1894,6 +2013,12 @@ public class AuditEvent extends DomainResource {
         dst.altId = altId == null ? null : altId.copy();
         dst.name = name == null ? null : name.copy();
         dst.requestor = requestor == null ? null : requestor.copy();
+        dst.location = location == null ? null : location.copy();
+        if (policy != null) {
+          dst.policy = new ArrayList<UriType>();
+          for (UriType i : policy)
+            dst.policy.add(i.copy());
+        };
         dst.media = media == null ? null : media.copy();
         dst.network = network == null ? null : network.copy();
         return dst;
@@ -1908,7 +2033,8 @@ public class AuditEvent extends DomainResource {
         AuditEventParticipantComponent o = (AuditEventParticipantComponent) other;
         return compareDeep(role, o.role, true) && compareDeep(reference, o.reference, true) && compareDeep(userId, o.userId, true)
            && compareDeep(altId, o.altId, true) && compareDeep(name, o.name, true) && compareDeep(requestor, o.requestor, true)
-           && compareDeep(media, o.media, true) && compareDeep(network, o.network, true);
+           && compareDeep(location, o.location, true) && compareDeep(policy, o.policy, true) && compareDeep(media, o.media, true)
+           && compareDeep(network, o.network, true);
       }
 
       @Override
@@ -1919,13 +2045,14 @@ public class AuditEvent extends DomainResource {
           return false;
         AuditEventParticipantComponent o = (AuditEventParticipantComponent) other;
         return compareValues(userId, o.userId, true) && compareValues(altId, o.altId, true) && compareValues(name, o.name, true)
-           && compareValues(requestor, o.requestor, true);
+           && compareValues(requestor, o.requestor, true) && compareValues(policy, o.policy, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (role == null || role.isEmpty()) && (reference == null || reference.isEmpty())
            && (userId == null || userId.isEmpty()) && (altId == null || altId.isEmpty()) && (name == null || name.isEmpty())
-           && (requestor == null || requestor.isEmpty()) && (media == null || media.isEmpty()) && (network == null || network.isEmpty())
+           && (requestor == null || requestor.isEmpty()) && (location == null || location.isEmpty())
+           && (policy == null || policy.isEmpty()) && (media == null || media.isEmpty()) && (network == null || network.isEmpty())
           ;
       }
 
@@ -3298,6 +3425,8 @@ public class AuditEvent extends DomainResource {
   public static final String SP_ACTION = "action";
   @SearchParamDefinition(name="participant", path="AuditEvent.participant.reference", description="Direct reference to resource", type="reference" )
   public static final String SP_PARTICIPANT = "participant";
+  @SearchParamDefinition(name="policy", path="AuditEvent.participant.policy", description="Policy that authorized event", type="token" )
+  public static final String SP_POLICY = "policy";
   @SearchParamDefinition(name="object-type", path="AuditEvent.object.type", description="Object type being audited", type="token" )
   public static final String SP_OBJECTTYPE = "object-type";
   @SearchParamDefinition(name="user", path="AuditEvent.participant.userId", description="Unique identifier for the user", type="token" )

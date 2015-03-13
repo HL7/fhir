@@ -829,6 +829,12 @@
     <display value="Tea, NOS"/>
     <display value="Tea (substance)"/>
   </concept>
+  <concept id="163220003" display="On examination - abdominal pain - right iliac (finding)">
+    <display value="O/E - abd. pain - R.iliac"/>
+    <display value="On examination - abdominal pain - right iliac (finding)"/>
+    <display value="On examination - abdominal pain - right iliac"/>
+    <display value="On examination - abdominal pain - right iliac (context-dependent category)"/>
+  </concept>
   <concept id="16331000" display="Heartburn (finding)">
     <display value="Heartburn"/>
     <display value="Waterbrash"/>
@@ -4548,6 +4554,12 @@
     <display value="Epicranium"/>
     <display value="Scalp structure (body structure)"/>
   </concept>
+  <concept id="417887005" display="Pediatric otolaryngology (qualifier value)">
+    <display value="Paediatric otolaryngology (qualifier value)"/>
+    <display value="Pediatric otolaryngology"/>
+    <display value="Paediatric otolaryngology"/>
+    <display value="Pediatric otolaryngology (qualifier value)"/>
+  </concept>
   <concept id="417980006" display="Contains aspirin (qualifier value)">
     <display value="Contains aspirin (qualifier value)"/>
     <display value="Contains aspirin"/>
@@ -4916,6 +4928,10 @@
     <display value="Upper jaw region structure (body structure)"/>
     <display value="Upper jaw"/>
   </concept>
+  <concept id="434746001" display="Specimen vial (physical object)">
+    <display value="Specimen vial (physical object)"/>
+    <display value="Specimen vial"/>
+  </concept>
   <concept id="43664005" display="Normal weight (finding)">
     <display value="Normal weight"/>
     <display value="Normal weight (finding)"/>
@@ -4934,6 +4950,11 @@
   <concept id="438660002" display="Specimen from prosthetic device (specimen)">
     <display value="Specimen from prosthetic device (specimen)"/>
     <display value="Specimen from prosthetic device"/>
+  </concept>
+  <concept id="439021000124105" display="Dietary liquid consistency - nectar thick liquid (regime/therapy)">
+    <display value="Liquids included in the diet are provided at a viscosity of 51--350 centipoise (cP). (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
+    <display value="Dietary liquid consistency - nectar thick liquid (regime/therapy)"/>
+    <display value="Dietary liquid consistency - nectar thick liquid"/>
   </concept>
   <concept id="439091000124107" display="Easy to chew food (substance)">
     <display value="Easy to chew food (substance)"/>
@@ -5880,6 +5901,12 @@
     <display value="Uncertain"/>
     <display value="Uncertain (qualifier value)"/>
   </concept>
+  <concept id="65363002" display="Otitis media (disorder)">
+    <display value="Otitis media"/>
+    <display value="Otitis media, NOS"/>
+    <display value="OM - Otitis media"/>
+    <display value="Otitis media (disorder)"/>
+  </concept>
   <concept id="66051006" display="Pyloric antrum structure (body structure)">
     <display value="Pyloric antrum"/>
     <display value="Antrum of stomach"/>
@@ -5959,6 +5986,10 @@
   <concept id="69910005" display="Unidentified (qualifier value)">
     <display value="Unidentified"/>
     <display value="Unidentified (qualifier value)"/>
+  </concept>
+  <concept id="700274009" display="Referral for procedure (procedure)">
+    <display value="Referral for procedure"/>
+    <display value="Referral for procedure (procedure)"/>
   </concept>
   <concept id="70317007" display="Abortion (disorder)">
     <display value="Abortion"/>

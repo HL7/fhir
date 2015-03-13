@@ -115,6 +115,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
     json.endObject();
     json.finish();
     osw.flush();
+    osw.close();
   }
 
   /**
@@ -138,6 +139,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
     json.endObject();
     json.finish();
     osw.flush();
+    osw.close();
   }
     
 

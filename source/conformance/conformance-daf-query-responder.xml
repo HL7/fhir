@@ -313,7 +313,7 @@
 					<li><a href="patient-extensions.html#search">postalCode</a> - Search based on zip code (<a href="search.html#string">string</a>)</li>
 					<li><a href="patient-extensions.html#search">state</a> - Search based on state (<a href="search.html#string">string</a>)</li>
 					<li><a href="patient-extensions.html#search">mothersMaidenName</a> - Search based on Patient mother's Maiden Name (<a href="search.html#string">string</a>)</li>
-					<li><a href="us-core.html#search">age</a> - Search based on Patient's age (<a href="search.html#number">number</a>)</li>
+					<li><a href="patient-extensions.html#search">age</a> - Search based on Patient's age (<a href="search.html#number">number</a>)</li>
 					<li><a href="us-core.html#search">race</a> - Search based on patient's race (<a href="search.html#token">token</a>)</li>
 					<li><a href="us-core.html#search">ethnicity</a> - Search based on patient's ethnicity (<a href="search.html#token">token</a>)</li>
 				</ul>

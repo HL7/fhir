@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 11, 2015 23:41+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 13, 2015 18:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -63,10 +63,6 @@ public class DiagnosticReport extends DomainResource {
          */
         CORRECTED, 
         /**
-         * The report has been modified subsequent to being Final, and is complete and verified by an authorized person, and data has been changed.
-         */
-        AMENDED, 
-        /**
          * The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.
          */
         APPENDED, 
@@ -93,8 +89,6 @@ public class DiagnosticReport extends DomainResource {
           return FINAL;
         if ("corrected".equals(codeString))
           return CORRECTED;
-        if ("amended".equals(codeString))
-          return AMENDED;
         if ("appended".equals(codeString))
           return APPENDED;
         if ("cancelled".equals(codeString))
@@ -109,7 +103,6 @@ public class DiagnosticReport extends DomainResource {
             case PARTIAL: return "partial";
             case FINAL: return "final";
             case CORRECTED: return "corrected";
-            case AMENDED: return "amended";
             case APPENDED: return "appended";
             case CANCELLED: return "cancelled";
             case ENTEREDINERROR: return "entered-in-error";
@@ -122,7 +115,6 @@ public class DiagnosticReport extends DomainResource {
             case PARTIAL: return "";
             case FINAL: return "";
             case CORRECTED: return "";
-            case AMENDED: return "";
             case APPENDED: return "";
             case CANCELLED: return "";
             case ENTEREDINERROR: return "";
@@ -135,7 +127,6 @@ public class DiagnosticReport extends DomainResource {
             case PARTIAL: return "This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.";
             case FINAL: return "The report is complete and verified by an authorized person.";
             case CORRECTED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person.";
-            case AMENDED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person, and data has been changed.";
             case APPENDED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.";
             case CANCELLED: return "The report is unavailable because the measurement was not started or not completed (also sometimes called 'aborted').";
             case ENTEREDINERROR: return "The report has been withdrawn following previous Final release.";
@@ -148,7 +139,6 @@ public class DiagnosticReport extends DomainResource {
             case PARTIAL: return "Partial";
             case FINAL: return "Final";
             case CORRECTED: return "Corrected";
-            case AMENDED: return "Amended";
             case APPENDED: return "Appended";
             case CANCELLED: return "Cancelled";
             case ENTEREDINERROR: return "Entered In Error";
@@ -170,8 +160,6 @@ public class DiagnosticReport extends DomainResource {
           return DiagnosticReportStatus.FINAL;
         if ("corrected".equals(codeString))
           return DiagnosticReportStatus.CORRECTED;
-        if ("amended".equals(codeString))
-          return DiagnosticReportStatus.AMENDED;
         if ("appended".equals(codeString))
           return DiagnosticReportStatus.APPENDED;
         if ("cancelled".equals(codeString))
@@ -189,8 +177,6 @@ public class DiagnosticReport extends DomainResource {
         return "final";
       if (code == DiagnosticReportStatus.CORRECTED)
         return "corrected";
-      if (code == DiagnosticReportStatus.AMENDED)
-        return "amended";
       if (code == DiagnosticReportStatus.APPENDED)
         return "appended";
       if (code == DiagnosticReportStatus.CANCELLED)
@@ -378,7 +364,7 @@ public class DiagnosticReport extends DomainResource {
      * The status of the diagnostic report as a whole.
      */
     @Child(name="status", type={CodeType.class}, order=1, min=1, max=1)
-    @Description(shortDefinition="registered | partial | final | corrected +", formalDefinition="The status of the diagnostic report as a whole." )
+    @Description(shortDefinition="registered | partial | final | corrected | appended | cancelled | entered-in-error", formalDefinition="The status of the diagnostic report as a whole." )
     protected Enumeration<DiagnosticReportStatus> status;
 
     /**

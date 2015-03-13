@@ -64,7 +64,7 @@ public class Validator {
       System.out.println("");
       System.out.println("JSON is not supported at this time");
       System.out.println("");
-      System.out.println("Usage: FHIRValidator.jar [source] (-defn [definitions]) (-profile [profile]) (-output [output]) (-noxslt) where: ");
+      System.out.println("Usage: org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-profile [profile]) (-output [output]) (-noxslt) where: ");
       System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
       System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from inside the jar file");
       System.out.println("* [profile] is an optional filename or URL for a specific profile to validate a resource");
@@ -73,9 +73,9 @@ public class Validator {
       System.out.println("* [output] is a filename for the results (OperationOutcome). Default: results are sent to the std out.");
       System.out.println("* -noxslt means not to run the schematrons (you really need to run these, but they need xslt2).");
       System.out.println("");
-      System.out.println("Or: FHIRValidator.jar -profile-tests [registry] (-defn [definitions])");
+      System.out.println("Or: java -jar org.hl7.fhir.validator.jar -profile-tests [registry] (-defn [definitions])");
       System.out.println("");
-      System.out.println("Master Source for the validation pack: "+MASTER_SOURCE);
+      System.out.println("Master Source for the validation pack: "+ValidationEngine.MASTER_SOURCE);
     } else {
       if (args[0].equals("-profile-tests")) {
         String pack = null;
@@ -156,64 +156,12 @@ public class Validator {
   
 
   ValidationEngine engine = new ValidationEngine();
-  static final String MASTER_SOURCE = "http://hl7.org/documentcenter/public/standards/FHIR-Develop/validator.zip"; // fix after DSTU!!
 
   public void process() throws Exception {
-    byte[] defn = loadDefinitions();
-    if (!Utilities.noString(profile)) 
-      engine.setProfile(readProfile(loadProfile()));
-    readDefinitions(engine, defn);
+    engine.readDefinitions(definitions);
+    engine.loadProfile(profile);
     engine.setSource(loadSource());
     engine.process();
-  }
-
-  private StructureDefinition readProfile(byte[] content) throws Exception {
-      XmlParser xml = new XmlParser(true);
-      return (StructureDefinition) xml.parse(new ByteArrayInputStream(content));
-  }
-      
-  private byte[] loadProfile() throws Exception {
-	  if (Utilities.noString(profile)) {
-		  return null;
-	  } else if (profile.startsWith("https:") || profile.startsWith("http:")) {
-		  return loadFromUrl(profile);
-	  } else if (new File(profile).exists()) {
-		  return loadFromFile(profile);      
-	  } else
-		  throw new Exception("Unable to find named profile (source = "+profile+")");
-    }
-
-  private void readDefinitions(ValidationEngine engine, byte[] defn) throws Exception {
-    ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(defn));
-    ZipEntry ze;
-    while ((ze = zip.getNextEntry()) != null) {
-      if (!ze.getName().endsWith(".zip") && !ze.getName().endsWith(".jar") ) { // skip saxon .zip
-        String name = ze.getName();
-        InputStream in = zip;
-        ByteArrayOutputStream b = new ByteArrayOutputStream();
-        int n;
-        byte[] buf = new byte[1024];
-        while ((n = in.read(buf, 0, 1024)) > -1) {
-          b.write(buf, 0, n);
-        }        
-        engine.getDefinitions().put(name, b.toByteArray());
-      }
-      zip.closeEntry();
-    }
-    zip.close();    
-  }
-
-  private byte[] loadDefinitions() throws Exception {
-    byte[] defn;
-    if (Utilities.noString(definitions)) {
-      defn = loadFromUrl(MASTER_SOURCE);
-    } else if (definitions.startsWith("https:") || definitions.startsWith("http:")) {
-      defn = loadFromUrl(definitions);
-    } else if (new File(definitions).exists()) {
-      defn = loadFromFile(definitions);      
-    } else
-      throw new Exception("Unable to find FHIR validation Pack (source = "+definitions+")");
-    return defn;
   }
 
   private byte[] loadSource() throws Exception {
@@ -226,7 +174,7 @@ public class Validator {
       src = source.getBytes();
     return src;
   }
-
+  
   private byte[] loadFromUrl(String src) throws Exception {
   	URL url = new URL(src);
     byte[] str = IOUtils.toByteArray(url.openStream());
@@ -241,6 +189,7 @@ public class Validator {
     return b;
   }
 
+ 
   public String getSource() {
     return source;
   }

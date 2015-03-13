@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 11, 2015 23:41+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 13, 2015 18:02+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1230,7 +1230,7 @@ public class MedicationStatement extends DomainResource {
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="source", path="MedicationStatement.informationSource", description="Who the information in the statement came from", type="reference" )
   public static final String SP_SOURCE = "source";
-  @SearchParamDefinition(name="status", path="MedicationStatement.status", description="Return statements that match the given status", type="string" )
+  @SearchParamDefinition(name="status", path="MedicationStatement.status", description="Return statements that match the given status", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="identifier", path="MedicationStatement.identifier", description="Return statements with this external identity", type="token" )
   public static final String SP_IDENTIFIER = "identifier";

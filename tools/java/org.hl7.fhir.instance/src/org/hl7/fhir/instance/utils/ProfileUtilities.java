@@ -946,7 +946,7 @@ public class ProfileUtilities {
     List<ElementDefinition> list = diff ? profile.getDifferential().getElement() : profile.getSnapshot().getElement();
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     profiles.add(profile);    
-    genElement(defFile == null ? null : defFile+"#"+profile.getName()+".", gen, model.getRows(), list.get(0), list, profiles, pkp, diff, profileBaseFileName, null, snapshot);
+    genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, pkp, diff, profileBaseFileName, null, snapshot);
     return gen.generate(model);
   }
 
@@ -1081,10 +1081,10 @@ public class ProfileUtilities {
 
   private String makePathLink(ElementDefinition element) {
     if (element.hasName())
-      return element.getPath();
-    if (!element.getPath().contains("."))
       return element.getName();
-    return element.getPath().substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
+    if (!element.getPath().contains("."))
+      return element.getPath();
+    return element.getPath(); // .substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
   }
 
   private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, StructureDefinition profile) throws Exception {

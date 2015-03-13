@@ -27,14 +27,21 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
@@ -44,6 +51,7 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
+import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -61,21 +69,24 @@ import org.w3c.dom.ls.LSResourceResolver;
 import org.xml.sax.SAXException;
 
 public class ValidationEngine {
+	static final String MASTER_SOURCE = "http://hl7.org/documentcenter/public/standards/FHIR-Develop/validator.zip"; // fix after DSTU!!
 
-//  static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
-//  static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
-//  static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
+	//  static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
+	//  static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
+	//  static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
 
-  private byte[] source;
-  private Map<String, byte[]> definitions = new HashMap<String, byte[]>();
-  private List<ValidationMessage> outputs;  
-  private OperationOutcome outcome;
+	private byte[] source;
+	private Map<String, byte[]> definitions = new HashMap<String, byte[]>();
+	private List<ValidationMessage> outputs;  
+	private OperationOutcome outcome;
 	private boolean noSchematron;
 	private StructureDefinition profile;
 	private String profileURI;
+	private WorkerContext context;
+	private Schema schema;
 
 
-  public String getProfileURI() {
+	public String getProfileURI() {
 		return profileURI;
 	}
 
@@ -83,132 +94,130 @@ public class ValidationEngine {
 		this.profileURI = profileURI;
 	}
 
-  public void process() throws Exception {
-    outputs = new ArrayList<ValidationMessage>();
-    Schema schema = readSchema();
+	public void process() throws Exception {
+		outputs = new ArrayList<ValidationMessage>();
 
-    // ok all loaded
+		// ok all loaded
 
-    // 1. schema validation 
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    factory.setValidating(false);
-    factory.setSchema(schema);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    builder.setErrorHandler(new ValidationErrorHandler(outputs));
-    Document doc = builder.parse(new ByteArrayInputStream(source));
+		// 1. schema validation 
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		factory.setNamespaceAware(true);
+		factory.setValidating(false);
+		factory.setSchema(schema);
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		builder.setErrorHandler(new ValidationErrorHandler(outputs));
+		Document doc = builder.parse(new ByteArrayInputStream(source));
 
-    if (!noSchematron) {
-    	// 2. schematron validation
-    	String sch = "fhir-invariants.sch";
-    	byte[] tmp = Utilities.saxonTransform(definitions, definitions.get(sch), definitions.get("iso_svrl_for_xslt2.xsl"));
-    	byte[] out = Utilities.saxonTransform(definitions, source, tmp);
-    	processSchematronOutput(out);
-    }
+		if (!noSchematron) {
+			// 2. schematron validation
+			String sch = "fhir-invariants.sch";
+			byte[] tmp = Utilities.saxonTransform(definitions, definitions.get(sch), definitions.get("iso_svrl_for_xslt2.xsl"));
+			byte[] out = Utilities.saxonTransform(definitions, source, tmp);
+			processSchematronOutput(out);
+		}
 
-    // 3. internal validation. reparse without schema to "help"
-    factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    factory.setValidating(false);
-    builder = factory.newDocumentBuilder();
-    builder.setErrorHandler(new ValidationErrorHandler(outputs));
-    doc = builder.parse(new ByteArrayInputStream(source));
+		// 3. internal validation. reparse without schema to "help"
+		factory = DocumentBuilderFactory.newInstance();
+		factory.setNamespaceAware(true);
+		factory.setValidating(false);
+		builder = factory.newDocumentBuilder();
+		builder.setErrorHandler(new ValidationErrorHandler(outputs));
+		doc = builder.parse(new ByteArrayInputStream(source));
 
-    WorkerContext context = WorkerContext.fromDefinitions(definitions);
-    InstanceValidator validator = new InstanceValidator(context);
+		InstanceValidator validator = new InstanceValidator(context);
 
 		if (profile != null)
-      outputs.addAll(validator.validate(doc, profile));
-    else if (profileURI != null)
-      outputs.addAll(validator.validate(doc, profileURI));
-    else
-      outputs.addAll(validator.validate(doc));
-    
-    new XmlParser().parse(new ByteArrayInputStream(source));
-        
-    OperationOutcome op = new OperationOutcome();
-    for (ValidationMessage vm : outputs) {
-      op.getIssue().add(vm.asIssue(op));
-    }
-    new NarrativeGenerator("", context).generate(op);
-    outcome = op;
-  }
+			outputs.addAll(validator.validate(doc, profile));
+		else if (profileURI != null)
+			outputs.addAll(validator.validate(doc, profileURI));
+		else
+			outputs.addAll(validator.validate(doc));
 
-  public class ValidatorResourceResolver implements LSResourceResolver {
+		new XmlParser().parse(new ByteArrayInputStream(source));
 
-    private Map<String, byte[]> files;
+		OperationOutcome op = new OperationOutcome();
+		for (ValidationMessage vm : outputs) {
+			op.getIssue().add(vm.asIssue(op));
+		}
+		new NarrativeGenerator("", context).generate(op);
+		outcome = op;
+	}
 
-    public ValidatorResourceResolver(Map<String, byte[]> files) {
-      this.files = files;
-    }
+	public class ValidatorResourceResolver implements LSResourceResolver {
 
-    @Override
-    public LSInput resolveResource(final String type, final String namespaceURI, final String publicId, String systemId, final String baseURI) {
-      //      if (!(namespaceURI.equals("http://hl7.org/fhir"))) //|| namespaceURI.equals("http://www.w3.org/1999/xhtml")))
-      if (!files.containsKey(systemId))
-        return null;
-      return new SchemaInputSource(new ByteArrayInputStream(files.get(systemId)), publicId, systemId, namespaceURI);
-    }
-  }
+		private Map<String, byte[]> files;
 
-  private Schema readSchema() throws SAXException {
-    StreamSource[] sources = new StreamSource[1];
-    sources[0] = new StreamSource(new ByteArrayInputStream(definitions.get("fhir-all.xsd")));
+		public ValidatorResourceResolver(Map<String, byte[]> files) {
+			this.files = files;
+		}
 
-    SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    schemaFactory.setErrorHandler(new ValidationErrorHandler(outputs));
-    schemaFactory.setResourceResolver(new ValidatorResourceResolver(definitions));
-    Schema schema = schemaFactory.newSchema(sources);
-    return schema;
-  }
+		@Override
+		public LSInput resolveResource(final String type, final String namespaceURI, final String publicId, String systemId, final String baseURI) {
+			//      if (!(namespaceURI.equals("http://hl7.org/fhir"))) //|| namespaceURI.equals("http://www.w3.org/1999/xhtml")))
+			if (!files.containsKey(systemId))
+				return null;
+			return new SchemaInputSource(new ByteArrayInputStream(files.get(systemId)), publicId, systemId, namespaceURI);
+		}
+	}
 
-  private void processSchematronOutput(byte[] out)
-      throws ParserConfigurationException, SAXException, IOException {
-    DocumentBuilderFactory factory;
-    DocumentBuilder builder;
-    Document doc;
-    factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    builder = factory.newDocumentBuilder();
-    doc = builder.parse(new ByteArrayInputStream(out));
-    NodeList nl = doc.getDocumentElement().getElementsByTagNameNS("http://purl.oclc.org/dsdl/svrl", "failed-assert");
-    if (nl.getLength() > 0) {
-      for (int i = 0; i < nl.getLength(); i++) {
-        Element e = (Element) nl.item(i);
-        ValidationMessage o = new ValidationMessage();
-        o.setSource(Source.Schematron);
-        o.setType("invariant");
-        o.setLevel(IssueSeverity.ERROR);
-        o.setLocation(e.getAttribute("location"));
-        o.setMessage(e.getTextContent());
-        outputs.add(o);
-      }
-    }
-  }
+	private Schema readSchema() throws SAXException {
+		StreamSource[] sources = new StreamSource[1];
+		sources[0] = new StreamSource(new ByteArrayInputStream(definitions.get("fhir-all.xsd")));
 
-  public List<ValidationMessage> getOutputs() {
-    return outputs;
-  }
+		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		schemaFactory.setErrorHandler(new ValidationErrorHandler(outputs));
+		schemaFactory.setResourceResolver(new ValidatorResourceResolver(definitions));
+		Schema schema = schemaFactory.newSchema(sources);
+		return schema;
+	}
 
-  public void setOutputs(List<ValidationMessage> outputs) {
-    this.outputs = outputs;
-  }
+	private void processSchematronOutput(byte[] out)
+			throws ParserConfigurationException, SAXException, IOException {
+		DocumentBuilderFactory factory;
+		DocumentBuilder builder;
+		Document doc;
+		factory = DocumentBuilderFactory.newInstance();
+		factory.setNamespaceAware(true);
+		builder = factory.newDocumentBuilder();
+		doc = builder.parse(new ByteArrayInputStream(out));
+		NodeList nl = doc.getDocumentElement().getElementsByTagNameNS("http://purl.oclc.org/dsdl/svrl", "failed-assert");
+		if (nl.getLength() > 0) {
+			for (int i = 0; i < nl.getLength(); i++) {
+				Element e = (Element) nl.item(i);
+				ValidationMessage o = new ValidationMessage();
+				o.setSource(Source.Schematron);
+				o.setType("invariant");
+				o.setLevel(IssueSeverity.ERROR);
+				o.setLocation(e.getAttribute("location"));
+				o.setMessage(e.getTextContent());
+				outputs.add(o);
+			}
+		}
+	}
 
-  public byte[] getSource() {
-    return source;
-  }
+	public List<ValidationMessage> getOutputs() {
+		return outputs;
+	}
 
-  public Map<String, byte[]> getDefinitions() {
-    return definitions;
-  }
+	public void setOutputs(List<ValidationMessage> outputs) {
+		this.outputs = outputs;
+	}
 
-  public OperationOutcome getOutcome() {
-    return outcome;
-  }
+	public byte[] getSource() {
+		return source;
+	}
 
-  public void setSource(byte[] source) {
-    this.source = source;
-  }
+	public Map<String, byte[]> getDefinitions() {
+		return definitions;
+	}
+
+	public OperationOutcome getOutcome() {
+		return outcome;
+	}
+
+	public void setSource(byte[] source) {
+		this.source = source;
+	}
 
 	public boolean isNoSchematron() {
 		return noSchematron;
@@ -218,12 +227,101 @@ public class ValidationEngine {
 		this.noSchematron = noSchematron;
 	}
 
-  public StructureDefinition getProfile() {
-    return profile;
-  }
+	public StructureDefinition getProfile() {
+		return profile;
+	}
 
-  public void setProfile(StructureDefinition profile) {
-    this.profile = profile;
+	public void setProfile(StructureDefinition profile) {
+		this.profile = profile;
+	}
+
+	public void init() throws Exception {
+		context = WorkerContext.fromDefinitions(definitions);    
+		schema = readSchema();
+	}
+
+	public WorkerContext getContext() {
+		return context;
+	}
+
+	public void readDefinitions(byte[] defn) throws Exception {
+		ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(defn));
+		ZipEntry ze;
+		while ((ze = zip.getNextEntry()) != null) {
+			if (!ze.getName().endsWith(".zip") && !ze.getName().endsWith(".jar") ) { // skip saxon .zip
+				String name = ze.getName();
+				InputStream in = zip;
+				ByteArrayOutputStream b = new ByteArrayOutputStream();
+				int n;
+				byte[] buf = new byte[1024];
+				while ((n = in.read(buf, 0, 1024)) > -1) {
+					b.write(buf, 0, n);
+				}        
+				getDefinitions().put(name, b.toByteArray());
+			}
+			zip.closeEntry();
+		}
+		zip.close();    
+		init();
+	}
+
+	public void readDefinitions(String definitions) throws Exception {
+		byte[] defn;
+		if (Utilities.noString(definitions)) {
+			defn = loadFromUrl(MASTER_SOURCE);
+		} else if (definitions.startsWith("https:") || definitions.startsWith("http:")) {
+			defn = loadFromUrl(definitions);
+		} else if (new File(definitions).exists()) {
+			defn = loadFromFile(definitions);      
+		} else
+			throw new Exception("Unable to find FHIR validation Pack (source = "+definitions+")");
+		readDefinitions(defn);
+	}
+
+	public byte[] loadFromUrl(String src) throws Exception {
+		URL url = new URL(src);
+		byte[] str = IOUtils.toByteArray(url.openStream());
+		return str;
+	}
+
+	public byte[] loadFromFile(String src) throws Exception {
+		FileInputStream in = new FileInputStream(src);
+		byte[] b = new byte[in.available()];
+		in.read(b);
+		in.close();
+		return b;
+	}
+
+	public void loadProfile(String profile) throws Exception {
+		if (!Utilities.noString(profile)) 
+			if (getContext().getProfiles().containsKey(profile))
+				setProfile(getContext().getProfiles().get(profile));
+			else
+				setProfile(readProfile(loadProfileCnt(profile)));
+	}
+
+	private StructureDefinition readProfile(byte[] content) throws Exception {
+		XmlParser xml = new XmlParser(true);
+		return (StructureDefinition) xml.parse(new ByteArrayInputStream(content));
+	}
+
+	private byte[] loadProfileCnt(String profile) throws Exception {
+		if (Utilities.noString(profile)) {
+			return null;
+		} else if (profile.startsWith("https:") || profile.startsWith("http:")) {
+			return loadFromUrl(profile);
+		} else if (new File(profile).exists()) {
+			return loadFromFile(profile);      
+		} else
+			throw new Exception("Unable to find named profile (source = "+profile+")");
+	}
+
+	public void reset() {
+		source = null;
+		outputs = null;  
+		outcome = null;
+		profile = null;
+		profileURI = null;
   }
 
 

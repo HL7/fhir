@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Mar 11, 2015 23:41+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 13, 2015 18:02+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1462,6 +1462,23 @@ public class JsonParser extends JsonParserBase {
       res.setRequestorElement(parseBoolean(json.get("requestor").getAsBoolean()));
     if (json.has("_requestor"))
       parseElementProperties(json.getAsJsonObject("_requestor"), res.getRequestorElement());
+    if (json.has("location"))
+      res.setLocation(parseReference(json.getAsJsonObject("location")));
+    if (json.has("policy")) {
+      JsonArray array = json.getAsJsonArray("policy");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPolicy().add(parseUri(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_policy")) {
+      JsonArray array = json.getAsJsonArray("_policy");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getPolicy().size())
+          res.getPolicy().add(parseUri(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getPolicy().get(i));
+      }
+    };
     if (json.has("media"))
       res.setMedia(parseCoding(json.getAsJsonObject("media")));
     if (json.has("network"))
@@ -8080,7 +8097,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("communication")) {
       JsonArray array = json.getAsJsonArray("communication");
       for (int i = 0; i < array.size(); i++) {
-        res.getCommunication().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+        res.getCommunication().add(parsePatientPatientCommunicationComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("careProvider")) {
@@ -8143,6 +8160,18 @@ public class JsonParser extends JsonParserBase {
       res.setBreed(parseCodeableConcept(json.getAsJsonObject("breed")));
     if (json.has("genderStatus"))
       res.setGenderStatus(parseCodeableConcept(json.getAsJsonObject("genderStatus")));
+    return res;
+  }
+
+  protected Patient.PatientCommunicationComponent parsePatientPatientCommunicationComponent(JsonObject json, Patient owner) throws Exception {
+    Patient.PatientCommunicationComponent res = new Patient.PatientCommunicationComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("language"))
+      res.setLanguage(parseCodeableConcept(json.getAsJsonObject("language")));
+    if (json.has("preferred"))
+      res.setPreferredElement(parseBoolean(json.get("preferred").getAsBoolean()));
+    if (json.has("_preferred"))
+      parseElementProperties(json.getAsJsonObject("_preferred"), res.getPreferredElement());
     return res;
   }
 
@@ -13893,6 +13922,21 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("requestor", element.getRequestorElement(), false);
         composeBooleanExtras("requestor", element.getRequestorElement(), false);
       }
+      if (element.hasLocation()) {
+        composeReference("location", element.getLocation());
+      }
+      if (element.hasPolicy()) {
+        openArray("policy");
+        for (UriType e : element.getPolicy()) 
+          composeUriCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getPolicy())) {
+          openArray("_policy");
+          for (UriType e : element.getPolicy()) 
+            composeUriExtras(null, e, true);
+          closeArray();
+        }
+      };
       if (element.hasMedia()) {
         composeCoding("media", element.getMedia());
       }
@@ -22206,8 +22250,8 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasCommunication()) {
         openArray("communication");
-        for (CodeableConcept e : element.getCommunication()) 
-          composeCodeableConcept(null, e);
+        for (Patient.PatientCommunicationComponent e : element.getCommunication()) 
+          composePatientPatientCommunicationComponent(null, e);
         closeArray();
       };
       if (element.hasCareProvider()) {
@@ -22289,6 +22333,25 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasGenderStatus()) {
         composeCodeableConcept("genderStatus", element.getGenderStatus());
+      }
+  }
+
+  protected void composePatientPatientCommunicationComponent(String name, Patient.PatientCommunicationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composePatientPatientCommunicationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composePatientPatientCommunicationComponentInner(Patient.PatientCommunicationComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasLanguage()) {
+        composeCodeableConcept("language", element.getLanguage());
+      }
+      if (element.hasPreferredElement()) {
+        composeBooleanCore("preferred", element.getPreferredElement(), false);
+        composeBooleanExtras("preferred", element.getPreferredElement(), false);
       }
   }
 

@@ -77,6 +77,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.commons.io.IOUtils;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
@@ -1829,15 +1830,8 @@ public class Publisher implements URIResolver {
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
       zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"), false);
       zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().dstDir, "org.hl7.fhir.validator.jar"), false);
-      zip.addFileName("validation.zip", page.getFolders().dstDir + "validation.zip", false);
-      zip.addFileName("validation-min.zip", page.getFolders().dstDir + "validation-min.zip", false);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".zip", null); // saxon
-      // too
-      // -
-      // always
-      // make
-      // this
-      // last
+      // always make this last
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "all-valuesets.zip");
@@ -1970,19 +1964,27 @@ public class Publisher implements URIResolver {
   }
 
   private InputStream stripXsd(InputStream source) throws Exception {
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(false);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document doc = builder.parse(source);
-    stripElement(doc.getDocumentElement(), "annotation");
-    TransformerFactory transformerFactory = TransformerFactory.newInstance();
-    Transformer transformer = transformerFactory.newTransformer();
-    ByteArrayOutputStream bo = new ByteArrayOutputStream();
-    DOMSource src = new DOMSource(doc);
-    StreamResult streamResult =  new StreamResult(bo);
-    transformer.transform(src, streamResult);
-    bo.close();
-    return new ByteArrayInputStream(bo.toByteArray());
+
+    byte[] src = IOUtils.toByteArray(source);
+    byte[] xslt = IOUtils.toByteArray( new FileInputStream(Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "AnnotationStripper.xslt")));
+    String scrs = new String(src);
+    String xslts = new String(xslt);
+    System.out.println(xslts);
+    return new ByteArrayInputStream(Utilities.transform(new HashMap<String, byte[]>(), src, xslt));
+
+//    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//    factory.setNamespaceAware(false);
+//    DocumentBuilder builder = factory.newDocumentBuilder();
+//    Document doc = builder.parse(source);
+//    stripElement(doc.getDocumentElement(), "annotation");
+//    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+//    Transformer transformer = transformerFactory.newTransformer();
+//    ByteArrayOutputStream bo = new ByteArrayOutputStream();
+//    DOMSource src = new DOMSource(doc);erent 
+//    StreamResult streamResult =  new StreamResult(bo);
+//    transformer.transform(src, streamResult);
+//    bo.close();
+//    return new ByteArrayInputStream(bo.toByteArray());
   }
 
   private void stripElement(Element element, String name) {
