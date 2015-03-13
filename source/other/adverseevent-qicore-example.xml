@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder for QICore Adverse Event example. -->
 <Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
   <id value="qicore"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-cause">
+    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-cause-item">
+      <valueReference>
+        <reference value="Medication/example"/>
+      </valueReference>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-cause-certainty">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="415684004"/>
+          <display value="Suspected (qualifier)"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-code">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="28926001"/>
+        <display value="Eruption due to drug (disorder)"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-period">
+    <valuePeriod>
+      <start value="2014-01-14"/>
+      <end value="2014-01-15"/>
+    </valuePeriod>
+  </extension>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter Patient"/>
+  </subject>
   <code>
     <coding>
       <system value="http://hl7.org/fhir/other-resource-type"/>
-      <code value="ADVEVT"/>
+      <code value="ADVEVENT"/>
     </coding>
   </code>
 </Other>
