@@ -26,20 +26,23 @@
       </coding>
     </valueCodeableConcept>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-didNotOccur">
+    <valueBoolean value="false"/>      
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-period">
     <valuePeriod>
       <start value="2014-01-14"/>
       <end value="2014-01-15"/>
     </valuePeriod>
   </extension>
-  <subject>
-    <reference value="Patient/example"/>
-    <display value="Peter Patient"/>
-  </subject>
   <code>
     <coding>
       <system value="http://hl7.org/fhir/other-resource-type"/>
       <code value="ADVEVENT"/>
     </coding>
-  </code>
+  </code>  
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter Patient"/>
+  </subject>
 </Other>
