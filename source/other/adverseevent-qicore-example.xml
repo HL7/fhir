@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
   <id value="qicore"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-cause">
-    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-cause-item">
+  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause">
+    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause-item">
       <valueReference>
         <reference value="Medication/example"/>
       </valueReference>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-cause-certainty">
+    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause-certainty">
       <valueCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -17,7 +17,7 @@
       </valueCodeableConcept>
     </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-code">
+  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-code">
     <valueCodeableConcept>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -26,7 +26,7 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-AdverseEvent-period">
+  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-period">
     <valuePeriod>
       <start value="2014-01-14"/>
       <end value="2014-01-15"/>
