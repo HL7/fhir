@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-01T22:54:33Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2015-03-13T04:34:45Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4647,7 +4647,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
-    <Cell ss:StyleID="s128"><Data ss:Type="String">property</Data><NamedCell
+    <Cell ss:StyleID="s128"><Data ss:Type="String">objectClassProperty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Data Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5794,7 +5794,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="31" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s131" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s131" ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:StyleID="s131" ss:Width="99.75"/>
    <Column ss:StyleID="s131" ss:AutoFitWidth="0" ss:Width="57"/>
    <Column ss:StyleID="s131" ss:AutoFitWidth="0" ss:Width="105.75"/>
    <Column ss:StyleID="s131" ss:AutoFitWidth="0" ss:Width="210"/>
@@ -5821,19 +5821,19 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">!ed-objectclass</Data></Cell>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s133"><Data ss:Type="String">objectClass</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">#objectClass</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">The version identifier of the data element</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">DataElement.element.mapping.extension{http://hl7.org/fhir/StructureDefinition/11179-objectClass}</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Matches on the 11179-objectClass extension value</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s136"><Data ss:Type="String">!ed-property</Data></Cell>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s136"><Data ss:Type="String">objectClassProperty</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">#property</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Name of the data element</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">DataElement.element.mapping.extension{http://hl7.org/fhir/StructureDefinition/11179-objectClassProperty}</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Matches on the 11179-objectClassProperty extension value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s136"/>
@@ -6033,7 +6033,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6053,8 +6052,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>38</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6935,10 +6934,10 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s93"><Data ss:Type="String">11179ObjectClass</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">A concept that represents a set of ideas, abstractions, or things in the real world that can be identified with explicit boundaries and meaning and whose properties and behavior follow the same rules.  E.g. Person, Prescription, Encounter, etc.</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Unbound</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">valueset-dataelement-sdcobjectclass</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -6951,10 +6950,10 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s104"><Data ss:Type="String">11179ObjectClassProperty</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">A quality common to all members of an object class. A property may be any feature that humans naturally use to distinguish one individual object from another. It is the human perception of a single quality of an object class in the real world.  E.g. name, identifier, gender, creationDate</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">Unbound</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">valueset-dataelement-sdcobjectclassproperty</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
@@ -7410,6 +7409,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7430,7 +7430,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
