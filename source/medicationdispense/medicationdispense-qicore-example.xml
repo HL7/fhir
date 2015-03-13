@@ -44,7 +44,13 @@
   <whenHandedOver value="2012-05-31T10:20:00+00:00"/>
   <dosageInstruction>
     <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType" >
-      <valueCode value="initial" />
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="440231000124106"/>
+          <display value="Maintenance dose"/>
+        </coding>
+      </valueCodeableConcept>
     </extension>
     <scheduleTiming>
       <repeat>
