@@ -116,7 +116,7 @@ This profile relies on the use of other profiles, some required, others availabl
 </p>
 <ul>
   <li><a href="us-core.html">US Core</a> which defines common properties related to Patient such as race and ethnicity.</li>
-  <li><a href="extensiondefinition-examples.html">Patient Extensions</a> defines other extensions such as birthPlace, patient-mothers-maiden-name which are used by the profile</li>
+  <li><a href="patient-extensions.html">Patient Extensions</a> defines other extensions such as birthPlace, patient-mothers-maiden-name which are used by the profile</li>
   <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension is used to code data elements with missing information when appropriate.</li>
 </ul>
 </div>

@@ -1,5 +1,9 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<p>
+The full list of supported patient search parameters is documented in the <a href="conformance-daf-query-responder.html">conformance expectations</a>.
+</p>
+
 <h2>Example Usage Scenarios</h2>
 
 <p>

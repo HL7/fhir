@@ -300,22 +300,22 @@
 			<td>DAFPatient</td>
 			<td>
 				<ul>
-					<li>name - Search based on given name or family name or text name</li>
-					<li>family - Search based on family name</li>
-					<li>given - Search based on given name</li>
-					<li>identifier - Search based on patient identifier</li>
-					<li>race - Search based on patient's race</li>
-					<li>ethnicity - Search based on patient's ethnicity</li>
-					<li>language - Search based on preferred language</li>
-					<li>mothersMaidenName - Search based on Patient mother's Maiden Name</li>
-					<li>birthOrderInteger - Search based on Patient's birth order</li>
-					<li>age - Search based on Patient's age</li>
-					<li>streetAddress - Search based on Patient's street address</li>
-					<li>city - Search based on City</li>
-					<li>zipcode - Search based on zip code</li>
-					<li>telecom - Search based on telecom</li>
-					<li>gender - Search based on gender </li>
-					<li>birthDate - Search based on birthDate</li>
+					<li><a href="patient.html#search">name</a> - Search based on given name or family name or text name (<a href="search.html#string">string</a>)</li>
+					<li><a href="patient.html#search">family</a> - Search based on family name (<a href="search.html#string">string</a>)</li>
+					<li><a href="patient.html#search">given</a> - Search based on given name (<a href="search.html#string">string</a>)</li>
+					<li><a href="patient.html#search">identifier</a> - Search based on patient identifier (<a href="search.html#token">token</a>)</li>
+					<li><a href="patient.html#search">language</a> - Search based on preferred language (<a href="search.html#token">token</a>)</li>
+					<li><a href="patient.html#search">telecom</a> - Search based on telecom (<a href="search.html#string">string</a>)</li>
+					<li><a href="patient.html#search">gender</a> - Search based on gender  (<a href="search.html#token">token</a>)</li>
+					<li><a href="patient.html#search">birthdate</a> - Search based on birthDate (<a href="search.html#date">date</a>)</li>
+					<li><a href="patient-extensions.html#search">addressLine</a> - Search based on Patient's street address line (<a href="search.html#string">string</a>)</li>
+					<li><a href="patient-extensions.html#search">city</a> - Search based on City (<a href="search.html#string">string</a>)</li>
+					<li><a href="patient-extensions.html#search">postalCode</a> - Search based on zip code (<a href="search.html#string">string</a>)</li>
+					<li><a href="patient-extensions.html#search">state</a> - Search based on state (<a href="search.html#string">string</a>)</li>
+					<li><a href="patient-extensions.html#search">mothersMaidenName</a> - Search based on Patient mother's Maiden Name (<a href="search.html#string">string</a>)</li>
+					<li><a href="us-core.html#search">age</a> - Search based on Patient's age (<a href="search.html#number">number</a>)</li>
+					<li><a href="us-core.html#search">race</a> - Search based on patient's race (<a href="search.html#token">token</a>)</li>
+					<li><a href="us-core.html#search">ethnicity</a> - Search based on patient's ethnicity (<a href="search.html#token">token</a>)</li>
 				</ul>
 			</td>
 		  </tr>
@@ -561,117 +561,134 @@
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a DAFPatient instance"/>
       </interaction>
-	  <searchParam>
+      
+  	  <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="name"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-name"/>
         <type value="string"/>
       </searchParam>
-	  <searchParam>
+  	  <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="family"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-family"/>
         <type value="string"/>
       </searchParam>
-	  <searchParam>
+  	  <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="given"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-given"/>
         <type value="string"/>
       </searchParam>
-	  <searchParam>
+  	  <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-identifier"/>
         <type value="token"/>
       </searchParam>
-	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="race"/>
-        <type value="token"/>
-      </searchParam>
-	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="ethnicity"/>
-        <type value="token"/>
-      </searchParam>
-	  <searchParam>
+  	  <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="language"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-language"/>
         <type value="token"/>
-      </searchParam>
-	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="mothersMaidenName"/>
-        <type value="string"/>
-      </searchParam>
-	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="birthOrderInteger"/>
-        <type value="number"/>
-      </searchParam>
-	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="age"/>
-        <type value="number"/>
-      </searchParam>
-	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="streetAddress"/>
-        <type value="string"/>
-      </searchParam>
-	  <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="city"/>
-        <type value="string"/>
-      </searchParam>
-      <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="zipcode"/>
-        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="telecom"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-telecom"/>
         <type value="string"/>
       </searchParam>
-	  <searchParam>
+  	  <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <name value="gender"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-gender"/>
         <type value="token"/>
       </searchParam>
-	  <searchParam>
+  	  <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="birthDate"/>
+        <name value="birthdate"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-birthdate"/>
         <type value="date"/>
+      </searchParam>
+  	  <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="addressLine"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-addressLine"/>
+        <type value="string"/>
+      </searchParam>
+  	  <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="city"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-city"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="postalCode"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-postalCode"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="state"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-state"/>
+        <type value="string"/>
+      </searchParam>
+  	  <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="mothersMaidenName"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-mothersMaidenName"/>
+        <type value="string"/>
+      </searchParam>
+  	  <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="age"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-age"/>
+        <type value="number"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="race"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/us-core-Patient-race"/>
+        <type value="token"/>
+      </searchParam>
+  	  <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="ethnicity"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/us-core-Patient-ethnicity"/>
+        <type value="token"/>
       </searchParam>
     </resource>
 	<resource>

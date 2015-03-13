@@ -6345,7 +6345,7 @@
     <Cell ss:StyleID="s139"><Data ss:Type="String">General</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">General example for searchin on an extension</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">General example for searching on an extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">example</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

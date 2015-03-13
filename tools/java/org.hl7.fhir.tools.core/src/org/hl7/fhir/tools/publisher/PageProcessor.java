@@ -5398,6 +5398,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (pack.getSearchParameters().size() > 0) {
       // search parameters
       StringBuilder b = new StringBuilder();
+      b.append("<a name=\"search\"> </a>\r\n");
       b.append("<h3>Search Parameters</h3>\r\n");
       b.append("<p>Search parameters defined by this package. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
