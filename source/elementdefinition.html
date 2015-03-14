@@ -84,24 +84,17 @@ Further Commentary
 <li><!--Spreadsheet doesn't support this, but seems reasonable/useful--><code>slicing</code> is only supported when slicing based on type (to assert different rules/guidance for resources with multiple types, e.g. "code|integer" or "Reference(Foo|Bar)"</li>
 </ul>
 
-<h3>Only element in a simple extension</h3>
+<h3>Extension definitions</h3>
 <ul>
-<li><code>path</code> is equal to Extension</li>
+<li><code>path</code> Extension, Extension.id, Extension.extension or Extension.value[x]</li>
 <li><!--Don't think mustSupport should exist when defining things --><code>mustSupport</code> may be used, but if it is not present it defaults to &quot;false&quot;</li>
-</ul>
-
-<h3>First (root) element in a complex extension</h3>
-<ul>
-<li><code>path</code> is equal to Extension</li>
-<li><code>type</code> is set to <code>Extension</code></li>
-</ul>
-
-<h3>Nested element in a complex extension</h3>
-<ul>
 <li><code>representation</code> may not be used</li> 
-<li><code>slicing</code> may be used to express constraints on the use of specific types when the element allows a choice of type (name ends in [x])</li> <!-- don't understand this use case. just define a single type -->
-<li><code>mustSupport</code> may be used, but if it is not present it defaults to &quot;false&quot;</li>
-<li><code>isModifier</code> may be used, but if it is not present it defaults to &quot;false&quot;</li>
+<li><code>isModifier</code> may be used on the root (path = Extension). If it is not present it defaults to &quot;false&quot;</li>
+</ul>
+
+<h3>Nested Extensions ("Complex Extension")</h3>
+<ul>
+<li><code>path</code> Extension.extension.* (as above)</li>
 </ul>
 
 <h3>Complex elements (elements with upper-case data type)</h3>

@@ -82,24 +82,28 @@ From this table, we can build a formal extension definition. In this case, it lo
   &lt;context value="Patient" /&gt;
   &lt;differential>
     &lt;element>
-    &lt;path value="Extension.value"/>
-    &lt;short value="Agreed agreement/policy" /&gt;
-    &lt;definition value="A URI that identifies a participation agreement/policy 
-      to which the patient has agreed" /&gt;
-    &lt;comments value="URI is a literal reference to agreement text (html). 
-      Systems SHALL conform to the policies as indicated. 
-      For further information, see the partnership agreement..." /&gt;
-    &lt;min value="1" /&gt;
-    &lt;max value="*" /&gt;
-    &lt;type>
-       &lt;code value="uri" /&gt;
-    &lt;/type>
-    &lt;mustSupport value="true" /&gt;
-    &lt;isModifier value="false" /&gt;
+      &lt;path value="Extension"/>
+      &lt;short value="Agreed agreement/policy" /&gt;
+      &lt;definition value="A URI that identifies a participation agreement/policy 
+        to which the patient has agreed" /&gt;
+      &lt;comments value="URI is a literal reference to agreement text (html). 
+        Systems SHALL conform to the policies as indicated. 
+        For further information, see the partnership agreement..." /&gt;
+      &lt;mustSupport value="true" /&gt;
+      &lt;isModifier value="false" /&gt;
+    &lt;/element>
+    &lt;element>
+      &lt;path value="Extension.value"/>
+      &lt;short value="The URI value" /&gt;
+      &lt;min value="1" /&gt;
+      &lt;max value="*" /&gt;
+      &lt;type>
+         &lt;code value="uri" /&gt;
+      &lt;/type>
+      &lt;mustSupport value="true" /&gt;
     &lt;/element>
   &lt;/differential>
 &lt;/StructureDefinition>
-
 </pre>
 <p>
 Note that usually you would build the actual profile using some tool. This example was built by hand for this example.
@@ -125,7 +129,7 @@ fragment identifier.
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
-  &lt;extension url=&quot;http://example.org/phr/documents/fhir/extensions#participation-agreement&quot; &gt;
+  &lt;extension url=&quot;http://example.org/phr/documents/fhir/extensions/participation-agreement&quot; &gt;
     &lt;valueUri value=&quot;http://example.org/phr/documents/patient/general/v1&quot; /&gt;
   &lt;/extension&gt;
   <!-- ... -->
@@ -143,7 +147,7 @@ will use this resource, a StructureDefinition on the patient resource is used:
 
 <pre class="xml" fragment="StructureDefinition">
 &lt;StructureDefinition xmlns="http://hl7.org/fhir">
-  &lt;name value="iso-21090" /&gt;
+  &lt;id value="patient-profile" /&gt;
   &lt;!-- snip other metadata, narrative -->
   &lt;differential&gt;
 
@@ -270,7 +274,7 @@ and their associated bindings. In this case, the definition looks like this:
 <pre class="xml" fragment="StructureDefinition">
 &lt;StructureDefinition xmlns="http://hl7.org/fhir">
   &lt;url value="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier" /&gt;
-  &lt;name value="iso-21090" /&gt;
+  &lt;name value="iso-21090 Name Qualifier" /&gt;
   &lt;!-- snip other metadata, including definition of RIM Mapping -->
   &lt;type value="extension" /&gt;
   &lt;contextType value="datatype" /&gt;
@@ -280,19 +284,23 @@ and their associated bindings. In this case, the definition looks like this:
   &lt;context value="HumanName.suffix" /&gt;
   &lt;differential>
     &lt;element>
-      &lt;path value="Extension.value"/>
+      &lt;path value="Extension"/>
       &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
       &lt;definition value="A set of codes each of which specifies a certain subcategory
           of the name part in addition to the main name part type" /&gt;
       &lt;comments value="Used to indicate additional information about the
              name part and how it should be used" /&gt;
+      &lt;mustSupport value="false" /&gt;
+      &lt;isModifier value="false" /&gt;
+    &lt;/element>
+    &lt;element>
+      &lt;path value="Extension.value"/>
+      &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
       &lt;min value="0" /&gt;
       &lt;max value="*" /&gt;
       &lt;type>
          &lt;code value="code" /&gt;
       &lt;/type>
-      &lt;mustSupport value="false" /&gt;
-      &lt;isModifier value="false" /&gt;
       &lt;binding&gt;
         &lt;name value="EntityNamePartQualifier" /&gt;
         &lt;strength value="required" /&gt;
@@ -316,7 +324,7 @@ Note that usually you would build the actual profile using some tool. This examp
 </p>
 <h4>Register the Extension</h4>
 <p>
-For this example, it is registered at <a href="http://hl7.org/fhir/StructureDefinition/iso21090-?_format=text/html">http://hl7.org/fhir/StructureDefinition/iso-21090</a>.
+For this example, it is registered at <a href="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier</a>.
 This is the url that will appear in the definition element when the extension is used.
 </p>
 <h4>Use it in the instance</h4>
@@ -329,7 +337,7 @@ fragment identifier.
 &lt;name&gt;
   &lt;use value=&quot;official&quot; /&gt;
   &lt;given value=&quot;Östlund&quot;&gt;
-     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso-21090#name-qualifier&quot; &gt;
+     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
         &lt;valueCode value=&quot;MID&quot; /&gt;
      &lt;/extension&gt;
   &lt;/given&gt;
