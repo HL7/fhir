@@ -454,6 +454,8 @@ interactions. Upon successful deletion, or if the resource does not exist at all
 resource containing hints and warnings about the deletion; if one is sent it SHALL not include any errors.
 </p>
 <p>
+Whether to support delete at all, or for a particular resource type or a particular instance is at the 
+discretion of the server based on the business rules that apply in its context.  
 If the server refuses to delete resources of that type as a blanket policy, then it should return the 405
 Method not allowed status code. If the server refuses to delete a resource because of reasons specific
 to that resource, such as referential integrity, it should return the 409 Conflict status code.
@@ -467,7 +469,7 @@ deletion interaction should be understood as deleting the record of the resource
 about the state of the real-world corresponding resource implied.
 </p>
 <p>
-The <code>delete</code> operation does not remove a resource's version history. From a version history respect,
+For servers that maintain a version history, the <code>delete</code> operation does not remove a resource's version history. From a version history respect,
 deleting a resource is the equivalent of creating a special kind of history entry that has
 no content and is marked as deleted.
 </p>
