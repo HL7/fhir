@@ -28,6 +28,7 @@
         <tr><td>urn:oid:2.16.840.1.113883.4.3.12	</td><td>Florida Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.13	</td><td>Georgia Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.15	</td><td>Hawaii Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.18	</td><td>Indiana Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.19	</td><td>Iowa Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.16	</td><td>Idaho Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.17	</td><td>Illinois Driver's License</td></tr>
@@ -42,21 +43,21 @@
         <tr><td>urn:oid:2.16.840.1.113883.4.3.29	</td><td>Missouri Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.28	</td><td>Mississippi Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.30	</td><td>Montana Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.36	</td><td>NewYork Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.37	</td><td>NorthCarolina Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.38	</td><td>NorthDakota Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.36	</td><td>New York Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.37	</td><td>North Carolina Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.38	</td><td>North Dakota Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.31	</td><td>Nebraska Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.33	</td><td>NewHampshire Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.34	</td><td>NewJersey Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.35	</td><td>NewMexico Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.33	</td><td>New Hampshire Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.34	</td><td>New Jersey Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.35	</td><td>New Mexico Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.32	</td><td>Nevada Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.39	</td><td>Ohio Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.40	</td><td>Oklahoma Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.41	</td><td>Oregon Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.42	</td><td>Pennsylvania Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.44	</td><td>RhodeIsland Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.45	</td><td>SouthCarolina Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.46	</td><td>SouthDakota Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.44	</td><td>Rhode Island Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.45	</td><td>South Carolina Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.46	</td><td>South Dakota Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.47	</td><td>Tennessee Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.48	</td><td>Texas Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.49	</td><td>Utah Driver's License</td></tr>
@@ -64,7 +65,7 @@
         <tr><td>urn:oid:2.16.840.1.113883.4.3.50	</td><td>Vermont Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.53	</td><td>Washington Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.55	</td><td>Wisconsin Driver's License</td></tr>
-        <tr><td>urn:oid:2.16.840.1.113883.4.3.54	</td><td>WestVirginia Driver's License</td></tr>
+        <tr><td>urn:oid:2.16.840.1.113883.4.3.54	</td><td>West Virginia Driver's License</td></tr>
         <tr><td>urn:oid:2.16.840.1.113883.4.3.56	</td><td>Wyoming Driver's License</td></tr>
         <tr><td>http://hl7.org/fhir/drivers-license</td><td>Driver's licenses with no known issuing authority</td></tr>
       </table>
@@ -200,6 +201,11 @@
       </concept>
 
       <concept>
+        <code value="urn:oid:2.16.840.1.113883.4.3.18"/>
+        <display value="Indiana Driver's License"/>
+      </concept>
+
+      <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.19"/>
         <display value="Iowa Driver's License"/>
       </concept>
@@ -271,17 +277,17 @@
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.36"/>
-        <display value="NewYork Driver's License"/>
+        <display value="New York Driver's License"/>
       </concept>
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.37"/>
-        <display value="NorthCarolina Driver's License"/>
+        <display value="North Carolina Driver's License"/>
       </concept>
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.38"/>
-        <display value="NorthDakota Driver's License"/>
+        <display value="North Dakota Driver's License"/>
       </concept>
 
       <concept>
@@ -291,17 +297,17 @@
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.33"/>
-        <display value="NewHampshire Driver's License"/>
+        <display value="New Hampshire Driver's License"/>
       </concept>
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.34"/>
-        <display value="NewJersey Driver's License"/>
+        <display value="New Jersey Driver's License"/>
       </concept>
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.35"/>
-        <display value="NewMexico Driver's License"/>
+        <display value="New Mexico Driver's License"/>
       </concept>
 
       <concept>
@@ -331,17 +337,17 @@
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.44"/>
-        <display value="RhodeIsland Driver's License"/>
+        <display value="Rhode Island Driver's License"/>
       </concept>
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.45"/>
-        <display value="SouthCarolina Driver's License"/>
+        <display value="South Carolina Driver's License"/>
       </concept>
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.46"/>
-        <display value="SouthDakota Driver's License"/>
+        <display value="South Dakota Driver's License"/>
       </concept>
 
       <concept>
@@ -381,7 +387,7 @@
 
       <concept>
         <code value="urn:oid:2.16.840.1.113883.4.3.54"/>
-        <display value="WestVirginia Driver's License"/>
+        <display value="West Virginia Driver's License"/>
       </concept>
 
       <concept>
