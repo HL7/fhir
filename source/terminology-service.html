@@ -21,7 +21,7 @@ A server that supports all the functionality described here can be described as 
 and SHALL conform to this conformance statement: [link to be provided].
 </p>
 
-<h3>Notes from Michael Lawley's talk at HL7 Australia - issues to be addressed</h3>
+<h3>Open issues to be addressed</h3>
 <ul>
   <li> improve the definitions of mapping equivalence, and change "inexact" map to "overlap"</li>
 </ul>
@@ -623,7 +623,7 @@ GET [base]/ConceptMap/$validate?system=http://hl7.org/fhir/composition-status
   &amp;target=http://hl7.org/fhir/v3/vs/ActStatus
 </pre>
 <p>
-The server responds with validation information (JSON this time):
+The server responds with validation information:
 </p>
 <pre class="http">
 HTTP/1.1 200 OK
@@ -644,6 +644,113 @@ HTTP/1.1 200 OK
       }
     }
   ]
+}
+</pre>
+</div>
+
+
+<h3>Batch Translation</h3>
+
+<p>
+It's also possible to translate a set of concepts in <a href="conceptmap-operations.html#batch">a single batch operation</a>, to support high-volume process and reduce network
+latency effects. In this case, the client passes the server the following information:
+</p>
+<ul>
+ <li> a series of parameter tuples, where each pair contains</li>
+ <li> a CodeableConcept containing the concept to be translated</li>
+ <li> a uri that identifies the target value set into which to translate the concept</li>
+ <li> (optiona) A reference to a particular map to use for the translation </li>
+</ul>
+
+<p>
+The server returns a series of parameters, one for each submitted item, each of
+which has a result, a message, and an outcome (same as for the $translate operation).
+</p>
+
+<div class="example">
+<p><b>Examples</b></p>
+<p>
+A request to translate 2 concepts from a CDA document, with OIDs for value set identifiers:
+</p>
+<pre class="http">
+POST [base]/ConceptMap/$batch
+[other headers]
+
+{
+  "ResourceType" : "Parameters",
+  "parameter" : [
+    {
+    "name" : "item",
+    "part" : [
+      {
+      "name" : "concept",
+      "valueCodeableConcept" : {
+        "system" : "http://loinc.org",
+        "code" : "2324-4"
+      },
+    }
+      "name" : "target",
+      "valueUri" : "urn:oid:1.2.3.4.6"
+    ]
+  },
+  {
+    "name" : "item",
+    "part" : [
+      {
+      "name" : "concept",
+      "valueCodeableConcept" : {
+        "system" : "http://snomed.info/sct",
+        "code" : "22298006"
+      },
+    }
+      "name" : "target",
+      "valueUri" : "urn:oid:1.2.3.4.7"
+    ]
+  }
+  ]
+}
+</pre>
+<p>
+The server responds with a series of validation outcomes:
+</p>
+<pre class="http">
+HTTP/1.1 200 OK
+[other headers]
+
+{
+  "resourceType" : "Parameters",
+  "parameter" : [
+    {
+      "name" : "item",
+      "part" : [
+        {
+        "name" : "result",
+        "valueBoolean" : "false"
+      },
+      {
+        "name" : "message",
+        "valueString" : "'2324-4' is not a valid LOINC code"
+      }
+    ]
+  },
+  {
+      "name" : "item",
+      "part" : [
+        {
+        "name" : "result",
+        "valueBoolean" : "false"
+      },
+      {
+        "name" : "outcome",
+        "valueCodeableConcept" : {
+          "coding" : {
+            "system" : "http://example.com/codesystems/example",
+            "code" : "xxxx"
+          }
+        }
+      }
+    ]
+  }]
 }
 </pre>
 </div>
