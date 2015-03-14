@@ -11,7 +11,7 @@
   <status value="requested"/>
   <channel>
     <type value="rest-hook"/>
-    <url value="https://biliwatch.com/customers/mount-auburn-miu/on-result"/>
+    <endpoint value="https://biliwatch.com/customers/mount-auburn-miu/on-result"/>
     <payload value="application/json"/>
     <header value="Authorization: Bearer secret-token-abc-123"/>
   </channel>  
