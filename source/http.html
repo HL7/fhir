@@ -450,7 +450,7 @@ is performed by an HTTP DELETE command as shown:
 A delete interaction means that subsequent <a href="#read">non-version specific reads</a> of a resource
 return a 410 HTTP status code and that the resource is no longer found through <a href="#search">search</a>
 interactions. Upon successful deletion, or if the resource does not exist at all, the server should return
-204 (No Content), or 202 Accepted status code, with an <a href="operationoutcome.html">OperationOutcome</a>
+204 (No Content), or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
 resource containing hints and warnings about the deletion; if one is sent it SHALL not include any errors.
 </p>
 <p>
@@ -1092,7 +1092,7 @@ Notes:
 <tr><td>read</td>           <td>R</td>            <td>R: Resource</td>           <td>N/A</td>      	<td>R</td>                <td>R: ETag, Last-Modified</td>		<td>200, 404, 410</td></tr>
 <tr><td>vread</td>          <td>R</td>            <td>R: Resource</td>           <td>N/A</td>      	<td>R</td>                <td>R: ETag, Last-Modified</td>		<td>200, 404</td></tr>
 <tr><td>update</td>         <td>R if body</td>    <td>O: Resource (Prefer)</td>                  <td>R on create</td>	<td>R</td>                <td>R: ETag, Last-Modified</td>		<td>200, 201, 400, 404, 405, 409, 412, 422</td></tr>
-<tr><td>delete</td>         <td>R if body</td><td>O: OperationOutcome</td>  <td>N/A</td>      	<td>N/A</td>              <td>N/A</td>							<td>202, 204, 404, 405, 409, 412</td></tr>
+<tr><td>delete</td>         <td>R if body</td><td>O: OperationOutcome</td>  <td>N/A</td>      	<td>N/A</td>              <td>N/A</td>							<td>200, 204, 404, 405, 409, 412</td></tr>
 <tr><td>create</td>         <td>R if body</td>    <td>O : Resource (Prefer)</td>                <td>R</td>			<td>R</td>               <td>R: ETag, Last-Modified</td>		<td>201, 400, 404, 405, 422</td></tr>
 <tr><td>search</td>         <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	<td>N/A</td>              <td>N/A</td>							<td>200, 403?</td></tr>
 <tr><td>search-all</td>     <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	<td>N/A</td>              <td>N/A</td>							<td>200, 403?</td></tr>
