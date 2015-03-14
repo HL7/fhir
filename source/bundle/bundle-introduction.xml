@@ -12,7 +12,7 @@ with containing context. In FHIR this is referred to as "bundling" the resources
   <li>Returning a set of resources that meet some criteria as part of a server operation (see <a href="http.html#search">RESTful Search</a>)</li>
   <li>Returning a set of versions of resources as part of the history operation on a server  (see <a href="http.html#history">History</a>)</li>
   <li>Sending a set of resources as part of a message exchange (see <a href="messaging.html">Messaging</a>)</li>
-  <li>Grouping a self-contained set of resources to act as an exchangeable and persistable group with clinical integrity - e.g. a clinical document (see <a href="documents.html">Documents</a>)</li>
+  <li>Grouping a self-contained set of resources to act as an exchangeable and persistable collection with clinical integrity - e.g. a clinical document (see <a href="documents.html">Documents</a>)</li>
   <li>Creating/updating/deleting a set of resources as a single atomic transaction on a server (see <a href="http.html#transaction">Transactions</a>)</li>
   <li>Storing a collection of resources</li>
 </ul>
@@ -22,12 +22,12 @@ with containing context. In FHIR this is referred to as "bundling" the resources
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-There are two ways to group resources together - <a href="references.html#contained">contained resources</a>, and
+There are two ways to collect resources together - <a href="references.html#contained">contained resources</a>, and
 bundles. There is an important difference between the two: 
 </p>
 <ul>
  <li>Contained resources are "in" the container resource - they can only ever be interpreted and/or changed in the context of the container</li>
- <li>A bundle is a group of resources that have an independent existence - the source of the resource can be determined by the base (see below) and the logical id</li>
+ <li>A bundle is a collection of resources that have an independent existence - the source of the resource can be determined by the base (see below) and the logical id</li>
 </ul>
 
 </div>
