@@ -17,7 +17,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>Invariants</Path>
+   <Path>\work\org.hl7.fhir\build\source\resource\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
   <WindowHeight>2580</WindowHeight>
@@ -800,7 +800,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over tiem</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over time.&#10;&#10;The list of profile URLs is a set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -832,7 +832,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The security labels can be updated without changing the stated version of the resource</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The security labels can be updated without changing the stated version of the resource&#10;&#10;The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -864,7 +864,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The tags can be updated without changing the stated version of the resource</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The tags can be updated without changing the stated version of the resource.&#10;&#10;The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3116,9 +3116,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3126,13 +3126,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3154,7 +3157,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4:R97C4</Range>
    <Type>List</Type>
-   <Value>Invariants!#REF!</Value>
+   <Value>'\work\org.hl7.fhir\build\source\resource\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
