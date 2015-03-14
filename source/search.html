@@ -688,6 +688,13 @@ handle ongoing updates to the resources while the search
 is proceeding.
 </p>
 
+<p>
+Note that the combination of _sort and _count can be used to return
+just the latest resource that meets a particular criteria - set the
+critera, and then sort by date in descending order, with _count=1.
+This way, the last matching resource will be returned.
+</p>
+
 <a name="include"> </a>
 <h4>Including other resources in result (_include)</h4>
 <p>
