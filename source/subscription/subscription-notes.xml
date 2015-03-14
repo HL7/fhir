@@ -75,7 +75,6 @@ POST /Subscription
   "channel": {
     "type": "rest-hook",
     "url": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
-    "payload": false,
     "header": ["Authorization: Bearer secret-token-abc-123"]
   }
 }
@@ -91,7 +90,7 @@ replaced by the time at which the client last checked). In this way it can fetch
 relevent <a href="observation.html">Observations</a>.
 </p>
 <p>
-Since payload is false, the data in the resources is only available through 
+Since payload is missing, the data in the resources is only available through 
 the REST API, which helps consolidate authorization and authentication logic. The 
 server must append the headers, if any are given, to the POST request that it 
 makes to the client.
@@ -107,17 +106,17 @@ as a healthcare institution.
   "channel": {
     "type": "rest-hook",
     "url": "https://internal.acme.com/research/saturn",
-    "payload": true
+    "payload": "application/xml+json"
   }
 </pre>
 
 <p>
 This requests that a server forward a copy of any
-matching resource to the nominated server as an <a href="http.html#update">Update 
+matching resource in json format to the nominated server as an <a href="http.html#update">Update 
 operation</a> using the nominated URL as the <a href="http.html#root">service base</a>. 
 In order to execute this channel, the server must know how 
 to authenticate appropriately with the destination 
-server. This can be done by the client providing 
+server. This can be done by the subscription resource providing 
 an authentication header for the server to use, or 
 alternatively, the server may be specifically configured to be able to use
 the nominated server.
