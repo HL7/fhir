@@ -681,6 +681,18 @@ begin
     result := '';
 end;
 
+function gen(code : TFhirCodeableConcept):String; overload;
+begin
+  if (code = nil) then
+    result := ''
+  else if (code.text <> '') then
+    result := code.text
+  else if (code.codingList.Count > 0) then
+    result := gen(code.codingList[0])
+  else
+    result := '';
+end;
+
 function gen(extension : TFHIRExtension):String; overload;
 begin
   if extension = nil then
@@ -696,7 +708,7 @@ end;
 procedure BuildNarrative(op: TFhirOperationOutcome; opDesc : String);
 var
   x, tbl, tr, td : TFhirXHtmlNode;
-  hasSource, hasType, success, d : boolean;
+  hasSource, success, d : boolean;
   i, j : integer;
   issue : TFhirOperationOutcomeIssue;
   s : TFhirString;
@@ -708,14 +720,12 @@ begin
     x.AddTag('p').addTag('b').addText('Operation Outcome for :'+opDesc);
 
     hasSource := false;
-    hasType := false;
     success := true;
     for i := 0 to op.issueList.count - 1 do
     begin
       issue := op.issueList[i];
       success := success and (issue.Severity = IssueSeverityInformation);
       hasSource := hasSource or (hasExtension(issue, 'http://hl7.org/fhir/tools#issue-source'));
-      hasType := hasType or (issue.Type_ <> nil);
     end;
     if (success) then
       x.AddChild('p').addText('All OK');
@@ -727,8 +737,7 @@ begin
       tr.addTag('td').addTag('b').addText('Severity');
       tr.addTag('td').addTag('b').addText('Location');
       tr.addTag('td').addTag('b').addText('Details');
-      if (hasType) then
-        tr.addTag('td').addTag('b').addText('Type');
+      tr.addTag('td').addTag('b').addText('Type');
       if (hasSource) then
         tr.addTag('td').addTag('b').addText('Source');
       for i := 0 to op.issueList.count - 1 do
@@ -748,8 +757,7 @@ begin
            td.addText(s.Value);
         end;
         tr.addTag('td').addText(issue.details);
-        if (hasType) then
-          tr.addTag('td').addText(gen(issue.Type_));
+        tr.addTag('td').addText(gen(issue.Code));
         if (hasSource) then
           tr.addTag('td').addText(gen(getExtension(issue, 'http://hl7.org/fhir/tools#issue-source')));
       end;
@@ -1149,9 +1157,12 @@ begin
     issue := TFhirOperationOutcomeIssue.create;
     try
       issue.severity := IssueSeverityError;
-      issue.type_ := TFhirCoding.create;
-      issue.type_.system := 'http://hl7.org/fhir/issue-type';
-      issue.type_.code := typeCode;
+      issue.code := TFhirCodeableConcept.create;
+      with issue.code.codingList.Append do
+      begin
+        system := 'http://hl7.org/fhir/issue-type';
+        code := typeCode;
+      end;
       issue.details := msg;
       issue.locationList.Append.value := path;
       ex := issue.ExtensionList.Append;
@@ -1185,9 +1196,12 @@ begin
     issue := TFhirOperationOutcomeIssue.create;
     try
       issue.severity := IssueSeverityInformation;
-      issue.type_ := TFhirCoding.create;
-      issue.type_.system := 'http://hl7.org/fhir/issue-type';
-      issue.type_.code := typeCode;
+      issue.code := TFhirCodeableConcept.create;
+      with issue.code.codingList.Append do
+      begin
+        system := 'http://hl7.org/fhir/issue-type';
+        code := typeCode;
+      end;
       issue.details := msg;
       issue.locationList.Append.value := path;
       ex := issue.ExtensionList.Append;
@@ -1212,9 +1226,12 @@ begin
     issue := TFhirOperationOutcomeIssue.create;
     try
       issue.severity := level;
-      issue.type_ := TFhirCoding.create;
-      issue.type_.system := 'http://hl7.org/fhir/issue-type';
-      issue.type_.code := typeCode;
+      issue.code := TFhirCodeableConcept.create;
+      with issue.code.codingList.Append do
+      begin
+        system := 'http://hl7.org/fhir/issue-type';
+        code := typeCode;
+      end;
       issue.details := msg;
       issue.locationList.Append.value := path;
       ex := issue.ExtensionList.Append;
@@ -1239,9 +1256,12 @@ begin
     issue := TFhirOperationOutcomeIssue.create;
     try
       issue.severity := IssueSeverityWarning;
-      issue.type_ := TFhirCoding.create;
-      issue.type_.system := 'http://hl7.org/fhir/issue-type';
-      issue.type_.code := typeCode;
+      issue.code := TFhirCodeableConcept.create;
+      with issue.code.codingList.Append do
+      begin
+        system := 'http://hl7.org/fhir/issue-type';
+        code := typeCode;
+      end;
       issue.details := msg;
       issue.locationList.Append.value := path;
       ex := issue.ExtensionList.Append;

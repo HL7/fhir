@@ -39,7 +39,7 @@ import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.ConformancePackage;
+import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -47,7 +47,7 @@ import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.PrimitiveType;
-import org.hl7.fhir.definitions.model.ProfileDefn;
+import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
@@ -390,7 +390,7 @@ public class ProfileGenerator {
     throw new Exception("Unable to find snapshot for "+baseType);
   }
 
-  public StructureDefinition generate(ConformancePackage pack, ResourceDefn r, String usage) throws Exception {
+  public StructureDefinition generate(Profile pack, ResourceDefn r, String usage) throws Exception {
     StructureDefinition p = new StructureDefinition();
     p.setId(r.getRoot().getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
@@ -454,7 +454,7 @@ public class ProfileGenerator {
     pathNames.clear();  
   }
 
-  public StructureDefinition generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, ImplementationGuide usage) throws Exception {
+  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, ImplementationGuide usage) throws Exception {
     
     try {
       return generate(pack, profile, resource, id, null, usage);
@@ -463,7 +463,7 @@ public class ProfileGenerator {
     }
   }
   
-  public StructureDefinition generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, String html, ImplementationGuide usage) throws Exception {
+  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, String html, ImplementationGuide usage) throws Exception {
     if (profile.getResource() != null)
       return profile.getResource();
     
@@ -560,6 +560,8 @@ public class ProfileGenerator {
       return SearchParameter.SearchParamType.REFERENCE;
     case token:
       return SearchParameter.SearchParamType.TOKEN;
+    case uri:
+      return SearchParameter.SearchParamType.URI;
     case composite:
       return SearchParameter.SearchParamType.COMPOSITE;
     case quantity:
@@ -672,7 +674,7 @@ public class ProfileGenerator {
   /**
    * note: snapshot implies that we are generating a resource or a data type; for other profiles, the snapshot is generated elsewhere
    */
-  private ElementDefinition defineElement(ConformancePackage ap, StructureDefinition p, List<ElementDefinition> elements, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot, boolean root) throws Exception 
+  private ElementDefinition defineElement(Profile ap, StructureDefinition p, List<ElementDefinition> elements, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot, boolean root) throws Exception 
   {
     ElementDefinition ce = new ElementDefinition();
     elements.add(ce);
@@ -954,7 +956,7 @@ public class ProfileGenerator {
       c.getElement().add(ex);
   }
   
-  private void addMapping(StructureDefinition p, ElementDefinition definition, String target, String map, ConformancePackage pack) {
+  private void addMapping(StructureDefinition p, ElementDefinition definition, String target, String map, Profile pack) {
     if (!Utilities.noString(map)) {
       String id;
       if (pack != null && pack.getMappingSpaces().containsKey(target))
@@ -1021,8 +1023,8 @@ public class ProfileGenerator {
     return ce;
   }
 
-  public ProfileDefn wrapProfile(StructureDefinition profile) throws Exception {
-    return new ProfileDefn(profile, definitions.getUsageIG((String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE), "generating profile "+profile.getId()));
+  public ConstraintStructure wrapProfile(StructureDefinition profile) throws Exception {
+    return new ConstraintStructure(profile, definitions.getUsageIG((String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE), "generating profile "+profile.getId()));
   }
 
   public void convertElements(ElementDefn src, StructureDefinition ed, String path) throws Exception {

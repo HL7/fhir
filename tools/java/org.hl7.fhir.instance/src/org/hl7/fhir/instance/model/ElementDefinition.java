@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Mar 13, 2015 18:02+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -111,7 +111,7 @@ public class ElementDefinition extends Type {
          */
         OPEN, 
         /**
-         * Additional content is allowed, but only at the end of the list.
+         * Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be ordered, which makes it hard to share uses. This should only be done where absolutely required.
          */
         OPENATEND, 
         /**
@@ -149,7 +149,7 @@ public class ElementDefinition extends Type {
           switch (this) {
             case CLOSED: return "No additional content is allowed other than that described by the slices in this profile.";
             case OPEN: return "Additional content is allowed anywhere in the list.";
-            case OPENATEND: return "Additional content is allowed, but only at the end of the list.";
+            case OPENATEND: return "Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be ordered, which makes it hard to share uses. This should only be done where absolutely required.";
             default: return "?";
           }
         }

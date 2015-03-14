@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Mar 13, 2015 18:02+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -76,6 +76,10 @@ public class SearchParameter extends DomainResource {
          */
         QUANTITY, 
         /**
+         * A search parameter that searches on a URI (RFC 3986).
+         */
+        URI, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -96,6 +100,8 @@ public class SearchParameter extends DomainResource {
           return COMPOSITE;
         if ("quantity".equals(codeString))
           return QUANTITY;
+        if ("uri".equals(codeString))
+          return URI;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
         public String toCode() {
@@ -107,6 +113,7 @@ public class SearchParameter extends DomainResource {
             case REFERENCE: return "reference";
             case COMPOSITE: return "composite";
             case QUANTITY: return "quantity";
+            case URI: return "uri";
             default: return "?";
           }
         }
@@ -119,6 +126,7 @@ public class SearchParameter extends DomainResource {
             case REFERENCE: return "";
             case COMPOSITE: return "";
             case QUANTITY: return "";
+            case URI: return "";
             default: return "?";
           }
         }
@@ -131,18 +139,20 @@ public class SearchParameter extends DomainResource {
             case REFERENCE: return "A reference to another resource.";
             case COMPOSITE: return "A composite search parameter that combines a search on two values together.";
             case QUANTITY: return "A search parameter that searches on a quantity.";
+            case URI: return "A search parameter that searches on a URI (RFC 3986).";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
             case NUMBER: return "Number";
-            case DATE: return "Date";
+            case DATE: return "Date/DateTime";
             case STRING: return "String";
             case TOKEN: return "Token";
             case REFERENCE: return "Reference";
             case COMPOSITE: return "Composite";
             case QUANTITY: return "Quantity";
+            case URI: return "URI";
             default: return "?";
           }
         }
@@ -167,6 +177,8 @@ public class SearchParameter extends DomainResource {
           return SearchParamType.COMPOSITE;
         if ("quantity".equals(codeString))
           return SearchParamType.QUANTITY;
+        if ("uri".equals(codeString))
+          return SearchParamType.URI;
         throw new IllegalArgumentException("Unknown SearchParamType code '"+codeString+"'");
         }
     public String toCode(SearchParamType code) {
@@ -184,6 +196,8 @@ public class SearchParameter extends DomainResource {
         return "composite";
       if (code == SearchParamType.QUANTITY)
         return "quantity";
+      if (code == SearchParamType.URI)
+        return "uri";
       return "?";
       }
     }
@@ -411,7 +425,7 @@ public class SearchParameter extends DomainResource {
      * The type of value a search parameter refers to, and how the content is interpreted.
      */
     @Child(name="type", type={CodeType.class}, order=9, min=1, max=1)
-    @Description(shortDefinition="number | date | string | token | reference | composite | quantity", formalDefinition="The type of value a search parameter refers to, and how the content is interpreted." )
+    @Description(shortDefinition="number | date | string | token | reference | composite | quantity | uri", formalDefinition="The type of value a search parameter refers to, and how the content is interpreted." )
     protected Enumeration<SearchParamType> type;
 
     /**
@@ -1157,7 +1171,7 @@ public class SearchParameter extends DomainResource {
   public static final String SP_TARGET = "target";
   @SearchParamDefinition(name="base", path="SearchParameter.base", description="The resource type this search parameter applies to", type="token" )
   public static final String SP_BASE = "base";
-  @SearchParamDefinition(name="type", path="SearchParameter.type", description="number | date | string | token | reference | composite | quantity", type="token" )
+  @SearchParamDefinition(name="type", path="SearchParameter.type", description="number | date | string | token | reference | composite | quantity | uri", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="url", path="SearchParameter.url", description="Literal URL used to reference this search parameter", type="token" )
   public static final String SP_URL = "url";

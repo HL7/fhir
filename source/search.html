@@ -192,8 +192,9 @@ separated from the parameter name by a colon. Modifiers are:</p>
   equates to not having the relevant element in the resource). Searching for "gender:missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
  <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), instead of the default behavior, which is that the search does partial matches. It is at the discretion of the server whether to do a left-partial search</li>
- <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other define modifiers are ";in", ":below", ":above", ":in" and ":not-in" which are described below</li>
+ <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other define modifiers are ":in", ":below", ":above", ":in" and ":not-in" which are described below</li>
  <li>For reference: ":[type]" where [type] is the name of a type of resource</li>
+ <li>For uri: ":below", ":above" indicate that instead of an exact match, either the search term left matches the value, or vice-versa</li>
 </ul>
 
 <a name="number" />
@@ -310,6 +311,26 @@ and contact details to remove separator characters prior to matching in order
 to ensure more consistent behavior. For example, a server might remove all
 spaces and "-" characters from phone numbers. What is most appropriate varies
 depending on culture and context.
+</p>
+
+
+<a name="uri" />
+<h4>uri</h4>
+<p>
+The uri parameter refers to an element which is URI (<a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>).
+Matches are precise (e.g. case, accent, and escape) sensitive, and the entire URI must match. 
+The modifier :above or :below can be used to indicate
+that the match is based on left. For example:
+</p>
+<pre>
+ GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123
+ GET [base]/ValueSet?url:below=http://acme.org/fhir/
+</pre>
+<p>
+The first is a request to find any value set with the exact url "http://acme.org/fhir/ValueSet/123". 
+The second search will return any value sets that have a URL that starts with "http://acme.org/fhir/".
+The converse - the search for any value set above a given specific URL - may be useful for searching
+name systems, but it is generally less useful than the :below search. 
 </p>
 
 <a name="token" />

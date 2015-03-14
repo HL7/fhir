@@ -45,8 +45,8 @@ import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.ConformancePackage;
-import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
+import org.hl7.fhir.definitions.model.Profile;
+import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -60,7 +60,7 @@ import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.OperationTuplePart;
-import org.hl7.fhir.definitions.model.ProfileDefn;
+import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
@@ -300,7 +300,10 @@ public class SpreadsheetParser {
 
 	  readEvents(loadSheet("Events"));
 	  readSearchParams(root, loadSheet("Search"), false);
-	  readPackages(root, loadSheet("Packages")); 
+	  if (xls.getSheets().containsKey("Profiles"))
+	    readPackages(root, loadSheet("Profiles")); 
+	  else
+	    readPackages(root, loadSheet("Packages")); 
     readExamples(root, loadSheet("Examples"));
 	  readOperations(root, loadSheet("Operations"));
 
@@ -399,7 +402,7 @@ public class SpreadsheetParser {
       for (int row = 0; row < sheet.rows.size(); row++) {
         String name = sheet.getColumn(row, "Name");
         if (name != null && !name.equals("") && !name.startsWith("!")) {
-          ConformancePackage pack = new ConformancePackage(sheet.getColumn(row, "IG Name"));
+          Profile pack = new Profile(sheet.getColumn(row, "IG Name"));
           if (Utilities.noString(pack.getCategory()))
             throw new Exception("Missing IG Name at "+getLocation(row));
           pack.setTitle(name);
@@ -470,7 +473,7 @@ public class SpreadsheetParser {
 	}
 
   /* for profiles that have a "search" tab not tied to a structure */
-  private void readSearchParams(ConformancePackage pack, Sheet sheet, String prefix) throws Exception {
+  private void readSearchParams(Profile pack, Sheet sheet, String prefix) throws Exception {
     for (int row = 0; row < sheet.rows.size(); row++) {
 
       if (!sheet.hasColumn(row, "Name"))
@@ -641,8 +644,17 @@ public class SpreadsheetParser {
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has wrong path "+ getLocation(row));
                 if (!forProfile && e != null && (!e.typeCode().startsWith("Reference(") && !e.typeCode().startsWith("uri|Reference(")))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is reference, but the element type is "+e.typeCode());
-              } else if (e != null && e.typeCode().startsWith("Reference("))
-                throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
+              } else {
+                if (e != null && e.typeCode().startsWith("Reference("))
+                  throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
+                if (t == SearchType.uri) {
+                  if (e != null && !e.typeCode().equals("uri"))
+                    throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
+                } else {
+                  if (e != null && e.typeCode().equals("uri"))
+                    throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
+                }
+              }
             }
             if (!forProfile && t == SearchType.reference && pn.size() == 0 && !sheet.hasColumn(row, "Target Types"))
               throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has no path(s) "+ getLocation(row));
@@ -675,6 +687,8 @@ public class SpreadsheetParser {
 			return SearchType.reference;
     if ("token".equals(s))
       return SearchType.token;
+    if ("uri".equals(s))
+      return SearchType.uri;
     if ("composite".equals(s))
       return SearchType.composite;
     if ("quantity".equals(s))
@@ -823,7 +837,7 @@ public class SpreadsheetParser {
   }
 
 
-	public void parseConformancePackage(ConformancePackage ap, Definitions definitions, String folder, String usage) throws Exception {
+	public void parseConformancePackage(Profile ap, Definitions definitions, String folder, String usage) throws Exception {
 	  try {
 	    isProfile = true;
 	    checkMappings(ap);
@@ -897,7 +911,7 @@ public class SpreadsheetParser {
 	}
 
 
-  private void checkMappings(ConformancePackage pack) throws Exception {
+  private void checkMappings(Profile pack) throws Exception {
     pack.getMappingSpaces().clear();
     Sheet sheet = loadSheet("Mappings");
     if (sheet != null) {
@@ -910,7 +924,7 @@ public class SpreadsheetParser {
   }
 
 
-  private ProfileDefn parseProfileSheet(Definitions definitions, ConformancePackage ap, String n, List<String> namedSheets, boolean published, String usage) throws Exception {
+  private ConstraintStructure parseProfileSheet(Definitions definitions, Profile ap, String n, List<String> namedSheets, boolean published, String usage) throws Exception {
     Sheet sheet;
     ResourceDefn resource = new ResourceDefn();
     resource.setPublishedInProfile(published);
@@ -971,7 +985,7 @@ public class SpreadsheetParser {
 		}
 
     resource.getRoot().setProfileName(n);
-		ProfileDefn p = new ProfileDefn(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getRoot().getProfileName(), resource, definitions.getUsageIG(usage, "Parsing "+name));
+		ConstraintStructure p = new ConstraintStructure(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getRoot().getProfileName(), resource, definitions.getUsageIG(usage, "Parsing "+name));
     return p;
   }
 
@@ -997,8 +1011,8 @@ public class SpreadsheetParser {
 					      parseExampleType(type, row),
 					      parseBoolean(sheet.getColumn(row, "In Book"), row, false), isAbstract));
 					} else {
-					  ConformancePackage ap = null;
-					  for (ConformancePackage r : defn.getConformancePackages()) {
+					  Profile ap = null;
+					  for (Profile r : defn.getConformancePackages()) {
 					    if (r.getTitle().equals(pn))
 					      ap = r;
 					  }
@@ -1088,7 +1102,7 @@ public class SpreadsheetParser {
   }
 
 
-  private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants, boolean profile, ConformancePackage pack) throws Exception {
+  private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants, boolean profile, Profile pack) throws Exception {
 		ElementDefn e;
 		String path = sheet.getColumn(row, "Element");
 		if (path.startsWith("!"))
@@ -1307,7 +1321,7 @@ public class SpreadsheetParser {
 		  }
 	}
 
-  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, ConformancePackage ap) throws Exception {
+  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, Profile ap) throws Exception {
 	  // first, we build the extension definition
     StructureDefinition ex = new StructureDefinition();
     ex.setType(StructureDefinitionType.EXTENSION);

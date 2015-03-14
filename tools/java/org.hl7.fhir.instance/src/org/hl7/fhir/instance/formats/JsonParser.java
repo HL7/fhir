@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Mar 13, 2015 18:02+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -7497,8 +7497,8 @@ public class JsonParser extends JsonParserBase {
       res.setSeverityElement(parseEnumeration(json.get("severity").getAsString(), OperationOutcome.IssueSeverity.NULL, new OperationOutcome.IssueSeverityEnumFactory()));
     if (json.has("_severity"))
       parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverityElement());
-    if (json.has("type"))
-      res.setType(parseCoding(json.getAsJsonObject("type")));
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("details"))
       res.setDetailsElement(parseString(json.get("details").getAsString()));
     if (json.has("_details"))
@@ -21504,8 +21504,8 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("severity", element.getSeverityElement(), new OperationOutcome.IssueSeverityEnumFactory(), false);
         composeEnumerationExtras("severity", element.getSeverityElement(), new OperationOutcome.IssueSeverityEnumFactory(), false);
       }
-      if (element.hasType()) {
-        composeCoding("type", element.getType());
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
       }
       if (element.hasDetailsElement()) {
         composeStringCore("details", element.getDetailsElement(), false);

@@ -59,8 +59,8 @@ import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Compartment;
-import org.hl7.fhir.definitions.model.ConformancePackage;
-import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
+import org.hl7.fhir.definitions.model.Profile;
+import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -70,7 +70,7 @@ import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.PrimitiveType;
-import org.hl7.fhir.definitions.model.ProfileDefn;
+import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
@@ -299,7 +299,7 @@ public class SourceParser {
 		}
 		
 		for (ResourceDefn r : definitions.getResources().values()) {
-		  for (ConformancePackage p : r.getConformancePackages()) 
+		  for (Profile p : r.getConformancePackages()) 
 		    loadConformancePackage(p);
 		}
 	}
@@ -473,13 +473,13 @@ public class SourceParser {
 	}
 	
 	
-	private void loadConformancePackages(String n, Map<String, ConformancePackage> packs) throws Exception {
+	private void loadConformancePackages(String n, Map<String, Profile> packs) throws Exception {
 	  String usage = "core";
 	  File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
 	  if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
 	    SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false);
 	    try {
-	      ConformancePackage pack = new ConformancePackage(usage);
+	      Profile pack = new Profile(usage);
 	      pack.setTitle(n);
 	      pack.setSource(spreadsheet.getAbsolutePath());
 	      pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
@@ -489,14 +489,14 @@ public class SourceParser {
 	      throw new Exception("Error Parsing StructureDefinition: '"+n+"': "+e.getMessage(), e);
 	    }
 	  } else {
-	    ConformancePackage pack = new ConformancePackage(usage);
+	    Profile pack = new Profile(usage);
 	    parseConformanceDocument(pack, n, spreadsheet, usage);
       packs.put(n, pack);
 	  }
 	}
 
 
-  private void parseConformanceDocument(ConformancePackage pack, String n, File file, String usage) throws Exception {
+  private void parseConformanceDocument(Profile pack, String n, File file, String usage) throws Exception {
     try {
       Resource rf = new XmlParser().parse(new CSFileInputStream(file));
       if (!(rf instanceof Bundle))
@@ -513,7 +513,7 @@ public class SourceParser {
           for (StringType s : ed.getContext())
             definitions.checkContextValid(ed.getContextType(), s.getValue(), file.getName());
           ToolResourceUtilities.updateUsage(ed, pack.getCategory());
-          pack.getProfiles().add(new ProfileDefn(ed, definitions.getUsageIG(usage, "Parsing "+file.getAbsolutePath())));
+          pack.getProfiles().add(new ConstraintStructure(ed, definitions.getUsageIG(usage, "Parsing "+file.getAbsolutePath())));
         } else if (ae.getResource() instanceof StructureDefinition) {
           StructureDefinition ed = (StructureDefinition) ae.getResource();
           if (Utilities.noString(ed.getBase()))
@@ -528,7 +528,7 @@ public class SourceParser {
   }
 
 
-  private void loadConformancePackage(ConformancePackage ap) throws FileNotFoundException, IOException, Exception {
+  private void loadConformancePackage(Profile ap) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
       SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));

@@ -1838,12 +1838,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
   public void generate(OperationOutcome op) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     boolean hasSource = false;
-    boolean hasType = false;
     boolean success = true;
     for (OperationOutcomeIssueComponent i : op.getIssue()) {
     	success = success && i.getSeverity() != IssueSeverity.INFORMATION;
     	hasSource = hasSource || ExtensionHelper.hasExtension(i, ToolingExtensions.EXT_ISSUE_SOURCE);
-    	hasType = hasType || i.hasType();
     }
     if (success)
     	x.addTag("p").addText("All OK");
@@ -1854,8 +1852,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     		tr.addTag("td").addTag("b").addText("Severity");
     		tr.addTag("td").addTag("b").addText("Location");
     		tr.addTag("td").addTag("b").addText("Details");
-    		if (hasType)
-    			tr.addTag("td").addTag("b").addText("Type");
+  			tr.addTag("td").addTag("b").addText("Code");
     		if (hasSource)
     			tr.addTag("td").addTag("b").addText("Source");
     		for (OperationOutcomeIssueComponent i : op.getIssue()) {
@@ -1871,8 +1868,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     				td.addText(s.getValue());      		
     			}
     			smartAddText(tr.addTag("td"), i.getDetails());
-    			if (hasType)
-    				tr.addTag("td").addText(gen(i.getType()));
+  				tr.addTag("td").addText(gen(i.getCode()));
     			if (hasSource)
     				tr.addTag("td").addText(gen(ExtensionHelper.getExtension(i, ToolingExtensions.EXT_ISSUE_SOURCE)));
     		}    
@@ -1890,13 +1886,23 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  throw new Exception("Unhandled type "+extension.getValue().getClass().getName());
   }
 
-	private String gen(Coding type) {
-	  if (type == null)
+	private String gen(CodeableConcept code) {
+		if (code == null)
 	  	return null;
-	  if (type.hasDisplayElement())
-	  	return type.getDisplay();
-	  if (type.hasCodeElement())
-	  	return type.getCode();
+		if (code.hasText())
+			return code.getText();
+		if (code.hasCoding())
+			return gen(code.getCoding().get(0));
+		return null;
+	}
+	
+	private String gen(Coding code) {
+	  if (code == null)
+	  	return null;
+	  if (code.hasDisplayElement())
+	  	return code.getDisplay();
+	  if (code.hasCodeElement())
+	  	return code.getCode();
 	  return null;
   }
 

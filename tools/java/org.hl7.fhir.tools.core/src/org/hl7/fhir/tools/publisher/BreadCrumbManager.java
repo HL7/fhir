@@ -339,9 +339,9 @@ public class BreadCrumbManager {
           } else {
             if (!Utilities.noString(path[0]))
               b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+".html\">"+path[0]+"</a></li>");
-            b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+"-packages.html\">Profiles</a></li>");
+            b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+"-profiles.html\">Profiles</a></li>");
           }
-          b.append("        <li><a href=\""+prefix+path[1].toLowerCase()+".html\">Package</a></li>");
+          b.append("        <li><a href=\""+prefix+path[1].toLowerCase()+".html\">Profile</a></li>");
 //          b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+".html\">"+path[0]+"</a></li>");
         } else {
           String[] path = p.split("\\.");
@@ -456,7 +456,7 @@ public class BreadCrumbManager {
         addLink(b, p.getReference().toLowerCase()+"-examples.html", p.getReference()+" Examples", path+".1", level+1);
         addLink(b, p.getReference().toLowerCase()+"-definitions.html", p.getReference()+" Definitions", path+".2", level+1);
         addLink(b, p.getReference().toLowerCase()+"-mappings.html", p.getReference()+" Mappings", path+".3", level+1);
-        addLink(b, p.getReference().toLowerCase()+"-packages.html", p.getReference()+" Profiles", path+".4", level+1);
+        addLink(b, p.getReference().toLowerCase()+"-profiles.html", p.getReference()+" Profiles", path+".4", level+1);
     } else {
       addLink(b, p.getFilename(), p.getTitle(), path, level);
       for (Node n : p.getChildren()) {

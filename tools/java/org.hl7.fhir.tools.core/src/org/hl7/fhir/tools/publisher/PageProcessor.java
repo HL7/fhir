@@ -62,7 +62,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
 import org.hl7.fhir.definitions.model.Compartment;
-import org.hl7.fhir.definitions.model.ConformancePackage;
+import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -75,7 +75,7 @@ import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.OperationTuplePart;
 import org.hl7.fhir.definitions.model.PrimitiveType;
-import org.hl7.fhir.definitions.model.ProfileDefn;
+import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
@@ -952,7 +952,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     names.addAll(definitions.getConformancePackages().keySet());
     Collections.sort(names);
     for (String s : names) {
-      ConformancePackage ap = definitions.getConformancePackages().get(s);
+      Profile ap = definitions.getConformancePackages().get(s);
       b.append("  <tr>\r\n");
       b.append("    <td><a href=\"").append(ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
       b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
@@ -1642,8 +1642,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private void scanForProfileUsage(StringBuilder b, BindingSpecification cd, ResourceDefn r) {
-    for (ConformancePackage ap : r.getConformancePackages()) {
-      for (ProfileDefn p : ap.getProfiles()) {
+    for (Profile ap : r.getConformancePackages()) {
+      for (ConstraintStructure p : ap.getProfiles()) {
         for (ElementDefinition ed : p.getResource().getSnapshot().getElement()) {
           if (ed.hasBinding()) {
             if (ed.getBinding().getName().equals(cd.getName()))
@@ -2266,7 +2266,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    b.append(makeHeaderTab("Profiles", n+"-packages.html", "packages".equals(mode)));
+    b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
 
@@ -3824,7 +3824,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String getSearch(ConformancePackage pack) {
+  private String getSearch(Profile pack) {
     if (pack.getSearchParameters().size() == 0)
       return "";
     else {
@@ -3880,7 +3880,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     } else { 
       for (ImplementationGuide ig : definitions.getSortedIgs()) {
         boolean started = false;
-        for (ConformancePackage ap: resource.getConformancePackages()) {
+        for (Profile ap: resource.getConformancePackages()) {
           if (ig.getCode().equals(ap.getCategory())) {
             if (!started) {
               started = true;
@@ -3981,13 +3981,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("<div id=\"tabs-2\">\r\n");
 
     s.append("<table class=\"list\">\r\n");
-    Map<String, ProfileDefn> constraints = new HashMap<String, ProfileDefn>();
+    Map<String, ConstraintStructure> constraints = new HashMap<String, ConstraintStructure>();
     for (String pn : definitions.getConformancePackages().keySet()) 
-      for (ProfileDefn p : definitions.getConformancePackages().get(pn).getProfiles())
+      for (ConstraintStructure p : definitions.getConformancePackages().get(pn).getProfiles())
         constraints.put(p.getId(), p);
     for (String rn : definitions.sortedResourceNames()) 
-      for (ConformancePackage ap: definitions.getResourceByName(rn).getConformancePackages()) 
-        for (ProfileDefn p : ap.getProfiles()) 
+      for (Profile ap: definitions.getResourceByName(rn).getConformancePackages()) 
+        for (ConstraintStructure p : ap.getProfiles()) 
           constraints.put(p.getId(), p);
     names.clear();
     names.addAll(constraints.keySet());
@@ -3995,7 +3995,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (ImplementationGuide ig : definitions.getSortedIgs()) {
       boolean started = false;
       for (String n : names) {
-        ProfileDefn p = constraints.get(n);
+        ConstraintStructure p = constraints.get(n);
         if (ig == p.getUsage()) {
           if (!started) {
             started = true;
@@ -4225,7 +4225,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource, tabs);
   }
 
-  public String processProfileIncludes(String filename, String fileid, ConformancePackage pack, ProfileDefn profile, String xml, String json, String tx, String src, String master, String path) throws Exception {
+  public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path) throws Exception {
     String workingTitle = null;
 
     while (src.contains("<%") || src.contains("[%"))
@@ -4380,7 +4380,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   }
 
-  private String profileDictionaryLink(ProfileDefn profile) {
+  private String profileDictionaryLink(ConstraintStructure profile) {
     String uri = ToolingExtensions.readStringExtension(profile.getResource(), "http://hl7.org/fhir/StructureDefinition/datadictionary");
     if (Utilities.noString(uri))
       return "<!-- no uri -->";
@@ -4393,7 +4393,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           " resource must be a valid Observation as defined in the data dictionary <a href=\""+uri+".html\">"+dict+"</a>.</p>";
   }
 
-  private String generateHumanSummary(ConformancePackage pack, StructureDefinition profile) {
+  private String generateHumanSummary(Profile pack, StructureDefinition profile) {
     try {
       if ("true".equalsIgnoreCase(pack.metadata("no-summary")))
           return "";
@@ -4722,7 +4722,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String profileReviewLink(ProfileDefn profile) {
+  private String profileReviewLink(ConstraintStructure profile) {
     if (!profile.getUsage().isReview())
       return "";
     String s = Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls");
@@ -4831,7 +4831,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String generateProfileStructureTable(ProfileDefn profile, boolean diff, String filename) throws Exception {
+  private String generateProfileStructureTable(ConstraintStructure profile, boolean diff, String filename) throws Exception {
     String fn = filename.contains(".") ? filename.substring(0, filename.indexOf('.')) : filename;
     String deffile = fn+"-definitions.html";
     return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, this, fn, !diff));
@@ -5240,7 +5240,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return null;
   }
 
-  public String processConformancePackageIncludes(ConformancePackage pack, String src, String intro, String notes) throws Exception {
+  public String processConformancePackageIncludes(Profile pack, String src, String intro, String notes) throws Exception {
     String workingTitle = null;
     int level = 0;
     //boolean even = false;
@@ -5378,12 +5378,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   }
 
-  private String getPackageContent(ConformancePackage pack) throws Exception {
+  private String getPackageContent(Profile pack) throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"lines\">");
     if (pack.getProfiles().size() > 0) {
       s.append("<tr><td colspan=\"2\"><b>Profiles</b>: </td></tr>");
-      for (ProfileDefn p : pack.getProfiles())
+      for (ConstraintStructure p : pack.getProfiles())
         s.append("<tr><td><a href=\"").append(p.getId()).append(".html\">").append(Utilities.escapeXml(p.getTitle()))
                 .append("</a></td><td>").append(Utilities.escapeXml(p.getResource().getDescription())).append("</td></tr>");
     }

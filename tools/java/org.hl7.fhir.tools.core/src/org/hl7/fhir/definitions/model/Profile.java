@@ -13,7 +13,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 // a named set of profiles and extensions
 // most resource defitions have one or two of these, and there are some others as well (e.g. CDA)
-public class ConformancePackage {
+public class Profile {
 
   public enum ConformancePackageSourceType {
     Spreadsheet, Bundle;
@@ -30,13 +30,13 @@ public class ConformancePackage {
   private String category;
   
   // content
-  private List<ProfileDefn> profiles = new ArrayList<ProfileDefn>();
+  private List<ConstraintStructure> profiles = new ArrayList<ConstraintStructure>();
   private List<StructureDefinition> extensions = new ArrayList<StructureDefinition>();
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<SearchParameter> searchParameters = new ArrayList<SearchParameter>();
   private Map<String, MappingSpace> mappingSpaces = new HashMap<String, MappingSpace>();
   
-  public ConformancePackage(String category) {
+  public Profile(String category) {
     super();
     this.category = category;
   }
@@ -99,7 +99,7 @@ public class ConformancePackage {
     metadata.put(name, a);
     a.add(value);
   }
-  public List<ProfileDefn> getProfiles() {
+  public List<ConstraintStructure> getProfiles() {
     return profiles;
   }
   public List<StructureDefinition> getExtensions() {

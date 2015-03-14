@@ -38,12 +38,12 @@ public class ResourceDefn  {
    private List<Example> examples = new ArrayList<Example>();
    private Map<String, SearchParameterDefn> searchParams = new HashMap<String, SearchParameterDefn>();
    private List<Operation> operations = new ArrayList<Operation>();
-   private List<ConformancePackage> conformancePackages = new ArrayList<ConformancePackage>();
+   private List<Profile> conformancePackages = new ArrayList<Profile>();
       
    private String status;
    private boolean abstract_;
    private WorkGroup wg;
-   private ConformancePackage conformancePack;
+   private Profile conformancePack;
      
    private String name = null;
    
@@ -160,7 +160,7 @@ public class ResourceDefn  {
     publishedInProfile = value;
   }
 
-  public List<ConformancePackage> getConformancePackages() {
+  public List<Profile> getConformancePackages() {
     return conformancePackages;
   }
 
@@ -180,11 +180,11 @@ public class ResourceDefn  {
     this.wg = wg;
   }
 
-  public ConformancePackage getConformancePack() {
+  public Profile getConformancePack() {
     return conformancePack;
   }
 
-  public void setConformancePack(ConformancePackage conformancePack) {
+  public void setConformancePack(Profile conformancePack) {
     this.conformancePack = conformancePack;
   }
 

@@ -73,7 +73,7 @@ public class Definitions {
   private Map<String, WorkGroup> workgroups = new HashMap<String, WorkGroup>();
 
 	// profiles not owned by a particular resource
-  private Map<String, ConformancePackage> packs = new HashMap<String, ConformancePackage>();
+  private Map<String, Profile> packs = new HashMap<String, Profile>();
   private Map<String, String> dictionaries = new HashMap<String, String>();
 
   // indexes of above
@@ -239,7 +239,7 @@ public class Definitions {
 
 	// Returns all defined Profiles, which are the profiles found
 	// under [profiles] in fhir.ini
-	public Map<String, ConformancePackage> getConformancePackages() {
+	public Map<String, Profile> getConformancePackages() {
 		return packs;
 	}
 
@@ -373,15 +373,15 @@ public class Definitions {
     for (ResourceDefn r : resources.values()) {
       if (r.getProfile().getUrl().equals(base))
         return r.getProfile();
-      for (ConformancePackage cp : r.getConformancePackages()) {
-        for (ProfileDefn p : cp.getProfiles()) {
+      for (Profile cp : r.getConformancePackages()) {
+        for (ConstraintStructure p : cp.getProfiles()) {
           if (p.getResource() != null && base.equals(p.getResource().getUrl()))
             return p.getResource();
         }
       }
     }
-    for (ConformancePackage cp : packs.values()) {
-      for (ProfileDefn p : cp.getProfiles()) {
+    for (Profile cp : packs.values()) {
+      for (ConstraintStructure p : cp.getProfiles()) {
         if (p.getResource() != null && base.equals(p.getResource().getUrl()))
           return p.getResource();
       }      

@@ -98,7 +98,7 @@ import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Compartment;
-import org.hl7.fhir.definitions.model.ConformancePackage;
+import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -110,7 +110,7 @@ import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.OperationTuplePart;
 import org.hl7.fhir.definitions.model.PrimitiveType;
-import org.hl7.fhir.definitions.model.ProfileDefn;
+import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
@@ -650,13 +650,13 @@ public class Publisher implements URIResolver {
     }
 
     if (page.hasIG()) {
-      ConformancePackage pack = makeConformancePackage();
+      Profile pack = makeConformancePackage();
       page.getDefinitions().getConformancePackages().put(pack.getId(), pack);
 
       page.log(" ...process profiles (ig)", LogMessageType.Process);
       for (Resource rd : page.getIgResources().values()) {
         if (rd instanceof StructureDefinition) {
-          ProfileDefn pd = new ProfileDefn((StructureDefinition) rd, page.getDefinitions().getUsageIG("ig", "reading IG profiles"));
+          ConstraintStructure pd = new ConstraintStructure((StructureDefinition) rd, page.getDefinitions().getUsageIG("ig", "reading IG profiles"));
           pack.getProfiles().add(pd);
         }
       }
@@ -668,21 +668,21 @@ public class Publisher implements URIResolver {
     
     page.log(" ...process profiles (packs)", LogMessageType.Process);
     // we have profiles scoped by resources, and stand alone profiles
-    for (ConformancePackage ap : page.getDefinitions().getConformancePackages().values())
-      for (ProfileDefn p : ap.getProfiles())
+    for (Profile ap : page.getDefinitions().getConformancePackages().values())
+      for (ConstraintStructure p : ap.getProfiles())
         processProfile(ap, p, ap.getId());
     for (ResourceDefn r : page.getDefinitions().getResources().values())
-      for (ConformancePackage ap : r.getConformancePackages())
-        for (ProfileDefn p : ap.getProfiles())
+      for (Profile ap : r.getConformancePackages())
+        for (ConstraintStructure p : ap.getProfiles())
           processProfile(ap, p, ap.getId());
 
     // now, validate the profiles
-    for (ConformancePackage ap : page.getDefinitions().getConformancePackages().values())
-      for (ProfileDefn p : ap.getProfiles())
+    for (Profile ap : page.getDefinitions().getConformancePackages().values())
+      for (ConstraintStructure p : ap.getProfiles())
         validateProfile(p);
     for (ResourceDefn r : page.getDefinitions().getResources().values())
-      for (ConformancePackage ap : r.getConformancePackages())
-        for (ProfileDefn p : ap.getProfiles())
+      for (Profile ap : r.getConformancePackages())
+        for (ConstraintStructure p : ap.getProfiles())
           validateProfile(p);
     if (page.hasIG())
       for (Resource rd : page.getIgResources().values()) {
@@ -697,14 +697,14 @@ public class Publisher implements URIResolver {
     new ProfileUtilities(page.getWorkerContext()).generateSnapshot(bd, ex, ex.getUrl(), ex.getName(), page);
   }
 
-  private ConformancePackage makeConformancePackage() {
-    ConformancePackage result = new ConformancePackage("ig");
+  private Profile makeConformancePackage() {
+    Profile result = new Profile("ig");
     result.setTitle(page.getIg().getName());
     return result;
   }
 
-  private ConformancePackage makeConformancePack(ResourceDefn r) {
-    ConformancePackage result = new ConformancePackage("core");
+  private Profile makeConformancePack(ResourceDefn r) {
+    Profile result = new Profile("core");
     result.setTitle("Base Profile for "+r.getName());
     return result;
   }
@@ -720,7 +720,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void validateProfile(ProfileDefn p) throws Exception {
+  private void validateProfile(ConstraintStructure p) throws Exception {
     ProfileValidator pv = new ProfileValidator();
     pv.setContext(page.getWorkerContext());
     List<String> errors = pv.validate(p.getResource());
@@ -775,7 +775,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void processProfile(ConformancePackage ap, ProfileDefn profile, String filename) throws Exception {
+  private void processProfile(Profile ap, ConstraintStructure profile, String filename) throws Exception {
     // they've either been loaded from spreadsheets, or from profile declarations
     // what we're going to do:
     //  create StructureDefinition structures if needed (create differential definitions from spreadsheets)
@@ -1080,6 +1080,8 @@ public class Publisher implements URIResolver {
       return Conformance.SearchParamType.REFERENCE;
     case token:
       return Conformance.SearchParamType.TOKEN;
+    case uri:
+      return Conformance.SearchParamType.URI;
     case composite:
       return Conformance.SearchParamType.COMPOSITE;
     case quantity:
@@ -1703,7 +1705,7 @@ public class Publisher implements URIResolver {
           if (ae instanceof StructureDefinition) {
             String n = Utilities.fileTitle((String) ae.getUserData("path")).replace(".xml", "");
             StructureDefinition p = (StructureDefinition) ae;
-            ProfileDefn pd = new ProfileDefn(p, page.getDefinitions().getUsageIG("ig", "reading IG profiles (2)"));
+            ConstraintStructure pd = new ConstraintStructure(p, page.getDefinitions().getUsageIG("ig", "reading IG profiles (2)"));
 
 
             page.log(" ...profile " + n, LogMessageType.Process);
@@ -1753,7 +1755,7 @@ public class Publisher implements URIResolver {
         addSearchParams(searchParamsFeed, rd);
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
         addSearchParams(searchParamsFeed, rd);
-      for (ConformancePackage cp : page.getDefinitions().getConformancePackages().values()) {
+      for (Profile cp : page.getDefinitions().getConformancePackages().values()) {
         addSearchParams(searchParamsFeed, cp);
       }
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "search-parameters.xml"), searchParamsFeed);
@@ -1767,7 +1769,7 @@ public class Publisher implements URIResolver {
       profileOthersFeed.setMeta(new Meta().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
         addOtherProfiles(profileOthersFeed, rd);
-      for (ConformancePackage cp : page.getDefinitions().getConformancePackages().values()) {
+      for (Profile cp : page.getDefinitions().getConformancePackages().values()) {
         addOtherProfiles(profileOthersFeed, cp);
       }
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-others.xml"), profileOthersFeed);
@@ -1999,13 +2001,13 @@ public class Publisher implements URIResolver {
 
   }
 
-  private void addOtherProfiles(Bundle bundle, ConformancePackage cp) {
-    for (ProfileDefn p : cp.getProfiles())
+  private void addOtherProfiles(Bundle bundle, Profile cp) {
+    for (ConstraintStructure p : cp.getProfiles())
       bundle.addEntry().setResource(p.getResource());
   }
 
   private void addOtherProfiles(Bundle bundle, ResourceDefn rd) {
-    for (ConformancePackage cp : rd.getConformancePackages())
+    for (Profile cp : rd.getConformancePackages())
       addOtherProfiles(bundle, cp);
 
 
@@ -2027,7 +2029,7 @@ public class Publisher implements URIResolver {
       addSearchParams(bundle, rd.getConformancePack());
   }
 
-  private void addSearchParams(Bundle bundle, ConformancePackage conformancePack) {
+  private void addSearchParams(Bundle bundle, Profile conformancePack) {
     for (SearchParameter sp : conformancePack.getSearchParameters()) {
      bundle.addEntry().setResource(sp);
     }
@@ -2901,7 +2903,7 @@ public class Publisher implements URIResolver {
     SvgGenerator svg = new SvgGenerator(page);
     svg.generate(resource, page.getFolders().dstDir + n + ".svg");
 
-    for (ConformancePackage ap : resource.getConformancePackages())
+    for (Profile ap : resource.getConformancePackages())
       produceConformancePackage(resource.getName(), ap);
 
     StructureDefinition profile = (StructureDefinition) ResourceUtilities.getById(profileFeed, ResourceType.StructureDefinition, resource.getName());
@@ -2959,11 +2961,11 @@ public class Publisher implements URIResolver {
           insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Design Notes", n + "-explanations.html"), st, n
               + "-explanations.html"), page.getFolders().dstDir + n + "-explanations.html");
       page.getEpub().registerFile(n + "-explanations.html", "Design Notes for " + resource.getName(), EPubManager.XHTML_TYPE);
-      src = TextFile.fileToString(page.getFolders().srcDir + "template-packages.html");
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.html");
       TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-packages.html"), st, n + "-packages.html"),
-          page.getFolders().dstDir + n + "-packages.html");
-      page.getEpub().registerFile(n + "-packages.html", "Profiles for " + resource.getName(), EPubManager.XHTML_TYPE);
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html"), st, n + "-profiles.html"),
+          page.getFolders().dstDir + n + "-profiles.html");
+      page.getEpub().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), EPubManager.XHTML_TYPE);
     }
     if (!resource.getOperations().isEmpty()) {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-operations.html");
@@ -3483,9 +3485,9 @@ public class Publisher implements URIResolver {
     dest.getEntry().add(new BundleEntryComponent().setResource(conf));
   }
 
-  private void produceConformancePackage(String resourceName, ConformancePackage pack) throws Exception {
+  private void produceConformancePackage(String resourceName, Profile pack) throws Exception {
     // first, we produce each profile
-    for (ProfileDefn profile : pack.getProfiles())
+    for (ConstraintStructure profile : pack.getProfiles())
       produceProfile(resourceName, pack, profile);
 
     for (SearchParameter sp : pack.getSearchParameters())
@@ -3508,7 +3510,7 @@ public class Publisher implements URIResolver {
 //        processExample(examples.get(en), null, profile.getSource());
   }
 
-  private void producePackSearchParameter(String resourceName, ConformancePackage pack, SearchParameter sp) throws Exception {
+  private void producePackSearchParameter(String resourceName, Profile pack, SearchParameter sp) throws Exception {
     String title = sp.getId();
     sp.setUserData("pack", pack.getId());
 
@@ -3531,7 +3533,7 @@ public class Publisher implements URIResolver {
     page.getEpub().registerExternal(title + ".json.html");
   }
 
-  private void produceProfile(String resourceName, ConformancePackage pack, ProfileDefn profile) throws Exception {
+  private void produceProfile(String resourceName, Profile pack, ConstraintStructure profile) throws Exception {
     File tmp = Utilities.createTempFile("tmp", ".tmp");
     String title = profile.getId();
 
@@ -3747,10 +3749,10 @@ public class Publisher implements URIResolver {
     XmlParser xml = new XmlParser();
     StructureDefinition p = (StructureDefinition) xml.parse(new ByteArrayInputStream(profile.getBytes()));
     new ProfileUtilities(page.getWorkerContext()).generateSnapshot(page.getProfiles().get(p.getBase()), p, p.getBase(), p.getId(), page);
-    ProfileDefn pd = new ProfileDefn(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation")); // todo
+    ConstraintStructure pd = new ConstraintStructure(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation")); // todo
     pd.setId(p.getId());
     pd.setTitle(p.getName());
-    ConformancePackage pack = new ConformancePackage("hspc");
+    Profile pack = new Profile("hspc");
     pack.forceMetadata("date", p.getDateElement().asStringValue());
     p.setUserData("filename", file  );
 

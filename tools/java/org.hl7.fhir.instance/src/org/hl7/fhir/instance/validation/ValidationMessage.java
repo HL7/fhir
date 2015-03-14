@@ -29,6 +29,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
+import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -61,6 +62,8 @@ public class ValidationMessage
     this.level = level;
     this.source = source;
     this.type = type;
+    if (type == null)
+    	throw new Error("A type must be provided");
   }
   
   public ValidationMessage() {
@@ -106,11 +109,8 @@ public class ValidationMessage
 
   public OperationOutcomeIssueComponent asIssue(OperationOutcome op) throws Exception {
     OperationOutcomeIssueComponent issue = new OperationOutcome.OperationOutcomeIssueComponent();
-    if (type != null) {
-      issue.setType(new Coding());
-      issue.getType().setSystem("http://hl7.org/fhir/issue-type");
-      issue.getType().setCode(type);
-    }
+    issue.setCode(new CodeableConcept());
+    issue.getCode().addCoding().setSystem("http://hl7.org/fhir/issue-type").setCode(type);
     if (location != null) {
       StringType s = new StringType();
       s.setValue(location);

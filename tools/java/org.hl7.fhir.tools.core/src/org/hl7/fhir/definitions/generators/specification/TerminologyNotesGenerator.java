@@ -42,7 +42,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.ElementDefn;
-import org.hl7.fhir.definitions.model.ProfileDefn;
+import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -100,7 +100,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     close();
   }
 
-  public void generate(ProfileDefn profile, Map<String, BindingSpecification> tx) throws Exception
+  public void generate(ConstraintStructure profile, Map<String, BindingSpecification> tx) throws Exception
   {
 //    write("<p>\r\nDefined Bindings\r\n</p>\r\n<ul>\r\n");
 //    for (BindingSpecification b : profile.getBindings()) {
@@ -129,7 +129,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     }
   }
 
-	private void scan(ProfileDefn profile, Map<String, BindingSpecification> tx) throws Exception {
+	private void scan(ConstraintStructure profile, Map<String, BindingSpecification> tx) throws Exception {
     // todo
 	}
 

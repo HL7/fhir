@@ -30,7 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import org.hl7.fhir.instance.model.StructureDefinition;
 
 // publishing details about a profile + the profile
-public class ProfileDefn {
+public class ConstraintStructure {
 
   private String title; // human readable name
   private String id; // id in the resource, which is also the file name root
@@ -38,7 +38,7 @@ public class ProfileDefn {
   private ResourceDefn defn; // temporary, until we get around to building the resource 
   private ImplementationGuide usage;
     
-  public ProfileDefn(StructureDefinition resource, ImplementationGuide usage) {
+  public ConstraintStructure(StructureDefinition resource, ImplementationGuide usage) {
     this.id = resource.getId();
     this.title = resource.getName();
     this.resource = resource;
@@ -47,7 +47,7 @@ public class ProfileDefn {
     this.usage = usage;
   }
 
-  public ProfileDefn(String id, String title, ResourceDefn defn, ImplementationGuide usage) {
+  public ConstraintStructure(String id, String title, ResourceDefn defn, ImplementationGuide usage) {
     this.id = id;
     this.title = title;
     this.defn = defn;
