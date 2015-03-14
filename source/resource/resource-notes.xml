@@ -31,6 +31,36 @@ resource references and URLs. Ids can be up to 64 characters long, and contain a
 upper and lowercase ASCII letters, numerals, "-" and ".". 
 </p>
 
+<a name="identifiers"> </a>
+<h4>"Business" Identifiers</h4>
+<p>
+In addition to the Resource identity element "id", many resources contain an
+element named "identifier", which, if populated, contains a different kind of 
+identifier.
+</p>
+<p>
+The resource identity is a direct ("literal") reference that is intended to 
+be accessed via http for a resource to be returned. As a resource is copied
+from server to server, the resource identity will change as the servers 
+assign identities to the resource.
+</p>
+<p>
+However all copies of the reosurce refer to the same underlying concept,
+and this concept may also be represented in other formats (variously, v2,
+CDA, XDS, and many more). Each representation carries the same identifier
+that identifies it consistently across all contexts of use. This is known
+as the business identifier, and is found in the <i>identifier</i> element. 
+In a few resources, there is a <i>url</i> element that serves a similar
+purpose, but is constrained to be a literal URL.
+</p>
+<p>
+If a FHIR server is a stable server that is the canonical master source 
+for the definition of a concept, the business identifier for all 
+systems may be the same as the literal identity of the resource on the 
+master server.
+</p>
+
+
 <a name="metadata"> </a>
 <a name="meta"> </a>
 <a name="Meta"></a>
@@ -105,8 +135,76 @@ Note that the RESTful API defines some <a href="operations.html">Operations</a> 
 <a href="resource-operations.html#meta">direct read and write access</a> to the <i>meta</i> element.   
 </p>
 
-<a name="implicitRules"> </a>
-  
+<a name="versions"> </a>
+<h4>Technical vs Business Versions</h4>
+<p>
+All resources are conceptually versioned, and each resource sits at the head of a linear list of past versions. 
+The past versions are superceded by the current version, and only available for audit/integrity purposes. 
+The current version is e.g. http://acme.org/fhir/ResourceType/id123, and a past version would be 
+http://acme.org/fhir/ResourceType/id123/_history/v2.
+</p>
+<p>
+Note that there's no requirement for servers to keep a history. The 
+<a href="http.html#history">history interaction</a> is provided for 
+where this is an appropriate service to provide. However, Whether a server keeps them 
+or not, past versions are dead and gone. 
+The current version of the resource is in the <i>Resource.meta.versionId</i>. For a value set this would be:
+</p>
+<pre>
+&lt;ValueSet&gt;
+  &lt;meta&gt;
+    &lt;versionId value=&quot;v2&quot;/&gt;
+  &lt;/meta&gt;
+&lt;/ValueSet&gt;
+</pre>
+<p>
+That version changes every time the server updates the resource and writes a new version over the top of an existing one. 
+</p>
+<p>
+Some resources have another version marker in them. For instance, ValueSet has another version in it:
+</p>
+<pre>
+&lt;ValueSet&gt;
+  &lt;url value=&quot;http://acme.com/fhir/ValueSet/example&quot;/&gt;
+  &lt;version value=&quot;2.0&quot;/&gt;
+&lt;/ValueSet&gt;
+</pre>
+<p>
+This says that this is version 2.0 of the 'example' value set. This is the business version of the value set, the one that humans get involved with.
+These 2 versions elements have quite different lifecycles. To illustrate, take these cases: 
+</p>
+<ol>
+ <li>
+  A value set is posted to a server (POST [base]/ValueSet) with ValueSet.url = "http://acme.com/valuesets/example". This is identified as the 1st version of the value set (ValueSet.version = 1). 
+  When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1. 
+  Later, another user creates a revised version of the value set, and this is called version 2. It is commmited to the server 
+  as an update (PUT [base]/ValueSet/x1). 
+  <br/>
+  Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 2 and ValueSet.meta.versionId = 2
+ </li>
+ <li>
+  A value set is posted to a server (POST [base]/ValueSet) with ValueSet.url = "http://acme.com/valuesets/example". This is identified as the 1st version of the value set (ValueSet.version = 1). 
+  When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1.   
+  Then a typo is found in the definition, so this is fixed, but it's still v1 of the value set. This is PUT to [base]/ValueSet/x1. 
+  Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 1 and ValueSet.meta.versionId = 2.
+  <br/>
+  Later, another user creates a revised version of the value set, and this is called version 2. It is commmited to the server 
+  as an update (PUT [base]/ValueSet/x1). Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 2 and ValueSet.meta.versionId = 3
+ </li> 
+ <li>
+  A value set is posted to a server (POST [base]/ValueSet) with ValueSet.url = "http://acme.com/valuesets/example". This is identified as the 1st version of the value set (ValueSet.version = 1). 
+  When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1.  
+  Later, another user creates a revised version of the value set, and this is called version 2.
+This time, as well as supporting this new version 2, there are production systems still using version 1, and both need to be valid on the value set server. 
+So a new value set is created on the server (POST [base]/ValueSet) and is assigned the identiity 'x2'. 
+<br/>
+Now, there are two different value sets, both with URL "http://acme.com/valuesets/example". One has ValueSet.id = x1, ValueSet.version = 1 and 
+ValueSet.meta.versionId = 1 and the other has ValueSet.id = x2, ValueSet.version = 2 and ValueSet.meta.versionId = 1.
+ </li>
+</ol>
+
+
+<a name="implicitRules"> </a>  
 <h3>Implicit Rules</h3>
 <p>
 A reference to a <a href="profiling.html#agreement">custom agreement</a> about how the resources are used 

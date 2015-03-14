@@ -174,6 +174,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
   private void generateElementInner(StructureDefinition profile, ElementDefinition d) throws Exception {
     tableRowMarkdown("Definition", d.getDefinition());
+    tableRowNE("Note", null, businessIdWarning(tail(d.getPath())));
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
     tableRowNE("Binding", "terminologies.html", describeBinding(d));
     if (d.hasNameReference())
@@ -195,6 +196,21 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("LOINC Code", null, getMapping(profile, d, Definitions.LOINC_MAPPING));
     tableRow("SNOMED-CT Code", null, getMapping(profile, d, Definitions.SNOMED_MAPPING));
    }
+
+  private String businessIdWarning(String name) {
+    if (name.equals("identifier"))
+      return "This is a business identifer, not a resource identifier (see <a href=\"resource.html#identifiers\">discussion</a>)";
+    if (name.equals("version"))
+      return "This is a business versionId, not a resource identifier (see <a href=\"resource.html#versions\">discussion</a>)";
+    return null;
+  }
+
+  private String tail(String path) {
+    if (path.contains("."))
+      return path.substring(0, path.indexOf("."));
+    else
+      return path;
+  }
 
   private String encodeValue(Type value) throws Exception {
     if (value == null || value.isEmpty())
@@ -359,6 +375,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	private void writeEntry(String path, String cardinality, String type, String conceptDomain, ElementDefn e) throws Exception {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"> </a><b>"+path+"</b></td></tr>\r\n");
 		tableRowNE("Definition", null, page.processMarkdown(e.getDefinition()));
+    tableRowNE("Note", null, businessIdWarning(e.getName()));
 		tableRow("Control", "conformance-rules.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
 		tableRowNE("Binding", "terminologies.html", describeBinding(e));
 		if (!Utilities.noString(type) && type.startsWith("@"))

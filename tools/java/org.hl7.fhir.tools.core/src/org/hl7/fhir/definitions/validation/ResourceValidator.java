@@ -164,7 +164,7 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, "structure", parent.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
       rule(errors, "structure", parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
       if (rule(errors, "structure", parent.getName(), !Utilities.noString(p.getDescription()), "Search Parameter description is empty (\""+p.getCode()+"\")"))
-        rule(errors, "structure", parent.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().contains("|"), "Search Parameter descriptions should start with uppercase (\""+p.getDescription()+"\")");
+        rule(errors, "structure", parent.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().startsWith("e.g. ") || p.getDescription().contains("|"), "Search Parameter descriptions should start with an uppercase character(\""+p.getDescription()+"\")");
       try {
         for (String path : p.getPaths()) {
           ElementDefn e;
@@ -267,7 +267,7 @@ public class ResourceValidator extends BaseValidator {
     String sd = e.getShortDefn();
     if( sd.length() > 0)
 		{
-			rule(errors, "structure", path, sd.contains("|") || Character.isUpperCase(sd.charAt(0)) || !Character.isLetter(sd.charAt(0)) || Utilities.isURL(sd), "Short Description must start with an uppercase character ('"+sd+"')");
+			rule(errors, "structure", path, sd.contains("|") || Character.isUpperCase(sd.charAt(0)) || sd.startsWith("e.g. ") || !Character.isLetter(sd.charAt(0)) || Utilities.isURL(sd), "Short Description must start with an uppercase character ('"+sd+"')");
 		    rule(errors, "structure", path, !sd.endsWith(".") || sd.endsWith("etc."), "Short Description must not end with a period ('"+sd+"')");
 		    rule(errors, "structure", path, e.getDefinition().contains("|") || Character.isUpperCase(e.getDefinition().charAt(0)) || !Character.isLetter(e.getDefinition().charAt(0)), "Long Description must start with an uppercase character ('"+e.getDefinition()+"')");
 		}
