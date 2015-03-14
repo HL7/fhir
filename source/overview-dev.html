@@ -156,7 +156,13 @@ the FHIR specification defines a <a href="extensibility.html">common extension f
 <h3>Creating a resource</h3>
 <p>
 To <a href="http.html#create">create a resource</a>, send an HTTP POST request to the resource's respective end
-point. In the example below we see the creation of a Patient.
+point. 
+</p>
+<pre> 
+  POST https://example.com/path/{resourceType}
+</pre>
+<p>
+In the example below we see the creation of a Patient.
 </p>
 
 <div class="example">
@@ -262,7 +268,13 @@ Notes:
 <h3>Read Request</h3>
 <p>
 <a href="http.html#read">Reading a resource</a> is done by sending HTTP GET requests to the desired Resource
-end point, as in this example.
+end point.
+</p>
+<pre> 
+  GET https://example.com/path/{resourceType}/{id}
+</pre>
+<p>
+Here's an example.
 </p>
 <div class="example">
 <pre class="http linecounter">
@@ -327,12 +339,11 @@ general pattern is:
 </p>
 <div class="example">
 <pre class="http">
-GET base/{resourceType}?criteria HTTP/1.1
+  GET https://example.com/path/{resourceType}?criteria
 </pre>
 </div>
 <p>
-or simply https://example.com/{resourceType}?criteria. The criteria is a set of
-http parameters that specify which resources to return. The search operation
+The criteria is a set of http parameters that specify which resources to return. The search operation
 </p>
 
 <div class="example">
@@ -368,15 +379,17 @@ The response to a search request is a <a href="bundle.html">bundle</a>: list of 
 <code>      "url" : "https://example.com/base/MedicationPrescription?patient=347"</code>
 <code>    }</code>
 <code>  ],</code>
-<code>  "item": [</code>
+<code>  "entry": [</code>
 <code>    {</code>
-<code>      "resourceType": "MedicationPrescription",</code>
-<code>      "id" : "3123",</code>
-<code>      "meta" : {</code>
-<code>        "versionId" : "1",</code>
-<code>        "lastUpdated" : "2014-08-16T05:31:17Z"</code>
+<code>      "resource" : {</code>
+<code>        "resourceType": "MedicationPrescription",</code>
+<code>        "id" : "3123",</code>
+<code>        "meta" : {</code>
+<code>          "versionId" : "1",</code>
+<code>          "lastUpdated" : "2014-08-16T05:31:17Z"</code>
+<code>        }, </code>
+<code>        ... content of resource ...</code>
 <code>      }, </code>
-<code>      ... content of resource ...</code>
 <code>    }, </code>
 <code>    ... 2 additional resources ....</code>
 <code>  ]</code>
@@ -400,7 +413,14 @@ Notes:
 
 <h3>Update Request</h3>
 <p>
-The client sends the server a new version of the resource to replace the exist version.
+The client sends the server a new version of the resource to replace the exist version - it PUTs it to the location of the existing resource:
+</p>
+<pre> 
+  PUT https://example.com/path/{resourceType}/{id}
+</pre>
+<p>
+Note that there does not need to be a resource already existing at {id} - the server may elect to automatically create the resource at the specified address. 
+Here is an example of updating a patient:
 </p>
 
 <div class="example">
