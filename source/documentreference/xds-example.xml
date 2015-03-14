@@ -64,7 +64,6 @@
               <display value="General Medicine"/>
             </coding>
           </practiceSetting>
-        </extension>
         </context>
       </DocumentReference>
     </resource>
