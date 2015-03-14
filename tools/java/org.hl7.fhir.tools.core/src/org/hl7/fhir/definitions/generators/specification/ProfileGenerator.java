@@ -486,7 +486,7 @@ public class ProfileGenerator {
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
     p.setDescription(resource.getRoot().getShortDefn());    
     if (!p.hasDescriptionElement() && pack.hasMetadata("description"))
-      p.setDescription(pack.metadata("description")+" : "+p.getName());
+      p.setDescription(pack.metadata("description"));
     if (pack.hasMetadata("requirements"))
       p.setRequirements(pack.metadata("requirements"));
 

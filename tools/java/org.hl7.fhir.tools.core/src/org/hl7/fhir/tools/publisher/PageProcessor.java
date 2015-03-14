@@ -4607,7 +4607,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("notes"))
         src = s1+"todo" /*Utilities.fileToString(folders.srcDir + filename+File.separatorChar+filename+".html")*/ +s3;
       else if (com[0].equals("dictionary"))
-        src = s1+"todo"+s3;
+        src = s1+definitionsProfile(ed)+s3;
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(filename) + s3;
       else if (com[0].equals("navlist"))
@@ -4636,10 +4636,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+mappingsExtension(ed)+s3;
       else if (com[0].equals("definitions"))
         src = s1+definitionsExtension(ed)+s3;
-      else if (com[0].equals("pubdetails"))
-        src = s1+Utilities.escapeXml(ed.getPublisher())+s3;
-      else if (com[0].equals("extref"))
-        src = s1+"<p>usage info: todo</p>"+s3;
+      else if (com[0].equals("pubdetails")) {
+        src = s1+"Extension maintained by: " +Utilities.escapeXml(ed.getPublisher())+s3;
+      } else if (com[0].equals("extref"))
+        src = s1+"<p>usage info: insert a list of places where this extension is used</p>"+s3;
       else if (com[0].equals("extension-table"))
         src = s1+generateExtensionTable(ed, filename)+s3;
       else 

@@ -1969,7 +1969,6 @@ public class Publisher implements URIResolver {
     byte[] xslt = IOUtils.toByteArray( new FileInputStream(Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "AnnotationStripper.xslt")));
     String scrs = new String(src);
     String xslts = new String(xslt);
-    System.out.println(xslts);
     return new ByteArrayInputStream(Utilities.transform(new HashMap<String, byte[]>(), src, xslt));
 
 //    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -3527,7 +3526,7 @@ public class Publisher implements URIResolver {
     String json = resource2Json(sp);
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("SearchParameter " + sp.getName()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-    html = page.processPageIncludes(sp.getId(), json, "??", null, sp, null);
+    html = page.processPageIncludes(title + ".json.html", html, "??", null, sp, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + title + ".json.html");
     page.getEpub().registerExternal(title + ".json.html");
   }
