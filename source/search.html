@@ -680,7 +680,9 @@ The parameter _count is defined as a hint to the server
 regarding how many resources should be returned in a
 single page. Servers SHALL not return more resources than
 requested (even if they don't support paging) but are
-allowed to return less than the client asked for. Note
+allowed to return less than the client asked for. The server should repeat 
+the original _count parameter in its returned page links so that 
+subsequent paging requests honour the original _count.  Note
 that it is at the discretion of the search engine how to
 handle ongoing updates to the resources while the search
 is proceeding.
