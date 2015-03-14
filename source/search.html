@@ -21,6 +21,37 @@ the FHIR search framework, starting with the simple cases, and working through
 to the full complexity. Implementations need only implement the amount of
 complexity that they require.
 </p>
+
+<h3>Summary Table</h3>
+
+<table class="grid">
+<tr><td><b>Search Parameter Types</b></td><td><b>Parameters for all resources</b></td><td><b>Search result parameters</b></td></tr>
+<tr>
+<td>
+<%codetoc SearchParamType%>
+</td>
+<td>
+<a href="#id">_id</a><br/>
+<a href="#language">_language</a><br/>
+<a href="#lastUpdated">_lastUpdated</a><br/>
+<a href="#profile">_profile</a><br/>
+<a href="#security">_security</a><br/>
+<a href="#tag">_tag</a><br/>
+<a href="#text">_text</a><br/>
+<a href="#filter">_filter</a><br/>
+</td>
+<td>
+<a href="#sort">_sort</a><br/>
+<a href="#count">_count</a><br/>
+<a href="#include">_include</a><br/>
+<a href="#summary">_summary</a><br/>
+<a href="#contained">_contained</a><br/>
+<a href="#containedType">_containedType</a><br/>
+</td>
+</tr>
+</table>
+
+<h3>Introduction</h3>
 <p>
 In the simplest case, a search is executed by performing a GET operation
 in the RESTful framework:
@@ -43,9 +74,9 @@ while some other 4xx or 5xx code signifies that some error occurred.
 <a href="http.html#search">Search operations</a> are executed in one of 3 defined contexts that control which set of resources are being searched:
 </p>
 <ul>
- <li>A specified resource type: GET [base]/[resourcetype]?parameter(s)</li>
- <li>A specified <a href="extras.html#compartments">compartment</a>, perhaps with a specified resource type in that compartment: GET [base]/patient/[id]/[resourcetype]?parameter(s)</li>
- <li>All resources: GET [base]/_search?parameter(s)</li>
+ <li>A specified resource type: GET [base]/[ResourceType]?parameter(s)</li>
+ <li>A specified <a href="extras.html#compartments">compartment</a>, perhaps with a specified resource type in that compartment: GET [base]/patient/[id]/[ResourceType]?parameter(s)</li>
+ <li>All resources: GET [base]/_search?parameter(s) (parameters common to all types only)</li>
 </ul>
 <p>
 Search operations can also be initiated by other more complex and flexible
@@ -60,9 +91,10 @@ the results that are returned.
 <p>
 These parameters are <a href="resource.html#search">defined that apply to all resources</a>: [%allparams%]. In addition, the search 
 parameters <a href="#text">_text</a>, <a href="#count">_count</a>, <a href="#include">_include</a> and <a href="#summary">_summary</a> 
-(documented below) also apply to all resources.
+(documented below) also apply to all resources. 
 </p>
-<p>
+<a name="id"> </a>
+<p> 
 The search parameter _id refers to the logical id of the resource, and can be used when the search context specifies a resource type:
 </p>
 <pre>
@@ -81,6 +113,7 @@ except that it returns a bundle with the requested resource, rather than the
 resource itself. Additional parameters can be added which may provide
 additional functionality on top of this base read equivalence.
 </p>
+<a name="language"> </a>
 <p>
 The search parameter _language refers to the base language of the resource:
 </p>
@@ -92,6 +125,7 @@ This search finds any composition with a designated language of French.
 Note that this is the claimed language of the resource, not the actual
 language of the content.
 </p>
+<a name="lastUpdated"> </a>
 <p>
 The search parameter _lastUpdated can be used to select resources based
 on the last time they were changed:
@@ -105,9 +139,9 @@ this search parameter is used, applications should consider
 synchronization approaches (<a href="http.html#history">RESTful history</a>
 or the <a href="subscription.html">Subscription resource</a>.
 </p>
-<a name="tag" />
-<a name="tags" />
-<a name="profile" />
+<a name="tag"> </a>
+<a name="tags"> </a>
+<a name="profile"> </a>
 
 <p>
 The search parameters _tag, _profile and _security parameters search
@@ -549,7 +583,7 @@ and the parameter value "param=xx\\xx" means a literal value of 'xx\xx'.
 </p>
 
 
-<a name="text" />
+<a name="text"> </a>
 <h4>Text Search Parameters</h4>
 <p>
 There are two special text search parameters, _text and _content, which search
@@ -609,26 +643,6 @@ The _filter parameter is described in detail on the <a href="search_filter.html"
 
 <a name="return"> </a>
 <h3>Managing Returned Resources</h3>
-
-<a name="score"> </a>
-<h4>Relevance</h4>
-<p>
-Where a search specifies a non-deterministic sort, the search algorithm
-may generate some kind of ranking score to indicate which resources meet
-the specified criteria better than others. The server can return this
-score in <a href="bundle-definitions.html#Bundle.entry.score">entry.score</a>:
-</p>
-<pre class="xml">
-  &lt;entry&gt;
-    &lt;score value=&quot;.45&quot;/&gt;
-    &lt;Patient&gt;
-      ... patient data ...
-    &lt;/Patient&gt;
-  &lt;/entry&gt;
-</pre>
-<p>
-The score is a decimal number with a value between (and including) 0 and 1, where 1 is best match, and 0 is least match.
-</p>
 
 <a name="sort" />
 <h4>Sorting</h4>
@@ -764,6 +778,113 @@ additional resources in the search results.
 _include parameter
 </p>
 
+<a name="contained"> </a>
+<a name="containedType"> </a>
+
+
+<h4>Contained Resources</h4>
+
+<p>
+By default, search results only include resources that are not contained in other resources. 
+A chained condition will be evaluated inside contained resources. To illustrate this, consider
+a MedicationPrescription resource that has a contained Medication resource specifying 
+a custom formulation that has ingredient that has a value Substance/x23. In this case, a search:
+</p>
+<pre>
+GET MedicationPrescription?medication.ingredient=Substance/x23
+</pre>
+<p>
+will include the MedicationPrescription resource in the results. However this search:
+</p>
+<pre>
+GET Medication?ingredient=Substance/x23
+</pre>
+<p>
+will not include the contained Medication resource in the results, since either the 
+wrong type of resource would be returned, or the contained resource would be returned
+without it's container resource, which provides context to the contained resource.
+</p>
+<p>
+Clients are able to modify this behavior using the _contained parameter, which
+can have one of the following values:
+</p>
+<ul>
+ <li>false (default): Do not return contained resources</li>
+ <li>true: return only contained resources</li>
+ <li>both: return both contained and non-contained (normal) resources</li>
+</ul>
+<p>
+When contained resources are being returned, the server 
+should return either the container resource, or the contained resource alone. The 
+client can specify which by using the _containedType parameter, which can have one of the 
+following values:
+</p>
+<ul>
+ <li>container (default): Return the container resources</li>
+ <li>contained: return only the contained resource</li>
+</ul>
+<p>
+When returning a container resource, the server simply puts this in the 
+search results:
+</p>
+<pre>
+&lt;Bundle&gt;
+  ...
+  &lt;base value=&quot;http://example.com/fhir&quot;/&gt;
+  &lt;entry&gt;
+    &lt;resource&gt;
+      &lt;MedicationPrescription&gt;
+        &lt;id value=&quot;23&quot;&gt;
+        ....
+        &lt;contained&gt;
+          &lt;Medication&gt;
+            &lt;id value=&quot;m1&quot;&gt;
+            ...
+          &lt;/Medication&gt;
+        &lt;contained&gt;
+
+      &lt;/MedicationPrescription&gt;
+    &lt;/resource&gt;
+    &lt;search&gt;
+      &lt;mode value=&quot;match&quot;/&gt;
+    &lt;/search&gt;
+  &lt;/entry&gt;
+&lt;/Bundle&gt;
+</pre>
+<p>
+In the case of returning container resources, the server SHALL populate the entry.search.mode
+element so that the client can pick matches and includes apart (the usual approach of doing it
+by type may not work). If the return type is the contained resource, this must be done slightly 
+differently:
+</p>
+<pre>
+&lt;Bundle&gt;
+  ...
+  &lt;base value=&quot;http://example.com/fhir&quot;/&gt;
+  &lt;entry&gt;
+    &lt;base value=&quot;http://example.com/fhir/MedicationPrescription/23#&quot;/&gt;
+    &lt;resource&gt;
+      &lt;Medication&gt;
+        &lt;id value=&quot;m1&quot;&gt;
+        ...
+      &lt;/Medication&gt;
+    &lt;/resource&gt;
+    &lt;search&gt;
+      &lt;mode value=&quot;match&quot;/&gt;
+    &lt;/search&gt;
+  &lt;/entry&gt;
+&lt;/Bundle&gt;
+</pre>
+<p>
+In this case, the alternative base informs the client that this is a contained resource,
+and the identity of the containing resource.
+</p>
+<p>
+<i>todo: this is yet another stitching rule for Bundle.entry.base</i>.
+</p>
+
+<a name="include"> </a>
+
 <h4>External References</h4>
 <p>
 If the _include path selects a reference that refers to a resource on another server,
@@ -824,6 +945,26 @@ Servers are not obliged to return just a summary, and summaries are not defined 
 resources where there is no need for summarization. There is only one summary form
 defined for each resource in order to allow servers to store the summarized form in
 advance.
+</p>
+
+<a name="score"> </a>
+<h4>Relevance</h4>
+<p>
+Where a search specifies a non-deterministic sort, the search algorithm
+may generate some kind of ranking score to indicate which resources meet
+the specified criteria better than others. The server can return this
+score in <a href="bundle-definitions.html#Bundle.entry.score">entry.score</a>:
+</p>
+<pre class="xml">
+  &lt;entry&gt;
+    &lt;score value=&quot;.45&quot;/&gt;
+    &lt;Patient&gt;
+      ... patient data ...
+    &lt;/Patient&gt;
+  &lt;/entry&gt;
+</pre>
+<p>
+The score is a decimal number with a value between (and including) 0 and 1, where 1 is best match, and 0 is least match.
 </p>
 
 <a name="conformance" />
