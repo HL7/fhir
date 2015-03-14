@@ -15,7 +15,6 @@ A resource is an entity that:
  <li>has a known identity (a url) by which it can be addressed</li>
  <li>identifies itself as one of the types of resource defined in this specification</li>
  <li>contains a set of structured data items as described by the definition of the resource type</li>
- <li>contains a human-readable XHTML representation of the content of the resource</li>
  <li>has an identified version that changes if the contents of the resource change</li>
 </ul>
 <p>
@@ -49,11 +48,11 @@ All resources have the following optional or mandatory elements and properties:
  <li>A reference to "Implicit Rules"</li>
 </ul>
 <p>
-Most resources are derived from <a href="domainresource.html">Domain Resources</a> - they also contain text, contained resources, extensions,
+Most resources are derived from <a href="domainresource.html">Domain Resources</a> - so they also contain text, contained resources, extensions,
 and data elements specific to the particular domain of the resource. There is a special type of resource called <a href="bundle.html">Bundle</a> for collections of resources. 
 </p>
 <p>
-Note: there is documentation for the <a href="formats.html">Structure</a>, <a href="formats.html#uml">UML</a>, <a href="xml.html">XML</a>, and <a href="json.html">JSON</a> representations. 
+Note: there is documentation for the <a href="formats.html">Structure</a>, <a href="formats.html#uml">UML</a>, <a href="xml.html">XML</a>, and <a href="json.html">JSON</a> representations of the resource structure. 
 </p>
 
 </div>

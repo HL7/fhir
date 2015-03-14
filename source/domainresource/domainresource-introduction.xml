@@ -4,18 +4,17 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This resource is defined to add text, contained resources, and extension support
-to the base <a href="resource.html">resource</a>. As an abstract resource, this 
-resource never exists directly, only one of its descendent resources (<a href="resourcelist.html">list</a>).
-</p>
-<p>
-For further information:
+A domain resource is an resource that:
 </p>
 <ul>
- <li><i>text</i>: see <a href="narrative.html">Human Narrative in resources</a></li>
- <li><i>contained</i>: see <a href="references.html#contained">Contained Resources</a></li>
- <li><i>extension</i> and <i>modifierExtension</i>: See <a href="extensibility.html">Extensibility</a></li>
+ <li>has a human-readable XHTML representation of the content of the resource (see <a href="narrative.html">Human Narrative in resources</a>)</li>
+ <li>can contain additional related resources inside the resource (see <a href="references.html#contained">Contained Resources</a>)</li>
+ <li>can have additional extensions and modifierExtensions as well as the defined data (See <a href="extensibility.html">Extensibility</a>)</li>
 </ul>
+
+<p>
+As an abstract resource, this resource never exists directly, only one of its descendent resources (<a href="resourcelist.html">list</a>).
+</p>
 
 </div>
 
