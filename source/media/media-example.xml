@@ -16,9 +16,6 @@
     </coding>
   </subtype>
 
-  <!-- the date this image was created -->
-  <created value="2009-09-03"/>
-
   <subject>
     <reference value="Patient/xcda"/>
   </subject>
@@ -122,5 +119,7 @@
 	  FUlYPVl01HrsI8JYPSdpoCXhEG2YUVzrqT2mzpkS
 	  KVRAG955u3SJdhITZ766KosyNjQOnZAt6F3d7oQJ
 	  +inaJNPrHUXt3fCOt7ylSe962/ve+M63vvkYEAA7"/>
+    <!-- the date this image was created -->
+    <creation value="2009-09-03"/>
   </content>
 </Media>
