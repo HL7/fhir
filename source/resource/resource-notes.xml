@@ -59,7 +59,9 @@ in particular implementations or contexts of use.
       Can be used to ensure that updates are based on the latest version of the resource. 
     <br/>The version can be globally unique, or scoped by the Logical Id of the resource. 
      Version identifiers are generally either a serially incrementing id scoped by the logical id, or a uuid, though neither of these approaches 
-     is required. Note that servers SHOULD support versions, but some are unable to</td>
+     is required. There is no fixed order for version ids - clients cannot assume that a versionId that comes after another one either numerically or alphabetically represents a later version. 
+     The same versionId can never be used for more than one version of the same resource.
+    <br/>Note that servers SHOULD support versions, but some are unable to</td>
   </tr>
 	 
   <tr>
