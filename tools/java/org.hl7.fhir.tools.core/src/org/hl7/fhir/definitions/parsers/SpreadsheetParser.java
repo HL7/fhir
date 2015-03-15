@@ -176,7 +176,8 @@ public class SpreadsheetParser {
 	
 	private ResourceDefn parseCommonTypeColumns() throws Exception {
 		ResourceDefn resource = new ResourceDefn();
-				
+		parseEnteredInError(resource);
+		
 		Sheet sheet = loadSheet("Bindings");
 		Map<String, BindingSpecification> typeLocalBindings = null;
 		if (sheet != null)
@@ -222,7 +223,19 @@ public class SpreadsheetParser {
 	}
 	
 	
-	private void scanNestedTypes(ResourceDefn parent, ElementDefn root, String parentName) throws Exception
+	private void parseEnteredInError(ResourceDefn resource) {
+    Sheet sheet = loadSheet("Instructions");
+    
+    if (sheet != null) {
+      for (int row = 0; row < sheet.rows.size(); row++) {
+        if (sheet.rows.get(row).size() >= 2 && "entered-in-error-status".equals(sheet.rows.get(row).get(0)))
+          resource.setEnteredInErrorStatus(sheet.rows.get(row).get(1));
+      }
+    }
+  }
+
+
+  private void scanNestedTypes(ResourceDefn parent, ElementDefn root, String parentName) throws Exception
 	{
 		for( ElementDefn element : root.getElements() )
 		{

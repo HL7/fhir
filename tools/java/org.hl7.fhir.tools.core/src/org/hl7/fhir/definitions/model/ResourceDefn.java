@@ -46,6 +46,7 @@ public class ResourceDefn  {
    private Profile conformancePack;
      
    private String name = null;
+   private String enteredInErrorStatus;
    
    public String getName()
    {
@@ -186,6 +187,14 @@ public class ResourceDefn  {
 
   public void setConformancePack(Profile conformancePack) {
     this.conformancePack = conformancePack;
+  }
+
+  public String getEnteredInErrorStatus() {
+    return enteredInErrorStatus;
+  }
+
+  public void setEnteredInErrorStatus(String enteredInErrorStatus) {
+    this.enteredInErrorStatus = enteredInErrorStatus;
   }
 
 }

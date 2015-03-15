@@ -524,6 +524,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
       else if (com[0].equals("name"))
         src = s1+name+s3;
+      else if (com[0].equals("enteredInErrorTable"))
+        src = s1+enteredInErrorTable()+s3;
       else if (com[0].equals("canonicalname"))
         src = s1+makeCanonical(name)+s3;
       else if (com[0].equals("version"))
@@ -1860,7 +1862,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (ProfiledType c : definitions.getConstraints().values()) {
       if (c.getBaseType().equals(name)) {
         b.append("<a name=\""+c.getName()+"\"> </a><a name=\""+c.getName().toLowerCase()+"\"> </a>\r\n");
-        b2.append(" <tr><td>"+c.getName()+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>StructureDefinition (<a href=\""+c.getName()+".profile.xml.html\">XML</a>, <a href=\""+c.getName()+".profile.json.html\">JSON</a>)</td></tr>\r\n");
+        b2.append(" <tr><td>"+c.getName()+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>StructureDefinition (<a href=\""+c.getName()+
+            ".profile.xml.html\">XML</a>, <a href=\""+c.getName()+".profile.json.html\">JSON</a>)</td>");
+        b2.append("<td>"+genDataTypeUsage(c.getName())+"</td>");
+        b2.append("</tr>\r\n");
       }
     }
     if (b.length() > 0) 
@@ -2828,6 +2833,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       else if (com[0].equals("/maindiv"))
         src = s1+s3;
+      else if (com[0].equals("enteredInErrorTable"))
+        src = s1+enteredInErrorTable()+s3;
       else if (com[0].equals("events"))
         src = s1 + getEventsTable()+ s3;
       else if (com[0].equals("resourcecodes"))
@@ -3205,6 +3212,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + getEventsTable()+ s3;
       else if (com[0].equals("resourcecodes"))
         src = s1 + genResCodes() + s3;
+      else if (com[0].equals("enteredInErrorTable"))
+        src = s1+enteredInErrorTable()+s3;
       else if (com[0].equals("datatypecodes"))
         src = s1 + genDTCodes() + s3;
       else if (com[0].equals("bindingtable-codelists"))
@@ -3351,6 +3360,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
 
 
+  private String enteredInErrorTable() throws Exception {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"grid\">\r\n");
+    b.append("<tr><td><b>Resource</b></td><td><b>Status</b></td></tr>");
+    for (String n : definitions.sortedResourceNames()) {
+      String s = definitions.getResourceByName(n).getEnteredInErrorStatus();
+      if (Utilities.noString(s))
+        b.append("<tr><td>"+n+"</td><td><i>Unknown - not stated by committee</i></td></tr>");
+      else
+        b.append("<tr><td>"+n+"</td><td>"+Utilities.escapeXml(s)+"</td></tr>");
+    }
+    b.append("</table>\r\n");
+    return b.toString();
+  }
+
   private String genDataTypeUsage(String tn) {
     StringBuilder b = new StringBuilder();
     for (ElementDefn e : definitions.getTypes().values()) {
@@ -3358,18 +3382,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append(", <a href=\"#").append(e.getName()).append("\">").append(e.getName()).append("</a>");
       }
     }
+    List<String> resources = new ArrayList<String>();
     for (ResourceDefn e : definitions.getResources().values()) {
       if (usesType(e.getRoot(), tn)) {
-        b.append(", <a href=\"").append(e.getName().toLowerCase()).append(".html\">").append(e.getName()).append("</a>");
+        resources.add(e.getName());
       }
     }
     for (ResourceDefn e : definitions.getBaseResources().values()) {
       if (usesType(e.getRoot(), tn)) {
-        b.append(", <a href=\"").append(e.getName().toLowerCase()).append(".html\">").append(e.getName()).append("</a>");
+        resources.add(e.getName());
       }
     }
+    Collections.sort(resources);
+    for (String n : resources)
+      b.append(", <a href=\"").append(n.toLowerCase()).append(".html\">").append(n).append("</a>");
+
     if (b.toString().length() < 2)
       return "(not used as yet)";
+    
     String s = b.toString().substring(2);
     int i = s.lastIndexOf(", ");
     if ( i > 1)
