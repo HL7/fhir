@@ -12,7 +12,7 @@ todo
 <ul>
  <li>Profiles are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are used</li>
  <li>Profiles use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
- <li>Profiles can use <a href="extensiondefinition.html">Extension Definitions</a> when specifying how a resource is used</li>
+ <li>Profiles can use <a href="structuredefinition.html">Extension Definitions</a> when specifying how a resource is used</li>
 </ul>
 
 </div> 
