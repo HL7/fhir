@@ -133,7 +133,7 @@ all types, they have <a href="extensibility.html">extensions</a>).
  </tr>
  <tr>
    <td>dateTime<a name="dateTime"> </a><a name="datetime"> </a></td>
-   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone SHALL be populated. Seconds may be provided but may also be ignored. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b></td>
+   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b></td>
    <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
    <td>A JSON string - a union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
   </tr>
@@ -143,7 +143,7 @@ all types, they have <a href="extensibility.html">extensions</a>).
  </tr>
  <tr>
    <td>time<a name="time"> </a></td>
-   <td>A time during the day, with no date specified (can be converted to a <a href="#Duration">Duration</a> since midnight). Seconds may be provided but may also be ignored. <b>The time "24:00" is not allowed, and neither is a time zone</b></td>
+   <td>A time during the day, with no date specified (can be converted to a <a href="#Duration">Duration</a> since midnight). Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. <b>The time "24:00" is not allowed, and neither is a time zone</b></td>
    <td>xs:time</td>
    <td>A JSON string - an xs:time</td>
   </tr>
