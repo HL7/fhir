@@ -937,6 +937,14 @@ Address
 See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatypes-definitions.html#Address">Detailed Descriptions</a> and <a href="datatypes-mappings.html#Address">Mappings</a>.
 </p>
 
+<p>
+Note about these examples: the most important element in an address is the 'text' element - this defines
+what is printed on the envelope, the actual postal address. The other data elements are provided to 
+support either data analysis based on a patient's address, or for the many systems that exchange 
+fully structured addresses specific to a particular culture. For this reason, these examples focus 
+on the structured data elements of the address.
+</p>
+
 <div class="example">
 <p><b>Example</b></p>
 <p>HL7 office's address.</p>
@@ -955,7 +963,7 @@ See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatype
 <p>A UK example address.</p>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot; &gt; &lt;!-- todo: review this --&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
       &lt;valueString value=&quot;HUDDERSFIELD&quot;/&gt;
     &lt;/extension&gt;
     &lt;text value=&quot;1 Back Lane&amp;#13;&amp;#10;Holmfirth&amp;#13;&amp;#10;HUDDERSFIELD&amp;#13;&amp;#10;HD7 1HQ&quot;/&gt;
@@ -968,7 +976,7 @@ See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatype
 <p>A Postal address - i.e. an address that it doesn't make sense to try and visit.</p>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-AD-use&quot;&gt; &lt;!-- todo: review this --&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-AD-use&quot;&gt; 
       &lt;valueCode value=&quot;PST&quot;/&gt;
     &lt;/extension&gt;
     &lt;line value=&quot;PO Box 31445&quot;/&gt;
@@ -976,12 +984,115 @@ See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatype
     &lt;postalCode value=&quot;0001&quot;/&gt;
   &lt;/address&gt;
 </pre>
+
+<p>
+The next set of examples are taken from the official <a href="http://www.upu.int">international 
+postal union</a> examples.
+</p>
+
+<table class="lines">
+<tr><td>Rue Lougoraïa 12, app. 10</td><td>thoroughfare type, name and number, apartment</td></tr>
+<tr><td>Korolevo</td><td>locality</td></tr>
+<tr><td>223016 NOVY DVOR</td><td>postcode + post office name</td></tr>
+<tr><td>Minsk</td><td>District name of district</td></tr>
+<tr><td>Minsk</td><td>Region name of region</td></tr>
+<tr><td>BELARUS</td><td>Country</td></tr>
+</table>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
+      &lt;valueCode value=&quot;Minsk&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;line value=&quot;Rue Lougoraïa 12, app. 10&quot;/&gt;
+    &lt;city value=&quot;Korolevo&quot;/&gt;
+    &lt;state value="Minsk" /&gt;
+    &lt;country value="BELARUS" /&gt;
+  &lt;/address&gt;
+</pre>
+
+
+<table class="lines">
+<tr><td>Protea Apt 12</td><td>apartment number</td></tr>
+<tr><td>22 Ally Hassan Mwinyi</td><td>premise + street</td></tr>
+<tr><td>14111 MSASANI</td><td>postcode + locality</td></tr>
+<tr><td>DAR ES SALAM</td><td>province</td></tr>
+<tr><td>TANZANIA</td><td>country</td></tr>
+</table>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+    &lt;line value=&quot;Protea Apt 12&quot;/&gt;
+    &lt;line value=&quot;22 Ally Hassan Mwinyi&quot;/&gt;
+    &lt;city value=&quot;MSASANI&quot;/&gt;
+    &lt;state value="DAR ES SALAM" /&gt;
+    &lt;postalCode value=&quot;14111&quot;/&gt;
+    &lt;country value="TANZANIA" /&gt;
+  &lt;/address&gt;
+</pre>
+
+<table class="lines">
+<tr><td>15 Shiri</td><td>premise + sub-locality 2</td></tr>
+<tr><td>Kimashuku Village</td><td>sub-locality</td></tr>
+<tr><td>25204 MACHAME KUSINI</td><td>postcode + locality</td></tr>
+<tr><td>HAI</td><td>sub-province</td></tr>
+<tr><td>KILIMANJARO</td><td>province</td></tr>
+<tr><td>TANZANIA</td><td>country</td></tr>
+</table>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
+      &lt;valueCode value=&quot;HAI&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct&quot;&gt;
+      &lt;valueCode value=&quot;Kimashuku Village&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;line value=&quot;15 Shiri&quot;/&gt;
+    &lt;city value=&quot;MACHAME KUSINI&quot;/&gt;
+    &lt;state value="KILIMANJARO" /&gt;
+    &lt;postalCode value=&quot;25204&quot;/&gt;
+    &lt;country value="TANZANIA" /&gt;
+  &lt;/address&gt;
+</pre>
+
+<table class="lines">
+<tr><td>101-dong 103-ho</td><td>building number + door</td></tr>
+<tr><td>1229-1 Suseong 4-ga</td><td>complex of buildings + locality</td></tr>
+<tr><td>Suseong-gu</td><td>sub-province</td></tr>
+<tr><td>DAEGU, SEOUL 706-836</td><td>province + “SEOUL” + postcode</td></tr>
+<tr><td>REP. OF KOREA</td><td>country</td></tr>
+</table>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
+      &lt;valueCode value=&quot;Suseong-gu&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;line value=&quot;101-dong 103-ho&quot;/&gt;
+    &lt;line value=&quot;1229-1 Suseong 4-ga&quot;/&gt;
+    &lt;city value=&quot;Suseong&quot;/&gt;
+    &lt;state value="DAEGU" /&gt;
+    &lt;postalCode value=&quot;706-836&quot;/&gt;
+    &lt;country value="REP. OF KOREA" /&gt;
+  &lt;/address&gt;
+</pre>
+
+<table class="lines">
+<tr><td>35-8 Doekhyeon-ri, Gujeong-myeon</td><td>premises + locality + sub-province 2</td></tr>
+<tr><td>Gangneung-si</td><td>sub-province</td></tr>
+<tr><td>GANGWON-do, SEOUL 210-813</td><td>province + “SEOUL” + postcode</td></tr>
+<tr><td>REP. OF KOREA</td><td>country</td></tr>
+</table>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
+      &lt;valueCode value=&quot;Gangneung-si&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;line value=&quot;35-8 Doekhyeon-ri&quot;/&gt;
+    &lt;city value=&quot;Gujeong-myeon&quot;/&gt;
+    &lt;state value="GANGWON-do" /&gt;
+    &lt;postalCode value=&quot;210-813&quot;/&gt;
+    &lt;country value="REP. OF KOREA" /&gt;
+  &lt;/address&gt;
+</pre>
 </div>
-
-
-
-
-
 
 <a name="ContactPoint"></a>
 <a name="contactpoint"></a>
