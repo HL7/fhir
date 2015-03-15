@@ -2,6 +2,10 @@
 classes=Identifier,HumanName,Address,ContactPoint,Timing,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money
 attributes=false
 
+[size]
+width=440
+height=218
+
 [directions]
 CodeableConcept=-150;50
 Coding=-150;10

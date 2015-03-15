@@ -159,8 +159,8 @@ public class SvgGenerator extends BaseGenerator {
     xml.setDefaultNamespace(NS_SVG);
     xml.namespace(NS_XLINK, "xlink");
     xml.attribute("version", "1.1");
-    xml.attribute("width", Double.toString(size.x));
-    xml.attribute("height", Double.toString(size.y));
+    xml.attribute("width", Utilities.noString(ini.getStringProperty("size", "width")) ? Double.toString(size.x) : ini.getStringProperty("size", "width"));
+    xml.attribute("height", Utilities.noString(ini.getStringProperty("size", "height")) ? Double.toString(size.y) : ini.getStringProperty("size", "height"));
     xml.open("svg");
     shadowFilter(xml);
     drawElement(xml, classNames);
@@ -678,6 +678,8 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("style", "fill:#f8ddf8;stroke:black;stroke-width:1");
     else if (primitive instanceof DefinedStringPattern)
       xml.attribute("style", "fill:#f8ddf8;stroke:black;stroke-width:1");
+    else if (e.getName().equals("Element"))
+      xml.attribute("style", "fill:#ffffff;stroke:black;stroke-width:1");
     else
       xml.attribute("style", "fill:#f0f8ff;stroke:black;stroke-width:1");
     xml.element("rect", null);    

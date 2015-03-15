@@ -17,10 +17,35 @@
 
 <p>This page includes additional examples of the data types, based on common usages and questions</p>
 
-[%diagram datatypes/alltypes.diagram%]
+<p><b>Table of Contents</b></p>
+<table class="grid">
+ <tr>
+  <td><b>Primitive Types</b><br/>[%diagram datatypes/allprimitivetypes.diagram%]</td>
+  <td><b>Complex Types</b><br/>[%diagram datatypes/alltypes.diagram%]</td>
+ </tr>
+</table>
+
 
 <a name="primitive"></a>
 <h3>Primitive Types</h3>
+<a name="boolean"> </a>
+<a name="integer"> </a>
+<a name="string"> </a>
+<a name="decimal"> </a>
+<a name="uri"> </a>
+<a name="base64Binary"> </a>
+<a name="base64binary"> </a>
+<a name="instant"> </a>
+<a name="date"> </a>
+<a name="dateTime"> </a>
+<a name="datetime"> </a>
+<a name="time"> </a>
+<a name="patterns"></a>
+<a name="code"> </a>
+<a name="oid"> </a>
+<a name="uuid"> </a>
+<a name="id"> </a>
+
 
 <div class="example">
 	<p>A boolean true value:</p><pre class="xml" fragment="boolean">&lt;active value="true" /&gt;</pre>
@@ -990,7 +1015,7 @@ the base FHIR type does not require the phone number to be conformant. A ISO 210
 <p>Formally correct URI:</p>
 <pre class="xml" fragment="ContactPoint">
   &lt;telecom&gt;
-    &lt;extension uri="http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address" /&gt;
+    &lt;extension uri="http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address" &gt;
       &lt;valueUri value="tel:+15556755745" /&gt;
     &lt;/extension&gt;
     &lt;system value="phone" /&gt;
