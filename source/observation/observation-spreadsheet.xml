@@ -10,21 +10,18 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-13T00:58:14Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <SupBook>
-   <Path>Macintosh HD:Users:cnanjo:repository:fhir:trunk:build:source:observation:observation-spreadsheet - ValueAbsentCopy.xml</Path>
-   <SheetName>Data Elements</SheetName>
-  </SupBook>
   <WindowHeight>4110</WindowHeight>
   <WindowWidth>20550</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
   <TabRatio>663</TabRatio>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -843,7 +840,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1652,7 +1648,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">participation[typeCode=SPC].specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">SPM segment</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1728,8 +1725,10 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using either extension or through the Observation.related element.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">participation[typeCode=DEV]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">OBX-17 / PRT -10</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1850,7 +1849,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBX.7</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">./outboundRelationship[typeCode=&quot;REFV&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and isCriterionInd=&quot;true&quot; and isNormalAct()]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4181,12 +4181,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>12</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4201,8 +4202,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>19</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4373,18 +4374,6 @@
     <Value1>AND(R[1048400]C[16131]&lt;&gt;&quot;&quot;,LEFT(R[1048400]C5,1)&lt;&gt;&quot;@&quot;,LEFT(R[1048402]C1,LEN(R[1048400]C1)+1)&lt;&gt;(R[1048400]C1&amp;&quot;.&quot;),LEFT(R[1048402]C1,LEN(R[1048400]C1)+2)&lt;&gt;(&quot;!&quot;&amp;R[1048400]C1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C14</Range>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C14</Range>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C14</Range>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C14</Range>
   </ConditionalFormatting>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
