@@ -425,9 +425,6 @@ NOTE: while translations on Resources are possible they should be used for rende
      <item id="PaymentReconciliation">
         <translation lang="en">PaymentReconciliation</translation>
     </item>
-     <item id="PendedRequest">
-        <translation lang="en">PendedRequest</translation>
-    </item>
     <item id="PharmacyClaim">
         <translation lang="en">PharmacyClaim</translation>
     </item>
@@ -496,9 +493,6 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="en">QuestionnaireAnswers</translation>
         <translation lang="fr">RéponseQuestionnaire</translation>
     </item>
-    <item id="Readjudicate">
-        <translation lang="en">Readjudicate</translation>
-    </item>
     <item id="ReferralRequest">
         <translation lang="en">ReferralRequest</translation>
     </item>
@@ -513,9 +507,6 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="zh">汇款</translation>
         <translation lang="es">Remesa</translation>
         <translation lang="fr">Remise</translation>
-    </item>
-    <item id="Reversal">
-        <translation lang="en">Reversal</translation>
     </item>
     <item id="RiskAssessment">
         <translation lang="en">RiskAssessment</translation>
@@ -561,12 +552,6 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="zh">样本</translation>
         <translation lang="es">Especimen</translation>
         <translation lang="fr">Spécimen</translation>
-    </item>
-    <item id="StatusRequest">
-        <translation lang="en">StatusRequest</translation>
-    </item>
-    <item id="StatusResponse">
-        <translation lang="en">StatusResponse</translation>
     </item>
     <item id="Study">
         <translation lang="en">Study</translation>

@@ -131,7 +131,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="102" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="97" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -483,9 +483,6 @@
     <Cell><Data ss:Type="String">PaymentReconciliation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">PendedRequest</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -537,9 +534,6 @@
     <Cell><Data ss:Type="String">author | source</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Readjudicate</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ReferralRequest</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">requester | recipient</Data></Cell>
@@ -547,9 +541,6 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Reversal</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">RiskAssessment</Data></Cell>
@@ -571,12 +562,6 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">collector</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">StatusRequest</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">StatusResponse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">StructureDefinition</Data></Cell>
@@ -625,7 +610,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>61</TopRowBottomPane>
+   <TopRowBottomPane>64</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -634,7 +619,6 @@
     <Pane>
      <Number>2</Number>
      <ActiveRow>78</ActiveRow>
-     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
