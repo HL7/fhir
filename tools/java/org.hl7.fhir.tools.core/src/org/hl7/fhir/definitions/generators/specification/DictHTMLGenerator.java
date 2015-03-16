@@ -87,17 +87,18 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	      if (extDefn == null) {
 	        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-	        generateElementInner(profile,  ec);
+	        generateElementInner(profile,  ec, 1, null);
 	      } else {
 	        String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("filename") ? extDefn.getUserData("filename") : "extension-"+extDefn.getId())+".html\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-	        generateElementInner(extDefn, extDefn.getSnapshot().getElement().get(0));
+	        ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
+	        generateElementInner(extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
 	      }
 	    } else {
 	      String name = profile.getId()+"."+ makePathLink(ec);
 	      String title = ec.getPath() + (!ec.hasName() ? "" : "(" +ec.getName() +")");
 	      write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-	      generateElementInner(profile, ec);
+	      generateElementInner(profile, ec, 1, null);
 	      if (ec.hasSlicing())
 	        generateSlicing(profile, ec.getSlicing());
 	    }
@@ -106,6 +107,14 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  i++;      
     flush();
     close();
+  }
+
+  private ElementDefinition getExtensionValueDefinition(StructureDefinition extDefn) {
+    for (ElementDefinition ed : extDefn.getSnapshot().getElement()) {
+      if (ed.getPath().startsWith("Extension.value"))
+        return ed;
+    }
+    return null;
   }
 
   public void generateExtension(StructureDefinition ed) throws Exception {
@@ -120,14 +129,16 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
         StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile());
         if (extDefn == null)
-          generateElementInner(ed, ec);
-        else
-          generateElementInner(extDefn, extDefn.getSnapshot().getElement().get(0));
+          generateElementInner(ed, ec, 1, null);
+        else { 
+          ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
+          generateElementInner(extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
+        }
       } else {
         String name = makePathLink(ec);
         String title = ec.getPath() + (!ec.hasName() ? "" : "(" +ec.getName() +")");
         write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-        generateElementInner(ed, ec);
+        generateElementInner(ed, ec, 1, null);
         //          if (ec.hasSlicing())
         //            generateSlicing(profile, ec.getSlicing());
       }
@@ -173,7 +184,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     return ec.getType().size() == 1 && ec.getType().get(0).getCode().equals("Extension") && ec.getType().get(0).hasProfile();
   }
 
-  private void generateElementInner(StructureDefinition profile, ElementDefinition d) throws Exception {
+  private void generateElementInner(StructureDefinition profile, ElementDefinition d, int mode, ElementDefinition value) throws Exception {
     tableRowNE("Definition", null, page.processMarkdown(d.getDefinition()));
     tableRowNE("Note", null, businessIdWarning(tail(d.getPath())));
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
@@ -181,7 +192,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     if (d.hasNameReference())
       tableRow("Type", null, "See "+d.getNameReference());
     else
-      tableRowNE("Type", "datatypes.html", describeTypes(d.getType()));
+      tableRowNE("Type", "datatypes.html", describeTypes(d.getType()) + processSecondary(mode, value));
     tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()));
     tableRow("Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
     tableRowNE("Requirements",  null, page.processMarkdown(d.getRequirements()));
@@ -197,6 +208,15 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("LOINC Code", null, getMapping(profile, d, Definitions.LOINC_MAPPING));
     tableRow("SNOMED-CT Code", null, getMapping(profile, d, Definitions.SNOMED_MAPPING));
    }
+
+  private String processSecondary(int mode, ElementDefinition value) throws Exception {
+    switch (mode) {
+    case 1 : return "";
+    case 2 : return "  (Complex Extension)";
+    case 3 : return "  (Extension Type: "+describeTypes(value.getType())+")";
+    default: return "";
+    }
+  }
 
   private String businessIdWarning(String name) {
     if (name.equals("identifier"))

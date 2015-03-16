@@ -420,8 +420,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+narrHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("profilesheader"))
         src = s1+profilesHeader(com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("extrasheader"))
-        src = s1+extrasHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("refheader"))
         src = s1+refHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("resourcesheader"))
@@ -709,7 +707,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("dictionary.name"))
         src = s1 + definitions.getDictionaries().get(name) + s3;        
       else if (com[0].equals("dictionary.view"))
-        src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-QuantitativeLab-dataelements") + s3;        
+        src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-qnlab-de") + s3;        
       else if (com[0].equals("search-param-pack") && resource instanceof SearchParameter)
         src = s1 + ((SearchParameter) resource).getUserData("pack") + s3;        
       else if (com[0].equals("search-param-name") && resource instanceof SearchParameter)
@@ -1990,16 +1988,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Profiling FHIR", "profiling.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "profiling-examples.html", mode==null || "examples".equals(mode)));
-    b.append("</ul>\r\n");
-    return b.toString();
-  }
-
-  private String extrasHeader(String mode) {
-    StringBuilder b = new StringBuilder();
-    b.append("<ul class=\"nav nav-tabs\">");
-    b.append(makeHeaderTab("Tags, Bundles, Compartments", "extras.html", mode==null || "base".equals(mode)));
-    b.append(makeHeaderTab("Examples", "extras-examples.html", mode==null || "examples".equals(mode)));
-    b.append(makeHeaderTab("Detailed Descriptions", "extras-definitions.html", mode==null || "definitions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -4158,8 +4146,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private void genStructureExample(StringBuilder s, String link, String basename, String description, String tail) {
     s.append("<tr>");
     s.append("<td><a href=\""+link+"\">"+Utilities.escapeXml(description)+"</a> "+(Utilities.noString(tail) ? "" : Utilities.escapeXml(tail))+"</td>");
-    s.append("<td><a href=\""+basename+".profile.xml.html\">XML</a></td>");
-    s.append("<td><a href=\""+basename+".profile.json.html\">JSON</a></td>");
+    s.append("<td><a href=\""+link+".xml.html\">XML</a></td>");
+    s.append("<td><a href=\""+link+".json.html\">JSON</a></td>");
     s.append("</tr>");
   }
   
@@ -4483,25 +4471,27 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       StringBuilder ext = new StringBuilder(); // extensions
       //StringBuilder slices = new StringBuilder(); // slices
       for (ElementDefinition ed : profile.getDifferential().getElement()) {
-        if (ed.hasBinding()) {
-          String s = summariseBinding(ed.getBinding(), ed.getPath(), hasType(ed, "CodeableConcept"));
-          if (s != null)
-            tx.append(s);
+        if (ed.getPath().contains(".")) {
+          if (ed.hasBinding()) {
+            String s = summariseBinding(ed.getBinding(), ed.getPath(), hasType(ed, "CodeableConcept"));
+            if (s != null)
+              tx.append(s);
+          }
+          if (ed.getMin() == 1)
+            card.append("<li>The element <i>").append(ed.getPath()).append("</i> is <span color=\"navy\">required</span></li>\r\n");
+          else if ("0".equals(ed.getMax()))
+            card.append("<li>The element <i>").append(ed.getPath()).append("</i> is <span color=\"red\">prohibited</span></li>\r\n");
+
+          if (ed.hasFixed())
+            fixed.append("<li>The element <i>").append(ed.getPath()).append("</i> value has been fixed to <span color=\"maroon\">").append(summariseValue(ed.getFixed())).append("</span></li>\r\n");
+          else if (ed.hasPattern())
+            fixed.append("<li>The element <i>").append(ed.getPath()).append("</i> value must match <span color=\"maroon\">").append(summariseValue(ed.getPattern())).append("</span></li>\r\n");
+
+          if (ed.getPath().endsWith(".extension"))
+            ext.append(summariseExtension(ed.getType(), false, ed.getPath()));
+          else if (ed.getPath().endsWith(".modifierExtension"))
+            ext.append(summariseExtension(ed.getType(), true, ed.getPath()));
         }
-        if (ed.getMin() == 1)
-          card.append("<li>The element <i>").append(ed.getPath()).append("</i> is <span color=\"navy\">required</span></li>\r\n");
-        else if ("0".equals(ed.getMax()))
-          card.append("<li>The element <i>").append(ed.getPath()).append("</i> is <span color=\"red\">prohibited</span></li>\r\n");
-
-        if (ed.hasFixed())
-          fixed.append("<li>The element <i>").append(ed.getPath()).append("</i> value has been fixed to <span color=\"maroon\">").append(summariseValue(ed.getFixed())).append("</span></li>\r\n");
-        else if (ed.hasPattern())
-          fixed.append("<li>The element <i>").append(ed.getPath()).append("</i> value must match <span color=\"maroon\">").append(summariseValue(ed.getPattern())).append("</span></li>\r\n");
-
-        if (ed.getPath().endsWith(".extension"))
-          ext.append(summariseExtension(ed.getType(), false, ed.getPath()));
-        else if (ed.getPath().endsWith(".modifierExtension"))
-          ext.append(summariseExtension(ed.getType(), true, ed.getPath()));
       }
       StringBuilder res = new StringBuilder("<a name=\"summary\"> </a>\r\n<h2>\r\nSummary\r\n</h2>\r\n");
       if (tx.length() > 0)
