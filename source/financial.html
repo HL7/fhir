@@ -32,15 +32,15 @@
  <tr><td>Claim</td><td>{discipline}Claim (use=complete)</td><td>ClaimResponse</td></tr>
  <tr><td>Pre-determination</td><td>{discipline}Claim (use=exploratory)</td><td>ClaimResponse</td></tr>
  <tr><td>Pre-Authorization</td><td>{discipline}Claim (use=proposed)</td><td>ClaimResponse</td></tr>
- <tr><td>Reversal</td><td>Reversal (nullify=false)</td><td>ClaimResponse</td></tr>
- <tr><td>Nullify</td><td>Reversal (nullify=true)</td><td>ClaimResponse</td></tr>
+ <tr><td>Reversal</td><td>ProcessRequest (action=reverse, nullify=false)</td><td>ClaimResponse</td></tr>
+ <tr><td>Nullify</td><td>ProcessRequest (action=reverse, nullify=true)</td><td>ClaimResponse</td></tr>
  <tr><td>Re-adjudication</td><td>Readjudication</td><td>ClaimResponse</td></tr>
- <tr><td>Status Check</td><td>StatusRequest</td><td>StatusResponse</td></tr>
- <tr><td>Pended Check (Polling)</td><td>PendedRequest</td><td>{Resource} or StatusResponse</td></tr>
- <tr><td>Payment Notice</td><td>PaymentNotice</td><td>StatusResponse</td></tr>
- <tr><td>Payment Reconciliation</td><td>PendedRequest (include=PaymentReconciliation)</td><td>PaymentReconciliation</td></tr>
- <tr><td>Send Attachments</td><td>SupportingDocumentation</td><td>StatusResponse</td></tr>
- <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td>PendedRequest (include=ExplanationOfBenefit)</td><td>ExplanationOfBenefit</td></tr>
+ <tr><td>Status Check</td><td>ProcessRequest (action=status)</td><td>ProcessResponse</td></tr>
+ <tr><td>Pended Check (Polling)</td><td>ProcessRequest (action=poll)</td><td>{Resource} or ProcessResponse</td></tr>
+ <tr><td>Payment Notice</td><td>PaymentNotice</td><td>ProcessResponse</td></tr>
+ <tr><td>Payment Reconciliation</td><td>ProcessRequest (action=poll, include=PaymentReconciliation)</td><td>PaymentReconciliation</td></tr>
+ <tr><td>Send Attachments</td><td>SupportingDocumentation</td><td>ProcessResponse</td></tr>
+ <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td>ProcessRequest (action=poll, include=ExplanationOfBenefit)</td><td>ExplanationOfBenefit</td></tr>
 </table>
  <p>
  <b>{disipline}</b> means the type of claim: OralHealth, Vision, Pharmacy, Professional or Institutional.
@@ -61,8 +61,7 @@
 [%res-item PendedRequest%]
 [%res-item Reversal%]
 [%res-item ProcessRequest%]
-[%res-item StatusRequest%]
-[%res-item StatusResponse%]
+[%res-item ProcessResponse%]
 [%res-item SupportingDocumentation%]
 
 [%res-category Billing|Claims, processing and responses %]

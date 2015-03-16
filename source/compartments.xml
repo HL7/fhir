@@ -131,7 +131,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="101" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="102" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -512,6 +512,10 @@
     <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ProcessResponse</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">requestprovider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ProfessionalClaim</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
@@ -630,7 +634,7 @@
     <Pane>
      <Number>2</Number>
      <ActiveRow>78</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
