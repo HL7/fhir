@@ -181,10 +181,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private SpecificationTerminologyServices terminologyServices;
   private final String tsServer; // terminology to use
   private final WorkerContext workerContext;
+  private boolean logBrokenLinks;
 
-  public PageProcessor(String tsServer) throws URISyntaxException {
+  public PageProcessor(String tsServer, boolean logBrokenLinks) throws URISyntaxException {
     super();
     this.tsServer = tsServer;
+    this.logBrokenLinks = logBrokenLinks;
     FHIRSimpleClient client = new FHIRSimpleClient();
     try {
       client.initialize(tsServer);
@@ -4990,7 +4992,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     this.folders = folders;
     terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.srcDir, "terminologies", "cache"), tsServer);
     workerContext.setTerminologyServices(terminologyServices);
-    epub = new EPubManager(this);
+    epub = new EPubManager(this, logBrokenLinks);
   }
 
   public void setIni(IniFile ini) {
