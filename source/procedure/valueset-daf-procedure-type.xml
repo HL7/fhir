@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="dafEncounterType"/>
+  <name value="DAFProcedureType"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>  
@@ -19,9 +19,6 @@
    <include>
      <system value="http://hl7.org/fhir/sid/icd-10"/>
     </include>
-    <include>
-      <system value="http://hl7.org/fhir/encounter-type"/>
-    </include>
-  </compose>
+   </compose>
 </ValueSet>
 
