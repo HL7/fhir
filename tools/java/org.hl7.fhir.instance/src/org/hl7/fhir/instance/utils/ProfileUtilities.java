@@ -875,7 +875,7 @@ public class ProfileUtilities {
     }
   }
   
-  private String describeExtensionContext(StructureDefinition ext) {
+  public static String describeExtensionContext(StructureDefinition ext) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (StringType t : ext.getContext())
       b.append(t.getValue());

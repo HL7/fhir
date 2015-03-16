@@ -23,7 +23,7 @@ set of structure definitions</a> for all resources and data types is published.
  <li>StructureDefinitions are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are used</li>
  <li>StructureDefinitions use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
  <li>StructureDefinitions define concrete elements and structures for use with FHIR alone and that have defined wire representations (XML, JSON, etc.).
- This is distinct from <a href="datadelement.html">DataElement</a> which defines abstract elements that might appear anywhere - FHIR,
+ This is distinct from <a href="dataelement.html">DataElement</a> which defines abstract elements that might appear anywhere - FHIR,
  questionnaire questions, CDA, v2, X12, OpenEHR, a proprietary database, etc.  DataElements may map to FHIR resources, data types and/or extensions
  but do not have any defined wire format of their own.</li>
 </ul>
@@ -58,7 +58,7 @@ find the structure when registered in profile repositories.
  <tr><td>description</td><td>A free text natural language description of the structure and its use</td></tr>	
  <tr><td>requirements</td><td>The Scope and Usage that this structure was created to meet</td></tr>	
  <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of profiles</td></tr>
- <tr><td>status</td><td>The status of the structure	allows filtering of profiles that are appropriate for use vs. not. See the <a href="structure-definition-status.html">Status Codes</a></td></tr>
+ <tr><td>status</td><td>The status of the structure	allows filtering of profiles that are appropriate for use vs. not. See the <a href="conformance-resource-status.html">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This structure was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</td></tr>
  <tr><td>date</td><td>The date that this version of the structure was published	</td></tr>
  <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this structure is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validity of a structure against a particular version of FHIR can easily be checked by tooling.	</td></tr>

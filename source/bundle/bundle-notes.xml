@@ -38,7 +38,7 @@ Each entry element SHALL contain a resource. See <a href="messaging.html">Messag
 for further information.
 </p>
 
-<p><a href="query-example-request.html">Example</a></p>
+<p><!--<a href="query-example-request.html">Example</a>-->Example: todo</p>
 
 <a name="searchset"> </a>
 <h4>Search Results</h4>
@@ -78,7 +78,7 @@ See <a href="http.html#history">History</a> for further information.
 In addition, <a href="bundle-definitions.html#Bundle.total">Bundle.total</a> may be 
 used to return the total number of resources that are included in the update history, 
 and that may be returned by following the "next" <a href="bundle-definitions.html#Bundle.link">link</a>.
-</p>
+</p>4
 
 <p>Example to do</p>
 

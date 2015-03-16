@@ -232,7 +232,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     tr.add(new TypeRef().setName("Ratio"));
     tr.add(new TypeRef().setName("HumanName"));
     tr.add(new TypeRef().setName("Address"));
-    tr.add(new TypeRef().setName("Contact"));
+    tr.add(new TypeRef().setName("ContactPoint"));
     tr.add(new TypeRef().setName("Schedule"));
     tr.add(new TypeRef().setName("Reference"));
     return tr;

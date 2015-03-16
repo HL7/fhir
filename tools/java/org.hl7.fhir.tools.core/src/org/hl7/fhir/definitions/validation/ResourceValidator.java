@@ -134,6 +134,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", parent.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
 
     rule(errors, "required",  parent.getName(), parent.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
+    rule(errors, "required",  parent.getName(), parent.getWg() != null, "A resource must have a designated owner"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     
     String s = parent.getRoot().getMapping(Definitions.RIM_MAPPING);
     warning(errors, "required", parent.getName(), !Utilities.noString(s), "RIM Mapping is required");
@@ -257,7 +258,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", path, e.getName().equals(path) || e.getElements().size() == 0 || (e.hasSvg() || e.isUmlBreak() || !Utilities.noString(e.getUmlDir())), "Element is missing a UML layout direction");
 // this isn't a real hint, just a way to gather information   hint(errors, path, !e.isModifier(), "isModifier, minimum cardinality = "+e.getMinCardinality().toString());
     rule(errors, "structure", path, !e.getDefinition().toLowerCase().startsWith("this is"), "Definition should not start with 'this is'");
-    rule(errors, "structure", path, e.getDefinition().endsWith("."), "Definition should end with '.', but is '"+e.getDefinition()+"'");
+    rule(errors, "structure", path, e.getDefinition().endsWith(".") || e.getDefinition().endsWith("?") , "Definition should end with '.' or '?', but is '"+e.getDefinition()+"'");
     if (e.usesType("string") && e.usesType("CodeableConcept"))
       rule(errors, "structure", path, e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
 
@@ -290,6 +291,9 @@ public class ResourceValidator extends BaseValidator {
 		if (e.typeCode().equals("code") && parent != null) {
 		  rule(errors, "structure", path, e.hasBindingOrOk(), "An element of type code must have a binding");
 		}
+    if ((e.usesType("Coding") && !parentName.equals("CodeableConcept")) || e.usesType("CodeableConcept")) {
+      warning(errors, "structure", path, e.hasBindingOrOk(), "An element of type CodeableConcept or Coding must have a binding");
+    }
 		
 		if (e.hasBinding()) {
 		  rule(errors, "structure", path, e.typeCode().equals("code") || e.typeCode().contains("Coding") 

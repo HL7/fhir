@@ -78,7 +78,7 @@ framework</a>. Further useful information may be found in:
 <p>
 In order to be used with a value set, a code must be defined somewhere. They can be defined as part of
 an <a href="valueset.html#define">inline code system definition</a>, or they can be defined elsewhere,
-and then used in a value set by quoting the correct namespace. The FHIR specification defines a <a href="terminology-systems.html">set of
+and then used in a value set by quoting the correct namespace. The FHIR specification defines a <a href="terminologies-systems.html">set of
 namespaces</a> for commonly encountered code systems, and defines how some work with FHIR (e.g.
 <a href="snomedct.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>).
 These code systems are often large, and have many internally defined properties that are part of their
@@ -94,7 +94,7 @@ beyond those defined in its value sets is published to clients by (still to figu
 </p>
 <p>
 A server SHOULD publish the additional code systems that it supports through intrinsic knowledge
-using the <a href="??">http://hl7.org/fhir/StructureDefinition/supported-system extension:</a>
+using the <a href="extension-conformance-common-supported-system.html">http://hl7.org/fhir/StructureDefinition/conformance-common-supported-system extension:</a>
 </p>
 <pre class="json">
 {
@@ -123,7 +123,7 @@ logical information for a terminology:
 </ul>
 <p>
 The FHIR specification itself defines these things for common terminologies (including
-<a href="snomed.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorml.html">RxNorm</a>),
+<a href="snomedct.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>),
 and provides the Value Set infrastructure for supporting typical relatively simple small code systems.
 </p>
 <p>
@@ -163,7 +163,7 @@ of the current codes in the value set. This is known as <a href="valueset-operat
 As a summary, the client passes the server the following information:
 </p>
 <ul>
- <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
+ <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definitions.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
  <li> (Optionally) a text filter to use to restrict the codes that are returned (e.g. user input text). It is left to server discretion to choose how to apply the text filter</li>
  <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>
@@ -343,7 +343,7 @@ However this is not an efficient way to test whether a code is valid, and for so
 provides <a href="valueset-operations.html#validate">a "validate" operation</a>. The client passes the server the following information:
 </p>
 <ul>
- <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
+ <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definitions.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
  <li> the code value (either a code+system, a Coding data type, or a CodeableConcept</li>
  <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>

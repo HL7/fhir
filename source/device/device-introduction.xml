@@ -12,7 +12,7 @@ These are the device related resources
 <ul>
  <li>Device (this resource) - an administrative resource that tracks individual devices and their location. Primarily used for attribution of actions to devices</li>
  <li><a href="devicemetric.html">DeviceMetric</a> - Describes a measurement, calculation or setting  capability of a medical device.</li>
- <li><a href=" devicecomponent.html">DeviceComponent</a> that the DeviceMetric is part of. This can be a DeviceComponent of any kind like a VirtualMedicalDevice, a MedicalDeviceSystem, or a Channel</li>
+ <li><a href="devicecomponent.html">DeviceComponent</a> that the DeviceMetric is part of. This can be a DeviceComponent of any kind like a VirtualMedicalDevice, a MedicalDeviceSystem, or a Channel</li>
 </ul>
 <p>
 The device capabilities and log resources are used when communicating with a device, either directly or indirectly. 

@@ -125,7 +125,7 @@ in particular implementations or contexts of use.
 		
 </table>
   
-[%dt Meta%]
+[%edt Meta resource.html%]
 
 <p>
 Meta is used in the following places: [%dtusage Meta%]

@@ -48,7 +48,7 @@ during the assessment process.
 <div>
 <h2>Background and Context</h2>
 <p>
-An important background to understanding this resource is <a href="">the FHIR wiki page for clinical assessment</a>. In particular,
+An important background to understanding this resource is <a href="http://wiki.hl7.org/index.php?title=Clinical_Assessment">the FHIR wiki page for clinical assessment</a>. In particular,
 the storyboards there drove the design of the resource, and will be the basis for all examples created.
 </p>
 </div>

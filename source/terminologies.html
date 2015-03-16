@@ -103,6 +103,13 @@ When an element is bound to a value set, the binding has these properties:
 In the FHIR declarative datatypes, a binding is always represented using an <a href="elementdefinition-definitions.html#ElementDefinition.binding">ElementDefinition,binding</a>.
 </p>
 
+<h3>Binding Strings</h3>
+<p>
+In a few special cases, humans customarily use codes directly for elements that have type "string". A typical case is codes for states. 
+An element of type <a href="datatypes.html#string">string</a> can also be bound to a value set. When a string is bound to a value set,
+the string element contains the code specified by the value set, and the system and display values are ignored. 
+</p>
+
 <h2>Binding Strengths</h2>
 <p>
 Almost all of the elements that have a coded data type are bound to a value set. The bindings

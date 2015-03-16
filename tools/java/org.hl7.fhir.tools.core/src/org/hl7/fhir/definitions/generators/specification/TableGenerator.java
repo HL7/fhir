@@ -34,7 +34,7 @@ public class TableGenerator extends BaseGenerator {
 
     row.setAnchor(path);
     boolean isProfiledExtension = isProfile && (e.getName().equals("extension") || e.getName().equals("modifierExtension"));
-    row.getCells().add(gen.new Cell(null, dictLinks() ? pageName+"#"+path.replace("[", "_").replace("]", "_") : null, e.getName(), e.getDefinition(), null));
+    row.getCells().add(gen.new Cell(null, dictLinks() ? pageName+"#"+path.replace("[", "_").replace("]", "_") : null, e.getName(), path+" : "+e.getDefinition(), null));
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
     if (e.hasMustSupport() && e.isMustSupport()) 

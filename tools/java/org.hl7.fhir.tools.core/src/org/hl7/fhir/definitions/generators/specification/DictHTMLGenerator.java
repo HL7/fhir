@@ -88,7 +88,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        generateElementInner(profile,  ec);
 	      } else {
-	        String title = ec.getPath() + " (<a href=\""+extDefn.getUserData("filename")+".html\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+	        String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("filename") ? extDefn.getUserData("filename") : "extension-"+extDefn.getId())+".html\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        generateElementInner(extDefn, extDefn.getSnapshot().getElement().get(0));
 	      }
@@ -173,7 +173,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private void generateElementInner(StructureDefinition profile, ElementDefinition d) throws Exception {
-    tableRowMarkdown("Definition", d.getDefinition());
+    tableRowNE("Definition", null, page.processMarkdown(d.getDefinition()));
     tableRowNE("Note", null, businessIdWarning(tail(d.getPath())));
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
     tableRowNE("Binding", "terminologies.html", describeBinding(d));
@@ -183,9 +183,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       tableRowNE("Type", "datatypes.html", describeTypes(d.getType()));
     tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()));
     tableRow("Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
-    tableRowMarkdown("Requirements", d.getRequirements());
+    tableRowNE("Requirements",  null, page.processMarkdown(d.getRequirements()));
     tableRowHint("Alternate Names", "Other names by which this resource/element may be known", null, describeAliases(d.getSynonym()));
-    tableRowMarkdown("Comments", d.getComments());
+    tableRowNE("Comments",  null, page.processMarkdown(d.getComments()));
     tableRow("Max Length", null, !d.hasMaxLengthElement() ? null : Integer.toString(d.getMaxLength()));
     tableRowNE("Default Value", null, encodeValue(d.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, d.getMeaningWhenMissing());
@@ -254,17 +254,21 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private void describeType(StringBuilder b, TypeRefComponent t) throws Exception {
-    b.append("<a href=\"");
-    b.append(definitions.getSrcFile(t.getCode()));
-    b.append(".html#");
-    String type = t.getCode();
-    if (type.equals("*"))
-      b.append("open");
-    else 
+    if (t.getCode().startsWith("xs:")) {
       b.append(t.getCode());
-    b.append("\">");
-    b.append(t.getCode());
-    b.append("</a>");
+    } else {
+      b.append("<a href=\"");
+      b.append(definitions.getSrcFile(t.getCode()));
+      b.append(".html#");
+      String type = t.getCode();
+      if (type.equals("*"))
+        b.append("open");
+      else 
+        b.append(t.getCode());
+      b.append("\">");
+      b.append(t.getCode());
+      b.append("</a>");
+    }
     if (t.hasProfile()) {
       StructureDefinition p = page.getWorkerContext().getProfiles().get(t.getProfile());
       if (p == null)
@@ -499,41 +503,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 			return null;
 	}
 
-  private void tableRowMarkdown(String name, String value) throws Exception {
-    String text;
-    if (value == null)
-      text = "";
-    else {
-      text = value.replace("||", "\r\n\r\n");
-      while (text.contains("[[[")) {
-        String left = text.substring(0, text.indexOf("[[["));
-        String linkText = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
-        String right = text.substring(text.indexOf("]]]")+3);
-        String url = "";
-        String[] parts = linkText.split("\\#");
-        StructureDefinition p = utilities.getProfile(null, parts[0]);
-        if (p != null) {
-          if (p.getUserData("filename") == null)
-            url = parts[0].toLowerCase()+".html";
-          else
-            url = p.getUserData("filename")+".html";
-        } else if (definitions.hasResource(linkText)) {
-          url = linkText.toLowerCase()+".html#";
-        } else if (definitions.hasElementDefn(linkText)) {
-          url = definitions.getSrcFile(linkText)+".html#"+linkText;
-        } else if (definitions.hasPrimitiveType(linkText)) {
-          url = "datatypes.html#"+linkText;
-        } else if (definitions.getPageTitles().containsKey(linkText)) {
-          url = definitions.getPageTitles().get(linkText);
-        } else {
-          System.out.println("Error (#1): Unresolved logical URL "+linkText);
-          //        throw new Exception("Unresolved logical URL "+url);
-        }
-        text = left+"["+linkText+"]("+url+")"+right;
-      }
-    }
-    write("  <tr><td>"+name+"</td><td>"+Processor.process(Utilities.escapeXml(text))+"</td></tr>\r\n");
-  }
+ 
   private void tableRow(String name, String defRef, String value) throws IOException {
     if (value != null && !"".equals(value)) {
       if (defRef != null) 

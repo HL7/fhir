@@ -492,9 +492,10 @@ public class Utilities {
   public static String appendPeriod(String s) {
     if (Utilities.noString(s))
       return s;
-    if (s.endsWith("."))
+    s = s.trim();
+    if (s.endsWith(".") || s.endsWith("?"))
       return s;
-    return s.trim()+".";
+    return s+".";
   }
 
 

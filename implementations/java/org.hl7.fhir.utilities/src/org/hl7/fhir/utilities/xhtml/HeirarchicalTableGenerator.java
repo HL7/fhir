@@ -134,7 +134,7 @@ public class HeirarchicalTableGenerator  {
       if (this.hint == null)
         this.hint = text;
       else
-        this.hint += (this.hint.endsWith(".") ? " " : ". ")+text;
+        this.hint += (this.hint.endsWith(".") || this.hint.endsWith("?") ? " " : ". ")+text;
     }
   }
   

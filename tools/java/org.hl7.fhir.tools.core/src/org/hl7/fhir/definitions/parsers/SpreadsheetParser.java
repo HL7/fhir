@@ -749,7 +749,7 @@ public class SpreadsheetParser {
       cd.setEmail(sheet.getColumn(row, "Email"));
       cd.setCopyright(sheet.getColumn(row, "Copyright"));
       cd.setV2Map(sheet.getColumn(row, "v2"));
-      cd.setV3Map(sheet.getColumn(row, "v3"));
+      cd.setV3Map(checkV3Mapping(sheet.getColumn(row, "v3")));
 
 			if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
 				Sheet codes = xls.getSheets().get(
@@ -818,6 +818,13 @@ public class SpreadsheetParser {
 		
 		return result;
 	}
+
+	private String checkV3Mapping(String value) {
+	  if (value.startsWith("http://hl7.org/fhir/v3/vs/"))
+	    return value.substring("http://hl7.org/fhir/v3/vs/".length());
+	  else
+	    return value;
+	  }
 
   private void parseCodes(List<DefinedCode> codes, Sheet sheet)
 			throws Exception {

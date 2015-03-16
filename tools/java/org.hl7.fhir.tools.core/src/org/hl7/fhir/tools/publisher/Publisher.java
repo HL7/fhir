@@ -1814,6 +1814,8 @@ public class Publisher implements URIResolver {
       zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
       zip.addFileName("extension-definitions.xml", page.getFolders().dstDir + "extension-definitions.xml", false);
       zip.addFileName("extension-definitions.json", page.getFolders().dstDir + "extension-definitions.json", false);
+      zip.addFileName("search-parameters.xml", page.getFolders().dstDir + "search-parameters.xml", false);
+      zip.addFileName("search-parameters.json", page.getFolders().dstDir + "search-parameters.json", false);
       zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
       zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
       zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
@@ -1966,12 +1968,19 @@ public class Publisher implements URIResolver {
   }
 
   private InputStream stripXsd(InputStream source) throws Exception {
-
     byte[] src = IOUtils.toByteArray(source);
-    byte[] xslt = IOUtils.toByteArray( new FileInputStream(Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "AnnotationStripper.xslt")));
-    String scrs = new String(src);
-    String xslts = new String(xslt);
-    return new ByteArrayInputStream(Utilities.transform(new HashMap<String, byte[]>(), src, xslt));
+    try {
+      byte[] xslt = IOUtils.toByteArray( new FileInputStream(Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "AnnotationStripper.xslt")));
+      String scrs = new String(src);
+      String xslts = new String(xslt);
+      return new ByteArrayInputStream(Utilities.transform(new HashMap<String, byte[]>(), src, xslt));
+    } catch (Exception e) {
+      if (web) {
+        e.printStackTrace();
+        throw e;        
+      } else 
+        return new ByteArrayInputStream(src); 
+    }
 
 //    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 //    factory.setNamespaceAware(false);

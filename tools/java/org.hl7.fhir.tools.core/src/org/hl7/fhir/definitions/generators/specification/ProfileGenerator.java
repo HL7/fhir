@@ -158,7 +158,7 @@ public class ProfileGenerator {
     ec.setDefinition("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
-    ec.getType().add(new TypeRefComponent().setCode("xsd:"+type.getSchemaType()));
+    ec.getType().add(new TypeRefComponent().setCode("xs:"+type.getSchemaType()));
     
     reset();
     // now. the snapshot
@@ -183,7 +183,7 @@ public class ProfileGenerator {
     ec.setMin(0);
     ec.setMax("1");
     ec.setShort("Primitive value for " +type.getCode());
-    ec.getType().add(new TypeRefComponent().setCode("xsd:"+type.getSchemaType()));
+    ec.getType().add(new TypeRefComponent().setCode("xs:"+type.getSchemaType()));
     
     containedSlices.clear();
 
@@ -236,7 +236,7 @@ public class ProfileGenerator {
     ec.setDefinition("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
-    ec.getType().add(new TypeRefComponent().setCode("xsd:"+type.getBase()));
+    ec.getType().add(new TypeRefComponent().setCode("xs:"+type.getBase()));
     
     reset();
     // now. the snapshot
@@ -264,7 +264,7 @@ public class ProfileGenerator {
     ec.setShort("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
-    ec.getType().add(new TypeRefComponent().setCode("xsd:"+type.getBase()));
+    ec.getType().add(new TypeRefComponent().setCode("xs:"+type.getBase()));
 
     containedSlices.clear();
 

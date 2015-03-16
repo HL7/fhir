@@ -93,11 +93,18 @@ public class BindingsParser {
       cd.setStatus(ConformanceResourceStatus.fromCode(sheet.getColumn(row, "Status")));
 	    cd.setEmail(sheet.getColumn(row, "Email"));
 	    cd.setV2Map(sheet.getColumn(row, "v2"));
-	    cd.setV3Map(sheet.getColumn(row, "v3"));
+	    cd.setV3Map(checkV3Mapping(sheet.getColumn(row, "v3")));
 
 	    results.add(cd);
 	  }
 	}
+
+private String checkV3Mapping(String value) {
+  if (value.startsWith("http://hl7.org/fhir/v3/vs/"))
+    return value.substring("http://hl7.org/fhir/v3/vs/".length());
+  else
+    return value;
+  }
 
 //	public static BindingExtensibility readExtensibility(String s) throws Exception {
 //    s = s.toLowerCase();

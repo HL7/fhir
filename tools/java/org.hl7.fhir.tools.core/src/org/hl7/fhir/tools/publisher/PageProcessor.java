@@ -390,7 +390,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String name = file.substring(0,file.lastIndexOf(".")); 
 
       String[] com = s2.split(" ");
-      if (com.length == 2 && com[0].equals("dt")) {
+      if (com.length == 3 && com[0].equals("edt")) {
+        if (tabs != null) 
+          tabs.add("tabs-"+com[1]);
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]))+s3;
+      } else if (com.length == 2 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
         src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], file))+s3;
@@ -744,7 +748,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             started = true;
             genStructureExampleCategory(s, ig.getName());            
           }
-          genStructureExample(s, ed.getId().toLowerCase()+".html", ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
+          genStructureExample(s, "extension-"+ed.getId().toLowerCase()+".html", ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
         }
       }
     }
@@ -896,17 +900,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">");
     for (ResourceDefn r : definitions.getBaseResources().values()) {
-      genOperationDetails(b, r.getName(), r);
+      genOperationDetails(b, r.getName(), r, true);
     }
     for (String n : definitions.sortedResourceNames()) {
       ResourceDefn r = definitions.getResourceByName(n);
-      genOperationDetails(b, n, r);
+      genOperationDetails(b, n, r, false);
     }
     b.append("</table>");
     return b.toString();
   }
 
-  private void genOperationDetails(StringBuilder b, String n, ResourceDefn r) {
+  private void genOperationDetails(StringBuilder b, String n, ResourceDefn r, boolean isAbstract) {
     for (Operation op : r.getOperations()) {
       b.append("<tr><td><a href=\"").append(n.toLowerCase()).append("-operations.html#").append(op.getName()).append("\">");
       b.append(Utilities.escapeXml(op.getTitle()));
@@ -923,7 +927,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         else 
           b.append(" | ");
         b.append("[base]/");
-        b.append(n);
+        if (isAbstract)
+          b.append("["+n+"]");
+        else
+          b.append(n);
         b.append("/$");
         b.append(op.getName());
       }
@@ -933,7 +940,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         else 
           b.append(" | ");
         b.append("[base]/");
-        b.append(n);
+        if (isAbstract)
+          b.append("["+n+"]");
+        else
+          b.append(n);
         b.append("/[id]/$");
         b.append(op.getName());
       }
@@ -1631,11 +1641,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         }
         for (ConceptSetComponent t : vs.getCompose().getInclude()) {
           if (t.getSystem().equals(csn)) 
-            b.append(" <li>Included in Valueset <a href=\"").append(path.startsWith("valueset-") ? path : "valueset-" + path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
+            b.append(" <li>Included in Valueset <a href=\"").append(path.startsWith("valueset-") ? path : /* "valueset-" +*/ path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
         }
         for (ConceptSetComponent t : vs.getCompose().getExclude()) {
           if (t.getSystem().equals(csn)) 
-            b.append(" <li>Excluded in Valueset <a href=\"").append(path.startsWith("valueset-") ? path : "valueset-" + path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
+            b.append(" <li>Excluded in Valueset <a href=\"").append(path.startsWith("valueset-") ? path :/* "valueset-" + */path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
         }
       }
     }
@@ -2253,7 +2263,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     StringBuilder b = new StringBuilder();
     for (DefinedCode c : bs.getCodes()) {
-      b.append("<a href=\""+c.getCode()+"\">"+c.getDisplay()+"</a><br/>\r\n");
+      b.append("<a href=\"#"+c.getCode()+"\">"+c.getDisplay()+"</a><br/>\r\n");
     }
     return b.toString();
   }
@@ -2284,13 +2294,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       n = n.substring(0, n.indexOf('-'));
 
     boolean hasOps = !definitions.getResourceByName(title).getOperations().isEmpty();
+    boolean isAbstract = definitions.getResourceByName(title).isAbstract();
     b.append("<ul class=\"nav nav-tabs\">");
     
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
-    b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
+    if (!isAbstract)
+      b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
-    b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
+    if (!isAbstract)
+      b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
+    if (!isAbstract)
+      b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
 
@@ -2747,7 +2761,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String name = file.substring(0,file.indexOf(".")); 
 
       String[] com = s2.split(" ");
-      if (com.length == 2 && com[0].equals("dt")) {
+      if (com.length == 3 && com[0].equals("edt")) {
+        if (tabs != null) 
+          tabs.add("tabs-"+com[1]);
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]))+s3;
+      } else if (com.length == 2 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
         src = s1+xmlForDt(com[1], null)+tsForDt(com[1])+s3;
@@ -3106,7 +3124,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String name = file.substring(0,file.indexOf(".")); 
 
       String[] com = s2.split(" ");
-      if (com.length == 2 && com[0].equals("dt")) {
+      if (com.length == 3 && com[0].equals("edt")) {
+        if (tabs != null) 
+          tabs.add("tabs-"+com[1]);
+        src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]))+s3;
+      } else if (com.length == 2 && com[0].equals("dt")) {
         if (tabs != null) 
           tabs.add("tabs-"+com[1]);
         src = s1+xmlForDt(com[1], null)+tsForDt(com[1])+s3;
@@ -4355,7 +4377,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("json"))
         src = s1+json+s3;
       else if (com[0].equals("profiledesc")) {
-        src = s1+". "+Utilities.escapeXml(profile.getResource().getDescription())+s3;
+        src = s1+Utilities.escapeXml(profile.getResource().getDescription())+s3;
       } else if (com[0].equals("tx"))
         src = s1+tx+s3;
       else if (com[0].equals("inv"))
@@ -4695,10 +4717,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+"<p>usage info: insert a list of places where this extension is used</p>"+s3;
       else if (com[0].equals("extension-table"))
         src = s1+generateExtensionTable(ed, filename)+s3;
+      else if (com[0].equals("context-info"))
+        src = s1+describeExtensionContext(ed)+s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String describeExtensionContext(StructureDefinition ed) {
+    return "<p>Context of Use: "+ProfileUtilities.describeExtensionContext(ed)+"</p>";
   }
 
   private String generateExtensionTable(StructureDefinition ed, String filename) throws Exception {
@@ -5185,6 +5213,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   public String processMarkdown(String text) throws Exception {
+    if (text == null)
+      return "";
     // 1. custom FHIR extensions
     text = text.replace("||", "\r\n\r\n");
     while (text.contains("[[[")) {
@@ -5198,12 +5228,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         url = ed.getUserData("filename")+".html";
       } 
       if (Utilities.noString(url)) {
-        StructureDefinition p = new ProfileUtilities(workerContext).getProfile(null, parts[0]);
+        String[] paths = parts[0].split("\\.");
+        StructureDefinition p = new ProfileUtilities(workerContext).getProfile(null, paths[0]);
         if (p != null) {
+          String suffix = (paths.length > 1) ? "-definitions.html#"+parts[0] : ".html";
           if (p.getUserData("filename") == null)
-            url = parts[0].toLowerCase()+".html";
+            url = paths[0].toLowerCase()+suffix;
           else
-            url = p.getUserData("filename")+".html";
+            url = p.getUserData("filename")+suffix;
         } else if (definitions.hasResource(linkText)) {
           url = linkText.toLowerCase()+".html#";
         } else if (definitions.hasElementDefn(linkText)) {
@@ -5264,7 +5296,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         else
           return (String) vs.getUserData("filename");
       } else if (ref.startsWith("http://hl7.org/fhir/vs/")) {
-        if (new File(Utilities.path(folders.dstDir, "valueset-"+ref.substring(23)+".html")).exists())
+        if (new File(Utilities.path(folders.dstDir, "valueset-"+ref.substring(23)+".html")).exists() || ref.substring(23).equals("use-context")) // special case because this happens before the value set is created
           return "valueset-"+ref.substring(23)+".html";
         else if (valueSets.containsKey(ref) && valueSets.get(ref).getUserData("filename") != null)
           return (String) valueSets.get(ref).getUserData("filename");
