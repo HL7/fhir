@@ -54,6 +54,7 @@ import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.tools.publisher.PageProcessor;
@@ -272,11 +273,18 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     if (t.hasProfile()) {
       StructureDefinition p = page.getWorkerContext().getProfiles().get(t.getProfile());
       if (p == null)
-        b.append("(StructureDefinition = "+t.getProfile()+")");
+        b.append(" ("+t.getProfile()+")");
       else {
-        b.append("(StructureDefinition = ");
-        b.append("<a href=\""+p.getUserData("filename")+"\">");
-        b.append("(StructureDefinition = "+t.getProfile()+")");
+        b.append(" (");
+        if (p.getType() == StructureDefinitionType.TYPE)
+          b.append("<a href=\""+definitions.getSrcFile(p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
+        else if (p.getType() == StructureDefinitionType.RESOURCE)
+          b.append("<a href=\""+p.getName().toLowerCase()+".html\">");
+        else if (p.getType() == StructureDefinitionType.CONSTRAINT)
+          b.append("<a href=\""+(p.hasUserData("filename") ? p.getUserData("filename") : "")+"\" title=\""+t.getProfile()+"\">");
+        else if (p.getType() == StructureDefinitionType.EXTENSION)
+          b.append("<a href=\""+(p.hasUserData("filename") ? p.getUserData("filename") : "")+"\" title=\""+t.getProfile()+"\">");
+        b.append(p.getName()+")");
         b.append("</a>");
         b.append(")");
       }      

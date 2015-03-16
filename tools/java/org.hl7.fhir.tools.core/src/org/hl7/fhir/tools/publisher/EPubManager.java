@@ -299,7 +299,7 @@ public class EPubManager implements FileNotifier {
   private boolean ok(String msg) {
     if (msg.equals("Broken Link in extensibility.html: '??' not found at \"??\"(definition)"))
       return true;
-    if (msg.equals("roken Link in provenance.html: 'provenance.questionnaire.html' not found at \"provenance.questionnaire.html\"(Questionnaire)"))
+    if (msg.equals("Broken Link in provenance.html: 'provenance.questionnaire.html' not found at \"provenance.questionnaire.html\"(Questionnaire)"))
       return true;
     if (msg.equals(""))
       return true;

@@ -42,6 +42,7 @@ import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
@@ -123,7 +124,7 @@ public class ResourceValidator extends BaseValidator {
     return errors;
   }
   
-  public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) {
+  public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) throws Exception {
     rule(errors, "structure", parent.getName(), !name.equals("Metadata"), "The name 'Metadata' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("Tag"), "The name 'Tag' is not a legal name for a resource");
@@ -194,6 +195,10 @@ public class ResourceValidator extends BaseValidator {
         rule(errors, "structure", parent.getName(), false, e1.getMessage());
       }
     }
+    for (Operation op : parent.getOperations()) {
+      rule(errors, "structure", parent.getName()+"/$"+op.getName(), !parentHasOp(parent.getRoot().typeCode(), op.getName()), "Duplicate Operation Name $"+op.getName()+" on "+parent.getName()); 
+    }
+    
     for (Compartment c : definitions.getCompartments()) {
       if (rule(errors, "structure", parent.getName(), c.getResources().containsKey(parent), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)")) {
         String param = c.getResources().get(parent);
@@ -210,6 +215,17 @@ public class ResourceValidator extends BaseValidator {
     }
 	}
 
+  private boolean parentHasOp(String rname, String opname) throws Exception {
+    if (Utilities.noString(rname))
+        return false;
+    ResourceDefn r = definitions.getResourceByName(rname);
+    for (Operation op : r.getOperations()) {
+      if (op.getName().equals(opname))
+        return true;
+    }    
+    return parentHasOp(r.getRoot().typeCode(), opname);
+  }
+
   private boolean resourceIsTechnical(String name) {
     return 
         name.equals("ConceptMap") || 
@@ -224,7 +240,7 @@ public class ResourceValidator extends BaseValidator {
   }
 
 
-  public List<ValidationMessage> check(String name, ResourceDefn parent) {
+  public List<ValidationMessage> check(String name, ResourceDefn parent) throws Exception {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     check(errors, name, parent);    
     return errors;
