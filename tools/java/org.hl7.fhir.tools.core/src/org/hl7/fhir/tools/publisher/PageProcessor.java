@@ -1178,9 +1178,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String compartmentlist() {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
-    b.append(" <tr><td><b>Name</b></td><td><b>Title</b></td><td><b>Description</b></td><td><b>Identity</b></td><td><b>Membership</b></td></tr>\r\n");
+    b.append(" <tr><td><b>URI</b></td><td><b>Title</b></td><td><b>Description</b></td><td><b>Identity</b></td><td><b>Membership</b></td></tr>\r\n");
     for (Compartment c : definitions.getCompartments()) {
-      b.append(" <tr><td><a href=\"compartment-").append(c.getName()).append(".html\">").append(c.getName()).append("</a></td><td>").append(c.getTitle()).append("</td><td>")
+      b.append(" <tr><td><a href=\"compartment-").append(c.getName()).append(".html\">http://hl7.org/fhir/compartment/").append(c.getName()).append("</a></td><td>").append(c.getTitle()).append("</td><td>")
               .append(Utilities.escapeXml(c.getDescription())).append("</td>").append("<td>").append(Utilities.escapeXml(c.getIdentity())).append("</td><td>").append(Utilities.escapeXml(c.getMembership())).append("</td></tr>\r\n");
     }
     b.append("</table>\r\n");
