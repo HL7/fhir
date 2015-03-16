@@ -5,7 +5,7 @@
 <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
 <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels</li>
 <li>Both bundle.link and Bundle.entry.link are defined to support providing additional context when bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
-  Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was <a href="http.html#read">read</> directly.
+  Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was <a href="http.html#read">read</a> directly.
   This specification defines some specific uses of Bundle.link for <a href="search.html#conformance">searching</a> and <a href="http.html#paging">paging</a>, but no specific uses for Bundle.entry.link, and no defined function in a transaction. Meaning is implementation specific</li>
 </ul>
 
