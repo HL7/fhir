@@ -386,15 +386,15 @@ value is one of the following:
  <li><b>[parameter]=|[code]</b>: the value of [code] matches a Coding.code or Identifier.value, and the Coding/Identifier has no system property</li>
 </ul>
 <p>
-Note that the namespace URI and code both must be <a href="#escaping">escaped</a>.
+Note that the namespace URI and code both must be <a href="#escaping">escaped</a>. Matches are literal (e.g. not based on subsumption or other code system features).
 </p>
 <p><b>Modifiers:</b></p>
 <table class="lines">
  <tr> <td><b>Modifier</b></td> <td><b>Use</b></td> </tr>
  <tr> <td>:text</td> <td>the search parameter is processed as a string that searches text associated with the code/value - either <i>CodeableConcept.text</i>, <i>Coding.display</i>, or <i>Identifier.label</i></td> </tr>
  <tr> <td>:not</td> <td>reverse the code matching described in the paragraph above</td> </tr>
- <tr> <td>:above</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource subsumes the specified search code (e.g. the search concept has an is-a relationship with the coding in the resource)</td> </tr>
- <tr> <td>:below</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource is subsumed by the specified search code (e.g. the coding in the resource has an is-a relationship with the search concept)</td> </tr>
+ <tr> <td>:above</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource subsumes the specified search code (e.g. the search concept has an is-a relationship with the coding in the resource, and this includes the coding itself)</td> </tr>
+ <tr> <td>:below</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource is subsumed by the specified search code (e.g. the coding in the resource has an is-a relationship with the search concept, and this includes the coding itself)</td> </tr>
  <tr> <td>:in</td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a reference to ValueSet.identifier)</td> </tr>
  <tr> <td>:not-in</td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set</td> </tr>
 </table>
