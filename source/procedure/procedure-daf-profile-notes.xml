@@ -21,9 +21,9 @@ Implementers need to be mindful of the following during their implementation
 <ul>
 	<p><b>Representing No Known Procedures:</b> No Known Procedure will be represented using the DAF List with no entries and a valid code in the List's emptyReason element.</p>
 	
-	<p><b>Specifying Patients as part of the AllergyIntolerance Queries:</b> DAF AllergyIntolerance profile supports the querying the AllergyIntolerances for a particular patient. In order to achieve this in implementation, it is recommended to use Patient.identifier field to precisely identify the allergies relevant to the patient. While other parameters such as  Patient.name, Patient.given could be used for the query, it could lead to incorrect Patient matching and/or inefficient queries when systems are not tuned. </p>
+	<p><b>Specifying Patients as part of the Procedure Queries:</b> DAFProcedure profile supports the querying the Procedures for a particular patient. In order to achieve this in implementation, it is recommended to use Patient.identifier field to precisely identify the procedures relevant to the patient. While other parameters such as  Patient.name, Patient.given could be used for the query, it could lead to incorrect Patient matching and/or inefficient queries when systems are not tuned. </p>
 	
-	<p><b>Patient Matching:</b> Patient Matching rules and criteria have to be evaluated by the implementing organization and have to comply with local policies and regulations. Query Requestors will have to deal with result sets that can return zero,one or more AllergyIntolerance Resources in response to a query.</p>
+	<p><b>Patient Matching:</b> Patient Matching rules and criteria have to be evaluated by the implementing organization and have to comply with local policies and regulations. Query Requestors will have to deal with result sets that can return zero,one or more Procedure Resources in response to a query.</p>
 	
 	
 </ul>

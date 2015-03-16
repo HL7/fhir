@@ -13,7 +13,7 @@
 <a name="general"/>
 <h3>General Security Considerations</h3>
 <p>
-Most of the DAF transactions make use of patient-specific information which could be exploited by malicious actors  resulting in potential  exposure of patient data.  For this reason, all DAF transactions must be appropriately secured with access to limited to authorized individuals, data protected while in transit and appropriate audit measures taken.
+Most of the DAF transactions make use of patient-specific information which could be exploited by malicious actors  resulting in potential  exposure of patient data.  For this reason, all DAF transactions must be appropriately secured with access to limited authorized individuals, data protected while in transit and appropriate audit measures taken.
 </p>
 <p>
 Implementers should be aware of the <a href="security.html">security considerations</a> associated with FHIR transactions,
@@ -40,9 +40,9 @@ For the purposes of DAF, security conformance rules are as follows:
   <a href="provenance.html">Provenance</a> resource to record such signatures.</li>
 </ul>
 
-<h3>Consent</h3>
+<h4>Consent</h4>
 <p>
-The DAF FHIR Implementation Guide does not specify how to use Patient Consent currently, however as new FHIR resources or profiles become available to express Consent, the Implementation Guide will reference them and apply the necessary requirements.
+The DAF FHIR Implementation Guide does not specify how to use Patient Consent currently, however as new FHIR resources or profiles become available to express Consent, the DAF FHIR Implementation Guide will be updated as appropriate.
 It is the responsibility of the DAF actors to ensure that any necessary consent records exist and are reviewed prior to
 each exchange of patient-identifiable healthcare information.  This verification should be logged in the same manner as other transactions, as discussed above under <a href="#general">General Security Considerations.</a>
 </p>

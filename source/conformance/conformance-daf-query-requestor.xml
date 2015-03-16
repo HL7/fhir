@@ -17,7 +17,7 @@
         <tbody>
           <tr>
             <th>FHIR Version:</th>
-            <td>0.8</td>
+            <td>0.4.0</td>
           </tr>
           <tr>
             <th>Supported formats:</th>
@@ -274,9 +274,11 @@
             <td>
               <a title="Allows discovery of DAFList resources based on different search criteria" href="#DAFList-search-type">SHALL</a>
             </td>
+			<!--
             <td>
               <a title="Allows retrieval of a specific DAFList by id" href="#DAFList-read">SHALL</a>
             </td>
+			-->
             <td>
               <a title="Allows retrieval of a historical version of a DAFList" href="#DAFList-vread">SHOULD</a>
             </td>
@@ -494,6 +496,7 @@
 				</ul>
 			</td>
 		  </tr>
+		  <!--
 		  <tr>
 			<td>DAFList</td>
 			<td>
@@ -502,6 +505,7 @@
 				</ul>
 			</td>
 		  </tr>
+		  -->
 		</tbody>
 	  </table>
       <br/>
@@ -1716,6 +1720,7 @@
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a DAFList instance"/>
       </interaction>
+	  <!--
 	  <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
@@ -1723,6 +1728,7 @@
         <name value="identifier"/>
         <type value="token"/>
       </searchParam>
+	  -->
     </resource>
   </rest>
 </Conformance>
