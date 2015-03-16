@@ -2453,7 +2453,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         else if (!Utilities.noString(definitions.getIgs().get(p).getPage()))
           b.append("<a href=\""+definitions.getIgs().get(p).getPage()+"\" title=\""+definitions.getIgs().get(p).getName()+"\">"+p+"</a>");
         else
-          b.append("<a title=\""+definitions.getIgs().get(p).getName()+"\">"+p+"</a>");
+          b.append("<span title=\""+definitions.getIgs().get(p).getName()+"\">"+p+"</span>");
       }
       return b.toString();
     }
@@ -4146,8 +4146,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private void genStructureExample(StringBuilder s, String link, String basename, String description, String tail) {
     s.append("<tr>");
     s.append("<td><a href=\""+link+"\">"+Utilities.escapeXml(description)+"</a> "+(Utilities.noString(tail) ? "" : Utilities.escapeXml(tail))+"</td>");
-    s.append("<td><a href=\""+link+".xml.html\">XML</a></td>");
-    s.append("<td><a href=\""+link+".json.html\">JSON</a></td>");
+    s.append("<td><a href=\""+Utilities.changeFileExt(link, ".xml.html")+"\">XML</a></td>");
+    s.append("<td><a href=\""+Utilities.changeFileExt(link, ".json.html")+"\">JSON</a></td>");
     s.append("</tr>");
   }
   
@@ -5467,7 +5467,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (pack.getExtensions().size() > 0) {
       s.append("<tr><td colspan=\"2\"><b>Extensions</b>: </td></tr>");
       for (StructureDefinition ed : pack.getExtensions())
-        s.append("<tr><td><a name=\"extension-").append(ed.getId()).append("\"/><a href=\"extension-").append(ed.getId()).append(".html\">").append(Utilities.escapeXml(ed.getId()))
+        s.append("<tr><td><a name=\"extension-").append(ed.getId()).append("\"/><a href=\"extension-").append(ed.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ed.getId()))
                 .append("</a></td><td><b>").append(Utilities.escapeXml(ed.getName())).append("</b> : ").append(processMarkdown(ed.getDescription())).append("</td></tr>");
     }
     s.append("</table>");

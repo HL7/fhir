@@ -1026,7 +1026,7 @@ public class ProfileUtilities {
             genCardinality(gen, element, row, hasDef, used, extDefn.getSnapshot().getElement().get(0));
             ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
             if (valueDefn != null)
-              genTypes(gen, pkp, row, valueDefn, profileBaseFileName, profile);
+               genTypes(gen, pkp, row, valueDefn, profileBaseFileName, profile);
              else // if it's complex, we just call it nothing
                 // genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
               row.getCells().add(gen.new Cell());

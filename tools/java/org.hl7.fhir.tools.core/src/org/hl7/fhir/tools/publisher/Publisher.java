@@ -2045,7 +2045,7 @@ public class Publisher implements URIResolver {
   }
 
   private void produceExtensionDefinition(StructureDefinition ed) throws FileNotFoundException, Exception {
-    String filename = "extension-"+ed.getUrl().substring(40);
+    String filename = "extension-"+ed.getUrl().substring(40).toLowerCase();
     ed.setUserData("filename", filename);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + filename+".xml"), ed);
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + filename+".json"), ed);
