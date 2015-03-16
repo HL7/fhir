@@ -89,7 +89,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        generateElementInner(profile,  ec, 1, null);
 	      } else {
-	        String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("filename") ? extDefn.getUserData("filename") : "extension-"+extDefn.getId())+".html\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+	        String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("filename") ? extDefn.getUserData("filename") : "extension-"+extDefn.getId().toLowerCase())+".html\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
 	        generateElementInner(extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);

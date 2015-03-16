@@ -369,11 +369,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 
-  public String processPageIncludes(String file, String src, String type, Map<String, String> others, Resource resource, List<String> tabs) throws Exception {
-    return processPageIncludes(file, src, type, others, file, resource, tabs);
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, Resource resource, List<String> tabs, String crumbTitle) throws Exception {
+    return processPageIncludes(file, src, type, others, file, resource, tabs, crumbTitle);
   }
   
-  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource, List<String> tabs) throws Exception {
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource, List<String> tabs, String crumbTitle) throws Exception {
     String workingTitle = null;
     int level = 0;
     boolean even = false;
@@ -661,7 +661,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + breadCrumbManager.makelist(name, type, genlevel(level)) + s3;      
+        src = s1 + breadCrumbManager.makelist(name, type, genlevel(level), crumbTitle) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -1190,9 +1190,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genV3CodeSystem(String name) throws Exception {
     ValueSet vs = codeSystems.get("http://hl7.org/fhir/v3/"+name);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v3:cs:"+name);
+    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v3:cs:"+name, "CodeSystem");
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path("v3", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:cs:"+name);
+    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path("v3", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:cs:"+name, "CodeSystem");
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -1201,10 +1201,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ValueSet vs = valueSets.get("http://hl7.org/fhir/v3/vs/"+name);
     IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml"), vs);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getName(), vs.getDescription(), 3, false, "v3:vs:"+name);
+    cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getName(), vs.getDescription(), 3, false, "v3:vs:"+name, "ValueSet");
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "vs", name, "v3-"+name+".json"), Utilities.path("v3", "vs", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:vs:"+name);
+    jsonToXhtml(Utilities.path(folders.dstDir, "vs", name, "v3-"+name+".json"), Utilities.path("v3", "vs", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:vs:"+name, "ValueSet");
 
     return new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
@@ -1214,10 +1214,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ValueSet vs = codeSystems.get("http://hl7.org/fhir/v2/"+n[0]+"/"+n[1]);
     IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml"), vs);
-    cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getName(), vs.getDescription(), 3, false, "v2:tbl"+name);
+    cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getName(), vs.getDescription(), 3, false, "v2:tbl"+name, "V2 Table");
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json"), Utilities.path("v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json.html"), "v2-"+n[0]+"-"+n[1]+".json", vs.getName(), vs.getDescription(), 3, r2Json(vs), "v2:tbl"+name);
+    jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json"), Utilities.path("v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json.html"), "v2-"+n[0]+"-"+n[1]+".json", vs.getName(), vs.getDescription(), 3, r2Json(vs), "v2:tbl"+name, "V2 Table");
     addToValuesets(v2Valuesets, vs);
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
@@ -1227,10 +1227,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ValueSet vs = codeSystems.get("http://hl7.org/fhir/v2/"+name);
     IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml"), vs);
-    cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v2:tbl"+name);
+    cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v2:tbl"+name, "V2 Table");
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json"), Utilities.path("v2", name, "v2-"+name+".json.html"), "v2-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v2:tbl"+name);
+    jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json"), Utilities.path("v2", name, "v2-"+name+".json.html"), "v2-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v2:tbl"+name, "V2 Table");
     addToValuesets(v2Valuesets, vs);
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -1243,7 +1243,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return new String(bytes.toByteArray());
   }
 
-  private void cloneToXhtml(String src, String dst, String name, String description, int level, boolean adorn, String pageType) throws Exception {
+  private void cloneToXhtml(String src, String dst, String name, String description, int level, boolean adorn, String pageType, String crumbTitle) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     DocumentBuilder builder = factory.newDocumentBuilder();
@@ -1258,18 +1258,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, name, description, level, adorn, n+".xml.html");
     String html = TextFile.fileToString(folders.srcDir + "template-example-xml.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", b.toString());
-    html = processPageIncludes(n+".xml.html", html, pageType, null, null, null);
+    html = processPageIncludes(n+".xml.html", html, pageType, null, null, null, crumbTitle);
     TextFile.stringToFile(html, dst);
     
 //    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
     epub.registerExternal(dst);
   }
 
-  public void jsonToXhtml(String src, String dst, String link, String name, String description, int level, String json, String pageType) throws Exception {
+  public void jsonToXhtml(String src, String dst, String link, String name, String description, int level, String json, String pageType, String crumbTitle) throws Exception {
 
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(folders.srcDir + "template-example-json.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", json);
-    html = processPageIncludes(dst, html, pageType, null, null, null);
+    html = processPageIncludes(dst, html, pageType, null, null, null, crumbTitle);
     TextFile.stringToFile(html, getFolders().dstDir + dst);
 //    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
     epub.registerExternal(dst);
@@ -3331,7 +3331,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + breadCrumbManager.makelist(name, type, genlevel(level)) + s3;      
+        src = s1 + breadCrumbManager.makelist(name, type, genlevel(level), (workingTitle == null ? Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1)) : workingTitle)) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -3547,7 +3547,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(name, genlevel(0)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + breadCrumbManager.makelist(name, type, genlevel(0)) + s3;      
+        src = s1 + breadCrumbManager.makelist(name, type, genlevel(0), workingTitle) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -4180,7 +4180,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String cnt = TextFile.fileToString(filename);
     Map<String, String> others = new HashMap<String, String>();
     others.put("definition", definition);
-    cnt = processPageIncludes(filename, cnt, "notes", others, null, tabs).trim()+"\r\n";
+    cnt = processPageIncludes(filename, cnt, "notes", others, null, tabs, "--").trim()+"\r\n";
     if (cnt.startsWith("<div")) {
       if (!cnt.startsWith(HTML_PREFIX1) && !cnt.startsWith(HTML_PREFIX2))
         throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX1.length())+" - should be '"+HTML_PREFIX1+"' or '"+HTML_PREFIX2+"'");
@@ -4383,7 +4383,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(filename, genlevel(0)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + breadCrumbManager.makelist(filename, "profile:"+path, genlevel(0)) + s3;      
+        src = s1 + breadCrumbManager.makelist(filename, "profile:"+path, genlevel(0), profile.getResource().getName()) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -4680,7 +4680,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(filename, genlevel(0)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + breadCrumbManager.makelist(filename, "extension:"+ed.getName(), genlevel(0)) + s3;      
+        src = s1 + breadCrumbManager.makelist(filename, "extension:"+ed.getName(), genlevel(0), (workingTitle == null ? Utilities.escapeXml(ed.getName()) : workingTitle)) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -5317,7 +5317,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return null;
   }
 
-  public String processConformancePackageIncludes(Profile pack, String src, String intro, String notes) throws Exception {
+  public String processConformancePackageIncludes(Profile pack, String src, String intro, String notes, String resourceName) throws Exception {
     String workingTitle = null;
     int level = 0;
     //boolean even = false;
@@ -5426,7 +5426,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(pack.getId(), genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + breadCrumbManager.makelist(pack.getId(), "package", genlevel(level)) + s3;      
+        src = s1 + breadCrumbManager.makelist(pack.getId(), "profile:"+resourceName+"/"+pack.getId(), genlevel(level), pack.getTitle()) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
