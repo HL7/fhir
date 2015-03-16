@@ -10,18 +10,17 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2013-07-04T21:40:49Z</Created>
   <LastSaved>2015-03-13T10:04:14Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9270</WindowHeight>
-  <WindowWidth>18480</WindowWidth>
+  <WindowHeight>10155</WindowHeight>
+  <WindowWidth>24345</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -132,7 +131,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="100" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="101" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -509,6 +508,10 @@
     <Cell><Data ss:Type="String">orderer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ProcessRequest</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ProfessionalClaim</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
@@ -618,7 +621,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>61</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -626,7 +629,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>30</ActiveRow>
+     <ActiveRow>78</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

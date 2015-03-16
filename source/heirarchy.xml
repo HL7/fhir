@@ -215,6 +215,7 @@ signatures.html
 			<page type="resource" resource="Organization"/>
 			<page type="resource" resource="HealthcareService"/>
 			<page type="resource" resource="Contract"/>
+			<page type="resource" resource="ProcessRequest"/>
 			<page type="resource" resource="Device"/>
 			<page type="resource" resource="DeviceComponent"/>
 			<page type="resource" resource="DeviceMetric"/>
