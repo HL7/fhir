@@ -1629,13 +1629,6 @@ public class Publisher implements URIResolver {
       throw new Exception("Errors executing build. Details logged.");
     }
 
-    for (String n : page.getDefinitions().getDictionaries().keySet()) {
-      if (buildFlags.get("all")) { // || buildFlags.get("dict-" + n.toLowerCase())) {
-        page.log(" ...dictionary " + n, LogMessageType.Process);
-        produceDictionary(n);
-      }
-    }
-
     for (String rname : page.getDefinitions().getBaseResources().keySet()) {
       ResourceDefn r = page.getDefinitions().getBaseResources().get(rname);
       produceResource1(r, r.isAbstract());
@@ -1676,6 +1669,13 @@ public class Publisher implements URIResolver {
         producePage(n, page.getIni().getStringProperty("pages", n));
       }
     }
+    for (String n : page.getDefinitions().getDictionaries().keySet()) {
+      if (buildFlags.get("all")) { // || buildFlags.get("dict-" + n.toLowerCase())) {
+        page.log(" ...dictionary " + n, LogMessageType.Process);
+        produceDictionary(n);
+      }
+    }
+
     if (page.hasIG() && !Utilities.noString(page.getIg().getHomePage())) {
       Utilities.copyFile(page.getFolders().dstDir+"index.html", page.getFolders().dstDir+"home.html");
       produceIgPage(page.getIg().getHomePage(), "index.html", "Index");

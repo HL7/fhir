@@ -59,7 +59,7 @@ public class SchemaGenerator {
 			  f.delete();
 	  }
 
-	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd"))));
+	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"));
 	  xsdb.setDefinitions(definitions);
 	  xsdb.generate(version, genDate, true);
 	  xsdb.getWriter().close();
@@ -75,7 +75,7 @@ public class SchemaGenerator {
 		  sgen.getWriter().close();
 	  }
 
-	  OutputStreamWriter single = new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-single.xsd")));
+	  OutputStreamWriter single = new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-single.xsd")), "UTF-8");
 	  
 	  single.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
 	  single.write("<!-- \r\n");

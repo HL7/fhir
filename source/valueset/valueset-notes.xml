@@ -158,7 +158,7 @@ How filters are used with various code systems:
 A value set can be "expanded", where the definition of the value set is 
 used to create a simple collection of codes suitable for use for data 
 entry or validation. This is most useful when a value set includes 
-all the children of a code or a set of codes by filter.
+all the children of a code or a set of codes by filter. 
 </p>
 <p>
 A resource that represents a value set expansion includes the same
@@ -172,11 +172,12 @@ is guidance for helping human user navigate the choice of codes that
 may or may not relate to the logical definitions of the codes or concepts.
 </p>
 <p>
-In general, the following process should be followed when 
-expanding a value set:
+When a request for an expansion is received (e.g. for the <a href="valueset-operations.html#expand">$expand</a> operation,
+the following process should be followed:
 </p>
 <ul>
- <li>for each <i>compose.import</i>, find the referenced value set, expand that, and add it to the result set</li>
+ <li>If the value set already has an expansion (e.g. a stored expansion), simply take the existing expansion as it is. If not, then:</li>
+ <li>for each <i>compose.import</i>, find the referenced value set by ValueSet.url, expand that (e.g. using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$identifier=[compose.import]), and add it to the result set. This means that expansion across imports is a recursive process</li>
  <li>for each <i>compose.include</i>, identify the correct version of the code system, and then:
   <ul>
    <li>if there are no codes or filters, add every code in the code system to the result set</li>
@@ -198,6 +199,16 @@ An expansion may include entries in the expansion that only serve an arbitrary g
 for a human to use the list. These entries have no system or code, and must be marked as abstract. Note that the 
 value set define and compose offer no support for defining these, but this does not exclude servers from using
 extensions or other knowledge to introduce such groups as an implementation feature. 
+</p>
+<p>
+Whether to store expanded value sets, or simply to store their definitions, and expand on the fly is 
+a matter for system deployment. Any system that stores an expansion must be concerned with how to determine
+whether it is current, which requires deep knowledge of how the expansion was created. A system with a 
+dedicated terminology server that returns expansions on demand avoids this problem, but leaves open
+the question of how to audit the specific expansion that was used for a particular case. One solution
+to this is to use a dedicated terminology server, and have the clients ask for expansions on demand
+based on the value set definitions, and for the server to store (and reuse as appropriate) the 
+returned expansion (ValueSet.expansion.identifier).
 </p>
 
 <h3>Code systems with detailed metadata</h3>
