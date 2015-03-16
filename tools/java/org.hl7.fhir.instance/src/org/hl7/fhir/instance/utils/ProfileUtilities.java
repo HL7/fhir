@@ -998,7 +998,7 @@ public class ProfileUtilities {
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
     if (element != null && element.getIsModifier())
-      checkForNoChange(element.getIsModifierElement(), gc.addImage("modifier.png", "This element is a modifier element", "M"));
+      checkForNoChange(element.getIsModifierElement(), gc.addImage("modifier.png", "This element is a modifier element", "?!"));
     if (element != null && element.getMustSupport()) 
       checkForNoChange(element.getMustSupportElement(), gc.addImage("mustsupport.png", "This element must be supported", "S"));
     if (element != null && element.getIsSummary()) 

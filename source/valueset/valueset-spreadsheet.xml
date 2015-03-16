@@ -5807,7 +5807,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Value Set based Validation</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Validate that a coded value is in the set of codes allowed by a value set. &#10;&#10;If the operation is not called at the instance level, one of the in parameters identifier or valueset must be provided.&#10;&#10;One (and only one) of the in parameters (code, coding, codeableConcept) must be provided. || The outcome is an OperationOutcome with hints, warnings, or errors. </Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Validate that a coded value is in the set of codes allowed by a value set. &#10;&#10;If the operation is not called at the instance level, one of the in parameters &quot;identifier&quot; or &quot;valueset&quot; must be provided.&#10;&#10;One (and only one) of the in parameters (code, coding, codeableConcept) must be provided.&#10;&#10;The operation returns a result (true / false), an error message, and the recommended display for the code</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -6280,7 +6280,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>21</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6297,8 +6297,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

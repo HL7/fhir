@@ -6417,7 +6417,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">tool</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">ValueSet Validation</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">vs-validate</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">operation-valueset-validate.xml</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">operation-valueset-validate-code.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"><Data ss:Type="Boolean">0</Data></Cell>
    </Row>
