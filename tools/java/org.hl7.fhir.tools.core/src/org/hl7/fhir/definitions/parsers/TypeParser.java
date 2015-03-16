@@ -99,8 +99,8 @@ public class TypeParser {
 				}
 				String[] params = typeString.substring(startPos + 1, endPos).split(",");
 				for (int j=0;j<params.length;j++) {
-	        if (inProfile && typeString.startsWith("Reference("))
-	          if (!definitions.hasResource(params[j].trim()) && !"Any".equals(params[j].trim()))
+	        if (typeString.startsWith("Reference("))
+	          if (inProfile && !definitions.hasResource(params[j].trim()) && !"Any".equals(params[j].trim()))
 	            throw new Exception("Unknown resource "+params[j].trim());
 					t.getParams().add(params[j].trim());
 				}

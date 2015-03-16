@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Eric Haas</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-11T21:59:13Z</LastSaved>
-  <Version>12.00</Version>
+  <LastSaved>2015-03-16T05:46:25Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,8 +21,7 @@
   <WindowTopX>-1215</WindowTopX>
   <WindowTopY>7140</WindowTopY>
   <TabRatio>888</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3969,10 +3968,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>43</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -3980,8 +3980,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>31</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>54</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5130,7 +5130,8 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">11/18/2014 EH: must support 3/11/2015 eh: flatten out structure and force string to code</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).</Data></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">USLabPHCountry</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.address.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5807,7 +5808,8 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">NK1.32.9:County/Parish Code:IS:RE::1..20:=:PHVS_County_FIPS_6-4</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).</Data></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">CountyCountact</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.contact.address.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7001,11 +7003,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>50</TabColorIndex>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>47</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -7013,8 +7014,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>54</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>57</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

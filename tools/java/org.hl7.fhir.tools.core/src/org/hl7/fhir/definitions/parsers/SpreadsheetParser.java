@@ -1225,6 +1225,9 @@ public class SpreadsheetParser {
 		TypeParser tp = new TypeParser();
 		e.getTypes().addAll(tp.parse(sheet.getColumn(row, "Type"), isProfile, profileExtensionBase, definitions));
 
+		if (isProfile && ((path.endsWith(".extension") || path.endsWith(".modifierExtension")) && (e.getTypes().size() == 1) && e.getTypes().get(0).hasProfile()) && Utilities.noString(profileName))
+		    throw new Exception("need to have a profile name if a profiled extension is referenced for "+ e.getTypes().get(0).getProfile());
+		
 		if (sheet.hasColumn(row, "Concept Domain"))
 			throw new Exception("Column 'Concept Domain' has been retired in "
 					+ path);

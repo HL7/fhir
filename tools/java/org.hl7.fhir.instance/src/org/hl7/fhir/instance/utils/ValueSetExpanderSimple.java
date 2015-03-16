@@ -139,6 +139,9 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  ValueSet cs = context.getCodeSystems().get(inc.getSystem());
 	  if (cs == null)
 	  	throw new Exception("unable to find code system "+inc.getSystem().toString());
+	  if (cs.hasVersion())
+      if (!existsInParams(params, "version", new UriType(cs.getUrl()+"?version="+cs.getVersion())))
+        params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(cs.getUrl()+"?version="+cs.getVersion())));
 	  if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
 	    // special case - add all the code system
 	    for (ConceptDefinitionComponent def : cs.getDefine().getConcept()) {
