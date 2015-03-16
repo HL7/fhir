@@ -60,9 +60,9 @@ and implementation.
 </p>
 
 <a name="tech"> </a>
-<h2>Technical Requirements</h2>
+<h3>Technical Requirements</h3>
 <p>
-A resource consist of an identifier, some metadata, narrrative, and data. 
+A resource consists of an identifier, some metadata, narrrative, and data. 
 When the resources are used with a service, the context of use will need to
 describe how the id and meta data are managed.
 </p>
@@ -80,9 +80,9 @@ be exchanged with REST, the metadata will be required to be managed carefully.
 <p>
 All resources have a single identity (the full URL), and a logical id which may be maintained
 as the resource moves from server to server (see <a href="managing.html">"Managing Resource Identity"</a> for further 
-discussion). Since this identity is used by any reference to the resource, it must be exchanged 
-with the resource so that references from other resources to the one being exchanged can 
-still be resolved.
+discussion). Since this identity is used by any reference to the resource, it must be maintained 
+when the resource is exchanged so that references from other resources to the one being exchanged can 
+still be resolved. In other words, avoid exchanging the resource anonymously whenever possible.
 </p>
 <p>
 Related to this, resources are modular units that refer to each other. Although 
@@ -95,14 +95,14 @@ resources are contained in the service call, or by making some service based arr
 by which additional resources can be retrieved.
 </p>
 <p>
-Services that exchange resources SHALL maintain resource identity.
+Services that exchange resources SHOULD maintain resource identity.
 </p>
 
 <p><b>Resource Version</b></p>
 <p>
-Resources have two metadata elements relating to versioning: "Version Id" and "Last Modified Date".
+Resources have two metadata elements relating to versioning: "Resource.meta.versionId" and "Resource.meta.lastUpdated".
 Because of data/time resolution issues, systems implementing concurrency solutions are 
-strongly recommended to depend on the version id; the Last Modified Date is provided to
+strongly recommended to depend on the versionId; the lastUpdated is provided to
 inform human users about information currency. 
 </p>
 <p>
@@ -132,7 +132,7 @@ changing descriptions of service implementations.
 </p>
 
 <a name="architecture"> </a>
-<h2>Architectural Considerations</h2>
+<h3>Architectural Considerations</h3>
 <p>
 FHIR Resources are designed to make use in a wide variety of contexts. In particular,
 FHIR resources are required to be suitable for use in a REST environment. This means
