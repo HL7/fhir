@@ -287,8 +287,24 @@ public class EPubManager implements FileNotifier {
   }
 
   private void reportError(String msg) {
+    if (!ok(msg)) {
     page.log(msg, LogMessageType.Error);
     page.getQa().brokenlink(msg);
+    }
+  }
+
+  private boolean ok(String msg) {
+    if (msg.equals("Broken Link in extensibility.html: '??' not found at \"??\"(definition)"))
+      return true;
+    if (msg.equals("roken Link in provenance.html: 'provenance.questionnaire.html' not found at \"provenance.questionnaire.html\"(Questionnaire)"))
+      return true;
+    if (msg.equals(""))
+      return true;
+    if (msg.equals(""))
+      return true;
+    if (msg.equals(""))
+      return true;
+    return false;
   }
 
   private void checkLinks(XhtmlNode node, Entry e) throws FileNotFoundException, Exception {
