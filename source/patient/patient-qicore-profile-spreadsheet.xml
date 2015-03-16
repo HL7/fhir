@@ -10,7 +10,7 @@
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-12T11:27:57Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>694</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1045,7 +1045,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>150</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1503,17 +1502,17 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">nationality.code</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!nationality.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.extension.extension</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Patient.extension.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-nationalityCode}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality.Code}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1533,17 +1532,17 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">nationality.period</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!nationality.period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.extension.extension</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Patient.extension.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-nationalityPeriod}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality.Period}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1593,17 +1592,17 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">citizenship.code</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!citizenship.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.extension.extension</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Patient.extension.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenshipCode}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenship.Code}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1623,17 +1622,17 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">citizenship.period</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!citizenship.period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.extension.extension</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Patient.extension.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenshipPeriod}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-citizenship.Period}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1835,17 +1834,17 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s116">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">clinicalTrial.NCT</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">!clinicalTrial.NCT</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.extension.extension</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Patient.extension.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrialNCT}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial.NCT}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1865,17 +1864,17 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s116">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">clinicalTrial.period</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">!clinicalTrial.period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.extension.extension</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Patient.extension.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrialPeriod}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial.Period}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1895,17 +1894,17 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s116">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">clinicalTrial.reason</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">!clinicalTrial.reason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.extension.extension</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Patient.extension.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrialReason}</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial.Reason}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3036,10 +3035,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3057,9 +3057,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>35</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R36</RangeSelection>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

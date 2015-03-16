@@ -31,11 +31,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.TypeRef;
 
 public class TypeParser {
 
-	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase) throws Exception {
+
+	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, Definitions definitions) throws Exception {
 		ArrayList<TypeRef> a = new ArrayList<TypeRef>();
 
 		if (n == null || n.equals("") || n.startsWith("!"))
@@ -97,6 +99,9 @@ public class TypeParser {
 				}
 				String[] params = typeString.substring(startPos + 1, endPos).split(",");
 				for (int j=0;j<params.length;j++) {
+	        if (inProfile && typeString.startsWith("Reference("))
+	          if (!definitions.hasResource(params[j].trim()) && !"Any".equals(params[j].trim()))
+	            throw new Exception("Unknown resource "+params[j].trim());
 					t.getParams().add(params[j].trim());
 				}
 				typeString = typeString.substring(0, startPos);

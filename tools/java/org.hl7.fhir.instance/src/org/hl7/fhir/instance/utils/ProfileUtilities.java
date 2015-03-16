@@ -573,8 +573,8 @@ public class ProfileUtilities {
     if (derived != null) {
       // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff
       if (base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension")) {
-        base.setDefinitionElement(null);
-        base.setShortElement(null);
+        base.setDefinition("An Extension");
+        base.setShort("Extension");
         base.setCommentsElement(null);
         base.setRequirementsElement(null);
         base.getSynonym().clear();

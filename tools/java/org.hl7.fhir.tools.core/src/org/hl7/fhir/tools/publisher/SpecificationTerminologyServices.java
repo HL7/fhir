@@ -35,6 +35,7 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.ITerminologyServices;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -289,7 +290,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
   }
 
   @Override
-  public List<ValueSetExpansionContainsComponent> expandVS(ConceptSetComponent inc) throws Exception {
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
     ValueSet vs = new ValueSet();
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
@@ -304,7 +305,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
       if (r instanceof OperationOutcome)
         throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
       else
-        return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource()).getExpansion().getContains();
+        return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource()).getExpansion();
     }
     vs.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
         
@@ -321,7 +322,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
         ValueSet result = client.expandValueset(vs);
         serverOk = true;
         parser.compose(new FileOutputStream(fn), result);
-        return result.getExpansion().getContains();
+        return result.getExpansion();
       } catch (EFhirClientException e) {
         serverOk = true;
         parser.compose(new FileOutputStream(fn), e.getServerErrors().get(0));

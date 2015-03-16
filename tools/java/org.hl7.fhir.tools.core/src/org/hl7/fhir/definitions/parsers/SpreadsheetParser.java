@@ -1223,7 +1223,7 @@ public class SpreadsheetParser {
 		}
 
 		TypeParser tp = new TypeParser();
-		e.getTypes().addAll(tp.parse(sheet.getColumn(row, "Type"), isProfile, profileExtensionBase));
+		e.getTypes().addAll(tp.parse(sheet.getColumn(row, "Type"), isProfile, profileExtensionBase, definitions));
 
 		if (sheet.hasColumn(row, "Concept Domain"))
 			throw new Exception("Column 'Concept Domain' has been retired in "
@@ -1471,8 +1471,8 @@ public class SpreadsheetParser {
       exe.getElements().add(exv);
       exv.setBindingName(sheet.getColumn(row, "Binding"));
       exv.setMaxLength(sheet.getColumn(row, "Max Length"));
-      exv.setExample(processValue(sheet, row, "Example", exe));
-      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), false, profileExtensionBase));
+      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), false, profileExtensionBase, definitions));
+      exv.setExample(processValue(sheet, row, "Example", exv));
     }
   }
 

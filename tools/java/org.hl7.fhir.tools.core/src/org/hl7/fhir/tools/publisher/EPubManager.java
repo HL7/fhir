@@ -301,7 +301,7 @@ public class EPubManager implements FileNotifier {
       return true;
     if (msg.equals("Broken Link in provenance.html: 'provenance.questionnaire.html' not found at \"provenance.questionnaire.html\"(Questionnaire)"))
       return true;
-    if (msg.equals(""))
+    if (msg.equals("Broken Link in extension-adverseevent-qicore-cause-item.html: 'diagnosticstudy.html#DiagnosticStudy' not found at \"diagnosticstudy.html\"(DiagnosticStudy)"))
       return true;
     if (msg.equals(""))
       return true;

@@ -657,7 +657,7 @@ public class SourceParser {
 
 	private String loadCompositeType(String n, Map<String, org.hl7.fhir.definitions.model.TypeDefn> map) throws Exception {
 		TypeParser tp = new TypeParser();
-		List<TypeRef> ts = tp.parse(n, false, null);
+		List<TypeRef> ts = tp.parse(n, false, null, definitions);
 		definitions.getKnownTypes().addAll(ts);
 
 		try {
@@ -773,7 +773,7 @@ public class SourceParser {
 
 		for (String n : ini.getPropertyNames("types"))
 			if (ini.getStringProperty("types", n).equals("")) {
-				TypeRef t = new TypeParser().parse(n, false, null).get(0);
+				TypeRef t = new TypeParser().parse(n, false, null, definitions).get(0);
 				checkFile("type definition", dtDir, t.getName().toLowerCase() + ".xml", errors, "all");
 			}
     for (String n : ini.getPropertyNames("structures"))

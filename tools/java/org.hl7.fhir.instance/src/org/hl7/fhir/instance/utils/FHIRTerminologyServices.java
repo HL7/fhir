@@ -20,6 +20,7 @@ import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -83,7 +84,7 @@ public class FHIRTerminologyServices implements ITerminologyServices {
   }
 
 	@Override
-  public List<ValueSetExpansionContainsComponent> expandVS(ConceptSetComponent inc) throws Exception {
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
 		throw new Error("Not done yet");
   }
 

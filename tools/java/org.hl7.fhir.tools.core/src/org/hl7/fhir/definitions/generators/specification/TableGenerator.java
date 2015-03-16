@@ -40,7 +40,7 @@ public class TableGenerator extends BaseGenerator {
     if (e.hasMustSupport() && e.isMustSupport()) 
       gc.addImage("mustsupport.png", "This element must be supported", "S");
     if (e.isModifier()) 
-      gc.addImage("modifier.png", "This element is a modifier element", "M");
+      gc.addImage("modifier.png", "This element is a modifier element", "?!");
     if (e.isSummary()) 
       gc.addImage("summary.png", "This element is included in summaries", "Σ");
     if (!e.getInvariants().isEmpty() || !e.getStatedInvariants().isEmpty()) 

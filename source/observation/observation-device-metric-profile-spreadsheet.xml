@@ -1613,7 +1613,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Speciment)</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Specimen)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">N</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
