@@ -571,6 +571,15 @@ public class ProfileUtilities {
     ElementDefinition derived = source;
     
     if (derived != null) {
+      // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff
+      if (base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension")) {
+        base.setDefinitionElement(null);
+        base.setShortElement(null);
+        base.setCommentsElement(null);
+        base.setRequirementsElement(null);
+        base.getSynonym().clear();
+        base.getMapping().clear();
+      }
       if (derived.hasShortElement()) { 
         if (!Base.compareDeep(derived.getShortElement(), base.getShortElement(), false))
           base.setShortElement(derived.getShortElement().copy());
