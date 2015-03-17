@@ -44,6 +44,7 @@ complexity that they require.
 <a href="#sort">_sort</a><br/>
 <a href="#count">_count</a><br/>
 <a href="#include">_include</a><br/>
+<a href="#revinclude">_revinclude</a><br/>
 <a href="#summary">_summary</a><br/>
 <a href="#contained">_contained</a><br/>
 <a href="#containedType">_containedType</a><br/>
@@ -90,8 +91,7 @@ the results that are returned.
 <h4>Parameters for all resources</h4>
 <p>
 These parameters are <a href="resource.html#search">defined that apply to all resources</a>: [%allparams%]. In addition, the search 
-parameters <a href="#text">_text</a>, <a href="#count">_count</a>, <a href="#include">_include</a> and <a href="#summary">_summary</a> 
-(documented below) also apply to all resources. 
+parameter <a href="#text">_text</a> and <a href="#filter">_filter</a>, (documented below) also applies to all resources (as do the search result parameters). 
 </p>
 <a name="id"> </a>
 <p> 
@@ -710,73 +710,91 @@ This way, the last matching resource will be returned.
 </p>
 
 <a name="include"> </a>
-<h4>Including other resources in result (_include)</h4>
+<a name="revinclude"> </a>
+<h4>Including other resources in result (_include and _revinclude)</h4>
 <p>
 Clients may request that the engine return additional resources related to
-the search results, in order to reduce the overall network delay.
+the search results, in order to reduce the overall network delay of repeated 
+retrievals of related resources.
 A typical case where this is useful is where the client is searching on
 some type of clinical resource, but for every such resource returned,
 the client will also need the subject (patient) resource that the
 clinical resource refers to. The client requests that the subject
 resources be included in the results set by providing one or more
-_include parameters.
+_include parameters. An alternative scenario is where the client 
+wishes to fetch a particular resource, and any resources that refer
+to it. For example, the client may wish to fetch a MedicationPrescription,
+and any provenance resources that refer to the prescription. This is known
+as a reverse include, and specified by providing a _revinclude parameter.
 </p>
 <p>
-Each _include parameter specifies a path to a url (usually a resource reference):
+Both _include and _revinclude are based on search parameters, rather 
+than paths in the resource, since joins (e.g. <a href="#chaining">chaining</a>
+are already done by search parameter.
+</p> 
+<p>
+Each _include parameter specifies a search parameter to join on:
 </p>
 <pre>
- GET [base]/MedicationDispense?_include=MedicationDispense.authorizingPrescription
-    &amp;_include=MedicationPrescription.prescriber&amp;criteria...
+ GET [base]/MedicationPrescription?_include=MedicationPrescription:patient&amp;criteria...
+ GET [base]/MedicationPrescription?_revinclude=Provenance:target&amp;criteria...
 </pre>
 <p>
-For each returned resource, the server collects the elements described by the path,
-and any resources they point to that the server also holds are added to the results,
+The first search means, for any matching MedicationPrescription, include 
+any patient that the medication prescriptions in the result set refer to. 
+The second search means, for any matching prescriptions, return all 
+the provenance resources that refer to them. 
+</p>
+<p>
+Parameter values for both _include and _revinclude have 3 parts, separated by a ":" separator:
+</p>
+<ol>
+ <li>The name of the source resource from which the join comes</li>
+ <li>The name of the search parameter which must be of type <i>reference</i></li>
+ <li>(Optional) A specific of type of target resource (for when the search parameter refers to multiple possible target types)</li>
+</ol>
+<p>
+_include and _reverseInclude parameters do not include multiple values. Instead, the 
+parameters are repeated for each different include criteria.
+</p>
+<p>
+For each returned resource, the server identifies the resources that meet
+the criteria expressed in the join, and adds to the results,
 with the <a href="bundle-definitions.html#Bundle.entry.status">entry.status</a>
 set to "include" (in some searches, it is not obvious which resources are
 matches, and which are includes).
-This example search returns all the <a href="medicationprescription.html">Medication
+</p>
+<p>
+The inclusion process can be recursive. For example, this example search 
+returns all the <a href="medicationprescription.html">Medication
 Prescription</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
-for the matching <a href="medicationdispense.html">Medication Dispense</a> resources.
+for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
 </p>
-<h4>Include Paths</h4>
+<pre>
+GET [base]/MedicationDispense?_include=MedicationDispense.authorizingPrescription
+    &amp;_include=MedicationPrescription.prescriber&amp;criteria...
+</pre>
 <p>
-An include path begins at the root of a FHIR resource and must include exactly one property of
-type <a href="references.html#Identification">Reference</a> or <a href="datatypes.html#uri">uri</a>,
-which must appear in the terminal position. That means that an
-include path cannot "cross the boundary" from one resource to another.  So for example,
-`CarePlan.activity.simple.performer` is a valid include path, because it begins at the
-root of the CarePlan resource and ends with a reference to another resource
-(Practitioner|Organization|RelatedPerson|Patient). On the other hand,
-`CarePlan.patient.managingOrganization` is an invalid include path, because it
-includes two References (patient and managingOrganization), and `CarePlan.goal`
-is an invalid include path because it does not end with a Reference or a URI.
-</p>
-<p>
-When looking for the references indicated by an include path, all occurrences of
-the component last encountered
-on that path need to be considered, including occurrences of that same
-component reachable via deeper (nested) relations. An example is the include path
-Composition.section.content, where the content reference on the highest level
-Section is included, but also those reachable via the nested section relationship.
-Likewise, Questionnaire.group.subject will return all subject on all Groups,
-including those reachable by the deeper path via the nested Question and
-nested Groups within those questions.
-</p>
-<p>
-Include paths may include wild cards, such as MedicationDispense.results.*, or even _include=*,
+Both _include and _reverseInclude and use the wild care "*" for the search parameter
+name, indicating by this that any search parameter of type=reference be included, though 
 though both clients and servers need to take care not to request or return too many resources
 when doing this. Most notably, re-applying inclusion paths over newly included resources
 might lead to cycles or the retrieval of the full patient's file: resources are
 organized into an interlinked network and broad _include paths may eventually traverse all
 possible paths on the server. For servers, these recursive and wildcard _includes are
-demanding and may slow the search response time significantly. Servers are expected to
+demanding and may slow the search response time significantly. 
+</p>
+<p>
+It is at the server's discretion how deep to recursively evaluate the _includes. Servers are expected to
 limit the number of iterations done and are not obliged to honor requests to include
 additional resources in the search results.
 </p>
 <p>
-<b>Note</b>: for a server, it would generally only be required perform one iteration per
-_include parameter
+When the search results are paged, each page of search results should include 
+the matching includes for the resources in each page, so that each page stands
+alone as a coherent package.
 </p>
+
 
 <a name="contained"> </a>
 <a name="containedType"> </a>
@@ -883,7 +901,7 @@ and the identity of the containing resource.
 <i>todo: this is yet another stitching rule for Bundle.entry.base</i>.
 </p>
 
-<a name="include"> </a>
+<a name="external"> </a>
 
 <h4>External References</h4>
 <p>
