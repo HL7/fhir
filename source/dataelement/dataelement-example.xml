@@ -226,7 +226,7 @@
     <binding>
       <name value="Gender"/>
       <strength value="required"/>
-      <referenceReference>
+      <valueSetReference>
         <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset">
           <valueReference>
             <reference value="#2179414-permitted"/>
@@ -238,7 +238,7 @@
           </valueReference>
         </extension>
         <reference value="#2179414"/>
-      </referenceReference>
+      </valueSetReference>
     </binding>
   </element>
 </DataElement>

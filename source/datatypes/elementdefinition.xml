@@ -4636,7 +4636,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition.binding</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">provide either a reference or a description (or both)</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">(exists(f:referenceUri) or exists(f:referenceReference)) or exists(f:description)</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">(exists(f:valueSetUri) or exists(f:valueSetReference)) or exists(f:description)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s106"><Data ss:Type="Number">11</Data><NamedCell

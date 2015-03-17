@@ -207,12 +207,6 @@ Some notes about use and interpretation of contained resources:
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below)</li>
   <li>Contained resources SHALL NOT contain additional contained resources</li>
   <li>Contained resources SHALL NOT contain any narrative</li>
-  <li>Resources that are contained inline may also "inherit" context from their parent resource. For instance, if
-    the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
-    but does not specify any subject, a processing application may infer that the subject is the same. Note,
-    however, that such inferences are specific to a particular circumstance; there is no rule that a particular
-    element must have the same name in all resources (e.g. "asserter" in <a href="condition.html">Condition</a> 
-    and "recorder" in <a href="allergyintolerance.html">AllergyIntolerance</a> are related and overlapping concepts)</li>
   <li>A contained resource can only be included in another resource if something in the resource actually refers to it:</li>
 </ul>
 <div class="use">
@@ -223,6 +217,21 @@ Some notes about use and interpretation of contained resources:
 
 </div>
 
+<h4>Context inside a resource</h4>
+<p>
+Resources that are contained inline may also "inherit" context from their parent resource. For instance, if
+the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
+but does not specify any subject, a processing application may infer that the subject is the same
+</p>
+
+  <li>Resources that are contained inline may also "inherit" context from their parent resource. For instance, if
+    the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
+    but does not specify any subject, a processing application may infer that the subject is the same. Note,
+    however, that such inferences are specific to a particular circumstance; there is no rule that a particular
+    element must have the same name in all resources (e.g. "asserter" in <a href="condition.html">Condition</a> 
+    and "recorder" in <a href="allergyintolerance.html">AllergyIntolerance</a> are related and overlapping concepts)</li>
+
+    
 <a name="bundle-refs"> </a>
 <h3>Resolving references to Resources in Bundles</h3>
 <p>

@@ -309,9 +309,9 @@
           <name value="ObservationStatus"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -419,9 +419,9 @@
           <name value="DiagnosticRequests"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/diagnostic-requests"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -439,9 +439,9 @@
           <name value="BodySite"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/body-site"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -480,9 +480,9 @@
           <name value="DiagnosticServiceSection"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/diagnostic-service-sections"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -523,9 +523,9 @@
           <name value="DiagnosticResultGroupNames"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/report-names"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -647,9 +647,9 @@
           <name value="DiagnosisCodes"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/clinical-findings"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -772,9 +772,9 @@
           <name value="ObservationType"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -816,9 +816,9 @@
           <name value="QuantityComparator"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/quantity-comparator"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -871,9 +871,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationInterpretation"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -928,9 +928,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationStatus"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -948,9 +948,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationReliability"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>      
     </element>
     <element>
@@ -968,9 +968,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="BodySite"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/body-site"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -988,9 +988,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationMethod"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-methods"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1052,9 +1052,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationRangeMeaning"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1092,9 +1092,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationType"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1235,9 +1235,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationType"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1266,9 +1266,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationInterpretation"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1323,9 +1323,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationStatus"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1343,9 +1343,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationReliability"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>      
     </element>
     <element>
@@ -1363,9 +1363,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="BodySite"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/body-site"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1383,9 +1383,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationMethod"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-methods"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1447,9 +1447,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationRangeMeaning"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1487,9 +1487,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationType"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1630,9 +1630,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationType"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1661,9 +1661,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationInterpretation"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1718,9 +1718,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationStatus"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1738,9 +1738,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationReliability"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>      
     </element>
     <element>
@@ -1758,9 +1758,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="BodySite"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/body-site"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1778,9 +1778,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationMethod"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-methods"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1842,9 +1842,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationRangeMeaning"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -1882,9 +1882,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationType"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -2027,9 +2027,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationType"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -2058,9 +2058,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationInterpretation"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -2115,9 +2115,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationStatus"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -2135,9 +2135,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationReliability"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>      
     </element>
     <element>
@@ -2155,9 +2155,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="BodySite"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/body-site"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -2175,9 +2175,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationMethod"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-methods"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -2239,9 +2239,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationRangeMeaning"/>
           <isExtensible value="true"/>
           <conformance value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -2279,9 +2279,9 @@ The context of use may additionally require a code from a particular system (Unl
           <name value="ObservationType"/>
           <isExtensible value="true"/>
           <conformance value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
