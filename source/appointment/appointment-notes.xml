@@ -13,7 +13,7 @@
 				Slot.freeBusyType = BUSY-TENTATIVE<br/>
 			</p>
 			<p>
-				<i>(The appointment is accepts as described – by all participants)</i><br/>
+				<i>(The appointment is accepted as described – by all participants)</i><br/>
 				AppointmentResponse.participantStatus = accepted<br/>
 			</p>
 			<p>

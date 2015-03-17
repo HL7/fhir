@@ -20,5 +20,4 @@
 	<start value="2013-12-25T09:15:00Z" />
 	<end value="2013-12-25T09:30:00Z" />
 	<comment value="Assessments should be performed before requesting appointments in this slot." />
-	<lastModified value="2012-09-17"/>
 </Slot>

@@ -9,14 +9,9 @@
     <reference value="Appointment/example" />
     <display value="Brian MRI results discussion" />
   </appointment>
-  <individual>
+  <actor>
     <reference value="Patient/example" />
     <display value="Peter James Chalmers" />
-  </individual>
+  </actor>
   <participantStatus value="accepted" />
-	<lastModifiedBy>
-		<reference value="Practitioner/example"/>
-			<display value="Dr Adam Careful" />
-	</lastModifiedBy>
-	<lastModified value="2012-09-17"/>
 </AppointmentResponse>

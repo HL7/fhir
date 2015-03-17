@@ -46,9 +46,4 @@
 		<required value="required" />
 		<status value="accepted" />
 	</participant>
-	<lastModifiedBy>
-		<reference value="Practitioner/example"/>
-		<display value="Dr Adam Careful" />
-	</lastModifiedBy>
-	<lastModified value="2012-09-17"/>
 </Appointment>
