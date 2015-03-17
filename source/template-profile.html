@@ -43,16 +43,25 @@ Formal Views of Profile Content
 
 <div id="tabs">
  <ul>
+  <li><a href="#tabs-summ">Text Summary</a></li>
   <li><a href="#tabs-diff">Differential Table</a></li>
   <li><a href="#tabs-snap">Snapshot Table</a></li>
-  <li><a href="#tabs-xml">XML</a></li>
-  <li><a href="#tabs-json">JSON</a></li>
+  <li><a href="#tabs-xml">XML Template</a></li>
+  <li><a href="#tabs-json">JSON Template</a></li>
   <li><a href="#tabs-all">All</a></li>
  </ul>
  
+ <div id="tabs-summ">
+  <div id="tbl-summ">
+   <p>This structure is derived from <%base-link%>.</p>
+   <div id="tbl-diff-inner">
+     <%summary%> 
+   </div>
+  </div>
+ </div>
+  
  <div id="tabs-diff">
   <div id="tbl-diff">
-   <p><b>Differential View</b></p>
    <p>This structure is derived from <%base-link%>.</p>
    <div id="tbl-diff-inner">
      <%profile-structure-table-diff%> 
@@ -62,7 +71,6 @@ Formal Views of Profile Content
   
  <div id="tabs-snap">
   <div id="tbl-snap">
-   <p><b>Snapshot View</b></p>
    <div id="tbl-snap-inner">
     <%profile-structure-table%>
    </div>
@@ -71,7 +79,6 @@ Formal Views of Profile Content
   
  <div id="tabs-xml">
   <div id="xml">
-   <p><b>XML Template</b></p>
    <div id="xml-inner">
     <%xml%>
    </div>
@@ -80,7 +87,6 @@ Formal Views of Profile Content
  
  <div id="tabs-json">
   <div id="json">
-   <p><b>JSON Template</b></p>
    <div id="json-inner">
     <p>todo</p>
    </div>
@@ -88,7 +94,14 @@ Formal Views of Profile Content
  </div>
 
  <div id="tabs-all">
-  <div id="all-tbl-diff">
+  <div id="tbl-summ">
+   <p>This structure is derived from <%base-link%>.</p>
+   <div id="tbl-diff-inner">
+     <%summary%> 
+   </div>
+  </div>
+
+ <div id="all-tbl-diff">
    <p><b>Differential View</b></p>
    <p>This structure is derived from <%base-link%>.</p>
    <div id="all-tbl-diff-inner">

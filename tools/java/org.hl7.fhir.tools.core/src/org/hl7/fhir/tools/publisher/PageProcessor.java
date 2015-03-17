@@ -748,7 +748,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             started = true;
             genStructureExampleCategory(s, ig.getName());            
           }
-          genStructureExample(s, "extension-"+ed.getId().toLowerCase()+".html", ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
+          genStructureExample(s, "extension-"+ed.getId().toLowerCase()+".html", "extension-"+ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
         }
       }
     }
@@ -3998,18 +3998,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("<div id=\"tabs\">\r\n");
     s.append("<ul>\r\n");
     s.append("  <li><a href=\"#tabs-1\">Base Types</a></li>\r\n");
-    s.append("  <li><a href=\"#tabs-2\">Constraints</a></li>\r\n");
-    s.append("  <li><a href=\"#tabs-3\">Extensions</a></li>\r\n");
+    s.append("  <li><a href=\"#tabs-2\">Resources</a></li>\r\n");
+    s.append("  <li><a href=\"#tabs-3\">Constraints</a></li>\r\n");
+    s.append("  <li><a href=\"#tabs-4\">Extensions</a></li>\r\n");
     s.append("</ul>\r\n");
     s.append("<div id=\"tabs-1\">\r\n");
 
     // base types
     s.append("<table class=\"list\">\r\n");
     genStructureExampleCategory(s, "Abstract Types");
-    genStructureExample(s, "element.html", "element", "Element");
-    genStructureExample(s, "backboneelement.html", "backboneelement", "BackBoneElement");
-    genStructureExample(s, "resource.html", "resource", "Resource");
-    genStructureExample(s, "domainresource.html", "domainresource", "DomainResource");
+    genStructureExample(s, "element.html", "element.profile", "element", "Element");
+    genStructureExample(s, "backboneelement.html", "backboneelement.profile", "backboneelement", "BackBoneElement");
+    genStructureExample(s, "resource.html", "resource.profile", "resource", "Resource");
+    genStructureExample(s, "domainresource.html", "domainresource.profile", "domainresource", "DomainResource");
     
     genStructureExampleCategory(s, "Primitive Types");
     List<String> names = new ArrayList<String>();
@@ -4017,7 +4018,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     Collections.sort(names);
     for (String n : names) {
       DefinedCode dc = definitions.getPrimitives().get(n);
-      genStructureExample(s, "datatypes.html#"+dc.getCode(), dc.getCode().toLowerCase(), dc.getCode());
+      genStructureExample(s, "datatypes.html#"+dc.getCode(), dc.getCode().toLowerCase()+".profile", dc.getCode().toLowerCase(), dc.getCode());
     }
 
     genStructureExampleCategory(s, "Data Types");
@@ -4032,18 +4033,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         t = definitions.getStructures().get(n);
       if (t == null)
         t = definitions.getInfrastructure().get(n);
-      genStructureExample(s, getLinkFor(t.getName()), t.getName().toLowerCase(), t.getName());
-    }
-
-    genStructureExampleCategory(s, "Resources");
-    for (String n : definitions.sortedResourceNames()) {
-      ResourceDefn r = definitions.getResources().get(n);
-      genStructureExample(s, r.getName().toLowerCase()+".html", r.getName().toLowerCase(), r.getName());
+      genStructureExample(s, getLinkFor(t.getName()), t.getName().toLowerCase()+".profile",  t.getName().toLowerCase(), t.getName());
     }
     s.append("</table>\r\n");
     
     s.append("</div>\r\n");
     s.append("<div id=\"tabs-2\">\r\n");
+
+    s.append("<table class=\"list\">\r\n");
+
+    genStructureExampleCategory(s, "Resources");
+    for (String n : definitions.sortedResourceNames()) {
+      ResourceDefn r = definitions.getResources().get(n);
+      genStructureExample(s, r.getName().toLowerCase()+".html", r.getName().toLowerCase()+".profile", r.getName().toLowerCase(), r.getName());
+    }
+    s.append("</table>\r\n");
+    
+    s.append("</div>\r\n");
+    s.append("<div id=\"tabs-3\">\r\n");
 
     s.append("<table class=\"list\">\r\n");
     Map<String, ConstraintStructure> constraints = new HashMap<String, ConstraintStructure>();
@@ -4066,14 +4073,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             started = true;
             genStructureExampleCategory(s, ig.getName());            
           }
-          genStructureExample(s, p.getId().toLowerCase()+".html", p.getId().toLowerCase(), p.getTitle());
+          genStructureExample(s, p.getId().toLowerCase()+".html", p.getId().toLowerCase()+".profile", p.getId().toLowerCase(), p.getTitle());
         }
       }
     }
     s.append("</table>\r\n");
 
     s.append("</div>\r\n");
-    s.append("<div id=\"tabs-3\">\r\n");
+    s.append("<div id=\"tabs-4\">\r\n");
 
     s.append("<table class=\"list\">\r\n");
     names.clear();
@@ -4088,7 +4095,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             started = true;
             genStructureExampleCategory(s, ig.getName());            
           }
-          genStructureExample(s, ed.getId().toLowerCase()+".html", ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
+          genStructureExample(s, "extension-"+ed.getId().toLowerCase()+".html", "extension-"+ed.getId().toLowerCase(), ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
         }
       }
     }
@@ -4139,15 +4146,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   }
 
-  private void genStructureExample(StringBuilder s, String link, String basename, String description) {
-    genStructureExample(s, link, basename, description, null);  
+  private void genStructureExample(StringBuilder s, String link, String fmtlink, String basename, String description) {
+    genStructureExample(s, link, fmtlink, basename, description, null);  
   }
   
-  private void genStructureExample(StringBuilder s, String link, String basename, String description, String tail) {
+  private void genStructureExample(StringBuilder s, String link, String fmtlink, String basename, String description, String tail) {
     s.append("<tr>");
     s.append("<td><a href=\""+link+"\">"+Utilities.escapeXml(description)+"</a> "+(Utilities.noString(tail) ? "" : Utilities.escapeXml(tail))+"</td>");
-    s.append("<td><a href=\""+Utilities.changeFileExt(link, ".xml.html")+"\">XML</a></td>");
-    s.append("<td><a href=\""+Utilities.changeFileExt(link, ".json.html")+"\">JSON</a></td>");
+    s.append("<td><a href=\""+fmtlink+ ".xml.html\">XML</a></td>");
+    s.append("<td><a href=\""+fmtlink+ ".json.html\">JSON</a></td>");
     s.append("</tr>");
   }
   
@@ -4460,8 +4467,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String generateHumanSummary(Profile pack, StructureDefinition profile) {
     try {
-      if ("true".equalsIgnoreCase(pack.metadata("no-summary")))
-          return "";
+//      if ("true".equalsIgnoreCase(pack.metadata("no-summary")))
+//          return "";
       if (profile.getDifferential() == null)
         return "<p>No Summary, as this profile has no differential</p>";
 
@@ -4530,7 +4537,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (binding.getStrength() == null || binding.getStrength() == BindingStrength.EXAMPLE || binding.getStrength() == BindingStrength.NULL)
       return null;
     String desc = binding.getDescription() == null ? describeReference(binding) : binding.getDescription();
-    return "<li><i>"+path+"</i> "+(binding.getStrength() == BindingStrength.PREFERRED ? "should" : "must")+" come from "+desc+"</li>";
+    return "<li><i>"+path+"</i> "+(binding.getStrength() == BindingStrength.PREFERRED ? "SHOULD" : "SHALL")+" come from "+desc+(binding.getStrength() == BindingStrength.EXTENSIBLE ? " (Extensible)" : "")+"</li>";
   }
 
   private String describeReference(ElementDefinitionBindingComponent binding) {

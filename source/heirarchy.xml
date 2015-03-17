@@ -58,7 +58,7 @@ signatures.html
 			<page title="Element Definition" filename="element.html">
 				<page title="Element Detailed Descriptions" filename="element-definitions.html"/>
 			</page>
-			<page title="BackboneElement" filename="backboneelement-definitions.html">
+			<page title="BackboneElement" filename="backboneelement.html">
 				<page title="BackboneElement Detailed Descriptions" filename="backboneelement-definitions.html"/>
 			</page>
 			<page title="ElementDefinition" filename="elementdefinition.html">

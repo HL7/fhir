@@ -3132,7 +3132,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   private String makeDocoSafe(String string) {
     string = Utilities.normaliseEolns(string);
-    while (string.contains("]{") && string.contains("}") && string.indexOf("]{") > string.indexOf("}")) {
+    while (string.contains("]{") && string.contains("}") && string.indexOf("]{") < string.indexOf("}")) {
       string = string.substring(0, string.indexOf("]{")+1)+string.substring(string.indexOf("}")+1);
     }
     string = string.replace("}", "))");
