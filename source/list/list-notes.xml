@@ -34,10 +34,12 @@ flags were used to implement version tracking history within the resource.
 <p>
 The narrative portion of the List resource should contain a summary 
 of the items in the list, their key information, along with a human-readable 
-summary of their flags (if present). The narrative may be generated from 
-the data content and/or narrative of the resources referred to in the 
-list, or it may be a narrative written by a human which is partially
-or completely matched by structured data in the linked resources.
+summary of their flags (if present). The narrative may be generated
+from the data content and/or narrative of the resources referred to in
+the list, or it may be a narrative written by a human which is partially or
+completely matched by structured data in the linked resources, or human
+written narrative may be the only content if the list has no entries
+(which would equate to a narrative only section in a document).
 </p>
 <p>
 An HTML table is the recommended approach, though this is not required.
