@@ -67,7 +67,10 @@ differences between CDA and the composition resource:
  <li>The composition section defines a section (or sub-section) of the document, but unlike in CDA, the section content is 
    actually a reference to another <a href="resourcelist.html">resource</a> that actually holds both the narrative 
    and data content for the section. This design means that the narrative and data can be reused in many other ways. 
-   Note that the most common resource to use for the content of a section is the <a href="list.html">List</a> resource.</li>
+   Note that the most common resource to use for the content of a section is the <a href="list.html">List</a> resource.
+   When a composition and its lists are wrapped into <a href="documents.html">Document</a>, the List narrative 
+   is part of the 'attested content' (see below), and an indivisible part of the document.
+   </li>
 </ul>
 <p>
 In addition, note that both the code lists (e.g. <a href="composition-status.html">Composition status</a>) and the composition resource are <a href="composition-mappings.html">mapped</a> to v3 and/or CDA.
