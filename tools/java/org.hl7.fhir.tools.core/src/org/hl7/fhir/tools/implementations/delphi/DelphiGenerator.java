@@ -3056,6 +3056,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
     def.append("\r\n  TFhirResourceTypeSet = set of TFhirResourceType;");
 
+    int last = 0;
     cmp.append("\r\n  COMPARTMENT_PARAM_NAMES : Array[TFhirResourceType, TFhirResourceType] of String = (");
     cmp.append("(''");
     for (String s : types) {
@@ -3072,11 +3073,19 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       if (c == null) {
         for (String s1 : types) {
           cmp.append(", ''");
+          if (cmp.length() - last > 256) {
+            cmp.append("\r\n      ");
+            last = cmp.length();
+          }
         }            
       } else {
         for (String s1 : types) {
           String p = c.getPathForName(s1);
           cmp.append(", '"+p+"'");
+          if (cmp.length() - last > 256) {
+            cmp.append("\r\n      ");
+            last = cmp.length();
+          }
         }    
       }
       if (i == types.size() - 1) {

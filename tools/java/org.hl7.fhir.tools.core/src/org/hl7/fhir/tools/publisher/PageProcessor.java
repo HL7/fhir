@@ -441,7 +441,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //      else if (com[0].equals("atomheader"))
 //        src = s1+atomHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
+        src = s1+codelist(name, com.length > 1 ? com[1] : null, false)+s3;
+      else if (com[0].equals("linkedcodelist"))
+        src = s1+codelist(name, com.length > 1 ? com[1] : null, true)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("resheader"))
@@ -2217,7 +2219,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    return b.toString();
 //  }
 
-  private String codelist(String n, String mode) throws Exception {
+  private String codelist(String n, String mode, boolean links) throws Exception {
     BindingSpecification bs = definitions.getBindingByName(mode);
     if (bs == null)
       throw new Exception("Unable to find code list '"+mode+"'");
@@ -2233,9 +2235,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<table class=\"codes\">\r\n");
     for (DefinedCode c : bs.getCodes()) {
       if (hasComments)
-        b.append(" <tr><td>"+c.getCode()+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(c.getComment())+"</td></tr>\r\n");
+        b.append(" <tr><td>"+(links ? "<a href=\"#"+c.getCode()+"\">"+c.getCode()+"</a>" : c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(c.getComment())+"</td></tr>\r\n");
       else
-        b.append(" <tr><td>"+c.getCode()+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>\r\n");
+        b.append(" <tr><td>"+(links ? "<a href=\"#"+c.getCode()+"\">"+c.getCode()+"</a>" : c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>\r\n");
     }
     b.append("</table>\r\n");
     return b.toString();
@@ -2774,7 +2776,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("aresheader"))
         src = s1+abstractResHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
+        src = s1+codelist(name, com.length > 1 ? com[1] : null, false)+s3;
+      else if (com[0].equals("linkedcodelist"))
+        src = s1+codelist(name, com.length > 1 ? com[1] : null, true)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("res-category")) {
@@ -3145,7 +3149,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("w5"))
         src = s1+genW5("true".equals(com[1]))+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
+        src = s1+codelist(name, com.length > 1 ? com[1] : null, false)+s3;
+      else if (com[0].equals("linkedcodelist"))
+        src = s1+codelist(name, com.length > 1 ? com[1] : null, true)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("maponthispage"))
