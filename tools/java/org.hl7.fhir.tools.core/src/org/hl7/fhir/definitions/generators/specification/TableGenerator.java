@@ -57,7 +57,7 @@ public class TableGenerator extends BaseGenerator {
       // todo: base elements
     } else {
       if (!e.getElements().isEmpty()) {
-        row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null)); 
+        row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
         row.getCells().add(gen.new Cell(null, "element.html", "Element", null, null));   
       } else if (e.getTypes().size() == 1) {
