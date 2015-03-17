@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/svn/fhir/build/schema/organization.xsd">
   <id value="f003"/>
-    <active value="true "/>
     <name value="Burgers UMC Ear,Nose,Throat unit"/>
     <type>
         <coding>
@@ -46,4 +45,5 @@
             <line value="West Wing, floor 5"/>
         </address>
     </contact>
+    <active value="true "/>
 </Organization>

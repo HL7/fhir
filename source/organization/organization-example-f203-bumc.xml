@@ -2,7 +2,6 @@
 <Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
   <id value="f203"/>
-   <active value="true"/>
    <identifier>
       <!--Identifier for the BMC-->
       <use value="official"/>
@@ -50,4 +49,5 @@
       </period>
    </accreditation>-->
    <!--The BMC is in active use-->
+   <active value="true"/>
 </Organization>
