@@ -16,15 +16,18 @@
     Person and Linking
   </h2>
   <p>
-  The <i>link</i> element is used to related resources under a common person record. 
+  The <i>link</i> element is used to relate resources under a common person record. 
   This element supports two primary scenarios where other resources refer to the same person resource.
+  </p>
+  <p>
+    The <i>link</i> element cannot be used to link to RelatedPerson entries. So we can utilize a Person
+    resource to relate these elements together identifying them as the same individual.
   </p>
 
   <h2>
   Cross-Domain Patient Directory
   </h2>
   <p>
-    
     In a data sharing network, finding the location of patient records across different systems is a 
     necessary pre-requisite for accessing external patient data. Using the <i>link</i> element, systems associate
     patient resources from different organizations. The assuranceLevel associated with the <i>link</i> provides
@@ -43,17 +46,20 @@
     person resource with a <i>link</i> for each of the practitioner resources located in other organizations.
   </p>
 
-
   <h2>
-Original PA Notes
-</h2>
-<ul>
-<li>The Person resource exists to enable Person registries that keep track of Persons regardless of their role. 
-The Person resource is also a primary resource to point to for people acting in a particular role such as 
-SubjectofCare, Practitioner and Agent. Very few attributes are specific to any role and so Person is kept lean. 
-Most attributes are expected to be tied to the role the Person plays rather than the Person himself. 
-Examples of that are Guardian (SubjectofCare), ContactParty (SubjectOfCare, Practitioner), 
-and multipleBirthInd (SubjectofCare)</li>
-</ul>
-
+    Client Portal
+  </h2>
+  <p>
+    Client Portals provide consumer access to a window of their data locked up in healthcare systems. 
+    In many cases these sytems are externally integrated and do not have access to the legacy CIS/PAS systems.
+  </p>
+  <p>
+    In contrast to most systems where a user has access to multiple patients depending on their roles and permissions,
+    a client portal provides a consumer with direct access to their data (with permissions applied).
+    This can also include not just their data (via the Person.link Patient entries), but also to information that they
+    have entered, or were involved with (via the Person.link RelatedPerson entries), such as observations that they 
+    entered.<br/>
+    With appropriate permissions/consent applied, the user could have access to other Patient records linked via 
+    a RelatedPerson.
+  </p>
 </div>

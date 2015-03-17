@@ -78,4 +78,16 @@
 
   <active value="true"/>
 
+  <link>
+    <target>
+      <reference value="RelatedPerson/peter"/>
+      <display value="Peter Chalmers"/>
+    </target>
+  </link>
+  <link>
+    <target>
+      <reference value="Patient/example" />
+      <display value="Peter Chalmers" />
+    </target>
+  </link>
 </Person>

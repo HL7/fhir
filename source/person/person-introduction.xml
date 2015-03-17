@@ -14,11 +14,13 @@ and multipleBirthInd (SubjectofCare).
 </p>
 -->
 <p>
-  A natural person has identity outside of a healthcare setting. The Person resource is used to capture this
+  An individual has identity outside of a healthcare setting. The Person resource is used to capture this
   information and to relate the person as an individual to other resources that do have a health-related context.
 </p>
   <p>
-    For example, while a patient resource may be created and maintained by each organization providing care for that person as a patient, a person resource provides a mechanism for linking patient resources across different organizations and their unique patient identity domains. Additionally, a person resource may be used by organizations to allow patients to manage their demographic data while maintaining stricter control of the associated patient resource data.
+    For example, while a patient resource may be created and maintained by each organization providing care for
+    that person as a patient, a person resource provides a mechanism for linking patient resources across 
+    different organizations and their unique patient identity domains.
   </p>
   <p>
     This resource is not referenced by any other resources.
