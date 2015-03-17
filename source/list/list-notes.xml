@@ -43,13 +43,13 @@ or completely matched by structured data in the linked resources.
 An HTML table is the recommended approach, though this is not required.
 Each List.item should appear in the narrative for the resource.  I.e. It 
 SHALL not be necessary to retrieve the list items in order to have a 
-human-readable rendering of the content. In addiiton, the narrative 
-should not suggest the list contains items for which there are no 
-corresponding List.item elements. If the list has flags, the representation 
-should make clear use of visual hints (borders, lines, bullet marks, etc.) 
-to ensure that human readers do not get confused about which flags belong 
-with which item on space-poor displays (e.g. to prevent wrapping from 
-separating the flags from the items).
+human-readable rendering of the content. In addition, if the List.text.status is 
+"generated", then the narrative should not suggest the list 
+contains items for which there are no corresponding List.item elements. 
+If the list has flags, the representation should make clear use of visual 
+hints (borders, lines, bullet marks, etc.) to ensure that human readers 
+do not get confused about which flags belong with which item on space-poor 
+displays (e.g. to prevent wrapping from separating the flags from the items).
 </p>
 
 <p>
