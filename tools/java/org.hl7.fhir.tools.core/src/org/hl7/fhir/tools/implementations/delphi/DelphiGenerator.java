@@ -441,7 +441,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
 
     def.append("  {@Class "+tn+" : "+superClass+"\r\n");
-    def.append("    "+Utilities.normaliseEolns(root.getDefinition())+"\r\n");
+    def.append("    "+makeDocoSafe(root.getDefinition())+"\r\n");
     def.append("  }\r\n");
     def.append("  {!.Net HL7Connect.Fhir."+tn.substring(5)+"}\r\n");
     def.append("  "+tn+" = class ("+superClass+")\r\n");
@@ -572,7 +572,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
 
     def.append("  {@Class "+tn+" : "+superClass+"\r\n");
-    def.append("    "+Utilities.normaliseEolns(root.getDefinition())+"\r\n");
+    def.append("    "+makeDocoSafe(root.getDefinition())+"\r\n");
     def.append("  }\r\n");
     def.append("  {!.Net HL7Connect.Fhir."+tn.substring(5)+"}\r\n");
     def.append("  "+tn+" = {abstract} class ("+superClass+")\r\n");
@@ -762,7 +762,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
 
     def.append("  {@Class "+tn+" : "+superClass+"\r\n");
-    def.append("    "+Utilities.normaliseEolns(root.getDefinition())+"\r\n");
+    def.append("    "+makeDocoSafe(root.getDefinition())+"\r\n");
     def.append("  }\r\n");
     def.append("  {!.Net HL7Connect.Fhir."+tn.substring(5)+"}\r\n");
     def.append("  "+tn+" = class ("+superClass+")\r\n");
@@ -912,7 +912,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         SearchParameterDefn p = params.get(name);
         i++;
         String n = p.getCode().replace("$", "_");
-        String d = Utilities.normaliseEolns(p.getDescription());
+        String d = makeDocoSafe(p.getDescription());
         String nf = n.replace("-", "_").replace("[x]", "x");
         String t = getTarget(p.getWorkingTargets());
         if (i == l) {
@@ -976,7 +976,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       StringBuilder def = new StringBuilder();
       StringBuilder con = new StringBuilder();
       def.append("  {@Enum "+tn+"\r\n");
-      def.append("    "+Utilities.normaliseEolns(cd.getDefinition())+"\r\n");
+      def.append("    "+makeDocoSafe(cd.getDefinition())+"\r\n");
       def.append("  }\r\n");
       def.append("  "+tn+" = (\r\n");
       con.append("  CODES_"+tn+" : Array["+tn+"] of String = (");
@@ -1003,11 +1003,11 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         if (GeneratorUtils.isDelphiReservedWord(cc))
           cc = cc + "_";
         if (i == l) {
-          def.append("    "+cc+"); {@enum.value "+cc+" "+Utilities.normaliseEolns(c.getDefinition())+" }\r\n");
+          def.append("    "+cc+"); {@enum.value "+cc+" "+makeDocoSafe(c.getDefinition())+" }\r\n");
           con.append("'"+c.getCode()+"');");
         }
         else {
-          def.append("    "+cc+", {@enum.value "+cc+" "+Utilities.normaliseEolns(c.getDefinition())+" }\r\n");
+          def.append("    "+cc+", {@enum.value "+cc+" "+makeDocoSafe(c.getDefinition())+" }\r\n");
           con.append("'"+c.getCode()+"', ");
         }
       }
@@ -1086,7 +1086,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     StringBuilder setprops = new StringBuilder();
 
     def.append("  {@Class "+tn+" : TFhirElement\r\n");
-    def.append("    "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+    def.append("    "+makeDocoSafe(e.getDefinition())+"\r\n");
     def.append("  }\r\n");
     def.append("  {!.Net HL7Connect.Fhir."+tn.substring(5)+"}\r\n");
     if (category == ClassCategory.Component)
@@ -1535,7 +1535,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         assign.append("    F"+getTitle(s)+" := "+listForm("TFHIREnum")+".Create;\r\n");
         if (enumSizes.get(tn) < 32) {
           defPub.append("    {@member "+s+"\r\n");
-          defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+          defPub.append("      "+makeDocoSafe(e.getDefinition())+"\r\n");
           defPub.append("    }\r\n");
           defPub.append("    property "+s+" : "+listForm(tn)+" read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
           defPub.append("    property "+s+"Element : "+listForm("TFhirEnum")+" read Get"+getTitle(s)+";\r\n");
@@ -1622,7 +1622,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         s = s+"List";
         defPriv1.append("    F"+s+" : "+tnl+";\r\n");
         defPub.append("    {@member "+s+"\r\n");
-        defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+        defPub.append("      "+makeDocoSafe(e.getDefinition())+"\r\n");
         defPub.append("    }\r\n");
         defPriv2.append("    function Get"+Utilities.capitalize(s)+" : "+tnl+";\r\n");
         defPriv2.append("    function GetHas"+Utilities.capitalize(s)+" : Boolean;\r\n");
@@ -1723,7 +1723,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         defPriv2.append("    Function Get"+getTitle(s)+"ST : "+tn+";\r\n");
         defPriv2.append("    Procedure Set"+getTitle(s)+"ST(value : "+tn+");\r\n");
         defPub.append("    {@member "+s+"\r\n");
-        defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+        defPub.append("      "+makeDocoSafe(e.getDefinition())+"\r\n");
         defPub.append("    }\r\n");
         defPub.append("    property "+s+" : "+tn+" read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
         defPub.append("    property "+s+"Element : TFhirEnum read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
@@ -1735,20 +1735,20 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           defPriv2.append("    Function Get"+getTitle(s)+"ST : "+sn+";\r\n");
           defPriv2.append("    Procedure Set"+getTitle(s)+"ST(value : "+sn+");\r\n");
           defPub.append("    {@member "+s+"\r\n");
-          defPub.append("      Typed access to "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+          defPub.append("      Typed access to "+makeDocoSafe(e.getDefinition())+"\r\n");
           defPub.append("    }\r\n");
           defPub.append("    property "+s+" : "+sn+" read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
           defPub.append("    {@member "+s+"Element\r\n");
-          defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+          defPub.append("      "+makeDocoSafe(e.getDefinition())+"\r\n");
           defPub.append("    }\r\n");
           defPub.append("    property "+s+"Element : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
         } else {
           defPub.append("    {@member "+s+"\r\n");
-          defPub.append("      Typed access to "+Utilities.normaliseEolns(e.getDefinition())+" (defined for API consistency)\r\n");
+          defPub.append("      Typed access to "+makeDocoSafe(e.getDefinition())+" (defined for API consistency)\r\n");
           defPub.append("    }\r\n");
           defPub.append("    property "+s+" : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
           defPub.append("    {@member "+s+"Element\r\n");
-          defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+          defPub.append("      "+makeDocoSafe(e.getDefinition())+"\r\n");
           defPub.append("    }\r\n");
           defPub.append("    property "+s+"Element : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
         }
@@ -3046,10 +3046,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         s2 = s2 + "_";
       con.append("'"+s);
       if (i < types.size() - 1) {
-        def.append("    "+s2+", {@enum.value "+Utilities.normaliseEolns(definitions.getResourceByName(s).getDefinition())+" }\r\n");
+        def.append("    "+s2+", {@enum.value "+makeDocoSafe(definitions.getResourceByName(s).getDefinition())+" }\r\n");
         con.append("', ");
       } else {
-        def.append("    "+s2+"); {@enum.value "+Utilities.normaliseEolns(definitions.getResourceByName(s).getDefinition())+" }\r\n");
+        def.append("    "+s2+"); {@enum.value "+makeDocoSafe(definitions.getResourceByName(s).getDefinition())+" }\r\n");
         con.append("');");
       }
     }
@@ -3129,6 +3129,15 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   }
 
+
+  private String makeDocoSafe(String string) {
+    string = Utilities.normaliseEolns(string);
+    while (string.contains("]{") && string.contains("}") && string.indexOf("]{") > string.indexOf("}")) {
+      string = string.substring(0, string.indexOf("]{")+1)+string.substring(string.indexOf("}")+1);
+    }
+    string = string.replace("}", "))");
+    return string;
+  }
 
   private void initParser(String version, Date genDate) {
     prsrCode.uses.add("SysUtils");

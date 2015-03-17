@@ -1881,7 +1881,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Condition.occurredFollowing.codeableConcept</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Condition.occurredFollowing.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4787,7 +4787,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">following-code</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">Condition.occurredFollowing.codeableConcept</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Condition.occurredFollowing.code</Data></Cell>
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
