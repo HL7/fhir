@@ -105,6 +105,11 @@ Here is an example of an extension in XML:
 &lt;/name&gt;
 </pre>
 <p>
+In this example, the name with text = "Chief Red Cloud" is extended to have a 
+name use code of "Indigenous" (defined in ISO 21090, but very rarely used in 
+practice). 
+</p>
+<p>
 In JSON, extensions are represented similarly:
 </p>
 <pre class="json" fragment="HumanName">
@@ -124,8 +129,9 @@ definition of the extension.
 </p>
 <p>
 Extensions can also contain extensions, either because the extension 
-definition itself defines complex content, or because the extension 
-is extended with an additional extension defined separately. 
+definition itself defines complex content - that is, a nested tree of values 
+in the extension, or because the extension is extended with an additional 
+extension defined separately. 
 </p>
 <p>
 In the first case, the identity of the parts of the extension are local/relative to the reference
@@ -180,18 +186,15 @@ Or in JSON:
 }
 </pre>
 </div>
-<p>
-The JSON representation is more concise, since it is not constrained by 
-the limitations of schema, though the type of the value must still be 
-explicit.
-</p>
+
 <p>
 In the second case, the contained extension is defined separately.
 </p>
 <div class="example">
 <p>
-The registrar was defined as a separate extension (e.g. to 
-allow wider use). The url of the extension is different:
+In this case, the registrar is defined as a separate extension (e.g. to 
+allow wider use), rather than part of the clinical-trial extension. 
+The url of the extension is different:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
