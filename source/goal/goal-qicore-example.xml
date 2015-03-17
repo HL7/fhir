@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
 <Goal xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/goal.xsd">
 	<id value="qicore"/>
 	<text>
@@ -8,6 +7,15 @@
 			<p> A simple care goal for a patient to lose weight due to obesity.</p>
 		</div>
 	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/goal-category">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="289169006" />
+				<display value="weight loss"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/goal-target">
 		<extension url="measure">
 			<valueCodeableConcept>
@@ -40,9 +48,18 @@
 		<display value="Peter James Chalmers"/>
 	</patient>
 	<description value="Target weight is 160 to 180 lbs."/>
-	<status value="in-progress"/>
+	<status value="rejected"/>
 	<concern>
 		<reference value="Condition/12345"/>
 		<display value="obesity"/>
 	</concern>
+	<extension url="http://hl7.org/fhir/StructureDefinition/goal-reasonRejected">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/ActReason"/>
+				<code value="PREFUS" />
+				<display value="patient refuse"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
 </Goal>
