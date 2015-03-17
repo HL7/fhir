@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <p>
-The full list of supported patient search parameters is documented in the <a href="conformance-daf-query-responder.html">conformance expectations</a>.
+The full list of supported patient search parameters are can be accessed at <a href="conformance-daf-query-requestor.html">DAF Requestor conformance expectations</a> and <a href="conformance-daf-query-responder.html">DAF Responder conformance expectations</a>.
 </p>
 
 <h2>Example Usage Scenarios</h2>
@@ -18,15 +18,14 @@ The following are example usage scenarios for the DAF Patient profile:
 	<li>Query for Patients between ages of 25 and 50</li>
 </ul>
 
-<h2>Additional Implementation Guidance</h2>
+<h2>Profile specific implementation guidance</h2>
 
 <p>
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<p><b>Patient Identifiers:</b> Patient Identifiers are represented as part of the Patient.identifier data element. Identifiers must be scoped using a URI data type represented within the Patient.identifier.system element. If systems are using OID's to scope their patient identifiers, then OID's can be converted to URI's per RFC-3001. However, systems are encouraged to adopt parallel URIs and map to allow the benefits of human readability and resolvability. Since DAF profiles deal with queries of Patient data, identifiers play a critical role in identifying the right resources to be returned.</p>
-	
-	<p><b>Patient Matching:</b> Patient Matching rules and criteria must be evaluated by the implementing organization to ensure compliance with local policies and regulations. DAF Requestors will need to deal with result sets that can return zero,one or more Patient Resources in response to a query.</p>
+	<p><b>Patient Identifiers:</b> Patient Identifiers are represented as part of the Patient.identifier data element. Identifiers must be scoped using a URI data type represented within the Patient.identifier.system element. If systems are using OID's to scope their patient identifiers, then OID's can be converted to URI's per RFC-3001. However, systems are encouraged to adopt parallel URIs and map to allow the benefits of human readability and resolvability. 
+	Since DAF profiles deal with queries of Patient data, identifiers play a critical role in identifying the right resources to be queried and returned.</p>
 	
 	<p><b>Representing Patient Names:</b> Patient Names are represented using the <a href="datatypes-definitions.html#HumanName">HumanName</a> datatype. Per the FHIR specification, the first name is represented using the first occurrence of the element HumanName.given element. Middle names and other parts of the name can be represented using subsequent occurrences of the HumanName.given element. </p>
 	
@@ -34,6 +33,7 @@ Implementers need to be mindful of the following during their implementation
 	
 	<p><b>Capturing BirthPlace: </b> Many systems may only capture the birth place as a city name, or a state name or a county name instead of using a highly structured Address data type. In these cases these systems should use the address.text field to record the birth place.</p>
 	
+	<p>See<a href="daf.html">DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 </ul>
 
 </div>

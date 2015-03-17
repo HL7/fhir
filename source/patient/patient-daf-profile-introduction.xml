@@ -4,21 +4,24 @@
 <h2>Scope and Usage</h2>
 <p>
 This profile sets expectations for use of the <a href="patient.html">Patient</a> resource within the 
-<a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements,extensions,vocabularies and value sets must be supported by DAF actors.
+<a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core data elements,extensions,vocabularies and value sets must be <i>Supported</i> by DAF actors.
+For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases. 
+The mappings between the ONC 2014 Edition S&amp;CC data elements and DAF data elements are captured in the table below, where the first column identifies the ONC 2014 Edition S&amp;CC data element name, 
+the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data elements which are derived from ONC 2014 Edition S&amp;CC standards and DAF use cases and lastly the third column identifies the mapping to FHIR resources and attributes.
 </p>
 </div>
 
 <div>
-<h2>Relationship to Meaningful Use</h2>
+<h2>Meaningful Use Data Element Mapping</h2>
 <p>
-The DAF Patient profile provides a mapping for the following Meaningful Use data elements to FHIR data elements.
+The DAF Patient profile mapping to Meaningful Use data elements and FHIR Resources and data elements are as shown below..
 </p>
 <br/>
 	<table class="grid">
         <thead>
           <tr>
             <th>Meaningful Use Data Element Name</th>
-			<th>Priority DAF Data Elements</th>
+			<th>Mapping to Priority DAF Data Elements</th>
             <th>FHIR Resource Mapping</th>
           </tr>
         </thead>
@@ -117,7 +120,9 @@ This profile relies on the use of other profiles, some required, others availabl
 <ul>
   <li><a href="us-core.html">US Core</a> which defines common properties related to Patient such as race and ethnicity.</li>
   <li><a href="patient-extensions.html">Patient Extensions</a> defines other extensions such as birthPlace, patient-mothers-maiden-name which are used by the profile</li>
-  <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension is used to code data elements with missing information when appropriate.</li>
+  <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. 
+  Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
+  See <a href="daf.html">DAF FHIR IG</a> for additional guidance.</li>
 </ul>
 </div>
 
