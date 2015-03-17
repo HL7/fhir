@@ -204,29 +204,21 @@ client applications are able to search the audit events, or subscribe to them.
 Digital Signatures
 </h2>
 <p>
-This specification recommends the use of <a href="http://www.w3.org/TR/xmldsig-core/">W3C Digital Signatures</a> for signatures.
-</p>
-<p>
+This specification recommends the use of <a href="http://www.w3.org/TR/xmldsig-core/">W3C Digital Signatures</a> for signatures. 
 Resources can be signed using the <a href="provenance.html">Provenance</a> resource to carry a 
-<a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureDetached">detached digital signature</a> 
-for the purpose of detecting subsequent changes to the resource. This signature is not
-suitable for non-repudiation purposes. 
+<a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureDetached">detached digital signature</a>. 
+The <a href="datatypes.html#signature">Signature datatype</a> is available to carry various Signature types including non-repudiation purposes. 
+Further details on creation and valiation of <a href="datatypes.html#signature">Signature is defined.</a>
 </p>
 <p>
 In addition, <a href="documents.html#signatures">documents may be signed</a> using an 
 <a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureEnveloped">enveloped</a> 
-signature. 
+signature. A specification for Enveloped signature is profiled in 
+the <a href="http://wiki.ihe.net/index.php?title=Document_Digital_Signature">IHE DSG profile</a>.
 </p>
 <p>
 Neither of these definitions prohibits the use of other ways of using digital signatures.
 </p>
-
-<a name="dstu"> </a>
-<blockquote>
-<p>
-DSTU Note: Additional work is anticipated in this area, including alignment with the <a href="http://wiki.ihe.net/index.php?title=Document_Digital_Signature">IHE DSG profile</a>.
-</p>
-</blockquote>
 
 <a name="attachments"> </a>
 <h2>Attachments</h2>
