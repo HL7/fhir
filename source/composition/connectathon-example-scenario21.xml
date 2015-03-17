@@ -36,11 +36,7 @@
         </coding>
       </type>
       <status value="final"/>
-      <confidentiality>
-        <system value='http://fhir.org.nz/xds#confidentiality'/>
-        <code value='n'/>
-        <display value="Normal"/>
-      </confidentiality>
+      <confidentiality value='n'/>
       <!-- Who the document is about. The patient with the ID of sample -->
       <subject>
         <reference value='http://hl7.org.nz/fhir/Patient/patsypregnant'/>

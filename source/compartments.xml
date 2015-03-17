@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
   <LastSaved>2015-03-13T10:04:14Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -63,12 +63,12 @@
  </Styles>
  <Worksheet ss:Name="compartments">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="108.6" ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="129.6"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="207.6"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254.39999999999998"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="108.75" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="129.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="207.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Title</Data></Cell>
@@ -133,9 +133,8 @@
  </Worksheet>
  <Worksheet ss:Name="resources">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="98" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
-   ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="156.6"/>
+   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
@@ -235,7 +234,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Composition</Data></Cell>
     <Cell><Data ss:Type="String">subject | author</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">author</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
     <Cell><Data ss:Type="String">subject | author | attester</Data></Cell>
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
@@ -624,8 +624,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
-   <TopRowBottomPane>73</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
