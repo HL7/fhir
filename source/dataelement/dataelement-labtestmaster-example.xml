@@ -50,7 +50,7 @@
 "/>
     <requirements value="This test is orderable.
 A plasma specimen in a 3.2% sodium citrate blue top tube is required."/>
-    <synonym value="Protime, PT"/>
+    <alias value="Protime, PT"/>
     <type>
       <code value="Decimal"/>
     </type>

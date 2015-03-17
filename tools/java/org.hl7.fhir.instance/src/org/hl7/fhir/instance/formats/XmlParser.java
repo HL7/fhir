@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -841,8 +841,8 @@ public class XmlParser extends XmlParserBase {
         res.setStrengthElement(parseEnumeration(xpp, ElementDefinition.BindingStrength.NULL, new ElementDefinition.BindingStrengthEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "reference")) {
-        res.setReference(parseType("reference", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "valueSet")) {
+        res.setValueSet(parseType("valueSet", xpp));
       } else if (!parseElementContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -11779,8 +11779,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
       }
-      if (element.hasReference()) {
-        composeType("reference", element.getReference());
+      if (element.hasValueSet()) {
+        composeType("valueSet", element.getValueSet());
       }      xml.close(FHIR_NS, name);
     }
   }

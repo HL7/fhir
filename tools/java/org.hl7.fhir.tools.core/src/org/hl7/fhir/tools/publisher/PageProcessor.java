@@ -4548,11 +4548,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String describeReference(ElementDefinitionBindingComponent binding) {
-    if (binding.getReference() instanceof UriType) {
-      UriType uri = (UriType) binding.getReference();
+    if (binding.getValueSet() instanceof UriType) {
+      UriType uri = (UriType) binding.getValueSet();
       return "<a href=\""+uri.asStringValue()+"\">"+uri.asStringValue()+"</a>";
-    } if (binding.getReference() instanceof Reference) {
-      Reference ref = (Reference) binding.getReference();
+    } if (binding.getValueSet() instanceof Reference) {
+      Reference ref = (Reference) binding.getValueSet();
       String disp = ref.getDisplay();
       ValueSet vs = workerContext.getValueSets().get(ref.getReference());
       if (disp == null && vs != null)
@@ -4762,11 +4762,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (String path : txlist)  {
         ElementDefinitionBindingComponent tx = txmap.get(path);
         String vss = "";
-        if (tx.hasReference()) {
-          if (tx.getReference() instanceof UriType)
-            vss = "<a href=\""+((UriType)tx.getReference()).asStringValue()+"\">"+Utilities.escapeXml(((UriType)tx.getReference()).asStringValue())+"</a>";
+        if (tx.hasValueSet()) {
+          if (tx.getValueSet() instanceof UriType)
+            vss = "<a href=\""+((UriType)tx.getValueSet()).asStringValue()+"\">"+Utilities.escapeXml(((UriType)tx.getValueSet()).asStringValue())+"</a>";
           else {
-            String uri = ((Reference)tx.getReference()).getReference();
+            String uri = ((Reference)tx.getValueSet()).getReference();
             ValueSet vs = valueSets.get(uri);
             if (vs == null)
               vss = "<a href=\""+uri+"\">"+Utilities.escapeXml(uri)+"</a>";
@@ -5285,16 +5285,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   @Override
   public String resolveBinding(ElementDefinitionBindingComponent binding) {
-    if (binding.getReference() == null)
+    if (!binding.hasValueSet())
       return null;
-    if (binding.getReference() instanceof UriType) {
-      String ref = ((UriType) binding.getReference()).getValue();
+    if (binding.getValueSet() instanceof UriType) {
+      String ref = ((UriType) binding.getValueSet()).getValue();
       if (ref.startsWith("http://hl7.org/fhir/v3/vs/"))
         return "v3/"+ref.substring(26)+"/index.html";
       else
         return ref;
     } else {
-      String ref = ((Reference) binding.getReference()).getReference();
+      String ref = ((Reference) binding.getValueSet()).getReference();
       if (ref.startsWith("ValueSet/")) {
         ValueSet vs = definitions.getValuesets().get(ref.substring(8));
         if (vs == null)

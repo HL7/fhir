@@ -92,9 +92,9 @@
         <binding>
           <name value="ObservationStatus"/>
           <strength value="required"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -201,9 +201,9 @@
         <binding>
           <name value="DiagnosticRequests"/>
           <strength value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/diagnostic-requests"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -220,9 +220,9 @@
         <binding>
           <name value="BodySite"/>
           <strength value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/body-site"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -260,9 +260,9 @@
         <binding>
           <name value="DiagnosticServiceSection"/>
           <strength value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/diagnostic-service-sections"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -302,9 +302,9 @@
         <binding>
           <name value="DiagnosticResultGroupNames"/>
           <strength value="preferred"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/report-names"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>
@@ -422,9 +422,9 @@
         <binding>
           <name value="DiagnosisCodes"/>
           <strength value="example"/>
-          <referenceReference>
+          <valueSetReference>
             <reference value="http://hl7.org/fhir/vs/clinical-findings"/>
-          </referenceReference>
+          </valueSetReference>
         </binding>
     </element>
     <element>

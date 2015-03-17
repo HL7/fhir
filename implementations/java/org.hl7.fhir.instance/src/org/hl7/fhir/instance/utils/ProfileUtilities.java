@@ -457,8 +457,8 @@ public class ProfileUtilities {
   private ElementDefinition updateURLs(String url, ElementDefinition element) {
     if (element != null) {
       ElementDefinition defn = element;
-      if (defn.hasBinding() && defn.getBinding().getReference() instanceof Reference && ((Reference)defn.getBinding().getReference()).getReference().startsWith("#"))
-        ((Reference)defn.getBinding().getReference()).setReference(url+((Reference)defn.getBinding().getReference()).getReference());
+      if (defn.hasBinding() && defn.getBinding().getValueSet() instanceof Reference && ((Reference)defn.getBinding().getValueSet()).getReference().startsWith("#"))
+        ((Reference)defn.getBinding().getValueSet()).setReference(url+((Reference)defn.getBinding().getValueSet()).getReference());
       for (TypeRefComponent t : defn.getType()) {
         if (t.hasProfile() && t.getProfile().startsWith("#")) {
           t.setProfile(url+t.getProfile());

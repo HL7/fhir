@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1311,13 +1311,13 @@ public class ElementDefinition extends Type {
         protected StringType description;
 
         /**
-         * Points to the value set or external definition that identifies the set of codes to be used.
+         * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.
          */
-        @Child(name="reference", type={UriType.class, ValueSet.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition that identifies the set of codes to be used." )
-        protected Type reference;
+        @Child(name="valueSet", type={UriType.class, ValueSet.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used." )
+        protected Type valueSet;
 
-        private static final long serialVersionUID = -1655327998L;
+        private static final long serialVersionUID = 325485202L;
 
       public ElementDefinitionBindingComponent() {
         super();
@@ -1469,39 +1469,39 @@ public class ElementDefinition extends Type {
         }
 
         /**
-         * @return {@link #reference} (Points to the value set or external definition that identifies the set of codes to be used.)
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
-        public Type getReference() { 
-          return this.reference;
+        public Type getValueSet() { 
+          return this.valueSet;
         }
 
         /**
-         * @return {@link #reference} (Points to the value set or external definition that identifies the set of codes to be used.)
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
-        public UriType getReferenceUriType() throws Exception { 
-          if (!(this.reference instanceof UriType))
-            throw new Exception("Type mismatch: the type UriType was expected, but "+this.reference.getClass().getName()+" was encountered");
-          return (UriType) this.reference;
+        public UriType getValueSetUriType() throws Exception { 
+          if (!(this.valueSet instanceof UriType))
+            throw new Exception("Type mismatch: the type UriType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
+          return (UriType) this.valueSet;
         }
 
         /**
-         * @return {@link #reference} (Points to the value set or external definition that identifies the set of codes to be used.)
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
-        public Reference getReferenceReference() throws Exception { 
-          if (!(this.reference instanceof Reference))
-            throw new Exception("Type mismatch: the type Reference was expected, but "+this.reference.getClass().getName()+" was encountered");
-          return (Reference) this.reference;
+        public Reference getValueSetReference() throws Exception { 
+          if (!(this.valueSet instanceof Reference))
+            throw new Exception("Type mismatch: the type Reference was expected, but "+this.valueSet.getClass().getName()+" was encountered");
+          return (Reference) this.valueSet;
         }
 
-        public boolean hasReference() { 
-          return this.reference != null && !this.reference.isEmpty();
+        public boolean hasValueSet() { 
+          return this.valueSet != null && !this.valueSet.isEmpty();
         }
 
         /**
-         * @param value {@link #reference} (Points to the value set or external definition that identifies the set of codes to be used.)
+         * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
-        public ElementDefinitionBindingComponent setReference(Type value) { 
-          this.reference = value;
+        public ElementDefinitionBindingComponent setValueSet(Type value) { 
+          this.valueSet = value;
           return this;
         }
 
@@ -1510,7 +1510,7 @@ public class ElementDefinition extends Type {
           childrenList.add(new Property("name", "string", "A descriptive name for this - can be useful for generating implementation artifacts.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, java.lang.Integer.MAX_VALUE, strength));
           childrenList.add(new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("reference[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("valueSet[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, valueSet));
         }
 
       public ElementDefinitionBindingComponent copy() {
@@ -1519,7 +1519,7 @@ public class ElementDefinition extends Type {
         dst.name = name == null ? null : name.copy();
         dst.strength = strength == null ? null : strength.copy();
         dst.description = description == null ? null : description.copy();
-        dst.reference = reference == null ? null : reference.copy();
+        dst.valueSet = valueSet == null ? null : valueSet.copy();
         return dst;
       }
 
@@ -1531,7 +1531,7 @@ public class ElementDefinition extends Type {
           return false;
         ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(strength, o.strength, true) && compareDeep(description, o.description, true)
-           && compareDeep(reference, o.reference, true);
+           && compareDeep(valueSet, o.valueSet, true);
       }
 
       @Override
@@ -1547,7 +1547,7 @@ public class ElementDefinition extends Type {
 
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (strength == null || strength.isEmpty())
-           && (description == null || description.isEmpty()) && (reference == null || reference.isEmpty())
+           && (description == null || description.isEmpty()) && (valueSet == null || valueSet.isEmpty())
           ;
       }
 

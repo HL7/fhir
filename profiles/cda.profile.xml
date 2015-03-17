@@ -316,9 +316,9 @@
               <name value="CompositionAttestationMode"/>
               <strength value="required"/>
               <description value="The way in which a person authenticated a composition"/>
-              <referenceReference>
+              <valueSetReference>
                 <reference value="http://hl7.org/fhir/vs/composition-attestation-mode"/>
-              </referenceReference>
+              </valueSetReference>
             </binding>
             <mapping>
               <identity value="cda"/>
@@ -457,9 +457,9 @@
               <name value="DocumentEventType"/>
               <strength value="required"/>
               <description value="This list of codes represents the main clinical acts being documented"/>
-              <referenceReference>
+              <valueSetReference>
                 <reference value="http://hl7.org/fhir/v3/vs/ActCode"/>
-              </referenceReference>
+              </valueSetReference>
             </binding>
             <mapping>
               <identity value="cda"/>
@@ -612,9 +612,9 @@
               <name value="CompositionSectionType"/>
               <strength value="required"/>
               <description value="Classification of a composition / document"/>
-              <referenceReference>
+              <valueSetReference>
                 <reference value="http://hl7.org/fhir/vs/doc-section-codes"/>
-              </referenceReference>
+              </valueSetReference>
             </binding>
             <mapping>
               <identity value="cda"/>
@@ -1215,7 +1215,7 @@
             <binding>
               <name value="OrganizationIndustryClass"/>
               <strength value="extensible"/>
-              <referenceUri value="http://hl7.org/fhir/v3/vs/OrganizationIndustryClass"/>
+              <valueSetUri value="http://hl7.org/fhir/v3/vs/OrganizationIndustryClass"/>
             </binding>
             <mapping>
               <identity value="cda"/>
@@ -1705,7 +1705,7 @@
           <binding>
             <name value="LanguageAbiliityProficiency"/>
             <strength value="extensible"/>
-            <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency"/>
+            <valueSetUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency"/>
           </binding>
         </element>
       </differential>
@@ -1760,7 +1760,7 @@
           <binding>
             <name value="LanguageAbiliityMode"/>
             <strength value="extensible"/>
-            <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityMode"/>
+            <valueSetUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityMode"/>
           </binding>
         </element>
       </differential>
@@ -1966,7 +1966,7 @@
           <binding>
             <name value="RoleStatus"/>
             <strength value="required"/>
-            <referenceUri value="http://hl7.org/fhir/v3/vs/RoleStatus"/>
+            <valueSetUri value="http://hl7.org/fhir/v3/vs/RoleStatus"/>
           </binding>
         </element>
       </differential>
@@ -2021,7 +2021,7 @@
           <binding>
             <name value="RoleCode"/>
             <strength value="extensible"/>
-            <referenceUri value="http://hl7.org/fhir/v3/vs/RoleCode"/>
+            <valueSetUri value="http://hl7.org/fhir/v3/vs/RoleCode"/>
           </binding>
         </element>
       </differential>

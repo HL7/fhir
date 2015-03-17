@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2273,7 +2273,7 @@ public class StructureDefinition extends DomainResource {
   public static final String SP_VERSION = "version";
   @SearchParamDefinition(name="publisher", path="StructureDefinition.publisher", description="Name of the publisher of the profile", type="string" )
   public static final String SP_PUBLISHER = "publisher";
-  @SearchParamDefinition(name="valueset", path="StructureDefinition.snapshot.element.binding.reference[x]", description="A vocabulary binding code", type="reference" )
+  @SearchParamDefinition(name="valueset", path="StructureDefinition.snapshot.element.binding.valueSet[x]", description="A vocabulary binding reference", type="reference" )
   public static final String SP_VALUESET = "valueset";
   @SearchParamDefinition(name="description", path="StructureDefinition.description", description="Text search in the description of the profile", type="string" )
   public static final String SP_DESCRIPTION = "description";

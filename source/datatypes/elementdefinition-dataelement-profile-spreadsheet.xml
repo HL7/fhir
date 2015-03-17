@@ -986,8 +986,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/ExtensionDefinition/elementdefinition-de"><Data
-      ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/elementdefinition-de</Data></Cell>
+    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/elementdefinition-de"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/elementdefinition-de</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>
@@ -1671,7 +1671,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">ElementDefinition.synonym</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">ElementDefinition.alias</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2436,7 +2436,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">ElementDefinition.binding.reference[x]</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">ElementDefinition.binding.valueSet[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>

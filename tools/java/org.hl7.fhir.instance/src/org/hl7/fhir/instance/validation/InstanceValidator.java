@@ -1283,26 +1283,26 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         if (context != null && context.getBinding() != null) {
           ElementDefinitionBindingComponent binding = context.getBinding();
           if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing")) {
-            if (binding.hasReference() && binding.getReference() instanceof Reference) {
-              ValueSet vs = resolveBindingReference(binding.getReference());
-              if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
+            if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
+              ValueSet vs = resolveBindingReference(binding.getValueSet());
+              if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getValueSet())+" not found")) {
                 try {
                   vs = cache.getExpander().expand(vs).getValueset();
-                  if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
-                    warning(errors, "code-unknown", path, codeInExpansion(vs, system, code), "Code {"+system+"}"+code+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+")");
+                  if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getValueSet()))) {
+                    warning(errors, "code-unknown", path, codeInExpansion(vs, system, code), "Code {"+system+"}"+code+" is not in value set "+describeReference(binding.getValueSet())+" ("+vs.getUrl()+")");
                   }
                 } catch (Exception e) {
                   if (e.getMessage() == null)
-                    warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getReference())+": --Null--");
+                    warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getValueSet())+": --Null--");
 //                  else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct"))
 //                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
 //                  else if (!e.getMessage().contains("unable to find value set http://loinc.org"))
 //                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
                   else
-                    warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
+                    warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getValueSet())+": "+e.getMessage());
                 }
               }
-            } else if (binding.hasReference())
+            } else if (binding.hasValueSet())
               hint(errors, "code-unknown", path, false, "Binding by URI reference cannot be checked");
             else 
               hint(errors, "code-unknown", path, false, "Binding has no source, so can't be checked");
@@ -1345,13 +1345,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (context != null && context.hasBinding()) {
       ElementDefinitionBindingComponent binding = context.getBinding();
       if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing (cc)")) {
-        if (binding.hasReference() && binding.getReference() instanceof Reference) {
-          ValueSet vs = resolveBindingReference(binding.getReference());
-          if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
+        if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
+          ValueSet vs = resolveBindingReference(binding.getValueSet());
+          if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getValueSet())+" not found")) {
             try {
               ValueSetExpansionOutcome exp = cache.getExpander().expand(vs);
               vs = exp.getValueset();
-              if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
+              if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getValueSet()))) {
                 boolean found = false;
                 boolean any = false;
                 WrapperElement c = element.getFirstChild();
@@ -1366,25 +1366,25 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   c = c.getNextSibling();
                 }
                 if (!any && binding.getStrength() == BindingStrength.REQUIRED)
-                  warning(errors, "code-unknown", path, found, "No code provided, and value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+") is required");
+                  warning(errors, "code-unknown", path, found, "No code provided, and value set "+describeReference(binding.getValueSet())+" ("+vs.getUrl()+") is required");
                 if (any)
                   if (binding.getStrength() == BindingStrength.PREFERRED)
-                    hint(errors, "code-unknown", path, found, "None of the codes are in the example value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+")");
+                    hint(errors, "code-unknown", path, found, "None of the codes are in the example value set "+describeReference(binding.getValueSet())+" ("+vs.getUrl()+")");
                   else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-                    warning(errors, "code-unknown", path, found, "None of the codes are in the expected value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+")");
+                    warning(errors, "code-unknown", path, found, "None of the codes are in the expected value set "+describeReference(binding.getValueSet())+" ("+vs.getUrl()+")");
               }
             } catch (Exception e) {
               if (e.getMessage() == null) {
-                warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getReference())+": --Null--");
+                warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getValueSet())+": --Null--");
 //              } else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct")) {
 //                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
 //              } else if (!e.getMessage().contains("unable to find value set http://loinc.org")) { 
 //                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
               } else
-                warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
+                warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getValueSet())+": "+e.getMessage());
             }
           }
-        } else if (binding.getReference() != null)
+        } else if (binding.hasValueSet())
           hint(errors, "code-unknown", path, false, "Binding by URI reference cannot be checked");
         else 
           hint(errors, "code-unknown", path, false, "Binding has no source, so can't be checked");
@@ -1573,9 +1573,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	private void checkBinding(List<ValidationMessage> errors, String path, WrapperElement focus, StructureDefinition profile, ElementDefinition elementDefn, String type) {
 	  ElementDefinitionBindingComponent bc = elementDefn.getBinding();
 
-	  if (bc != null && bc.hasReference() && bc.getReference() instanceof Reference) {
-      String url = ((Reference) bc.getReference()).getReference();
-	  	ValueSet vs = resolveValueSetReference(profile, (Reference) bc.getReference());
+	  if (bc != null && bc.hasValueSet() && bc.getValueSet() instanceof Reference) {
+      String url = ((Reference) bc.getValueSet()).getReference();
+	  	ValueSet vs = resolveValueSetReference(profile, (Reference) bc.getValueSet());
 	  	if (vs == null) {
 	      rule(errors, "structure", path, false, "Cannot check binding on type '"+type+"' as the value set '"+url+"' could not be located");
       } else if (type.equals("code"))

@@ -4690,7 +4690,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Data Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">ElementDefinition.binding.referenceReference</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">ElementDefinition.binding.valueSetReference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Permitted Values</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4712,7 +4712,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">Allows representing the ISO 21090 notion of &quot;permitted values&quot; as distinct from the typical value set's &quot;value meaning&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.referenceReference</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.valueSetReference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4751,7 +4751,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">Allows representing the ISO 21090 notion of &quot;permitted values&quot; as distinct from the typical value set's &quot;value meaning&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.referenceReference</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.valueSetReference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

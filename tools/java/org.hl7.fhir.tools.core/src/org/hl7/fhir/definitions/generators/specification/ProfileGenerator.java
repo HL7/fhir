@@ -641,7 +641,7 @@ public class ProfileGenerator {
     dst.setStrength(src.getStrength());    
     dst.setDescription(src.getDefinition());
     if (src.getBinding() != Binding.Unbound)
-      dst.setReference(buildReference(src));    
+      dst.setValueSet(buildReference(src));    
     return dst;
   }
 
