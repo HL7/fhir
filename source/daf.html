@@ -13,64 +13,134 @@
 <div class="col-9">
 
 <a name="DAF"> </a> 
-<h2>U.S. Data Access Framework (DAF) Implementation Guide</h2>
+<h2>U.S. Data Access Framework (DAF) FHIR Implementation Guide (IG)</h2>
 <p>
 This implementation guide is prepared as a U.S. Realm Specification on behalf of the 
 <a href="http://www.healthit.gov/newsroom/about-onc">U.S. Office of the National Coordinator (ONC)</a>.
 However, much of the content is relevant to other jurisdictions.
 </p>
 
-<h3>Draft for Comment Ballot</h3>
+<h3>Draft Standards for Trial Use (DSTU) Ballot</h3>
 <p>
-This FHIR Implementation Guide is undergoing a Draft for Comment ballot.  The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance
+This DAF FHIR Implementation Guide is undergoing a DSTU ballot.  The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance
 statements it defines, though comments on the underlying resources will also be accepted.  This guide will be balloted separately from the FHIR specification itself.  
 </p>
 
 <h3>Background</h3>
 <ul>
   <li><a href="daf-intro.html">Introduction</a> - How this project came to be and what it is trying to achieve</li>
-  <li><a href="daf-security.html">Security</a> - Security and privacy rules and considerations</li>
-  <li><a href="daf-outstandingissues.html">Outstanding Issues</a> - Issues that need to be resolved</li>
   <li><a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Project wiki containing development materials and discussions (for additional background)</a></li>
 </ul>
 
-<h3>Specification</h3>
+<h3>Specification and Conformance Requirements</h3>
 <p>
-The <i>DAF FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.  The DAF FHIR IG maps various Meaningful Use data elements to FHIR resources using resource specific profiles. Each DAF resource specific profile constrains the cardinality as necessary, binds vocabularies to the data elements as appropriate, adds extensions where appropriate, defines search parameters for queries and adds invariants to the profiles. The table below provides a top-level mapping of the Meaningful Use Stage 2 data elements to the corresponding DAF Resource profile along with the identification of the base FHIR resource. 
+The DAF FHIR IG contains four sections which as follows
+<ul>
+	<li>Definitions, Interpretations and Requirements common to all DAF actors</li>
+	<li>Conformance Requirements for each DAF actor</li>
+	<li>DAF profiles, extensions and constraints</li>
+	<li>Security Implementation Guidance</li>
+</ul>
 </p>
+
 <div>
-<h4>Mapping of Meaningful Use data elements to DAF profiles and FHIR resources</h4>
+<h4>Definitions, Interpretations and Requirements common to all DAF actors</h4>
+<p>
+This section outlines important definitions used in the DAF FHIR IG, interpretations that need to be used in the context of DAF and conformance requirements common to all DAF actors.
+The conformance verbs used along with its interpretation is outlined in <a href="http://hl7-fhir.github.io/conformance-rules.html">FHIR Conformance Rules</a>.
+</p>
+<p>
+In the context of DAF profiles, <i>Supported</i> on any data element SHALL be interpreted as follows:
+<ul>
+      <li>DAF Responders SHALL be capable of including the data element as part of the query results.</li>
+	  <li>DAF Requestors SHALL be capable of processing resource instances containing the data elements.</li>
+	  <li>In situations where information on a particular data element is not present and the reason is unknown, DAF Responders SHALL NOT include the data elements in the resource instance returned as part of the query results.</li>
+	  <li>When querying DAF Responders, DAF Requestors SHALL interpret missing data elements within resource instances as data not present in the DAF Responder's systems.</li>
+	  <li>In situations where information on a particular data element is missing and the DAF Responder knows the precise reason for the absence of data, DAF Responders SHALL send the reason for the missing information using values from the value set where they exist or using the dataAbsentReason extension.</li>
+	  <li>DAF Requestors SHALL be able to process resource instances containing data elements asserting missing information.</li>
+</ul>
+</p>
+<p>
+<b>Value Set bindings and interpretation:</b> In the context of DAF profiles, value set bindings of (required, extensible) for specific data elements SHALL be interpreted as follows:
+<ul>
+	<li>DAF Responders SHALL use the codes from the value sets identified by the DAF profiles, unless the value set does not contain codes that can be used at any level of granularity. 
+	For example, If the value set allows red, green and blue and your concept is "navy", you can't use a new code, you have to use "blue".  However, if your concept is "white", you can use a new code.</li>
+</ul>
+</p>
+<p>
+<b>FHIR Infrastructure usage: </b>DAF uses <a href="http.html">FHIR RESTful API</a> based on HTTP protocol along with <a href="datatypes.html">FHIR data types</a>, <a href="search.html">FHIR search</a> and both xml and json <a href="http://hl7-fhir.github.io/formats.html">FHIR Resource Formats</a>.
+</p>
+
+<p>
+<b>Search Guidance: </b> DAF profiles support the searching (querying) of resources such as Medications, Encounters, Problems, AllergyIntolerances, Procedures for a particular patient. 
+In order to achieve this in implementation, DAF actors SHOULD use Patient.identifier field to precisely identify the resources relevant to the patient. 
+While other search parameters such as Patient.name, Patient.given could be used as part of the query, incorrect Patient matching could lead to incorrect results. 
+</p>
+
+<p>
+<b>Patient Matching Guidance: </b> Patient Matching rules and related criteria have to be evaluated by the organization implementing DAF actors and ensure compliance with local policies and regulations. 
+DAF FHIR IG does not specify any specific algorithms to be used as part of the implementation. 
+</p>
+
+</div>
+
+<div>
+<h4>Conformance Requirements for each DAF actor</h4>
+<p>
+This section outlines conformance requirements for each of the DAF actors identifying the specific profiles that need to be supported, the specific RESTful operations that need to be supported,
+and the search parameters that need to be supported. 
+Note: The individual DAF profiles identify the structural constraints, terminology bindings and invariants, however implementers must refer to the conformance requirements for details on the RESTful operations,
+specific profiles and the search parameters applicable to each of the DAF actors.
+</p>
+<ul>
+      <li>Conformance requirements for <a href="conformance-daf-query-requestor.html">DAF Requestor actor</a> which is responsible for creating and initiating the queries for patients or populations.</li>
+      <li>Conformance requirements for <a href="conformance-daf-query-responder.html">DAF Responder actor</a> which is responsible to provide responses to the queries submitted by the DAF Requestors.</li>
+</ul>
+</div>
+
+<div>
+<h4>DAF profiles, extensions and constraints</h4>
+<p>
+This section outlines the DAF profiles created using FHIR resources and include both extensions and constraints on top of the base FHIR Resources.
+DAF profiles were created for each conceptual data element identified in the ONC 2014 Edition Standards and Certification Criteria (S&amp;CC) related to Meaningful Use Stage 2 (MU2).
+The table below provides a top-level mapping of the ONC 2014 edition S&amp;CC conceptual data elements to the corresponding DAF Resource profile along with the identification of the base FHIR resource. 
+In addition, within each profile, granular data elements are listed in the "Relationship to Meaningful Use" section of each DAF profile description. 
+While many of these granular data elements were not explicitly mentioned in ONC or CMS MU2 regulations, they are derived from the fact that the ONC 2014 Edition S&amp;CC references other HL7 standards such as CCDA, HL7v2.5.1 implementation guides for lab reporting and immunizations.  
+These standards identify granular data elements to represent the MU2 conceptual data elements and hence are identified in the individual DAF profiles. 
+(For example, MU2 simply says "Medication Allergies" are required. But drilling down into CCDA would indicate that Allergy Substance, Reaction, etc. are part of what comprises a Medication Allergy along with specific constraints on what is required and optional).
+In addition to deriving the granular data elements from MU2 conceptual data elements and referenced standards, the DAF community further prioritized these data elements and hence are called as DAF priority data elements in the individual profiles. 
+</p>
 	<table class="grid">
         <thead>
           <tr>
             <th>Meaningful Use conceptual data element</th>
-            <th>DAF FHIR profile</th>
+            <th>DAF profile</th>
 			<th>FHIR Resource</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-			<td>Allergies</td>
+			<td>Medication allergies</td>
 			<td><a href="allergyintolerance-daf.html">DAFAllergyIntolerance</a></td>
 			<td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
 		  </tr>
 		  <tr>
-			<td>Diagnostic Order</td>
+			<td>Laboratory Order(s)</td>
 			<td><a href="diagnosticorder-daf.html">DAFDiagnosticOrder</a></td>
 			<td><a href="diagnosticorder.html">DiagnosticOrder</a></td>
 		  </tr>
 		  <tr>
-			<td>Diagnostic Report</td>
+			<td>Laboratory Test(s)</td>
 			<td><a href="diagnosticreport-daf.html">DAFDiagnosticReport</a></td>
 			<td><a href="diagnosticreport.html">DiagnosticReport</a></td>
 		  </tr>		  
 		  <tr>
-			<td>Encounters</td>
+			<td>Encounter Diagnoses</td>
 			<td><a href="encounter-daf.html">DAFEncounter</a></td>
 			<td><a href="encounter.html">Encounter</a></td>
 		  </tr>
 		  <tr>
-			<td>FamilyHistory</td>
+			<td>Family Health History</td>
 			<td><a href="familyhistory-daf.html">DAFFamilyHistory</a></td>
 			<td><a href="familyhistory.html">FamilyHistory</a></td>
 		  </tr>
@@ -80,7 +150,7 @@ The <i>DAF FHIR Implementation Guide</i> is built on top of the <a href="index.h
 			<td><a href="immunization.html">Immunization</a></td>
 		  </tr>
 		  <tr>
-			<td>LabResults</td>
+			<td>Laboratory Result Value(s)</td>
 			<td><a href="observation-daf-results.html">DAFLabResults</a></td>
 			<td><a href="observation.html">Observation</a></td>
 		  </tr>
@@ -90,7 +160,7 @@ The <i>DAF FHIR Implementation Guide</i> is built on top of the <a href="index.h
 			<td>FHIR medication resources</td>
 		  </tr>
 		  <tr>
-			<td>Patient Demographics</td>
+			<td>Patient name, Sex, Date of Birth, Race, Ethnicity, Preferred Language</td>
 			<td><a href="patient-daf.html">DAFPatient</a></td>
 			<td><a href="patient.html">Patient</a></td>
 		  </tr>
@@ -105,17 +175,17 @@ The <i>DAF FHIR Implementation Guide</i> is built on top of the <a href="index.h
 			<td><a href="procedure.html">Procedure</a></td>
 		  </tr>
 		  <tr>
-			<td>Smoking Status</td>
+			<td>Smoking status</td>
 			<td><a href="observation-daf-smokingstatus.html">DAFSmokingStatus</a></td>
 			<td><a href="observation.html">Observation</a></td>
 		  </tr>
 		  <tr>
-			<td>Vital Signs</td>
+			<td>Vital Signs (Height, weight, BP, BMI) </td>
 			<td><a href="observation-daf-vitalsigns.html">DAFVitalSigns</a></td>
 			<td><a href="observation.html">Observation</a></td>
 		  </tr>
 		  <tr>
-			<td>Problems, Medications and Allergies Lists</td>
+			<td>Problems, Medications and Medication Allergies List</td>
 			<td><a href="list-daf.html">DAFList</a></td>
 			<td><a href="list.html">List</a></td>
 		  </tr>	  
@@ -123,43 +193,26 @@ The <i>DAF FHIR Implementation Guide</i> is built on top of the <a href="index.h
 	</table>
 </div>
 
+<div>
+<h4>Security Implementation Guidance</h4>
 <p>
-DAF uses <a href="http.html">RESTful API</a> based on HTTP protocol along with additional resources such as <a href="provenance.html">Provenance</a>, <a href="auditevent.html">AuditEvent</a>, <a href="datatypes.html">data types</a>, <a href="search.html">search</a> and both xml and json <a href="http://hl7-fhir.github.io/formats.html">Resource Formats</a>.
-<!-- Todo: decide how explicit the list of relevant sections needs to be -->
-</p>
-
-<h3>Conformance Requirements</h3>
-<p>
-This section defines conformance requirements for DAF actors.
-</p>
-<p>
-In the context of DAF profiles, <i>Supported</i> on any data element SHALL be interpreted as follows:
+This section outlines security implementation guidance for the DAF FHIR IG.
 <ul>
-      <li>DAF Responders SHALL be capable of including the data element as part of the query results.</li>
-	  <li>DAF Requestors SHALL be capable of processing resource instances containing the data elements.</li>
-	  <li>In situations where information on a particular data element is not present and the reason is unknown, DAF Responders SHALL NOT include the data elements in the resource instance returned as part of the query results.</li>
-	  <li>When querying DAF Responders, DAF Requestors SHALL interpret missing data elements within resource instances as data not present in the DAF Responder's systems.</li>
-	  <li>In situations where information on a particular data element is missing and the DAF Responder knows the precise reason for the absence of data, DAF Responders SHALL send the reason for the missing information using values from the value set where they exist or using the dataAbsentReason extension.</li>
-	  <li>DAF Requestors SHALL be able to process resource instances containing data elements asserting missing information.</li>
-</ul>
-</p>
-
-<p>
-<b>Value Set bindings and interpretation:</b> In the context of DAF profiles, value set bindings of (required, extensible) for specific data elements SHALL be interpreted as follows:
-<ul>
-	<li>DAF Responders SHALL use the codes from the value sets identified by the DAF profiles, unless the value set does not contain codes that can be used at any level of granularity. For example, If the value set allows red, green and blue and your concept is "navy", you can't use a new code, you have to use "blue".  However, if your concept is "white", you can use a new code.</li>
+	<li><a href="daf-security.html">DAF Security Implementation Guidance</a> Identifies Security and privacy rules and considerations within DAF context.</li>
 </ul>
 
-The following are the additional conformance requirements for each of the DAF actors.
 </p>
 
+</div>
+
+<p>
+The following is a list of outstanding issues that need to be addressed.
 <ul>
-      <li><a href="conformance-daf-query-requestor.html">DAF Requestor actor</a> - DAF Requestors are responsible for creating and initiating the queries for patients or populations.</li>
-      <li><a href="conformance-daf-query-responder.html">DAF Responder actor</a>- DAF Responders are responsible to provide responses to the queries submitted by the requestors.</li>
+  <li><a href="daf-outstandingissues.html">Outstanding Issues</a> - Issues that need to be resolved</li>
 </ul>
+</p>
 
 <h3>Author Information</h3>
-
 	<table class="grid">
         <thead>
           <tr>
