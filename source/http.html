@@ -591,7 +591,7 @@ creating duplicate resources for the same record. For example, a client posting 
 This interaction searches a set of resources based on some filter criteria. The interaction can be performed by several different HTTP commands.
 </p>
 <pre>
-  GET [base]/[type]?[parameters] {&amp;_format=[mime-type]}
+  GET [base]/[type]{?[parameters]{&amp;_format=[mime-type]}}
 </pre>
 <p>
 This searches all resources of a particular type using the criteria represented in the parameters. 
@@ -601,7 +601,7 @@ Because of the way that some user agents and proxies treat <code>GET</code> and 
 to the get based search method above, servers that support <i>search</i> SHALL also support a <code>POST</code> based search:
 </p>
 <pre>
-POST  [base]/[type]/_search?[parameters] {&amp;_format=[mime-type]}
+POST  [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
 </pre>
 <p>
 This has exactly the same semantics as the equivalent <code>GET</code> command. All these search interactions take a series of parameters that
@@ -624,8 +624,8 @@ mode</a> of <code>include</code>.
 To search a <a href="extras.html#compartments">compartment</a>, either all possible resources, or for a particular resource type, respectively:
 </p>
 <pre>
-  GET [base]/[Compartment]/[id]/*?[parameters]  {&amp;_format=[mime-type]}
-  GET [base]/[Compartment]/[id]/[type]?[parameters]  {&amp;_format=[mime-type]}
+  GET [base]/[Compartment]/[id]/{*?[parameters]{&amp;_format=[mime-type]}}
+  GET [base]/[Compartment]/[id]/[type]{?[parameters]{&amp;_format=[mime-type]}}
 </pre>
 <p>
 For example, to retrieve all the observation resources for a particular LOINC code associated with a particular encounter:
@@ -641,7 +641,7 @@ or <a href="encounter-operations.html#everything">all record for an encounter</a
 Finally, it's possible to search all resources at once:
 </p>
 <pre>
-  GET [base]?[parameters] {&amp;_format=[mime-type]}
+  GET [base]?[parameters]{&amp;_format=[mime-type]}
 </pre>
 <p>
 When searching all resources at once, only the parameters defined for all resources 
