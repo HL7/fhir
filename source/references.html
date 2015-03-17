@@ -217,20 +217,25 @@ Some notes about use and interpretation of contained resources:
 
 </div>
 
-<h4>Context inside a resource</h4>
+<h4>Context Inside a Resource</h4>
 <p>
 Resources that are contained inline may also "inherit" context from their parent resource. For instance, if
 the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
-but does not specify any subject, a processing application may infer that the subject is the same
+but does not specify any subject, a processing application might infer that the subject is the same.
 </p>
-
-  <li>Resources that are contained inline may also "inherit" context from their parent resource. For instance, if
-    the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
-    but does not specify any subject, a processing application may infer that the subject is the same. Note,
-    however, that such inferences are specific to a particular circumstance; there is no rule that a particular
-    element must have the same name in all resources (e.g. "asserter" in <a href="condition.html">Condition</a> 
-    and "recorder" in <a href="allergyintolerance.html">AllergyIntolerance</a> are related and overlapping concepts)</li>
-
+<p>
+However FHIR provides no mechanism for defining or constraining any conduction of "equivalent" properties 
+from a containing resource into any contained resource - not even by declaring the use of a particular profile.
+Best practice is to explicitly include all known properties on contained resources, even if redundant with 
+properties on the containing resource.  E.g. If the containing resource and contained resource both have a 
+"subject" element, both elements should be present, even if they reference the same resouce.  Applications that 
+choose to omit redundant elements on contained resources should not expect other applications to infer 
+(or correctly infer) the intended meaning in this case.  Applications cannot safely presume that omitted 
+elements in contained resources can safely be inferred to be the same as the containing resource.  
+Any attempt to optimize resource content by 'conducting' meaning from containing to contained resources must 
+be managed through out-of-band agreement and must be done with the recognition that any receiver not party 
+to that agreement may not make correct (or any) inferences.
+</p>
     
 <a name="bundle-refs"> </a>
 <h3>Resolving references to Resources in Bundles</h3>
