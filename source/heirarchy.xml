@@ -41,8 +41,9 @@ signatures.html
 				<page title="Definitions" filename="narrative-definitions.html"/>
 			</page>
 			<page title="Extensibility" filename="extensibility.html">
+				<page title="Defining Extensions" filename="defining-extensions.html"/>
 				<page title="Examples" filename="extensibility-examples.html"/>
-				<page title="Definitions" filename="extensibility-definitions.html"/>
+				<page title="Detailed Description" filename="extensibility-definitions.html"/>
 				<page title="Registry" filename="extensibility-registry.html"/>
 			</page>
 			<page title="Formats" filename="formats.html">
