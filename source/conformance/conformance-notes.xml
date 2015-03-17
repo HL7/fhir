@@ -42,74 +42,7 @@ Notes:
 <a name="tags"> </a>
 <p>
 A conformance profile declares two different kinds of profiles for the functionality it describes. 
-The Resource Profiles are specified using Conformance.rest.resource.profile element and the System Profiles are specified using Conformance.profile element. 
+For a discussion of the use of these two types of resources, see <a href="profiling.html">two uses for profiles</a>.
 </p>
-<h4>Resource Profiles</h4>
-<p>
-These profiles describe the general features that are supported by the system for each kind of 
-resource. Typically, this is the superset of all the different use-cases implemented by the system. 
-This is a resource-level perspective of the system functionality. 
-</p>
-<h4>System Profiles</h4>
-<p>
-These profiles describe the information handled/produced by the system on a per use case basis.
-Some examples of the uses for system profiles:
-</p>
-<ul>
- <li>A Laboratory service producing a set of different reports - general chemistry, blood count, etc. Typical labs would support several hundred different reports</li>
- <li>A care manager which handles a set of different types of care plans and associated clinical resources</li>
- <li>A medications formulary that handles several different levels of sophistication in its medication representations</li>
-</ul> 
-<p>
-Typically, these profiles are a series of variations on the same set of resources - different use cases leading to handling 
-the resources that represent them differently. These use-cases described above all pertain to system that produce and publish
-data, but the same concept applies to systems that consume data. For instance:
-</p>
-<ul>
- <li>An expert service that provides analysis on several different sets of data conforming to a particular pattern - tests x,y and z with particular codes and units</li>
-</ul>
-<p>
-For producer and a consumer systems to exchange data successfully based on 
-one of these system supported profiles, it's not enough to know that the
-systems happen to have system profiles that overlap for the use case 
-of interest; the consumer must be able to filter the total set of resources
-made available by the producer system and deal only with the ones relevant
-to the use case. 
-</p>
-<p>
-As an example consider a laboratory system generating 1000s of reports 
-a day. 1% of those reports are a particular endocrine report that a 
-decision support system knows how to process. Both systems declare that 
-they support the particular endocrine profile, but how does the expert
-system actually find the endocrine reports that it knows how to process? 
-</p>
-<p>
-One possible option is for the expert system to receive every single 
-report coming from the lab system, check whether it conforms to the 
-profile or not, and then decide whether to process it. Checking whether
-a resource conforms to a particular profile or not is a straight 
-forward operation (on option is to use the <a href="downloads.html">provided tools for this</a>),
-but this is very inefficient way - the expert system has to receive 
-and process 100 times many resources as it uses. To help a consumer 
-find the correct set of reports for a use-case, the producer of the 
-resources also SHALL:
-</p>
-<ol>
- <li><a href="resource.html#tags">Mark resources</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
- <li>(if a server) support searching by the <a href="search.html#profile">_profile parameter</a> for the declared profiles</li>
-</ol>
-<p>
-Beyond these requirements, a producer of resources SHOULD ensure that any data that would reasonably be expected
-to conform to the declared profiles SHOULD be published in this form. 
-</p>
-
-<a name="dstu"> </a>
-<blockquote>
-<p>
-DSTU note: there are many uninvestigated issues associated with system profiles. 
-HL7 is actively seeking feedback from users who experiment with system profiles, and users
-should be prepared for changes to features and obligations in this area in the future.
-</p>
-</blockquote>
 
 </div>
