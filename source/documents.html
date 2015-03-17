@@ -84,10 +84,10 @@ if they need them while processing the document. Thus, whether these linked reso
 not depends on the implementation environment.
 </p>
 <p>
-The document bundle SHALL NOT include any resources not on this list:
+The document bundle SHALL only include resources on this list:
 </p>
 <ol>
- <li>The Composition resource, and any resources directly or indirectly (i.e. recursively) referenced from it</li>
+ <li>The Composition resource, and any resources directly or indirectly (e.g. recursively) referenced from it</li>
  <li>A Binary resource containing a stylesheet (as described below)</li>
  <li>Provenance Resources that have a target which is a resource included in item #1</li>
 </ol>
