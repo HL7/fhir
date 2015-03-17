@@ -789,6 +789,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	        String rn = params.size() == 1 ? params.get(0) : "Resource";
 	        if (rn.equals("Any"))
 	          rn = "Resource";
+	        else if (rn.equals("List"))
+            rn = "List_";
 	        jdoc(indent, "The actual objects that are the target of the reference ("+e.getDefinition()+")");
 	        writeWithHash(indent+"protected List<"+rn+"> "+getElementName(e.getName(), true)+"Target;\r\n");
 	        write("\r\n");
@@ -805,6 +807,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         String rn = params.size() == 1 ? params.get(0) : "Resource";
         if (rn.equals("Any"))
           rn = "Resource";
+        else if (rn.equals("List"))
+          rn = "List_";
         jdoc(indent, "The actual object that is the target of the reference ("+e.getDefinition()+")");
         writeWithHash(indent+"protected "+rn+" "+getElementName(e.getName(), true)+"Target;\r\n");
         write("\r\n");
@@ -813,7 +817,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	}
 
   private void writeAttributeAnnotation(String indent, ElementDefn e, int order, String tn) throws Exception {
-    write(indent+"@Child(name=\""+getElementName(e.getName(), true)+"\", type={"+getTypeClassList(e, tn)+
+    write(indent+"@Child(name =\""+getElementName(e.getName(), true)+"\", type={"+getTypeClassList(e, tn)+
         "}, order="+Integer.toString(order)+", min="+e.getMinCardinality().toString()+", max="+(e.getMaxCardinality() == Integer.MAX_VALUE ?  "Child.MAX_UNLIMITED" : e.getMaxCardinality().toString())+")\r\n");
     write(indent+"@Description(shortDefinition=\""+Utilities.escapeJava(e.getShortDefn())+"\", formalDefinition=\""+Utilities.escapeJava(e.getDefinition())+"\" )\r\n");
   }
@@ -825,7 +829,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       if (tr.isResourceReference()) {
         for (String p : tr.getParams())
           if (!p.equalsIgnoreCase("Any"))
-            b.append(p+".class");
+            if (p.equals("List"))
+              b.append(p+"_.class");
+            else
+              b.append(p+".class");
       } else if (definitions.hasPrimitiveType(tr.getName())) {
         b.append(upFirst(tr.getName())+"Type.class");
       } else if (tr.getName().startsWith("@")){
@@ -970,6 +977,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           String rn = params.size() == 1 ? params.get(0) : "Resource";
           if (rn.equals("Any"))
             rn = "Resource";
+          else if (rn.equals("List"))
+            rn = "List_";
+          
 
           jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. "+e.getDefinition()+")");
           write(indent+"public List<"+rn+"> get"+getTitle(getElementName(e.getName(), false))+"Target() { \r\n");
@@ -1088,6 +1098,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			    String rn = params.size() == 1 ? params.get(0) : "Resource";
 			    if (rn.equals("Any"))
 			      rn = "Resource";
+          else if (rn.equals("List"))
+            rn = "List_";
 			    jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. ("+e.getDefinition()+")");
 			    write(indent+"public "+rn+" get"+getTitle(getElementName(e.getName(), false))+"Target() { \r\n");
 			    if (!rn.equals("Resource")) {

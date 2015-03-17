@@ -47,7 +47,8 @@
   <section>
     <title value="History of present illness"/>
     <content>
-      <reference value="MedicationAdministration/example"/>
+      <!-- bad example, need to find a list of actual conditions -->
+      <reference value="List/example"/> 
     </content>
   </section>
 </Composition>

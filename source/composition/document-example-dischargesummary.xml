@@ -42,12 +42,9 @@
           <display value="Doctor Dave"/>
         </author>
         <!-- The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc. -->
-        <section>
-          <title value="Encounter Information"/>
-          <content>
-            <reference value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/>
-          </content>
-        </section>
+        <encounter>
+          <reference value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/>
+        </encounter>
         <section>
           <title value="Reason for admission"/>
           <content>
@@ -167,8 +164,53 @@
   <entry>
     <base value="urn:uuid:"/>
     <resource>
-      <Observation>
+      <List>
         <id value="d0dd51d3-3ab2-4c84-b697-a630c3e40e7a"/>
+        <meta>
+          <lastUpdated value="2013-05-05T16:13:03Z"/>
+        </meta>
+        <text>
+          <status value="additional"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <thead>
+                <tr>
+                  <td>Details</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Acute Asthmatic attack. Was wheezing
+                        for days prior to admission.</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </text>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="8646-2"/>
+            <display value="Hospital admission diagnosis"/>
+          </coding>
+        </code>
+        <mode value="working"/>
+        <!-- This is an entry that refers to an Observation resource in this document. -->
+        <entry>
+          <item>
+            <reference value="urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81"/>
+          </item>
+        </entry>
+      </List>
+    </resource>
+  </entry>
+  <entry>
+    <base value="urn:uuid:"/>
+    <resource>
+      <Observation>
+        <id value="541a72a8-df75-4484-ac89-ac4923f03b81"/>
         <meta>
           <lastUpdated value="2013-05-05T16:13:03Z"/>
         </meta>

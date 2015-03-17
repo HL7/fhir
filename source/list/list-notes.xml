@@ -33,13 +33,16 @@ flags were used to implement version tracking history within the resource.
 
 <p>
 The narrative portion of the List resource should contain a summary 
-of key properties of the items in the list, along with a human-readable 
-summary of their flags (if present).
+of the items in the list, their key information, along with a human-readable 
+summary of their flags (if present). The narrative may be generated from 
+the data content and/or narrative of the resources referred to in the 
+list, or it may be a narrative written by a human which is partially
+or completely matched by structured data in the linked resources.
 </p>
 <p>
 An HTML table is the recommended approach, though this is not required.
 Each List.item should appear in the narrative for the resource.  I.e. It 
-should not be necessary to retrieve the list items in order to have a 
+SHALL not be necessary to retrieve the list items in order to have a 
 human-readable rendering of the content. In addiiton, the narrative 
 should not suggest the list contains items for which there are no 
 corresponding List.item elements. If the list has flags, the representation 
@@ -50,8 +53,13 @@ separating the flags from the items).
 </p>
 
 <p>
-This means that the narrative content of the list will be limited to the
-version of the contained resources at the time the list was last updated. It may be
+Note that when a List resource is used in a <a href="documents.html">Document</a>,
+the narrative of the list is part of the attested content of the document.
+</p>
+
+<p>
+In a dynamic environment, the narrative content of the list will be limited to the
+version of the linked resources at the time the list was last updated. It may be
 even earlier if the narrative isn't updated to reflect the most recent version
 of all referenced resources at each update.  Best practice for 'working' lists is to update 
 the narrative to reflect the most recent content of all list elements each time the list

@@ -1556,27 +1556,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   
   private String generateToc() {
-//    List<String> entries = new ArrayList<String>();
-//    entries.addAll(toc.keySet());
-//    
-//    Collections.sort(entries, new TocSort());
-//    
-//    StringBuilder b = new StringBuilder();
-//    for (String s : entries) {
-//      int i = 0;
-//      for (char c : s.toCharArray()) {
-//        if (c == '.')
-//          i++;
-//      }
-//      TocEntry t = toc.get(s); 
-//      if (i < 3) {
-//        for (int j = 0; j < i; j++)
-//          b.append("&nbsp;&nbsp;");
-//        b.append("<a href=\""+t.getLink()+"#"+t.getValue()+"\">"+t.getValue()+"</a> "+Utilities.escapeXml(t.getText())+"<br/>\r\n");
-//      }
-//    }
-//
-//    return "<p>"+b.toString()+"</p>\r\n";
     return breadCrumbManager.makeToc();
   }
 

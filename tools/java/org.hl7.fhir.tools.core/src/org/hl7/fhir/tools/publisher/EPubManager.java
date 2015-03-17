@@ -293,12 +293,6 @@ public class EPubManager implements FileNotifier {
   }
 
   private boolean ok(String msg) {
-    if (msg.equals("Broken Link in extensibility.html: '??' not found at \"??\"(definition)"))
-      return true;
-    if (msg.equals("Broken Link in provenance.html: 'provenance.questionnaire.html' not found at \"provenance.questionnaire.html\"(Questionnaire)"))
-      return true;
-    if (msg.equals("Broken Link in extension-adverseevent-qicore-cause-item.html: 'diagnosticstudy.html#DiagnosticStudy' not found at \"diagnosticstudy.html\"(DiagnosticStudy)"))
-      return true;
     if (msg.startsWith("Broken Link in extension-cda"))
       return true;
     if (msg.startsWith("Broken Link in hspc-qnlab"))
