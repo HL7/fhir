@@ -442,7 +442,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //        src = s1+atomHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null, false)+s3;
-      else if (com[0].equals("linkedcodelist"))
+      else if (com[0].equals("linkcodelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null, true)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(name, com.length > 1 ? com[1] : null)+s3;
@@ -2777,7 +2777,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+abstractResHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null, false)+s3;
-      else if (com[0].equals("linkedcodelist"))
+      else if (com[0].equals("linkcodelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null, true)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(name, com.length > 1 ? com[1] : null)+s3;
@@ -3150,7 +3150,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genW5("true".equals(com[1]))+s3;
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null, false)+s3;
-      else if (com[0].equals("linkedcodelist"))
+      else if (com[0].equals("linkcodelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null, true)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(name, com.length > 1 ? com[1] : null)+s3;
