@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9276</WindowHeight>
-  <WindowWidth>18480</WindowWidth>
+  <WindowHeight>8832</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -491,6 +491,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Person</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">link</Data></Cell>
+    <Cell><Data ss:Type="String">practitioner</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">PharmacyClaim</Data></Cell>
@@ -630,8 +633,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>85</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>71</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
