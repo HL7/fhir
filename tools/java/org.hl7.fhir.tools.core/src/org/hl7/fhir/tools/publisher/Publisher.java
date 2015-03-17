@@ -336,7 +336,7 @@ public class Publisher implements URIResolver {
     //
 
     Publisher pub = new Publisher();
-    pub.page = new PageProcessor(PageProcessor.DEV_TS_SERVER, hasParam(args, "-links"));
+    pub.page = new PageProcessor(PageProcessor.DEV_TS_SERVER); 
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
     pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
     pub.web = (args.length > 1 && hasParam(args, "-web"));
@@ -1862,6 +1862,9 @@ public class Publisher implements URIResolver {
 
       page.log("Produce .epub Form", LogMessageType.Process);
       page.getEpub().produce();
+      for (String t : page.getQa().getBrokenlinks())
+        validationErrors.add(new ValidationMessage(Source.Publisher, "Structure", "spec", t, IssueSeverity.WARNING));
+        processValidationOutcomes();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
   }

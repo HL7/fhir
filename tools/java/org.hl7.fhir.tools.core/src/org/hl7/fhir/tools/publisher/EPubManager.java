@@ -51,13 +51,11 @@ public class EPubManager implements FileNotifier {
   private List<Entry> entries = new ArrayList<EPubManager.Entry>();
   private List<String> externals = new ArrayList<String>();
   private String uuid;
-  private boolean logBrokenLinks;
 
   
-  public EPubManager(PageProcessor page, boolean logBrokenLinks) {
+  public EPubManager(PageProcessor page) {
     super();
     this.page = page;
-    this.logBrokenLinks = logBrokenLinks;
   }
 
   public void registerExternal(String filename) {
@@ -290,8 +288,6 @@ public class EPubManager implements FileNotifier {
 
   private void reportError(String msg) {
     if (!ok(msg)) {
-      if (logBrokenLinks)
-        page.log(msg, LogMessageType.Error);
       page.getQa().brokenlink(msg);
     }
   }

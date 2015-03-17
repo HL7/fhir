@@ -167,4 +167,8 @@ public class QaTracker {
     ini.save();
   }
 
+  public List<String> getBrokenlinks() {
+    return brokenlinks;
+  }
+
 }
