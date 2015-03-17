@@ -820,16 +820,26 @@ This table summarizes where common parts of a person's name are found.
 For further information, including all <a href="http://www.w3.org/International/questions/qa-personal-names">W3C International Examples</a>, 
 consult the <a href="datatypes-examples.html#HumanName">examples</a>.
 </p>
-<p> 
+<p>
+The multiple give and family name parts combine to form a single name. Multiple given and family names are for
+when a person's name has multiple given names (relatively common across cultures) and multiple surnames (less common).
+Where a person has alternate names that may be used in place of each other, these are different
+instances of <i>HumanName</i>.
+</p>
+<p>
 The <i>text</i> element specifies the entire name as it should be represented. This
-may be provided instead of or as well as specific parts. The parts of a name SHOULD NOT 
-contain whitespace. For family name, hyphenated  names such as "Smith-Jones" are a 
+may be provided instead of or as well as specific parts, and can be built from the parts, though
+the correct order of assembly is culture dependent: the order of the  parts within a given part type has 
+significance and SHALL be observed. The appropriate order between 
+family name and given names depends on culture and context of use.
+</p>
+<p>
+The parts of a name SHOULD NOT contain whitespace. For family name, hyphenated  names such as "Smith-Jones" are a 
 single name, but names with spaces such as "Smith Jones" are broken into multiple parts. 
 For given names, initials may be used in place of the full name if that is all that is recorded. 
-The order of the  parts within a given part type has 
-significance and SHALL be observed. The appropriate order between 
-family name and given names depends on culture and context of use. Systems that operate across
-cultures should generally rely on the text form for presentation, and use the parts for index/search functionality. 
+Systems that operate across cultures should generally rely on the text form for presentation, and 
+use the parts for index/search functionality. For this reasons, applications SHOULD populate the 
+text element for future robustness.
 </p>
 <p>
 Applications updating a name SHALL ensure either that the text and the parts 
