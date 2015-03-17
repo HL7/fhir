@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -183,7 +183,7 @@ public class Appointment extends DomainResource {
          */
         OPTIONAL, 
         /**
-         * The participant is not required to attend the appointment (appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).
+         * The participant is excluded from the appointment, and may not be informed of the appointment taking place. (appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).
          */
         INFORMATIONONLY, 
         /**
@@ -221,7 +221,7 @@ public class Appointment extends DomainResource {
           switch (this) {
             case REQUIRED: return "The participant is required to attend the appointment.";
             case OPTIONAL: return "The participant may optionally attend the appointment.";
-            case INFORMATIONONLY: return "The participant is not required to attend the appointment (appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).";
+            case INFORMATIONONLY: return "The participant is excluded from the appointment, and may not be informed of the appointment taking place. (appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).";
             default: return "?";
           }
         }
@@ -722,26 +722,7 @@ public class Appointment extends DomainResource {
     @Description(shortDefinition="List of participants involved in the appointment", formalDefinition="List of participants involved in the appointment." )
     protected List<AppointmentParticipantComponent> participant;
 
-    /**
-     * Who recorded the appointment.
-     */
-    @Child(name="lastModifiedBy", type={Practitioner.class, Patient.class, RelatedPerson.class}, order=12, min=0, max=1)
-    @Description(shortDefinition="Who recorded the appointment", formalDefinition="Who recorded the appointment." )
-    protected Reference lastModifiedBy;
-
-    /**
-     * The actual object that is the target of the reference (Who recorded the appointment.)
-     */
-    protected Resource lastModifiedByTarget;
-
-    /**
-     * Date when the appointment was recorded.
-     */
-    @Child(name="lastModified", type={DateTimeType.class}, order=13, min=0, max=1)
-    @Description(shortDefinition="Date when the appointment was recorded", formalDefinition="Date when the appointment was recorded." )
-    protected DateTimeType lastModified;
-
-    private static final long serialVersionUID = 1612253606L;
+    private static final long serialVersionUID = 1165074246L;
 
     public Appointment() {
       super();
@@ -1265,94 +1246,6 @@ public class Appointment extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #lastModifiedBy} (Who recorded the appointment.)
-     */
-    public Reference getLastModifiedBy() { 
-      if (this.lastModifiedBy == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Appointment.lastModifiedBy");
-        else if (Configuration.doAutoCreate())
-          this.lastModifiedBy = new Reference(); // cc
-      return this.lastModifiedBy;
-    }
-
-    public boolean hasLastModifiedBy() { 
-      return this.lastModifiedBy != null && !this.lastModifiedBy.isEmpty();
-    }
-
-    /**
-     * @param value {@link #lastModifiedBy} (Who recorded the appointment.)
-     */
-    public Appointment setLastModifiedBy(Reference value) { 
-      this.lastModifiedBy = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #lastModifiedBy} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who recorded the appointment.)
-     */
-    public Resource getLastModifiedByTarget() { 
-      return this.lastModifiedByTarget;
-    }
-
-    /**
-     * @param value {@link #lastModifiedBy} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who recorded the appointment.)
-     */
-    public Appointment setLastModifiedByTarget(Resource value) { 
-      this.lastModifiedByTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #lastModified} (Date when the appointment was recorded.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
-     */
-    public DateTimeType getLastModifiedElement() { 
-      if (this.lastModified == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Appointment.lastModified");
-        else if (Configuration.doAutoCreate())
-          this.lastModified = new DateTimeType(); // bb
-      return this.lastModified;
-    }
-
-    public boolean hasLastModifiedElement() { 
-      return this.lastModified != null && !this.lastModified.isEmpty();
-    }
-
-    public boolean hasLastModified() { 
-      return this.lastModified != null && !this.lastModified.isEmpty();
-    }
-
-    /**
-     * @param value {@link #lastModified} (Date when the appointment was recorded.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
-     */
-    public Appointment setLastModifiedElement(DateTimeType value) { 
-      this.lastModified = value;
-      return this;
-    }
-
-    /**
-     * @return Date when the appointment was recorded.
-     */
-    public Date getLastModified() { 
-      return this.lastModified == null ? null : this.lastModified.getValue();
-    }
-
-    /**
-     * @param value Date when the appointment was recorded.
-     */
-    public Appointment setLastModified(Date value) { 
-      if (value == null)
-        this.lastModified = null;
-      else {
-        if (this.lastModified == null)
-          this.lastModified = new DateTimeType();
-        this.lastModified.setValue(value);
-      }
-      return this;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1367,8 +1260,6 @@ public class Appointment extends DomainResource {
         childrenList.add(new Property("comment", "string", "Additional comments about the appointment.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("order", "Reference(Order)", "An Order that lead to the creation of this appointment.", 0, java.lang.Integer.MAX_VALUE, order));
         childrenList.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));
-        childrenList.add(new Property("lastModifiedBy", "Reference(Practitioner|Patient|RelatedPerson)", "Who recorded the appointment.", 0, java.lang.Integer.MAX_VALUE, lastModifiedBy));
-        childrenList.add(new Property("lastModified", "dateTime", "Date when the appointment was recorded.", 0, java.lang.Integer.MAX_VALUE, lastModified));
       }
 
       public Appointment copy() {
@@ -1398,8 +1289,6 @@ public class Appointment extends DomainResource {
           for (AppointmentParticipantComponent i : participant)
             dst.participant.add(i.copy());
         };
-        dst.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.copy();
-        dst.lastModified = lastModified == null ? null : lastModified.copy();
         return dst;
       }
 
@@ -1418,7 +1307,6 @@ public class Appointment extends DomainResource {
            && compareDeep(reason, o.reason, true) && compareDeep(priority, o.priority, true) && compareDeep(description, o.description, true)
            && compareDeep(start, o.start, true) && compareDeep(end, o.end, true) && compareDeep(slot, o.slot, true)
            && compareDeep(comment, o.comment, true) && compareDeep(order, o.order, true) && compareDeep(participant, o.participant, true)
-           && compareDeep(lastModifiedBy, o.lastModifiedBy, true) && compareDeep(lastModified, o.lastModified, true)
           ;
       }
 
@@ -1431,7 +1319,7 @@ public class Appointment extends DomainResource {
         Appointment o = (Appointment) other;
         return compareValues(status, o.status, true) && compareValues(priority, o.priority, true) && compareValues(description, o.description, true)
            && compareValues(start, o.start, true) && compareValues(end, o.end, true) && compareValues(comment, o.comment, true)
-           && compareValues(lastModified, o.lastModified, true);
+          ;
       }
 
       public boolean isEmpty() {
@@ -1439,8 +1327,7 @@ public class Appointment extends DomainResource {
            && (type == null || type.isEmpty()) && (reason == null || reason.isEmpty()) && (priority == null || priority.isEmpty())
            && (description == null || description.isEmpty()) && (start == null || start.isEmpty()) && (end == null || end.isEmpty())
            && (slot == null || slot.isEmpty()) && (comment == null || comment.isEmpty()) && (order == null || order.isEmpty())
-           && (participant == null || participant.isEmpty()) && (lastModifiedBy == null || lastModifiedBy.isEmpty())
-           && (lastModified == null || lastModified.isEmpty());
+           && (participant == null || participant.isEmpty());
       }
 
   @Override
@@ -1452,6 +1339,8 @@ public class Appointment extends DomainResource {
   public static final String SP_PARTSTATUS = "partstatus";
   @SearchParamDefinition(name="patient", path="Appointment.participant.actor", description="One of the individuals of the appointment is this patient", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="practitioner", path="Appointment.participant.actor", description="One of the individuals of the appointment is this practitioner", type="reference" )
+  public static final String SP_PRACTITIONER = "practitioner";
   @SearchParamDefinition(name="location", path="Appointment.participant.actor", description="This location is listed in the participants of the appointment", type="reference" )
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="status", path="Appointment.status", description="The overall status of the appointment", type="token" )

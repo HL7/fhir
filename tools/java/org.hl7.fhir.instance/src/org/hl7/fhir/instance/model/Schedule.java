@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -85,14 +85,7 @@ public class Schedule extends DomainResource {
     @Description(shortDefinition="Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated", formalDefinition="Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated." )
     protected StringType comment;
 
-    /**
-     * When this Schedule was created, or last revised.
-     */
-    @Child(name="lastModified", type={DateTimeType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="When this Schedule was created, or last revised", formalDefinition="When this Schedule was created, or last revised." )
-    protected DateTimeType lastModified;
-
-    private static final long serialVersionUID = -461457234L;
+    private static final long serialVersionUID = 158030926L;
 
     public Schedule() {
       super();
@@ -295,55 +288,6 @@ public class Schedule extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #lastModified} (When this Schedule was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
-     */
-    public DateTimeType getLastModifiedElement() { 
-      if (this.lastModified == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Schedule.lastModified");
-        else if (Configuration.doAutoCreate())
-          this.lastModified = new DateTimeType(); // bb
-      return this.lastModified;
-    }
-
-    public boolean hasLastModifiedElement() { 
-      return this.lastModified != null && !this.lastModified.isEmpty();
-    }
-
-    public boolean hasLastModified() { 
-      return this.lastModified != null && !this.lastModified.isEmpty();
-    }
-
-    /**
-     * @param value {@link #lastModified} (When this Schedule was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
-     */
-    public Schedule setLastModifiedElement(DateTimeType value) { 
-      this.lastModified = value;
-      return this;
-    }
-
-    /**
-     * @return When this Schedule was created, or last revised.
-     */
-    public Date getLastModified() { 
-      return this.lastModified == null ? null : this.lastModified.getValue();
-    }
-
-    /**
-     * @param value When this Schedule was created, or last revised.
-     */
-    public Schedule setLastModified(Date value) { 
-      if (value == null)
-        this.lastModified = null;
-      else {
-        if (this.lastModified == null)
-          this.lastModified = new DateTimeType();
-        this.lastModified.setValue(value);
-      }
-      return this;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -351,7 +295,6 @@ public class Schedule extends DomainResource {
         childrenList.add(new Property("actor", "Reference(Any)", "The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.", 0, java.lang.Integer.MAX_VALUE, actor));
         childrenList.add(new Property("planningHorizon", "Period", "The period of time that the slots that are attached to this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a 'template' for planning outside these dates.", 0, java.lang.Integer.MAX_VALUE, planningHorizon));
         childrenList.add(new Property("comment", "string", "Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.", 0, java.lang.Integer.MAX_VALUE, comment));
-        childrenList.add(new Property("lastModified", "dateTime", "When this Schedule was created, or last revised.", 0, java.lang.Integer.MAX_VALUE, lastModified));
       }
 
       public Schedule copy() {
@@ -370,7 +313,6 @@ public class Schedule extends DomainResource {
         dst.actor = actor == null ? null : actor.copy();
         dst.planningHorizon = planningHorizon == null ? null : planningHorizon.copy();
         dst.comment = comment == null ? null : comment.copy();
-        dst.lastModified = lastModified == null ? null : lastModified.copy();
         return dst;
       }
 
@@ -387,7 +329,7 @@ public class Schedule extends DomainResource {
         Schedule o = (Schedule) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(actor, o.actor, true)
            && compareDeep(planningHorizon, o.planningHorizon, true) && compareDeep(comment, o.comment, true)
-           && compareDeep(lastModified, o.lastModified, true);
+          ;
       }
 
       @Override
@@ -397,15 +339,13 @@ public class Schedule extends DomainResource {
         if (!(other instanceof Schedule))
           return false;
         Schedule o = (Schedule) other;
-        return compareValues(comment, o.comment, true) && compareValues(lastModified, o.lastModified, true)
-          ;
+        return compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
            && (actor == null || actor.isEmpty()) && (planningHorizon == null || planningHorizon.isEmpty())
-           && (comment == null || comment.isEmpty()) && (lastModified == null || lastModified.isEmpty())
-          ;
+           && (comment == null || comment.isEmpty());
       }
 
   @Override

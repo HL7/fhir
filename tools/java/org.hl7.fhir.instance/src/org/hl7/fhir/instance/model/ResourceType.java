@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 public enum ResourceType {
     Condition,
@@ -20,10 +20,8 @@ public enum ResourceType {
     NamingSystem,
     HealthcareService,
     OrderResponse,
-    StatusResponse,
     ConceptMap,
     PharmacyClaim,
-    Reversal,
     Practitioner,
     CarePlan,
     ClinicalAssessment,
@@ -40,22 +38,23 @@ public enum ResourceType {
     BodySite,
     CommunicationRequest,
     RiskAssessment,
+    Claim,
     Observation,
     AllergyIntolerance,
     ExplanationOfBenefit,
     SupportingDocumentation,
     RelatedPerson,
+    ProcessResponse,
     InstitutionalClaim,
     Alert,
     AuditEvent,
     EligibilityResponse,
-    StatusRequest,
     Person,
     ProcedureRequest,
     VisionClaim,
     DeviceMetric,
     Organization,
-    Readjudicate,
+    ProcessRequest,
     ImmunizationRecommendation,
     MedicationDispense,
     MedicationPrescription,
@@ -85,7 +84,6 @@ public enum ResourceType {
     DocumentManifest,
     MedicationAdministration,
     Encounter,
-    PendedRequest,
     List,
     DeviceUseStatement,
     Goal,
@@ -141,14 +139,10 @@ public enum ResourceType {
       return "healthcareservice";
     case OrderResponse:
       return "orderresponse";
-    case StatusResponse:
-      return "statusresponse";
     case ConceptMap:
       return "conceptmap";
     case PharmacyClaim:
       return "pharmacyclaim";
-    case Reversal:
-      return "reversal";
     case Practitioner:
       return "practitioner";
     case CarePlan:
@@ -181,6 +175,8 @@ public enum ResourceType {
       return "communicationrequest";
     case RiskAssessment:
       return "riskassessment";
+    case Claim:
+      return "claim";
     case Observation:
       return "observation";
     case AllergyIntolerance:
@@ -191,6 +187,8 @@ public enum ResourceType {
       return "supportingdocumentation";
     case RelatedPerson:
       return "relatedperson";
+    case ProcessResponse:
+      return "processresponse";
     case InstitutionalClaim:
       return "institutionalclaim";
     case Alert:
@@ -199,8 +197,6 @@ public enum ResourceType {
       return "auditevent";
     case EligibilityResponse:
       return "eligibilityresponse";
-    case StatusRequest:
-      return "statusrequest";
     case Person:
       return "person";
     case ProcedureRequest:
@@ -211,8 +207,8 @@ public enum ResourceType {
       return "devicemetric";
     case Organization:
       return "organization";
-    case Readjudicate:
-      return "readjudicate";
+    case ProcessRequest:
+      return "processrequest";
     case ImmunizationRecommendation:
       return "immunizationrecommendation";
     case MedicationDispense:
@@ -271,8 +267,6 @@ public enum ResourceType {
       return "medicationadministration";
     case Encounter:
       return "encounter";
-    case PendedRequest:
-      return "pendedrequest";
     case List:
       return "list";
     case DeviceUseStatement:

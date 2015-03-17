@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -271,20 +271,26 @@ public class Parameters extends Resource {
         /**
          * The value of the parameter.
          */
-        @Child(name="value", type={}, order=2, min=1, max=1)
+        @Child(name="value", type={}, order=2, min=0, max=1)
         @Description(shortDefinition="Value of the part", formalDefinition="The value of the parameter." )
         protected org.hl7.fhir.instance.model.Type value;
 
-        private static final long serialVersionUID = 2130806097L;
+        /**
+         * If the parameter is a whole resource.
+         */
+        @Child(name="resource", type={Resource.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="If part is a whole resource", formalDefinition="If the parameter is a whole resource." )
+        protected Resource resource;
+
+        private static final long serialVersionUID = 1120601371L;
 
       public ParametersParameterPartComponent() {
         super();
       }
 
-      public ParametersParameterPartComponent(StringType name, org.hl7.fhir.instance.model.Type value) {
+      public ParametersParameterPartComponent(StringType name) {
         super();
         this.name = name;
-        this.value = value;
       }
 
         /**
@@ -351,10 +357,30 @@ public class Parameters extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #resource} (If the parameter is a whole resource.)
+         */
+        public Resource getResource() { 
+          return this.resource;
+        }
+
+        public boolean hasResource() { 
+          return this.resource != null && !this.resource.isEmpty();
+        }
+
+        /**
+         * @param value {@link #resource} (If the parameter is a whole resource.)
+         */
+        public ParametersParameterPartComponent setResource(Resource value) { 
+          this.resource = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of the parameter (reference to the operation definition).", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("value[x]", "*", "The value of the parameter.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("resource", "Resource", "If the parameter is a whole resource.", 0, java.lang.Integer.MAX_VALUE, resource));
         }
 
       public ParametersParameterPartComponent copy() {
@@ -362,6 +388,7 @@ public class Parameters extends Resource {
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.value = value == null ? null : value.copy();
+        dst.resource = resource == null ? null : resource.copy();
         return dst;
       }
 
@@ -372,7 +399,8 @@ public class Parameters extends Resource {
         if (!(other instanceof ParametersParameterPartComponent))
           return false;
         ParametersParameterPartComponent o = (ParametersParameterPartComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true) && compareDeep(resource, o.resource, true)
+          ;
       }
 
       @Override
@@ -387,7 +415,7 @@ public class Parameters extends Resource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+           && (resource == null || resource.isEmpty());
       }
 
   }

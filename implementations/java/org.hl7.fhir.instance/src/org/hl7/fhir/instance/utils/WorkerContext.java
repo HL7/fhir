@@ -28,6 +28,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.utilities.CSFileInputStream;
 
@@ -419,7 +420,7 @@ public class WorkerContext {
     }
 
     @Override
-    public List<ValueSetExpansionContainsComponent> expandVS(ConceptSetComponent inc) throws Exception {
+    public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
       throw new Error("call to NullTerminologyServices");
     }
 

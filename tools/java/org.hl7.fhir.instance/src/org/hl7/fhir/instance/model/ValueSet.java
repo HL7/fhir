@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -333,10 +333,10 @@ public class ValueSet extends DomainResource {
     @Block()
     public static class ValueSetDefineComponent extends BackboneElement {
         /**
-         * URI to identify the code system.
+         * An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.
          */
         @Child(name="system", type={UriType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="URI to identify the code system", formalDefinition="URI to identify the code system." )
+        @Description(shortDefinition="URI to identify the code system", formalDefinition="An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system." )
         protected UriType system;
 
         /**
@@ -372,7 +372,7 @@ public class ValueSet extends DomainResource {
       }
 
         /**
-         * @return {@link #system} (URI to identify the code system.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
+         * @return {@link #system} (An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
         public UriType getSystemElement() { 
           if (this.system == null)
@@ -392,7 +392,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @param value {@link #system} (URI to identify the code system.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
+         * @param value {@link #system} (An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
         public ValueSetDefineComponent setSystemElement(UriType value) { 
           this.system = value;
@@ -400,14 +400,14 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return URI to identify the code system.
+         * @return An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.
          */
         public String getSystem() { 
           return this.system == null ? null : this.system.getValue();
         }
 
         /**
-         * @param value URI to identify the code system.
+         * @param value An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.
          */
         public ValueSetDefineComponent setSystem(String value) { 
             if (this.system == null)
@@ -552,7 +552,7 @@ public class ValueSet extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("system", "uri", "URI to identify the code system.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("system", "uri", "An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("version", "string", "The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("caseSensitive", "boolean", "If code comparison is case sensitive when codes within this system are compared to each other.", 0, java.lang.Integer.MAX_VALUE, caseSensitive));
           childrenList.add(new Property("concept", "", "Concepts in the code system.", 0, java.lang.Integer.MAX_VALUE, concept));
@@ -1186,10 +1186,10 @@ public class ValueSet extends DomainResource {
     @Block()
     public static class ValueSetComposeComponent extends BackboneElement {
         /**
-         * Includes the contents of the referenced value set as a part of the contents of this value set.
+         * Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.
          */
         @Child(name="import_", type={UriType.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Import the contents of another value set", formalDefinition="Includes the contents of the referenced value set as a part of the contents of this value set." )
+        @Description(shortDefinition="Import the contents of another value set", formalDefinition="Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri." )
         protected List<UriType> import_;
 
         /**
@@ -1213,7 +1213,7 @@ public class ValueSet extends DomainResource {
       }
 
         /**
-         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
+         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.)
          */
         public List<UriType> getImport() { 
           if (this.import_ == null)
@@ -1231,7 +1231,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
+         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.)
          */
     // syntactic sugar
         public UriType addImportElement() {//2 
@@ -1243,7 +1243,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
+         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.)
          */
         public ValueSetComposeComponent addImport(String value) { //1
           UriType t = new UriType();
@@ -1255,7 +1255,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
+         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.)
          */
         public boolean hasImport(String value) { 
           if (this.import_ == null)
@@ -1348,7 +1348,7 @@ public class ValueSet extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("import", "uri", "Includes the contents of the referenced value set as a part of the contents of this value set.", 0, java.lang.Integer.MAX_VALUE, import_));
+          childrenList.add(new Property("import", "uri", "Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.uri.", 0, java.lang.Integer.MAX_VALUE, import_));
           childrenList.add(new Property("include", "", "Include one or more codes from a code system.", 0, java.lang.Integer.MAX_VALUE, include));
           childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
@@ -1405,10 +1405,10 @@ public class ValueSet extends DomainResource {
     @Block()
     public static class ConceptSetComponent extends BackboneElement {
         /**
-         * The code system from which the selected codes come from.
+         * An absolute URI which is the code system from which the selected codes come from.
          */
         @Child(name="system", type={UriType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="The system the codes come from", formalDefinition="The code system from which the selected codes come from." )
+        @Description(shortDefinition="The system the codes come from", formalDefinition="An absolute URI which is the code system from which the selected codes come from." )
         protected UriType system;
 
         /**
@@ -1444,7 +1444,7 @@ public class ValueSet extends DomainResource {
       }
 
         /**
-         * @return {@link #system} (The code system from which the selected codes come from.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
+         * @return {@link #system} (An absolute URI which is the code system from which the selected codes come from.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
         public UriType getSystemElement() { 
           if (this.system == null)
@@ -1464,7 +1464,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @param value {@link #system} (The code system from which the selected codes come from.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
+         * @param value {@link #system} (An absolute URI which is the code system from which the selected codes come from.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
         public ConceptSetComponent setSystemElement(UriType value) { 
           this.system = value;
@@ -1472,14 +1472,14 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return The code system from which the selected codes come from.
+         * @return An absolute URI which is the code system from which the selected codes come from.
          */
         public String getSystem() { 
           return this.system == null ? null : this.system.getValue();
         }
 
         /**
-         * @param value The code system from which the selected codes come from.
+         * @param value An absolute URI which is the code system from which the selected codes come from.
          */
         public ConceptSetComponent setSystem(String value) { 
             if (this.system == null)
@@ -1619,7 +1619,7 @@ public class ValueSet extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("system", "uri", "The code system from which the selected codes come from.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("system", "uri", "An absolute URI which is the code system from which the selected codes come from.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("version", "string", "The version of the code system that the codes are selected from.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("concept", "", "Specifies a concept to be included or excluded.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("filter", "", "Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.", 0, java.lang.Integer.MAX_VALUE, filter));
@@ -2537,10 +2537,10 @@ public class ValueSet extends DomainResource {
     @Block()
     public static class ValueSetExpansionContainsComponent extends BackboneElement {
         /**
-         * The system in which the code for this item in the expansion is defined.
+         * An absolute URI which is the code system in which the code for this item in the expansion is defined.
          */
         @Child(name="system", type={UriType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="System value for the code", formalDefinition="The system in which the code for this item in the expansion is defined." )
+        @Description(shortDefinition="System value for the code", formalDefinition="An absolute URI which is the code system in which the code for this item in the expansion is defined." )
         protected UriType system;
 
         /**
@@ -2585,7 +2585,7 @@ public class ValueSet extends DomainResource {
       }
 
         /**
-         * @return {@link #system} (The system in which the code for this item in the expansion is defined.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
+         * @return {@link #system} (An absolute URI which is the code system in which the code for this item in the expansion is defined.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
         public UriType getSystemElement() { 
           if (this.system == null)
@@ -2605,7 +2605,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @param value {@link #system} (The system in which the code for this item in the expansion is defined.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
+         * @param value {@link #system} (An absolute URI which is the code system in which the code for this item in the expansion is defined.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
         public ValueSetExpansionContainsComponent setSystemElement(UriType value) { 
           this.system = value;
@@ -2613,14 +2613,14 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return The system in which the code for this item in the expansion is defined.
+         * @return An absolute URI which is the code system in which the code for this item in the expansion is defined.
          */
         public String getSystem() { 
           return this.system == null ? null : this.system.getValue();
         }
 
         /**
-         * @param value The system in which the code for this item in the expansion is defined.
+         * @param value An absolute URI which is the code system in which the code for this item in the expansion is defined.
          */
         public ValueSetExpansionContainsComponent setSystem(String value) { 
           if (Utilities.noString(value))
@@ -2867,7 +2867,7 @@ public class ValueSet extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("system", "uri", "The system in which the code for this item in the expansion is defined.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("system", "uri", "An absolute URI which is the code system in which the code for this item in the expansion is defined.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("abstract", "boolean", "If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.", 0, java.lang.Integer.MAX_VALUE, abstract_));
           childrenList.add(new Property("version", "string", "The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("code", "code", "Code - if blank, this is not a choosable code.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2923,10 +2923,10 @@ public class ValueSet extends DomainResource {
   }
 
     /**
-     * The uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     @Child(name="url", type={UriType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Globally unique logical id for  value set", formalDefinition="The uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
+    @Description(shortDefinition="Globally unique logical id for  value set", formalDefinition="An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
     protected UriType url;
 
     /**
@@ -2937,10 +2937,10 @@ public class ValueSet extends DomainResource {
     protected Identifier identifier;
 
     /**
-     * The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
+     * Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     @Child(name="version", type={StringType.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="Logical id for this version of the value set", formalDefinition="The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp." )
+    @Description(shortDefinition="Logical id for this version of the value set", formalDefinition="Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp." )
     protected StringType version;
 
     /**
@@ -3035,10 +3035,10 @@ public class ValueSet extends DomainResource {
     protected DateType stableDate;
 
     /**
-     * When value set defines its own codes.
+     * A definition of an code system, inlined into the value set.
      */
     @Child(name="define", type={}, order=16, min=0, max=1)
-    @Description(shortDefinition="When value set defines its own codes", formalDefinition="When value set defines its own codes." )
+    @Description(shortDefinition="When value set defines its own codes", formalDefinition="A definition of an code system, inlined into the value set." )
     protected ValueSetDefineComponent define;
 
     /**
@@ -3067,7 +3067,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (The uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -3087,7 +3087,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (The uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ValueSet setUrlElement(UriType value) { 
       this.url = value;
@@ -3095,14 +3095,14 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return The uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @return An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value The uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @param value An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     public ValueSet setUrl(String value) { 
       if (Utilities.noString(value))
@@ -3140,7 +3140,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return {@link #version} (The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @return {@link #version} (Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
       if (this.version == null)
@@ -3160,7 +3160,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @param value {@link #version} (Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public ValueSet setVersionElement(StringType value) { 
       this.version = value;
@@ -3168,14 +3168,14 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
+     * @return Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
-     * @param value The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
+     * @param value Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     public ValueSet setVersion(String value) { 
       if (Utilities.noString(value))
@@ -3792,7 +3792,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return {@link #define} (When value set defines its own codes.)
+     * @return {@link #define} (A definition of an code system, inlined into the value set.)
      */
     public ValueSetDefineComponent getDefine() { 
       if (this.define == null)
@@ -3808,7 +3808,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @param value {@link #define} (When value set defines its own codes.)
+     * @param value {@link #define} (A definition of an code system, inlined into the value set.)
      */
     public ValueSet setDefine(ValueSetDefineComponent value) { 
       this.define = value;
@@ -3865,9 +3865,9 @@ public class ValueSet extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "The uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("version", "string", "Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name describing the value set.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
@@ -3881,7 +3881,7 @@ public class ValueSet extends DomainResource {
         childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
         childrenList.add(new Property("date", "dateTime", "The date that the value set status was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("stableDate", "date", "If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.", 0, java.lang.Integer.MAX_VALUE, stableDate));
-        childrenList.add(new Property("define", "", "When value set defines its own codes.", 0, java.lang.Integer.MAX_VALUE, define));
+        childrenList.add(new Property("define", "", "A definition of an code system, inlined into the value set.", 0, java.lang.Integer.MAX_VALUE, define));
         childrenList.add(new Property("compose", "", "When value set includes codes from elsewhere.", 0, java.lang.Integer.MAX_VALUE, compose));
         childrenList.add(new Property("expansion", "", "A value set can also be 'expanded', where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, java.lang.Integer.MAX_VALUE, expansion));
       }
@@ -3970,30 +3970,32 @@ public class ValueSet extends DomainResource {
     return ResourceType.ValueSet;
    }
 
-  @SearchParamDefinition(name="system", path="ValueSet.define.system", description="The system for any codes defined by this value set", type="token" )
-  public static final String SP_SYSTEM = "system";
+  @SearchParamDefinition(name="expansion", path="ValueSet.expansion.identifier", description="Uniquely identifies this expansion", type="token" )
+  public static final String SP_EXPANSION = "expansion";
   @SearchParamDefinition(name="status", path="ValueSet.status", description="The status of the value set", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="code", path="ValueSet.define.concept.code", description="A code defined in the value set", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="url", path="ValueSet.url", description="The logical url for the value set", type="uri" )
+  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="uri" )
+  public static final String SP_REFERENCE = "reference";
+  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
+  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="system", path="ValueSet.define.system", description="The system for any codes defined by this value set", type="uri" )
+  public static final String SP_SYSTEM = "system";
   @SearchParamDefinition(name="description", path="ValueSet.description", description="Text search in the description of the value set", type="string" )
   public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="name", path="ValueSet.name", description="The name of the value set", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="context", path="ValueSet.useContext", description="A use context assigned to the value set", type="token" )
   public static final String SP_CONTEXT = "context";
-  @SearchParamDefinition(name="code", path="ValueSet.define.concept.code", description="A code defined in the value set", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
-  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="identifier", path="ValueSet.identifier", description="The identifier for the value set", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="token" )
-  public static final String SP_REFERENCE = "reference";
-  @SearchParamDefinition(name="url", path="ValueSet.url", description="The logical url for the value set", type="token" )
-  public static final String SP_URL = "url";
-  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
-  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
-  public static final String SP_VERSION = "version";
 
 }
 

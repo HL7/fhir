@@ -916,7 +916,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       for (TypeRefComponent type : container.getType()) {
         if (!ok && type.getCode().equals("Reference")) {
           // we validate as much as we can. First, can we infer a type from the profile? 
-          if (!type.hasProfile() || type.getProfile().equals("http://hl7.org/fhir/StructureDefinition/Any")) 
+          if (!type.hasProfile() || type.getProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource")) 
             ok = true;
           else {
             String pr = type.getProfile();

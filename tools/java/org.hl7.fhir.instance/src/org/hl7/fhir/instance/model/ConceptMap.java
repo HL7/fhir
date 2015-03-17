@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -375,10 +375,10 @@ public class ConceptMap extends DomainResource {
     @Block()
     public static class ConceptMapElementComponent extends BackboneElement {
         /**
-         * Code System (if the source is a value value set that crosses more than one code system).
+         * An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).
          */
         @Child(name="codeSystem", type={UriType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Code System (if value set crosses code systems)", formalDefinition="Code System (if the source is a value value set that crosses more than one code system)." )
+        @Description(shortDefinition="Code System (if value set crosses code systems)", formalDefinition="An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system)." )
         protected UriType codeSystem;
 
         /**
@@ -409,7 +409,7 @@ public class ConceptMap extends DomainResource {
       }
 
         /**
-         * @return {@link #codeSystem} (Code System (if the source is a value value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @return {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
         public UriType getCodeSystemElement() { 
           if (this.codeSystem == null)
@@ -429,7 +429,7 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @param value {@link #codeSystem} (Code System (if the source is a value value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @param value {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
         public ConceptMapElementComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
@@ -437,14 +437,14 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @return Code System (if the source is a value value set that crosses more than one code system).
+         * @return An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).
          */
         public String getCodeSystem() { 
           return this.codeSystem == null ? null : this.codeSystem.getValue();
         }
 
         /**
-         * @param value Code System (if the source is a value value set that crosses more than one code system).
+         * @param value An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).
          */
         public ConceptMapElementComponent setCodeSystem(String value) { 
           if (Utilities.noString(value))
@@ -588,7 +588,7 @@ public class ConceptMap extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("codeSystem", "uri", "Code System (if the source is a value value set that crosses more than one code system).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
+          childrenList.add(new Property("codeSystem", "uri", "An absolute URI that identifies the Code System (if the source is a value value set that crosses more than one code system).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
           childrenList.add(new Property("code", "code", "Identity (code or path) or the element/item being mapped.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("dependsOn", "", "A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.", 0, java.lang.Integer.MAX_VALUE, dependsOn));
           childrenList.add(new Property("map", "", "A concept from the target value set that this concept maps to.", 0, java.lang.Integer.MAX_VALUE, map));
@@ -650,10 +650,10 @@ public class ConceptMap extends DomainResource {
         protected UriType element;
 
         /**
-         * The code system of the dependency code (if the source/dependency is a value set that cross code systems).
+         * An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that cross code systems).
          */
         @Child(name="codeSystem", type={UriType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="Code System (if necessary)", formalDefinition="The code system of the dependency code (if the source/dependency is a value set that cross code systems)." )
+        @Description(shortDefinition="Code System (if necessary)", formalDefinition="An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that cross code systems)." )
         protected UriType codeSystem;
 
         /**
@@ -722,7 +722,7 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @return {@link #codeSystem} (The code system of the dependency code (if the source/dependency is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @return {@link #codeSystem} (An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
         public UriType getCodeSystemElement() { 
           if (this.codeSystem == null)
@@ -742,7 +742,7 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @param value {@link #codeSystem} (The code system of the dependency code (if the source/dependency is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @param value {@link #codeSystem} (An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
         public OtherElementComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
@@ -750,14 +750,14 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @return The code system of the dependency code (if the source/dependency is a value set that cross code systems).
+         * @return An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that cross code systems).
          */
         public String getCodeSystem() { 
           return this.codeSystem == null ? null : this.codeSystem.getValue();
         }
 
         /**
-         * @param value The code system of the dependency code (if the source/dependency is a value set that cross code systems).
+         * @param value An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that cross code systems).
          */
         public OtherElementComponent setCodeSystem(String value) { 
             if (this.codeSystem == null)
@@ -814,7 +814,7 @@ public class ConceptMap extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("element", "uri", "A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.", 0, java.lang.Integer.MAX_VALUE, element));
-          childrenList.add(new Property("codeSystem", "uri", "The code system of the dependency code (if the source/dependency is a value set that cross code systems).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
+          childrenList.add(new Property("codeSystem", "uri", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that cross code systems).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
           childrenList.add(new Property("code", "string", "Identity (code or path) or the element/item that the map depends on / refers to.", 0, java.lang.Integer.MAX_VALUE, code));
         }
 
@@ -859,10 +859,10 @@ public class ConceptMap extends DomainResource {
     @Block()
     public static class ConceptMapElementMapComponent extends BackboneElement {
         /**
-         * The code system of the target code (if the target is a value set that cross code systems).
+         * An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
         @Child(name="codeSystem", type={UriType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="System of the target (if necessary)", formalDefinition="The code system of the target code (if the target is a value set that cross code systems)." )
+        @Description(shortDefinition="System of the target (if necessary)", formalDefinition="An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems)." )
         protected UriType codeSystem;
 
         /**
@@ -905,7 +905,7 @@ public class ConceptMap extends DomainResource {
       }
 
         /**
-         * @return {@link #codeSystem} (The code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @return {@link #codeSystem} (An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
         public UriType getCodeSystemElement() { 
           if (this.codeSystem == null)
@@ -925,7 +925,7 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @param value {@link #codeSystem} (The code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @param value {@link #codeSystem} (An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
         public ConceptMapElementMapComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
@@ -933,14 +933,14 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @return The code system of the target code (if the target is a value set that cross code systems).
+         * @return An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
         public String getCodeSystem() { 
           return this.codeSystem == null ? null : this.codeSystem.getValue();
         }
 
         /**
-         * @param value The code system of the target code (if the target is a value set that cross code systems).
+         * @param value An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
         public ConceptMapElementMapComponent setCodeSystem(String value) { 
           if (Utilities.noString(value))
@@ -1138,7 +1138,7 @@ public class ConceptMap extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("codeSystem", "uri", "The code system of the target code (if the target is a value set that cross code systems).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
+          childrenList.add(new Property("codeSystem", "uri", "An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
           childrenList.add(new Property("code", "code", "Identity (code or path) or the element/item that the map refers to.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("equivalence", "code", "The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from source to target (e.g. the source is 'wider' than the target.", 0, java.lang.Integer.MAX_VALUE, equivalence));
           childrenList.add(new Property("comments", "string", "A description of status/issues in mapping that conveys additional information not represented in  the structured data.", 0, java.lang.Integer.MAX_VALUE, comments));
@@ -1191,10 +1191,10 @@ public class ConceptMap extends DomainResource {
   }
 
     /**
-     * The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * An absolute uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     @Child(name="url", type={UriType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Globally unique logical id for concept map", formalDefinition="The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
+    @Description(shortDefinition="Globally unique logical id for concept map", formalDefinition="An absolute uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
     protected UriType url;
 
     /**
@@ -1316,7 +1316,7 @@ public class ConceptMap extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -1336,7 +1336,7 @@ public class ConceptMap extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ConceptMap setUrlElement(UriType value) { 
       this.url = value;
@@ -1344,14 +1344,14 @@ public class ConceptMap extends DomainResource {
     }
 
     /**
-     * @return The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @return An absolute uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @param value An absolute uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     public ConceptMap setUrl(String value) { 
       if (Utilities.noString(value))
@@ -2017,7 +2017,7 @@ public class ConceptMap extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name describing the concept map.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -2116,21 +2116,21 @@ public class ConceptMap extends DomainResource {
     return ResourceType.ConceptMap;
    }
 
-  @SearchParamDefinition(name="dependson", path="ConceptMap.element.dependsOn.element", description="Reference to element/field/valueset mapping depends on", type="token" )
+  @SearchParamDefinition(name="dependson", path="ConceptMap.element.dependsOn.element", description="Reference to element/field/valueset mapping depends on", type="uri" )
   public static final String SP_DEPENDSON = "dependson";
   @SearchParamDefinition(name="status", path="ConceptMap.status", description="Status of the concept map", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="date", path="ConceptMap.date", description="The concept map publication date", type="date" )
   public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="url", path="ConceptMap.url", description="The url of the concept map", type="token" )
+  @SearchParamDefinition(name="url", path="ConceptMap.url", description="The url of the concept map", type="uri" )
   public static final String SP_URL = "url";
   @SearchParamDefinition(name="version", path="ConceptMap.version", description="The version identifier of the concept map", type="token" )
   public static final String SP_VERSION = "version";
   @SearchParamDefinition(name="publisher", path="ConceptMap.publisher", description="Name of the publisher of the concept map", type="string" )
   public static final String SP_PUBLISHER = "publisher";
-  @SearchParamDefinition(name="product", path="ConceptMap.element.map.product.element", description="Reference to element/field/valueset mapping depends on", type="token" )
+  @SearchParamDefinition(name="product", path="ConceptMap.element.map.product.element", description="Reference to element/field/valueset mapping depends on", type="uri" )
   public static final String SP_PRODUCT = "product";
-  @SearchParamDefinition(name="system", path="ConceptMap.element.map.codeSystem", description="The system for any destination concepts mapped by this map", type="token" )
+  @SearchParamDefinition(name="system", path="ConceptMap.element.map.codeSystem", description="The system for any destination concepts mapped by this map", type="uri" )
   public static final String SP_SYSTEM = "system";
   @SearchParamDefinition(name="source", path="ConceptMap.source[x]", description="The system for any concepts mapped by this concept map", type="reference" )
   public static final String SP_SOURCE = "source";

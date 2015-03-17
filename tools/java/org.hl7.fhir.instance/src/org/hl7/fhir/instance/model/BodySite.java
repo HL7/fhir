@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -251,7 +251,7 @@ public class BodySite extends DomainResource {
          * Identified anatomical landmark from which to specify relative anatomical location.
          */
         @Child(name="landmark", type={CodeableConcept.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Identified landmark\nIdentified landmark\nIdentified landmark", formalDefinition="Identified anatomical landmark from which to specify relative anatomical location." )
+        @Description(shortDefinition="Identified landmark", formalDefinition="Identified anatomical landmark from which to specify relative anatomical location." )
         protected CodeableConcept landmark;
 
         /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -637,10 +637,10 @@ public class NamingSystem extends DomainResource {
   }
 
     /**
-     * Indicates the purpose for the namingsystem - what kinds of things does it make unique?.
+     * Indicates the purpose for the namingsystem - what kinds of things does it make unique?
      */
     @Child(name="type", type={CodeType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="codesystem | identifier | root", formalDefinition="Indicates the purpose for the namingsystem - what kinds of things does it make unique?." )
+    @Description(shortDefinition="codesystem | identifier | root", formalDefinition="Indicates the purpose for the namingsystem - what kinds of things does it make unique?" )
     protected Enumeration<NamingsystemType> type;
 
     /**
@@ -675,7 +675,7 @@ public class NamingSystem extends DomainResource {
      * Categorizes a namingsystem for easier search by grouping related namingsystems.
      */
     @Child(name="category", type={CodeableConcept.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="driver | provider | patient | bank", formalDefinition="Categorizes a namingsystem for easier search by grouping related namingsystems." )
+    @Description(shortDefinition="e.g. driver,  provider,  patient, bank etc", formalDefinition="Categorizes a namingsystem for easier search by grouping related namingsystems." )
     protected CodeableConcept category;
 
     /**
@@ -747,7 +747,7 @@ public class NamingSystem extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (Indicates the purpose for the namingsystem - what kinds of things does it make unique?.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @return {@link #type} (Indicates the purpose for the namingsystem - what kinds of things does it make unique?). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public Enumeration<NamingsystemType> getTypeElement() { 
       if (this.type == null)
@@ -767,7 +767,7 @@ public class NamingSystem extends DomainResource {
     }
 
     /**
-     * @param value {@link #type} (Indicates the purpose for the namingsystem - what kinds of things does it make unique?.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @param value {@link #type} (Indicates the purpose for the namingsystem - what kinds of things does it make unique?). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public NamingSystem setTypeElement(Enumeration<NamingsystemType> value) { 
       this.type = value;
@@ -775,14 +775,14 @@ public class NamingSystem extends DomainResource {
     }
 
     /**
-     * @return Indicates the purpose for the namingsystem - what kinds of things does it make unique?.
+     * @return Indicates the purpose for the namingsystem - what kinds of things does it make unique?
      */
     public NamingsystemType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
-     * @param value Indicates the purpose for the namingsystem - what kinds of things does it make unique?.
+     * @param value Indicates the purpose for the namingsystem - what kinds of things does it make unique?
      */
     public NamingSystem setType(NamingsystemType value) { 
         if (this.type == null)
@@ -1321,7 +1321,7 @@ public class NamingSystem extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("type", "code", "Indicates the purpose for the namingsystem - what kinds of things does it make unique?.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "code", "Indicates the purpose for the namingsystem - what kinds of things does it make unique?", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("name", "string", "The descriptive name of this particular identifier type or code system.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the system was registered or published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("status", "code", "Indicates whether the namingsystem is 'ready for use' or not.", 0, java.lang.Integer.MAX_VALUE, status));
@@ -1408,6 +1408,34 @@ public class NamingSystem extends DomainResource {
     return ResourceType.NamingSystem;
    }
 
+  @SearchParamDefinition(name="responsible", path="NamingSystem.responsible", description="Who maintains system namespace?", type="string" )
+  public static final String SP_RESPONSIBLE = "responsible";
+  @SearchParamDefinition(name="status", path="NamingSystem.status", description="draft | active | retired", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="idtype", path="NamingSystem.uniqueId.type", description="oid | uuid | uri | other", type="token" )
+  public static final String SP_IDTYPE = "idtype";
+  @SearchParamDefinition(name="replacedby", path="NamingSystem.replacedBy", description="Use this instead", type="reference" )
+  public static final String SP_REPLACEDBY = "replacedby";
+  @SearchParamDefinition(name="type", path="NamingSystem.type", description="codesystem | identifier | root", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="date", path="NamingSystem.date", description="Publication Date(/time)", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="period", path="NamingSystem.uniqueId.period", description="When is identifier valid?", type="date" )
+  public static final String SP_PERIOD = "period";
+  @SearchParamDefinition(name="contact", path="NamingSystem.contact.name", description="Name of a individual to contact", type="string" )
+  public static final String SP_CONTACT = "contact";
+  @SearchParamDefinition(name="country", path="NamingSystem.country", description="ISO 3-char country code", type="token" )
+  public static final String SP_COUNTRY = "country";
+  @SearchParamDefinition(name="publisher", path="NamingSystem.publisher", description="Name of the publisher (Organization or individual)", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="category", path="NamingSystem.category", description="e.g. driver,  provider,  patient, bank etc", type="token" )
+  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="name", path="NamingSystem.name", description="Human-readable label", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="value", path="NamingSystem.uniqueId.value", description="The unique identifier", type="string" )
+  public static final String SP_VALUE = "value";
+  @SearchParamDefinition(name="telecom", path="NamingSystem.contact.telecom", description="Contact details for individual or publisher", type="token" )
+  public static final String SP_TELECOM = "telecom";
 
 }
 

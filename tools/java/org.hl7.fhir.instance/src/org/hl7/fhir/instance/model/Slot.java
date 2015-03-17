@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -206,14 +206,7 @@ public class Slot extends DomainResource {
     @Description(shortDefinition="Comments on the slot to describe any extended information. Such as custom constraints on the slot", formalDefinition="Comments on the slot to describe any extended information. Such as custom constraints on the slot." )
     protected StringType comment;
 
-    /**
-     * When this slot was created, or last revised.
-     */
-    @Child(name="lastModified", type={DateTimeType.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="When this slot was created, or last revised", formalDefinition="When this slot was created, or last revised." )
-    protected DateTimeType lastModified;
-
-    private static final long serialVersionUID = 738744883L;
+    private static final long serialVersionUID = 1371243539L;
 
     public Slot() {
       super();
@@ -564,55 +557,6 @@ public class Slot extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #lastModified} (When this slot was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
-     */
-    public DateTimeType getLastModifiedElement() { 
-      if (this.lastModified == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Slot.lastModified");
-        else if (Configuration.doAutoCreate())
-          this.lastModified = new DateTimeType(); // bb
-      return this.lastModified;
-    }
-
-    public boolean hasLastModifiedElement() { 
-      return this.lastModified != null && !this.lastModified.isEmpty();
-    }
-
-    public boolean hasLastModified() { 
-      return this.lastModified != null && !this.lastModified.isEmpty();
-    }
-
-    /**
-     * @param value {@link #lastModified} (When this slot was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
-     */
-    public Slot setLastModifiedElement(DateTimeType value) { 
-      this.lastModified = value;
-      return this;
-    }
-
-    /**
-     * @return When this slot was created, or last revised.
-     */
-    public Date getLastModified() { 
-      return this.lastModified == null ? null : this.lastModified.getValue();
-    }
-
-    /**
-     * @param value When this slot was created, or last revised.
-     */
-    public Slot setLastModified(Date value) { 
-      if (value == null)
-        this.lastModified = null;
-      else {
-        if (this.lastModified == null)
-          this.lastModified = new DateTimeType();
-        this.lastModified.setValue(value);
-      }
-      return this;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -623,7 +567,6 @@ public class Slot extends DomainResource {
         childrenList.add(new Property("end", "instant", "Date/Time that the slot is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
         childrenList.add(new Property("overbooked", "boolean", "This slot has already been overbooked, appointments are unlikely to be accepted for this time.", 0, java.lang.Integer.MAX_VALUE, overbooked));
         childrenList.add(new Property("comment", "string", "Comments on the slot to describe any extended information. Such as custom constraints on the slot.", 0, java.lang.Integer.MAX_VALUE, comment));
-        childrenList.add(new Property("lastModified", "dateTime", "When this slot was created, or last revised.", 0, java.lang.Integer.MAX_VALUE, lastModified));
       }
 
       public Slot copy() {
@@ -641,7 +584,6 @@ public class Slot extends DomainResource {
         dst.end = end == null ? null : end.copy();
         dst.overbooked = overbooked == null ? null : overbooked.copy();
         dst.comment = comment == null ? null : comment.copy();
-        dst.lastModified = lastModified == null ? null : lastModified.copy();
         return dst;
       }
 
@@ -658,8 +600,7 @@ public class Slot extends DomainResource {
         Slot o = (Slot) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(schedule, o.schedule, true)
            && compareDeep(freeBusyType, o.freeBusyType, true) && compareDeep(start, o.start, true) && compareDeep(end, o.end, true)
-           && compareDeep(overbooked, o.overbooked, true) && compareDeep(comment, o.comment, true) && compareDeep(lastModified, o.lastModified, true)
-          ;
+           && compareDeep(overbooked, o.overbooked, true) && compareDeep(comment, o.comment, true);
       }
 
       @Override
@@ -670,16 +611,14 @@ public class Slot extends DomainResource {
           return false;
         Slot o = (Slot) other;
         return compareValues(freeBusyType, o.freeBusyType, true) && compareValues(start, o.start, true) && compareValues(end, o.end, true)
-           && compareValues(overbooked, o.overbooked, true) && compareValues(comment, o.comment, true) && compareValues(lastModified, o.lastModified, true)
-          ;
+           && compareValues(overbooked, o.overbooked, true) && compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
            && (schedule == null || schedule.isEmpty()) && (freeBusyType == null || freeBusyType.isEmpty())
            && (start == null || start.isEmpty()) && (end == null || end.isEmpty()) && (overbooked == null || overbooked.isEmpty())
-           && (comment == null || comment.isEmpty()) && (lastModified == null || lastModified.isEmpty())
-          ;
+           && (comment == null || comment.isEmpty());
       }
 
   @Override

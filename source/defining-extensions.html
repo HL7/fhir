@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle Extensibility%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+<div class="col-9">
+
+<%extheader defining%>
+
+<a name="root"> </a>
+<h2>Defining Extensions</h2>
+
+<p>
+All extensions used in resources require a formal published definition which can be used
+by application developers, or the applications themselves, to help integrate extensions
+into the healthcare process they support. 
+</p>
+<p>
+Every extension in a resource refers directly to its definition, which is made available
+as a <a href="structuredefinition.html">StructureDefinition</a>. A resource can 
+be <a href="profiling.html">profiled</a> to specify where particular extensions are used. 
+</p>
+<p>
+Whenever resources containing extensions are exchanged, the definitions of the extensions 
+SHALL be available to all the parties that share the resources. Each extension contains a 
+URI that references the source of the definitions as a Resource Profile. The source SHOULD 
+be a literal reference, such as an http: url that refers to an end-point that responds with 
+the contents of the definitions - preferably a <a href="http.html">FHIR RESTful server</a>
+supporting the Resources Profile, or a logical reference (e.g. using a urn:) - for instance, 
+to a national published standard.
+Extensions may be defined by any project or jurisdiction, up to and including international standards organizations such as HL7 itself. 
+</p>
+<p>
+Before defining a new extension, attempt to reuse existing extensions defined in one of the <a href="#registration">shared registries described below</a>.
+</p>
+
+<h3>Context</h3>
+<p>
+Extensions are always defined against some particular context - the type of element 
+that they may be used to extend. The following are possible contexts for an extension:
+</p>
+<table class="codes">
+ <tr><th>Context type</th><th>Context format</th><th>Examples</th></tr>
+ <tr><td>A particular element (including the root) in a single resource</td><td>The element path for that element<br/>Note: If the context is an element that can have multiple types, then use (e.g.) value[x] if the extension works on all choice types, or otherwise an enumeration of explicitly named elements if not</td><td>Profile.resource.element; Person</td></tr>
+ <tr><td>A particular element (including the root) in a particular data type</td><td>The data type name for primitive types or the element path for complex data types</td><td>Address.part.value; string</td></tr>
+ <tr><td>A particular context in one of the mapped reference models</td><td>The name of the reference model followed by the mapping path</td><td>RIM: Act[moodCode="EVN"]</td></tr>
+ <tr><td>Another extension</td><td>The profile uri of the extension followed by the extension code</td><td>http://myextensions.org#someExtension</td></tr>
+ <tr><td>A set of some combination of the above</td><td>specify multiple useContext elements - one for each context</td><td>Address; Contact</td></tr>
+</table>
+<p>
+In addition, an extension definition might apply additional constraints with
+regards to particular element values of the target that make its use appropriate.
+Extensions SHALL only be used on a target for which they are defined.
+</p>
+
+<a name="registration"> </a>
+<h3>Publishing Extension Definitions</h3>
+<p>
+As well as defining the base element structure for resources, HL7 also publishes extensions, including as <a href="extensibility-registry">part of this specification</a>. 
+HL7 publishes such data definitions as extensions rather than as part of the base resource structure 
+in order to keep the base resource structure simple and concise, and to allow implementers not to 
+engage with an entire world's worth of functionality up front. Note that HL7 does not generally define 
+"modifier" extensions - if HL7 publishes an element that modifies the meaning of other elements, it 
+will mostly be part of the resource content itself, since everyone has to understand the extension anyway.
+</p>
+<p>
+Before extensions can be used in instances, their definition SHALL be published. 
+HL7 maintains two extension registries:
+</p>
+<ol>
+ <li>HL7 approved extensions, approved by an appropriate part of the HL7 community following a review process, and with have formal standing</li> 
+ <li>Provided as a service to the community, where anyone can register an extension</li>
+</ol>
+<p>
+Users are encouraged to register their extensions in the second registry, though this is not required. 
+All that is required is that the extension is published in a context that is available for users 
+of the extension. So, for example, if a particular
+extension is only used within a single institution, the definition of the extension
+can be placed on the institution's intranet. However since, by their nature, resources
+tend to travel well, it's always better to use the HL7 or other publicly accessible extension registries.
+</p>
+<p>
+HL7 extension definition registries. 
+</p>
+<table class="codes">
+ <tr><th>Registry</th><th>Search</th><th>Submit</th></tr>
+ <tr><td>HL7 Approved</td><td>[TBD]</td><td>[TBD]</td></tr>
+ <tr><td>Community</td><td>[TBD]</td><td>[TBD]</td></tr>
+ <tr><td>Interim</td><td><a href="http://fhir-dev.healthintersections.com.au/open/StructureDefinition/_search">http://fhir-dev.healthintersections.com.au/open/StructureDefinition/_search</a></td>
+ <td><a href="http://fhir-dev.healthintersections.com.au/open/StructureDefinition/upload">http://fhir-dev.healthintersections.com.au/open/StructureDefinition/upload</a></td></tr>
+</table>
+<p>
+HL7 extension definitions may be balloted alongside resource content as part of the FHIR specification or may
+be published as part of separate specifications.
+When HL7 publishes extension definitions as part of the FHIR specification, these extensions SHALL
+be used for this data whenever the data is represented in instances. Applications SHOULD use other
+HL7-defined extensions published to represent equivalent data in the interest of maximum interoperability.
+</p>
+<p>
+To minimize complexity for implementers, HL7 will not elevate content defined in an HL7-approved extension to
+be content defined in a core resource in future versions of the resource once that resource is normative.
+</p>
+<p>
+In some cases, an HL7 work group or other body may publish a profile whose sole
+purpose is to define extensions expected to be needed by implementers in a particular context.  E.g. extensions needed
+to map a particular set of v2 segments or a v3 model.
+</p>
+<p>
+Implementations are encouraged to share their extensions with HL7 and register them with the HL7 extension registry. The domain committees will work
+to elevate the extensions into HL7 published extensions or, if adopted by a broad enough portion of the implementer community, the into the base resource structure itself.
+</p>
+<!-- Todo: point to actual registry once it's up and running -->
+<p>To avoid interoperability issues, extensions SHALL NOT change their definition once published.  (Small clarifications to descriptions
+that do not affect interoperability are permitted.)  Rather than modifying an existing extension, a new extension should be introduced.
+Revisions to an extension may extend the set of contexts in which the extension apply but may not remove or constrain any context previously listed</p>
+<!-- Todo: Figure out how to manage "deprecating" extensions and pointing at their new versions -->
+
+</div>
+[%file newfooter%]
+
+</body>
+</html>

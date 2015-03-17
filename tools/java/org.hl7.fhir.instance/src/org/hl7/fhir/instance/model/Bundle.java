@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * A container for a group of resources.
+ * A container for a collection of resources.
  */
 @ResourceDef(name="Bundle", profile="http://hl7.org/fhir/Profile/Bundle")
 public class Bundle extends Resource {
@@ -529,34 +529,41 @@ public class Bundle extends Resource {
         protected UriType base;
 
         /**
+         * A series of links that provide context to this entry.
+         */
+        @Child(name="link", type={BundleLinkComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Links related to this entry", formalDefinition="A series of links that provide context to this entry." )
+        protected List<BundleLinkComponent> link;
+
+        /**
          * The Resources for the entry.
          */
-        @Child(name="resource", type={Resource.class}, order=2, min=0, max=1)
+        @Child(name="resource", type={Resource.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Resources in this bundle", formalDefinition="The Resources for the entry." )
         protected Resource resource;
 
         /**
          * Information about the search process that lead to the creation of this entry.
          */
-        @Child(name="search", type={}, order=3, min=0, max=1)
+        @Child(name="search", type={}, order=4, min=0, max=1)
         @Description(shortDefinition="Search related information", formalDefinition="Information about the search process that lead to the creation of this entry." )
         protected BundleEntrySearchComponent search;
 
         /**
          * Additional information about how this entry should be processed as part of a transaction.
          */
-        @Child(name="transaction", type={}, order=4, min=0, max=1)
+        @Child(name="transaction", type={}, order=5, min=0, max=1)
         @Description(shortDefinition="Transaction Related Information", formalDefinition="Additional information about how this entry should be processed as part of a transaction." )
         protected BundleEntryTransactionComponent transaction;
 
         /**
          * Additional information about how this entry should be processed as part of a transaction.
          */
-        @Child(name="transactionResponse", type={}, order=5, min=0, max=1)
+        @Child(name="transactionResponse", type={}, order=6, min=0, max=1)
         @Description(shortDefinition="Transaction Related Information", formalDefinition="Additional information about how this entry should be processed as part of a transaction." )
         protected BundleEntryTransactionResponseComponent transactionResponse;
 
-        private static final long serialVersionUID = 2068509254L;
+        private static final long serialVersionUID = -1846898377L;
 
       public BundleEntryComponent() {
         super();
@@ -608,6 +615,46 @@ public class Bundle extends Resource {
               this.base = new UriType();
             this.base.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @return {@link #link} (A series of links that provide context to this entry.)
+         */
+        public List<BundleLinkComponent> getLink() { 
+          if (this.link == null)
+            this.link = new ArrayList<BundleLinkComponent>();
+          return this.link;
+        }
+
+        public boolean hasLink() { 
+          if (this.link == null)
+            return false;
+          for (BundleLinkComponent item : this.link)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #link} (A series of links that provide context to this entry.)
+         */
+    // syntactic sugar
+        public BundleLinkComponent addLink() { //3
+          BundleLinkComponent t = new BundleLinkComponent();
+          if (this.link == null)
+            this.link = new ArrayList<BundleLinkComponent>();
+          this.link.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public BundleEntryComponent addLink(BundleLinkComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.link == null)
+            this.link = new ArrayList<BundleLinkComponent>();
+          this.link.add(t);
           return this;
         }
 
@@ -705,6 +752,7 @@ public class Bundle extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("base", "uri", "The Base URL for the resource, if different to the base URL specified for the bundle as a whole.", 0, java.lang.Integer.MAX_VALUE, base));
+          childrenList.add(new Property("link", "@Bundle.link", "A series of links that provide context to this entry.", 0, java.lang.Integer.MAX_VALUE, link));
           childrenList.add(new Property("resource", "Resource", "The Resources for the entry.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("search", "", "Information about the search process that lead to the creation of this entry.", 0, java.lang.Integer.MAX_VALUE, search));
           childrenList.add(new Property("transaction", "", "Additional information about how this entry should be processed as part of a transaction.", 0, java.lang.Integer.MAX_VALUE, transaction));
@@ -715,6 +763,11 @@ public class Bundle extends Resource {
         BundleEntryComponent dst = new BundleEntryComponent();
         copyValues(dst);
         dst.base = base == null ? null : base.copy();
+        if (link != null) {
+          dst.link = new ArrayList<BundleLinkComponent>();
+          for (BundleLinkComponent i : link)
+            dst.link.add(i.copy());
+        };
         dst.resource = resource == null ? null : resource.copy();
         dst.search = search == null ? null : search.copy();
         dst.transaction = transaction == null ? null : transaction.copy();
@@ -729,8 +782,8 @@ public class Bundle extends Resource {
         if (!(other instanceof BundleEntryComponent))
           return false;
         BundleEntryComponent o = (BundleEntryComponent) other;
-        return compareDeep(base, o.base, true) && compareDeep(resource, o.resource, true) && compareDeep(search, o.search, true)
-           && compareDeep(transaction, o.transaction, true) && compareDeep(transactionResponse, o.transactionResponse, true)
+        return compareDeep(base, o.base, true) && compareDeep(link, o.link, true) && compareDeep(resource, o.resource, true)
+           && compareDeep(search, o.search, true) && compareDeep(transaction, o.transaction, true) && compareDeep(transactionResponse, o.transactionResponse, true)
           ;
       }
 
@@ -745,8 +798,8 @@ public class Bundle extends Resource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (base == null || base.isEmpty()) && (resource == null || resource.isEmpty())
-           && (search == null || search.isEmpty()) && (transaction == null || transaction.isEmpty())
+        return super.isEmpty() && (base == null || base.isEmpty()) && (link == null || link.isEmpty())
+           && (resource == null || resource.isEmpty()) && (search == null || search.isEmpty()) && (transaction == null || transaction.isEmpty())
            && (transactionResponse == null || transactionResponse.isEmpty());
       }
 

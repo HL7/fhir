@@ -177,7 +177,7 @@ public class LoincToDEConvertor {
 				// CHNG_TYPE	
 				dee.setComments(col(row , "COMMENTS"));
 				if (hasCol(row, "CONSUMER_NAME"))
-					dee.addSynonym(col(row, "CONSUMER_NAME"));	
+					dee.addAlias(col(row, "CONSUMER_NAME"));	
 				// MOLAR_MASS	
 				// CLASSTYPE	
 				// FORMULA	
@@ -193,10 +193,10 @@ public class LoincToDEConvertor {
 	        String n = col(row, "RELATEDNAMES2");
 	        for (String s : n.split("\\;")) {
 						if (!Utilities.noString(s))
-							dee.addSynonym(s);	
+							dee.addAlias(s);	
 	        }
 				}
-				dee.addSynonym(col(row, "SHORTNAME"));	
+				dee.addAlias(col(row, "SHORTNAME"));	
 				// ORDER_OBS	
 				// CDISC Code	
 				// HL7_FIELD_SUBFIELD_ID	

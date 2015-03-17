@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1532,7 +1532,7 @@ public class MessageHeader extends DomainResource {
     return ResourceType.MessageHeader;
    }
 
-  @SearchParamDefinition(name="destination-uri", path="MessageHeader.destination.endpoint", description="Actual destination address or id", type="token" )
+  @SearchParamDefinition(name="destination-uri", path="MessageHeader.destination.endpoint", description="Actual destination address or id", type="uri" )
   public static final String SP_DESTINATIONURI = "destination-uri";
   @SearchParamDefinition(name="receiver", path="MessageHeader.receiver", description="Intended 'real-world' recipient for the data", type="reference" )
   public static final String SP_RECEIVER = "receiver";
@@ -1552,7 +1552,7 @@ public class MessageHeader extends DomainResource {
   public static final String SP_TIMESTAMP = "timestamp";
   @SearchParamDefinition(name="author", path="MessageHeader.author", description="The source of the decision", type="reference" )
   public static final String SP_AUTHOR = "author";
-  @SearchParamDefinition(name="source-uri", path="MessageHeader.source.endpoint", description="Actual message source address or id", type="token" )
+  @SearchParamDefinition(name="source-uri", path="MessageHeader.source.endpoint", description="Actual message source address or id", type="uri" )
   public static final String SP_SOURCEURI = "source-uri";
   @SearchParamDefinition(name="source", path="MessageHeader.source.name", description="Name of system", type="string" )
   public static final String SP_SOURCE = "source";

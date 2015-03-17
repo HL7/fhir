@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -359,10 +359,10 @@ public class SearchParameter extends DomainResource {
   }
 
     /**
-     * The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
+     * An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
      */
     @Child(name="url", type={UriType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="Literal URL used to reference this search parameter", formalDefinition="The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements." )
+    @Description(shortDefinition="Literal URL used to reference this search parameter", formalDefinition="An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements." )
     protected UriType url;
 
     /**
@@ -465,7 +465,7 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -485,7 +485,7 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public SearchParameter setUrlElement(UriType value) { 
       this.url = value;
@@ -493,14 +493,14 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
-     * @return The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
+     * @return An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
+     * @param value An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
      */
     public SearchParameter setUrl(String value) { 
         if (this.url == null)
@@ -1075,7 +1075,7 @@ public class SearchParameter extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the search parameter.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -1173,7 +1173,7 @@ public class SearchParameter extends DomainResource {
   public static final String SP_BASE = "base";
   @SearchParamDefinition(name="type", path="SearchParameter.type", description="number | date | string | token | reference | composite | quantity | uri", type="token" )
   public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="url", path="SearchParameter.url", description="Literal URL used to reference this search parameter", type="token" )
+  @SearchParamDefinition(name="url", path="SearchParameter.url", description="Literal URL used to reference this search parameter", type="uri" )
   public static final String SP_URL = "url";
 
 }

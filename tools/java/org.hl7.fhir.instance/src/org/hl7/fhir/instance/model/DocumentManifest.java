@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -131,6 +131,137 @@ public class DocumentManifest extends DomainResource {
       }
     }
 
+    @Block()
+    public static class DocumentManifestRelatedComponent extends BackboneElement {
+        /**
+         * Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
+         */
+        @Child(name="ids", type={Identifier.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Related Identifier", formalDefinition="Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing." )
+        protected Identifier ids;
+
+        /**
+         * Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
+         */
+        @Child(name="refs", type={}, order=2, min=0, max=1)
+        @Description(shortDefinition="Related Resource", formalDefinition="Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing." )
+        protected Reference refs;
+
+        /**
+         * The actual object that is the target of the reference (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         */
+        protected Resource refsTarget;
+
+        private static final long serialVersionUID = -579833869L;
+
+      public DocumentManifestRelatedComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #ids} (Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         */
+        public Identifier getIds() { 
+          if (this.ids == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DocumentManifestRelatedComponent.ids");
+            else if (Configuration.doAutoCreate())
+              this.ids = new Identifier(); // cc
+          return this.ids;
+        }
+
+        public boolean hasIds() { 
+          return this.ids != null && !this.ids.isEmpty();
+        }
+
+        /**
+         * @param value {@link #ids} (Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         */
+        public DocumentManifestRelatedComponent setIds(Identifier value) { 
+          this.ids = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #refs} (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         */
+        public Reference getRefs() { 
+          if (this.refs == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DocumentManifestRelatedComponent.refs");
+            else if (Configuration.doAutoCreate())
+              this.refs = new Reference(); // cc
+          return this.refs;
+        }
+
+        public boolean hasRefs() { 
+          return this.refs != null && !this.refs.isEmpty();
+        }
+
+        /**
+         * @param value {@link #refs} (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         */
+        public DocumentManifestRelatedComponent setRefs(Reference value) { 
+          this.refs = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #refs} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         */
+        public Resource getRefsTarget() { 
+          return this.refsTarget;
+        }
+
+        /**
+         * @param value {@link #refs} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         */
+        public DocumentManifestRelatedComponent setRefsTarget(Resource value) { 
+          this.refsTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("ids", "Identifier", "Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, ids));
+          childrenList.add(new Property("refs", "Reference(Any)", "Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, refs));
+        }
+
+      public DocumentManifestRelatedComponent copy() {
+        DocumentManifestRelatedComponent dst = new DocumentManifestRelatedComponent();
+        copyValues(dst);
+        dst.ids = ids == null ? null : ids.copy();
+        dst.refs = refs == null ? null : refs.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DocumentManifestRelatedComponent))
+          return false;
+        DocumentManifestRelatedComponent o = (DocumentManifestRelatedComponent) other;
+        return compareDeep(ids, o.ids, true) && compareDeep(refs, o.refs, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DocumentManifestRelatedComponent))
+          return false;
+        DocumentManifestRelatedComponent o = (DocumentManifestRelatedComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (ids == null || ids.isEmpty()) && (refs == null || refs.isEmpty())
+          ;
+      }
+
+  }
+
     /**
      * A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.
      */
@@ -139,10 +270,10 @@ public class DocumentManifest extends DomainResource {
     protected Identifier masterIdentifier;
 
     /**
-     * Other identifiers associated with the document, including version independent, source record and workflow related identifiers.
+     * Other identifiers associated with the document manifest, including version independent  identifiers.
      */
     @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Other identifiers for the manifest", formalDefinition="Other identifiers associated with the document, including version independent, source record and workflow related identifiers." )
+    @Description(shortDefinition="Other identifiers for the manifest", formalDefinition="Other identifiers associated with the document manifest, including version independent  identifiers." )
     protected List<Identifier> identifier;
 
     /**
@@ -228,7 +359,14 @@ public class DocumentManifest extends DomainResource {
     protected List<Resource> contentTarget;
 
 
-    private static final long serialVersionUID = 1915506749L;
+    /**
+     * Related identifiers or resources associated with the DocumentManifest.
+     */
+    @Child(name="related", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Related things", formalDefinition="Related identifiers or resources associated with the DocumentManifest." )
+    protected List<DocumentManifestRelatedComponent> related;
+
+    private static final long serialVersionUID = -1530351014L;
 
     public DocumentManifest() {
       super();
@@ -264,7 +402,7 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
+     * @return {@link #identifier} (Other identifiers associated with the document manifest, including version independent  identifiers.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -282,7 +420,7 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
+     * @return {@link #identifier} (Other identifiers associated with the document manifest, including version independent  identifiers.)
      */
     // syntactic sugar
     public Identifier addIdentifier() { //3
@@ -705,10 +843,50 @@ public class DocumentManifest extends DomainResource {
       return this.contentTarget;
     }
 
+    /**
+     * @return {@link #related} (Related identifiers or resources associated with the DocumentManifest.)
+     */
+    public List<DocumentManifestRelatedComponent> getRelated() { 
+      if (this.related == null)
+        this.related = new ArrayList<DocumentManifestRelatedComponent>();
+      return this.related;
+    }
+
+    public boolean hasRelated() { 
+      if (this.related == null)
+        return false;
+      for (DocumentManifestRelatedComponent item : this.related)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #related} (Related identifiers or resources associated with the DocumentManifest.)
+     */
+    // syntactic sugar
+    public DocumentManifestRelatedComponent addRelated() { //3
+      DocumentManifestRelatedComponent t = new DocumentManifestRelatedComponent();
+      if (this.related == null)
+        this.related = new ArrayList<DocumentManifestRelatedComponent>();
+      this.related.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public DocumentManifest addRelated(DocumentManifestRelatedComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.related == null)
+        this.related = new ArrayList<DocumentManifestRelatedComponent>();
+      this.related.add(t);
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("masterIdentifier", "Identifier", "A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));
-        childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document, including version independent, source record and workflow related identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document manifest, including version independent  identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device)", "Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("recipient", "Reference(Patient|Practitioner|Organization)", "A patient, practitioner, or organization for which this set of documents is intended.", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("type", "CodeableConcept", "Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -718,6 +896,7 @@ public class DocumentManifest extends DomainResource {
         childrenList.add(new Property("status", "code", "The status of this document manifest.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the 'title'.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("content", "Reference(DocumentReference|Binary|Media)", "The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.", 0, java.lang.Integer.MAX_VALUE, content));
+        childrenList.add(new Property("related", "", "Related identifiers or resources associated with the DocumentManifest.", 0, java.lang.Integer.MAX_VALUE, related));
       }
 
       public DocumentManifest copy() {
@@ -750,6 +929,11 @@ public class DocumentManifest extends DomainResource {
           for (Reference i : content)
             dst.content.add(i.copy());
         };
+        if (related != null) {
+          dst.related = new ArrayList<DocumentManifestRelatedComponent>();
+          for (DocumentManifestRelatedComponent i : related)
+            dst.related.add(i.copy());
+        };
         return dst;
       }
 
@@ -768,7 +952,7 @@ public class DocumentManifest extends DomainResource {
            && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true) && compareDeep(type, o.type, true)
            && compareDeep(author, o.author, true) && compareDeep(created, o.created, true) && compareDeep(source, o.source, true)
            && compareDeep(status, o.status, true) && compareDeep(description, o.description, true) && compareDeep(content, o.content, true)
-          ;
+           && compareDeep(related, o.related, true);
       }
 
       @Override
@@ -787,7 +971,7 @@ public class DocumentManifest extends DomainResource {
            && (subject == null || subject.isEmpty()) && (recipient == null || recipient.isEmpty()) && (type == null || type.isEmpty())
            && (author == null || author.isEmpty()) && (created == null || created.isEmpty()) && (source == null || source.isEmpty())
            && (status == null || status.isEmpty()) && (description == null || description.isEmpty())
-           && (content == null || content.isEmpty());
+           && (content == null || content.isEmpty()) && (related == null || related.isEmpty());
       }
 
   @Override
@@ -795,28 +979,32 @@ public class DocumentManifest extends DomainResource {
     return ResourceType.DocumentManifest;
    }
 
+  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="relatedids", path="DocumentManifest.related.ids", description="Related Identifier", type="token" )
+  public static final String SP_RELATEDIDS = "relatedids";
+  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
+  public static final String SP_RECIPIENT = "recipient";
   @SearchParamDefinition(name="content", path="DocumentManifest.content", description="Contents of this set of documents", type="reference" )
   public static final String SP_CONTENT = "content";
   @SearchParamDefinition(name="author", path="DocumentManifest.author", description="Who and/or what authored the document", type="reference" )
   public static final String SP_AUTHOR = "author";
   @SearchParamDefinition(name="patient", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="source", path="DocumentManifest.source", description="The source system/application/software", type="string" )
+  @SearchParamDefinition(name="source", path="DocumentManifest.source", description="The source system/application/software", type="uri" )
   public static final String SP_SOURCE = "source";
-  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="created", path="DocumentManifest.created", description="When this document manifest created", type="date" )
   public static final String SP_CREATED = "created";
   @SearchParamDefinition(name="description", path="DocumentManifest.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
-  @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
-  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier|DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
-  public static final String SP_RECIPIENT = "recipient";
+  @SearchParamDefinition(name="relatedrefs", path="DocumentManifest.related.refs", description="Related Resource", type="reference" )
+  public static final String SP_RELATEDREFS = "relatedrefs";
 
 }
 

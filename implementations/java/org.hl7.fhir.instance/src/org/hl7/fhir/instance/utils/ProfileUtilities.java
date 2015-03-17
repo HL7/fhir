@@ -16,6 +16,7 @@ import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -571,6 +572,15 @@ public class ProfileUtilities {
     ElementDefinition derived = source;
     
     if (derived != null) {
+      // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff
+      if (base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension")) {
+        base.setDefinition("An Extension");
+        base.setShort("Extension");
+        base.setCommentsElement(null);
+        base.setRequirementsElement(null);
+        base.getAlias().clear();
+        base.getMapping().clear();
+      }
       if (derived.hasShortElement()) { 
         if (!Base.compareDeep(derived.getShortElement(), base.getShortElement(), false))
           base.setShortElement(derived.getShortElement().copy());
@@ -613,16 +623,16 @@ public class ProfileUtilities {
           derived.getRequirementsElement().setUserData(DERIVATION_EQUALS, true);
       }
       
-      if (derived.hasSynonym()) {
-        if (!Base.compareDeep(derived.getSynonym(), base.getSynonym(), false))
-          for (StringType s : derived.getSynonym()) {
-            if (!base.hasSynonym(s.getValue()))
-              base.getSynonym().add(s.copy());
+      if (derived.hasAlias()) {
+        if (!Base.compareDeep(derived.getAlias(), base.getAlias(), false))
+          for (StringType s : derived.getAlias()) {
+            if (!base.hasAlias(s.getValue()))
+              base.getAlias().add(s.copy());
           }
         else if (trimDifferential)
-          derived.getSynonym().clear();
+          derived.getAlias().clear();
         else  
-          for (StringType t : derived.getSynonym())
+          for (StringType t : derived.getAlias())
             t.setUserData(DERIVATION_EQUALS, true);
       }
       
@@ -696,9 +706,11 @@ public class ProfileUtilities {
       
       // profiles cannot change : isModifier, defaultValue, meaningWhenMissing
       if (derived.hasBinding()) {
-        if (!Base.compareDeep(derived.getBinding(), base.getBinding(), false))
+        if (!Base.compareDeep(derived.getBinding(), base.getBinding(), false)) {
+          if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && base.getBinding().getStrength() != BindingStrength.REQUIRED)
+            throw new Exception("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+base.getBinding().getStrength().toCode());
           base.setBinding(derived.getBinding().copy());
-        else if (trimDifferential)
+        } else if (trimDifferential)
           derived.setBinding(null);
         else
           derived.getBinding().setUserData(DERIVATION_EQUALS, true);
@@ -838,11 +850,11 @@ public class ProfileUtilities {
 //    
 //  }
 
-  private void genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementDefinition e, String profileBaseFileName, StructureDefinition profile) throws Exception {
+  private Cell genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementDefinition e, String profileBaseFileName, StructureDefinition profile) throws Exception {
     Cell c = gen.new Cell();
     r.getCells().add(c);
     if (!e.hasType())
-      return;
+      return c;
     
     boolean first = true;
     Element source = e.getType().get(0); // either all types are the same, or we don't consider any of them the same
@@ -873,9 +885,10 @@ public class ProfileUtilities {
       } else
         c.addPiece(checkForNoChange(source, gen.new Piece(null, t.getCode(), null)));
     }
+    return c;
   }
   
-  private String describeExtensionContext(StructureDefinition ext) {
+  public static String describeExtensionContext(StructureDefinition ext) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (StringType t : ext.getContext())
       b.append(t.getValue());
@@ -989,7 +1002,7 @@ public class ProfileUtilities {
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
     if (element != null && element.getIsModifier())
-      checkForNoChange(element.getIsModifierElement(), gc.addImage("modifier.png", "This element is a modifier element", "M"));
+        checkForNoChange(element.getIsModifierElement(), gc.addImage("modifier.png", "This element is a modifier element", "?!"));
     if (element != null && element.getMustSupport()) 
       checkForNoChange(element.getMustSupportElement(), gc.addImage("mustsupport.png", "This element must be supported", "S"));
     if (element != null && element.getIsSummary()) 
@@ -1011,7 +1024,12 @@ public class ProfileUtilities {
             // left.getPieces().get(0).setReference((String) extDefn.getExtensionStructure().getTag("filename"));
             left.getPieces().get(0).setHint("Extension URL = "+element.getType().get(0).getProfile());
             genCardinality(gen, element, row, hasDef, used, extDefn.getSnapshot().getElement().get(0));
-            genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
+            ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
+            if (valueDefn != null)
+               genTypes(gen, pkp, row, valueDefn, profileBaseFileName, profile);
+             else // if it's complex, we just call it nothing
+                // genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
+              row.getCells().add(gen.new Cell());
             generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, null, pkp, profile);
         }
       } else {
@@ -1069,6 +1087,14 @@ public class ProfileUtilities {
     else
       return path;
 
+  }
+
+  private ElementDefinition getExtensionValueDefinition(StructureDefinition extDefn) {
+    for (ElementDefinition ed : extDefn.getSnapshot().getElement()) {
+      if (ed.getPath().startsWith("Extension.value"))
+        return ed;
+    }
+    return null;
   }
 
 
@@ -1187,7 +1213,7 @@ public class ProfileUtilities {
 
   private boolean onlyInformationIsMapping(ElementDefinition d) {
     return !d.hasShort() && !d.hasDefinition() && 
-        !d.hasRequirements() && !d.getSynonym().isEmpty() && !d.hasMinElement() &&
+        !d.hasRequirements() && !d.getAlias().isEmpty() && !d.hasMinElement() &&
         !d.hasMax() && !d.getType().isEmpty() && !d.hasNameReference() && 
         !d.hasExample() && !d.hasFixed() && !d.hasMaxLengthElement() &&
         !d.getCondition().isEmpty() && !d.getConstraint().isEmpty() && !d.hasMustSupportElement() &&

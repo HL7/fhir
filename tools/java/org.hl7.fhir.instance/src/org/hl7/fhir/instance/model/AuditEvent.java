@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -3425,7 +3425,7 @@ public class AuditEvent extends DomainResource {
   public static final String SP_ACTION = "action";
   @SearchParamDefinition(name="participant", path="AuditEvent.participant.reference", description="Direct reference to resource", type="reference" )
   public static final String SP_PARTICIPANT = "participant";
-  @SearchParamDefinition(name="policy", path="AuditEvent.participant.policy", description="Policy that authorized event", type="token" )
+  @SearchParamDefinition(name="policy", path="AuditEvent.participant.policy", description="Policy that authorized event", type="uri" )
   public static final String SP_POLICY = "policy";
   @SearchParamDefinition(name="object-type", path="AuditEvent.object.type", description="Object type being audited", type="token" )
   public static final String SP_OBJECTTYPE = "object-type";

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -708,9 +708,9 @@ public class Condition extends DomainResource {
         /**
          * Code that identifies the target of this relationship. The code takes the place of a detailed instance target.
          */
-        @Child(name="codeableConcept", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name="code", type={CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Relationship target by means of a predefined code", formalDefinition="Code that identifies the target of this relationship. The code takes the place of a detailed instance target." )
-        protected CodeableConcept codeableConcept;
+        protected CodeableConcept code;
 
         /**
          * Target of the relationship.
@@ -724,33 +724,33 @@ public class Condition extends DomainResource {
          */
         protected Resource targetTarget;
 
-        private static final long serialVersionUID = -864422450L;
+        private static final long serialVersionUID = -660755940L;
 
       public ConditionOccurredFollowingComponent() {
         super();
       }
 
         /**
-         * @return {@link #codeableConcept} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
+         * @return {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
          */
-        public CodeableConcept getCodeableConcept() { 
-          if (this.codeableConcept == null)
+        public CodeableConcept getCode() { 
+          if (this.code == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConditionOccurredFollowingComponent.codeableConcept");
+              throw new Error("Attempt to auto-create ConditionOccurredFollowingComponent.code");
             else if (Configuration.doAutoCreate())
-              this.codeableConcept = new CodeableConcept(); // cc
-          return this.codeableConcept;
+              this.code = new CodeableConcept(); // cc
+          return this.code;
         }
 
-        public boolean hasCodeableConcept() { 
-          return this.codeableConcept != null && !this.codeableConcept.isEmpty();
+        public boolean hasCode() { 
+          return this.code != null && !this.code.isEmpty();
         }
 
         /**
-         * @param value {@link #codeableConcept} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
+         * @param value {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
          */
-        public ConditionOccurredFollowingComponent setCodeableConcept(CodeableConcept value) { 
-          this.codeableConcept = value;
+        public ConditionOccurredFollowingComponent setCode(CodeableConcept value) { 
+          this.code = value;
           return this;
         }
 
@@ -795,14 +795,14 @@ public class Condition extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("codeableConcept", "CodeableConcept", "Code that identifies the target of this relationship. The code takes the place of a detailed instance target.", 0, java.lang.Integer.MAX_VALUE, codeableConcept));
+          childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the target of this relationship. The code takes the place of a detailed instance target.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("target", "Reference(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)", "Target of the relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public ConditionOccurredFollowingComponent copy() {
         ConditionOccurredFollowingComponent dst = new ConditionOccurredFollowingComponent();
         copyValues(dst);
-        dst.codeableConcept = codeableConcept == null ? null : codeableConcept.copy();
+        dst.code = code == null ? null : code.copy();
         dst.target = target == null ? null : target.copy();
         return dst;
       }
@@ -814,8 +814,7 @@ public class Condition extends DomainResource {
         if (!(other instanceof ConditionOccurredFollowingComponent))
           return false;
         ConditionOccurredFollowingComponent o = (ConditionOccurredFollowingComponent) other;
-        return compareDeep(codeableConcept, o.codeableConcept, true) && compareDeep(target, o.target, true)
-          ;
+        return compareDeep(code, o.code, true) && compareDeep(target, o.target, true);
       }
 
       @Override
@@ -829,7 +828,7 @@ public class Condition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (codeableConcept == null || codeableConcept.isEmpty()) && (target == null || target.isEmpty())
+        return super.isEmpty() && (code == null || code.isEmpty()) && (target == null || target.isEmpty())
           ;
       }
 
@@ -1777,7 +1776,7 @@ public class Condition extends DomainResource {
 
   @SearchParamDefinition(name="asserter", path="Condition.asserter", description="Person who asserts this condition", type="reference" )
   public static final String SP_ASSERTER = "asserter";
-  @SearchParamDefinition(name="following-code", path="Condition.occurredFollowing.codeableConcept", description="Relationship target by means of a predefined code", type="token" )
+  @SearchParamDefinition(name="following-code", path="Condition.occurredFollowing.code", description="Relationship target by means of a predefined code", type="token" )
   public static final String SP_FOLLOWINGCODE = "following-code";
   @SearchParamDefinition(name="dueto-code", path="Condition.dueTo.codeableConcept", description="Relationship target by means of a predefined code", type="token" )
   public static final String SP_DUETOCODE = "dueto-code";

@@ -61,7 +61,7 @@ public class TableGenerator extends BaseGenerator {
         row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
         row.getCells().add(gen.new Cell(null, "element.html", "Element", null, null));   
       } else if (e.getTypes().size() == 1) {
-        row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null)); 
+        row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         String t = e.getTypes().get(0).getName();
         Cell c;
         if (t.startsWith("@")) {

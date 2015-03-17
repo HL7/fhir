@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -412,10 +412,10 @@ public class StructureDefinition extends DomainResource {
         protected IdType identity;
 
         /**
-         * A URI that identifies the specification that this mapping is expressed to.
+         * An absolute URI that identifies the specification that this mapping is expressed to.
          */
         @Child(name="uri", type={UriType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Identifies what this mapping refers to", formalDefinition="A URI that identifies the specification that this mapping is expressed to." )
+        @Description(shortDefinition="Identifies what this mapping refers to", formalDefinition="An absolute URI that identifies the specification that this mapping is expressed to." )
         protected UriType uri;
 
         /**
@@ -489,7 +489,7 @@ public class StructureDefinition extends DomainResource {
         }
 
         /**
-         * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
+         * @return {@link #uri} (An absolute URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
         public UriType getUriElement() { 
           if (this.uri == null)
@@ -509,7 +509,7 @@ public class StructureDefinition extends DomainResource {
         }
 
         /**
-         * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
+         * @param value {@link #uri} (An absolute URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
         public StructureDefinitionMappingComponent setUriElement(UriType value) { 
           this.uri = value;
@@ -517,14 +517,14 @@ public class StructureDefinition extends DomainResource {
         }
 
         /**
-         * @return A URI that identifies the specification that this mapping is expressed to.
+         * @return An absolute URI that identifies the specification that this mapping is expressed to.
          */
         public String getUri() { 
           return this.uri == null ? null : this.uri.getValue();
         }
 
         /**
-         * @param value A URI that identifies the specification that this mapping is expressed to.
+         * @param value An absolute URI that identifies the specification that this mapping is expressed to.
          */
         public StructureDefinitionMappingComponent setUri(String value) { 
           if (Utilities.noString(value))
@@ -638,7 +638,7 @@ public class StructureDefinition extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identity", "id", "An Internal id that is used to identify this mapping set when specific mappings are made.", 0, java.lang.Integer.MAX_VALUE, identity));
-          childrenList.add(new Property("uri", "uri", "A URI that identifies the specification that this mapping is expressed to.", 0, java.lang.Integer.MAX_VALUE, uri));
+          childrenList.add(new Property("uri", "uri", "An absolute URI that identifies the specification that this mapping is expressed to.", 0, java.lang.Integer.MAX_VALUE, uri));
           childrenList.add(new Property("name", "string", "A name for the specification that is being mapped to.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("comments", "string", "Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.", 0, java.lang.Integer.MAX_VALUE, comments));
         }
@@ -877,10 +877,10 @@ public class StructureDefinition extends DomainResource {
   }
 
     /**
-     * The URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.
+     * An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.
      */
     @Child(name="url", type={UriType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="Literal URL used to reference this StructureDefinition", formalDefinition="The URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems." )
+    @Description(shortDefinition="Literal URL used to reference this StructureDefinition", formalDefinition="An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems." )
     protected UriType url;
 
     /**
@@ -1024,10 +1024,10 @@ public class StructureDefinition extends DomainResource {
     protected List<StringType> context;
 
     /**
-     * The structure that is the base on which this set of constraints is derived from.
+     * An absolute URI that is the base structure from which this set of constraints is derived.
      */
     @Child(name="base", type={UriType.class}, order=21, min=0, max=1)
-    @Description(shortDefinition="Structure that this set of constraints applies to", formalDefinition="The structure that is the base on which this set of constraints is derived from." )
+    @Description(shortDefinition="Structure that this set of constraints applies to", formalDefinition="An absolute URI that is the base structure from which this set of constraints is derived." )
     protected UriType base;
 
     /**
@@ -1060,7 +1060,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (The URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -1080,7 +1080,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (The URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public StructureDefinition setUrlElement(UriType value) { 
       this.url = value;
@@ -1088,14 +1088,14 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return The URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.
+     * @return An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value The URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.
+     * @param value An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.
      */
     public StructureDefinition setUrl(String value) { 
         if (this.url == null)
@@ -2025,7 +2025,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #base} (The structure that is the base on which this set of constraints is derived from.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+     * @return {@link #base} (An absolute URI that is the base structure from which this set of constraints is derived.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
     public UriType getBaseElement() { 
       if (this.base == null)
@@ -2045,7 +2045,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #base} (The structure that is the base on which this set of constraints is derived from.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+     * @param value {@link #base} (An absolute URI that is the base structure from which this set of constraints is derived.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
     public StructureDefinition setBaseElement(UriType value) { 
       this.base = value;
@@ -2053,14 +2053,14 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return The structure that is the base on which this set of constraints is derived from.
+     * @return An absolute URI that is the base structure from which this set of constraints is derived.
      */
     public String getBase() { 
       return this.base == null ? null : this.base.getValue();
     }
 
     /**
-     * @param value The structure that is the base on which this set of constraints is derived from.
+     * @param value An absolute URI that is the base structure from which this set of constraints is derived.
      */
     public StructureDefinition setBase(String value) { 
       if (Utilities.noString(value))
@@ -2123,7 +2123,7 @@ public class StructureDefinition extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "The URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the StructureDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureDefinition author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the StructureDefinition.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -2144,7 +2144,7 @@ public class StructureDefinition extends DomainResource {
         childrenList.add(new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not.", 0, java.lang.Integer.MAX_VALUE, abstract_));
         childrenList.add(new Property("contextType", "code", "Identifies the type of context to which the extension applies.", 0, java.lang.Integer.MAX_VALUE, contextType));
         childrenList.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is derived from.", 0, java.lang.Integer.MAX_VALUE, base));
+        childrenList.add(new Property("base", "uri", "An absolute URI that is the base structure from which this set of constraints is derived.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, java.lang.Integer.MAX_VALUE, snapshot));
         childrenList.add(new Property("differential", "", "A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.", 0, java.lang.Integer.MAX_VALUE, differential));
       }
@@ -2267,7 +2267,7 @@ public class StructureDefinition extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="type", path="StructureDefinition.type", description="type | resource | constraint | extension", type="token" )
   public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="url", path="StructureDefinition.url", description="Literal URL used to reference this StructureDefinition", type="token" )
+  @SearchParamDefinition(name="url", path="StructureDefinition.url", description="Literal URL used to reference this StructureDefinition", type="uri" )
   public static final String SP_URL = "url";
   @SearchParamDefinition(name="version", path="StructureDefinition.version", description="The version identifier of the profile", type="token" )
   public static final String SP_VERSION = "version";

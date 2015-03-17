@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 public class ResourceFactory extends Factory {
 
@@ -68,14 +68,10 @@ public class ResourceFactory extends Factory {
             return new HealthcareService();
         if ("OrderResponse".equals(name))
             return new OrderResponse();
-        if ("StatusResponse".equals(name))
-            return new StatusResponse();
         if ("ConceptMap".equals(name))
             return new ConceptMap();
         if ("PharmacyClaim".equals(name))
             return new PharmacyClaim();
-        if ("Reversal".equals(name))
-            return new Reversal();
         if ("Practitioner".equals(name))
             return new Practitioner();
         if ("CarePlan".equals(name))
@@ -106,6 +102,8 @@ public class ResourceFactory extends Factory {
             return new BodySite();
         if ("CommunicationRequest".equals(name))
             return new CommunicationRequest();
+        if ("Claim".equals(name))
+            return new Claim();
         if ("RiskAssessment".equals(name))
             return new RiskAssessment();
         if ("ExplanationOfBenefit".equals(name))
@@ -118,6 +116,8 @@ public class ResourceFactory extends Factory {
             return new SupportingDocumentation();
         if ("RelatedPerson".equals(name))
             return new RelatedPerson();
+        if ("ProcessResponse".equals(name))
+            return new ProcessResponse();
         if ("InstitutionalClaim".equals(name))
             return new InstitutionalClaim();
         if ("Alert".equals(name))
@@ -128,8 +128,6 @@ public class ResourceFactory extends Factory {
             return new EligibilityResponse();
         if ("Person".equals(name))
             return new Person();
-        if ("StatusRequest".equals(name))
-            return new StatusRequest();
         if ("Parameters".equals(name))
             return new Parameters();
         if ("ProcedureRequest".equals(name))
@@ -140,8 +138,8 @@ public class ResourceFactory extends Factory {
             return new DeviceMetric();
         if ("Organization".equals(name))
             return new Organization();
-        if ("Readjudicate".equals(name))
-            return new Readjudicate();
+        if ("ProcessRequest".equals(name))
+            return new ProcessRequest();
         if ("ImmunizationRecommendation".equals(name))
             return new ImmunizationRecommendation();
         if ("MedicationDispense".equals(name))
@@ -200,8 +198,6 @@ public class ResourceFactory extends Factory {
             return new MedicationAdministration();
         if ("Encounter".equals(name))
             return new Encounter();
-        if ("PendedRequest".equals(name))
-            return new PendedRequest();
         if ("List".equals(name))
             return new List_();
         if ("DeviceUseStatement".equals(name))

@@ -93,7 +93,7 @@ all types, they have <a href="extensibility.html">extensions</a>).
  </tr>
  <tr>
    <td>uri<a name="uri"> </a></td>
-   <td>A Uniform Resource Identifier Reference (<a href="http://tools.ietf.org/html/rfc3986">RFC 3986</a>)</td>
+   <td>A Uniform Resource Identifier Reference (<a href="http://tools.ietf.org/html/rfc3986">RFC 3986</a>). Note: URIs are case sensitive. For UUID (urn:uuid:53fefa32-fcbb-4ff8-8a92-55ee120877b7) use all lowercase</td>
     <td>xs:anyURI</td>
    <td>A JSON string - a URI</td>
  </tr>
@@ -220,11 +220,19 @@ In addition to the base primitive types, a few additional primitive types are de
 <!--
  <tr><td>uuid</td><td>uri</td><td>A UUID, represented as a URI (<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>): urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11. Note the RFC comments about case: UUID values SHALL be represented in lower case, but systems SHOULD interpret them case insensitively</td></tr>
 -->
- <tr><td>id</td><td>string</td><td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case sensitive. UUIDs SHALL be sent using lowercase letters.
-   <br/>Note: this format includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.
+ <tr><td>id</td><td>string</td><td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)  
    <br/>regex: [%id_regex%]</td></tr>
 </table>
 
+<p>
+Some additional notes about the <i>id</i> datatype:
+</p>
+<ul>
+ <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters</li>
+ <li>The ID type includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.</li>
+ <li>In a typical FHIR URL, like http://example.com/fhir/Patient/<span style="color: navy">1234</span>, the last part "1234" (highlighted in navy) is the part that is an id datatype</li>
+ <li>A full UUID is a uri, not an <i>id</i>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b), which SHALL be in lowercase</li>
+</ul>
 <!-- 
 boolean: [%dtusage boolean%]
 integer: [%dtusage integer%]

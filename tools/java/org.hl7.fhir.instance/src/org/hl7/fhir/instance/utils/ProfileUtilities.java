@@ -578,7 +578,7 @@ public class ProfileUtilities {
         base.setShort("Extension");
         base.setCommentsElement(null);
         base.setRequirementsElement(null);
-        base.getSynonym().clear();
+        base.getAlias().clear();
         base.getMapping().clear();
       }
       if (derived.hasShortElement()) { 
@@ -623,16 +623,16 @@ public class ProfileUtilities {
           derived.getRequirementsElement().setUserData(DERIVATION_EQUALS, true);
       }
       
-      if (derived.hasSynonym()) {
-        if (!Base.compareDeep(derived.getSynonym(), base.getSynonym(), false))
-          for (StringType s : derived.getSynonym()) {
-            if (!base.hasSynonym(s.getValue()))
-              base.getSynonym().add(s.copy());
+      if (derived.hasAlias()) {
+        if (!Base.compareDeep(derived.getAlias(), base.getAlias(), false))
+          for (StringType s : derived.getAlias()) {
+            if (!base.hasAlias(s.getValue()))
+              base.getAlias().add(s.copy());
           }
         else if (trimDifferential)
-          derived.getSynonym().clear();
+          derived.getAlias().clear();
         else  
-          for (StringType t : derived.getSynonym())
+          for (StringType t : derived.getAlias())
             t.setUserData(DERIVATION_EQUALS, true);
       }
       
@@ -1213,7 +1213,7 @@ public class ProfileUtilities {
 
   private boolean onlyInformationIsMapping(ElementDefinition d) {
     return !d.hasShort() && !d.hasDefinition() && 
-        !d.hasRequirements() && !d.getSynonym().isEmpty() && !d.hasMinElement() &&
+        !d.hasRequirements() && !d.getAlias().isEmpty() && !d.hasMinElement() &&
         !d.hasMax() && !d.getType().isEmpty() && !d.hasNameReference() && 
         !d.hasExample() && !d.hasFixed() && !d.hasMaxLengthElement() &&
         !d.getCondition().isEmpty() && !d.getConstraint().isEmpty() && !d.hasMustSupportElement() &&

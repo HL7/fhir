@@ -322,6 +322,7 @@ public class Publisher implements URIResolver {
   private Bundle conceptMapsFeed;
   private Bundle v2Valuesets;
   private Bundle v3Valuesets;
+  private boolean noPartialBuild;
   private List<Fragment> fragments = new ArrayList<Publisher.Fragment>();
   private Map<String, String> xmls = new HashMap<String, String>();
   private Map<String, String> jsons = new HashMap<String, String>();
@@ -340,6 +341,7 @@ public class Publisher implements URIResolver {
     pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
     pub.web = (args.length > 1 && hasParam(args, "-web"));
     pub.diffProgram = getNamedParam(args, "-diff");
+    pub.noPartialBuild = (args.length > 1 && hasParam(args, "-nopartial"));
     if (hasParam(args, "-name"))
       pub.page.setPublicationType(getNamedParam(args, "-name"));
     if (hasParam(args, "-url"))
@@ -468,9 +470,8 @@ public class Publisher implements URIResolver {
       buildFlags.put(n.toLowerCase(), b);
       doAny = doAny || b;
     }
-    if (!doAny || !(new File(page.getFolders().dstDir + "qa.html").exists()))
+    if (noPartialBuild || !doAny || !(new File(page.getFolders().dstDir + "qa.html").exists()))
       buildFlags.put("all", true); // nothing - build all
-     //buildFlags.put("all", true); // override partial bild until it can figured out
     cache.save();
 
     if (!buildFlags.get("all")) {
@@ -1943,7 +1944,7 @@ public class Publisher implements URIResolver {
       ed.setDefinitionElement(null);
       ed.setCommentsElement(null);
       ed.setRequirementsElement(null);
-      ed.getSynonym().clear();
+      ed.getAlias().clear();
       ed.setMeaningWhenMissingElement(null);
       ed.getMapping().clear();
     }

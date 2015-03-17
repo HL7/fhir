@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -340,10 +340,10 @@ public class DataElement extends DomainResource {
         protected IdType identity;
 
         /**
-         * A URI that identifies the specification that this mapping is expressed to.
+         * An absolute URI that identifies the specification that this mapping is expressed to.
          */
         @Child(name="uri", type={UriType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Identifies what this mapping refers to", formalDefinition="A URI that identifies the specification that this mapping is expressed to." )
+        @Description(shortDefinition="Identifies what this mapping refers to", formalDefinition="An absolute URI that identifies the specification that this mapping is expressed to." )
         protected UriType uri;
 
         /**
@@ -417,7 +417,7 @@ public class DataElement extends DomainResource {
         }
 
         /**
-         * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
+         * @return {@link #uri} (An absolute URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
         public UriType getUriElement() { 
           if (this.uri == null)
@@ -437,7 +437,7 @@ public class DataElement extends DomainResource {
         }
 
         /**
-         * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
+         * @param value {@link #uri} (An absolute URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
         public DataElementMappingComponent setUriElement(UriType value) { 
           this.uri = value;
@@ -445,14 +445,14 @@ public class DataElement extends DomainResource {
         }
 
         /**
-         * @return A URI that identifies the specification that this mapping is expressed to.
+         * @return An absolute URI that identifies the specification that this mapping is expressed to.
          */
         public String getUri() { 
           return this.uri == null ? null : this.uri.getValue();
         }
 
         /**
-         * @param value A URI that identifies the specification that this mapping is expressed to.
+         * @param value An absolute URI that identifies the specification that this mapping is expressed to.
          */
         public DataElementMappingComponent setUri(String value) { 
           if (Utilities.noString(value))
@@ -566,7 +566,7 @@ public class DataElement extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identity", "id", "An Internal id that is used to identify this mapping set when specific mappings are made on a per-element basis.", 0, java.lang.Integer.MAX_VALUE, identity));
-          childrenList.add(new Property("uri", "uri", "A URI that identifies the specification that this mapping is expressed to.", 0, java.lang.Integer.MAX_VALUE, uri));
+          childrenList.add(new Property("uri", "uri", "An absolute URI that identifies the specification that this mapping is expressed to.", 0, java.lang.Integer.MAX_VALUE, uri));
           childrenList.add(new Property("name", "string", "A name for the specification that is being mapped to.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("comments", "string", "Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.", 0, java.lang.Integer.MAX_VALUE, comments));
         }
@@ -611,10 +611,10 @@ public class DataElement extends DomainResource {
   }
 
     /**
-     * The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * An absolute uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     @Child(name="url", type={UriType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Globally unique logical id for data element", formalDefinition="The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
+    @Description(shortDefinition="Globally unique logical id for data element", formalDefinition="An absolute uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
     protected UriType url;
 
     /**
@@ -720,7 +720,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -740,7 +740,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public DataElement setUrlElement(UriType value) { 
       this.url = value;
@@ -748,14 +748,14 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @return An absolute uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @param value An absolute uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     public DataElement setUrl(String value) { 
       if (Utilities.noString(value))
@@ -1338,7 +1338,7 @@ public class DataElement extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the data element when it is referenced in a StructureDefinition, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -1449,7 +1449,7 @@ public class DataElement extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="identifier", path="DataElement.identifier", description="The identifier of the data element", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="url", path="DataElement.url", description="The official URL for the data element", type="token" )
+  @SearchParamDefinition(name="url", path="DataElement.url", description="The official URL for the data element", type="uri" )
   public static final String SP_URL = "url";
   @SearchParamDefinition(name="publisher", path="DataElement.publisher", description="Name of the publisher of the data element", type="string" )
   public static final String SP_PUBLISHER = "publisher";

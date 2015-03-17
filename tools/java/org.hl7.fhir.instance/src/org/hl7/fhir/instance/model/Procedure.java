@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -471,10 +471,10 @@ public class Procedure extends DomainResource {
     protected Encounter encounterTarget;
 
     /**
-     * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.
+     * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
      */
     @Child(name="outcome", type={StringType.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="What was result of procedure?", formalDefinition="What was the outcome of the procedure - did it resolve reasons why the procedure was performed?." )
+    @Description(shortDefinition="What was result of procedure?", formalDefinition="What was the outcome of the procedure - did it resolve reasons why the procedure was performed?" )
     protected StringType outcome;
 
     /**
@@ -826,7 +826,7 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
+     * @return {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
     public StringType getOutcomeElement() { 
       if (this.outcome == null)
@@ -846,7 +846,7 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @param value {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
+     * @param value {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
     public Procedure setOutcomeElement(StringType value) { 
       this.outcome = value;
@@ -854,14 +854,14 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.
+     * @return What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
      */
     public String getOutcome() { 
       return this.outcome == null ? null : this.outcome.getValue();
     }
 
     /**
-     * @param value What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.
+     * @param value What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
      */
     public Procedure setOutcome(String value) { 
       if (Utilities.noString(value))
@@ -1123,7 +1123,7 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("performer", "", "Limited to 'real' people rather than equipment.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("date", "Period", "The dates over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter during which the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("outcome", "string", "What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.", 0, java.lang.Integer.MAX_VALUE, outcome));
+        childrenList.add(new Property("outcome", "string", "What was the outcome of the procedure - did it resolve reasons why the procedure was performed?", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("report", "Reference(DiagnosticReport)", "This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.", 0, java.lang.Integer.MAX_VALUE, report));
         childrenList.add(new Property("complication", "CodeableConcept", "Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues.", 0, java.lang.Integer.MAX_VALUE, complication));
         childrenList.add(new Property("followUp", "string", "If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.", 0, java.lang.Integer.MAX_VALUE, followUp));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -418,9 +418,16 @@ public class DocumentReference extends DomainResource {
         protected CodeableConcept facilityType;
 
         /**
+         * This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty.
+         */
+        @Child(name="practiceSetting", type={CodeableConcept.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Additional details about where the content was created (e.g. clinical specialty)", formalDefinition="This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty." )
+        protected CodeableConcept practiceSetting;
+
+        /**
          * The Patient Information as known when the document was published. May be a reference to a version specific, or contained.
          */
-        @Child(name="sourcePatientInfo", type={Patient.class}, order=4, min=0, max=1)
+        @Child(name="sourcePatientInfo", type={Patient.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Source patient info", formalDefinition="The Patient Information as known when the document was published. May be a reference to a version specific, or contained." )
         protected Reference sourcePatientInfo;
 
@@ -429,7 +436,14 @@ public class DocumentReference extends DomainResource {
          */
         protected Patient sourcePatientInfoTarget;
 
-        private static final long serialVersionUID = -1713244786L;
+        /**
+         * Related identifiers or resources associated with the DocumentReference.
+         */
+        @Child(name="related", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Related things", formalDefinition="Related identifiers or resources associated with the DocumentReference." )
+        protected List<DocumentReferenceContextRelatedComponent> related;
+
+        private static final long serialVersionUID = -225578230L;
 
       public DocumentReferenceContextComponent() {
         super();
@@ -524,6 +538,30 @@ public class DocumentReference extends DomainResource {
         }
 
         /**
+         * @return {@link #practiceSetting} (This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty.)
+         */
+        public CodeableConcept getPracticeSetting() { 
+          if (this.practiceSetting == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DocumentReferenceContextComponent.practiceSetting");
+            else if (Configuration.doAutoCreate())
+              this.practiceSetting = new CodeableConcept(); // cc
+          return this.practiceSetting;
+        }
+
+        public boolean hasPracticeSetting() { 
+          return this.practiceSetting != null && !this.practiceSetting.isEmpty();
+        }
+
+        /**
+         * @param value {@link #practiceSetting} (This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty.)
+         */
+        public DocumentReferenceContextComponent setPracticeSetting(CodeableConcept value) { 
+          this.practiceSetting = value;
+          return this;
+        }
+
+        /**
          * @return {@link #sourcePatientInfo} (The Patient Information as known when the document was published. May be a reference to a version specific, or contained.)
          */
         public Reference getSourcePatientInfo() { 
@@ -567,12 +605,54 @@ public class DocumentReference extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #related} (Related identifiers or resources associated with the DocumentReference.)
+         */
+        public List<DocumentReferenceContextRelatedComponent> getRelated() { 
+          if (this.related == null)
+            this.related = new ArrayList<DocumentReferenceContextRelatedComponent>();
+          return this.related;
+        }
+
+        public boolean hasRelated() { 
+          if (this.related == null)
+            return false;
+          for (DocumentReferenceContextRelatedComponent item : this.related)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #related} (Related identifiers or resources associated with the DocumentReference.)
+         */
+    // syntactic sugar
+        public DocumentReferenceContextRelatedComponent addRelated() { //3
+          DocumentReferenceContextRelatedComponent t = new DocumentReferenceContextRelatedComponent();
+          if (this.related == null)
+            this.related = new ArrayList<DocumentReferenceContextRelatedComponent>();
+          this.related.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public DocumentReferenceContextComponent addRelated(DocumentReferenceContextRelatedComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.related == null)
+            this.related = new ArrayList<DocumentReferenceContextRelatedComponent>();
+          this.related.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("event", "CodeableConcept", "This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a 'History and Physical Report' in which the procedure being documented is necessarily a 'History and Physical' act.", 0, java.lang.Integer.MAX_VALUE, event));
           childrenList.add(new Property("period", "Period", "The time period over which the service that is described by the document was provided.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("facilityType", "CodeableConcept", "The kind of facility where the patient was seen.", 0, java.lang.Integer.MAX_VALUE, facilityType));
+          childrenList.add(new Property("practiceSetting", "CodeableConcept", "This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty.", 0, java.lang.Integer.MAX_VALUE, practiceSetting));
           childrenList.add(new Property("sourcePatientInfo", "Reference(Patient)", "The Patient Information as known when the document was published. May be a reference to a version specific, or contained.", 0, java.lang.Integer.MAX_VALUE, sourcePatientInfo));
+          childrenList.add(new Property("related", "", "Related identifiers or resources associated with the DocumentReference.", 0, java.lang.Integer.MAX_VALUE, related));
         }
 
       public DocumentReferenceContextComponent copy() {
@@ -585,7 +665,13 @@ public class DocumentReference extends DomainResource {
         };
         dst.period = period == null ? null : period.copy();
         dst.facilityType = facilityType == null ? null : facilityType.copy();
+        dst.practiceSetting = practiceSetting == null ? null : practiceSetting.copy();
         dst.sourcePatientInfo = sourcePatientInfo == null ? null : sourcePatientInfo.copy();
+        if (related != null) {
+          dst.related = new ArrayList<DocumentReferenceContextRelatedComponent>();
+          for (DocumentReferenceContextRelatedComponent i : related)
+            dst.related.add(i.copy());
+        };
         return dst;
       }
 
@@ -597,7 +683,8 @@ public class DocumentReference extends DomainResource {
           return false;
         DocumentReferenceContextComponent o = (DocumentReferenceContextComponent) other;
         return compareDeep(event, o.event, true) && compareDeep(period, o.period, true) && compareDeep(facilityType, o.facilityType, true)
-           && compareDeep(sourcePatientInfo, o.sourcePatientInfo, true);
+           && compareDeep(practiceSetting, o.practiceSetting, true) && compareDeep(sourcePatientInfo, o.sourcePatientInfo, true)
+           && compareDeep(related, o.related, true);
       }
 
       @Override
@@ -612,7 +699,139 @@ public class DocumentReference extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (event == null || event.isEmpty()) && (period == null || period.isEmpty())
-           && (facilityType == null || facilityType.isEmpty()) && (sourcePatientInfo == null || sourcePatientInfo.isEmpty())
+           && (facilityType == null || facilityType.isEmpty()) && (practiceSetting == null || practiceSetting.isEmpty())
+           && (sourcePatientInfo == null || sourcePatientInfo.isEmpty()) && (related == null || related.isEmpty())
+          ;
+      }
+
+  }
+
+    @Block()
+    public static class DocumentReferenceContextRelatedComponent extends BackboneElement {
+        /**
+         * Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.
+         */
+        @Child(name="ids", type={Identifier.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Related Identifier", formalDefinition="Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing." )
+        protected Identifier ids;
+
+        /**
+         * Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.
+         */
+        @Child(name="refs", type={}, order=2, min=0, max=1)
+        @Description(shortDefinition="Related Resource", formalDefinition="Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing." )
+        protected Reference refs;
+
+        /**
+         * The actual object that is the target of the reference (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         */
+        protected Resource refsTarget;
+
+        private static final long serialVersionUID = -579833869L;
+
+      public DocumentReferenceContextRelatedComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #ids} (Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         */
+        public Identifier getIds() { 
+          if (this.ids == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DocumentReferenceContextRelatedComponent.ids");
+            else if (Configuration.doAutoCreate())
+              this.ids = new Identifier(); // cc
+          return this.ids;
+        }
+
+        public boolean hasIds() { 
+          return this.ids != null && !this.ids.isEmpty();
+        }
+
+        /**
+         * @param value {@link #ids} (Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         */
+        public DocumentReferenceContextRelatedComponent setIds(Identifier value) { 
+          this.ids = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #refs} (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         */
+        public Reference getRefs() { 
+          if (this.refs == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DocumentReferenceContextRelatedComponent.refs");
+            else if (Configuration.doAutoCreate())
+              this.refs = new Reference(); // cc
+          return this.refs;
+        }
+
+        public boolean hasRefs() { 
+          return this.refs != null && !this.refs.isEmpty();
+        }
+
+        /**
+         * @param value {@link #refs} (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         */
+        public DocumentReferenceContextRelatedComponent setRefs(Reference value) { 
+          this.refs = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #refs} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         */
+        public Resource getRefsTarget() { 
+          return this.refsTarget;
+        }
+
+        /**
+         * @param value {@link #refs} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         */
+        public DocumentReferenceContextRelatedComponent setRefsTarget(Resource value) { 
+          this.refsTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("ids", "Identifier", "Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, ids));
+          childrenList.add(new Property("refs", "Reference(Any)", "Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, refs));
+        }
+
+      public DocumentReferenceContextRelatedComponent copy() {
+        DocumentReferenceContextRelatedComponent dst = new DocumentReferenceContextRelatedComponent();
+        copyValues(dst);
+        dst.ids = ids == null ? null : ids.copy();
+        dst.refs = refs == null ? null : refs.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DocumentReferenceContextRelatedComponent))
+          return false;
+        DocumentReferenceContextRelatedComponent o = (DocumentReferenceContextRelatedComponent) other;
+        return compareDeep(ids, o.ids, true) && compareDeep(refs, o.refs, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DocumentReferenceContextRelatedComponent))
+          return false;
+        DocumentReferenceContextRelatedComponent o = (DocumentReferenceContextRelatedComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (ids == null || ids.isEmpty()) && (refs == null || refs.isEmpty())
           ;
       }
 
@@ -626,10 +845,10 @@ public class DocumentReference extends DomainResource {
     protected Identifier masterIdentifier;
 
     /**
-     * Other identifiers associated with the document, including version independent, source record and workflow related identifiers.
+     * Other identifiers associated with the document, including version independent identifiers.
      */
     @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Other identifiers for the document", formalDefinition="Other identifiers associated with the document, including version independent, source record and workflow related identifiers." )
+    @Description(shortDefinition="Other identifiers for the document", formalDefinition="Other identifiers associated with the document, including version independent identifiers." )
     protected List<Identifier> identifier;
 
     /**
@@ -747,7 +966,7 @@ public class DocumentReference extends DomainResource {
      * A set of Security-Tag codes specifying the level of privacy/security of the Document.
      */
     @Child(name="confidentiality", type={CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Sensitivity of source document", formalDefinition="A set of Security-Tag codes specifying the level of privacy/security of the Document." )
+    @Description(shortDefinition="Document security-tags", formalDefinition="A set of Security-Tag codes specifying the level of privacy/security of the Document." )
     protected List<CodeableConcept> confidentiality;
 
     /**
@@ -802,7 +1021,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
+     * @return {@link #identifier} (Other identifiers associated with the document, including version independent identifiers.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -820,7 +1039,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
+     * @return {@link #identifier} (Other identifiers associated with the document, including version independent identifiers.)
      */
     // syntactic sugar
     public Identifier addIdentifier() { //3
@@ -1473,7 +1692,7 @@ public class DocumentReference extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("masterIdentifier", "Identifier", "Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));
-        childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document, including version independent, source record and workflow related identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document, including version independent identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device)", "Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("type", "CodeableConcept", "The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("class", "CodeableConcept", "The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).", 0, java.lang.Integer.MAX_VALUE, class_));
@@ -1587,50 +1806,56 @@ public class DocumentReference extends DomainResource {
     return ResourceType.DocumentReference;
    }
 
-  @SearchParamDefinition(name="location", path="DocumentReference.content.url", description="Uri where the data can be found", type="string" )
-  public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="indexed", path="DocumentReference.indexed", description="When this document reference created", type="date" )
   public static final String SP_INDEXED = "indexed";
-  @SearchParamDefinition(name="status", path="DocumentReference.status", description="current | superceded | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
-  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="location", path="DocumentReference.content.url", description="Uri where the data can be found", type="uri" )
+  public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="relatesto", path="DocumentReference.relatesTo.target", description="Target of the relationship", type="reference" )
   public static final String SP_RELATESTO = "relatesto";
-  @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
-  public static final String SP_RELATION = "relation";
-  @SearchParamDefinition(name="class", path="DocumentReference.class", description="High-level classification of document", type="token" )
-  public static final String SP_CLASS = "class";
-  @SearchParamDefinition(name="format", path="DocumentReference.format", description="Format/content rules for the document", type="token" )
-  public static final String SP_FORMAT = "format";
-  @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
-  public static final String SP_PERIOD = "period";
+  @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
+  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precise type of document", type="token" )
   public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/What authenticated the document", type="reference" )
-  public static final String SP_AUTHENTICATOR = "authenticator";
-  @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
-  public static final String SP_RELATIONSHIP = "relationship";
+  @SearchParamDefinition(name="setting", path="DocumentReference.context.practiceSetting", description="Additional details about where the content was created (e.g. clinical specialty)", type="token" )
+  public static final String SP_SETTING = "setting";
   @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
   public static final String SP_AUTHOR = "author";
-  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
-  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="custodian", path="DocumentReference.custodian", description="Org which maintains the document", type="reference" )
   public static final String SP_CUSTODIAN = "custodian";
+  @SearchParamDefinition(name="patient", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
+  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="facility", path="DocumentReference.context.facilityType", description="Kind of facility where patient was seen", type="token" )
   public static final String SP_FACILITY = "facility";
   @SearchParamDefinition(name="created", path="DocumentReference.created", description="Document creation time", type="date" )
   public static final String SP_CREATED = "created";
-  @SearchParamDefinition(name="event", path="DocumentReference.context.event", description="Main Clinical Acts Documented", type="token" )
-  public static final String SP_EVENT = "event";
-  @SearchParamDefinition(name="confidentiality", path="DocumentReference.confidentiality", description="Sensitivity of source document", type="token" )
-  public static final String SP_CONFIDENTIALITY = "confidentiality";
   @SearchParamDefinition(name="description", path="DocumentReference.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="event", path="DocumentReference.context.event", description="Main Clinical Acts Documented", type="token" )
+  public static final String SP_EVENT = "event";
+  @SearchParamDefinition(name="status", path="DocumentReference.status", description="current | superceded | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
+  public static final String SP_RELATION = "relation";
+  @SearchParamDefinition(name="class", path="DocumentReference.class", description="High-level classification of document", type="token" )
+  public static final String SP_CLASS = "class";
+  @SearchParamDefinition(name="format", path="DocumentReference.format", description="Format/content rules for the document", type="uri" )
+  public static final String SP_FORMAT = "format";
+  @SearchParamDefinition(name="relatedids", path="DocumentReference.context.related.ids", description="Related Identifier", type="token" )
+  public static final String SP_RELATEDIDS = "relatedids";
+  @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
+  public static final String SP_PERIOD = "period";
+  @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/What authenticated the document", type="reference" )
+  public static final String SP_AUTHENTICATOR = "authenticator";
+  @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
+  public static final String SP_RELATIONSHIP = "relationship";
+  @SearchParamDefinition(name="confidentiality", path="DocumentReference.confidentiality", description="Document security-tags", type="token" )
+  public static final String SP_CONFIDENTIALITY = "confidentiality";
   @SearchParamDefinition(name="language", path="DocumentReference.content.language", description="Human language of the content (BCP-47)", type="token" )
   public static final String SP_LANGUAGE = "language";
   @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier|DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="relatedrefs", path="DocumentReference.context.related.refs", description="Related Resource", type="reference" )
+  public static final String SP_RELATEDREFS = "relatedrefs";
 
 }
 

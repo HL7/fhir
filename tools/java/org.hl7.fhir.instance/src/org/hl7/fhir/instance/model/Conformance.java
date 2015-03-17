@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1234,10 +1234,10 @@ public class Conformance extends DomainResource {
         protected StringType description;
 
         /**
-         * A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
+         * An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
          */
         @Child(name="url", type={UriType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Base URL for the installation", formalDefinition="A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces." )
+        @Description(shortDefinition="Base URL for the installation", formalDefinition="An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces." )
         protected UriType url;
 
         private static final long serialVersionUID = -289238508L;
@@ -1297,7 +1297,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return {@link #url} (A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #url} (An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public UriType getUrlElement() { 
           if (this.url == null)
@@ -1317,7 +1317,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @param value {@link #url} (A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @param value {@link #url} (An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public ConformanceImplementationComponent setUrlElement(UriType value) { 
           this.url = value;
@@ -1325,14 +1325,14 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
+         * @return An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
          */
         public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
-         * @param value A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
+         * @param value An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
          */
         public ConformanceImplementationComponent setUrl(String value) { 
           if (Utilities.noString(value))
@@ -1348,7 +1348,7 @@ public class Conformance extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("description", "string", "Information about the specific installation that this conformance statement relates to.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("url", "uri", "A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("url", "uri", "An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.", 0, java.lang.Integer.MAX_VALUE, url));
         }
 
       public ConformanceImplementationComponent copy() {
@@ -1431,13 +1431,20 @@ public class Conformance extends DomainResource {
         protected List<ConformanceRestOperationComponent> operation;
 
         /**
-         * A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.
+         * A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.
          */
         @Child(name="documentMailbox", type={UriType.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="How documents are accepted in /Mailbox", formalDefinition="A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose." )
+        @Description(shortDefinition="How documents are accepted in /Mailbox", formalDefinition="A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose." )
         protected List<UriType> documentMailbox;
 
-        private static final long serialVersionUID = 777542519L;
+        /**
+         * An absolute URI which is a reference to the definition of a compartment hosted by the system.
+         */
+        @Child(name="compartment", type={UriType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Compartments served/used by system", formalDefinition="An absolute URI which is a reference to the definition of a compartment hosted by the system." )
+        protected List<UriType> compartment;
+
+        private static final long serialVersionUID = -535980615L;
 
       public ConformanceRestComponent() {
         super();
@@ -1687,7 +1694,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
+         * @return {@link #documentMailbox} (A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
         public List<UriType> getDocumentMailbox() { 
           if (this.documentMailbox == null)
@@ -1705,7 +1712,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
+         * @return {@link #documentMailbox} (A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
     // syntactic sugar
         public UriType addDocumentMailboxElement() {//2 
@@ -1717,7 +1724,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @param value {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
+         * @param value {@link #documentMailbox} (A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
         public ConformanceRestComponent addDocumentMailbox(String value) { //1
           UriType t = new UriType();
@@ -1729,12 +1736,66 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @param value {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
+         * @param value {@link #documentMailbox} (A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
         public boolean hasDocumentMailbox(String value) { 
           if (this.documentMailbox == null)
             return false;
           for (UriType v : this.documentMailbox)
+            if (v.equals(value)) // uri
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
+         */
+        public List<UriType> getCompartment() { 
+          if (this.compartment == null)
+            this.compartment = new ArrayList<UriType>();
+          return this.compartment;
+        }
+
+        public boolean hasCompartment() { 
+          if (this.compartment == null)
+            return false;
+          for (UriType item : this.compartment)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
+         */
+    // syntactic sugar
+        public UriType addCompartmentElement() {//2 
+          UriType t = new UriType();
+          if (this.compartment == null)
+            this.compartment = new ArrayList<UriType>();
+          this.compartment.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
+         */
+        public ConformanceRestComponent addCompartment(String value) { //1
+          UriType t = new UriType();
+          t.setValue(value);
+          if (this.compartment == null)
+            this.compartment = new ArrayList<UriType>();
+          this.compartment.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
+         */
+        public boolean hasCompartment(String value) { 
+          if (this.compartment == null)
+            return false;
+          for (UriType v : this.compartment)
             if (v.equals(value)) // uri
               return true;
           return false;
@@ -1748,7 +1809,8 @@ public class Conformance extends DomainResource {
           childrenList.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction));
           childrenList.add(new Property("operation", "", "Definition of an operation or a named query and with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
-          childrenList.add(new Property("documentMailbox", "uri", "A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose.", 0, java.lang.Integer.MAX_VALUE, documentMailbox));
+          childrenList.add(new Property("documentMailbox", "uri", "A list of absolute URIs that identify profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose.", 0, java.lang.Integer.MAX_VALUE, documentMailbox));
+          childrenList.add(new Property("compartment", "uri", "An absolute URI which is a reference to the definition of a compartment hosted by the system.", 0, java.lang.Integer.MAX_VALUE, compartment));
         }
 
       public ConformanceRestComponent copy() {
@@ -1777,6 +1839,11 @@ public class Conformance extends DomainResource {
           for (UriType i : documentMailbox)
             dst.documentMailbox.add(i.copy());
         };
+        if (compartment != null) {
+          dst.compartment = new ArrayList<UriType>();
+          for (UriType i : compartment)
+            dst.compartment.add(i.copy());
+        };
         return dst;
       }
 
@@ -1789,7 +1856,8 @@ public class Conformance extends DomainResource {
         ConformanceRestComponent o = (ConformanceRestComponent) other;
         return compareDeep(mode, o.mode, true) && compareDeep(documentation, o.documentation, true) && compareDeep(security, o.security, true)
            && compareDeep(resource, o.resource, true) && compareDeep(interaction, o.interaction, true) && compareDeep(operation, o.operation, true)
-           && compareDeep(documentMailbox, o.documentMailbox, true);
+           && compareDeep(documentMailbox, o.documentMailbox, true) && compareDeep(compartment, o.compartment, true)
+          ;
       }
 
       @Override
@@ -1800,14 +1868,14 @@ public class Conformance extends DomainResource {
           return false;
         ConformanceRestComponent o = (ConformanceRestComponent) other;
         return compareValues(mode, o.mode, true) && compareValues(documentation, o.documentation, true) && compareValues(documentMailbox, o.documentMailbox, true)
-          ;
+           && compareValues(compartment, o.compartment, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
            && (security == null || security.isEmpty()) && (resource == null || resource.isEmpty()) && (interaction == null || interaction.isEmpty())
            && (operation == null || operation.isEmpty()) && (documentMailbox == null || documentMailbox.isEmpty())
-          ;
+           && (compartment == null || compartment.isEmpty());
       }
 
   }
@@ -2281,10 +2349,10 @@ public class Conformance extends DomainResource {
         protected BooleanType readHistory;
 
         /**
-         * A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
+         * A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.
          */
         @Child(name="updateCreate", type={BooleanType.class}, order=6, min=0, max=1)
-        @Description(shortDefinition="If allows/uses update to a new location", formalDefinition="A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server." )
+        @Description(shortDefinition="If update can commit to a new identity", formalDefinition="A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server." )
         protected BooleanType updateCreate;
 
         /**
@@ -2557,7 +2625,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return {@link #updateCreate} (A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.). This is the underlying object with id, value and extensions. The accessor "getUpdateCreate" gives direct access to the value
+         * @return {@link #updateCreate} (A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.). This is the underlying object with id, value and extensions. The accessor "getUpdateCreate" gives direct access to the value
          */
         public BooleanType getUpdateCreateElement() { 
           if (this.updateCreate == null)
@@ -2577,7 +2645,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @param value {@link #updateCreate} (A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.). This is the underlying object with id, value and extensions. The accessor "getUpdateCreate" gives direct access to the value
+         * @param value {@link #updateCreate} (A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.). This is the underlying object with id, value and extensions. The accessor "getUpdateCreate" gives direct access to the value
          */
         public ConformanceRestResourceComponent setUpdateCreateElement(BooleanType value) { 
           this.updateCreate = value;
@@ -2585,14 +2653,14 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
+         * @return A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.
          */
         public boolean getUpdateCreate() { 
           return this.updateCreate == null || this.updateCreate.isEmpty() ? false : this.updateCreate.getValue();
         }
 
         /**
-         * @param value A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
+         * @param value A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.
          */
         public ConformanceRestResourceComponent setUpdateCreate(boolean value) { 
             if (this.updateCreate == null)
@@ -2837,7 +2905,7 @@ public class Conformance extends DomainResource {
           childrenList.add(new Property("interaction", "", "Identifies a restful operation supported by the solution.", 0, java.lang.Integer.MAX_VALUE, interaction));
           childrenList.add(new Property("versioning", "code", "Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.", 0, java.lang.Integer.MAX_VALUE, versioning));
           childrenList.add(new Property("readHistory", "boolean", "A flag for whether the server is able to return past versions as part of the vRead operation.", 0, java.lang.Integer.MAX_VALUE, readHistory));
-          childrenList.add(new Property("updateCreate", "boolean", "A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.", 0, java.lang.Integer.MAX_VALUE, updateCreate));
+          childrenList.add(new Property("updateCreate", "boolean", "A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.", 0, java.lang.Integer.MAX_VALUE, updateCreate));
           childrenList.add(new Property("conditionalCreate", "boolean", "A flag that indicates that the server supports conditional create.", 0, java.lang.Integer.MAX_VALUE, conditionalCreate));
           childrenList.add(new Property("conditionalUpdate", "boolean", "A flag that indicates that the server supports conditional update.", 0, java.lang.Integer.MAX_VALUE, conditionalUpdate));
           childrenList.add(new Property("conditionalDelete", "boolean", "A flag that indicates that the server supports conditional delete.", 0, java.lang.Integer.MAX_VALUE, conditionalDelete));
@@ -3085,10 +3153,10 @@ public class Conformance extends DomainResource {
         protected StringType name;
 
         /**
-         * A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
+         * An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
          */
         @Child(name="definition", type={UriType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Source of definition for parameter", formalDefinition="A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter." )
+        @Description(shortDefinition="Source of definition for parameter", formalDefinition="An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]])." )
         protected UriType definition;
 
         /**
@@ -3177,7 +3245,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return {@link #definition} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+         * @return {@link #definition} (An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
         public UriType getDefinitionElement() { 
           if (this.definition == null)
@@ -3197,7 +3265,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @param value {@link #definition} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+         * @param value {@link #definition} (An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
         public ConformanceRestResourceSearchParamComponent setDefinitionElement(UriType value) { 
           this.definition = value;
@@ -3205,14 +3273,14 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
+         * @return An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
          */
         public String getDefinition() { 
           return this.definition == null ? null : this.definition.getValue();
         }
 
         /**
-         * @param value A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
+         * @param value An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
          */
         public ConformanceRestResourceSearchParamComponent setDefinition(String value) { 
           if (Utilities.noString(value))
@@ -3430,7 +3498,7 @@ public class Conformance extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of the search parameter used in the interface.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("definition", "uri", "A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.", 0, java.lang.Integer.MAX_VALUE, definition));
+          childrenList.add(new Property("definition", "uri", "An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).", 0, java.lang.Integer.MAX_VALUE, definition));
           childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("documentation", "string", "This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
@@ -4794,10 +4862,10 @@ public class Conformance extends DomainResource {
   }
 
     /**
-     * The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * An absolute uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     @Child(name="url", type={UriType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Logical uri to reference this statement", formalDefinition="The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
+    @Description(shortDefinition="Logical uri to reference this statement", formalDefinition="An absolute uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
     protected UriType url;
 
     /**
@@ -4952,7 +5020,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -4972,7 +5040,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public Conformance setUrlElement(UriType value) { 
       this.url = value;
@@ -4980,14 +5048,14 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @return An absolute uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @param value An absolute uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
     public Conformance setUrl(String value) { 
       if (Utilities.noString(value))
@@ -5848,7 +5916,7 @@ public class Conformance extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the conformance statement.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the conformance.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -5982,7 +6050,7 @@ public class Conformance extends DomainResource {
   public static final String SP_FORMAT = "format";
   @SearchParamDefinition(name="date", path="Conformance.date", description="The conformance statement publication date", type="date" )
   public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="url", path="Conformance.url", description="The uri that identifies the conformance statement", type="token" )
+  @SearchParamDefinition(name="url", path="Conformance.url", description="The uri that identifies the conformance statement", type="uri" )
   public static final String SP_URL = "url";
   @SearchParamDefinition(name="version", path="Conformance.version", description="The version identifier of the conformance statement", type="token" )
   public static final String SP_VERSION = "version";

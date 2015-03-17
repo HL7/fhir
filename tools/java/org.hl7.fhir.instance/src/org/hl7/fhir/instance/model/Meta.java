@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -58,34 +58,27 @@ public class Meta extends Type {
     protected InstantType lastUpdated;
 
     /**
-     * Set to 'true' if the resource is deleted. Deleted resources can not be fetched via the RESTful API, but may appear in bundles for various reasons.
-     */
-    @Child(name="deleted", type={BooleanType.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="True if the resource is deleted", formalDefinition="Set to 'true' if the resource is deleted. Deleted resources can not be fetched via the RESTful API, but may appear in bundles for various reasons." )
-    protected BooleanType deleted;
-
-    /**
      * A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].
      */
-    @Child(name="profile", type={UriType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="profile", type={UriType.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Profiles this resource claims to conform to", formalDefinition="A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]." )
     protected List<UriType> profile;
 
     /**
      * Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.
      */
-    @Child(name="security", type={Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="security", type={Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Security Labels applied to this resource", formalDefinition="Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure." )
     protected List<Coding> security;
 
     /**
      * Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.
      */
-    @Child(name="tag", type={Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="tag", type={Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Tags applied", formalDefinition="Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource." )
     protected List<Coding> tag;
 
-    private static final long serialVersionUID = -1174731372L;
+    private static final long serialVersionUID = 867134915L;
 
     public Meta() {
       super();
@@ -186,51 +179,6 @@ public class Meta extends Type {
           this.lastUpdated = new InstantType();
         this.lastUpdated.setValue(value);
       }
-      return this;
-    }
-
-    /**
-     * @return {@link #deleted} (Set to 'true' if the resource is deleted. Deleted resources can not be fetched via the RESTful API, but may appear in bundles for various reasons.). This is the underlying object with id, value and extensions. The accessor "getDeleted" gives direct access to the value
-     */
-    public BooleanType getDeletedElement() { 
-      if (this.deleted == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Meta.deleted");
-        else if (Configuration.doAutoCreate())
-          this.deleted = new BooleanType(); // bb
-      return this.deleted;
-    }
-
-    public boolean hasDeletedElement() { 
-      return this.deleted != null && !this.deleted.isEmpty();
-    }
-
-    public boolean hasDeleted() { 
-      return this.deleted != null && !this.deleted.isEmpty();
-    }
-
-    /**
-     * @param value {@link #deleted} (Set to 'true' if the resource is deleted. Deleted resources can not be fetched via the RESTful API, but may appear in bundles for various reasons.). This is the underlying object with id, value and extensions. The accessor "getDeleted" gives direct access to the value
-     */
-    public Meta setDeletedElement(BooleanType value) { 
-      this.deleted = value;
-      return this;
-    }
-
-    /**
-     * @return Set to 'true' if the resource is deleted. Deleted resources can not be fetched via the RESTful API, but may appear in bundles for various reasons.
-     */
-    public boolean getDeleted() { 
-      return this.deleted == null || this.deleted.isEmpty() ? false : this.deleted.getValue();
-    }
-
-    /**
-     * @param value Set to 'true' if the resource is deleted. Deleted resources can not be fetched via the RESTful API, but may appear in bundles for various reasons.
-     */
-    public Meta setDeleted(boolean value) { 
-        if (this.deleted == null)
-          this.deleted = new BooleanType();
-        this.deleted.setValue(value);
       return this;
     }
 
@@ -372,7 +320,6 @@ public class Meta extends Type {
         super.listChildren(childrenList);
         childrenList.add(new Property("versionId", "id", "The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.", 0, java.lang.Integer.MAX_VALUE, versionId));
         childrenList.add(new Property("lastUpdated", "instant", "When the resource last changed - e.g. when the version changed.", 0, java.lang.Integer.MAX_VALUE, lastUpdated));
-        childrenList.add(new Property("deleted", "boolean", "Set to 'true' if the resource is deleted. Deleted resources can not be fetched via the RESTful API, but may appear in bundles for various reasons.", 0, java.lang.Integer.MAX_VALUE, deleted));
         childrenList.add(new Property("profile", "uri", "A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("security", "Coding", "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.", 0, java.lang.Integer.MAX_VALUE, security));
         childrenList.add(new Property("tag", "Coding", "Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.", 0, java.lang.Integer.MAX_VALUE, tag));
@@ -383,7 +330,6 @@ public class Meta extends Type {
         copyValues(dst);
         dst.versionId = versionId == null ? null : versionId.copy();
         dst.lastUpdated = lastUpdated == null ? null : lastUpdated.copy();
-        dst.deleted = deleted == null ? null : deleted.copy();
         if (profile != null) {
           dst.profile = new ArrayList<UriType>();
           for (UriType i : profile)
@@ -414,8 +360,8 @@ public class Meta extends Type {
           return false;
         Meta o = (Meta) other;
         return compareDeep(versionId, o.versionId, true) && compareDeep(lastUpdated, o.lastUpdated, true)
-           && compareDeep(deleted, o.deleted, true) && compareDeep(profile, o.profile, true) && compareDeep(security, o.security, true)
-           && compareDeep(tag, o.tag, true);
+           && compareDeep(profile, o.profile, true) && compareDeep(security, o.security, true) && compareDeep(tag, o.tag, true)
+          ;
       }
 
       @Override
@@ -426,13 +372,13 @@ public class Meta extends Type {
           return false;
         Meta o = (Meta) other;
         return compareValues(versionId, o.versionId, true) && compareValues(lastUpdated, o.lastUpdated, true)
-           && compareValues(deleted, o.deleted, true) && compareValues(profile, o.profile, true);
+           && compareValues(profile, o.profile, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (versionId == null || versionId.isEmpty()) && (lastUpdated == null || lastUpdated.isEmpty())
-           && (deleted == null || deleted.isEmpty()) && (profile == null || profile.isEmpty()) && (security == null || security.isEmpty())
-           && (tag == null || tag.isEmpty());
+           && (profile == null || profile.isEmpty()) && (security == null || security.isEmpty()) && (tag == null || tag.isEmpty())
+          ;
       }
 
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -663,14 +663,14 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * Original request resource reference.
      */
-    @Child(name="request", type={PendedRequest.class}, order=1, min=0, max=1)
+    @Child(name="request", type={ProcessRequest.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Claim reference", formalDefinition="Original request resource reference." )
     protected Reference request;
 
     /**
      * The actual object that is the target of the reference (Original request resource reference.)
      */
-    protected PendedRequest requestTarget;
+    protected ProcessRequest requestTarget;
 
     /**
      * Transaction status: error, complete.
@@ -778,7 +778,7 @@ public class PaymentReconciliation extends DomainResource {
     @Description(shortDefinition="Note text", formalDefinition="Suite of notes." )
     protected List<NotesComponent> note;
 
-    private static final long serialVersionUID = 2043460985L;
+    private static final long serialVersionUID = 1602249640L;
 
     public PaymentReconciliation() {
       super();
@@ -856,19 +856,19 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public PendedRequest getRequestTarget() { 
+    public ProcessRequest getRequestTarget() { 
       if (this.requestTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.request");
         else if (Configuration.doAutoCreate())
-          this.requestTarget = new PendedRequest(); // aa
+          this.requestTarget = new ProcessRequest(); // aa
       return this.requestTarget;
     }
 
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public PaymentReconciliation setRequestTarget(PendedRequest value) { 
+    public PaymentReconciliation setRequestTarget(ProcessRequest value) { 
       this.requestTarget = value;
       return this;
     }
@@ -1355,7 +1355,7 @@ public class PaymentReconciliation extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("request", "Reference(PendedRequest)", "Original request resource reference.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("request", "Reference(ProcessRequest)", "Original request resource reference.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));

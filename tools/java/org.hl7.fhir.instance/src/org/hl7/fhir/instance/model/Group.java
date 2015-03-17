@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -430,7 +430,7 @@ public class Group extends DomainResource {
      * Identifies the resource instances that are members of the group.
      */
     @Child(name="member", type={Patient.class, Practitioner.class, Device.class, Medication.class, Substance.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Who is in group", formalDefinition="Identifies the resource instances that are members of the group." )
+    @Description(shortDefinition="Who or what is in group", formalDefinition="Identifies the resource instances that are members of the group." )
     protected List<Reference> member;
     /**
      * The actual objects that are the target of the reference (Identifies the resource instances that are members of the group.)
@@ -844,7 +844,7 @@ public class Group extends DomainResource {
     return ResourceType.Group;
    }
 
-  @SearchParamDefinition(name="member", path="Group.member", description="Who is in group", type="reference" )
+  @SearchParamDefinition(name="member", path="Group.member", description="Who or what is in group", type="reference" )
   public static final String SP_MEMBER = "member";
   @SearchParamDefinition(name="characteristic-value", path="", description="A composite of both characteristic and value", type="composite" )
   public static final String SP_CHARACTERISTICVALUE = "characteristic-value";

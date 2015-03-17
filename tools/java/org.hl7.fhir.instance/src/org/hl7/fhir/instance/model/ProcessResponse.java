@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -42,11 +42,11 @@ import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * This resource provides processing status, errors and notes from the processing of a resource.
  */
-@ResourceDef(name="StatusResponse", profile="http://hl7.org/fhir/Profile/StatusResponse")
-public class StatusResponse extends DomainResource {
+@ResourceDef(name="ProcessResponse", profile="http://hl7.org/fhir/Profile/ProcessResponse")
+public class ProcessResponse extends DomainResource {
 
     @Block()
-    public static class StatusResponseNotesComponent extends BackboneElement {
+    public static class ProcessResponseNotesComponent extends BackboneElement {
         /**
          * The note purpose: Print/Display.
          */
@@ -63,7 +63,7 @@ public class StatusResponse extends DomainResource {
 
         private static final long serialVersionUID = 129959202L;
 
-      public StatusResponseNotesComponent() {
+      public ProcessResponseNotesComponent() {
         super();
       }
 
@@ -73,7 +73,7 @@ public class StatusResponse extends DomainResource {
         public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create StatusResponseNotesComponent.type");
+              throw new Error("Attempt to auto-create ProcessResponseNotesComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new Coding(); // cc
           return this.type;
@@ -86,7 +86,7 @@ public class StatusResponse extends DomainResource {
         /**
          * @param value {@link #type} (The note purpose: Print/Display.)
          */
-        public StatusResponseNotesComponent setType(Coding value) { 
+        public ProcessResponseNotesComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
@@ -97,7 +97,7 @@ public class StatusResponse extends DomainResource {
         public StringType getTextElement() { 
           if (this.text == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create StatusResponseNotesComponent.text");
+              throw new Error("Attempt to auto-create ProcessResponseNotesComponent.text");
             else if (Configuration.doAutoCreate())
               this.text = new StringType(); // bb
           return this.text;
@@ -114,7 +114,7 @@ public class StatusResponse extends DomainResource {
         /**
          * @param value {@link #text} (The note text.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StatusResponseNotesComponent setTextElement(StringType value) { 
+        public ProcessResponseNotesComponent setTextElement(StringType value) { 
           this.text = value;
           return this;
         }
@@ -129,7 +129,7 @@ public class StatusResponse extends DomainResource {
         /**
          * @param value The note text.
          */
-        public StatusResponseNotesComponent setText(String value) { 
+        public ProcessResponseNotesComponent setText(String value) { 
           if (Utilities.noString(value))
             this.text = null;
           else {
@@ -146,8 +146,8 @@ public class StatusResponse extends DomainResource {
           childrenList.add(new Property("text", "string", "The note text.", 0, java.lang.Integer.MAX_VALUE, text));
         }
 
-      public StatusResponseNotesComponent copy() {
-        StatusResponseNotesComponent dst = new StatusResponseNotesComponent();
+      public ProcessResponseNotesComponent copy() {
+        ProcessResponseNotesComponent dst = new ProcessResponseNotesComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.text = text == null ? null : text.copy();
@@ -158,9 +158,9 @@ public class StatusResponse extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof StatusResponseNotesComponent))
+        if (!(other instanceof ProcessResponseNotesComponent))
           return false;
-        StatusResponseNotesComponent o = (StatusResponseNotesComponent) other;
+        ProcessResponseNotesComponent o = (ProcessResponseNotesComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(text, o.text, true);
       }
 
@@ -168,9 +168,9 @@ public class StatusResponse extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof StatusResponseNotesComponent))
+        if (!(other instanceof ProcessResponseNotesComponent))
           return false;
-        StatusResponseNotesComponent o = (StatusResponseNotesComponent) other;
+        ProcessResponseNotesComponent o = (ProcessResponseNotesComponent) other;
         return compareValues(text, o.text, true);
       }
 
@@ -236,14 +236,14 @@ public class StatusResponse extends DomainResource {
     protected DateTimeType created;
 
     /**
-     * The Insurer who produced this adjudicated response.
+     * The organization who produced this adjudicated response.
      */
     @Child(name="organization", type={Organization.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="Insurer", formalDefinition="The Insurer who produced this adjudicated response." )
+    @Description(shortDefinition="Authoring Organization", formalDefinition="The organization who produced this adjudicated response." )
     protected Reference organization;
 
     /**
-     * The actual object that is the target of the reference (The Insurer who produced this adjudicated response.)
+     * The actual object that is the target of the reference (The organization who produced this adjudicated response.)
      */
     protected Organization organizationTarget;
 
@@ -251,7 +251,7 @@ public class StatusResponse extends DomainResource {
      * The practitioner who is responsible for the services rendered to the patient.
      */
     @Child(name="requestProvider", type={Practitioner.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
+    @Description(shortDefinition="Responsible Practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
     protected Reference requestProvider;
 
     /**
@@ -283,7 +283,7 @@ public class StatusResponse extends DomainResource {
      */
     @Child(name="notes", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Notes", formalDefinition="Suite of processing note or additional requirements is the processing has been held." )
-    protected List<StatusResponseNotesComponent> notes;
+    protected List<ProcessResponseNotesComponent> notes;
 
     /**
      * Processing errors.
@@ -292,9 +292,9 @@ public class StatusResponse extends DomainResource {
     @Description(shortDefinition="Error code", formalDefinition="Processing errors." )
     protected List<Coding> error;
 
-    private static final long serialVersionUID = 1671399476L;
+    private static final long serialVersionUID = -1668062545L;
 
-    public StatusResponse() {
+    public ProcessResponse() {
       super();
     }
 
@@ -329,7 +329,7 @@ public class StatusResponse extends DomainResource {
     }
 
     // syntactic sugar
-    public StatusResponse addIdentifier(Identifier t) { //3
+    public ProcessResponse addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
       if (this.identifier == null)
@@ -344,7 +344,7 @@ public class StatusResponse extends DomainResource {
     public Reference getRequest() { 
       if (this.request == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.request");
+          throw new Error("Attempt to auto-create ProcessResponse.request");
         else if (Configuration.doAutoCreate())
           this.request = new Reference(); // cc
       return this.request;
@@ -357,7 +357,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #request} (Original request resource reference.)
      */
-    public StatusResponse setRequest(Reference value) { 
+    public ProcessResponse setRequest(Reference value) { 
       this.request = value;
       return this;
     }
@@ -372,7 +372,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public StatusResponse setRequestTarget(Resource value) { 
+    public ProcessResponse setRequestTarget(Resource value) { 
       this.requestTarget = value;
       return this;
     }
@@ -383,7 +383,7 @@ public class StatusResponse extends DomainResource {
     public Coding getOutcome() { 
       if (this.outcome == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.outcome");
+          throw new Error("Attempt to auto-create ProcessResponse.outcome");
         else if (Configuration.doAutoCreate())
           this.outcome = new Coding(); // cc
       return this.outcome;
@@ -396,7 +396,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #outcome} (Transaction status: error, complete, held.)
      */
-    public StatusResponse setOutcome(Coding value) { 
+    public ProcessResponse setOutcome(Coding value) { 
       this.outcome = value;
       return this;
     }
@@ -407,7 +407,7 @@ public class StatusResponse extends DomainResource {
     public StringType getDispositionElement() { 
       if (this.disposition == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.disposition");
+          throw new Error("Attempt to auto-create ProcessResponse.disposition");
         else if (Configuration.doAutoCreate())
           this.disposition = new StringType(); // bb
       return this.disposition;
@@ -424,7 +424,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #disposition} (A description of the status of the adjudication or processing.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
      */
-    public StatusResponse setDispositionElement(StringType value) { 
+    public ProcessResponse setDispositionElement(StringType value) { 
       this.disposition = value;
       return this;
     }
@@ -439,7 +439,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value A description of the status of the adjudication or processing.
      */
-    public StatusResponse setDisposition(String value) { 
+    public ProcessResponse setDisposition(String value) { 
       if (Utilities.noString(value))
         this.disposition = null;
       else {
@@ -456,7 +456,7 @@ public class StatusResponse extends DomainResource {
     public Coding getRuleset() { 
       if (this.ruleset == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.ruleset");
+          throw new Error("Attempt to auto-create ProcessResponse.ruleset");
         else if (Configuration.doAutoCreate())
           this.ruleset = new Coding(); // cc
       return this.ruleset;
@@ -469,7 +469,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public StatusResponse setRuleset(Coding value) { 
+    public ProcessResponse setRuleset(Coding value) { 
       this.ruleset = value;
       return this;
     }
@@ -480,7 +480,7 @@ public class StatusResponse extends DomainResource {
     public Coding getOriginalRuleset() { 
       if (this.originalRuleset == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.originalRuleset");
+          throw new Error("Attempt to auto-create ProcessResponse.originalRuleset");
         else if (Configuration.doAutoCreate())
           this.originalRuleset = new Coding(); // cc
       return this.originalRuleset;
@@ -493,7 +493,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public StatusResponse setOriginalRuleset(Coding value) { 
+    public ProcessResponse setOriginalRuleset(Coding value) { 
       this.originalRuleset = value;
       return this;
     }
@@ -504,7 +504,7 @@ public class StatusResponse extends DomainResource {
     public DateTimeType getCreatedElement() { 
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.created");
+          throw new Error("Attempt to auto-create ProcessResponse.created");
         else if (Configuration.doAutoCreate())
           this.created = new DateTimeType(); // bb
       return this.created;
@@ -521,7 +521,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public StatusResponse setCreatedElement(DateTimeType value) { 
+    public ProcessResponse setCreatedElement(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -536,7 +536,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public StatusResponse setCreated(Date value) { 
+    public ProcessResponse setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -548,12 +548,12 @@ public class StatusResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #organization} (The Insurer who produced this adjudicated response.)
+     * @return {@link #organization} (The organization who produced this adjudicated response.)
      */
     public Reference getOrganization() { 
       if (this.organization == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.organization");
+          throw new Error("Attempt to auto-create ProcessResponse.organization");
         else if (Configuration.doAutoCreate())
           this.organization = new Reference(); // cc
       return this.organization;
@@ -564,29 +564,29 @@ public class StatusResponse extends DomainResource {
     }
 
     /**
-     * @param value {@link #organization} (The Insurer who produced this adjudicated response.)
+     * @param value {@link #organization} (The organization who produced this adjudicated response.)
      */
-    public StatusResponse setOrganization(Reference value) { 
+    public ProcessResponse setOrganization(Reference value) { 
       this.organization = value;
       return this;
     }
 
     /**
-     * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
+     * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization who produced this adjudicated response.)
      */
     public Organization getOrganizationTarget() { 
       if (this.organizationTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.organization");
+          throw new Error("Attempt to auto-create ProcessResponse.organization");
         else if (Configuration.doAutoCreate())
           this.organizationTarget = new Organization(); // aa
       return this.organizationTarget;
     }
 
     /**
-     * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
+     * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization who produced this adjudicated response.)
      */
-    public StatusResponse setOrganizationTarget(Organization value) { 
+    public ProcessResponse setOrganizationTarget(Organization value) { 
       this.organizationTarget = value;
       return this;
     }
@@ -597,7 +597,7 @@ public class StatusResponse extends DomainResource {
     public Reference getRequestProvider() { 
       if (this.requestProvider == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.requestProvider");
+          throw new Error("Attempt to auto-create ProcessResponse.requestProvider");
         else if (Configuration.doAutoCreate())
           this.requestProvider = new Reference(); // cc
       return this.requestProvider;
@@ -610,7 +610,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public StatusResponse setRequestProvider(Reference value) { 
+    public ProcessResponse setRequestProvider(Reference value) { 
       this.requestProvider = value;
       return this;
     }
@@ -621,7 +621,7 @@ public class StatusResponse extends DomainResource {
     public Practitioner getRequestProviderTarget() { 
       if (this.requestProviderTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.requestProvider");
+          throw new Error("Attempt to auto-create ProcessResponse.requestProvider");
         else if (Configuration.doAutoCreate())
           this.requestProviderTarget = new Practitioner(); // aa
       return this.requestProviderTarget;
@@ -630,7 +630,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public StatusResponse setRequestProviderTarget(Practitioner value) { 
+    public ProcessResponse setRequestProviderTarget(Practitioner value) { 
       this.requestProviderTarget = value;
       return this;
     }
@@ -641,7 +641,7 @@ public class StatusResponse extends DomainResource {
     public Reference getRequestOrganization() { 
       if (this.requestOrganization == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.requestOrganization");
+          throw new Error("Attempt to auto-create ProcessResponse.requestOrganization");
         else if (Configuration.doAutoCreate())
           this.requestOrganization = new Reference(); // cc
       return this.requestOrganization;
@@ -654,7 +654,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public StatusResponse setRequestOrganization(Reference value) { 
+    public ProcessResponse setRequestOrganization(Reference value) { 
       this.requestOrganization = value;
       return this;
     }
@@ -665,7 +665,7 @@ public class StatusResponse extends DomainResource {
     public Organization getRequestOrganizationTarget() { 
       if (this.requestOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.requestOrganization");
+          throw new Error("Attempt to auto-create ProcessResponse.requestOrganization");
         else if (Configuration.doAutoCreate())
           this.requestOrganizationTarget = new Organization(); // aa
       return this.requestOrganizationTarget;
@@ -674,7 +674,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #requestOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public StatusResponse setRequestOrganizationTarget(Organization value) { 
+    public ProcessResponse setRequestOrganizationTarget(Organization value) { 
       this.requestOrganizationTarget = value;
       return this;
     }
@@ -685,7 +685,7 @@ public class StatusResponse extends DomainResource {
     public Coding getForm() { 
       if (this.form == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StatusResponse.form");
+          throw new Error("Attempt to auto-create ProcessResponse.form");
         else if (Configuration.doAutoCreate())
           this.form = new Coding(); // cc
       return this.form;
@@ -698,7 +698,7 @@ public class StatusResponse extends DomainResource {
     /**
      * @param value {@link #form} (The form to be used for printing the content.)
      */
-    public StatusResponse setForm(Coding value) { 
+    public ProcessResponse setForm(Coding value) { 
       this.form = value;
       return this;
     }
@@ -706,16 +706,16 @@ public class StatusResponse extends DomainResource {
     /**
      * @return {@link #notes} (Suite of processing note or additional requirements is the processing has been held.)
      */
-    public List<StatusResponseNotesComponent> getNotes() { 
+    public List<ProcessResponseNotesComponent> getNotes() { 
       if (this.notes == null)
-        this.notes = new ArrayList<StatusResponseNotesComponent>();
+        this.notes = new ArrayList<ProcessResponseNotesComponent>();
       return this.notes;
     }
 
     public boolean hasNotes() { 
       if (this.notes == null)
         return false;
-      for (StatusResponseNotesComponent item : this.notes)
+      for (ProcessResponseNotesComponent item : this.notes)
         if (!item.isEmpty())
           return true;
       return false;
@@ -725,20 +725,20 @@ public class StatusResponse extends DomainResource {
      * @return {@link #notes} (Suite of processing note or additional requirements is the processing has been held.)
      */
     // syntactic sugar
-    public StatusResponseNotesComponent addNotes() { //3
-      StatusResponseNotesComponent t = new StatusResponseNotesComponent();
+    public ProcessResponseNotesComponent addNotes() { //3
+      ProcessResponseNotesComponent t = new ProcessResponseNotesComponent();
       if (this.notes == null)
-        this.notes = new ArrayList<StatusResponseNotesComponent>();
+        this.notes = new ArrayList<ProcessResponseNotesComponent>();
       this.notes.add(t);
       return t;
     }
 
     // syntactic sugar
-    public StatusResponse addNotes(StatusResponseNotesComponent t) { //3
+    public ProcessResponse addNotes(ProcessResponseNotesComponent t) { //3
       if (t == null)
         return this;
       if (this.notes == null)
-        this.notes = new ArrayList<StatusResponseNotesComponent>();
+        this.notes = new ArrayList<ProcessResponseNotesComponent>();
       this.notes.add(t);
       return this;
     }
@@ -774,7 +774,7 @@ public class StatusResponse extends DomainResource {
     }
 
     // syntactic sugar
-    public StatusResponse addError(Coding t) { //3
+    public ProcessResponse addError(Coding t) { //3
       if (t == null)
         return this;
       if (this.error == null)
@@ -792,7 +792,7 @@ public class StatusResponse extends DomainResource {
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         childrenList.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, created));
-        childrenList.add(new Property("organization", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, organization));
+        childrenList.add(new Property("organization", "Reference(Organization)", "The organization who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestProvider));
         childrenList.add(new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestOrganization));
         childrenList.add(new Property("form", "Coding", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
@@ -800,8 +800,8 @@ public class StatusResponse extends DomainResource {
         childrenList.add(new Property("error", "Coding", "Processing errors.", 0, java.lang.Integer.MAX_VALUE, error));
       }
 
-      public StatusResponse copy() {
-        StatusResponse dst = new StatusResponse();
+      public ProcessResponse copy() {
+        ProcessResponse dst = new ProcessResponse();
         copyValues(dst);
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
@@ -819,8 +819,8 @@ public class StatusResponse extends DomainResource {
         dst.requestOrganization = requestOrganization == null ? null : requestOrganization.copy();
         dst.form = form == null ? null : form.copy();
         if (notes != null) {
-          dst.notes = new ArrayList<StatusResponseNotesComponent>();
-          for (StatusResponseNotesComponent i : notes)
+          dst.notes = new ArrayList<ProcessResponseNotesComponent>();
+          for (ProcessResponseNotesComponent i : notes)
             dst.notes.add(i.copy());
         };
         if (error != null) {
@@ -831,7 +831,7 @@ public class StatusResponse extends DomainResource {
         return dst;
       }
 
-      protected StatusResponse typedCopy() {
+      protected ProcessResponse typedCopy() {
         return copy();
       }
 
@@ -839,9 +839,9 @@ public class StatusResponse extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof StatusResponse))
+        if (!(other instanceof ProcessResponse))
           return false;
-        StatusResponse o = (StatusResponse) other;
+        ProcessResponse o = (ProcessResponse) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(request, o.request, true) && compareDeep(outcome, o.outcome, true)
            && compareDeep(disposition, o.disposition, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
            && compareDeep(created, o.created, true) && compareDeep(organization, o.organization, true) && compareDeep(requestProvider, o.requestProvider, true)
@@ -853,9 +853,9 @@ public class StatusResponse extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof StatusResponse))
+        if (!(other instanceof ProcessResponse))
           return false;
-        StatusResponse o = (StatusResponse) other;
+        ProcessResponse o = (ProcessResponse) other;
         return compareValues(disposition, o.disposition, true) && compareValues(created, o.created, true);
       }
 
@@ -871,10 +871,18 @@ public class StatusResponse extends DomainResource {
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.StatusResponse;
+    return ResourceType.ProcessResponse;
    }
 
-  @SearchParamDefinition(name="identifier", path="StatusResponse.identifier", description="The business identifier of the Explanation of Benefit", type="token" )
+  @SearchParamDefinition(name="organization", path="ProcessResponse.organization", description="The organization who generated this resource", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="requestprovider", path="ProcessResponse.requestProvider", description="The Provider who is responsible the request transaction", type="reference" )
+  public static final String SP_REQUESTPROVIDER = "requestprovider";
+  @SearchParamDefinition(name="request", path="ProcessResponse.request", description="The reference to the claim", type="reference" )
+  public static final String SP_REQUEST = "request";
+  @SearchParamDefinition(name="requestorganization", path="ProcessResponse.requestOrganization", description="The Organization who is responsible the request transaction", type="reference" )
+  public static final String SP_REQUESTORGANIZATION = "requestorganization";
+  @SearchParamDefinition(name="identifier", path="ProcessResponse.identifier", description="The business identifier of the Explanation of Benefit", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 
 }

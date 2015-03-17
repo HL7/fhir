@@ -798,7 +798,7 @@ public class ProfileGenerator {
     ce.setExample(e.getExample());
     ce.setRequirements(e.getRequirements());
     for (String s : e.getAliases())
-      ce.addSynonym(s);
+      ce.addAlias(s);
     
     // we don't know mustSupport here
     if (e.hasModifier())
@@ -1004,7 +1004,7 @@ public class ProfileGenerator {
     ce.setComments(src.getComments());
     ce.setRequirements(src.getRequirements());
     for (String a : src.getAliases())
-      ce.addSynonym(a);
+      ce.addAlias(a);
     ce.setMin(src.getMinCardinality());
     if (src.getMaxCardinality() != null)
       ce.setMax(src.getMaxCardinality() == Integer.MAX_VALUE ? "*" : src.getMaxCardinality().toString());

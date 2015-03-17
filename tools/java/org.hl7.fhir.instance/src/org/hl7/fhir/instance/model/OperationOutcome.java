@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -162,10 +162,10 @@ public class OperationOutcome extends DomainResource {
         protected CodeableConcept code;
 
         /**
-         * Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.
+         * Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.
          */
         @Child(name="details", type={StringType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Additional diagnostic information about the issue", formalDefinition="Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue." )
+        @Description(shortDefinition="Additional diagnostic information about the issue", formalDefinition="Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue." )
         protected StringType details;
 
         /**
@@ -257,7 +257,7 @@ public class OperationOutcome extends DomainResource {
         }
 
         /**
-         * @return {@link #details} (Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.). This is the underlying object with id, value and extensions. The accessor "getDetails" gives direct access to the value
+         * @return {@link #details} (Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.). This is the underlying object with id, value and extensions. The accessor "getDetails" gives direct access to the value
          */
         public StringType getDetailsElement() { 
           if (this.details == null)
@@ -277,7 +277,7 @@ public class OperationOutcome extends DomainResource {
         }
 
         /**
-         * @param value {@link #details} (Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.). This is the underlying object with id, value and extensions. The accessor "getDetails" gives direct access to the value
+         * @param value {@link #details} (Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.). This is the underlying object with id, value and extensions. The accessor "getDetails" gives direct access to the value
          */
         public OperationOutcomeIssueComponent setDetailsElement(StringType value) { 
           this.details = value;
@@ -285,14 +285,14 @@ public class OperationOutcome extends DomainResource {
         }
 
         /**
-         * @return Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.
+         * @return Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.
          */
         public String getDetails() { 
           return this.details == null ? null : this.details.getValue();
         }
 
         /**
-         * @param value Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.
+         * @param value Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.
          */
         public OperationOutcomeIssueComponent setDetails(String value) { 
           if (Utilities.noString(value))
@@ -363,7 +363,7 @@ public class OperationOutcome extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("severity", "code", "Indicates whether the issue indicates a variation from successful processing.", 0, java.lang.Integer.MAX_VALUE, severity));
           childrenList.add(new Property("code", "CodeableConcept", "Describes the type of the issue.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("details", "string", "Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.", 0, java.lang.Integer.MAX_VALUE, details));
+          childrenList.add(new Property("details", "string", "Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.", 0, java.lang.Integer.MAX_VALUE, details));
           childrenList.add(new Property("location", "string", "A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.", 0, java.lang.Integer.MAX_VALUE, location));
         }
 

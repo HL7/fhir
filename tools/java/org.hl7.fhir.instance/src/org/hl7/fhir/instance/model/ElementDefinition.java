@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 14, 2015 16:50+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 17, 2015 19:29+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1844,9 +1844,9 @@ public class ElementDefinition extends Type {
     /**
      * Identifies additional names by which this element might also be known.
      */
-    @Child(name="synonym", type={StringType.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="alias", type={StringType.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Other names", formalDefinition="Identifies additional names by which this element might also be known." )
-    protected List<StringType> synonym;
+    protected List<StringType> alias;
 
     /**
      * The minimum number of times this element SHALL appear in the instance.
@@ -1967,7 +1967,7 @@ public class ElementDefinition extends Type {
     @Description(shortDefinition="Map element to another set of definitions", formalDefinition="Identifies a concept from an external specification that roughly corresponds to this element." )
     protected List<ElementDefinitionMappingComponent> mapping;
 
-    private static final long serialVersionUID = 1700797913L;
+    private static final long serialVersionUID = 1149674414L;
 
     public ElementDefinition() {
       super();
@@ -2436,54 +2436,54 @@ public class ElementDefinition extends Type {
     }
 
     /**
-     * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
+     * @return {@link #alias} (Identifies additional names by which this element might also be known.)
      */
-    public List<StringType> getSynonym() { 
-      if (this.synonym == null)
-        this.synonym = new ArrayList<StringType>();
-      return this.synonym;
+    public List<StringType> getAlias() { 
+      if (this.alias == null)
+        this.alias = new ArrayList<StringType>();
+      return this.alias;
     }
 
-    public boolean hasSynonym() { 
-      if (this.synonym == null)
+    public boolean hasAlias() { 
+      if (this.alias == null)
         return false;
-      for (StringType item : this.synonym)
+      for (StringType item : this.alias)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
+     * @return {@link #alias} (Identifies additional names by which this element might also be known.)
      */
     // syntactic sugar
-    public StringType addSynonymElement() {//2 
+    public StringType addAliasElement() {//2 
       StringType t = new StringType();
-      if (this.synonym == null)
-        this.synonym = new ArrayList<StringType>();
-      this.synonym.add(t);
+      if (this.alias == null)
+        this.alias = new ArrayList<StringType>();
+      this.alias.add(t);
       return t;
     }
 
     /**
-     * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
+     * @param value {@link #alias} (Identifies additional names by which this element might also be known.)
      */
-    public ElementDefinition addSynonym(String value) { //1
+    public ElementDefinition addAlias(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
-      if (this.synonym == null)
-        this.synonym = new ArrayList<StringType>();
-      this.synonym.add(t);
+      if (this.alias == null)
+        this.alias = new ArrayList<StringType>();
+      this.alias.add(t);
       return this;
     }
 
     /**
-     * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
+     * @param value {@link #alias} (Identifies additional names by which this element might also be known.)
      */
-    public boolean hasSynonym(String value) { 
-      if (this.synonym == null)
+    public boolean hasAlias(String value) { 
+      if (this.alias == null)
         return false;
-      for (StringType v : this.synonym)
+      for (StringType v : this.alias)
         if (v.equals(value)) // string
           return true;
       return false;
@@ -3147,7 +3147,7 @@ public class ElementDefinition extends Type {
         childrenList.add(new Property("definition", "string", "Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("comments", "string", "Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("requirements", "string", "Explains why this element is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
-        childrenList.add(new Property("synonym", "string", "Identifies additional names by which this element might also be known.", 0, java.lang.Integer.MAX_VALUE, synonym));
+        childrenList.add(new Property("alias", "string", "Identifies additional names by which this element might also be known.", 0, java.lang.Integer.MAX_VALUE, alias));
         childrenList.add(new Property("min", "integer", "The minimum number of times this element SHALL appear in the instance.", 0, java.lang.Integer.MAX_VALUE, min));
         childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, java.lang.Integer.MAX_VALUE, max));
         childrenList.add(new Property("type", "", "The data type or resource that the value of this element is permitted to be.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -3188,10 +3188,10 @@ public class ElementDefinition extends Type {
         dst.definition = definition == null ? null : definition.copy();
         dst.comments = comments == null ? null : comments.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
-        if (synonym != null) {
-          dst.synonym = new ArrayList<StringType>();
-          for (StringType i : synonym)
-            dst.synonym.add(i.copy());
+        if (alias != null) {
+          dst.alias = new ArrayList<StringType>();
+          for (StringType i : alias)
+            dst.alias.add(i.copy());
         };
         dst.min = min == null ? null : min.copy();
         dst.max = max == null ? null : max.copy();
@@ -3243,7 +3243,7 @@ public class ElementDefinition extends Type {
         return compareDeep(path, o.path, true) && compareDeep(representation, o.representation, true) && compareDeep(name, o.name, true)
            && compareDeep(label, o.label, true) && compareDeep(code, o.code, true) && compareDeep(slicing, o.slicing, true)
            && compareDeep(short_, o.short_, true) && compareDeep(definition, o.definition, true) && compareDeep(comments, o.comments, true)
-           && compareDeep(requirements, o.requirements, true) && compareDeep(synonym, o.synonym, true) && compareDeep(min, o.min, true)
+           && compareDeep(requirements, o.requirements, true) && compareDeep(alias, o.alias, true) && compareDeep(min, o.min, true)
            && compareDeep(max, o.max, true) && compareDeep(type, o.type, true) && compareDeep(nameReference, o.nameReference, true)
            && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(meaningWhenMissing, o.meaningWhenMissing, true)
            && compareDeep(fixed, o.fixed, true) && compareDeep(pattern, o.pattern, true) && compareDeep(example, o.example, true)
@@ -3262,7 +3262,7 @@ public class ElementDefinition extends Type {
         ElementDefinition o = (ElementDefinition) other;
         return compareValues(path, o.path, true) && compareValues(representation, o.representation, true) && compareValues(name, o.name, true)
            && compareValues(label, o.label, true) && compareValues(short_, o.short_, true) && compareValues(definition, o.definition, true)
-           && compareValues(comments, o.comments, true) && compareValues(requirements, o.requirements, true) && compareValues(synonym, o.synonym, true)
+           && compareValues(comments, o.comments, true) && compareValues(requirements, o.requirements, true) && compareValues(alias, o.alias, true)
            && compareValues(min, o.min, true) && compareValues(max, o.max, true) && compareValues(nameReference, o.nameReference, true)
            && compareValues(meaningWhenMissing, o.meaningWhenMissing, true) && compareValues(maxLength, o.maxLength, true)
            && compareValues(condition, o.condition, true) && compareValues(mustSupport, o.mustSupport, true) && compareValues(isModifier, o.isModifier, true)
@@ -3274,7 +3274,7 @@ public class ElementDefinition extends Type {
            && (name == null || name.isEmpty()) && (label == null || label.isEmpty()) && (code == null || code.isEmpty())
            && (slicing == null || slicing.isEmpty()) && (short_ == null || short_.isEmpty()) && (definition == null || definition.isEmpty())
            && (comments == null || comments.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (synonym == null || synonym.isEmpty()) && (min == null || min.isEmpty()) && (max == null || max.isEmpty())
+           && (alias == null || alias.isEmpty()) && (min == null || min.isEmpty()) && (max == null || max.isEmpty())
            && (type == null || type.isEmpty()) && (nameReference == null || nameReference.isEmpty())
            && (defaultValue == null || defaultValue.isEmpty()) && (meaningWhenMissing == null || meaningWhenMissing.isEmpty())
            && (fixed == null || fixed.isEmpty()) && (pattern == null || pattern.isEmpty()) && (example == null || example.isEmpty())
