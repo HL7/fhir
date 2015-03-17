@@ -195,7 +195,6 @@ import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
 import org.hl7.fhir.tools.implementations.emf.EMFGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
 import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
-import org.hl7.fhir.tools.implementations.objectivec.ObjectiveCGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
@@ -1180,7 +1179,6 @@ public class Publisher implements URIResolver {
     page.getReferenceImplementations().add(javaReferencePlatform);
     page.getReferenceImplementations().add(delphiReferencePlatform);
     page.getReferenceImplementations().add(new CSharpGenerator());
-    page.getReferenceImplementations().add(new ObjectiveCGenerator());
     page.getReferenceImplementations().add(new XMLToolsGenerator());
     page.getReferenceImplementations().add(new JavaScriptGenerator());
     page.getReferenceImplementations().add(new EMFGenerator());
