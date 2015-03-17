@@ -2,6 +2,7 @@
 <Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
   <id value="f201"/>
+    <active value="true"/>
     <identifier>
         <!--Identifier for the AUMC-->
         <use value="official"/>
@@ -86,5 +87,4 @@
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>
     </contact>
-    <active value="true"/>
 </Organization>
