@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -251,14 +251,14 @@ public class StructureDefinition extends DomainResource {
         /**
          * The name of an individual to contact regarding the structure definition.
          */
-        @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
+        @Child(name ="name", type={StringType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the structure definition." )
         protected StringType name;
 
         /**
          * Contact details for individual (if a name was provided) or the publisher.
          */
-        @Child(name="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Contact details for individual or publisher", formalDefinition="Contact details for individual (if a name was provided) or the publisher." )
         protected List<ContactPoint> telecom;
 
@@ -407,28 +407,28 @@ public class StructureDefinition extends DomainResource {
         /**
          * An Internal id that is used to identify this mapping set when specific mappings are made.
          */
-        @Child(name="identity", type={IdType.class}, order=1, min=1, max=1)
+        @Child(name ="identity", type={IdType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Internal id when this mapping is used", formalDefinition="An Internal id that is used to identify this mapping set when specific mappings are made." )
         protected IdType identity;
 
         /**
          * An absolute URI that identifies the specification that this mapping is expressed to.
          */
-        @Child(name="uri", type={UriType.class}, order=2, min=0, max=1)
+        @Child(name ="uri", type={UriType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Identifies what this mapping refers to", formalDefinition="An absolute URI that identifies the specification that this mapping is expressed to." )
         protected UriType uri;
 
         /**
          * A name for the specification that is being mapped to.
          */
-        @Child(name="name", type={StringType.class}, order=3, min=0, max=1)
+        @Child(name ="name", type={StringType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Names what this mapping refers to", formalDefinition="A name for the specification that is being mapped to." )
         protected StringType name;
 
         /**
          * Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        @Child(name="comments", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name ="comments", type={StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Versions, Issues, Scope limitations etc", formalDefinition="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage." )
         protected StringType comments;
 
@@ -687,7 +687,7 @@ public class StructureDefinition extends DomainResource {
         /**
          * Captures constraints on each element within the resource.
          */
-        @Child(name="element", type={ElementDefinition.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name ="element", type={ElementDefinition.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Definition of elements in the resource (if no StructureDefinition)", formalDefinition="Captures constraints on each element within the resource." )
         protected List<ElementDefinition> element;
 
@@ -784,7 +784,7 @@ public class StructureDefinition extends DomainResource {
         /**
          * Captures constraints on each element within the resource.
          */
-        @Child(name="element", type={ElementDefinition.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name ="element", type={ElementDefinition.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Definition of elements in the resource (if no StructureDefinition)", formalDefinition="Captures constraints on each element within the resource." )
         protected List<ElementDefinition> element;
 
@@ -879,168 +879,168 @@ public class StructureDefinition extends DomainResource {
     /**
      * An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems.
      */
-    @Child(name="url", type={UriType.class}, order=0, min=1, max=1)
+    @Child(name ="url", type={UriType.class}, order=0, min=1, max=1)
     @Description(shortDefinition="Literal URL used to reference this StructureDefinition", formalDefinition="An absolute URL at which this StructureDefinition is (or will be) published, and which is used to reference this StructureDefinition in extension urls and tag values in operational FHIR systems." )
     protected UriType url;
 
     /**
      * Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).
      */
-    @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Other identifiers for the StructureDefinition", formalDefinition="Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI)." )
     protected List<Identifier> identifier;
 
     /**
      * The identifier that is used to identify this version of the StructureDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureDefinition author manually.
      */
-    @Child(name="version", type={StringType.class}, order=2, min=0, max=1)
+    @Child(name ="version", type={StringType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Logical id for this version of the StructureDefinition", formalDefinition="The identifier that is used to identify this version of the StructureDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureDefinition author manually." )
     protected StringType version;
 
     /**
      * A free text natural language name identifying the StructureDefinition.
      */
-    @Child(name="name", type={StringType.class}, order=3, min=1, max=1)
+    @Child(name ="name", type={StringType.class}, order=3, min=1, max=1)
     @Description(shortDefinition="Informal name for this StructureDefinition", formalDefinition="A free text natural language name identifying the StructureDefinition." )
     protected StringType name;
 
     /**
      * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of structure definitions.
      */
-    @Child(name="useContext", type={CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="useContext", type={CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of structure definitions." )
     protected List<CodeableConcept> useContext;
 
     /**
      * Defined so that applications can use this name when displaying the value of the extension to the user.
      */
-    @Child(name="display", type={StringType.class}, order=5, min=0, max=1)
+    @Child(name ="display", type={StringType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Use this name when displaying the value", formalDefinition="Defined so that applications can use this name when displaying the value of the extension to the user." )
     protected StringType display;
 
     /**
      * The name of the individual or organization that published the structure definition.
      */
-    @Child(name="publisher", type={StringType.class}, order=6, min=0, max=1)
+    @Child(name ="publisher", type={StringType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the structure definition." )
     protected StringType publisher;
 
     /**
      * Contacts to assist a user in finding and communicating with the publisher.
      */
-    @Child(name="contact", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="contact", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
     protected List<StructureDefinitionContactComponent> contact;
 
     /**
      * A free text natural language description of the StructureDefinition and its use.
      */
-    @Child(name="description", type={StringType.class}, order=8, min=0, max=1)
+    @Child(name ="description", type={StringType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Natural language description of the StructureDefinition", formalDefinition="A free text natural language description of the StructureDefinition and its use." )
     protected StringType description;
 
     /**
      * Explains why this structure definition is needed and why it's been constrained as it has.
      */
-    @Child(name="requirements", type={StringType.class}, order=9, min=0, max=1)
+    @Child(name ="requirements", type={StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Scope and Usage this structure definition is for", formalDefinition="Explains why this structure definition is needed and why it's been constrained as it has." )
     protected StringType requirements;
 
     /**
      * A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
      */
-    @Child(name="copyright", type={StringType.class}, order=10, min=0, max=1)
+    @Child(name ="copyright", type={StringType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Use and/or Publishing restrictions", formalDefinition="A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings." )
     protected StringType copyright;
 
     /**
      * A set of terms from external terminologies that may be used to assist with indexing and searching of templates.
      */
-    @Child(name="code", type={Coding.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="code", type={Coding.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of terms from external terminologies that may be used to assist with indexing and searching of templates." )
     protected List<Coding> code;
 
     /**
      * The status of the StructureDefinition.
      */
-    @Child(name="status", type={CodeType.class}, order=12, min=1, max=1)
+    @Child(name ="status", type={CodeType.class}, order=12, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the StructureDefinition." )
     protected Enumeration<ConformanceResourceStatus> status;
 
     /**
      * This StructureDefinition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name="experimental", type={BooleanType.class}, order=13, min=0, max=1)
+    @Child(name ="experimental", type={BooleanType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="This StructureDefinition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * The date that this version of the StructureDefinition was published.
      */
-    @Child(name="date", type={DateTimeType.class}, order=14, min=0, max=1)
+    @Child(name ="date", type={DateTimeType.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Date for this version of the StructureDefinition", formalDefinition="The date that this version of the StructureDefinition was published." )
     protected DateTimeType date;
 
     /**
      * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.4.0 for this version.
      */
-    @Child(name="fhirVersion", type={IdType.class}, order=15, min=0, max=1)
+    @Child(name ="fhirVersion", type={IdType.class}, order=15, min=0, max=1)
     @Description(shortDefinition="FHIR Version this StructureDefinition targets", formalDefinition="The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.4.0 for this version." )
     protected IdType fhirVersion;
 
     /**
      * An external specification that the content is mapped to.
      */
-    @Child(name="mapping", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="mapping", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External specification that the content is mapped to", formalDefinition="An external specification that the content is mapped to." )
     protected List<StructureDefinitionMappingComponent> mapping;
 
     /**
      * Defines the type of structure that this definition is describing.
      */
-    @Child(name="type", type={CodeType.class}, order=17, min=1, max=1)
+    @Child(name ="type", type={CodeType.class}, order=17, min=1, max=1)
     @Description(shortDefinition="type | resource | constraint | extension", formalDefinition="Defines the type of structure that this definition is describing." )
     protected Enumeration<StructureDefinitionType> type;
 
     /**
      * Whether structure this definition describes is abstract or not.
      */
-    @Child(name="abstract_", type={BooleanType.class}, order=18, min=1, max=1)
+    @Child(name ="abstract_", type={BooleanType.class}, order=18, min=1, max=1)
     @Description(shortDefinition="Whether the structure is abstract", formalDefinition="Whether structure this definition describes is abstract or not." )
     protected BooleanType abstract_;
 
     /**
      * Identifies the type of context to which the extension applies.
      */
-    @Child(name="contextType", type={CodeType.class}, order=19, min=0, max=1)
+    @Child(name ="contextType", type={CodeType.class}, order=19, min=0, max=1)
     @Description(shortDefinition="resource | datatype | mapping | extension", formalDefinition="Identifies the type of context to which the extension applies." )
     protected Enumeration<ExtensionContext> contextType;
 
     /**
      * Identifies the types of resource or data type elements to which the extension can be applied.
      */
-    @Child(name="context", type={StringType.class}, order=20, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="context", type={StringType.class}, order=20, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Where the extension can be used in instances", formalDefinition="Identifies the types of resource or data type elements to which the extension can be applied." )
     protected List<StringType> context;
 
     /**
      * An absolute URI that is the base structure from which this set of constraints is derived.
      */
-    @Child(name="base", type={UriType.class}, order=21, min=0, max=1)
+    @Child(name ="base", type={UriType.class}, order=21, min=0, max=1)
     @Description(shortDefinition="Structure that this set of constraints applies to", formalDefinition="An absolute URI that is the base structure from which this set of constraints is derived." )
     protected UriType base;
 
     /**
      * A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.
      */
-    @Child(name="snapshot", type={}, order=22, min=0, max=1)
+    @Child(name ="snapshot", type={}, order=22, min=0, max=1)
     @Description(shortDefinition="Snapshot view of the structure", formalDefinition="A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition." )
     protected StructureDefinitionSnapshotComponent snapshot;
 
     /**
      * A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.
      */
-    @Child(name="differential", type={}, order=23, min=0, max=1)
+    @Child(name ="differential", type={}, order=23, min=0, max=1)
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies." )
     protected StructureDefinitionDifferentialComponent differential;
 

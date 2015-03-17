@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -46,14 +46,14 @@ public class Extension extends Element {
     /**
      * Source of the definition for the extension code - a logical name or a URL.
      */
-    @Child(name="url", type={UriType.class}, order=0, min=1, max=1)
+    @Child(name ="url", type={UriType.class}, order=0, min=1, max=1)
     @Description(shortDefinition="identifies the meaning of the extension", formalDefinition="Source of the definition for the extension code - a logical name or a URL." )
     protected UriType url;
 
     /**
      * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
      */
-    @Child(name="value", type={}, order=1, min=0, max=1)
+    @Child(name ="value", type={}, order=1, min=0, max=1)
     @Description(shortDefinition="Value of extension", formalDefinition="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." )
     protected org.hl7.fhir.instance.model.Type value;
 

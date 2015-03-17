@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -136,28 +136,28 @@ public class List_ extends DomainResource {
         /**
          * The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.
          */
-        @Child(name="flag", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="flag", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Workflow information about this item", formalDefinition="The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list." )
         protected List<CodeableConcept> flag;
 
         /**
          * True if this item is marked as deleted in the list.
          */
-        @Child(name="deleted", type={BooleanType.class}, order=2, min=0, max=1)
+        @Child(name ="deleted", type={BooleanType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="If this item is actually marked as deleted", formalDefinition="True if this item is marked as deleted in the list." )
         protected BooleanType deleted;
 
         /**
          * When this item was added to the list.
          */
-        @Child(name="date", type={DateTimeType.class}, order=3, min=0, max=1)
+        @Child(name ="date", type={DateTimeType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="When item added to list", formalDefinition="When this item was added to the list." )
         protected DateTimeType date;
 
         /**
          * A reference to the actual resource from which data was derived.
          */
-        @Child(name="item", type={}, order=4, min=1, max=1)
+        @Child(name ="item", type={}, order=4, min=1, max=1)
         @Description(shortDefinition="Actual entry", formalDefinition="A reference to the actual resource from which data was derived." )
         protected Reference item;
 
@@ -403,21 +403,21 @@ public class List_ extends DomainResource {
     /**
      * Identifier for the List assigned for business purposes outside the context of FHIR.
      */
-    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Business identifier", formalDefinition="Identifier for the List assigned for business purposes outside the context of FHIR." )
     protected List<Identifier> identifier;
 
     /**
      * This code defines the purpose of the list - why it was created.
      */
-    @Child(name="code", type={CodeableConcept.class}, order=1, min=0, max=1)
+    @Child(name ="code", type={CodeableConcept.class}, order=1, min=0, max=1)
     @Description(shortDefinition="What the purpose of this list is", formalDefinition="This code defines the purpose of the list - why it was created." )
     protected CodeableConcept code;
 
     /**
      * The common subject (or patient) of the resources that are in the list, if there is one.
      */
-    @Child(name="subject", type={Patient.class, Group.class, Device.class, Location.class}, order=2, min=0, max=1)
+    @Child(name ="subject", type={Patient.class, Group.class, Device.class, Location.class}, order=2, min=0, max=1)
     @Description(shortDefinition="If all resources have the same subject", formalDefinition="The common subject (or patient) of the resources that are in the list, if there is one." )
     protected Reference subject;
 
@@ -429,7 +429,7 @@ public class List_ extends DomainResource {
     /**
      * The entity responsible for deciding what the contents of the list were.
      */
-    @Child(name="source", type={Practitioner.class, Patient.class, Device.class}, order=3, min=0, max=1)
+    @Child(name ="source", type={Practitioner.class, Patient.class, Device.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Who and/or what defined the list contents", formalDefinition="The entity responsible for deciding what the contents of the list were." )
     protected Reference source;
 
@@ -441,35 +441,35 @@ public class List_ extends DomainResource {
     /**
      * The date that the list was prepared.
      */
-    @Child(name="date", type={DateTimeType.class}, order=4, min=0, max=1)
+    @Child(name ="date", type={DateTimeType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="When the list was prepared", formalDefinition="The date that the list was prepared." )
     protected DateTimeType date;
 
     /**
      * Whether items in the list have a meaningful order.
      */
-    @Child(name="ordered", type={BooleanType.class}, order=5, min=0, max=1)
+    @Child(name ="ordered", type={BooleanType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Whether items in the list have a meaningful order", formalDefinition="Whether items in the list have a meaningful order." )
     protected BooleanType ordered;
 
     /**
      * How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
      */
-    @Child(name="mode", type={CodeType.class}, order=6, min=1, max=1)
+    @Child(name ="mode", type={CodeType.class}, order=6, min=1, max=1)
     @Description(shortDefinition="working | snapshot | changes", formalDefinition="How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted." )
     protected Enumeration<ListMode> mode;
 
     /**
      * Entries in this list.
      */
-    @Child(name="entry", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="entry", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Entries in the list", formalDefinition="Entries in this list." )
     protected List<ListEntryComponent> entry;
 
     /**
      * If the list is empty, why the list is empty.
      */
-    @Child(name="emptyReason", type={CodeableConcept.class}, order=8, min=0, max=1)
+    @Child(name ="emptyReason", type={CodeableConcept.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Why list is empty", formalDefinition="If the list is empty, why the list is empty." )
     protected CodeableConcept emptyReason;
 

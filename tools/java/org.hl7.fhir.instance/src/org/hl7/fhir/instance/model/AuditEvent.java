@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1112,42 +1112,42 @@ public class AuditEvent extends DomainResource {
         /**
          * Identifier for a family of the event.
          */
-        @Child(name="type", type={CodeableConcept.class}, order=1, min=1, max=1)
+        @Child(name ="type", type={CodeableConcept.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Type/identifier of event", formalDefinition="Identifier for a family of the event." )
         protected CodeableConcept type;
 
         /**
          * Identifier for the category of event.
          */
-        @Child(name="subtype", type={CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="subtype", type={CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="More specific type/id for the event", formalDefinition="Identifier for the category of event." )
         protected List<CodeableConcept> subtype;
 
         /**
          * Indicator for type of action performed during the event that generated the audit.
          */
-        @Child(name="action", type={CodeType.class}, order=3, min=0, max=1)
+        @Child(name ="action", type={CodeType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Type of action performed during the event", formalDefinition="Indicator for type of action performed during the event that generated the audit." )
         protected Enumeration<AuditEventAction> action;
 
         /**
          * The time when the event occurred on the source.
          */
-        @Child(name="dateTime", type={InstantType.class}, order=4, min=1, max=1)
+        @Child(name ="dateTime", type={InstantType.class}, order=4, min=1, max=1)
         @Description(shortDefinition="Time when the event occurred on source", formalDefinition="The time when the event occurred on the source." )
         protected InstantType dateTime;
 
         /**
          * Indicates whether the event succeeded or failed.
          */
-        @Child(name="outcome", type={CodeType.class}, order=5, min=0, max=1)
+        @Child(name ="outcome", type={CodeType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Whether the event succeeded or failed", formalDefinition="Indicates whether the event succeeded or failed." )
         protected Enumeration<AuditEventOutcome> outcome;
 
         /**
          * A free text description of the outcome of the event.
          */
-        @Child(name="outcomeDesc", type={StringType.class}, order=6, min=0, max=1)
+        @Child(name ="outcomeDesc", type={StringType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Description of the event outcome", formalDefinition="A free text description of the outcome of the event." )
         protected StringType outcomeDesc;
 
@@ -1481,14 +1481,14 @@ public class AuditEvent extends DomainResource {
         /**
          * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.
          */
-        @Child(name="role", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="role", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="User roles (e.g. local RBAC codes)", formalDefinition="Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context." )
         protected List<CodeableConcept> role;
 
         /**
          * Direct reference to a resource that identifies the participant.
          */
-        @Child(name="reference", type={Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=2, min=0, max=1)
+        @Child(name ="reference", type={Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Direct reference to resource", formalDefinition="Direct reference to a resource that identifies the participant." )
         protected Reference reference;
 
@@ -1500,35 +1500,35 @@ public class AuditEvent extends DomainResource {
         /**
          * Unique identifier for the user actively participating in the event.
          */
-        @Child(name="userId", type={StringType.class}, order=3, min=0, max=1)
+        @Child(name ="userId", type={StringType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Unique identifier for the user", formalDefinition="Unique identifier for the user actively participating in the event." )
         protected StringType userId;
 
         /**
          * Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
          */
-        @Child(name="altId", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name ="altId", type={StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Alternative User id e.g. authentication", formalDefinition="Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available." )
         protected StringType altId;
 
         /**
          * Human-meaningful name for the user.
          */
-        @Child(name="name", type={StringType.class}, order=5, min=0, max=1)
+        @Child(name ="name", type={StringType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Human-meaningful name for the user", formalDefinition="Human-meaningful name for the user." )
         protected StringType name;
 
         /**
          * Indicator that the user is or is not the requestor, or initiator, for the event being audited.
          */
-        @Child(name="requestor", type={BooleanType.class}, order=6, min=1, max=1)
+        @Child(name ="requestor", type={BooleanType.class}, order=6, min=1, max=1)
         @Description(shortDefinition="Whether user is initiator", formalDefinition="Indicator that the user is or is not the requestor, or initiator, for the event being audited." )
         protected BooleanType requestor;
 
         /**
          * Where the event occurred.
          */
-        @Child(name="location", type={Location.class}, order=7, min=0, max=1)
+        @Child(name ="location", type={Location.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Where", formalDefinition="Where the event occurred." )
         protected Reference location;
 
@@ -1540,21 +1540,21 @@ public class AuditEvent extends DomainResource {
         /**
          * The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.
          */
-        @Child(name="policy", type={UriType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="policy", type={UriType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Policy that authorized event", formalDefinition="The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used." )
         protected List<UriType> policy;
 
         /**
          * Type of media involved. Used when the event is about exporting/importing onto media.
          */
-        @Child(name="media", type={Coding.class}, order=9, min=0, max=1)
+        @Child(name ="media", type={Coding.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Type of media", formalDefinition="Type of media involved. Used when the event is about exporting/importing onto media." )
         protected Coding media;
 
         /**
          * Logical network location for application activity, if the activity has a network location.
          */
-        @Child(name="network", type={}, order=10, min=0, max=1)
+        @Child(name ="network", type={}, order=10, min=0, max=1)
         @Description(shortDefinition="Logical network location for application activity", formalDefinition="Logical network location for application activity, if the activity has a network location." )
         protected AuditEventParticipantNetworkComponent network;
 
@@ -2063,14 +2063,14 @@ public class AuditEvent extends DomainResource {
         /**
          * An identifier for the network access point of the user device for the audit event.
          */
-        @Child(name="identifier", type={StringType.class}, order=1, min=0, max=1)
+        @Child(name ="identifier", type={StringType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Identifier for the network access point of the user device", formalDefinition="An identifier for the network access point of the user device for the audit event." )
         protected StringType identifier;
 
         /**
          * An identifier for the type of network access point that originated the audit event.
          */
-        @Child(name="type", type={CodeType.class}, order=2, min=0, max=1)
+        @Child(name ="type", type={CodeType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="The type of network access point", formalDefinition="An identifier for the type of network access point that originated the audit event." )
         protected Enumeration<NetworkType> type;
 
@@ -2224,21 +2224,21 @@ public class AuditEvent extends DomainResource {
         /**
          * Logical source location within the healthcare enterprise network.
          */
-        @Child(name="site", type={StringType.class}, order=1, min=0, max=1)
+        @Child(name ="site", type={StringType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Logical source location within the enterprise", formalDefinition="Logical source location within the healthcare enterprise network." )
         protected StringType site;
 
         /**
          * Identifier of the source where the event originated.
          */
-        @Child(name="identifier", type={StringType.class}, order=2, min=1, max=1)
+        @Child(name ="identifier", type={StringType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="The id of source where event originated", formalDefinition="Identifier of the source where the event originated." )
         protected StringType identifier;
 
         /**
          * Code specifying the type of source where event originated.
          */
-        @Child(name="type", type={Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="type", type={Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="The type of source where event originated", formalDefinition="Code specifying the type of source where event originated." )
         protected List<Coding> type;
 
@@ -2440,14 +2440,14 @@ public class AuditEvent extends DomainResource {
         /**
          * Identifies a specific instance of the participant object. The reference should always be version specific.
          */
-        @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=1)
+        @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Specific instance of object (e.g. versioned)", formalDefinition="Identifies a specific instance of the participant object. The reference should always be version specific." )
         protected Identifier identifier;
 
         /**
          * Identifies a specific instance of the participant object. The reference should always be version specific.
          */
-        @Child(name="reference", type={}, order=2, min=0, max=1)
+        @Child(name ="reference", type={}, order=2, min=0, max=1)
         @Description(shortDefinition="Specific instance of resource (e.g. versioned)", formalDefinition="Identifies a specific instance of the participant object. The reference should always be version specific." )
         protected Reference reference;
 
@@ -2459,56 +2459,56 @@ public class AuditEvent extends DomainResource {
         /**
          * Object type being audited.
          */
-        @Child(name="type", type={CodeType.class}, order=3, min=0, max=1)
+        @Child(name ="type", type={CodeType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Object type being audited", formalDefinition="Object type being audited." )
         protected Enumeration<ObjectType> type;
 
         /**
          * Code representing the functional application role of Participant Object being audited.
          */
-        @Child(name="role", type={CodeType.class}, order=4, min=0, max=1)
+        @Child(name ="role", type={CodeType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Functional application role of Object", formalDefinition="Code representing the functional application role of Participant Object being audited." )
         protected Enumeration<ObjectRole> role;
 
         /**
          * Identifier for the data life-cycle stage for the participant object.
          */
-        @Child(name="lifecycle", type={CodeType.class}, order=5, min=0, max=1)
+        @Child(name ="lifecycle", type={CodeType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Life-cycle stage for the object", formalDefinition="Identifier for the data life-cycle stage for the participant object." )
         protected Enumeration<ObjectLifecycle> lifecycle;
 
         /**
          * Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics.
          */
-        @Child(name="sensitivity", type={CodeableConcept.class}, order=6, min=0, max=1)
+        @Child(name ="sensitivity", type={CodeableConcept.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Policy-defined sensitivity for the object", formalDefinition="Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics." )
         protected CodeableConcept sensitivity;
 
         /**
          * An instance-specific descriptor of the Participant Object ID audited, such as a person's name.
          */
-        @Child(name="name", type={StringType.class}, order=7, min=0, max=1)
+        @Child(name ="name", type={StringType.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Instance-specific descriptor for Object", formalDefinition="An instance-specific descriptor of the Participant Object ID audited, such as a person's name." )
         protected StringType name;
 
         /**
          * Text that describes the object in more detail.
          */
-        @Child(name="description", type={StringType.class}, order=8, min=0, max=1)
+        @Child(name ="description", type={StringType.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Descriptive text", formalDefinition="Text that describes the object in more detail." )
         protected StringType description;
 
         /**
          * The actual query for a query-type participant object.
          */
-        @Child(name="query", type={Base64BinaryType.class}, order=9, min=0, max=1)
+        @Child(name ="query", type={Base64BinaryType.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Actual query for object", formalDefinition="The actual query for a query-type participant object." )
         protected Base64BinaryType query;
 
         /**
          * Additional Information about the Object.
          */
-        @Child(name="detail", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="detail", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Additional Information about the Object", formalDefinition="Additional Information about the Object." )
         protected List<AuditEventObjectDetailComponent> detail;
 
@@ -3012,14 +3012,14 @@ public class AuditEvent extends DomainResource {
         /**
          * Name of the property.
          */
-        @Child(name="type", type={StringType.class}, order=1, min=1, max=1)
+        @Child(name ="type", type={StringType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Name of the property", formalDefinition="Name of the property." )
         protected StringType type;
 
         /**
          * Property value.
          */
-        @Child(name="value", type={Base64BinaryType.class}, order=2, min=1, max=1)
+        @Child(name ="value", type={Base64BinaryType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Property value", formalDefinition="Property value." )
         protected Base64BinaryType value;
 
@@ -3169,28 +3169,28 @@ public class AuditEvent extends DomainResource {
     /**
      * Identifies the name, action type, time, and disposition of the audited event.
      */
-    @Child(name="event", type={}, order=0, min=1, max=1)
+    @Child(name ="event", type={}, order=0, min=1, max=1)
     @Description(shortDefinition="What was done", formalDefinition="Identifies the name, action type, time, and disposition of the audited event." )
     protected AuditEventEventComponent event;
 
     /**
      * A person, a hardware device or software process.
      */
-    @Child(name="participant", type={}, order=1, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name ="participant", type={}, order=1, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A person, a hardware device or software process", formalDefinition="A person, a hardware device or software process." )
     protected List<AuditEventParticipantComponent> participant;
 
     /**
      * Application systems and processes.
      */
-    @Child(name="source", type={}, order=2, min=1, max=1)
+    @Child(name ="source", type={}, order=2, min=1, max=1)
     @Description(shortDefinition="Application systems and processes", formalDefinition="Application systems and processes." )
     protected AuditEventSourceComponent source;
 
     /**
      * Specific instances of data or objects that have been accessed.
      */
-    @Child(name="object", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="object", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Specific instances of data or objects that have been accessed", formalDefinition="Specific instances of data or objects that have been accessed." )
     protected List<AuditEventObjectComponent> object;
 

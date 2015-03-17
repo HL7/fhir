@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -566,63 +566,63 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance.
          */
-        @Child(name="substance", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name ="substance", type={CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Specific substance considered to be responsible for event", formalDefinition="Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance." )
         protected CodeableConcept substance;
 
         /**
          * Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event.
          */
-        @Child(name="certainty", type={CodeType.class}, order=2, min=0, max=1)
+        @Child(name ="certainty", type={CodeType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="unlikely | likely | confirmed - clinical certainty about the specific substance", formalDefinition="Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event." )
         protected Enumeration<ReactionEventCertainty> certainty;
 
         /**
          * Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event.
          */
-        @Child(name="manifestation", type={CodeableConcept.class}, order=3, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name ="manifestation", type={CodeableConcept.class}, order=3, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Clinical symptoms/signs associated with the Event", formalDefinition="Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event." )
         protected List<CodeableConcept> manifestation;
 
         /**
          * Text description about the Reaction as a whole, including details of the manifestation if required.
          */
-        @Child(name="description", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name ="description", type={StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Description of the event as a whole", formalDefinition="Text description about the Reaction as a whole, including details of the manifestation if required." )
         protected StringType description;
 
         /**
          * Record of the date and/or time of the onset of the Reaction.
          */
-        @Child(name="onset", type={DateTimeType.class}, order=5, min=0, max=1)
+        @Child(name ="onset", type={DateTimeType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Date(/time) when manifestations showed", formalDefinition="Record of the date and/or time of the onset of the Reaction." )
         protected DateTimeType onset;
 
         /**
          * The amount of time that the Adverse Reaction persisted.
          */
-        @Child(name="duration", type={Duration.class}, order=6, min=0, max=1)
+        @Child(name ="duration", type={Duration.class}, order=6, min=0, max=1)
         @Description(shortDefinition="How long Manifestations persisted", formalDefinition="The amount of time that the Adverse Reaction persisted." )
         protected Duration duration;
 
         /**
          * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
          */
-        @Child(name="severity", type={CodeType.class}, order=7, min=0, max=1)
+        @Child(name ="severity", type={CodeType.class}, order=7, min=0, max=1)
         @Description(shortDefinition="mild | moderate | severe (of event as a whole)", formalDefinition="Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations." )
         protected Enumeration<ReactionEventSeverity> severity;
 
         /**
          * Identification of the route by which the subject was exposed to the substance.
          */
-        @Child(name="exposureRoute", type={CodeableConcept.class}, order=8, min=0, max=1)
+        @Child(name ="exposureRoute", type={CodeableConcept.class}, order=8, min=0, max=1)
         @Description(shortDefinition="How the subject was exposed to the substance", formalDefinition="Identification of the route by which the subject was exposed to the substance." )
         protected CodeableConcept exposureRoute;
 
         /**
          * Additional text about the Adverse Reaction event not captured in other fields.
          */
-        @Child(name="comment", type={StringType.class}, order=9, min=0, max=1)
+        @Child(name ="comment", type={StringType.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Text about event not captured in other fields", formalDefinition="Additional text about the Adverse Reaction event not captured in other fields." )
         protected StringType comment;
 
@@ -1059,21 +1059,21 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External Ids for this item", formalDefinition="This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
     protected List<Identifier> identifier;
 
     /**
      * Date when the sensitivity was recorded.
      */
-    @Child(name="recordedDate", type={DateTimeType.class}, order=1, min=0, max=1)
+    @Child(name ="recordedDate", type={DateTimeType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="When recorded", formalDefinition="Date when the sensitivity was recorded." )
     protected DateTimeType recordedDate;
 
     /**
      * Indicates who has responsibility for the record.
      */
-    @Child(name="recorder", type={Practitioner.class, Patient.class}, order=2, min=0, max=1)
+    @Child(name ="recorder", type={Practitioner.class, Patient.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Who recorded the sensitivity", formalDefinition="Indicates who has responsibility for the record." )
     protected Reference recorder;
 
@@ -1085,7 +1085,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * The patient who has the allergy or intolerance.
      */
-    @Child(name="patient", type={Patient.class}, order=3, min=1, max=1)
+    @Child(name ="patient", type={Patient.class}, order=3, min=1, max=1)
     @Description(shortDefinition="Who the sensitivity is for", formalDefinition="The patient who has the allergy or intolerance." )
     protected Reference patient;
 
@@ -1097,56 +1097,56 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk.
      */
-    @Child(name="substance", type={CodeableConcept.class}, order=4, min=1, max=1)
+    @Child(name ="substance", type={CodeableConcept.class}, order=4, min=1, max=1)
     @Description(shortDefinition="Substance, (or class) considered to be responsible for risk", formalDefinition="Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk." )
     protected CodeableConcept substance;
 
     /**
      * Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
      */
-    @Child(name="status", type={CodeType.class}, order=5, min=0, max=1)
+    @Child(name ="status", type={CodeType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="unconfirmed | confirmed | resolved | refuted", formalDefinition="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance." )
     protected Enumeration<AllergyIntoleranceStatus> status;
 
     /**
      * Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
      */
-    @Child(name="criticality", type={CodeType.class}, order=6, min=0, max=1)
+    @Child(name ="criticality", type={CodeType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="low | high | unassessible - Estimated potential clinical harm", formalDefinition="Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance." )
     protected Enumeration<AllergyIntoleranceCriticality> criticality;
 
     /**
      * Identification of the underlying physiological mechanism for the Reaction Risk.
      */
-    @Child(name="type", type={CodeType.class}, order=7, min=0, max=1)
+    @Child(name ="type", type={CodeType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="immune | non-immune - Underlying mechanism (if known)", formalDefinition="Identification of the underlying physiological mechanism for the Reaction Risk." )
     protected Enumeration<AllergyIntoleranceType> type;
 
     /**
      * Category of the identified Substance.
      */
-    @Child(name="category", type={CodeType.class}, order=8, min=0, max=1)
+    @Child(name ="category", type={CodeType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="food | medication | environment - Category of Substance", formalDefinition="Category of the identified Substance." )
     protected Enumeration<AllergyIntoleranceCategory> category;
 
     /**
      * Represents the date and/or time of the last known occurence of a reaction event.
      */
-    @Child(name="lastOccurence", type={DateTimeType.class}, order=9, min=0, max=1)
+    @Child(name ="lastOccurence", type={DateTimeType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Date(/time) of last known occurence of a reaction", formalDefinition="Represents the date and/or time of the last known occurence of a reaction event." )
     protected DateTimeType lastOccurence;
 
     /**
      * Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
      */
-    @Child(name="comment", type={StringType.class}, order=10, min=0, max=1)
+    @Child(name ="comment", type={StringType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Additional text not captured in other fields", formalDefinition="Additional narrative about the propensity for the Adverse Reaction, not captured in other fields." )
     protected StringType comment;
 
     /**
      * Details about each Adverse Reaction Event linked to exposure to the identified Substance.
      */
-    @Child(name="event", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="event", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Adverse Reaction Events linked to exposure to substance", formalDefinition="Details about each Adverse Reaction Event linked to exposure to the identified Substance." )
     protected List<AllergyIntoleranceEventComponent> event;
 

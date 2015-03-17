@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -176,14 +176,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External Ids for this item", formalDefinition="This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
     protected List<Identifier> identifier;
 
     /**
      * Parent appointment that this response is replying to.
      */
-    @Child(name="appointment", type={Appointment.class}, order=1, min=1, max=1)
+    @Child(name ="appointment", type={Appointment.class}, order=1, min=1, max=1)
     @Description(shortDefinition="Parent appointment that this response is replying to", formalDefinition="Parent appointment that this response is replying to." )
     protected Reference appointment;
 
@@ -195,14 +195,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * Role of participant in the appointment.
      */
-    @Child(name="participantType", type={CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="participantType", type={CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Role of participant in the appointment", formalDefinition="Role of participant in the appointment." )
     protected List<CodeableConcept> participantType;
 
     /**
      * A Person, Location/HealthcareService or Device that is participating in the appointment.
      */
-    @Child(name="actor", type={Patient.class, Practitioner.class, RelatedPerson.class, Device.class, HealthcareService.class, Location.class}, order=3, min=0, max=1)
+    @Child(name ="actor", type={Patient.class, Practitioner.class, RelatedPerson.class, Device.class, HealthcareService.class, Location.class}, order=3, min=0, max=1)
     @Description(shortDefinition="A Person, Location/HealthcareService or Device that is participating in the appointment", formalDefinition="A Person, Location/HealthcareService or Device that is participating in the appointment." )
     protected Reference actor;
 
@@ -214,28 +214,28 @@ public class AppointmentResponse extends DomainResource {
     /**
      * Participation status of the Patient. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpretted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
      */
-    @Child(name="participantStatus", type={CodeType.class}, order=4, min=1, max=1)
+    @Child(name ="participantStatus", type={CodeType.class}, order=4, min=1, max=1)
     @Description(shortDefinition="accepted | declined | tentative | in-process | completed | needs-action", formalDefinition="Participation status of the Patient. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpretted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty." )
     protected Enumeration<Participantstatus> participantStatus;
 
     /**
      * This comment is particularly important when the responder is declining, tentative or requesting another time to indicate the reasons why.
      */
-    @Child(name="comment", type={StringType.class}, order=5, min=0, max=1)
+    @Child(name ="comment", type={StringType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Additional comments about the appointment", formalDefinition="This comment is particularly important when the responder is declining, tentative or requesting another time to indicate the reasons why." )
     protected StringType comment;
 
     /**
      * This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time.
      */
-    @Child(name="start", type={InstantType.class}, order=6, min=0, max=1)
+    @Child(name ="start", type={InstantType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Date/Time that the appointment is to take place, or requested new start time", formalDefinition="This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time." )
     protected InstantType start;
 
     /**
      * This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.
      */
-    @Child(name="end", type={InstantType.class}, order=7, min=0, max=1)
+    @Child(name ="end", type={InstantType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Date/Time that the appointment is to conclude, or requested new end time", formalDefinition="This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time." )
     protected InstantType end;
 

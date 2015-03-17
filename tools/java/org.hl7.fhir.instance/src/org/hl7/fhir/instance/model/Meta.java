@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -46,35 +46,35 @@ public class Meta extends Type {
     /**
      * The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.
      */
-    @Child(name="versionId", type={IdType.class}, order=0, min=0, max=1)
+    @Child(name ="versionId", type={IdType.class}, order=0, min=0, max=1)
     @Description(shortDefinition="Version specific identifier", formalDefinition="The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted." )
     protected IdType versionId;
 
     /**
      * When the resource last changed - e.g. when the version changed.
      */
-    @Child(name="lastUpdated", type={InstantType.class}, order=1, min=0, max=1)
+    @Child(name ="lastUpdated", type={InstantType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="When the resource version last changed", formalDefinition="When the resource last changed - e.g. when the version changed." )
     protected InstantType lastUpdated;
 
     /**
      * A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].
      */
-    @Child(name="profile", type={UriType.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="profile", type={UriType.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Profiles this resource claims to conform to", formalDefinition="A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]." )
     protected List<UriType> profile;
 
     /**
      * Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.
      */
-    @Child(name="security", type={Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="security", type={Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Security Labels applied to this resource", formalDefinition="Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure." )
     protected List<Coding> security;
 
     /**
      * Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.
      */
-    @Child(name="tag", type={Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="tag", type={Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Tags applied", formalDefinition="Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource." )
     protected List<Coding> tag;
 

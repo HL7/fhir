@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -236,42 +236,42 @@ public class Patient extends DomainResource {
         /**
          * The nature of the relationship between the patient and the contact person.
          */
-        @Child(name="relationship", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="relationship", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="The kind of relationship", formalDefinition="The nature of the relationship between the patient and the contact person." )
         protected List<CodeableConcept> relationship;
 
         /**
          * A name associated with the person.
          */
-        @Child(name="name", type={HumanName.class}, order=2, min=0, max=1)
+        @Child(name ="name", type={HumanName.class}, order=2, min=0, max=1)
         @Description(shortDefinition="A name associated with the person", formalDefinition="A name associated with the person." )
         protected HumanName name;
 
         /**
          * A contact detail for the person, e.g. a telephone number or an email address.
          */
-        @Child(name="telecom", type={ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="telecom", type={ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="A contact detail for the person", formalDefinition="A contact detail for the person, e.g. a telephone number or an email address." )
         protected List<ContactPoint> telecom;
 
         /**
          * Address for the contact person.
          */
-        @Child(name="address", type={Address.class}, order=4, min=0, max=1)
+        @Child(name ="address", type={Address.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Address for the contact person", formalDefinition="Address for the contact person." )
         protected Address address;
 
         /**
          * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
          */
-        @Child(name="gender", type={CodeType.class}, order=5, min=0, max=1)
+        @Child(name ="gender", type={CodeType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." )
         protected Enumeration<AdministrativeGender> gender;
 
         /**
          * Organization on behalf of which the contact is acting or for which the contact is working.
          */
-        @Child(name="organization", type={Organization.class}, order=6, min=0, max=1)
+        @Child(name ="organization", type={Organization.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Organization that is associated with the contact", formalDefinition="Organization on behalf of which the contact is acting or for which the contact is working." )
         protected Reference organization;
 
@@ -283,7 +283,7 @@ public class Patient extends DomainResource {
         /**
          * The period during which this person or organization is valid to be contacted relating to this patient.
          */
-        @Child(name="period", type={Period.class}, order=7, min=0, max=1)
+        @Child(name ="period", type={Period.class}, order=7, min=0, max=1)
         @Description(shortDefinition="The period during which this person or organization is valid to be contacted relating to this patient", formalDefinition="The period during which this person or organization is valid to be contacted relating to this patient." )
         protected Period period;
 
@@ -606,21 +606,21 @@ public class Patient extends DomainResource {
         /**
          * Identifies the high level categorization of the kind of animal.
          */
-        @Child(name="species", type={CodeableConcept.class}, order=1, min=1, max=1)
+        @Child(name ="species", type={CodeableConcept.class}, order=1, min=1, max=1)
         @Description(shortDefinition="E.g. Dog, Cow", formalDefinition="Identifies the high level categorization of the kind of animal." )
         protected CodeableConcept species;
 
         /**
          * Identifies the detailed categorization of the kind of animal.
          */
-        @Child(name="breed", type={CodeableConcept.class}, order=2, min=0, max=1)
+        @Child(name ="breed", type={CodeableConcept.class}, order=2, min=0, max=1)
         @Description(shortDefinition="E.g. Poodle, Angus", formalDefinition="Identifies the detailed categorization of the kind of animal." )
         protected CodeableConcept breed;
 
         /**
          * Indicates the current state of the animal's reproductive organs.
          */
-        @Child(name="genderStatus", type={CodeableConcept.class}, order=3, min=0, max=1)
+        @Child(name ="genderStatus", type={CodeableConcept.class}, order=3, min=0, max=1)
         @Description(shortDefinition="E.g. Neutered, Intact", formalDefinition="Indicates the current state of the animal's reproductive organs." )
         protected CodeableConcept genderStatus;
 
@@ -756,14 +756,14 @@ public class Patient extends DomainResource {
         /**
          * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.
          */
-        @Child(name="language", type={CodeableConcept.class}, order=1, min=1, max=1)
+        @Child(name ="language", type={CodeableConcept.class}, order=1, min=1, max=1)
         @Description(shortDefinition="The language which can be used to communicate with the patient about his or her health", formalDefinition="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. 'en' for English, or 'en-US' for American English versus 'en-EN' for England English." )
         protected CodeableConcept language;
 
         /**
          * Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level).
          */
-        @Child(name="preferred", type={BooleanType.class}, order=2, min=0, max=1)
+        @Child(name ="preferred", type={BooleanType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Language preference indicator", formalDefinition="Indicates whether or not the Patient prefers this language (over other languages he masters up a certain level)." )
         protected BooleanType preferred;
 
@@ -893,7 +893,7 @@ public class Patient extends DomainResource {
         /**
          * The other patient resource that the link refers to.
          */
-        @Child(name="other", type={Patient.class}, order=1, min=1, max=1)
+        @Child(name ="other", type={Patient.class}, order=1, min=1, max=1)
         @Description(shortDefinition="The other patient resource that the link refers to", formalDefinition="The other patient resource that the link refers to." )
         protected Reference other;
 
@@ -905,7 +905,7 @@ public class Patient extends DomainResource {
         /**
          * The type of link between this patient resource and another patient resource.
          */
-        @Child(name="type", type={CodeType.class}, order=2, min=1, max=1)
+        @Child(name ="type", type={CodeType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="replace | refer | seealso - type of link", formalDefinition="The type of link between this patient resource and another patient resource." )
         protected Enumeration<LinkType> type;
 
@@ -1054,105 +1054,105 @@ public class Patient extends DomainResource {
     /**
      * An identifier that applies to this person as a patient.
      */
-    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="An identifier for the person as this patient", formalDefinition="An identifier that applies to this person as a patient." )
     protected List<Identifier> identifier;
 
     /**
      * A name associated with the individual.
      */
-    @Child(name="name", type={HumanName.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="name", type={HumanName.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A name associated with the patient", formalDefinition="A name associated with the individual." )
     protected List<HumanName> name;
 
     /**
      * A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
      */
-    @Child(name="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A contact detail for the individual", formalDefinition="A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted." )
     protected List<ContactPoint> telecom;
 
     /**
      * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
      */
-    @Child(name="gender", type={CodeType.class}, order=3, min=0, max=1)
+    @Child(name ="gender", type={CodeType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes." )
     protected Enumeration<AdministrativeGender> gender;
 
     /**
      * The date of birth for the individual.
      */
-    @Child(name="birthDate", type={DateType.class}, order=4, min=0, max=1)
+    @Child(name ="birthDate", type={DateType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="The date of birth for the individual", formalDefinition="The date of birth for the individual." )
     protected DateType birthDate;
 
     /**
      * The  time of birth for the individual.
      */
-    @Child(name="birthTime", type={TimeType.class}, order=5, min=0, max=1)
+    @Child(name ="birthTime", type={TimeType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="The time of birth for the individual", formalDefinition="The  time of birth for the individual." )
     protected TimeType birthTime;
 
     /**
      * Indicates if the individual is deceased or not.
      */
-    @Child(name="deceased", type={BooleanType.class, DateTimeType.class}, order=6, min=0, max=1)
+    @Child(name ="deceased", type={BooleanType.class, DateTimeType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Indicates if the individual is deceased or not", formalDefinition="Indicates if the individual is deceased or not." )
     protected Type deceased;
 
     /**
      * Addresses for the individual.
      */
-    @Child(name="address", type={Address.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="address", type={Address.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Addresses for the individual", formalDefinition="Addresses for the individual." )
     protected List<Address> address;
 
     /**
      * This field contains a patient's most recent marital (civil) status.
      */
-    @Child(name="maritalStatus", type={CodeableConcept.class}, order=8, min=0, max=1)
+    @Child(name ="maritalStatus", type={CodeableConcept.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Marital (civil) status of a person", formalDefinition="This field contains a patient's most recent marital (civil) status." )
     protected CodeableConcept maritalStatus;
 
     /**
      * Indicates whether the patient is part of a multiple or indicates the actual birth order.
      */
-    @Child(name="multipleBirth", type={BooleanType.class, IntegerType.class}, order=9, min=0, max=1)
+    @Child(name ="multipleBirth", type={BooleanType.class, IntegerType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Whether patient is part of a multiple birth", formalDefinition="Indicates whether the patient is part of a multiple or indicates the actual birth order." )
     protected Type multipleBirth;
 
     /**
      * Image of the person.
      */
-    @Child(name="photo", type={Attachment.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="photo", type={Attachment.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Image of the person", formalDefinition="Image of the person." )
     protected List<Attachment> photo;
 
     /**
      * A contact party (e.g. guardian, partner, friend) for the patient.
      */
-    @Child(name="contact", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="contact", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A contact party (e.g. guardian, partner, friend) for the patient", formalDefinition="A contact party (e.g. guardian, partner, friend) for the patient." )
     protected List<ContactComponent> contact;
 
     /**
      * This element has a value if the patient is an animal.
      */
-    @Child(name="animal", type={}, order=12, min=0, max=1)
+    @Child(name ="animal", type={}, order=12, min=0, max=1)
     @Description(shortDefinition="If this patient is an animal (non-human)", formalDefinition="This element has a value if the patient is an animal." )
     protected AnimalComponent animal;
 
     /**
      * Languages which may be used to communicate with the patient about his or her health.
      */
-    @Child(name="communication", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="communication", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A list of Languages which may be used to communicate with the patient about his or her health", formalDefinition="Languages which may be used to communicate with the patient about his or her health." )
     protected List<PatientCommunicationComponent> communication;
 
     /**
      * Patient's nominated care provider.
      */
-    @Child(name="careProvider", type={Organization.class, Practitioner.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="careProvider", type={Organization.class, Practitioner.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Patient's nominated care provider", formalDefinition="Patient's nominated care provider." )
     protected List<Reference> careProvider;
     /**
@@ -1164,7 +1164,7 @@ public class Patient extends DomainResource {
     /**
      * Organization that is the custodian of the patient record.
      */
-    @Child(name="managingOrganization", type={Organization.class}, order=15, min=0, max=1)
+    @Child(name ="managingOrganization", type={Organization.class}, order=15, min=0, max=1)
     @Description(shortDefinition="Organization that is the custodian of the patient record", formalDefinition="Organization that is the custodian of the patient record." )
     protected Reference managingOrganization;
 
@@ -1176,14 +1176,14 @@ public class Patient extends DomainResource {
     /**
      * Link to another patient resource that concerns the same actual person.
      */
-    @Child(name="link", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="link", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Link to another patient resource that concerns the same actual person", formalDefinition="Link to another patient resource that concerns the same actual person." )
     protected List<PatientLinkComponent> link;
 
     /**
      * Whether this patient record is in active use.
      */
-    @Child(name="active", type={BooleanType.class}, order=17, min=0, max=1)
+    @Child(name ="active", type={BooleanType.class}, order=17, min=0, max=1)
     @Description(shortDefinition="Whether this patient's record is in active use", formalDefinition="Whether this patient record is in active use." )
     protected BooleanType active;
 

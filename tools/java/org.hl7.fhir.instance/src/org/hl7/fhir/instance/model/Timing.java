@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -374,42 +374,42 @@ public class Timing extends Type {
         /**
          * Indicates how often the event should occur.
          */
-        @Child(name="frequency", type={IntegerType.class}, order=1, min=0, max=1)
+        @Child(name ="frequency", type={IntegerType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Event occurs frequency times per duration", formalDefinition="Indicates how often the event should occur." )
         protected IntegerType frequency;
 
         /**
          * Identifies the occurrence of daily life that determines timing.
          */
-        @Child(name="when", type={CodeType.class}, order=2, min=0, max=1)
+        @Child(name ="when", type={CodeType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="HS | WAKE | AC | ACM | ACD | ACV | PC | PCM | PCD | PCV - common life events", formalDefinition="Identifies the occurrence of daily life that determines timing." )
         protected Enumeration<EventTiming> when;
 
         /**
          * How long each repetition should last.
          */
-        @Child(name="duration", type={DecimalType.class}, order=3, min=1, max=1)
+        @Child(name ="duration", type={DecimalType.class}, order=3, min=1, max=1)
         @Description(shortDefinition="Repeating or event-related duration", formalDefinition="How long each repetition should last." )
         protected DecimalType duration;
 
         /**
          * The units of time for the duration.
          */
-        @Child(name="units", type={CodeType.class}, order=4, min=1, max=1)
+        @Child(name ="units", type={CodeType.class}, order=4, min=1, max=1)
         @Description(shortDefinition="s | min | h | d | wk | mo | a - unit of time (UCUM)", formalDefinition="The units of time for the duration." )
         protected Enumeration<UnitsOfTime> units;
 
         /**
          * A total count of the desired number of repetitions.
          */
-        @Child(name="count", type={IntegerType.class}, order=5, min=0, max=1)
+        @Child(name ="count", type={IntegerType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Number of times to repeat", formalDefinition="A total count of the desired number of repetitions." )
         protected IntegerType count;
 
         /**
          * When to stop repeating the timing schedule.
          */
-        @Child(name="end", type={DateTimeType.class}, order=6, min=0, max=1)
+        @Child(name ="end", type={DateTimeType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="When to stop repeats", formalDefinition="When to stop repeating the timing schedule." )
         protected DateTimeType end;
 
@@ -760,14 +760,14 @@ public class Timing extends Type {
     /**
      * Identifies specific time periods when the event should occur.
      */
-    @Child(name="event", type={Period.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="event", type={Period.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="When the event occurs", formalDefinition="Identifies specific time periods when the event should occur." )
     protected List<Period> event;
 
     /**
      * Identifies a repeating pattern to the intended time periods.
      */
-    @Child(name="repeat", type={}, order=1, min=0, max=1)
+    @Child(name ="repeat", type={}, order=1, min=0, max=1)
     @Description(shortDefinition="Only if there is none or one event", formalDefinition="Identifies a repeating pattern to the intended time periods." )
     protected TimingRepeatComponent repeat;
 

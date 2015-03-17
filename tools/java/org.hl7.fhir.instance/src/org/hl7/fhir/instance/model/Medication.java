@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -122,21 +122,21 @@ public class Medication extends DomainResource {
         /**
          * Describes the form of the item.  Powder; tables; carton.
          */
-        @Child(name="form", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name ="form", type={CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="powder | tablets | carton +", formalDefinition="Describes the form of the item.  Powder; tables; carton." )
         protected CodeableConcept form;
 
         /**
          * Identifies a particular constituent of interest in the product.
          */
-        @Child(name="ingredient", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="ingredient", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Active or inactive ingredient", formalDefinition="Identifies a particular constituent of interest in the product." )
         protected List<MedicationProductIngredientComponent> ingredient;
 
         /**
          * Information about a group of medication produced or packaged from one production run.
          */
-        @Child(name="batch", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="batch", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="", formalDefinition="Information about a group of medication produced or packaged from one production run." )
         protected List<MedicationProductBatchComponent> batch;
 
@@ -307,7 +307,7 @@ public class Medication extends DomainResource {
         /**
          * The actual ingredient - either a substance (simple ingredient) or another medication.
          */
-        @Child(name="item", type={Substance.class, Medication.class}, order=1, min=1, max=1)
+        @Child(name ="item", type={Substance.class, Medication.class}, order=1, min=1, max=1)
         @Description(shortDefinition="The product contained", formalDefinition="The actual ingredient - either a substance (simple ingredient) or another medication." )
         protected Reference item;
 
@@ -319,7 +319,7 @@ public class Medication extends DomainResource {
         /**
          * Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.
          */
-        @Child(name="amount", type={Ratio.class}, order=2, min=0, max=1)
+        @Child(name ="amount", type={Ratio.class}, order=2, min=0, max=1)
         @Description(shortDefinition="How much ingredient in product", formalDefinition="Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet." )
         protected Ratio amount;
 
@@ -443,14 +443,14 @@ public class Medication extends DomainResource {
         /**
          * The assigned lot number of a batch of the specified product.
          */
-        @Child(name="lotNumber", type={StringType.class}, order=1, min=0, max=1)
+        @Child(name ="lotNumber", type={StringType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="", formalDefinition="The assigned lot number of a batch of the specified product." )
         protected StringType lotNumber;
 
         /**
          * When this specific batch of product will expire.
          */
-        @Child(name="expirationDate", type={DateTimeType.class}, order=2, min=0, max=1)
+        @Child(name ="expirationDate", type={DateTimeType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="", formalDefinition="When this specific batch of product will expire." )
         protected DateTimeType expirationDate;
 
@@ -606,14 +606,14 @@ public class Medication extends DomainResource {
         /**
          * The kind of container that this package comes as.
          */
-        @Child(name="container", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name ="container", type={CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="E.g. box, vial, blister-pack", formalDefinition="The kind of container that this package comes as." )
         protected CodeableConcept container;
 
         /**
          * A set of components that go to make up the described item.
          */
-        @Child(name="content", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="content", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="What is  in the package?", formalDefinition="A set of components that go to make up the described item." )
         protected List<MedicationPackageContentComponent> content;
 
@@ -737,7 +737,7 @@ public class Medication extends DomainResource {
         /**
          * Identifies one of the items in the package.
          */
-        @Child(name="item", type={Medication.class}, order=1, min=1, max=1)
+        @Child(name ="item", type={Medication.class}, order=1, min=1, max=1)
         @Description(shortDefinition="A product in the package", formalDefinition="Identifies one of the items in the package." )
         protected Reference item;
 
@@ -749,7 +749,7 @@ public class Medication extends DomainResource {
         /**
          * The amount of the product that is in the package.
          */
-        @Child(name="amount", type={Quantity.class}, order=2, min=0, max=1)
+        @Child(name ="amount", type={Quantity.class}, order=2, min=0, max=1)
         @Description(shortDefinition="How many are in the package?", formalDefinition="The amount of the product that is in the package." )
         protected Quantity amount;
 
@@ -876,28 +876,28 @@ public class Medication extends DomainResource {
     /**
      * The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.
      */
-    @Child(name="name", type={StringType.class}, order=0, min=0, max=1)
+    @Child(name ="name", type={StringType.class}, order=0, min=0, max=1)
     @Description(shortDefinition="Common / Commercial name", formalDefinition="The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code." )
     protected StringType name;
 
     /**
      * A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED CT code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.
      */
-    @Child(name="code", type={CodeableConcept.class}, order=1, min=0, max=1)
+    @Child(name ="code", type={CodeableConcept.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Codes that identify this medication", formalDefinition="A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED CT code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes." )
     protected CodeableConcept code;
 
     /**
      * Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
      */
-    @Child(name="isBrand", type={BooleanType.class}, order=2, min=0, max=1)
+    @Child(name ="isBrand", type={BooleanType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="True if a brand", formalDefinition="Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is)." )
     protected BooleanType isBrand;
 
     /**
      * Describes the details of the manufacturer.
      */
-    @Child(name="manufacturer", type={Organization.class}, order=3, min=0, max=1)
+    @Child(name ="manufacturer", type={Organization.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Manufacturer of the item", formalDefinition="Describes the details of the manufacturer." )
     protected Reference manufacturer;
 
@@ -909,21 +909,21 @@ public class Medication extends DomainResource {
     /**
      * Medications are either a single administrable product or a package that contains one or more products.
      */
-    @Child(name="kind", type={CodeType.class}, order=4, min=0, max=1)
+    @Child(name ="kind", type={CodeType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="product | package", formalDefinition="Medications are either a single administrable product or a package that contains one or more products." )
     protected Enumeration<MedicationKind> kind;
 
     /**
      * Information that only applies to products (not packages).
      */
-    @Child(name="product", type={}, order=5, min=0, max=1)
+    @Child(name ="product", type={}, order=5, min=0, max=1)
     @Description(shortDefinition="Administrable medication details", formalDefinition="Information that only applies to products (not packages)." )
     protected MedicationProductComponent product;
 
     /**
      * Information that only applies to packages (not products).
      */
-    @Child(name="package_", type={}, order=6, min=0, max=1)
+    @Child(name ="package_", type={}, order=6, min=0, max=1)
     @Description(shortDefinition="Details about packaged medications", formalDefinition="Information that only applies to packages (not products)." )
     protected MedicationPackageComponent package_;
 

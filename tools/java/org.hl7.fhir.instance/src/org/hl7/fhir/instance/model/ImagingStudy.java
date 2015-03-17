@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1484,77 +1484,77 @@ public class ImagingStudy extends DomainResource {
         /**
          * The Numeric identifier of this series in the study.
          */
-        @Child(name="number", type={IntegerType.class}, order=1, min=0, max=1)
+        @Child(name ="number", type={IntegerType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Numeric identifier of this series (0020,0011)", formalDefinition="The Numeric identifier of this series in the study." )
         protected IntegerType number;
 
         /**
          * The modality of this series sequence.
          */
-        @Child(name="modality", type={CodeType.class}, order=2, min=1, max=1)
+        @Child(name ="modality", type={CodeType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="The modality of the instances in the series (0008,0060)", formalDefinition="The modality of this series sequence." )
         protected Enumeration<Modality> modality;
 
         /**
          * Formal identifier for this series.
          */
-        @Child(name="uid", type={OidType.class}, order=3, min=1, max=1)
+        @Child(name ="uid", type={OidType.class}, order=3, min=1, max=1)
         @Description(shortDefinition="Formal identifier for this series (0020,000E)", formalDefinition="Formal identifier for this series." )
         protected OidType uid;
 
         /**
          * A description of the series.
          */
-        @Child(name="description", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name ="description", type={StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="A description of the series (0008,103E)", formalDefinition="A description of the series." )
         protected StringType description;
 
         /**
          * Number of SOP Instances in Series.
          */
-        @Child(name="numberOfInstances", type={IntegerType.class}, order=5, min=1, max=1)
+        @Child(name ="numberOfInstances", type={IntegerType.class}, order=5, min=1, max=1)
         @Description(shortDefinition="Number of Series Related Instances (0020,1209)", formalDefinition="Number of SOP Instances in Series." )
         protected IntegerType numberOfInstances;
 
         /**
          * Availability of series (online, offline or nearline).
          */
-        @Child(name="availability", type={CodeType.class}, order=6, min=0, max=1)
+        @Child(name ="availability", type={CodeType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)", formalDefinition="Availability of series (online, offline or nearline)." )
         protected Enumeration<InstanceAvailability> availability;
 
         /**
          * WADO-RS resource where the Series is available.
          */
-        @Child(name="url", type={UriType.class}, order=7, min=0, max=1)
+        @Child(name ="url", type={UriType.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Retrieve URI (0008,1115 > 0008,1190)", formalDefinition="WADO-RS resource where the Series is available." )
         protected UriType url;
 
         /**
          * Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.
          */
-        @Child(name="bodySite", type={Coding.class}, order=8, min=0, max=1)
+        @Child(name ="bodySite", type={Coding.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Body part examined (Map from 0018,0015)", formalDefinition="Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed." )
         protected Coding bodySite;
 
         /**
          * Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code, map from (0020, 0060).
          */
-        @Child(name="laterality", type={Coding.class}, order=9, min=0, max=1)
+        @Child(name ="laterality", type={Coding.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Body part laterality", formalDefinition="Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code, map from (0020, 0060)." )
         protected Coding laterality;
 
         /**
          * The date and time when the series was started.
          */
-        @Child(name="dateTime", type={DateTimeType.class}, order=10, min=0, max=1)
+        @Child(name ="dateTime", type={DateTimeType.class}, order=10, min=0, max=1)
         @Description(shortDefinition="When the series started", formalDefinition="The date and time when the series was started." )
         protected DateTimeType dateTime;
 
         /**
          * A single SOP Instance within the series, e.g., an image, or presentation state.
          */
-        @Child(name="instance", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="instance", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="A single instance taken from a patient (image or other)", formalDefinition="A single SOP Instance within the series, e.g., an image, or presentation state." )
         protected List<ImagingStudySeriesInstanceComponent> instance;
 
@@ -2113,42 +2113,42 @@ public class ImagingStudy extends DomainResource {
         /**
          * The number of this image in the series.
          */
-        @Child(name="number", type={IntegerType.class}, order=1, min=0, max=1)
+        @Child(name ="number", type={IntegerType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="The number of this instance in the series (0020,0013)", formalDefinition="The number of this image in the series." )
         protected IntegerType number;
 
         /**
          * Formal identifier for this image.
          */
-        @Child(name="uid", type={OidType.class}, order=2, min=1, max=1)
+        @Child(name ="uid", type={OidType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Formal identifier for this instance (0008,0018)", formalDefinition="Formal identifier for this image." )
         protected OidType uid;
 
         /**
          * DICOM Image type.
          */
-        @Child(name="sopclass", type={OidType.class}, order=3, min=1, max=1)
+        @Child(name ="sopclass", type={OidType.class}, order=3, min=1, max=1)
         @Description(shortDefinition="DICOM class type (0008,0016)", formalDefinition="DICOM Image type." )
         protected OidType sopclass;
 
         /**
          * A human-friendly SOP Class name.
          */
-        @Child(name="type", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name ="type", type={StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Type of instance (image etc) (0004,1430)", formalDefinition="A human-friendly SOP Class name." )
         protected StringType type;
 
         /**
          * The description of the instance.
          */
-        @Child(name="title", type={StringType.class}, order=5, min=0, max=1)
+        @Child(name ="title", type={StringType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008)", formalDefinition="The description of the instance." )
         protected StringType title;
 
         /**
          * Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented by inline encoding, or by a URL reference to a WADO-RS service that makes the instance available. Multiple content attachments may be used for alternate representations of the instance.
          */
-        @Child(name="content", type={Attachment.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="content", type={Attachment.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Content of the instance", formalDefinition="Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented by inline encoding, or by a URL reference to a WADO-RS service that makes the instance available. Multiple content attachments may be used for alternate representations of the instance." )
         protected List<Attachment> content;
 
@@ -2497,14 +2497,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * Date and Time the study started. Timezone Offset From UTC.
      */
-    @Child(name="started", type={DateTimeType.class}, order=0, min=0, max=1)
+    @Child(name ="started", type={DateTimeType.class}, order=0, min=0, max=1)
     @Description(shortDefinition="When the study was started (0008,0020)+(0008,0030)", formalDefinition="Date and Time the study started. Timezone Offset From UTC." )
     protected DateTimeType started;
 
     /**
      * The patient imaged in the study.
      */
-    @Child(name="patient", type={Patient.class}, order=1, min=1, max=1)
+    @Child(name ="patient", type={Patient.class}, order=1, min=1, max=1)
     @Description(shortDefinition="Who the images are of", formalDefinition="The patient imaged in the study." )
     protected Reference patient;
 
@@ -2516,28 +2516,28 @@ public class ImagingStudy extends DomainResource {
     /**
      * Formal identifier for the study.
      */
-    @Child(name="uid", type={OidType.class}, order=2, min=1, max=1)
+    @Child(name ="uid", type={OidType.class}, order=2, min=1, max=1)
     @Description(shortDefinition="Formal identifier for the study (0020,000D)", formalDefinition="Formal identifier for the study." )
     protected OidType uid;
 
     /**
      * Accession Number.
      */
-    @Child(name="accession", type={Identifier.class}, order=3, min=0, max=1)
+    @Child(name ="accession", type={Identifier.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Accession Number (0008,0050)", formalDefinition="Accession Number." )
     protected Identifier accession;
 
     /**
      * Other identifiers for the study.
      */
-    @Child(name="identifier", type={Identifier.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="identifier", type={Identifier.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Other identifiers for the study (0020,0010)", formalDefinition="Other identifiers for the study." )
     protected List<Identifier> identifier;
 
     /**
      * A list of the diagnostic orders that resulted in this imaging study being performed.
      */
-    @Child(name="order", type={DiagnosticOrder.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="order", type={DiagnosticOrder.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Order(s) that caused this study to be performed", formalDefinition="A list of the diagnostic orders that resulted in this imaging study being performed." )
     protected List<Reference> order;
     /**
@@ -2549,14 +2549,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).
      */
-    @Child(name="modalityList", type={CodeType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="modalityList", type={CodeType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="All series.modality if actual acquisition modalities", formalDefinition="A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)." )
     protected List<Enumeration<ImagingModality>> modalityList;
 
     /**
      * The requesting/referring physician.
      */
-    @Child(name="referrer", type={Practitioner.class}, order=7, min=0, max=1)
+    @Child(name ="referrer", type={Practitioner.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Referring physician (0008,0090)", formalDefinition="The requesting/referring physician." )
     protected Reference referrer;
 
@@ -2568,49 +2568,49 @@ public class ImagingStudy extends DomainResource {
     /**
      * Availability of study (online, offline or nearline).
      */
-    @Child(name="availability", type={CodeType.class}, order=8, min=0, max=1)
+    @Child(name ="availability", type={CodeType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)", formalDefinition="Availability of study (online, offline or nearline)." )
     protected Enumeration<InstanceAvailability> availability;
 
     /**
      * WADO-RS resource where Study is available.
      */
-    @Child(name="url", type={UriType.class}, order=9, min=0, max=1)
+    @Child(name ="url", type={UriType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Retrieve URI (0008,1190)", formalDefinition="WADO-RS resource where Study is available." )
     protected UriType url;
 
     /**
      * Number of Series in Study.
      */
-    @Child(name="numberOfSeries", type={IntegerType.class}, order=10, min=1, max=1)
+    @Child(name ="numberOfSeries", type={IntegerType.class}, order=10, min=1, max=1)
     @Description(shortDefinition="Number of Study Related Series (0020,1206)", formalDefinition="Number of Series in Study." )
     protected IntegerType numberOfSeries;
 
     /**
      * Number of SOP Instances in Study.
      */
-    @Child(name="numberOfInstances", type={IntegerType.class}, order=11, min=1, max=1)
+    @Child(name ="numberOfInstances", type={IntegerType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="Number of Study Related Instances (0020,1208)", formalDefinition="Number of SOP Instances in Study." )
     protected IntegerType numberOfInstances;
 
     /**
      * Diagnoses etc provided with request.
      */
-    @Child(name="clinicalInformation", type={StringType.class}, order=12, min=0, max=1)
+    @Child(name ="clinicalInformation", type={StringType.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Diagnoses etc with request (0040,1002)", formalDefinition="Diagnoses etc provided with request." )
     protected StringType clinicalInformation;
 
     /**
      * Type of procedure performed.
      */
-    @Child(name="procedure", type={Coding.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="procedure", type={Coding.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Type of procedure performed (0008,1032)", formalDefinition="Type of procedure performed." )
     protected List<Coding> procedure;
 
     /**
      * Who read study and interpreted the images.
      */
-    @Child(name="interpreter", type={Practitioner.class}, order=14, min=0, max=1)
+    @Child(name ="interpreter", type={Practitioner.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Who interpreted images (0008,1060)", formalDefinition="Who read study and interpreted the images." )
     protected Reference interpreter;
 
@@ -2622,14 +2622,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * Institution-generated description or classification of the Study performed.
      */
-    @Child(name="description", type={StringType.class}, order=15, min=0, max=1)
+    @Child(name ="description", type={StringType.class}, order=15, min=0, max=1)
     @Description(shortDefinition="Institution-generated description (0008,1030)", formalDefinition="Institution-generated description or classification of the Study performed." )
     protected StringType description;
 
     /**
      * Each study has one or more series of image instances.
      */
-    @Child(name="series", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="series", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Each study has one or more series of instances", formalDefinition="Each study has one or more series of image instances." )
     protected List<ImagingStudySeriesComponent> series;
 

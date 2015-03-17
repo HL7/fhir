@@ -27,7 +27,7 @@ public class ValueSetValidator extends BaseValidator {
         rule(errors, "business-rule", "ValueSet["+vs.getId()+"].copyright", !s.equals("http://snomed.info/sct") && !s.equals("http://loinc.org"), 
            "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement is required for any value set that includes Snomed or Loinc codes");
         warning(errors, "business-rule", "ValueSet["+vs.getId()+"].copyright", s.startsWith("http://hl7.org"),
-           "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement should be present for any value set that includes non-HL7 sourced codes");
+           "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement should be present for any value set that includes non-HL7 sourced codes ("+s+")");
       }
     }
     if (vs.hasDefine()) {

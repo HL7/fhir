@@ -311,6 +311,7 @@ public class SpreadsheetParser {
 	  isProfile = false;
 	  ResourceDefn root = parseCommonTypeColumns();
 
+	  readInheritedMappings(root, loadSheet("Inherited Mappings"));
 	  readEvents(loadSheet("Events"));
 	  readSearchParams(root, loadSheet("Search"), false);
 	  if (xls.getSheets().containsKey("Profiles"))
@@ -323,7 +324,21 @@ public class SpreadsheetParser {
 	  return root;
 	}
 
-	private void readOperations(ResourceDefn root, Sheet sheet) throws Exception {
+	private void readInheritedMappings(ResourceDefn resource, Sheet sheet) throws Exception {
+    if (sheet != null) {
+      for (int row = 0; row < sheet.rows.size(); row++) {
+        String path = sheet.getColumn(row, "Element");
+        if (Utilities.noString(path))
+          throw new Exception("Invalid path for element at " +getLocation(row));
+        for (String n : definitions.getMapTypes().keySet()) {
+          resource.addMapping(path, n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
+        }
+      }
+    }
+  }
+
+
+  private void readOperations(ResourceDefn root, Sheet sheet) throws Exception {
 	  Map<String, Operation> ops = new HashMap<String, Operation>();
     Map<String, OperationParameter> params = new HashMap<String, OperationParameter>();
 	  

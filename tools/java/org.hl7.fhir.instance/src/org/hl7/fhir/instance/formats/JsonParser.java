@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -3008,7 +3008,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_status"))
       parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("confidentiality"))
-      res.setConfidentiality(parseCoding(json.getAsJsonObject("confidentiality")));
+      res.setConfidentialityElement(parseCode(json.get("confidentiality").getAsString()));
+    if (json.has("_confidentiality"))
+      parseElementProperties(json.getAsJsonObject("_confidentiality"), res.getConfidentialityElement());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("author")) {
@@ -16119,8 +16121,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("status", element.getStatusElement(), new Composition.CompositionStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new Composition.CompositionStatusEnumFactory(), false);
       }
-      if (element.hasConfidentiality()) {
-        composeCoding("confidentiality", element.getConfidentiality());
+      if (element.hasConfidentialityElement()) {
+        composeCodeCore("confidentiality", element.getConfidentialityElement(), false);
+        composeCodeExtras("confidentiality", element.getConfidentialityElement(), false);
       }
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());

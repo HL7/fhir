@@ -29,10 +29,6 @@
         <title value="CDA R2 Profile"/>
         <status value="preliminary"/>
         <!-- todo: make these two optional -->
-        <confidentiality>
-          <system value="http://hl7.org/fhir/v3/Confidentiality"/>
-          <code value="NC"/>
-        </confidentiality>
         <subject>
           <display value="specification"/>
         </subject>
@@ -202,7 +198,7 @@
             <min value="1"/>
             <max value="1"/>
             <type>
-              <code value="Coding"/>
+              <code value="code"/>
             </type>
             <isModifier value="true"/>
             <mapping>

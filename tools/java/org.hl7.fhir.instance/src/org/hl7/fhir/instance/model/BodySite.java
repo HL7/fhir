@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -50,28 +50,28 @@ public class BodySite extends DomainResource {
         /**
          * Named anatomical location - ideally would be coded where possible.
          */
-        @Child(name="name", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name ="name", type={CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Named anatomical location", formalDefinition="Named anatomical location - ideally would be coded where possible." )
         protected CodeableConcept name;
 
         /**
          * Specify lateraility of the anatomical location.
          */
-        @Child(name="side", type={CodeableConcept.class}, order=2, min=0, max=1)
+        @Child(name ="side", type={CodeableConcept.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Laterality", formalDefinition="Specify lateraility of the anatomical location." )
         protected CodeableConcept side;
 
         /**
          * Identify the specific anatomical site out of multiple eg tenth rib; fourth vertebra; second toe.
          */
-        @Child(name="number", type={IntegerType.class}, order=3, min=0, max=1)
+        @Child(name ="number", type={IntegerType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Which instance of many", formalDefinition="Identify the specific anatomical site out of multiple eg tenth rib; fourth vertebra; second toe." )
         protected IntegerType number;
 
         /**
          * Line describing the position of a vertical anatomical plane in the body.
          */
-        @Child(name="anatomicalPlane", type={CodeableConcept.class}, order=4, min=0, max=1)
+        @Child(name ="anatomicalPlane", type={CodeableConcept.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Description of anatomical plane", formalDefinition="Line describing the position of a vertical anatomical plane in the body." )
         protected CodeableConcept anatomicalPlane;
 
@@ -250,21 +250,21 @@ public class BodySite extends DomainResource {
         /**
          * Identified anatomical landmark from which to specify relative anatomical location.
          */
-        @Child(name="landmark", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name ="landmark", type={CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Identified landmark", formalDefinition="Identified anatomical landmark from which to specify relative anatomical location." )
         protected CodeableConcept landmark;
 
         /**
          * Qualifier to identify which direction the anatomical location is in relation to the identified landmark.
          */
-        @Child(name="aspect", type={CodeableConcept.class}, order=2, min=0, max=1)
+        @Child(name ="aspect", type={CodeableConcept.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Relative position to landmark", formalDefinition="Qualifier to identify which direction the anatomical location is in relation to the identified landmark." )
         protected CodeableConcept aspect;
 
         /**
          * Distance of location from the identified landmark.
          */
-        @Child(name="distance", type={Quantity.class}, order=3, min=0, max=1)
+        @Child(name ="distance", type={Quantity.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Distance from Landmark", formalDefinition="Distance of location from the identified landmark." )
         protected Quantity distance;
 
@@ -393,35 +393,35 @@ public class BodySite extends DomainResource {
     /**
      * Identifier for this instance of the anatomical location.
      */
-    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Bodysite identifier", formalDefinition="Identifier for this instance of the anatomical location." )
     protected List<Identifier> identifier;
 
     /**
      * The Specific and identified anatomical location.
      */
-    @Child(name="specificLocation", type={}, order=1, min=0, max=1)
+    @Child(name ="specificLocation", type={}, order=1, min=0, max=1)
     @Description(shortDefinition="Specific anatomical location", formalDefinition="The Specific and identified anatomical location." )
     protected BodySiteSpecificLocationComponent specificLocation;
 
     /**
      * Qualifiers to identify non-specific location eg 5cm (distance) inferior (aspect) to the tibial tuberosity (landmark). There may be more than one relative location required to provide a cross reference.
      */
-    @Child(name="relativeLocation", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="relativeLocation", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Relative anatomical location(s)", formalDefinition="Qualifiers to identify non-specific location eg 5cm (distance) inferior (aspect) to the tibial tuberosity (landmark). There may be more than one relative location required to provide a cross reference." )
     protected List<BodySiteRelativeLocationComponent> relativeLocation;
 
     /**
      * Description of anatomical location.
      */
-    @Child(name="description", type={StringType.class}, order=3, min=0, max=1)
+    @Child(name ="description", type={StringType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="The Description of anatomical location", formalDefinition="Description of anatomical location." )
     protected StringType description;
 
     /**
      * Image or images used to identify a location.
      */
-    @Child(name="image", type={Attachment.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="image", type={Attachment.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Attached images", formalDefinition="Image or images used to identify a location." )
     protected List<Attachment> image;
 

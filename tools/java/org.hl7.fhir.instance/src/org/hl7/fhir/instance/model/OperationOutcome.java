@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -150,28 +150,28 @@ public class OperationOutcome extends DomainResource {
         /**
          * Indicates whether the issue indicates a variation from successful processing.
          */
-        @Child(name="severity", type={CodeType.class}, order=1, min=1, max=1)
+        @Child(name ="severity", type={CodeType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="fatal | error | warning | information", formalDefinition="Indicates whether the issue indicates a variation from successful processing." )
         protected Enumeration<IssueSeverity> severity;
 
         /**
          * Describes the type of the issue.
          */
-        @Child(name="code", type={CodeableConcept.class}, order=2, min=1, max=1)
+        @Child(name ="code", type={CodeableConcept.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Error or warning code", formalDefinition="Describes the type of the issue." )
         protected CodeableConcept code;
 
         /**
          * Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.
          */
-        @Child(name="details", type={StringType.class}, order=3, min=0, max=1)
+        @Child(name ="details", type={StringType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Additional diagnostic information about the issue", formalDefinition="Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue." )
         protected StringType details;
 
         /**
          * A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
          */
-        @Child(name="location", type={StringType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="location", type={StringType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="XPath of element(s) related to issue", formalDefinition="A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised." )
         protected List<StringType> location;
 
@@ -413,7 +413,7 @@ public class OperationOutcome extends DomainResource {
     /**
      * An error, warning or information message that results from a system action.
      */
-    @Child(name="issue", type={}, order=0, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name ="issue", type={}, order=0, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A single issue associated with the action", formalDefinition="An error, warning or information message that results from a system action." )
     protected List<OperationOutcomeIssueComponent> issue;
 

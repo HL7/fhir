@@ -45,7 +45,8 @@ public class ValidationMessage
     ResourceValidator, 
     InstanceValidator,
     Schema,
-    Schematron
+    Schematron,
+    Publisher
   }
   
   private Source source;

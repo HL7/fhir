@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 17, 2015 19:47+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -150,28 +150,28 @@ public class Provenance extends DomainResource {
         /**
          * The role that the participant played.
          */
-        @Child(name="role", type={Coding.class}, order=1, min=1, max=1)
+        @Child(name ="role", type={Coding.class}, order=1, min=1, max=1)
         @Description(shortDefinition="e.g. author | overseer | enterer | attester | source | cc: +", formalDefinition="The role that the participant played." )
         protected Coding role;
 
         /**
          * The type of the participant.
          */
-        @Child(name="type", type={Coding.class}, order=2, min=1, max=1)
+        @Child(name ="type", type={Coding.class}, order=2, min=1, max=1)
         @Description(shortDefinition="e.g. Resource | Person | Application | Record | Document +", formalDefinition="The type of the participant." )
         protected Coding type;
 
         /**
          * Identity of participant as a Resource or uri.
          */
-        @Child(name="reference", type={UriType.class, Practitioner.class, RelatedPerson.class, Patient.class, Device.class}, order=3, min=0, max=1)
+        @Child(name ="reference", type={UriType.class, Practitioner.class, RelatedPerson.class, Patient.class, Device.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Identity of agent", formalDefinition="Identity of participant as a Resource or uri." )
         protected Type reference;
 
         /**
          * Human-readable description of the participant.
          */
-        @Child(name="display", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name ="display", type={StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Human description of participant", formalDefinition="Human-readable description of the participant." )
         protected StringType display;
 
@@ -372,35 +372,35 @@ public class Provenance extends DomainResource {
         /**
          * How the entity was used during the activity.
          */
-        @Child(name="role", type={CodeType.class}, order=1, min=1, max=1)
+        @Child(name ="role", type={CodeType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="derivation | revision | quotation | source", formalDefinition="How the entity was used during the activity." )
         protected Enumeration<ProvenanceEntityRole> role;
 
         /**
          * The type of the entity. If the entity is a resource, then this is a resource type.
          */
-        @Child(name="type", type={Coding.class}, order=2, min=1, max=1)
+        @Child(name ="type", type={Coding.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Resource Type, or something else", formalDefinition="The type of the entity. If the entity is a resource, then this is a resource type." )
         protected Coding type;
 
         /**
          * Identity of participant. May be a logical or physical uri and maybe absolute or relative.
          */
-        @Child(name="reference", type={UriType.class}, order=3, min=1, max=1)
+        @Child(name ="reference", type={UriType.class}, order=3, min=1, max=1)
         @Description(shortDefinition="Identity of participant (urn or url)", formalDefinition="Identity of participant. May be a logical or physical uri and maybe absolute or relative." )
         protected UriType reference;
 
         /**
          * Human-readable description of the entity.
          */
-        @Child(name="display", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name ="display", type={StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Human description of participant", formalDefinition="Human-readable description of the entity." )
         protected StringType display;
 
         /**
          * The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.
          */
-        @Child(name="agent", type={ProvenanceAgentComponent.class}, order=5, min=0, max=1)
+        @Child(name ="agent", type={ProvenanceAgentComponent.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Entity is attributed to this agent", formalDefinition="The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity." )
         protected ProvenanceAgentComponent agent;
 
@@ -657,7 +657,7 @@ public class Provenance extends DomainResource {
     /**
      * The Reference(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.
      */
-    @Child(name="target", type={}, order=0, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name ="target", type={}, order=0, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Target Reference(s) (usually version specific)", formalDefinition="The Reference(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity." )
     protected List<Reference> target;
     /**
@@ -669,28 +669,28 @@ public class Provenance extends DomainResource {
     /**
      * The period during which the activity occurred.
      */
-    @Child(name="period", type={Period.class}, order=1, min=0, max=1)
+    @Child(name ="period", type={Period.class}, order=1, min=0, max=1)
     @Description(shortDefinition="When the activity occurred", formalDefinition="The period during which the activity occurred." )
     protected Period period;
 
     /**
      * The instant of time at which the activity was recorded.
      */
-    @Child(name="recorded", type={InstantType.class}, order=2, min=1, max=1)
+    @Child(name ="recorded", type={InstantType.class}, order=2, min=1, max=1)
     @Description(shortDefinition="When the activity was recorded / updated", formalDefinition="The instant of time at which the activity was recorded." )
     protected InstantType recorded;
 
     /**
      * The reason that the activity was taking place.
      */
-    @Child(name="reason", type={CodeableConcept.class}, order=3, min=0, max=1)
+    @Child(name ="reason", type={CodeableConcept.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Reason the activity is occurring", formalDefinition="The reason that the activity was taking place." )
     protected CodeableConcept reason;
 
     /**
      * Where the activity occurred, if relevant.
      */
-    @Child(name="location", type={Location.class}, order=4, min=0, max=1)
+    @Child(name ="location", type={Location.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Where the activity occurred, if relevant", formalDefinition="Where the activity occurred, if relevant." )
     protected Reference location;
 
@@ -702,28 +702,28 @@ public class Provenance extends DomainResource {
     /**
      * Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.
      */
-    @Child(name="policy", type={UriType.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="policy", type={UriType.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Policy or plan the activity was defined by", formalDefinition="Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc." )
     protected List<UriType> policy;
 
     /**
      * An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.
      */
-    @Child(name="agent", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="agent", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Person, organization, records, etc. involved in creating resource", formalDefinition="An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility." )
     protected List<ProvenanceAgentComponent> agent;
 
     /**
      * An entity used in this activity.
      */
-    @Child(name="entity", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="entity", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="An entity used in this activity", formalDefinition="An entity used in this activity." )
     protected List<ProvenanceEntityComponent> entity;
 
     /**
      * A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.
      */
-    @Child(name="signature", type={Signature.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="signature", type={Signature.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Signature on target", formalDefinition="A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated." )
     protected List<Signature> signature;
 
