@@ -8,8 +8,8 @@
    <body>
       [%file newnavbar%]
       <div class="col-9">
-         <a id="uslaborder-guide"> </a>
-         <a id="purpose"></a>
+         <a name="uslaborder-guide"> </a>
+         <a name="purpose"></a>
          <h2>Purpose</h2>
          <p>
             The FHIR USLab Order Implementation focuses on identifying the requirements, specifications and
@@ -21,14 +21,14 @@
             Information System (LIS). Future versions of this implementation  may harmonize with existing guides to extend
             interoperability of laboratory results across care settings, e.g., acute care.
          </p>
-         <a id="audience"></a>
+         <a name="audience"></a>
          <h2>Audience</h2>
          <p>
             This guide is designed for use by analysts and developers who require guidance on FHIR resources, elements and specific extensions
             relative to the Laboratory Results Interface (LRI) initiative and HL7 Lab Order Conceptual Specification. Users of this guide must be familiar with the details of the FHIR Specification and resource
             processing. This guide is not intended to be a tutorial on that subject.
          </p>
-         <a id="conventions"></a>
+         <a name="conventions"></a>
          <h2>Conventions</h2>
          <p>
             This guide adheres to the following conventions:
@@ -68,7 +68,7 @@
          <!--  EH not needed : <h3>1.3.2 MESSAGE ELEMENT ATTRIBUTES </h3>-->
          <!--  EH not needed : 1.3.3  KEYWORDS -->
          <!--  EH not needed : 1.3.4  USAGE CONFORMANCE TESTING RECOMMENDATIONS  -->
-         <a id="usecase"></a>
+         <a name="usecase"></a>
          <h2>Use Case - Ambulatory Care Setting</h2>
          <p>
             This use case was developed as a collaborative effort between the HHS/ONC Standards and
@@ -80,7 +80,7 @@
             supported use cases for electronic exchange of laboratory order information to the OML message
             structure as:
          </p>
-         <a id="definitions"></a>
+         <a name="definitions"></a>
          <h3>Definitions </h3>
          <ul>
             <li><b>Measurement</b> - a single observation value or calculation recorded using a single Observation Resource. Note that multiple representations of the same measurement may require multiple observation
@@ -97,7 +97,7 @@
          </p>
          <img alt="definitions" src="todo"/>
          <!--EH is figure needed here?-->
-         <a id="scope"></a>
+         <a name="scope"></a>
          <h3>Scope </h3>
          <p>EHR-S and a LIS in an ambulatory care setting. This includes new, scheduled, add-on laboratory orders
          and the cancellation of laboratory orders that were previously placed.
@@ -110,7 +110,7 @@
             </li>
             <li>Scenario 4: Laboratory Cancellation of a Previously Placed Laboratory Order </li>
          </ul>
-         <a id="inscope"></a>
+         <a name="inscope"></a>
          <h4>In Scope</h4>
          <ul>
             <li>Electronic ordering of laboratory tests and/or panels in the ambulatory setting for the US Realm. </li>
@@ -118,7 +118,7 @@
             <li>Laboratory Order Placer (i.e., Ordering Provider) may designate other non-order placers to receive results. </li>
             <li>Harmonization of data elements that are used in both laboratory orders and results.</li>
          </ul>
-         <a id="outscope"></a>
+         <a name="outscope"></a>
          <h4>Out of Scope</h4>
          <ul>
             <li>Requesting Status on a Previously Placed Laboratory Order Electronic ordering of laboratory tests and/or panels in an acute care setting, internally within a laboratory, referral orders placed between laboratories, and laboratory orders outside the US Realm.
@@ -136,7 +136,7 @@
             <li>Physical transport level confirmations. </li>
             <li>Interactions between the LIS and EHR System for add-on orders beyond the transmission of the order (to address scenarios such as insufficient specimen or late arrivals of add-on orders).</li>
          </ul>
-         <a id="actors"></a>
+         <a name="actors"></a>
          <h2>Actors</h2>
          <p>
             There are two actors that have responsibilities related to the conformance profiles defined in this
@@ -151,13 +151,13 @@
                to "RESTful FHIR" and FHIR profiles defined in this guide. This actor is implied within FHIR. ( i.e. not explicitly referenced in the DiagnosticOrder Resource Instance or the linked resources).
             </li>
          </ul>
-         <a id="usecasesandcontext"></a>
+         <a name="usecasesandcontext"></a>
          <h2>Orders for Ambulatory Care Use Case and Context Diagrams </h2>
          <p><b>Figure 2-1. Use Case Diagram</b></p>
          <img alt="Figure 2-1. Use Case Diagram" src="uslaborder-usecasediagram"/>
          <p><b>Figure 2-2. Context Diagram</b></p>
          <img alt="Figure 2-2. Context Diagram" src="uslaborder-contextdiagram"/>
-         <a id="userstory"></a>
+         <a name="userstory"></a>
          <h3>User Story</h3>
          <p>
             <!--  EH not needed here at least :  Laboratory orders interfaces automate the electronic communication of test order information between
@@ -174,7 +174,7 @@
 
                 -->
          </p>
-         <a id="assumptions"></a>
+         <a name="assumptions"></a>
          <h4>Use Case Assumptions</h4>
          <ul>
             <li>Providers (.orderer) securely access clinical information through an EHR system. </li>
@@ -229,7 +229,7 @@
                criteria.
             </li>
          </ul>
-         <a id="preconditions"></a>
+         <a name="preconditions"></a>
          <h4>Pre-Conditions</h4>
          <p><b>Note</b>: The pre- and post-conditions may not apply to all scenarios. </p>
          <ul>
@@ -255,7 +255,7 @@
          <p><sup>4</sup>CLSI. Specimen Labels: Content and Location, Fonts, and Label Orientation; Approved Standard. CLSI document AUTO12-A. Wayne, PA: Clinical and
             Laboratory Standards Institute; 2011; ISBN 1-56238-748-0; ISSN 0273-3099, Volume 31 Number 7.
          </p>
-         <a id="postconditions"></a>
+         <a name="postconditions"></a>
          <h4>Post-Conditions</h4>
          <ul>
             <li>Laboratory orders are successfully transmitted electronically from the Provider's (.orderer) EHR System to the Laboratory's LIS. The Receiving Laboratory electronically
@@ -289,7 +289,7 @@
                cancellation of part of an order must be done through a DiagnosticResult Resource as defined in the USLabResult Profile.
             </li>
          </ul>
-         <a id="scen1"></a>
+         <a name="scen1"></a>
          <h4>Scenario 1 - Electronic Ordering Of New Or Scheduled
             Laboratory Test(S)
          </h4>
@@ -306,7 +306,7 @@
          <img alt="Electronic Ordering Of New Or Scheduled
             Laboratory Test(S) " src="todo"/>
          <!--EH:  need to rework for REST  acknowledgment codes -->
-         <a id="scen2"></a>
+         <a name="scen2"></a>
          <h4> Scenario 2 - Electronic Ordering Of Add-On Laboratory Test(S)</h4>
          <p>Using an EHR System, a Provider (Order Placer) adds one or more additional tests to a previously
             transmitted test requisition.
@@ -331,7 +331,7 @@
             perform the requested test against the intended specimen as it may be too late for a number of reasons
             (e.g., insufficient specimen, specimen too old).
          </p>
-         <a id="scen3"></a>
+         <a name="scen3"></a>
          <h4> Scenario 3 - Requesting The Cancellation Of A Previously Placed
             Laboratory Order
          </h4>
@@ -348,7 +348,7 @@
             Profile.  anymore.
          </p>
          <!-- EH  need to discuss this once wrok out the cancel profile -->
-         <a id="fnreq"></a>
+         <a name="fnreq"></a>
          <h5>Functional Requirements</h5>
          <p>todo</p>
          <!--EH:  need to rework for REST  acknowledgment codes -->
@@ -359,7 +359,7 @@
          <img alt="Requesting The Cancellation Of A Previously Placed
             Laboratory Order" src="todo"/>
          <!--EH:  need to rework for REST  acknowledgment codes -->
-         <a id="scen4"></a>
+         <a name="scen4"></a>
          <h4>Scenario 4 - Laboratory Cancellation Of A Previously Placed
             Laboratory Order
          </h4>
@@ -370,7 +370,7 @@
             Laboratories can cancel a test request received by the LIS (or queue for this purpose) any time before the
             test report (preliminary or final) is transmitted to the provider(s).  Laboratories must use the USLabReport DiagnosticResult Cancel Profile.   See that Implementation Guide for details.  <!-- EH  need to discuss this once wrok out the cancel profile -->
          </p>
-         <a id="keytechdecisions"></a>
+         <a name="keytechdecisions"></a>
          <h2>Key Technical Decisions</h2>
          <!-- EH not needed : One of the primary features of this implementation guide is its focus on key points of broad
             interoperability. The HL7 implementation guides in Sections 1.2.1
@@ -379,7 +379,7 @@
             requirements without some adjustment. This guide is the result of combining the best practices from th
             current body of work while making further adjustment to meet the needs of ambulatory ordering and
             preparing for increased consistency of laboratory orders across care settings. -->
-         <a id="profile"></a>
+         <a name="profile"></a>
          <h3>Profile And Component Architecture </h3>
          <!-- also in uslaborder.html-->
          <p>This guide uses FHIR profiles on the following resource to define a minimum set of requirements to enable the
@@ -411,7 +411,7 @@
             The GU/NG profile definition discusses use of OIDs for identifiers' assigning authority only. Other
             identifiers could use OIDs as well for the assigning authority. Note that OIDs are not intended to be used
             to identify a coding system as referenced in CWE-03/CWE-06 and further enumerated in . -->
-         <a id="vocabstandards"></a>
+         <a name="vocabstandards"></a>
          <h3>Use Of Vocabulary Standards</h3>
          <p>This guide calls for specific vocabulary standards for the exchange of laboratory information such as
             LOINC and SNOMED. Standard vocabularies, particularly coded laboratory tests and their results,
@@ -421,7 +421,7 @@
          <!--EH not needed:2.7.4  FIELD LENGTH AND TRUNCATION
             This guide is silent as to the field length definition conventions, lengths, and truncation rules and directs
             the reader to HL7 Version 2.7.1, Chapter 2 Control for informative guidance.  -->
-         <a id="implementationscope"></a>
+         <a name="implementationscope"></a>
          <h3>Scope Of Implementation</h3>
          <!--EH not needed: The base standard indicates that receiving applications "…shall process (save/print/archive/etc.)…". For
             order-specific segments, e.g., ORC, OBR, SPM, this typically means saving that data. For other
@@ -431,7 +431,7 @@
          <p>Due to receiving system variations and need, this guide does not specifically indicate for each field
             whether to store it or not. This is left to the individual system's scope and purpose.
          </p>
-         <a id="aoe"></a>
+         <a name="aoe"></a>
          <h3>Ask At Order Entry (AOE) Observations </h3>
          <p>Ask at Order Entry (AOE) responses are recorded as observations that provide critical information for
             the calculation or interpretation of some lab results or to satisfy state and federal health agency
@@ -460,7 +460,7 @@
             LOINC code exists. The LOINC and local code describing the question will be placed in Observation.name element.  Appropriate and valid status is defined in the LOINC Manual Section 11.2 Classification of LOINC Term Status. If a local coding system is in use, both the LOINC and the local
             code should also be sent to help with identification of coding issues. When no valid LOINC exists, the local code may be the only code sent.
          </p>
-         <a id="specialcondsideration"></a>
+         <a name="specialcondsideration"></a>
          <h4>Special Considerations</h4>
          <p>
             Note that various Ask at Order Entry questions may appear to have specific elements in FHIR Resources.
@@ -486,7 +486,7 @@
             Example AOE using OBX for blood lead test in adults; the highlighted 1 and 2 indicate how to use
             OBX-4 (Observation Sub-ID) to link the Name to an Address when more than one employer is
             communicated.   ( will provide examples elsewhere )-->
-         <a id="priorresults"></a>
+         <a name="priorresults"></a>
          <h3>Communication Of Other Clinical Information Or Prior Results </h3>
          <p>
             Should the need arise to send results not obtained at the time of order entry or specimen collection
@@ -505,7 +505,7 @@
             and its related System Level ACK, the yellow arrow between Gateway 2 and Gateway 1 this would be
             step 2.
               (REST takes care of this )-->
-         <a id="errorhandling"></a>
+         <a name="errorhandling"></a>
          <h2>Error Handling</h2>
          <p>Refer to the FHIR Specification on <a href="http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
          <!--EH needed?  these are covered by functional requirments  ? 2.7.9  ERROR HANDLING -->
@@ -515,7 +515,7 @@
          <!--  EH  Not needed: 4  MESSAGES-->
          <!-- EH  Defined in specification- new document for this section: 5  CODE SYSTEMS AND VALUE SETS -->
          <!-- EH  Examples will be given in spec  APPENDIX A.   LABORATORY ORDER MESSAGE DEVELOPMENT RESOURCES  -->
-         <a id="addlguidance"></a>
+         <a name="addlguidance"></a>
          <!-- EH   APPENDIX B.   ADDITIONAL IMPLEMENTATION GUIDANCE - OTHER -->
          <h2>Additional Implementation Guidance - Other</h2>
          <h3>Clinical Laboratory Improvement Amendments Considerations </h3>
@@ -584,7 +584,7 @@
                <td>Any additional information relevant and necessary for a specific test to ensure accurate and timely testing and reporting of results, including interpretation, if applicable.</td>
             </tr>
          </table>
-         <a id="glossary"></a>
+         <a name="glossary"></a>
          <h3>Glossary</h3>
          <ul>
             <li><b>Analyte:  </b>Component represented in the name of a measurable quantity. It is the most granular level at which

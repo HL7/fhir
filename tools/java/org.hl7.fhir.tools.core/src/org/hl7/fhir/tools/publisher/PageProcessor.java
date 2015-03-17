@@ -1968,6 +1968,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Extensiblity", "extensibility.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Defining Extensions", "defining-extensions.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Examples", "extensibility-examples.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", "extensibility-definitions.html", mode==null || "definitions".equals(mode)));
     b.append(makeHeaderTab("Registry", "extensibility-registry.html", mode==null || "registry".equals(mode)));

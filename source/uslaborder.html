@@ -7,7 +7,7 @@
    <body>
       [%file newnavbar%]
       <div class="col-9">
-         <a id="USLabOrder"> </a>
+         <a name="USLabOrder"> </a>
         <p>Published by:  HL7 Orders and Observations Workgroup</p>
 		<p>Primary Author/Editor:  Eric M Haas, Health eData Inc.</p>
          <h2>US Laboratory Order Implementation</h2>
@@ -92,7 +92,7 @@
          <p>  <b>Profiles</b> -The current focus of implementing <i>USLabOrder</i> is using a FHIR <a href="bundle.html">Bundle Resource</a> <!-- create profiles for bundles too --> to exchange a <a href="diagnosticorder.html">DiagnosticOrder Profile</a> and the Resource Profiles it references.  This FHIR bundle completely defines the laboratory order.  The Resource Profiles that may be used in the bundle are outlined below: (This list is not meant to be exhaustive as additional resources may also to be used)</p>
          <ul>
           <li>
-            <a id="doprofiles"></a>
+            <a name="doprofiles"></a>
             <a href="do-uslab.html">US Lab DiagnosticOrder</a> constrains and extends <a href="diagnosticorder.html">DiagnosticOrder</a> which is used to define the laboratory order.   This Resources references the following profiles:
           <ul>
 			<li><a href="patient-uslab.html">USlabPatient</a> constrains and extends <a href="patient.html">Patient</a> which is used the subject of the order.  .</li>
