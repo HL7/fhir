@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
+  <id value="100151"/>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Oral Health Claim</div>
+  </text>
+
+  <type value="oral"/>
+  
+  <identifier>
+    <system value="http://happyvalley.com/claim"/>
+    <value value="12346"/>
+  </identifier>
+ 
+  <created value="2014-08-16"/>
+
+  <target>
+    <reference value="Organization/2"/>
+  </target>
+
+  <organization>
+    <reference value="Organization/1"/>
+  </organization>
+
+  <use value="complete"/>
+
+  <priority>
+    <code value="normal"/>
+  </priority>
+
+  <payee>
+    <type>
+      <code value="provider"/>
+    </type>
+  </payee>
+ 
+  <diagnosis>
+    <sequence value="1"/>
+    <diagnosis>
+      <code value="123456"/>
+    </diagnosis>
+  </diagnosis>
+ 
+  <patient>
+    <reference value="Patient/1"/>
+  </patient>
+ 
+  <coverage>
+    <sequence value="1"/>
+    <focal value="true"/>
+    <coverage>
+      <reference value="Coverage/9876B1"/>
+    </coverage>
+    <relationship>
+      <code value="self"/>
+    </relationship>
+  </coverage>
+  
+ <item>
+   <sequence value="1"/>
+   <type>
+     <code value="service"/>
+   </type>
+   <provider>
+     <reference value="Practitioner/1"/>
+   </provider>
+   <service>
+     <system value="http://hl7.org/fhir/oralservicecodes"/>
+     <code value="1200"/>
+   </service>
+   <serviceDate value="2014-08-16"/>
+   <unitPrice>
+     <value value="135.57"/>
+     <system value="urn:std:iso:4217"/>
+     <code value="USD"/> 
+   </unitPrice> 
+   <net>
+     <value value="135.57"/>
+     <system value="urn:std:iso:4217"/>
+     <code value="USD"/> 
+   </net> 
+  </item>
+
+  <item>
+   <sequence value="2"/>
+   <type>
+     <code value="service"/>
+   </type>
+   <provider>
+     <reference value="Practitioner/1"/>
+   </provider>
+   <service>
+     <system value="http://hl7.org/fhir/oralservicecodes"/>
+     <code value="21211"/>
+   </service>
+   <serviceDate value="2014-08-16"/>
+   <unitPrice>
+     <value value="105.00"/>
+     <system value="urn:std:iso:4217"/>
+     <code value="USD"/> 
+   </unitPrice> 
+   <net>
+     <value value="105.00"/>
+     <system value="urn:std:iso:4217"/>
+     <code value="USD"/> 
+   </net> 
+   <bodySite>
+     <system value="http://fdi.org/fhir/oraltoothcodes"/>
+     <code value="21"/>
+   </bodySite>
+   <subSite>
+     <system value="http://fdi.org/fhir/oralsurfacecodes"/>
+     <code value="L"/>
+   </subSite>
+  </item>
+
+  <item>
+   <sequence value="3"/>
+   <type>
+     <code value="group"/>
+   </type>
+   <provider>
+     <reference value="Practitioner/1"/>
+   </provider>
+   <service>
+     <system value="http://hl7.org/fhir/oralservicecodes"/>
+     <code value="27211"/>
+   </service>
+   <serviceDate value="2014-08-16"/>
+   <unitPrice>
+     <value value="1100.00"/>
+     <system value="urn:std:iso:4217"/>
+     <code value="USD"/> 
+   </unitPrice> 
+   <net>
+     <value value="1100.00"/>
+     <system value="urn:std:iso:4217"/>
+     <code value="USD"/> 
+   </net> 
+   <bodySite>
+     <system value="http://fdi.org/fhir/oraltoothcodes"/>
+     <code value="36"/>
+   </bodySite>
+   <detail>
+     <sequence value="1"/>
+     <type>
+       <code value="service"/>
+     </type>
+     <service>
+       <system value="http://hl7.org/fhir/oralservicecodes"/>
+       <code value="27211"/>
+     </service>
+     <unitPrice>
+       <value value="750.00"/>
+       <system value="urn:std:iso:4217"/>
+       <code value="USD"/> 
+     </unitPrice> 
+     <net>
+       <value value="750.00"/>
+       <system value="urn:std:iso:4217"/>
+       <code value="USD"/> 
+     </net> 
+   </detail>
+   <detail>
+     <sequence value="2"/>
+     <type>
+       <code value="service"/>
+     </type>
+     <service>
+       <system value="http://hl7.org/fhir/oralservicecodes"/>
+       <code value="lab"/>
+     </service>
+     <unitPrice>
+       <value value="350.00"/>
+       <system value="urn:std:iso:4217"/>
+       <code value="USD"/> 
+     </unitPrice> 
+     <net>
+       <value value="350.00"/>
+       <system value="urn:std:iso:4217"/>
+       <code value="USD"/> 
+     </net> 
+   </detail>
+  </item>
+
+</Claim>

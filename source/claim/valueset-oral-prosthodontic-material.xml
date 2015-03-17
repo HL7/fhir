@@ -3,11 +3,11 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      This value set includes the Patient to subscriber relationship codes.
+      This value set includes sample Oral Prosthodontic Material type codes.
     </div>
   </text>
-  <name value="Surface Codes"/>
-  <publisher value="FHIR Project team"/>
+  <name value="Oral Prostho Material type Codes"/>
+  <publisher value="Financial Management"/>
   <copyright value="This is an example set"/>
   <status value="draft"/>
   <contact>
@@ -16,26 +16,23 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="This value set includes the Patient to subscriber relationship codes."/>
+  <description value="This value set includes sample Oral Prosthodontic Material type codes."/>
   <status value="draft"/>
     <define>
-	<system value="http://hl7.org/fhir/relationship"/>
+	<system value="http://hl7.org/fhir/ex-oralprostho"/>
     <caseSensitive value="true"/>    
 	<concept>
-    <code value="1"/>
-  </concept>
+      <code value="1"/> <!-- Fixed Bridge -->
+    </concept>
 	<concept>
-    <code value="2"/>
-  </concept>
+      <code value="2"/> <!-- Maryland Bridge -->
+    </concept>
 	<concept>
-    <code value="3"/>
-  </concept>
+      <code value="3"/> <!-- Denture Acrylic -->
+    </concept>
 	<concept>
-    <code value="4"/>
-  </concept>
-	<concept>
-    <code value="5"/>
-  </concept>
+      <code value="4"/> <!-- Denture Chrome Cobalt -->
+    </concept>
 	</define>
 </ValueSet>
 

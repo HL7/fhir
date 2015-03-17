@@ -1,0 +1,41 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes sample Modifier type codes.
+    </div>
+  </text>
+  <name value="Modifier type Codes"/>
+  <publisher value="Financial Management"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="This value set includes sample Modifier type codes."/>
+  <status value="draft"/>
+    <define>
+	<system value="http://hl7.org/fhir/modifiers"/>
+    <caseSensitive value="true"/>    
+	<concept>
+      <code value="A"/> <!-- Repair of prior service or installation -->
+    </concept>
+	<concept>
+      <code value="B"/> <!-- Temporary service or installation -->
+    </concept>
+	<concept>
+      <code value="C"/> <!-- TMJ treatment -->
+    </concept>
+	<concept>
+      <code value="E"/> <!-- Implant or associated with an implant -->
+    </concept>
+	<concept>
+      <code value="X"/> <!-- none  -->
+    </concept>
+	</define>
+</ValueSet>
+

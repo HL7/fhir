@@ -3,11 +3,11 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      This value set includes the Patient to subscriber relationship codes.
+      This value set includes sample ActInvoiceGroupCode codes.
     </div>
   </text>
-  <name value="Surface Codes"/>
-  <publisher value="FHIR Project team"/>
+  <name value="ActInvoiceGroupCode Codes"/>
+  <publisher value="Financial Management"/>
   <copyright value="This is an example set"/>
   <status value="draft"/>
   <contact>
@@ -16,26 +16,24 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="This value set includes the Patient to subscriber relationship codes."/>
+  <description value="This value set includes sample ActInvoiceGroupCode codes."/>
   <status value="draft"/>
     <define>
-	<system value="http://hl7.org/fhir/relationship"/>
+	<system value="http://hl7.org/fhir/actinvoicegroupcode"/>
     <caseSensitive value="true"/>    
 	<concept>
-    <code value="1"/>
-  </concept>
+      <code value="service"/>
+    </concept>
 	<concept>
-    <code value="2"/>
-  </concept>
+      <code value="product"/>
+    </concept>
 	<concept>
-    <code value="3"/>
-  </concept>
+      <code value="group"/>
+    </concept>
 	<concept>
-    <code value="4"/>
-  </concept>
-	<concept>
-    <code value="5"/>
-  </concept>
+      <code value="tax"/>
+    </concept>
+
 	</define>
 </ValueSet>
 
