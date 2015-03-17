@@ -10,19 +10,18 @@
   <LastAuthor>nbashyam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-11T09:48:04Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12840</WindowHeight>
-  <WindowWidth>24240</WindowWidth>
+  <WindowHeight>13020</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>180</WindowTopY>
+  <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -2299,12 +2298,14 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">USCountry</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">ISO 3166 3 letter Country Code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4330,7 +4331,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>28</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4348,8 +4349,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>39</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>37</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4399,7 +4400,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C24,R28C1:R28C10,R28C12:R28C24,R29C1:R31C24,R42C1:R42C7,R42C9:R42C24,R32C1:R37C3,R32C11:R37C24,R43C1:R113C24,R5C1:R21C24,R23C1:R27C24,R22C1:R22C9,R22C11:R22C24,R3C13:R4C24,R3C1:R4C11,R41C1:R41C24,R38C1:R38C24,R39C1:R40C7,R39C9:R40C24</Range>
+   <Range>R2C1:R2C24,R28C1:R28C10,R28C12:R28C24,R29C1:R31C24,R42C1:R42C7,R42C9:R42C24,R32C1:R37C3,R32C11:R36C24,R43C1:R113C24,R5C1:R21C24,R23C1:R27C24,R22C1:R22C9,R22C11:R22C24,R3C13:R4C24,R3C1:R4C11,R41C1:R41C24,R38C1:R38C24,R39C1:R40C7,R39C9:R40C24,R37C11:R37C14,R37C16:R37C24</Range>
    <Condition>
     <Value1>RC6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -4445,14 +4446,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C15:R113C16</Range>
+   <Range>R2C15:R36C16,R38C15:R113C16,R37C16</Range>
    <Condition>
     <Value1>AND(RC15&lt;&gt;&quot;&quot;,RC15=RC16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C24,R28C1:R28C10,R28C12:R28C24,R29C1:R31C24,R42C1:R42C7,R42C9:R42C24,R32C1:R37C3,R32C11:R37C24,R43C1:R113C24,R5C1:R21C24,R23C1:R27C24,R22C1:R22C9,R22C11:R22C24,R3C13:R4C24,R3C1:R4C11,R41C1:R41C24,R38C1:R38C24,R39C1:R40C7,R39C9:R40C24</Range>
+   <Range>R2C1:R2C24,R28C1:R28C10,R28C12:R28C24,R29C1:R31C24,R42C1:R42C7,R42C9:R42C24,R32C1:R37C3,R32C11:R36C24,R43C1:R113C24,R5C1:R21C24,R23C1:R27C24,R22C1:R22C9,R22C11:R22C24,R3C13:R4C24,R3C1:R4C11,R41C1:R41C24,R38C1:R38C24,R39C1:R40C7,R39C9:R40C24,R37C11:R37C14,R37C16:R37C24</Range>
    <Condition>
     <Value1>LEFT(RC4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
