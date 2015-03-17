@@ -776,7 +776,7 @@ public class ProfileGenerator {
             if (profile.startsWith("http:") || profile.startsWith("#")) {
               type.setProfile(profile);
             } else {
-              type.setProfile("http://hl7.org/fhir/StructureDefinition/" + profile);
+              type.setProfile("http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile));
             }
           }
 
