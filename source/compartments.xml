@@ -621,11 +621,8 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-<<<<<<< .mine
    <TopRowBottomPane>4</TopRowBottomPane>
-=======
    <TopRowBottomPane>73</TopRowBottomPane>
->>>>>>> .r4586
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -633,13 +630,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-<<<<<<< .mine
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>3</ActiveCol>
-=======
      <ActiveRow>85</ActiveRow>
      <ActiveCol>3</ActiveCol>
->>>>>>> .r4586
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
