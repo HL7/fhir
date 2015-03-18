@@ -9,19 +9,24 @@
 			access to the appointments would not be permitted for security or privacy reasons, and still being able
 			to determine if an appointment might be available.
 		</p>
+    <p>
+      Note: A schedule is not used for the delivery of medication, that is the <a href="datatypes.html#Timing">Timing</a> datatype.
+    </p>
 
 		<h3>
 			Context
 		</h3>
-		<p>
-			A schedule controls the dates and times available for the performance of a service
-			and/or the use of a resource.  One schedule applies to one service or resource, since
-			each service or resource can be reserved independently of the others.
-			(If two or more services, people, locations, or things cannot be reserved independently
-			of one another, they are considered to be one activity or resource.)  A schedule consists
-			of slots of time during which the controlled service or resource is potentially available
-			for performance or use.  Slots are categorized as open, booked, or blocked.  An open slot
-			on a schedule indicates that the service or resource is available for performance or use
+    <p>
+      A schedule controls the dates and times available for the performance of a service
+      and/or the use of a resource.  One schedule applies to one service or resource, since
+      each service or resource can be reserved independently of the others.<br/>
+      (If two or more services, people, locations, or things cannot be reserved independently
+      of one another, they are considered to be one activity or resource.)
+    </p>
+    <p>
+      A schedule consists of slots of time during which the controlled service or resource is potentially available
+			for provision or use.  Slots are categorized as open, booked, or blocked.  An open slot
+			on a schedule indicates that the service or resource is available for provision or use
 			during that period of time.  A booked slot indicates that the service or resource is not
 			available during the time period, because an appointment has been scheduled.  A blocked
 			slot indicates that a service or resource is unavailable for reasons other than a scheduled
