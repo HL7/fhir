@@ -36,10 +36,6 @@
           <code value="s"/>
           <display value="second"/>
           <primary value="true"/>
-          <valueSet>
-            <reference value="http:/unitsofmeasure.org/vs"/>
-            <display value="UCUM"/>
-          </valueSet>
         </coding>
         <text value="second"/>
       </valueCodeableConcept>

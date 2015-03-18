@@ -528,6 +528,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
       else if (com[0].equals("name"))
         src = s1+name+s3;
+      else if (com[0].equals("piperesources"))
+        src = s1+pipeResources()+s3;
       else if (com[0].equals("enteredInErrorTable"))
         src = s1+enteredInErrorTable()+s3;
       else if (com[0].equals("canonicalname"))
@@ -2881,6 +2883,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateCodeTable(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vssummary"))
         src = s1 + "todo" + s3;
+      else if (com[0].equals("piperesources"))
+        src = s1+pipeResources()+s3;
       else if (com[0].equals("toc"))
         src = s1 + generateToc() + s3;
       else if (com[0].equals("pub-type"))
@@ -3322,6 +3326,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + svnRevision + s3;      
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;  
+      else if (com[0].equals("piperesources"))
+        src = s1+pipeResources()+s3;
       else if (com[0].equals("archive"))
         src = s1 + makeArchives() + s3;  
       else if (com[0].equals("pub-type"))
@@ -3354,7 +3360,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   } 
 
-
+  private String pipeResources() {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (String n : definitions.sortedResourceNames()) {
+      if (first)
+        first = false;
+      else
+        b.append("|");
+      b.append(n);
+    }
+    return b.toString();
+  }
 
   private String enteredInErrorTable() throws Exception {
     StringBuilder b = new StringBuilder();

@@ -7,10 +7,6 @@
 			<code value="central"/>
 			<display value="Central Supply"/>
 			<primary value="true"/>
-			<valueSet>
-				<reference value="http://hl7.org/fhir/vs/supply-type"/>
-				<display value="supply-type"/>
-			</valueSet>
 		</coding>
 	</kind>
 	<identifier>
@@ -43,10 +39,6 @@
 				<code value="device"/>
 				<display value="Device"/>
 				<primary value="true"/>
-				<valueSet>
-					<reference value="http://hl7.org/fhir/vs/supply-item"/>
-					<display value="supply-item"/>
-				</valueSet>
 			</coding>
 		</type>
 		<quantity>
