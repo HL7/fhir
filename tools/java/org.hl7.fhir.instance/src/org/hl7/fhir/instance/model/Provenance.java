@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -148,17 +148,17 @@ public class Provenance extends DomainResource {
     @Block()
     public static class ProvenanceAgentComponent extends BackboneElement {
         /**
-         * The role that the participant played.
+         * The function of the agent with respect to the activity.
          */
         @Child(name ="role", type={Coding.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="e.g. author | overseer | enterer | attester | source | cc: +", formalDefinition="The role that the participant played." )
+        @Description(shortDefinition="Agents Role", formalDefinition="The function of the agent with respect to the activity." )
         protected Coding role;
 
         /**
-         * The type of the participant.
+         * The type of participation of the agent.
          */
         @Child(name ="type", type={Coding.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="e.g. Resource | Person | Application | Record | Document +", formalDefinition="The type of the participant." )
+        @Description(shortDefinition="Agent Type", formalDefinition="The type of participation of the agent." )
         protected Coding type;
 
         /**
@@ -188,7 +188,7 @@ public class Provenance extends DomainResource {
       }
 
         /**
-         * @return {@link #role} (The role that the participant played.)
+         * @return {@link #role} (The function of the agent with respect to the activity.)
          */
         public Coding getRole() { 
           if (this.role == null)
@@ -204,7 +204,7 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @param value {@link #role} (The role that the participant played.)
+         * @param value {@link #role} (The function of the agent with respect to the activity.)
          */
         public ProvenanceAgentComponent setRole(Coding value) { 
           this.role = value;
@@ -212,7 +212,7 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (The type of the participant.)
+         * @return {@link #type} (The type of participation of the agent.)
          */
         public Coding getType() { 
           if (this.type == null)
@@ -228,7 +228,7 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (The type of the participant.)
+         * @param value {@link #type} (The type of participation of the agent.)
          */
         public ProvenanceAgentComponent setType(Coding value) { 
           this.type = value;
@@ -323,8 +323,8 @@ public class Provenance extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("role", "Coding", "The role that the participant played.", 0, java.lang.Integer.MAX_VALUE, role));
-          childrenList.add(new Property("type", "Coding", "The type of the participant.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("role", "Coding", "The function of the agent with respect to the activity.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("type", "Coding", "The type of participation of the agent.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("reference[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device)", "Identity of participant as a Resource or uri.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("display", "string", "Human-readable description of the participant.", 0, java.lang.Integer.MAX_VALUE, display));
         }
@@ -380,21 +380,21 @@ public class Provenance extends DomainResource {
          * The type of the entity. If the entity is a resource, then this is a resource type.
          */
         @Child(name ="type", type={Coding.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="Resource Type, or something else", formalDefinition="The type of the entity. If the entity is a resource, then this is a resource type." )
+        @Description(shortDefinition="Entity Type", formalDefinition="The type of the entity. If the entity is a resource, then this is a resource type." )
         protected Coding type;
 
         /**
-         * Identity of participant. May be a logical or physical uri and maybe absolute or relative.
+         * Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.
          */
         @Child(name ="reference", type={UriType.class}, order=3, min=1, max=1)
-        @Description(shortDefinition="Identity of participant (urn or url)", formalDefinition="Identity of participant. May be a logical or physical uri and maybe absolute or relative." )
+        @Description(shortDefinition="Identity of entity", formalDefinition="Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative." )
         protected UriType reference;
 
         /**
          * Human-readable description of the entity.
          */
         @Child(name ="display", type={StringType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Human description of participant", formalDefinition="Human-readable description of the entity." )
+        @Description(shortDefinition="Human description of entity", formalDefinition="Human-readable description of the entity." )
         protected StringType display;
 
         /**
@@ -487,7 +487,7 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @return {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
+         * @return {@link #reference} (Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
          */
         public UriType getReferenceElement() { 
           if (this.reference == null)
@@ -507,7 +507,7 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @param value {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
+         * @param value {@link #reference} (Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
          */
         public ProvenanceEntityComponent setReferenceElement(UriType value) { 
           this.reference = value;
@@ -515,14 +515,14 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @return Identity of participant. May be a logical or physical uri and maybe absolute or relative.
+         * @return Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.
          */
         public String getReference() { 
           return this.reference == null ? null : this.reference.getValue();
         }
 
         /**
-         * @param value Identity of participant. May be a logical or physical uri and maybe absolute or relative.
+         * @param value Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.
          */
         public ProvenanceEntityComponent setReference(String value) { 
             if (this.reference == null)
@@ -608,7 +608,7 @@ public class Provenance extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "code", "How the entity was used during the activity.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("type", "Coding", "The type of the entity. If the entity is a resource, then this is a resource type.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("reference", "uri", "Identity of participant. May be a logical or physical uri and maybe absolute or relative.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("reference", "uri", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("display", "string", "Human-readable description of the entity.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("agent", "@Provenance.agent", "The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.", 0, java.lang.Integer.MAX_VALUE, agent));
         }
@@ -655,13 +655,13 @@ public class Provenance extends DomainResource {
   }
 
     /**
-     * The Reference(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.
+     * The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.
      */
     @Child(name ="target", type={}, order=0, min=1, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Target Reference(s) (usually version specific)", formalDefinition="The Reference(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity." )
+    @Description(shortDefinition="Target Reference(s) (usually version specific)", formalDefinition="The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity." )
     protected List<Reference> target;
     /**
-     * The actual objects that are the target of the reference (The Reference(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
+     * The actual objects that are the target of the reference (The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
      */
     protected List<Resource> targetTarget;
 
@@ -707,10 +707,10 @@ public class Provenance extends DomainResource {
     protected List<UriType> policy;
 
     /**
-     * An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.
+     * An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.
      */
     @Child(name ="agent", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Person, organization, records, etc. involved in creating resource", formalDefinition="An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility." )
+    @Description(shortDefinition="Agents involved in creating resource", formalDefinition="An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility." )
     protected List<ProvenanceAgentComponent> agent;
 
     /**
@@ -739,7 +739,7 @@ public class Provenance extends DomainResource {
     }
 
     /**
-     * @return {@link #target} (The Reference(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
+     * @return {@link #target} (The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
      */
     public List<Reference> getTarget() { 
       if (this.target == null)
@@ -757,7 +757,7 @@ public class Provenance extends DomainResource {
     }
 
     /**
-     * @return {@link #target} (The Reference(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
+     * @return {@link #target} (The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
      */
     // syntactic sugar
     public Reference addTarget() { //3
@@ -779,7 +779,7 @@ public class Provenance extends DomainResource {
     }
 
     /**
-     * @return {@link #target} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The Reference(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
+     * @return {@link #target} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
      */
     public List<Resource> getTargetTarget() { 
       if (this.targetTarget == null)
@@ -979,7 +979,7 @@ public class Provenance extends DomainResource {
     }
 
     /**
-     * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.)
+     * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.)
      */
     public List<ProvenanceAgentComponent> getAgent() { 
       if (this.agent == null)
@@ -997,7 +997,7 @@ public class Provenance extends DomainResource {
     }
 
     /**
-     * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.)
+     * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.)
      */
     // syntactic sugar
     public ProvenanceAgentComponent addAgent() { //3
@@ -1100,13 +1100,13 @@ public class Provenance extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("target", "Reference(Any)", "The Reference(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("target", "Reference(Any)", "The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("period", "Period", "The period during which the activity occurred.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("recorded", "instant", "The instant of time at which the activity was recorded.", 0, java.lang.Integer.MAX_VALUE, recorded));
         childrenList.add(new Property("reason", "CodeableConcept", "The reason that the activity was taking place.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("location", "Reference(Location)", "Where the activity occurred, if relevant.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
-        childrenList.add(new Property("agent", "", "An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.", 0, java.lang.Integer.MAX_VALUE, agent));
+        childrenList.add(new Property("agent", "", "An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity));
         childrenList.add(new Property("signature", "Signature", "A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.", 0, java.lang.Integer.MAX_VALUE, signature));
       }
@@ -1193,7 +1193,7 @@ public class Provenance extends DomainResource {
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="start", path="Provenance.period.start", description="Starting time with inclusive boundary", type="date" )
   public static final String SP_START = "start";
-  @SearchParamDefinition(name="partytype", path="Provenance.agent.type", description="e.g. Resource | Person | Application | Record | Document +", type="token" )
+  @SearchParamDefinition(name="partytype", path="Provenance.agent.type", description="Agent Type", type="token" )
   public static final String SP_PARTYTYPE = "partytype";
   @SearchParamDefinition(name="target", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
   public static final String SP_TARGET = "target";

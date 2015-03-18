@@ -1048,6 +1048,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   
   private StructureDefinition checkExtension(List<ValidationMessage> errors, String path, WrapperElement element, StructureDefinition profile, NodeStack stack) throws Exception {
     String url = element.getAttribute("url");
+    boolean isModifier = element.getName().equals("modifierExtension");
     
     StructureDefinition ex = context.getExtensionStructure(profile, url);
     if (ex == null) {
@@ -1057,6 +1058,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       // two questions 
       // 1. can this extension be used here?
       checkExtensionContext(errors, /*path+"[url='"+url+"']",*/ ex, stack, ex.getUrl());
+      
+      if (isModifier)
+        rule(errors, "structure", path+"[url='"+url+"']", ex.getSnapshot().getElement().get(0).getIsModifier(), "The Extension '"+url+"' must be used as a modifierExtension");
+      else
+        rule(errors, "structure", path+"[url='"+url+"']", !ex.getSnapshot().getElement().get(0).getIsModifier(), "The Extension '"+url+"' must not be used as an extension (it's a modifierExtension)");
       
       // 2. is the content of the extension valid?
 

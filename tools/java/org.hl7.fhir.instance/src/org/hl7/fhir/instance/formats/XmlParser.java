@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -7422,8 +7422,6 @@ public class XmlParser extends XmlParserBase {
         res.getTelecom().add(parseContactPoint(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("address")) {
         res.setAddress(parseAddress(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("gender")) {
-        res.setGenderElement(parseEnumeration(xpp, Organization.AdministrativeGender.NULL, new Organization.AdministrativeGenderEnumFactory()));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -7472,8 +7470,6 @@ public class XmlParser extends XmlParserBase {
         res.setGenderElement(parseEnumeration(xpp, Patient.AdministrativeGender.NULL, new Patient.AdministrativeGenderEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("birthDate")) {
         res.setBirthDateElement(parseDate(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("birthTime")) {
-        res.setBirthTimeElement(parseTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "deceased")) {
         res.setDeceased(parseType("deceased", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("address")) {
@@ -18983,8 +18979,6 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAddress()) {
         composeAddress("address", element.getAddress());
       }
-      if (element.hasGenderElement())
-        composeEnumeration("gender", element.getGenderElement(), new Organization.AdministrativeGenderEnumFactory());
       xml.close(FHIR_NS, name);
     }
   }
@@ -19035,9 +19029,6 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("gender", element.getGenderElement(), new Patient.AdministrativeGenderEnumFactory());
       if (element.hasBirthDateElement()) {
         composeDate("birthDate", element.getBirthDateElement());
-      }
-      if (element.hasBirthTimeElement()) {
-        composeTime("birthTime", element.getBirthTimeElement());
       }
       if (element.hasDeceased()) {
         composeType("deceased", element.getDeceased());

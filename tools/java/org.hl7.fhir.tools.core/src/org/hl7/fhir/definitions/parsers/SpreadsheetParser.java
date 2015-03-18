@@ -1434,6 +1434,9 @@ public class SpreadsheetParser {
 	  
     new ProfileGenerator(definitions, null, pkp, null).convertElements(exe, ex, null);
     StructureDefinition base = definitions.getSnapShotForType("Extension");
+    List<String> errors = new ArrayList<String>();
+    new ProfileUtilities(this.context).sortDifferential(base, ex, "extension "+ex.getUrl(), pkp, errors);
+    assert(errors.size() == 0);
     new ProfileUtilities(this.context).generateSnapshot(base, ex, ex.getUrl(), ex.getName(), pkp);
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;

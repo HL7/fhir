@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -3538,6 +3538,8 @@ public class ImagingStudy extends DomainResource {
   public static final String SP_SERIES = "series";
   @SearchParamDefinition(name="patient", path="ImagingStudy.patient", description="Who the study is about", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="order", path="ImagingStudy.order", description="The order for the image", type="reference" )
+  public static final String SP_ORDER = "order";
   @SearchParamDefinition(name="bodysite", path="ImagingStudy.series.bodySite", description="Body part examined (Map from 0018,0015)", type="token" )
   public static final String SP_BODYSITE = "bodysite";
   @SearchParamDefinition(name="accession", path="ImagingStudy.accession", description="The accession id for the image", type="token" )
@@ -3550,8 +3552,6 @@ public class ImagingStudy extends DomainResource {
   public static final String SP_STARTED = "started";
   @SearchParamDefinition(name="dicom-class", path="ImagingStudy.series.instance.sopclass", description="DICOM class type (0008,0016)", type="token" )
   public static final String SP_DICOMCLASS = "dicom-class";
-  @SearchParamDefinition(name="size", path="", description="The size of the image in MB - may include > or < in the value", type="number" )
-  public static final String SP_SIZE = "size";
 
 }
 

@@ -79,6 +79,7 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappin
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
@@ -1032,9 +1033,11 @@ public class ProfileGenerator {
     if (!ed.hasDifferential())
       ed.setDifferential(new StructureDefinitionDifferentialComponent());
     ed.getDifferential().getElement().add(dst);
-    String thisPath = path == null ? "Extension" : path+"."+src.getName();
+    String thisPath = path == null ? "Extension" : path;
     dst.setPath(thisPath);
-
+    if (dst.getPath().endsWith(".extension"))
+      dst.setName(src.getName());
+    
     dst.setShort(src.getShortDefn());
     dst.setDefinition(src.getDefinition());
     dst.setComments(src.getComments());
@@ -1079,8 +1082,60 @@ public class ProfileGenerator {
     }
     if (!Utilities.noString(src.getBindingName()))
       dst.setBinding(generateBinding(src.getBindingName()));
-    for (ElementDefn child : src.getElements())
-      convertElements(child, ed, thisPath);
+    if (src.getElements().isEmpty()) {
+      if (path == null)
+        throw new Exception("?error parsing extension");
+    } else {
+      ElementDefn url = src.getElements().get(0);
+      if (!url.getName().equals("url"))
+        throw new Exception("first child of extension should be "+url);
+      convertElements(url, ed, thisPath+".url");
+      if (!hasValue(src)) {
+        ElementDefn value = new ElementDefn();
+        value.setName("value[x]");
+        value.setMinCardinality(0);
+        value.setMaxCardinality(0);
+        src.getElements().add(value);
+      }
+      if (src.getElements().size() == 2 && 
+          src.getElements().get(0).getName().equals("url") &&
+          src.getElements().get(1).getName().equals("value[x]")) {
+        ElementDefn value = src.getElements().get(1);
+        convertElements(value, ed, thisPath+".value[x]");
+      } else {
+        for (ElementDefn child : src.getElements()) {
+          if (child != url) {
+            if (child.getName().startsWith("value"))
+              convertElements(child, ed, thisPath+"."+child.getName());
+            else {
+              if (child.getElements().size() == 0 || !child.getElements().get(0).getName().equals("url")) {
+                ElementDefn childUrl = new ElementDefn();
+                childUrl.setName("url");
+                childUrl.getTypes().add(new TypeRef("uri"));
+                childUrl.setFixed(new UriType(child.getName()));
+                child.getElements().add(0, childUrl);
+              }
+              if (!hasValue(child)) {
+                ElementDefn value = new ElementDefn();
+                value.setName("value[x]");
+                value.setMinCardinality(0);
+                value.setMaxCardinality(0);
+                child.getElements().add(value);
+              }
+              convertElements(child, ed, thisPath+".extension");
+            }
+          }
+        }
+      }
+    }
+  }
+
+  private boolean hasValue(ElementDefn child) {
+    for (ElementDefn v : child.getElements()) {
+      if (v.getName().startsWith("value"))
+        return true;
+    }
+    return false;
   }
 
 }

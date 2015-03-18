@@ -809,15 +809,16 @@ public class ProfileUtilities {
     c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ed), null));
     r.getCells().add(c);
     
-    if (ed.getSnapshot().getElement().size() == 1) {
-      r.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
-      genSimpleExtension(defFile, gen, r.getSubRows(), ed, pkp);
-    } else {
-      r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
-      List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
-      for (ElementDefinition child : children)
-        genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, pkp, true, null, false, false);
-    }
+    boolean deep = false;
+    for (ElementDefinition eld : ed.getSnapshot().getElement())
+      deep = deep || eld.getPath().contains("Extension.extension.");
+    
+    r.setIcon(deep ? "icon_extension_complex.png" : "icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
+    List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
+    for (ElementDefinition child : children)
+      if (!child.getPath().endsWith(".id"))
+        genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getSnapshot().getElement(), null, pkp, true, null, false, true);
+
     return gen.generate(model);
     }
 
@@ -1081,10 +1082,12 @@ public class ProfileUtilities {
       } else{
         List<ElementDefinition> children = getChildren(all, element);
         for (ElementDefinition child : children)
-          genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, false, snapshot);
+          if (!child.getPath().endsWith(".id"))
+            genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, false, snapshot);
         if (!snapshot) 
           for (ElementDefinition child : children)
-            genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, true, false);
+            if (!child.getPath().endsWith(".id"))
+              genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, true, false);
       }
     }
   }
@@ -1421,11 +1424,13 @@ public class ProfileUtilities {
     ElementDefinitionHolder edh = new ElementDefinitionHolder(diffList.get(0));
 
     boolean hasSlicing = false;
+    List<String> paths = new ArrayList<String>(); // in a differential, slicing may not be stated explicitly
     for(ElementDefinition elt : diffList) {
-      if (elt.hasSlicing()) {
+      if (elt.hasSlicing() || paths.contains(elt.getPath())) {
         hasSlicing = true;
         break;
       }
+      paths.add(elt.getPath());
     }
     if(!hasSlicing) {
       // if Differential does not have slicing then safe to pre-sort the list

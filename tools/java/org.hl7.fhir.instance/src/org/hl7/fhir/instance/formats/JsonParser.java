@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -8385,10 +8385,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("address"))
       res.setAddress(parseAddress(json.getAsJsonObject("address")));
-    if (json.has("gender"))
-      res.setGenderElement(parseEnumeration(json.get("gender").getAsString(), Organization.AdministrativeGender.NULL, new Organization.AdministrativeGenderEnumFactory()));
-    if (json.has("_gender"))
-      parseElementProperties(json.getAsJsonObject("_gender"), res.getGenderElement());
     return res;
   }
 
@@ -8443,10 +8439,6 @@ public class JsonParser extends JsonParserBase {
       res.setBirthDateElement(parseDate(json.get("birthDate").getAsString()));
     if (json.has("_birthDate"))
       parseElementProperties(json.getAsJsonObject("_birthDate"), res.getBirthDateElement());
-    if (json.has("birthTime"))
-      res.setBirthTimeElement(parseTime(json.get("birthTime").getAsString()));
-    if (json.has("_birthTime"))
-      parseElementProperties(json.getAsJsonObject("_birthTime"), res.getBirthTimeElement());
     Type deceased = parseType("deceased", json);
     if (deceased != null)
       res.setDeceased(deceased);
@@ -12307,7 +12299,7 @@ public class JsonParser extends JsonParserBase {
     composeElement(element);
     if (element.hasModifierExtension()) {
       openArray("modifierExtension");
-      for (Extension e : element.getExtension())
+      for (Extension e : element.getModifierExtension())
         composeExtension(null, e);
       closeArray();
     }
@@ -22857,10 +22849,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasAddress()) {
         composeAddress("address", element.getAddress());
       }
-      if (element.hasGenderElement()) {
-        composeEnumerationCore("gender", element.getGenderElement(), new Organization.AdministrativeGenderEnumFactory(), false);
-        composeEnumerationExtras("gender", element.getGenderElement(), new Organization.AdministrativeGenderEnumFactory(), false);
-      }
   }
 
   protected void composeOther(String name, Other element) throws Exception {
@@ -22927,10 +22915,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasBirthDateElement()) {
         composeDateCore("birthDate", element.getBirthDateElement(), false);
         composeDateExtras("birthDate", element.getBirthDateElement(), false);
-      }
-      if (element.hasBirthTimeElement()) {
-        composeTimeCore("birthTime", element.getBirthTimeElement(), false);
-        composeTimeExtras("birthTime", element.getBirthTimeElement(), false);
       }
       if (element.hasDeceased()) {
         composeType("deceased", element.getDeceased());

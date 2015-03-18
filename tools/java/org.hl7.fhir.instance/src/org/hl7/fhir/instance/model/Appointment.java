@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -643,10 +643,10 @@ public class Appointment extends DomainResource {
     protected Enumeration<Appointmentstatus> status;
 
     /**
-     * The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself).
+     * The type of appointment that is being booked (This may also be associated with participants for location, and/or a HealthcareService).
      */
     @Child(name ="type", type={CodeableConcept.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself)", formalDefinition="The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself)." )
+    @Description(shortDefinition="The type of appointment that is being booked", formalDefinition="The type of appointment that is being booked (This may also be associated with participants for location, and/or a HealthcareService)." )
     protected CodeableConcept type;
 
     /**
@@ -821,7 +821,7 @@ public class Appointment extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself).)
+     * @return {@link #type} (The type of appointment that is being booked (This may also be associated with participants for location, and/or a HealthcareService).)
      */
     public CodeableConcept getType() { 
       if (this.type == null)
@@ -837,7 +837,7 @@ public class Appointment extends DomainResource {
     }
 
     /**
-     * @param value {@link #type} (The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself).)
+     * @param value {@link #type} (The type of appointment that is being booked (This may also be associated with participants for location, and/or a HealthcareService).)
      */
     public Appointment setType(CodeableConcept value) { 
       this.type = value;
@@ -1250,7 +1250,7 @@ public class Appointment extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("type", "CodeableConcept", "The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself).", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "CodeableConcept", "The type of appointment that is being booked (This may also be associated with participants for location, and/or a HealthcareService).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("reason", "CodeableConcept", "The reason that this appointment is being scheduled, this is more clinical than administrative.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("priority", "integer", "The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("description", "string", "The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.", 0, java.lang.Integer.MAX_VALUE, description));

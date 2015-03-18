@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -44,106 +44,6 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="Organization", profile="http://hl7.org/fhir/Profile/Organization")
 public class Organization extends DomainResource {
-
-    public enum AdministrativeGender {
-        /**
-         * Male
-         */
-        MALE, 
-        /**
-         * Female
-         */
-        FEMALE, 
-        /**
-         * Other
-         */
-        OTHER, 
-        /**
-         * Unknown
-         */
-        UNKNOWN, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static AdministrativeGender fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("male".equals(codeString))
-          return MALE;
-        if ("female".equals(codeString))
-          return FEMALE;
-        if ("other".equals(codeString))
-          return OTHER;
-        if ("unknown".equals(codeString))
-          return UNKNOWN;
-        throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case MALE: return "male";
-            case FEMALE: return "female";
-            case OTHER: return "other";
-            case UNKNOWN: return "unknown";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case MALE: return "";
-            case FEMALE: return "";
-            case OTHER: return "";
-            case UNKNOWN: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case MALE: return "Male";
-            case FEMALE: return "Female";
-            case OTHER: return "Other";
-            case UNKNOWN: return "Unknown";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case MALE: return "Male";
-            case FEMALE: return "Female";
-            case OTHER: return "Other";
-            case UNKNOWN: return "Unknown";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class AdministrativeGenderEnumFactory implements EnumFactory<AdministrativeGender> {
-    public AdministrativeGender fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("male".equals(codeString))
-          return AdministrativeGender.MALE;
-        if ("female".equals(codeString))
-          return AdministrativeGender.FEMALE;
-        if ("other".equals(codeString))
-          return AdministrativeGender.OTHER;
-        if ("unknown".equals(codeString))
-          return AdministrativeGender.UNKNOWN;
-        throw new IllegalArgumentException("Unknown AdministrativeGender code '"+codeString+"'");
-        }
-    public String toCode(AdministrativeGender code) {
-      if (code == AdministrativeGender.MALE)
-        return "male";
-      if (code == AdministrativeGender.FEMALE)
-        return "female";
-      if (code == AdministrativeGender.OTHER)
-        return "other";
-      if (code == AdministrativeGender.UNKNOWN)
-        return "unknown";
-      return "?";
-      }
-    }
 
     @Block()
     public static class OrganizationContactComponent extends BackboneElement {
@@ -175,14 +75,7 @@ public class Organization extends DomainResource {
         @Description(shortDefinition="Visiting or postal addresses for the contact", formalDefinition="Visiting or postal addresses for the contact." )
         protected Address address;
 
-        /**
-         * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
-         */
-        @Child(name ="gender", type={CodeType.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." )
-        protected Enumeration<AdministrativeGender> gender;
-
-        private static final long serialVersionUID = -1433864122L;
+        private static final long serialVersionUID = 1831121305L;
 
       public OrganizationContactComponent() {
         super();
@@ -300,62 +193,12 @@ public class Organization extends DomainResource {
           return this;
         }
 
-        /**
-         * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
-         */
-        public Enumeration<AdministrativeGender> getGenderElement() { 
-          if (this.gender == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OrganizationContactComponent.gender");
-            else if (Configuration.doAutoCreate())
-              this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory()); // bb
-          return this.gender;
-        }
-
-        public boolean hasGenderElement() { 
-          return this.gender != null && !this.gender.isEmpty();
-        }
-
-        public boolean hasGender() { 
-          return this.gender != null && !this.gender.isEmpty();
-        }
-
-        /**
-         * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
-         */
-        public OrganizationContactComponent setGenderElement(Enumeration<AdministrativeGender> value) { 
-          this.gender = value;
-          return this;
-        }
-
-        /**
-         * @return Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
-         */
-        public AdministrativeGender getGender() { 
-          return this.gender == null ? null : this.gender.getValue();
-        }
-
-        /**
-         * @param value Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
-         */
-        public OrganizationContactComponent setGender(AdministrativeGender value) { 
-          if (value == null)
-            this.gender = null;
-          else {
-            if (this.gender == null)
-              this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
-            this.gender.setValue(value);
-          }
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("purpose", "CodeableConcept", "Indicates a purpose for which the contact can be reached.", 0, java.lang.Integer.MAX_VALUE, purpose));
           childrenList.add(new Property("name", "HumanName", "A name associated with the contact.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("telecom", "ContactPoint", "A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
           childrenList.add(new Property("address", "Address", "Visiting or postal addresses for the contact.", 0, java.lang.Integer.MAX_VALUE, address));
-          childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         }
 
       public OrganizationContactComponent copy() {
@@ -369,7 +212,6 @@ public class Organization extends DomainResource {
             dst.telecom.add(i.copy());
         };
         dst.address = address == null ? null : address.copy();
-        dst.gender = gender == null ? null : gender.copy();
         return dst;
       }
 
@@ -381,7 +223,7 @@ public class Organization extends DomainResource {
           return false;
         OrganizationContactComponent o = (OrganizationContactComponent) other;
         return compareDeep(purpose, o.purpose, true) && compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true)
-           && compareDeep(address, o.address, true) && compareDeep(gender, o.gender, true);
+           && compareDeep(address, o.address, true);
       }
 
       @Override
@@ -391,13 +233,12 @@ public class Organization extends DomainResource {
         if (!(other instanceof OrganizationContactComponent))
           return false;
         OrganizationContactComponent o = (OrganizationContactComponent) other;
-        return compareValues(gender, o.gender, true);
+        return true;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (name == null || name.isEmpty())
-           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty()) && (gender == null || gender.isEmpty())
-          ;
+           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty());
       }
 
   }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
+// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1003,17 +1003,17 @@ public class StructureDefinition extends DomainResource {
     protected Enumeration<StructureDefinitionType> type;
 
     /**
-     * Whether structure this definition describes is abstract or not.
+     * Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.
      */
     @Child(name ="abstract_", type={BooleanType.class}, order=18, min=1, max=1)
-    @Description(shortDefinition="Whether the structure is abstract", formalDefinition="Whether structure this definition describes is abstract or not." )
+    @Description(shortDefinition="Whether the structure is abstract", formalDefinition="Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type." )
     protected BooleanType abstract_;
 
     /**
-     * Identifies the type of context to which the extension applies.
+     * If this is an extension, Identifies the context within FHIR resources where the extension can be used.
      */
     @Child(name ="contextType", type={CodeType.class}, order=19, min=0, max=1)
-    @Description(shortDefinition="resource | datatype | mapping | extension", formalDefinition="Identifies the type of context to which the extension applies." )
+    @Description(shortDefinition="resource | datatype | mapping | extension", formalDefinition="If this is an extension, Identifies the context within FHIR resources where the extension can be used." )
     protected Enumeration<ExtensionContext> contextType;
 
     /**
@@ -1877,7 +1877,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #abstract_} (Whether structure this definition describes is abstract or not.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
+     * @return {@link #abstract_} (Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
      */
     public BooleanType getAbstractElement() { 
       if (this.abstract_ == null)
@@ -1897,7 +1897,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #abstract_} (Whether structure this definition describes is abstract or not.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
+     * @param value {@link #abstract_} (Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
      */
     public StructureDefinition setAbstractElement(BooleanType value) { 
       this.abstract_ = value;
@@ -1905,14 +1905,14 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return Whether structure this definition describes is abstract or not.
+     * @return Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.
      */
     public boolean getAbstract() { 
       return this.abstract_ == null || this.abstract_.isEmpty() ? false : this.abstract_.getValue();
     }
 
     /**
-     * @param value Whether structure this definition describes is abstract or not.
+     * @param value Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.
      */
     public StructureDefinition setAbstract(boolean value) { 
         if (this.abstract_ == null)
@@ -1922,7 +1922,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #contextType} (Identifies the type of context to which the extension applies.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
+     * @return {@link #contextType} (If this is an extension, Identifies the context within FHIR resources where the extension can be used.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
      */
     public Enumeration<ExtensionContext> getContextTypeElement() { 
       if (this.contextType == null)
@@ -1942,7 +1942,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #contextType} (Identifies the type of context to which the extension applies.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
+     * @param value {@link #contextType} (If this is an extension, Identifies the context within FHIR resources where the extension can be used.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
      */
     public StructureDefinition setContextTypeElement(Enumeration<ExtensionContext> value) { 
       this.contextType = value;
@@ -1950,14 +1950,14 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return Identifies the type of context to which the extension applies.
+     * @return If this is an extension, Identifies the context within FHIR resources where the extension can be used.
      */
     public ExtensionContext getContextType() { 
       return this.contextType == null ? null : this.contextType.getValue();
     }
 
     /**
-     * @param value Identifies the type of context to which the extension applies.
+     * @param value If this is an extension, Identifies the context within FHIR resources where the extension can be used.
      */
     public StructureDefinition setContextType(ExtensionContext value) { 
       if (value == null)
@@ -2141,8 +2141,8 @@ public class StructureDefinition extends DomainResource {
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.4.0 for this version.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("type", "code", "Defines the type of structure that this definition is describing.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not.", 0, java.lang.Integer.MAX_VALUE, abstract_));
-        childrenList.add(new Property("contextType", "code", "Identifies the type of context to which the extension applies.", 0, java.lang.Integer.MAX_VALUE, contextType));
+        childrenList.add(new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.", 0, java.lang.Integer.MAX_VALUE, abstract_));
+        childrenList.add(new Property("contextType", "code", "If this is an extension, Identifies the context within FHIR resources where the extension can be used.", 0, java.lang.Integer.MAX_VALUE, contextType));
         childrenList.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("base", "uri", "An absolute URI that is the base structure from which this set of constraints is derived.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, java.lang.Integer.MAX_VALUE, snapshot));
@@ -2259,8 +2259,16 @@ public class StructureDefinition extends DomainResource {
     return ResourceType.StructureDefinition;
    }
 
+  @SearchParamDefinition(name="abstract", path="StructureDefinition.abstract", description="Whether the structure is abstract", type="token" )
+  public static final String SP_ABSTRACT = "abstract";
   @SearchParamDefinition(name="status", path="StructureDefinition.status", description="The current status of the profile", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="experimental", path="StructureDefinition.experimental", description="If for testing purposes, not real usage", type="token" )
+  public static final String SP_EXPERIMENTAL = "experimental";
+  @SearchParamDefinition(name="display", path="StructureDefinition.display", description="Use this name when displaying the value", type="string" )
+  public static final String SP_DISPLAY = "display";
+  @SearchParamDefinition(name="ext-context", path="StructureDefinition.context", description="Where the extension can be used in instances", type="string" )
+  public static final String SP_EXTCONTEXT = "ext-context";
   @SearchParamDefinition(name="code", path="StructureDefinition.code", description="A code for the profile", type="token" )
   public static final String SP_CODE = "code";
   @SearchParamDefinition(name="date", path="StructureDefinition.date", description="The profile publication date", type="date" )
@@ -2275,10 +2283,14 @@ public class StructureDefinition extends DomainResource {
   public static final String SP_PUBLISHER = "publisher";
   @SearchParamDefinition(name="valueset", path="StructureDefinition.snapshot.element.binding.valueSet[x]", description="A vocabulary binding reference", type="reference" )
   public static final String SP_VALUESET = "valueset";
+  @SearchParamDefinition(name="context-type", path="StructureDefinition.contextType", description="resource | datatype | mapping | extension", type="token" )
+  public static final String SP_CONTEXTTYPE = "context-type";
   @SearchParamDefinition(name="description", path="StructureDefinition.description", description="Text search in the description of the profile", type="string" )
   public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="name", path="StructureDefinition.name", description="Name of the profile", type="string" )
   public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="base", path="StructureDefinition.base", description="Structure that this set of constraints applies to", type="uri" )
+  public static final String SP_BASE = "base";
   @SearchParamDefinition(name="path", path="StructureDefinition.snapshot.element.path|StructureDefinition.differential.element.path", description="A path that is constrained in the profile", type="token" )
   public static final String SP_PATH = "path";
   @SearchParamDefinition(name="context", path="StructureDefinition.useContext", description="A use context assigned to the structure", type="token" )

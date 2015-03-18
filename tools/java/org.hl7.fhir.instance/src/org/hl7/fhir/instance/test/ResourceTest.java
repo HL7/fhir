@@ -70,6 +70,7 @@ public class ResourceTest {
     
     out = new FileOutputStream(source.getAbsoluteFile()+".out.xml");
     XmlParser atom = new XmlParser(); 
+    atom.setOutputStyle(OutputStyle.PRETTY);
     atom.compose(out, rf, true);
     
   }
