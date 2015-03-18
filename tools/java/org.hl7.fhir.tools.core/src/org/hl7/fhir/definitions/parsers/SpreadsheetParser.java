@@ -1469,17 +1469,7 @@ public class SpreadsheetParser {
     exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
     exe.setShortDefn(sheet.getColumn(row, "Short Label"));
 
-    exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Must Understand"), row, null));
-    String s = sheet.getColumn(row, "Must Understand").toLowerCase();
-    if (s.equals("false") || s.equals("0") || s.equals("f")
-        || s.equals("n") || s.equals("no"))
-      exe.setIsModifier(false);
-    else if (s.equals("true") || s.equals("1") || s.equals("t")
-        || s.equals("y") || s.equals("yes"))
-      exe.setIsModifier(true);
-    else if (!"".equals(s))
-      throw new Exception("unable to process Must Understand flag: " + s
-          + " in " + getLocation(row));
+    exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
     exe.getTypes().add(new TypeRef().setName("Extension"));
     
     // things that go on Extension.value

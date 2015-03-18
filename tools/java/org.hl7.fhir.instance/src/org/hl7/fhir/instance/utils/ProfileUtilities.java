@@ -573,7 +573,8 @@ public class ProfileUtilities {
     
     if (derived != null) {
       // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff
-      if (base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension")) {
+      boolean isExtension = base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension");
+      if (isExtension) {
         base.setDefinition("An Extension");
         base.setShort("Extension");
         base.setCommentsElement(null);
@@ -581,6 +582,7 @@ public class ProfileUtilities {
         base.getAlias().clear();
         base.getMapping().clear();
       }
+      
       if (derived.hasShortElement()) { 
         if (!Base.compareDeep(derived.getShortElement(), base.getShortElement(), false))
           base.setShortElement(derived.getShortElement().copy());
@@ -705,6 +707,16 @@ public class ProfileUtilities {
 
       
       // profiles cannot change : isModifier, defaultValue, meaningWhenMissing
+      // but extensions can change isModifier
+      if (isExtension) {
+        if (!Base.compareDeep(derived.getIsModifierElement(), base.getIsModifierElement(), false))
+          base.setIsModifierElement(derived.getIsModifierElement().copy());
+        else if (trimDifferential)
+          derived.setIsModifierElement(null);
+        else
+          derived.getIsModifierElement().setUserData(DERIVATION_EQUALS, true);
+      }
+      
       if (derived.hasBinding()) {
         if (!Base.compareDeep(derived.getBinding(), base.getBinding(), false)) {
           if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && base.getBinding().getStrength() != BindingStrength.REQUIRED)

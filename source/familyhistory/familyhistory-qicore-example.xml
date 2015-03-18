@@ -71,9 +71,9 @@
       </coding>
       <text value='Heart Attack'/>
       </type>
-      <extension url="http://hl7.org/fhir/StructureDefinition/familyhistory-didNotHave">
+      <modifierExtension url="http://hl7.org/fhir/StructureDefinition/familyhistory-didNotHave">
         <valueBoolean value="true"/>
-      </extension>
+      </modifierExtension>
     </condition>
 
   </relation>
