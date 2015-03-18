@@ -19,10 +19,12 @@ edited by Eric Haas Health eData Inc-->
 				<li>
 					<b>Food Preferences: </b>dairy-free:  Excludes dairy products</li>
 				<li>
-					<b>Oral Diet Type: </b><ol>
+					<b>Oral Diet Type: </b>
+					<ol>
 						<li>Low Sodium Diet</li>
 						<li>Fluid restricted diet</li>
-					</ol></li>
+					</ol>
+				</li>
 				<li>
 					<b>Nutrients Requirements: </b>
 					<ol>
@@ -35,6 +37,7 @@ edited by Eric Haas Health eData Inc-->
 			</ul>
 		</div>
 	</text>
+	<!--EH  Show all the elements in this examples for preference, and intolerance -->
 	<patient>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
@@ -52,6 +55,7 @@ edited by Eric Haas Health eData Inc-->
 		<display value="Inpatient"/>
 	</encounter>
 	<dateTime value="2014-09-17"/>
+	<status value="active"/>
 	<allergyIntolerance>
 		<reference value="AllergyIntolerance/example"/>
 		<display value="Cashew Nuts"/>
@@ -60,10 +64,6 @@ edited by Eric Haas Health eData Inc-->
 		<coding>
 			<system value="http://hl7.org/fhir/diet"/>
 			<code value="dairy-free"/>
-			<valueSet>
-				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
-				<display value="PatientDiet"/>
-			</valueSet>
 		</coding>
 	</foodPreferenceModifier>
 	<excludeFoodModifier>
@@ -76,9 +76,8 @@ edited by Eric Haas Health eData Inc-->
 	</excludeFoodModifier>
 	<!-- EH: use oral Diet element -->
 	<oralDiet>
-		<!-- EH:  list type of diet showing standard code and local codes -  need input on appropriate diet type -->
+		<!-- EH:  list type of diet showing standard code and local codes -->
 		<type>
-			<!--  need input from SME on SCT here -what type of diet is this-->
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="386619000"/>
@@ -92,7 +91,6 @@ edited by Eric Haas Health eData Inc-->
 			<text value="Low sodium diet"/>
 		</type>
 		<type>
-			<!--  need input from SME on SCT here -what type of diet is this-->
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="226208002"/>
@@ -105,18 +103,7 @@ edited by Eric Haas Health eData Inc-->
 			</coding>
 			<text value="Fluid restricted diet"/>
 		</type>
-<!-- EH example of three times a day starting on 2/10 !!need input on how diets are typically scheduled 
-		<scheduled>
-			<event>
-				<start value="2015-02-10"/>
-			</event>
-			<repeat>
-				<frequency value="3"/>
-				<duration value="1"/>
-				<units value="d"/>
-			</repeat>
-		</scheduled>
--->
+		<!-- list nutrients and amounts here -->
 		<nutrient>
 			<modifier>
 				<coding>
@@ -147,7 +134,7 @@ edited by Eric Haas Health eData Inc-->
 				<code value="mL"/>
 			</amount>
 		</nutrient>
-		<instruction value="Starting on 2/10 breakfast, maximum 400 ml fluids per meal"></instruction>
+		<!--instructions as free text -->
+		<instruction value="Starting on 2/10 breakfast, maximum 400 ml fluids per meal"/>
 	</oralDiet>
-	<status value="active"/>
 </NutritionOrder>

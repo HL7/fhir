@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir">
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
 	<id value="pureeddiet"/>
 	<!-- id = pureediet  file name = nutritionorder-example-pureeddiet.xml Name= Pureed Diet  Description = Nutrition Order Pureed Diet Canonical Example
 edited by Eric Haas Health eData Inc-->
@@ -46,6 +46,8 @@ edited by Eric Haas Health eData Inc-->
 		<display value="Inpatient"/>
 	</encounter>
 	<dateTime value="2014-09-17"/>
+	<status value="active"/>
+	<!--EH  Show all the elements in this examples for preference, and intolerance -->
 	<allergyIntolerance>
 		<reference value="AllergyIntolerance/example"/>
 		<display value="Cashew Nuts"/>
@@ -54,10 +56,6 @@ edited by Eric Haas Health eData Inc-->
 		<coding>
 			<system value="http://hl7.org/fhir/diet"/>
 			<code value="dairy-free"/>
-			<valueSet>
-				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
-				<display value="PatientDiet"/>
-			</valueSet>
 		</coding>
 	</foodPreferenceModifier>
 	<excludeFoodModifier>
@@ -70,14 +68,13 @@ edited by Eric Haas Health eData Inc-->
 	</excludeFoodModifier>
 	<!-- EH: use oral Diet element -->
 	<oralDiet>
-		<!-- EH:  list type of diet showing standard code and local codes -  need input on appropriate diet type-->
+		<!-- EH:  list type of diet showing standard code and local codes -->
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="226211001"/>
 				<display value="Pureed diet"/>
 			</coding>
-	
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
 				<code value="1010"/>
@@ -85,7 +82,7 @@ edited by Eric Haas Health eData Inc-->
 			</coding>
 			<text value="Pureed diet"/>
 		</type>
-		<!-- EH example of three times a day starting on 2/10 !!need input on how diets are typically scheduled -->
+		<!-- EH example of three times a day starting on 2/10  -->
 		<scheduled>
 			<event>
 				<start value="2015-02-10"/>
@@ -96,6 +93,7 @@ edited by Eric Haas Health eData Inc-->
 				<units value="d"/>
 			</repeat>
 		</scheduled>
+		<!--EH: this example showing how to code for texture modification -->
 		<texture>
 			<modifier>
 				<coding>
@@ -115,5 +113,4 @@ edited by Eric Haas Health eData Inc-->
 			<text value="Nectar thick liquids"/>
 		</fluidConsistencyType>
 	</oralDiet>
-	<status value="active"/>
 </NutritionOrder>

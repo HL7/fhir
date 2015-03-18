@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir">
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
 	<id value="pureeddiet-simple"/>
-	<!-- Using only instruction element in oralDiet and Suppleent minimal other elements  id = pureeddiet-simple file name = nutritionorder-example-pureeddiet-simple.xml  Name= Pureed Diet Simple Description = Nutrition Order Pureed Diet with Energy/Protein Supplement Simple Example
+	<!-- Using only instruction element in oralDiet and Supplement minimal other elements  id = pureeddiet-simple file name = nutritionorder-example-pureeddiet-simple.xml  Name= Pureed Diet Simple Description = Nutrition Order Pureed Diet with Energy/Protein Supplement Simple Example
 edited by Eric Haas Health eData Inc-->
 	<text>
 		<status value="generated"/>
@@ -36,16 +36,16 @@ edited by Eric Haas Health eData Inc-->
 		<value value="123"/>
 	</identifier>
 	<dateTime value="2014-09-17"/>
+	<status value="active"/>
 	<!-- EH: use oral Diet element -->
 	<oralDiet>
-		<!-- EH:  list type of diet showing standard code and local codes -  need input on appropriate diet type-->
+		<!-- EH:  list type of diet showing standard code and local codes -->
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="226211001"/>
 				<display value="Pureed diet"/>
 			</coding>
-
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
 				<code value="1010"/>
@@ -53,7 +53,7 @@ edited by Eric Haas Health eData Inc-->
 			</coding>
 			<text value="Pureed diet"/>
 		</type>
-		<!-- EH example of three times a day starting on 2/10 !!need input on how diets are typically scheduled -->
+		<!-- EH example of three times a day starting on 2/10 -->
 		<scheduled>
 			<event>
 				<start value="2015-02-10"/>
@@ -98,9 +98,7 @@ edited by Eric Haas Health eData Inc-->
 			<text value="Adult high energy pudding"/>
 		</type>
 		<productName value="Ensure Pudding 4 oz container"/>
-		<!--EH:  comment #5675 to add Instructions to supplement too
-		<instruction value="Ensure Pudding at breakfast, lunch, supper"></instruction>
--->
+		<!--EH:  Instructions to supplement too -->
+		<instruction value="Ensure Pudding at breakfast, lunch, supper"/>
 	</supplement>
-	<status value="active"/>
 </NutritionOrder>

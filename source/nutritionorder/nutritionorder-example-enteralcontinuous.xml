@@ -5,7 +5,23 @@
 editor Eric Haas Health eData Inc-->
 	<text>
 		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml"> Description = Nutrition Order Infant Enteral Feeding Canonical Example</div>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h3>Nutrition Order Enteral Continuous Feeding Example (Tube feedings given as continuous rate)</h3>
+			<ul>
+				<li>
+					<b>Patient: </b>Peter Chalmers</li>
+				<li>
+					<b>Orderer: </b>Dr Adam Careful</li>
+				<li>
+					<b>Date: </b>2014-09-17</li>
+				<li>
+					<b>Enteral base (Brand): </b>Diabetic specialty enteral formula(Acme Diabetes Formula)</li>
+				<li>
+					<b>Route: </b>Instillation, nasogastrostomy tube</li>
+				<li>
+					<b>Rate: </b>60 mls/hr not to exceed 880 mls/day</li>
+			</ul>
+		</div>
 	</text>
 	<patient>
 		<reference value="Patient/example"/>
@@ -24,34 +40,13 @@ editor Eric Haas Health eData Inc-->
 		<display value="Inpatient"/>
 	</encounter>
 	<dateTime value="2014-09-17"/>
-	<allergyIntolerance>
-		<reference value="AllergyIntolerance/example"/>
-		<display value="Cashew Nuts"/>
-	</allergyIntolerance>
-	<foodPreferenceModifier>
-		<coding>
-			<system value="http://hl7.org/fhir/diet"/>
-			<code value="dairy-free"/>
-			<valueSet>
-				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
-				<display value="PatientDiet"/>
-			</valueSet>
-		</coding>
-	</foodPreferenceModifier>
-	<excludeFoodModifier>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
-			<code value="227493005"/>
-			<display value="Cashew Nut"/>
-		</coding>
-	</excludeFoodModifier>
+	<status value="active"/>
+	<!-- Tube feedings given as continuous rate -->
 	<enteralFormula>
 		<administrationInstructions value="Hold feedings from 7 pm to 7 am. Add MCT oil to increase calories from 1.0 cal/mL to 1.5 cal/mL"/>
 		<baseFormulaType>
 			<coding>
-				<system value="http://snomed-us.info/sct"/>
-				<!-- placeholder system value  for US extension SNOMED CT -->
+				<system value="http://snomed/sct"/>
 				<code value="6547210000124112"/>
 				<display value="Diabetic specialty enteral formula"/>
 			</coding>
@@ -62,18 +57,6 @@ editor Eric Haas Health eData Inc-->
 				<start value="2014-09-17"/>
 			</event>
 		</scheduled>
-		<additiveType>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="427298002"/>
-				<display value="Enteral dietary supplement"/>
-				<valueSet>
-					<reference value="http://hl7.org/fhir/vs/entformula-additive"/>
-					<display value="Medium chain triglyceride supplementation"/>
-				</valueSet>
-			</coding>
-		</additiveType>
-		<additiveProductName value="Acme MCT Oil"/>
 		<caloricDensity>
 			<value value="1"/>
 			<units value="calories per milliliter"/>
@@ -85,10 +68,6 @@ editor Eric Haas Health eData Inc-->
 				<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
 				<code value="NGT"/>
 				<display value="Instillation, nasogastrostomy tube"/>
-				<valueSet>
-					<reference value="http://hl7.org/fhir/vs/enteral-route"/>
-					<display value="EnteralRouteOfAdministration"/>
-				</valueSet>
 			</coding>
 		</routeofAdministration>
 		<rate>
@@ -111,10 +90,9 @@ editor Eric Haas Health eData Inc-->
 		</rateAdjustment>
 		<maxVolumeToDeliver>
 			<value value="880"/>
-			<units value="milliliter"/>
+			<units value="milliliter/day"/>
 			<system value="http://unitsofmeasure.org"/>
-			<code value="mL"/>
+			<code value="mL/d"/>
 		</maxVolumeToDeliver>
 	</enteralFormula>
-	<status value="active"/>
 </NutritionOrder>

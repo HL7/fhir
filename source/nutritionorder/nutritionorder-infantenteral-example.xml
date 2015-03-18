@@ -5,7 +5,25 @@
 edited by Eric Haas Health eData Inc-->
 	<text>
 		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml"> Description = Nutrition Order Infant Enteral Feeding Canonical Example</div>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h3>Nutrition Order Infant Enteral Feeding Example (oral feedings given to an infant several times a day)</h3>
+			<ul>
+				<li>
+					<b>Patient: </b>Peter Chalmers</li>
+				<li>
+					<b>Orderer: </b>Dr Adam Careful</li>
+				<li>
+					<b>Date: </b>2014-09-17</li>
+				<li>
+					<b>Enteral base (Brand): </b>infant formula + iron(Acme Infant Formula + Iron)</li>
+				<li>
+					<b>Additive (Brand): </b>Modular carbohydrate enteral formula component(Acme High Carbohydrate Additive)</li>
+				<li>
+					<b>Route: </b>Swallow, oral</li>
+				<li>
+					<b>Rate: </b>4 oz every 3hrs not to exceed 32 oz/day starting 2014-09-17</li>
+			</ul>
+		</div>
 	</text>
 	<patient>
 		<reference value="Patient/example"/>
@@ -24,29 +42,9 @@ edited by Eric Haas Health eData Inc-->
 		<display value="Inpatient"/>
 	</encounter>
 	<dateTime value="2014-09-17"/>
-	<allergyIntolerance>
-		<reference value="AllergyIntolerance/example"/>
-		<display value="Cashew Nuts"/>
-	</allergyIntolerance>
-	<foodPreferenceModifier>
-		<coding>
-			<system value="http://hl7.org/fhir/diet"/>
-			<code value="nut-free"/>
-			<valueSet>
-				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
-				<display value="PatientDiet"/>
-			</valueSet>
-		</coding>
-	</foodPreferenceModifier>
-	<excludeFoodModifier>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
-			<code value="227493005"/>
-			<display value="Cashew Nut"/>
-		</coding>
-	</excludeFoodModifier>
+	<status value="active"/>
 	<enteralFormula>
+		<!-- EH infant feeding instruction and additional instructions -->
 		<administrationInstructions value="Add high calorie high carbohydrate additive to increase cal/oz from 24 cal/oz to 27 cal/oz."/>
 		<baseFormulaType>
 			<coding>
@@ -56,20 +54,22 @@ edited by Eric Haas Health eData Inc-->
 			</coding>
 		</baseFormulaType>
 		<baseFormulaProductName value="Acme Infant Formula + Iron"/>
+		<!-- scheduled 4 oz every 3hrs not to exceed 32 oz/day-->
 		<scheduled>
 			<event>
 				<start value="2014-09-17"/>
 			</event>
+			<repeat>
+				<frequency value="1"/>
+				<duration value="3"/>
+				<units value="h"/>
+			</repeat>
 		</scheduled>
 		<additiveType>
 			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="226307009"/>
-				<display value="Carbohydrate supplement"/>
-				<valueSet>
-					<reference value="http://hl7.org/fhir/vs/entformula-additive"/>
-					<display value="EnteralFormulaAdditiveType"/>
-				</valueSet>
+				<system value="http://hl7.org/fhir/entformula-additive"/>
+				<code value="carbohydrate"/>
+				<display value="Modular carbohydrate enteral formula component"/>
 			</coding>
 		</additiveType>
 		<additiveProductName value="Acme High Carbohydrate Additive"/>
@@ -85,26 +85,14 @@ edited by Eric Haas Health eData Inc-->
 				<code value="PO"/>
 				<display value="Swallow, oral"/>
 				<primary value="true"/>
-				<valueSet>
-					<reference value="http://hl7.org/fhir/vs/enteral-route"/>
-					<display value="EnteralRouteOfAdministration"/>
-				</valueSet>
 			</coding>
 		</routeofAdministration>
-		<rate>
-			<numerator>
-				<value value="4"/>
-				<units value="oz"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="[foz_us]"/>
-			</numerator>
-			<denominator>
-				<value value="3"/>
-				<units value="hr"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="h"/>
-			</denominator>
-		</rate>
+		<quantity>
+			<value value="4"/>
+			<units value="ounces"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="[foz_us]"/>
+		</quantity>
 		<maxVolumeToDeliver>
 			<value value="32"/>
 			<units value="ounces"/>
@@ -112,5 +100,4 @@ edited by Eric Haas Health eData Inc-->
 			<code value="[foz_us]"/>
 		</maxVolumeToDeliver>
 	</enteralFormula>
-	<status value="active"/>
 </NutritionOrder>

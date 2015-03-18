@@ -20,7 +20,7 @@ edited by Eric Haas Health eData Inc-->
 					<b>Schedule: </b>1 scoop with meal</li>
 			</ul>
 		</div>
-	</text>
+	</text><!-- EH: This example has no food exclusions or preferences -->
 	<patient>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
@@ -37,15 +37,9 @@ edited by Eric Haas Health eData Inc-->
 		<reference value="Encounter/example"/>
 		<display value="Inpatient"/>
 	</encounter>
-	<dateTime value="2014-09-17"/>
-	<excludeFoodModifier>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
-			<code value="227493005"/>
-			<display value="Cashew Nut"/>
-		</coding>
-	</excludeFoodModifier>
+	<dateTime value="2014-09-17"/>	<status value="active"/>
+
+
 	<!-- EH: use supplement element -->
 	<supplement>
 		<type>
@@ -62,14 +56,14 @@ edited by Eric Haas Health eData Inc-->
 			<text value="High Protein Powder"/>
 		</type>
 		<productName value="Beneprotein"/>
-		<scheduled>
+		<!-- <scheduled>
 			<event>
 				<start value="2015-02-10"/>
 			</event>
-			<!-- 02/11/2015  EH: currently no way to use data type to say "with meal" created a gforge comment for MNM on this also schematron doesn't allow '0 minutes before a meal'  gg fixed this so will update when update my build-->
+			02/11/2015  EH: currently no way to use data type to say "with meal" created a gforge comment for MNM on this also schematron doesn't allow '0 minutes before a meal'  gg fixed this so will update when update my build
 			<repeat>
 				<when value="AC"/>
-				<duration value="1"/>
+				<duration value="0"/>
 				<units value="min"/>
 			</repeat>
 		</scheduled>
@@ -78,10 +72,8 @@ edited by Eric Haas Health eData Inc-->
 			<units value="scoop"/>
 			<system value="http://unitsofmeasure.org "/>
 			<code value="{scoop}"/>
-		</quantity>
-		<!-- EH:  use the .instructions element to list diet  supplement order
-		<instruction value="Beneprotein 1 scoop TID with meal."/>
--->
+		</quantity> -->
+		<!-- EH:  use the .instructions element to list diet  supplement order-->
+		<instruction value="Beneprotein 1 scoop TID with meal.starting on  2015-02-10" />
 	</supplement>
-	<status value="active"/>
 </NutritionOrder>

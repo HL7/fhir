@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir"> 
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
 	<id value="fiberrestricteddiet"/>
 	<!-- id = fiberrestricteddiet  file name = nutritionorder-example-fiberrestricteddiet.xml Name= Low Fat and Fiber Restricted Diet Description = Nutrition Order Fiber Restricted and Low Fat Diet l Example
 edited by Eric Haas Health eData Inc-->
@@ -19,10 +19,12 @@ edited by Eric Haas Health eData Inc-->
 				<li>
 					<b>Food Preferences: </b>dairy-free:  Excludes dairy products</li>
 				<li>
-					<b>Oral Diet Type: </b><ol>
+					<b>Oral Diet Type: </b>
+					<ol>
 						<li>Fiber restricted diet</li>
 						<li>Low Fat diet</li>
-					</ol></li>
+					</ol>
+				</li>
 				<li>
 					<b>Nutrients Requirements: </b>
 					<ol>
@@ -51,6 +53,8 @@ edited by Eric Haas Health eData Inc-->
 		<display value="Inpatient"/>
 	</encounter>
 	<dateTime value="2014-09-17"/>
+	<status value="active"/>
+	<!--EH  Show all the elements in this examples for preference, and intolerance -->
 	<allergyIntolerance>
 		<reference value="AllergyIntolerance/example"/>
 		<display value="Cashew Nuts"/>
@@ -59,10 +63,6 @@ edited by Eric Haas Health eData Inc-->
 		<coding>
 			<system value="http://hl7.org/fhir/diet"/>
 			<code value="dairy-free"/>
-			<valueSet>
-				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
-				<display value="PatientDiet"/>
-			</valueSet>
 		</coding>
 	</foodPreferenceModifier>
 	<excludeFoodModifier>
@@ -75,7 +75,7 @@ edited by Eric Haas Health eData Inc-->
 	</excludeFoodModifier>
 	<!-- EH: use oral Diet element -->
 	<oralDiet>
-		<!-- EH:  list type of diet showing standard code and local codes -  need input on appropriate diet type-->
+		<!-- EH:  list type of diet showing standard code and local codes -->
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -102,7 +102,7 @@ edited by Eric Haas Health eData Inc-->
 			</coding>
 			<text value="Low fat diet"/>
 		</type>
-		<!-- EH example of three times a day starting on 2/10 !!need input on how diets are typically scheduled -->
+		<!-- EH example of three times a day starting on 2/10  -->
 		<scheduled>
 			<event>
 				<start value="2015-02-10"/>
@@ -114,6 +114,7 @@ edited by Eric Haas Health eData Inc-->
 			</repeat>
 		</scheduled>
 		<nutrient>
+			<!-- list nutrients and amounts here -->
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
@@ -129,5 +130,4 @@ edited by Eric Haas Health eData Inc-->
 			</amount>
 		</nutrient>
 	</oralDiet>
-	<status value="active"/>
 </NutritionOrder>
