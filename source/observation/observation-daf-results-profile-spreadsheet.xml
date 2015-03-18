@@ -16,13 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9885</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>13020</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>913</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1237,7 +1236,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DAF laboratory result ( value is a code)</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm DAF coded laboratory result</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">US Realm clinical coded laboratoyresults to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4002,13 +4001,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>37</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4020,11 +4018,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>39</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4278,7 +4276,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DAF laboratory result (value is quantity)</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm DAF quantitative laboratory result</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">US Realm clinical quantitative laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7128,10 +7126,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7145,12 +7144,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>37</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7320,6 +7318,7 @@
    ss:DefaultRowHeight="21.75">
    <Column ss:Index="5" ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="306.75"/>
    <Column ss:Index="16" ss:StyleID="s84" ss:AutoFitWidth="0" ss:Span="1"/>
+   <Column ss:Index="18" ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="126.75"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s85">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Committee Notes</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -7437,7 +7436,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DAF laboratory result (value is ratio)</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm DAF ratio laboratory result</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">US Realm clinical quantitative laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -10317,7 +10316,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -10331,12 +10330,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10611,7 +10608,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DAF laboratory result (value is none of above)</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm laboratory result</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">US Realm clinical laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -13385,7 +13382,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -13399,12 +13396,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -13618,7 +13614,7 @@
     <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DAF laboratory result (panel)</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm DAF panel observation</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">US Realm observation panel aggregates component results in the Observation.related element. </Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s99"/>
@@ -15764,12 +15760,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>24</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>31</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
