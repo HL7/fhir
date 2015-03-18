@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-The NutritionOrder resource describes a request for oral diets (including general diets such as General Healthy diet, or therapeutic diets such as Consistent Carbohydrate, 2 gram Sodium, or Fluid Restricted), oral nutrition supplements, enteral nutrition (tube feedings) and infant formula which govern the distribution of food and nutritional products used to feed patients within an in-patient setting.These nutrition orders are combined with information on a patient's food allergies and intolerances, and ethnic or cultural food preferences (Kosher, Vegetarian) to inform healthcare personnel about the type, texture, and/or quantity of foods that the patient should receive or consume. The NutritionOrder resource is tied to the Order resource; however, addresses the unique attributes of nutrition orders. It is not intended for use in prescribing parenteral (IV) nutrition or dietary supplements such as vitamin/mineral supplements.
+The NutritionOrder resource describes a request for oral diets (including general diets such as General Healthy diet, or therapeutic diets such as Consistent Carbohydrate, 2 gram Sodium, or Fluid Restricted), oral nutrition supplements (such as nutritionally complete pre-packed drinks), enteral nutrition (tube feedings) and infant formula which govern the distribution of food and nutritional products used to feed patients within an in-patient setting. These nutrition orders are combined with information on a patient's food allergies and intolerances, and ethnic or cultural food preferences (e.g. Kosher or Vegetarian) to inform healthcare personnel about the type, texture, and/or quantity of foods that the patient should receive or consume.
 </p>
 </div>
 
@@ -11,18 +11,19 @@ The NutritionOrder resource describes a request for oral diets (including genera
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-The Nutrition Order is a record of the request for the supply of a diet, oral supplement or enteral formulas for a patient. However, to initiate the request requires the use of the <a href="order.html">Order</a> resource and its associated workflow with the Nutrition Order referenced from the Order.details, or by using the Nutrition Order resource in the context of a messaging or service workflow where the request is explicit or implicit. 
+The NutritionOrder resource is used for requesting oral diets, oral nutrition supplements and enteral feedings in an in-patient setting. The <a href="medicationprescription.html">MedicationPrescription</a> resource should be used for requesting parenteral(IV) nutrition and prescribing dietary supplements such as vitamin or mineral supplements.</p>
+<p>
+The Nutrition Order is a record of the request for the supply of a diet, oral supplement or enteral formulas for a patient. However, to initiate the request requires the use of the <a href="order.html">Order</a> resource and its associated workflow with the Nutrition Order referenced from the Order.details, or by using the Nutrition Order resource in the context of a messaging or service workflow where the request is explicit or implicit.
 </p>
 </div>
 
 
 
-<div>
+<!--div>
 <h2>Background and Context</h2>
 <p>
-The NutritionOrder resource is to be used to request oral diets, oral nutritional supplements, enteral nutrition, and other food and nutrition related requests.  It is used for scheduling of order initiation, routes of enteral nutrition administration, additives to enteral nutrition, oral nutrition supplement types and quantities, oral diet foods to exclude, food and fluid texture modifications, and macronutrient and micronutrient quantities.    
 </p>
-</div>
+</div-->
 
 
 </div>
