@@ -26,9 +26,9 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-didNotOccur">
+  <modifierExtension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-didNotOccur">
     <valueBoolean value="false"/>      
-  </extension>
+  </modifierExtension>
   <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-period">
     <valuePeriod>
       <start value="2014-01-14"/>
