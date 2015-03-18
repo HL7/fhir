@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-11T02:40:08Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2015-03-18T20:21:39Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>913</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1102,8 +1102,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>9</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1267,9 +1266,9 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm coded laboratory result</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm laboratory result using CodeableConcept Data Type for non-numeric results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm clinical coded laboratoyresults to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm laboratory result using CodeableConcept Data Type for non-numeric results.  Laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4172,11 +4171,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>29</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4190,12 +4188,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4493,9 +4489,9 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm quantitative laboratory result</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm laboratory result using Quantity Data Type for numeric results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm clinical quantitative laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm laboratory result using Quantity Data Type for numeric results.  Laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7478,8 +7474,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7753,9 +7748,9 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm laboratory Result</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm laboratory result using one of Attachment|dateTime|Period|SampledData|string|timeData Type for results.&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm clinical laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm laboratory result using one of Attachment|dateTime|Period|SampledData|string|timeData Type for results.  Laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -10593,7 +10588,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -10607,12 +10602,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10840,8 +10834,8 @@
     <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm quantitative laboratory result</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm clinical quantitative laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm laboratory result using Range Data Type for numeric results</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm laboratory result using Range Data Type for numeric results.  Laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data></Cell>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"/>
@@ -13872,12 +13866,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>21</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -14160,9 +14153,9 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm quantitative laboratory result</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm laboratory result using Ratio Data Type for numeric results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm clinical quantitative laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm laboratory result using Ratio Data Type for numeric results.  Laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -17140,7 +17133,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -17154,12 +17147,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>42</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -17410,7 +17401,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s96"><Data ss:Type="String">US Realm panel observation</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm observation panel aggregates component results in the Observation.related element. </Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">US Realm observation panel aggregates component results in the Observation.related element.  Laboratory results to ordering providers in the ambulatory care setting and &quot;reportable&quot; laboratory test results to local public health agencies.</Data></Cell>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"/>
@@ -19770,13 +19761,12 @@
     <HorizontalResolution>200</HorizontalResolution>
     <VerticalResolution>200</VerticalResolution>
    </Print>
-   <TopRowVisible>22</TopRowVisible>
-   <LeftColumnVisible>5</LeftColumnVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>38</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
