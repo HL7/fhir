@@ -240,14 +240,14 @@ To be precise about which version of a value set is being referred to in
 a value set reference, append the the version to the logical url like this:
 </p>
 <pre>
-&lt;valueSetUri value=&quot;http://hl7.org/fhir/vs/clinical-findings?amp;version=0.8&quot;/&gt;
+&lt;valueSetUri value=&quot;http://hl7.org/fhir/vs/clinical-findings?version=0.8&quot;/&gt;
 </pre>
 <p>
 This is a version specific reference to a value set. Searching
 for this on a terminology server would look like this:
 </p>
 <pre>
-GET fhir/ValueSet?url=http://hl7.org/fhir/vs/clinical-findings&version=0.8
+GET fhir/ValueSet?url=http://hl7.org/fhir/vs/clinical-findings&amp;version=0.8
 </pre>
 <p>
 Note that if a value set reference does not have a version, and the server finds multiple
