@@ -11,7 +11,7 @@
         </div>
   </text>
   <subject>
-    <reference value="Patient/1"/>
+    <reference value="Patient/example"/>
   </subject>
   <orderer>
     <reference value="Practitioner/example"/>
