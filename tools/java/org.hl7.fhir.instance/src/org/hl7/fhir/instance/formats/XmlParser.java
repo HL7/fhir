@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -361,8 +361,6 @@ public class XmlParser extends XmlParserBase {
         res.setDisplayElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("primary")) {
         res.setPrimaryElement(parseBoolean(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("valueSet")) {
-        res.setValueSet(parseReference(xpp));
       } else if (!parseElementContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -6606,6 +6604,8 @@ public class XmlParser extends XmlParserBase {
         res.setEncounter(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dateTime")) {
         res.setDateTimeElement(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
+        res.setStatusElement(parseEnumeration(xpp, NutritionOrder.NutritionOrderStatus.NULL, new NutritionOrder.NutritionOrderStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("allergyIntolerance")) {
         res.getAllergyIntolerance().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("foodPreferenceModifier")) {
@@ -6618,8 +6618,6 @@ public class XmlParser extends XmlParserBase {
         res.getSupplement().add(parseNutritionOrderNutritionOrderSupplementComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("enteralFormula")) {
         res.setEnteralFormula(parseNutritionOrderNutritionOrderEnteralFormulaComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
-        res.setStatusElement(parseEnumeration(xpp, NutritionOrder.NutritionOrderStatus.NULL, new NutritionOrder.NutritionOrderStatusEnumFactory()));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -11294,9 +11292,6 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasPrimaryElement()) {
         composeBoolean("primary", element.getPrimaryElement());
-      }
-      if (element.hasValueSet()) {
-        composeReference("valueSet", element.getValueSet());
       }
       xml.close(FHIR_NS, name);
     }
@@ -18068,6 +18063,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDateTimeElement()) {
         composeDateTime("dateTime", element.getDateTimeElement());
       }
+      if (element.hasStatusElement())
+        composeEnumeration("status", element.getStatusElement(), new NutritionOrder.NutritionOrderStatusEnumFactory());
       if (element.hasAllergyIntolerance()) { 
         for (Reference e : element.getAllergyIntolerance()) 
           composeReference("allergyIntolerance", e);
@@ -18090,8 +18087,6 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEnteralFormula()) {
         composeNutritionOrderNutritionOrderEnteralFormulaComponent("enteralFormula", element.getEnteralFormula());
       }
-      if (element.hasStatusElement())
-        composeEnumeration("status", element.getStatusElement(), new NutritionOrder.NutritionOrderStatusEnumFactory());
       xml.close(FHIR_NS, name);
     }
   }

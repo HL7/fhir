@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -52,7 +52,7 @@ public class ValueSet extends DomainResource {
          */
         EQUAL, 
         /**
-         * The specified property of the code has an is-a relationship with the provided value.
+         * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.
          */
         ISA, 
         /**
@@ -117,7 +117,7 @@ public class ValueSet extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case EQUAL: return "The specified property of the code equals the provided value.";
-            case ISA: return "The specified property of the code has an is-a relationship with the provided value.";
+            case ISA: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.";
             case ISNOTA: return "The specified property of the code does not have an is-a relationship with the provided value.";
             case REGEX: return "The specified property of the code  matches the regex specified in the provided value.";
             case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";

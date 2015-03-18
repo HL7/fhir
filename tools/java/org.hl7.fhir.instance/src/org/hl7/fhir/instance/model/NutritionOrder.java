@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1615,9 +1615,16 @@ public class NutritionOrder extends DomainResource {
     protected DateTimeType dateTime;
 
     /**
+     * The workflow status of the nutrition order/request.
+     */
+    @Child(name ="status", type={CodeType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="proposed | draft | planned | requested | active | on-hold | completed | cancelled", formalDefinition="The workflow status of the nutrition order/request." )
+    protected Enumeration<NutritionOrderStatus> status;
+
+    /**
      * A link to a record of allergies or Intolerances  which should be included in the nutrition order.
      */
-    @Child(name ="allergyIntolerance", type={AllergyIntolerance.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="allergyIntolerance", type={AllergyIntolerance.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="List of the patient's food and nutrition-related allergies and intolerances", formalDefinition="A link to a record of allergies or Intolerances  which should be included in the nutrition order." )
     protected List<Reference> allergyIntolerance;
     /**
@@ -1629,46 +1636,39 @@ public class NutritionOrder extends DomainResource {
     /**
      * This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
      */
-    @Child(name ="foodPreferenceModifier", type={CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="foodPreferenceModifier", type={CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Order-specific modifier about the type of food that should be given", formalDefinition="This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings." )
     protected List<CodeableConcept> foodPreferenceModifier;
 
     /**
      * This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
      */
-    @Child(name ="excludeFoodModifier", type={CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="excludeFoodModifier", type={CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Order-specific modifier about the type of food that should not be given", formalDefinition="This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings." )
     protected List<CodeableConcept> excludeFoodModifier;
 
     /**
      * Diet given orally in contrast to enteral (tube) feeding.
      */
-    @Child(name ="oralDiet", type={}, order=8, min=0, max=1)
+    @Child(name ="oralDiet", type={}, order=9, min=0, max=1)
     @Description(shortDefinition="Oral diet components", formalDefinition="Diet given orally in contrast to enteral (tube) feeding." )
     protected NutritionOrderOralDietComponent oralDiet;
 
     /**
      * Oral nutritional products given in order to add further nutritional value to the patient's diet.
      */
-    @Child(name ="supplement", type={}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="supplement", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Supplement components", formalDefinition="Oral nutritional products given in order to add further nutritional value to the patient's diet." )
     protected List<NutritionOrderSupplementComponent> supplement;
 
     /**
      * Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.
      */
-    @Child(name ="enteralFormula", type={}, order=10, min=0, max=1)
+    @Child(name ="enteralFormula", type={}, order=11, min=0, max=1)
     @Description(shortDefinition="Enteral formula components", formalDefinition="Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity." )
     protected NutritionOrderEnteralFormulaComponent enteralFormula;
 
-    /**
-     * The workflow status of the nutrition order/request.
-     */
-    @Child(name ="status", type={CodeType.class}, order=11, min=0, max=1)
-    @Description(shortDefinition="proposed | draft | planned | requested | active | on-hold | completed | cancelled", formalDefinition="The workflow status of the nutrition order/request." )
-    protected Enumeration<NutritionOrderStatus> status;
-
-    private static final long serialVersionUID = -966362649L;
+    private static final long serialVersionUID = 1139624085L;
 
     public NutritionOrder() {
       super();
@@ -1894,6 +1894,55 @@ public class NutritionOrder extends DomainResource {
         if (this.dateTime == null)
           this.dateTime = new DateTimeType();
         this.dateTime.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<NutritionOrderStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create NutritionOrder.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public NutritionOrder setStatusElement(Enumeration<NutritionOrderStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The workflow status of the nutrition order/request.
+     */
+    public NutritionOrderStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The workflow status of the nutrition order/request.
+     */
+    public NutritionOrder setStatus(NutritionOrderStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory());
+        this.status.setValue(value);
+      }
       return this;
     }
 
@@ -2126,55 +2175,6 @@ public class NutritionOrder extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Enumeration<NutritionOrderStatus> getStatusElement() { 
-      if (this.status == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create NutritionOrder.status");
-        else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory()); // bb
-      return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    /**
-     * @param value {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public NutritionOrder setStatusElement(Enumeration<NutritionOrderStatus> value) { 
-      this.status = value;
-      return this;
-    }
-
-    /**
-     * @return The workflow status of the nutrition order/request.
-     */
-    public NutritionOrderStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value The workflow status of the nutrition order/request.
-     */
-    public NutritionOrder setStatus(NutritionOrderStatus value) { 
-      if (value == null)
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory());
-        this.status.setValue(value);
-      }
-      return this;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("patient", "Reference(Patient)", "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.", 0, java.lang.Integer.MAX_VALUE, patient));
@@ -2182,13 +2182,13 @@ public class NutritionOrder extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order sender or by the order receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("dateTime", "dateTime", "The date and time that this nutrition order was requested.", 0, java.lang.Integer.MAX_VALUE, dateTime));
+        childrenList.add(new Property("status", "code", "The workflow status of the nutrition order/request.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("allergyIntolerance", "Reference(AllergyIntolerance)", "A link to a record of allergies or Intolerances  which should be included in the nutrition order.", 0, java.lang.Integer.MAX_VALUE, allergyIntolerance));
         childrenList.add(new Property("foodPreferenceModifier", "CodeableConcept", "This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.", 0, java.lang.Integer.MAX_VALUE, foodPreferenceModifier));
         childrenList.add(new Property("excludeFoodModifier", "CodeableConcept", "This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.", 0, java.lang.Integer.MAX_VALUE, excludeFoodModifier));
         childrenList.add(new Property("oralDiet", "", "Diet given orally in contrast to enteral (tube) feeding.", 0, java.lang.Integer.MAX_VALUE, oralDiet));
         childrenList.add(new Property("supplement", "", "Oral nutritional products given in order to add further nutritional value to the patient's diet.", 0, java.lang.Integer.MAX_VALUE, supplement));
         childrenList.add(new Property("enteralFormula", "", "Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.", 0, java.lang.Integer.MAX_VALUE, enteralFormula));
-        childrenList.add(new Property("status", "code", "The workflow status of the nutrition order/request.", 0, java.lang.Integer.MAX_VALUE, status));
       }
 
       public NutritionOrder copy() {
@@ -2203,6 +2203,7 @@ public class NutritionOrder extends DomainResource {
         };
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.dateTime = dateTime == null ? null : dateTime.copy();
+        dst.status = status == null ? null : status.copy();
         if (allergyIntolerance != null) {
           dst.allergyIntolerance = new ArrayList<Reference>();
           for (Reference i : allergyIntolerance)
@@ -2225,7 +2226,6 @@ public class NutritionOrder extends DomainResource {
             dst.supplement.add(i.copy());
         };
         dst.enteralFormula = enteralFormula == null ? null : enteralFormula.copy();
-        dst.status = status == null ? null : status.copy();
         return dst;
       }
 
@@ -2241,10 +2241,11 @@ public class NutritionOrder extends DomainResource {
           return false;
         NutritionOrder o = (NutritionOrder) other;
         return compareDeep(patient, o.patient, true) && compareDeep(orderer, o.orderer, true) && compareDeep(identifier, o.identifier, true)
-           && compareDeep(encounter, o.encounter, true) && compareDeep(dateTime, o.dateTime, true) && compareDeep(allergyIntolerance, o.allergyIntolerance, true)
-           && compareDeep(foodPreferenceModifier, o.foodPreferenceModifier, true) && compareDeep(excludeFoodModifier, o.excludeFoodModifier, true)
-           && compareDeep(oralDiet, o.oralDiet, true) && compareDeep(supplement, o.supplement, true) && compareDeep(enteralFormula, o.enteralFormula, true)
-           && compareDeep(status, o.status, true);
+           && compareDeep(encounter, o.encounter, true) && compareDeep(dateTime, o.dateTime, true) && compareDeep(status, o.status, true)
+           && compareDeep(allergyIntolerance, o.allergyIntolerance, true) && compareDeep(foodPreferenceModifier, o.foodPreferenceModifier, true)
+           && compareDeep(excludeFoodModifier, o.excludeFoodModifier, true) && compareDeep(oralDiet, o.oralDiet, true)
+           && compareDeep(supplement, o.supplement, true) && compareDeep(enteralFormula, o.enteralFormula, true)
+          ;
       }
 
       @Override
@@ -2260,11 +2261,10 @@ public class NutritionOrder extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (patient == null || patient.isEmpty()) && (orderer == null || orderer.isEmpty())
            && (identifier == null || identifier.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (dateTime == null || dateTime.isEmpty()) && (allergyIntolerance == null || allergyIntolerance.isEmpty())
+           && (dateTime == null || dateTime.isEmpty()) && (status == null || status.isEmpty()) && (allergyIntolerance == null || allergyIntolerance.isEmpty())
            && (foodPreferenceModifier == null || foodPreferenceModifier.isEmpty()) && (excludeFoodModifier == null || excludeFoodModifier.isEmpty())
            && (oralDiet == null || oralDiet.isEmpty()) && (supplement == null || supplement.isEmpty())
-           && (enteralFormula == null || enteralFormula.isEmpty()) && (status == null || status.isEmpty())
-          ;
+           && (enteralFormula == null || enteralFormula.isEmpty());
       }
 
   @Override

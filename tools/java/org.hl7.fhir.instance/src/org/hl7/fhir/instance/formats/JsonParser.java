@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 14:41+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -216,8 +216,6 @@ public class JsonParser extends JsonParserBase {
       res.setPrimaryElement(parseBoolean(json.get("primary").getAsBoolean()));
     if (json.has("_primary"))
       parseElementProperties(json.getAsJsonObject("_primary"), res.getPrimaryElement());
-    if (json.has("valueSet"))
-      res.setValueSet(parseReference(json.getAsJsonObject("valueSet")));
     return res;
   }
 
@@ -7440,6 +7438,10 @@ public class JsonParser extends JsonParserBase {
       res.setDateTimeElement(parseDateTime(json.get("dateTime").getAsString()));
     if (json.has("_dateTime"))
       parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeElement());
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), NutritionOrder.NutritionOrderStatus.NULL, new NutritionOrder.NutritionOrderStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("allergyIntolerance")) {
       JsonArray array = json.getAsJsonArray("allergyIntolerance");
       for (int i = 0; i < array.size(); i++) {
@@ -7468,10 +7470,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("enteralFormula"))
       res.setEnteralFormula(parseNutritionOrderNutritionOrderEnteralFormulaComponent(json.getAsJsonObject("enteralFormula"), res));
-    if (json.has("status"))
-      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), NutritionOrder.NutritionOrderStatus.NULL, new NutritionOrder.NutritionOrderStatusEnumFactory()));
-    if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     return res;
   }
 
@@ -12670,9 +12668,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasPrimaryElement()) {
         composeBooleanCore("primary", element.getPrimaryElement(), false);
         composeBooleanExtras("primary", element.getPrimaryElement(), false);
-      }
-      if (element.hasValueSet()) {
-        composeReference("valueSet", element.getValueSet());
       }
   }
 
@@ -21670,6 +21665,10 @@ public class JsonParser extends JsonParserBase {
         composeDateTimeCore("dateTime", element.getDateTimeElement(), false);
         composeDateTimeExtras("dateTime", element.getDateTimeElement(), false);
       }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new NutritionOrder.NutritionOrderStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new NutritionOrder.NutritionOrderStatusEnumFactory(), false);
+      }
       if (element.hasAllergyIntolerance()) {
         openArray("allergyIntolerance");
         for (Reference e : element.getAllergyIntolerance()) 
@@ -21699,10 +21698,6 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasEnteralFormula()) {
         composeNutritionOrderNutritionOrderEnteralFormulaComponent("enteralFormula", element.getEnteralFormula());
-      }
-      if (element.hasStatusElement()) {
-        composeEnumerationCore("status", element.getStatusElement(), new NutritionOrder.NutritionOrderStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatusElement(), new NutritionOrder.NutritionOrderStatusEnumFactory(), false);
       }
   }
 
