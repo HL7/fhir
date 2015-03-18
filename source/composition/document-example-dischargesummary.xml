@@ -70,19 +70,43 @@
   <entry>
     <resource>
       <Practitioner>
-        <id value="doc-example"/>
+        <id value="example"/>
         <meta>
           <lastUpdated value="2013-05-05T16:13:03Z"/>
         </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <h5>Doctor dave</h5>
+            
+            <p>Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar
+              2012</p>
+          
           </div>
         </text>
+        <identifier>
+          <system value="http://www.acme.org/practitioners"/>
+          <value value="23"/>
+        </identifier>
         <name>
-          <text value="Doctor Dave"/>
+          <family value="Careful"/>
+          <given value="Adam"/>
+          <prefix value="Dr"/>
         </name>
+        <practitionerRole>
+          <managingOrganization>
+            <reference value="Organization/1"/>
+          </managingOrganization><!--   Referring Practitioner for the first 3 months of 2012   -->
+          <role>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0286"/>
+              <code value="RP"/>
+            </coding>
+          </role>
+          <period>
+            <start value="2012-01-01"/>
+            <end value="2012-03-31"/>
+          </period>
+        </practitionerRole>
       </Practitioner>
     </resource>
   </entry>
@@ -357,7 +381,7 @@
         <!-- a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource-->
         <medication>
-          <reference value="Medication/example"/>
+          <reference value="#med1"/>
           <display value="Theophylline 200mg BD"/>
         </medication>
         <dosageInstruction>
