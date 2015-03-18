@@ -26,15 +26,15 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-  <modifierExtension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-didNotOccur">
-    <valueBoolean value="false"/>      
-  </modifierExtension>
   <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-period">
     <valuePeriod>
       <start value="2014-01-14"/>
       <end value="2014-01-15"/>
     </valuePeriod>
   </extension>
+  <modifierExtension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-didNotOccur">
+    <valueBoolean value="false"/>      
+  </modifierExtension>
   <code>
     <coding>
       <system value="http://hl7.org/fhir/other-resource-type"/>
