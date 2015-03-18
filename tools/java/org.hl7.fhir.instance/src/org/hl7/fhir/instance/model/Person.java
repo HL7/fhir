@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -250,14 +250,14 @@ public class Person extends DomainResource {
         /**
          * The resource to which this actual person is associated.
          */
-        @Child(name ="other", type={Patient.class, Practitioner.class, RelatedPerson.class, Person.class}, order=1, min=1, max=1)
+        @Child(name ="target", type={Patient.class, Practitioner.class, RelatedPerson.class, Person.class}, order=1, min=1, max=1)
         @Description(shortDefinition="The resource to which this actual person is associated", formalDefinition="The resource to which this actual person is associated." )
-        protected Reference other;
+        protected Reference target;
 
         /**
          * The actual object that is the target of the reference (The resource to which this actual person is associated.)
          */
-        protected Resource otherTarget;
+        protected Resource targetTarget;
 
         /**
          * Level of assurance that this link is actually associated with the referenced record.
@@ -266,53 +266,53 @@ public class Person extends DomainResource {
         @Description(shortDefinition="level1 | level2 | level3 | level4", formalDefinition="Level of assurance that this link is actually associated with the referenced record." )
         protected Enumeration<IdentityAssuranceLevel> assurance;
 
-        private static final long serialVersionUID = -1417349007L;
+        private static final long serialVersionUID = 508763647L;
 
       public PersonLinkComponent() {
         super();
       }
 
-      public PersonLinkComponent(Reference other) {
+      public PersonLinkComponent(Reference target) {
         super();
-        this.other = other;
+        this.target = target;
       }
 
         /**
-         * @return {@link #other} (The resource to which this actual person is associated.)
+         * @return {@link #target} (The resource to which this actual person is associated.)
          */
-        public Reference getOther() { 
-          if (this.other == null)
+        public Reference getTarget() { 
+          if (this.target == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PersonLinkComponent.other");
+              throw new Error("Attempt to auto-create PersonLinkComponent.target");
             else if (Configuration.doAutoCreate())
-              this.other = new Reference(); // cc
-          return this.other;
+              this.target = new Reference(); // cc
+          return this.target;
         }
 
-        public boolean hasOther() { 
-          return this.other != null && !this.other.isEmpty();
+        public boolean hasTarget() { 
+          return this.target != null && !this.target.isEmpty();
         }
 
         /**
-         * @param value {@link #other} (The resource to which this actual person is associated.)
+         * @param value {@link #target} (The resource to which this actual person is associated.)
          */
-        public PersonLinkComponent setOther(Reference value) { 
-          this.other = value;
+        public PersonLinkComponent setTarget(Reference value) { 
+          this.target = value;
           return this;
         }
 
         /**
-         * @return {@link #other} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource to which this actual person is associated.)
+         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource to which this actual person is associated.)
          */
-        public Resource getOtherTarget() { 
-          return this.otherTarget;
+        public Resource getTargetTarget() { 
+          return this.targetTarget;
         }
 
         /**
-         * @param value {@link #other} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource to which this actual person is associated.)
+         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource to which this actual person is associated.)
          */
-        public PersonLinkComponent setOtherTarget(Resource value) { 
-          this.otherTarget = value;
+        public PersonLinkComponent setTargetTarget(Resource value) { 
+          this.targetTarget = value;
           return this;
         }
 
@@ -367,14 +367,14 @@ public class Person extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("other", "Reference(Patient|Practitioner|RelatedPerson|Person)", "The resource to which this actual person is associated.", 0, java.lang.Integer.MAX_VALUE, other));
+          childrenList.add(new Property("target", "Reference(Patient|Practitioner|RelatedPerson|Person)", "The resource to which this actual person is associated.", 0, java.lang.Integer.MAX_VALUE, target));
           childrenList.add(new Property("assurance", "code", "Level of assurance that this link is actually associated with the referenced record.", 0, java.lang.Integer.MAX_VALUE, assurance));
         }
 
       public PersonLinkComponent copy() {
         PersonLinkComponent dst = new PersonLinkComponent();
         copyValues(dst);
-        dst.other = other == null ? null : other.copy();
+        dst.target = target == null ? null : target.copy();
         dst.assurance = assurance == null ? null : assurance.copy();
         return dst;
       }
@@ -386,7 +386,7 @@ public class Person extends DomainResource {
         if (!(other instanceof PersonLinkComponent))
           return false;
         PersonLinkComponent o = (PersonLinkComponent) other;
-        return compareDeep(other, o.other, true) && compareDeep(assurance, o.assurance, true);
+        return compareDeep(target, o.target, true) && compareDeep(assurance, o.assurance, true);
       }
 
       @Override
@@ -400,7 +400,7 @@ public class Person extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (other == null || other.isEmpty()) && (assurance == null || assurance.isEmpty())
+        return super.isEmpty() && (target == null || target.isEmpty()) && (assurance == null || assurance.isEmpty())
           ;
       }
 
@@ -990,10 +990,16 @@ public class Person extends DomainResource {
 
   @SearchParamDefinition(name="organization", path="Person.managingOrganization", description="The organization at which this person record is being managed", type="reference" )
   public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="patient", path="Person.link.target", description="The Person links to this Patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="phonetic", path="", description="A portion of name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
+  @SearchParamDefinition(name="practitioner", path="Person.link.target", description="The Person links to this Practitioner", type="reference" )
+  public static final String SP_PRACTITIONER = "practitioner";
   @SearchParamDefinition(name="address", path="Person.address", description="An address in any kind of address/part", type="string" )
   public static final String SP_ADDRESS = "address";
+  @SearchParamDefinition(name="link", path="Person.link.target", description="Any link has this Patient, Person, RelatedPerson or Practitioner reference", type="reference" )
+  public static final String SP_LINK = "link";
   @SearchParamDefinition(name="name", path="Person.name", description="A portion of name in any name part", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="birthdate", path="Person.birthDate", description="The person's date of birth", type="date" )
@@ -1004,6 +1010,8 @@ public class Person extends DomainResource {
   public static final String SP_GENDER = "gender";
   @SearchParamDefinition(name="identifier", path="Person.identifier", description="A person Identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="relatedperson", path="Person.link.target", description="The Person links to this RelatedPerson", type="reference" )
+  public static final String SP_RELATEDPERSON = "relatedperson";
 
 }
 

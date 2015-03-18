@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2108,9 +2108,9 @@ public class ValueSet extends DomainResource {
         /**
          * An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.
          */
-        @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=1)
+        @Child(name ="identifier", type={UriType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Uniquely identifies this expansion", formalDefinition="An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so." )
-        protected Identifier identifier;
+        protected UriType identifier;
 
         /**
          * The time at which the expansion was produced by the expanding system.
@@ -2133,27 +2133,32 @@ public class ValueSet extends DomainResource {
         @Description(shortDefinition="Codes in the value set", formalDefinition="The codes that are contained in the value set expansion." )
         protected List<ValueSetExpansionContainsComponent> contains;
 
-        private static final long serialVersionUID = 1120549747L;
+        private static final long serialVersionUID = 148339098L;
 
       public ValueSetExpansionComponent() {
         super();
       }
 
-      public ValueSetExpansionComponent(DateTimeType timestamp) {
+      public ValueSetExpansionComponent(UriType identifier, DateTimeType timestamp) {
         super();
+        this.identifier = identifier;
         this.timestamp = timestamp;
       }
 
         /**
-         * @return {@link #identifier} (An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.)
+         * @return {@link #identifier} (An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public Identifier getIdentifier() { 
+        public UriType getIdentifierElement() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetExpansionComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new Identifier(); // cc
+              this.identifier = new UriType(); // bb
           return this.identifier;
+        }
+
+        public boolean hasIdentifierElement() { 
+          return this.identifier != null && !this.identifier.isEmpty();
         }
 
         public boolean hasIdentifier() { 
@@ -2161,10 +2166,27 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @param value {@link #identifier} (An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.)
+         * @param value {@link #identifier} (An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public ValueSetExpansionComponent setIdentifier(Identifier value) { 
+        public ValueSetExpansionComponent setIdentifierElement(UriType value) { 
           this.identifier = value;
+          return this;
+        }
+
+        /**
+         * @return An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.
+         */
+        public String getIdentifier() { 
+          return this.identifier == null ? null : this.identifier.getValue();
+        }
+
+        /**
+         * @param value An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.
+         */
+        public ValueSetExpansionComponent setIdentifier(String value) { 
+            if (this.identifier == null)
+              this.identifier = new UriType();
+            this.identifier.setValue(value);
           return this;
         }
 
@@ -2295,7 +2317,7 @@ public class ValueSet extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("identifier", "Identifier", "An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("identifier", "uri", "An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("timestamp", "dateTime", "The time at which the expansion was produced by the expanding system.", 0, java.lang.Integer.MAX_VALUE, timestamp));
           childrenList.add(new Property("parameter", "", "A Parameter that controlled the expansion process. These paameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.", 0, java.lang.Integer.MAX_VALUE, parameter));
           childrenList.add(new Property("contains", "", "The codes that are contained in the value set expansion.", 0, java.lang.Integer.MAX_VALUE, contains));
@@ -2337,7 +2359,8 @@ public class ValueSet extends DomainResource {
         if (!(other instanceof ValueSetExpansionComponent))
           return false;
         ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
-        return compareValues(timestamp, o.timestamp, true);
+        return compareValues(identifier, o.identifier, true) && compareValues(timestamp, o.timestamp, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -3970,7 +3993,7 @@ public class ValueSet extends DomainResource {
     return ResourceType.ValueSet;
    }
 
-  @SearchParamDefinition(name="expansion", path="ValueSet.expansion.identifier", description="Uniquely identifies this expansion", type="token" )
+  @SearchParamDefinition(name="expansion", path="ValueSet.expansion.identifier", description="Uniquely identifies this expansion", type="uri" )
   public static final String SP_EXPANSION = "expansion";
   @SearchParamDefinition(name="status", path="ValueSet.status", description="The status of the value set", type="token" )
   public static final String SP_STATUS = "status";

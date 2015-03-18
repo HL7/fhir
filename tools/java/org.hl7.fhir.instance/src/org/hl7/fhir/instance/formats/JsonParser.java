@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -2057,6 +2057,8 @@ public class JsonParser extends JsonParserBase {
       res.setEnterer(parseReference(json.getAsJsonObject("enterer")));
     if (json.has("facility"))
       res.setFacility(parseReference(json.getAsJsonObject("facility")));
+    if (json.has("prescription"))
+      res.setPrescription(parseReference(json.getAsJsonObject("prescription")));
     if (json.has("payee"))
       res.setPayee(parseClaimPayeeComponent(json.getAsJsonObject("payee"), res));
     if (json.has("referral"))
@@ -8743,8 +8745,8 @@ public class JsonParser extends JsonParserBase {
   protected Person.PersonLinkComponent parsePersonPersonLinkComponent(JsonObject json, Person owner) throws Exception {
     Person.PersonLinkComponent res = new Person.PersonLinkComponent();
     parseBackboneProperties(json, res);
-    if (json.has("other"))
-      res.setOther(parseReference(json.getAsJsonObject("other")));
+    if (json.has("target"))
+      res.setTarget(parseReference(json.getAsJsonObject("target")));
     if (json.has("assurance"))
       res.setAssuranceElement(parseEnumeration(json.get("assurance").getAsString(), Person.IdentityAssuranceLevel.NULL, new Person.IdentityAssuranceLevelEnumFactory()));
     if (json.has("_assurance"))
@@ -11167,7 +11169,9 @@ public class JsonParser extends JsonParserBase {
     ValueSet.ValueSetExpansionComponent res = new ValueSet.ValueSetExpansionComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+      res.setIdentifierElement(parseUri(json.get("identifier").getAsString()));
+    if (json.has("_identifier"))
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierElement());
     if (json.has("timestamp"))
       res.setTimestampElement(parseDateTime(json.get("timestamp").getAsString()));
     if (json.has("_timestamp"))
@@ -14912,6 +14916,9 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasFacility()) {
         composeReference("facility", element.getFacility());
+      }
+      if (element.hasPrescription()) {
+        composeReference("prescription", element.getPrescription());
       }
       if (element.hasPayee()) {
         composeClaimPayeeComponent("payee", element.getPayee());
@@ -23321,8 +23328,8 @@ public class JsonParser extends JsonParserBase {
 
   protected void composePersonPersonLinkComponentInner(Person.PersonLinkComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasOther()) {
-        composeReference("other", element.getOther());
+      if (element.hasTarget()) {
+        composeReference("target", element.getTarget());
       }
       if (element.hasAssuranceElement()) {
         composeEnumerationCore("assurance", element.getAssuranceElement(), new Person.IdentityAssuranceLevelEnumFactory(), false);
@@ -26319,8 +26326,9 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeValueSetValueSetExpansionComponentInner(ValueSet.ValueSetExpansionComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
+      if (element.hasIdentifierElement()) {
+        composeUriCore("identifier", element.getIdentifierElement(), false);
+        composeUriExtras("identifier", element.getIdentifierElement(), false);
       }
       if (element.hasTimestampElement()) {
         composeDateTimeCore("timestamp", element.getTimestampElement(), false);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -975,14 +975,14 @@ public class Composition extends DomainResource {
     /**
      * The code specifying the level of confidentiality of the Composition.
      */
-    @Child(name ="confidentiality", type={CodeType.class}, order=6, min=1, max=1)
+    @Child(name ="confidentiality", type={CodeType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="As defined by affinity domain", formalDefinition="The code specifying the level of confidentiality of the Composition." )
     protected CodeType confidentiality;
 
     /**
      * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
      */
-    @Child(name ="subject", type={Patient.class, Practitioner.class, Group.class, Device.class, Location.class}, order=7, min=1, max=1)
+    @Child(name ="subject", type={}, order=7, min=1, max=1)
     @Description(shortDefinition="Who and/or what the composition is about", formalDefinition="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)." )
     protected Reference subject;
 
@@ -1054,12 +1054,11 @@ public class Composition extends DomainResource {
       super();
     }
 
-    public Composition(DateTimeType date, CodeableConcept type, Enumeration<CompositionStatus> status, CodeType confidentiality, Reference subject) {
+    public Composition(DateTimeType date, CodeableConcept type, Enumeration<CompositionStatus> status, Reference subject) {
       super();
       this.date = date;
       this.type = type;
       this.status = status;
-      this.confidentiality = confidentiality;
       this.subject = subject;
     }
 
@@ -1313,9 +1312,13 @@ public class Composition extends DomainResource {
      * @param value The code specifying the level of confidentiality of the Composition.
      */
     public Composition setConfidentiality(String value) { 
+      if (Utilities.noString(value))
+        this.confidentiality = null;
+      else {
         if (this.confidentiality == null)
           this.confidentiality = new CodeType();
         this.confidentiality.setValue(value);
+      }
       return this;
     }
 
@@ -1624,7 +1627,7 @@ public class Composition extends DomainResource {
         childrenList.add(new Property("title", "string", "Official human-readable label for the composition.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("status", "code", "The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("confidentiality", "code", "The code specifying the level of confidentiality of the Composition.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
-        childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device|Location)", "Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Any)", "Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("author", "Reference(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("attester", "", "A participant who has attested to the accuracy of the composition/document.", 0, java.lang.Integer.MAX_VALUE, attester));
         childrenList.add(new Property("custodian", "Reference(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.", 0, java.lang.Integer.MAX_VALUE, custodian));
@@ -1721,6 +1724,8 @@ public class Composition extends DomainResource {
   public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="class", path="Composition.class", description="Categorization of Composition", type="token" )
   public static final String SP_CLASS = "class";
+  @SearchParamDefinition(name="encounter", path="Composition.encounter", description="Context of the conposition", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
   @SearchParamDefinition(name="type", path="Composition.type", description="Kind of composition (LOINC if possible)", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="date", path="Composition.date", description="Composition editing time", type="date" )

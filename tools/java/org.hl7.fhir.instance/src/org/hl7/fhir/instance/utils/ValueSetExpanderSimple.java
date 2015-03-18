@@ -35,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
@@ -72,6 +73,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       focus = source.copy();
       focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
       focus.getExpansion().setTimestampElement(DateTimeType.now());
+      focus.getExpansion().setIdentifier(Factory.createUUID());
 
       handleDefine(source, focus.getExpansion().getParameter());
       if (source.hasCompose()) 

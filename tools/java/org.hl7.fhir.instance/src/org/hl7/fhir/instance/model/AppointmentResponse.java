@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -174,10 +174,10 @@ public class AppointmentResponse extends DomainResource {
     }
 
     /**
-     * This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     * This records identifiers associated with this appointment response concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate.
      */
     @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="External Ids for this item", formalDefinition="This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
+    @Description(shortDefinition="External Ids for this item", formalDefinition="This records identifiers associated with this appointment response concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate." )
     protected List<Identifier> identifier;
 
     /**
@@ -212,10 +212,10 @@ public class AppointmentResponse extends DomainResource {
     protected Resource actorTarget;
 
     /**
-     * Participation status of the Patient. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpretted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
+     * Participation status of the Participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
      */
     @Child(name ="participantStatus", type={CodeType.class}, order=4, min=1, max=1)
-    @Description(shortDefinition="accepted | declined | tentative | in-process | completed | needs-action", formalDefinition="Participation status of the Patient. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpretted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty." )
+    @Description(shortDefinition="accepted | declined | tentative | in-process | completed | needs-action", formalDefinition="Participation status of the Participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty." )
     protected Enumeration<Participantstatus> participantStatus;
 
     /**
@@ -252,7 +252,7 @@ public class AppointmentResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     * @return {@link #identifier} (This records identifiers associated with this appointment response concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -270,7 +270,7 @@ public class AppointmentResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     * @return {@link #identifier} (This records identifiers associated with this appointment response concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate.)
      */
     // syntactic sugar
     public Identifier addIdentifier() { //3
@@ -415,7 +415,7 @@ public class AppointmentResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #participantStatus} (Participation status of the Patient. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpretted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
+     * @return {@link #participantStatus} (Participation status of the Participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
      */
     public Enumeration<Participantstatus> getParticipantStatusElement() { 
       if (this.participantStatus == null)
@@ -435,7 +435,7 @@ public class AppointmentResponse extends DomainResource {
     }
 
     /**
-     * @param value {@link #participantStatus} (Participation status of the Patient. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpretted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
+     * @param value {@link #participantStatus} (Participation status of the Participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
      */
     public AppointmentResponse setParticipantStatusElement(Enumeration<Participantstatus> value) { 
       this.participantStatus = value;
@@ -443,14 +443,14 @@ public class AppointmentResponse extends DomainResource {
     }
 
     /**
-     * @return Participation status of the Patient. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpretted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
+     * @return Participation status of the Participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
      */
     public Participantstatus getParticipantStatus() { 
       return this.participantStatus == null ? null : this.participantStatus.getValue();
     }
 
     /**
-     * @param value Participation status of the Patient. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpretted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
+     * @param value Participation status of the Participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
      */
     public AppointmentResponse setParticipantStatus(Participantstatus value) { 
         if (this.participantStatus == null)
@@ -608,11 +608,11 @@ public class AppointmentResponse extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this appointment response concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("appointment", "Reference(Appointment)", "Parent appointment that this response is replying to.", 0, java.lang.Integer.MAX_VALUE, appointment));
         childrenList.add(new Property("participantType", "CodeableConcept", "Role of participant in the appointment.", 0, java.lang.Integer.MAX_VALUE, participantType));
         childrenList.add(new Property("actor", "Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)", "A Person, Location/HealthcareService or Device that is participating in the appointment.", 0, java.lang.Integer.MAX_VALUE, actor));
-        childrenList.add(new Property("participantStatus", "code", "Participation status of the Patient. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpretted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.", 0, java.lang.Integer.MAX_VALUE, participantStatus));
+        childrenList.add(new Property("participantStatus", "code", "Participation status of the Participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.", 0, java.lang.Integer.MAX_VALUE, participantStatus));
         childrenList.add(new Property("comment", "string", "This comment is particularly important when the responder is declining, tentative or requesting another time to indicate the reasons why.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("start", "instant", "This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.", 0, java.lang.Integer.MAX_VALUE, end));
@@ -688,7 +688,7 @@ public class AppointmentResponse extends DomainResource {
   public static final String SP_PRACTITIONER = "practitioner";
   @SearchParamDefinition(name="location", path="AppointmentResponse.actor", description="This Response is for this Location", type="reference" )
   public static final String SP_LOCATION = "location";
-  @SearchParamDefinition(name="actor", path="AppointmentResponse.actor", description="The subject that the appointment response replies for", type="reference" )
+  @SearchParamDefinition(name="actor", path="AppointmentResponse.actor", description="The Person, Location/HealthcareService or Device that this appointment response replies for", type="reference" )
   public static final String SP_ACTOR = "actor";
   @SearchParamDefinition(name="appointment", path="AppointmentResponse.appointment", description="The appointment that the response is attached to", type="reference" )
   public static final String SP_APPOINTMENT = "appointment";

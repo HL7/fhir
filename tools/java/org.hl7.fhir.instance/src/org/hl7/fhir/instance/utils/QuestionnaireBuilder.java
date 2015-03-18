@@ -397,6 +397,7 @@ public class QuestionnaireBuilder {
     vs.setDescription(vs.getName());
 	  vs.setStatus(ConformanceResourceStatus.ACTIVE);
     vs.setExpansion(new ValueSetExpansionComponent());
+    vs.getExpansion().setIdentifier(Factory.createUUID());
     vs.getExpansion().setTimestampElement(DateTimeType.now());
     for (TypeRefComponent t : types) {
       ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();

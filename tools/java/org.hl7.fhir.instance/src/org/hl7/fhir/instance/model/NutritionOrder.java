@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 18, 2015 09:12+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 18, 2015 11:25+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -71,7 +71,7 @@ public class NutritionOrder extends DomainResource {
          */
         ONHOLD, 
         /**
-         * All actions that are implied by the prescription have occurred (this will rarely be made explicit).
+         * All actions that are implied by the order have occurred and no continuation is planned (this will rarely be made explicit).
          */
         COMPLETED, 
         /**
@@ -137,7 +137,7 @@ public class NutritionOrder extends DomainResource {
             case REQUESTED: return "The request has been placed.";
             case ACTIVE: return "The request is 'actionable', but not all actions that are implied by it have occurred yet.";
             case ONHOLD: return "Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called 'suspended'.";
-            case COMPLETED: return "All actions that are implied by the prescription have occurred (this will rarely be made explicit).";
+            case COMPLETED: return "All actions that are implied by the order have occurred and no continuation is planned (this will rarely be made explicit).";
             case CANCELLED: return "The request has been withdrawn and is no longer actionable.";
             default: return "?";
           }
@@ -204,10 +204,10 @@ public class NutritionOrder extends DomainResource {
     @Block()
     public static class NutritionOrderOralDietComponent extends BackboneElement {
         /**
-         * Indicates the type of oral diet or diet restrictions that describe what can be consumed orally (i.e., take via the mouth).
+         * The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.
          */
         @Child(name ="type", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Type of oral diet or diet restrictions that describe what can be consumed orally", formalDefinition="Indicates the type of oral diet or diet restrictions that describe what can be consumed orally (i.e., take via the mouth)." )
+        @Description(shortDefinition="Type of oral diet or diet restrictions that describe what can be consumed orally", formalDefinition="The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet." )
         protected List<CodeableConcept> type;
 
         /**
@@ -218,10 +218,10 @@ public class NutritionOrder extends DomainResource {
         protected Timing scheduled;
 
         /**
-         * Class that defines the details of any nutrient modifications required for the oral diet.
+         * Class that defines the quantity and type of nutrient modifications required for the oral diet.
          */
         @Child(name ="nutrient", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Required  nutrient modifications", formalDefinition="Class that defines the details of any nutrient modifications required for the oral diet." )
+        @Description(shortDefinition="Required  nutrient modifications", formalDefinition="Class that defines the quantity and type of nutrient modifications required for the oral diet." )
         protected List<NutritionOrderOralDietNutrientComponent> nutrient;
 
         /**
@@ -232,17 +232,17 @@ public class NutritionOrder extends DomainResource {
         protected List<NutritionOrderOralDietTextureComponent> texture;
 
         /**
-         * Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.
+         * The required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.
          */
         @Child(name ="fluidConsistencyType", type={CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="The required consistency of fluids and liquids provided to the patient", formalDefinition="Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient." )
+        @Description(shortDefinition="The required consistency of fluids and liquids provided to the patient", formalDefinition="The required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient." )
         protected List<CodeableConcept> fluidConsistencyType;
 
         /**
-         * Additional instructions or information pertaining to the oral diet.
+         * Free text or additional instructions or information pertaining to the oral diet.
          */
         @Child(name ="instruction", type={StringType.class}, order=6, min=0, max=1)
-        @Description(shortDefinition="Instructions or additional information about the oral diet", formalDefinition="Additional instructions or information pertaining to the oral diet." )
+        @Description(shortDefinition="Instructions or additional information about the oral diet", formalDefinition="Free text or additional instructions or information pertaining to the oral diet." )
         protected StringType instruction;
 
         private static final long serialVersionUID = -1101476668L;
@@ -252,7 +252,7 @@ public class NutritionOrder extends DomainResource {
       }
 
         /**
-         * @return {@link #type} (Indicates the type of oral diet or diet restrictions that describe what can be consumed orally (i.e., take via the mouth).)
+         * @return {@link #type} (The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.)
          */
         public List<CodeableConcept> getType() { 
           if (this.type == null)
@@ -270,7 +270,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (Indicates the type of oral diet or diet restrictions that describe what can be consumed orally (i.e., take via the mouth).)
+         * @return {@link #type} (The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.)
          */
     // syntactic sugar
         public CodeableConcept addType() { //3
@@ -316,7 +316,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #nutrient} (Class that defines the details of any nutrient modifications required for the oral diet.)
+         * @return {@link #nutrient} (Class that defines the quantity and type of nutrient modifications required for the oral diet.)
          */
         public List<NutritionOrderOralDietNutrientComponent> getNutrient() { 
           if (this.nutrient == null)
@@ -334,7 +334,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #nutrient} (Class that defines the details of any nutrient modifications required for the oral diet.)
+         * @return {@link #nutrient} (Class that defines the quantity and type of nutrient modifications required for the oral diet.)
          */
     // syntactic sugar
         public NutritionOrderOralDietNutrientComponent addNutrient() { //3
@@ -396,7 +396,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #fluidConsistencyType} (Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.)
+         * @return {@link #fluidConsistencyType} (The required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.)
          */
         public List<CodeableConcept> getFluidConsistencyType() { 
           if (this.fluidConsistencyType == null)
@@ -414,7 +414,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #fluidConsistencyType} (Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.)
+         * @return {@link #fluidConsistencyType} (The required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.)
          */
     // syntactic sugar
         public CodeableConcept addFluidConsistencyType() { //3
@@ -436,7 +436,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #instruction} (Additional instructions or information pertaining to the oral diet.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
+         * @return {@link #instruction} (Free text or additional instructions or information pertaining to the oral diet.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
          */
         public StringType getInstructionElement() { 
           if (this.instruction == null)
@@ -456,7 +456,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #instruction} (Additional instructions or information pertaining to the oral diet.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
+         * @param value {@link #instruction} (Free text or additional instructions or information pertaining to the oral diet.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
          */
         public NutritionOrderOralDietComponent setInstructionElement(StringType value) { 
           this.instruction = value;
@@ -464,14 +464,14 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return Additional instructions or information pertaining to the oral diet.
+         * @return Free text or additional instructions or information pertaining to the oral diet.
          */
         public String getInstruction() { 
           return this.instruction == null ? null : this.instruction.getValue();
         }
 
         /**
-         * @param value Additional instructions or information pertaining to the oral diet.
+         * @param value Free text or additional instructions or information pertaining to the oral diet.
          */
         public NutritionOrderOralDietComponent setInstruction(String value) { 
           if (Utilities.noString(value))
@@ -486,12 +486,12 @@ public class NutritionOrder extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of oral diet or diet restrictions that describe what can be consumed orally (i.e., take via the mouth).", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "CodeableConcept", "The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("scheduled", "Timing", "The time period and frequency at which the diet should be given.", 0, java.lang.Integer.MAX_VALUE, scheduled));
-          childrenList.add(new Property("nutrient", "", "Class that defines the details of any nutrient modifications required for the oral diet.", 0, java.lang.Integer.MAX_VALUE, nutrient));
+          childrenList.add(new Property("nutrient", "", "Class that defines the quantity and type of nutrient modifications required for the oral diet.", 0, java.lang.Integer.MAX_VALUE, nutrient));
           childrenList.add(new Property("texture", "", "Class that describes any texture modifications required for the patient to safely consume various types of solid foods.", 0, java.lang.Integer.MAX_VALUE, texture));
-          childrenList.add(new Property("fluidConsistencyType", "CodeableConcept", "Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.", 0, java.lang.Integer.MAX_VALUE, fluidConsistencyType));
-          childrenList.add(new Property("instruction", "string", "Additional instructions or information pertaining to the oral diet.", 0, java.lang.Integer.MAX_VALUE, instruction));
+          childrenList.add(new Property("fluidConsistencyType", "CodeableConcept", "The required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.", 0, java.lang.Integer.MAX_VALUE, fluidConsistencyType));
+          childrenList.add(new Property("instruction", "string", "Free text or additional instructions or information pertaining to the oral diet.", 0, java.lang.Integer.MAX_VALUE, instruction));
         }
 
       public NutritionOrderOralDietComponent copy() {
@@ -555,10 +555,10 @@ public class NutritionOrder extends DomainResource {
     @Block()
     public static class NutritionOrderOralDietNutrientComponent extends BackboneElement {
         /**
-         * Identifies the type of nutrient that is being modified such as carbohydrate or sodium.
+         * The nutrient that is being modified such as carbohydrate or sodium.
          */
         @Child(name ="modifier", type={CodeableConcept.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Type of nutrient that is being modified", formalDefinition="Identifies the type of nutrient that is being modified such as carbohydrate or sodium." )
+        @Description(shortDefinition="Type of nutrient that is being modified", formalDefinition="The nutrient that is being modified such as carbohydrate or sodium." )
         protected CodeableConcept modifier;
 
         /**
@@ -575,7 +575,7 @@ public class NutritionOrder extends DomainResource {
       }
 
         /**
-         * @return {@link #modifier} (Identifies the type of nutrient that is being modified such as carbohydrate or sodium.)
+         * @return {@link #modifier} (The nutrient that is being modified such as carbohydrate or sodium.)
          */
         public CodeableConcept getModifier() { 
           if (this.modifier == null)
@@ -591,7 +591,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #modifier} (Identifies the type of nutrient that is being modified such as carbohydrate or sodium.)
+         * @param value {@link #modifier} (The nutrient that is being modified such as carbohydrate or sodium.)
          */
         public NutritionOrderOralDietNutrientComponent setModifier(CodeableConcept value) { 
           this.modifier = value;
@@ -624,7 +624,7 @@ public class NutritionOrder extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("modifier", "CodeableConcept", "Identifies the type of nutrient that is being modified such as carbohydrate or sodium.", 0, java.lang.Integer.MAX_VALUE, modifier));
+          childrenList.add(new Property("modifier", "CodeableConcept", "The nutrient that is being modified such as carbohydrate or sodium.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("amount", "Quantity", "The quantity of the specified nutrient to include in diet.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
@@ -666,17 +666,17 @@ public class NutritionOrder extends DomainResource {
     @Block()
     public static class NutritionOrderOralDietTextureComponent extends BackboneElement {
         /**
-         * Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.
+         * Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.
          */
         @Child(name ="modifier", type={CodeableConcept.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Code to indicate how to alter the texture of the foods, e.g., pureed", formalDefinition="Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed." )
+        @Description(shortDefinition="Code to indicate how to alter the texture of the foods, e.g., pureed", formalDefinition="Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed." )
         protected CodeableConcept modifier;
 
         /**
-         * Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.
+         * The food type(s) (e.g., meats, all foods)  that the texture modification applies to.  This could be all foods types.
          */
         @Child(name ="foodType", type={CodeableConcept.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Concepts that are used to identify an entity that is ingested for nutritional purposes", formalDefinition="Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet." )
+        @Description(shortDefinition="Concepts that are used to identify an entity that is ingested for nutritional purposes", formalDefinition="The food type(s) (e.g., meats, all foods)  that the texture modification applies to.  This could be all foods types." )
         protected CodeableConcept foodType;
 
         private static final long serialVersionUID = -56402817L;
@@ -686,7 +686,7 @@ public class NutritionOrder extends DomainResource {
       }
 
         /**
-         * @return {@link #modifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.)
+         * @return {@link #modifier} (Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.)
          */
         public CodeableConcept getModifier() { 
           if (this.modifier == null)
@@ -702,7 +702,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #modifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.)
+         * @param value {@link #modifier} (Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.)
          */
         public NutritionOrderOralDietTextureComponent setModifier(CodeableConcept value) { 
           this.modifier = value;
@@ -710,7 +710,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #foodType} (Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.)
+         * @return {@link #foodType} (The food type(s) (e.g., meats, all foods)  that the texture modification applies to.  This could be all foods types.)
          */
         public CodeableConcept getFoodType() { 
           if (this.foodType == null)
@@ -726,7 +726,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #foodType} (Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.)
+         * @param value {@link #foodType} (The food type(s) (e.g., meats, all foods)  that the texture modification applies to.  This could be all foods types.)
          */
         public NutritionOrderOralDietTextureComponent setFoodType(CodeableConcept value) { 
           this.foodType = value;
@@ -735,8 +735,8 @@ public class NutritionOrder extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("modifier", "CodeableConcept", "Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.", 0, java.lang.Integer.MAX_VALUE, modifier));
-          childrenList.add(new Property("foodType", "CodeableConcept", "Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.", 0, java.lang.Integer.MAX_VALUE, foodType));
+          childrenList.add(new Property("modifier", "CodeableConcept", "Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.", 0, java.lang.Integer.MAX_VALUE, modifier));
+          childrenList.add(new Property("foodType", "CodeableConcept", "The food type(s) (e.g., meats, all foods)  that the texture modification applies to.  This could be all foods types.", 0, java.lang.Integer.MAX_VALUE, foodType));
         }
 
       public NutritionOrderOralDietTextureComponent copy() {
@@ -777,17 +777,17 @@ public class NutritionOrder extends DomainResource {
     @Block()
     public static class NutritionOrderSupplementComponent extends BackboneElement {
         /**
-         * Indicates the type of nutritional supplement product required such as high protein or pediatric clear liquid supplement.
+         * The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement.
          */
         @Child(name ="type", type={CodeableConcept.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Type of supplement product requested", formalDefinition="Indicates the type of nutritional supplement product required such as high protein or pediatric clear liquid supplement." )
+        @Description(shortDefinition="Type of supplement product requested", formalDefinition="The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement." )
         protected CodeableConcept type;
 
         /**
-         * The product or brand name of the nutritional supplement product to be provided to the patient.
+         * The product or brand name of the nutritional supplement such as "Acme Protein Shake".
          */
         @Child(name ="productName", type={StringType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Product or brand name of the nutritional supplement", formalDefinition="The product or brand name of the nutritional supplement product to be provided to the patient." )
+        @Description(shortDefinition="Product or brand name of the nutritional supplement", formalDefinition="The product or brand name of the nutritional supplement such as 'Acme Protein Shake'." )
         protected StringType productName;
 
         /**
@@ -798,17 +798,17 @@ public class NutritionOrder extends DomainResource {
         protected Timing scheduled;
 
         /**
-         * The amount of the nutritional supplement product to provide to the patient.
+         * The amount of the nutritional supplement to be given.
          */
         @Child(name ="quantity", type={Quantity.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Amount of the nutritional supplement", formalDefinition="The amount of the nutritional supplement product to provide to the patient." )
+        @Description(shortDefinition="Amount of the nutritional supplement", formalDefinition="The amount of the nutritional supplement to be given." )
         protected Quantity quantity;
 
         /**
-         * Additional instructions or information pertaining to the oral supplement.
+         * Free text or additional instructions or information pertaining to the oral supplement.
          */
         @Child(name ="instruction", type={StringType.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="Instructions or additional information about the oral supplement", formalDefinition="Additional instructions or information pertaining to the oral supplement." )
+        @Description(shortDefinition="Instructions or additional information about the oral supplement", formalDefinition="Free text or additional instructions or information pertaining to the oral supplement." )
         protected StringType instruction;
 
         private static final long serialVersionUID = 952780616L;
@@ -818,7 +818,7 @@ public class NutritionOrder extends DomainResource {
       }
 
         /**
-         * @return {@link #type} (Indicates the type of nutritional supplement product required such as high protein or pediatric clear liquid supplement.)
+         * @return {@link #type} (The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement.)
          */
         public CodeableConcept getType() { 
           if (this.type == null)
@@ -834,7 +834,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (Indicates the type of nutritional supplement product required such as high protein or pediatric clear liquid supplement.)
+         * @param value {@link #type} (The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement.)
          */
         public NutritionOrderSupplementComponent setType(CodeableConcept value) { 
           this.type = value;
@@ -842,7 +842,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #productName} (The product or brand name of the nutritional supplement product to be provided to the patient.). This is the underlying object with id, value and extensions. The accessor "getProductName" gives direct access to the value
+         * @return {@link #productName} (The product or brand name of the nutritional supplement such as "Acme Protein Shake".). This is the underlying object with id, value and extensions. The accessor "getProductName" gives direct access to the value
          */
         public StringType getProductNameElement() { 
           if (this.productName == null)
@@ -862,7 +862,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #productName} (The product or brand name of the nutritional supplement product to be provided to the patient.). This is the underlying object with id, value and extensions. The accessor "getProductName" gives direct access to the value
+         * @param value {@link #productName} (The product or brand name of the nutritional supplement such as "Acme Protein Shake".). This is the underlying object with id, value and extensions. The accessor "getProductName" gives direct access to the value
          */
         public NutritionOrderSupplementComponent setProductNameElement(StringType value) { 
           this.productName = value;
@@ -870,14 +870,14 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return The product or brand name of the nutritional supplement product to be provided to the patient.
+         * @return The product or brand name of the nutritional supplement such as "Acme Protein Shake".
          */
         public String getProductName() { 
           return this.productName == null ? null : this.productName.getValue();
         }
 
         /**
-         * @param value The product or brand name of the nutritional supplement product to be provided to the patient.
+         * @param value The product or brand name of the nutritional supplement such as "Acme Protein Shake".
          */
         public NutritionOrderSupplementComponent setProductName(String value) { 
           if (Utilities.noString(value))
@@ -915,7 +915,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #quantity} (The amount of the nutritional supplement product to provide to the patient.)
+         * @return {@link #quantity} (The amount of the nutritional supplement to be given.)
          */
         public Quantity getQuantity() { 
           if (this.quantity == null)
@@ -931,7 +931,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #quantity} (The amount of the nutritional supplement product to provide to the patient.)
+         * @param value {@link #quantity} (The amount of the nutritional supplement to be given.)
          */
         public NutritionOrderSupplementComponent setQuantity(Quantity value) { 
           this.quantity = value;
@@ -939,7 +939,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #instruction} (Additional instructions or information pertaining to the oral supplement.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
+         * @return {@link #instruction} (Free text or additional instructions or information pertaining to the oral supplement.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
          */
         public StringType getInstructionElement() { 
           if (this.instruction == null)
@@ -959,7 +959,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #instruction} (Additional instructions or information pertaining to the oral supplement.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
+         * @param value {@link #instruction} (Free text or additional instructions or information pertaining to the oral supplement.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
          */
         public NutritionOrderSupplementComponent setInstructionElement(StringType value) { 
           this.instruction = value;
@@ -967,14 +967,14 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return Additional instructions or information pertaining to the oral supplement.
+         * @return Free text or additional instructions or information pertaining to the oral supplement.
          */
         public String getInstruction() { 
           return this.instruction == null ? null : this.instruction.getValue();
         }
 
         /**
-         * @param value Additional instructions or information pertaining to the oral supplement.
+         * @param value Free text or additional instructions or information pertaining to the oral supplement.
          */
         public NutritionOrderSupplementComponent setInstruction(String value) { 
           if (Utilities.noString(value))
@@ -989,11 +989,11 @@ public class NutritionOrder extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of nutritional supplement product required such as high protein or pediatric clear liquid supplement.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("productName", "string", "The product or brand name of the nutritional supplement product to be provided to the patient.", 0, java.lang.Integer.MAX_VALUE, productName));
+          childrenList.add(new Property("type", "CodeableConcept", "The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("productName", "string", "The product or brand name of the nutritional supplement such as 'Acme Protein Shake'.", 0, java.lang.Integer.MAX_VALUE, productName));
           childrenList.add(new Property("scheduled", "Timing", "The time period and frequency at which the supplement(s) should be given.", 0, java.lang.Integer.MAX_VALUE, scheduled));
-          childrenList.add(new Property("quantity", "Quantity", "The amount of the nutritional supplement product to provide to the patient.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("instruction", "string", "Additional instructions or information pertaining to the oral supplement.", 0, java.lang.Integer.MAX_VALUE, instruction));
+          childrenList.add(new Property("quantity", "Quantity", "The amount of the nutritional supplement to be given.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("instruction", "string", "Free text or additional instructions or information pertaining to the oral supplement.", 0, java.lang.Integer.MAX_VALUE, instruction));
         }
 
       public NutritionOrderSupplementComponent copy() {
@@ -1040,24 +1040,24 @@ public class NutritionOrder extends DomainResource {
     @Block()
     public static class NutritionOrderEnteralFormulaComponent extends BackboneElement {
         /**
-         * Free text formula administration or feeding instructions for cases where the instructions are too complex to code.
+         * Free text formula administration, feeding instructions or additional instructions or information.
          */
         @Child(name ="administrationInstructions", type={StringType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Formula feeding instructions expressed as text", formalDefinition="Free text formula administration or feeding instructions for cases where the instructions are too complex to code." )
+        @Description(shortDefinition="Formula feeding instructions expressed as text", formalDefinition="Free text formula administration, feeding instructions or additional instructions or information." )
         protected StringType administrationInstructions;
 
         /**
-         * Indicates the type of enteral or infant formula requested such as an adult standard formula with fiber or a soy-based infant formula.
+         * The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.
          */
         @Child(name ="baseFormulaType", type={CodeableConcept.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Type of enteral or infant formula", formalDefinition="Indicates the type of enteral or infant formula requested such as an adult standard formula with fiber or a soy-based infant formula." )
+        @Description(shortDefinition="Type of enteral or infant formula", formalDefinition="The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula." )
         protected CodeableConcept baseFormulaType;
 
         /**
-         * The product or brand name of the enteral or infant formula product to be provided to the patient.
+         * The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".
          */
         @Child(name ="baseFormulaProductName", type={StringType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Product or brand name of the enteral or infant formula", formalDefinition="The product or brand name of the enteral or infant formula product to be provided to the patient." )
+        @Description(shortDefinition="Product or brand name of the enteral or infant formula", formalDefinition="The product or brand name of the enteral or infant formula product such as 'ACME Adult Standard Formula'." )
         protected StringType baseFormulaProductName;
 
         /**
@@ -1089,10 +1089,10 @@ public class NutritionOrder extends DomainResource {
         protected Quantity caloricDensity;
 
         /**
-         * A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.
+         * The route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.
          */
         @Child(name ="routeofAdministration", type={CodeableConcept.class}, order=8, min=0, max=1)
-        @Description(shortDefinition="How the formula should enter the patient's gastrointestinal tract", formalDefinition="A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube." )
+        @Description(shortDefinition="How the formula should enter the patient's gastrointestinal tract", formalDefinition="The route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube." )
         protected CodeableConcept routeofAdministration;
 
         /**
@@ -1103,17 +1103,17 @@ public class NutritionOrder extends DomainResource {
         protected Quantity quantity;
 
         /**
-         * Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.
+         * The rate of administration of formula via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.
          */
         @Child(name ="rate", type={Ratio.class}, order=10, min=0, max=1)
-        @Description(shortDefinition="Speed with which the formula is provided per period of time", formalDefinition="Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule." )
+        @Description(shortDefinition="Speed with which the formula is provided per period of time", formalDefinition="The rate of administration of formula via a feeding pump, e.g., 60 mL per hour, according to the specified schedule." )
         protected Ratio rate;
 
         /**
-         * The change in the administration rate over a given time, e.g. increase by 10 mL/hour every 4 hours.
+         * The change in the rate of administration over a given time, e.g. increase by 10 mL/hour every 4 hours.
          */
         @Child(name ="rateAdjustment", type={Quantity.class}, order=11, min=0, max=1)
-        @Description(shortDefinition="Change in the rate of administration over a given time", formalDefinition="The change in the administration rate over a given time, e.g. increase by 10 mL/hour every 4 hours." )
+        @Description(shortDefinition="Change in the rate of administration over a given time", formalDefinition="The change in the rate of administration over a given time, e.g. increase by 10 mL/hour every 4 hours." )
         protected Quantity rateAdjustment;
 
         /**
@@ -1130,7 +1130,7 @@ public class NutritionOrder extends DomainResource {
       }
 
         /**
-         * @return {@link #administrationInstructions} (Free text formula administration or feeding instructions for cases where the instructions are too complex to code.). This is the underlying object with id, value and extensions. The accessor "getAdministrationInstructions" gives direct access to the value
+         * @return {@link #administrationInstructions} (Free text formula administration, feeding instructions or additional instructions or information.). This is the underlying object with id, value and extensions. The accessor "getAdministrationInstructions" gives direct access to the value
          */
         public StringType getAdministrationInstructionsElement() { 
           if (this.administrationInstructions == null)
@@ -1150,7 +1150,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #administrationInstructions} (Free text formula administration or feeding instructions for cases where the instructions are too complex to code.). This is the underlying object with id, value and extensions. The accessor "getAdministrationInstructions" gives direct access to the value
+         * @param value {@link #administrationInstructions} (Free text formula administration, feeding instructions or additional instructions or information.). This is the underlying object with id, value and extensions. The accessor "getAdministrationInstructions" gives direct access to the value
          */
         public NutritionOrderEnteralFormulaComponent setAdministrationInstructionsElement(StringType value) { 
           this.administrationInstructions = value;
@@ -1158,14 +1158,14 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return Free text formula administration or feeding instructions for cases where the instructions are too complex to code.
+         * @return Free text formula administration, feeding instructions or additional instructions or information.
          */
         public String getAdministrationInstructions() { 
           return this.administrationInstructions == null ? null : this.administrationInstructions.getValue();
         }
 
         /**
-         * @param value Free text formula administration or feeding instructions for cases where the instructions are too complex to code.
+         * @param value Free text formula administration, feeding instructions or additional instructions or information.
          */
         public NutritionOrderEnteralFormulaComponent setAdministrationInstructions(String value) { 
           if (Utilities.noString(value))
@@ -1179,7 +1179,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #baseFormulaType} (Indicates the type of enteral or infant formula requested such as an adult standard formula with fiber or a soy-based infant formula.)
+         * @return {@link #baseFormulaType} (The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.)
          */
         public CodeableConcept getBaseFormulaType() { 
           if (this.baseFormulaType == null)
@@ -1195,7 +1195,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #baseFormulaType} (Indicates the type of enteral or infant formula requested such as an adult standard formula with fiber or a soy-based infant formula.)
+         * @param value {@link #baseFormulaType} (The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.)
          */
         public NutritionOrderEnteralFormulaComponent setBaseFormulaType(CodeableConcept value) { 
           this.baseFormulaType = value;
@@ -1203,7 +1203,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #baseFormulaProductName} (The product or brand name of the enteral or infant formula product to be provided to the patient.). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaProductName" gives direct access to the value
+         * @return {@link #baseFormulaProductName} (The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaProductName" gives direct access to the value
          */
         public StringType getBaseFormulaProductNameElement() { 
           if (this.baseFormulaProductName == null)
@@ -1223,7 +1223,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #baseFormulaProductName} (The product or brand name of the enteral or infant formula product to be provided to the patient.). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaProductName" gives direct access to the value
+         * @param value {@link #baseFormulaProductName} (The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaProductName" gives direct access to the value
          */
         public NutritionOrderEnteralFormulaComponent setBaseFormulaProductNameElement(StringType value) { 
           this.baseFormulaProductName = value;
@@ -1231,14 +1231,14 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return The product or brand name of the enteral or infant formula product to be provided to the patient.
+         * @return The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".
          */
         public String getBaseFormulaProductName() { 
           return this.baseFormulaProductName == null ? null : this.baseFormulaProductName.getValue();
         }
 
         /**
-         * @param value The product or brand name of the enteral or infant formula product to be provided to the patient.
+         * @param value The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".
          */
         public NutritionOrderEnteralFormulaComponent setBaseFormulaProductName(String value) { 
           if (Utilities.noString(value))
@@ -1373,7 +1373,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #routeofAdministration} (A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.)
+         * @return {@link #routeofAdministration} (The route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.)
          */
         public CodeableConcept getRouteofAdministration() { 
           if (this.routeofAdministration == null)
@@ -1389,7 +1389,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #routeofAdministration} (A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.)
+         * @param value {@link #routeofAdministration} (The route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.)
          */
         public NutritionOrderEnteralFormulaComponent setRouteofAdministration(CodeableConcept value) { 
           this.routeofAdministration = value;
@@ -1421,7 +1421,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #rate} (Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.)
+         * @return {@link #rate} (The rate of administration of formula via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.)
          */
         public Ratio getRate() { 
           if (this.rate == null)
@@ -1437,7 +1437,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #rate} (Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.)
+         * @param value {@link #rate} (The rate of administration of formula via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.)
          */
         public NutritionOrderEnteralFormulaComponent setRate(Ratio value) { 
           this.rate = value;
@@ -1445,7 +1445,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #rateAdjustment} (The change in the administration rate over a given time, e.g. increase by 10 mL/hour every 4 hours.)
+         * @return {@link #rateAdjustment} (The change in the rate of administration over a given time, e.g. increase by 10 mL/hour every 4 hours.)
          */
         public Quantity getRateAdjustment() { 
           if (this.rateAdjustment == null)
@@ -1461,7 +1461,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #rateAdjustment} (The change in the administration rate over a given time, e.g. increase by 10 mL/hour every 4 hours.)
+         * @param value {@link #rateAdjustment} (The change in the rate of administration over a given time, e.g. increase by 10 mL/hour every 4 hours.)
          */
         public NutritionOrderEnteralFormulaComponent setRateAdjustment(Quantity value) { 
           this.rateAdjustment = value;
@@ -1494,17 +1494,17 @@ public class NutritionOrder extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("administrationInstructions", "string", "Free text formula administration or feeding instructions for cases where the instructions are too complex to code.", 0, java.lang.Integer.MAX_VALUE, administrationInstructions));
-          childrenList.add(new Property("baseFormulaType", "CodeableConcept", "Indicates the type of enteral or infant formula requested such as an adult standard formula with fiber or a soy-based infant formula.", 0, java.lang.Integer.MAX_VALUE, baseFormulaType));
-          childrenList.add(new Property("baseFormulaProductName", "string", "The product or brand name of the enteral or infant formula product to be provided to the patient.", 0, java.lang.Integer.MAX_VALUE, baseFormulaProductName));
+          childrenList.add(new Property("administrationInstructions", "string", "Free text formula administration, feeding instructions or additional instructions or information.", 0, java.lang.Integer.MAX_VALUE, administrationInstructions));
+          childrenList.add(new Property("baseFormulaType", "CodeableConcept", "The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.", 0, java.lang.Integer.MAX_VALUE, baseFormulaType));
+          childrenList.add(new Property("baseFormulaProductName", "string", "The product or brand name of the enteral or infant formula product such as 'ACME Adult Standard Formula'.", 0, java.lang.Integer.MAX_VALUE, baseFormulaProductName));
           childrenList.add(new Property("scheduled", "Timing", "The time period and frequency at which the enteral formula should be delivered to the patient.", 0, java.lang.Integer.MAX_VALUE, scheduled));
           childrenList.add(new Property("additiveType", "CodeableConcept", "Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula.", 0, java.lang.Integer.MAX_VALUE, additiveType));
           childrenList.add(new Property("additiveProductName", "string", "The product or brand name of the type of modular component to be added to the formula.", 0, java.lang.Integer.MAX_VALUE, additiveProductName));
           childrenList.add(new Property("caloricDensity", "Quantity", "The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula the provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.", 0, java.lang.Integer.MAX_VALUE, caloricDensity));
-          childrenList.add(new Property("routeofAdministration", "CodeableConcept", "A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.", 0, java.lang.Integer.MAX_VALUE, routeofAdministration));
+          childrenList.add(new Property("routeofAdministration", "CodeableConcept", "The route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.", 0, java.lang.Integer.MAX_VALUE, routeofAdministration));
           childrenList.add(new Property("quantity", "Quantity", "The volume of formula to provide to the patient per the specified administration schedule.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.", 0, java.lang.Integer.MAX_VALUE, rate));
-          childrenList.add(new Property("rateAdjustment", "Quantity", "The change in the administration rate over a given time, e.g. increase by 10 mL/hour every 4 hours.", 0, java.lang.Integer.MAX_VALUE, rateAdjustment));
+          childrenList.add(new Property("rate", "Ratio", "The rate of administration of formula via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.", 0, java.lang.Integer.MAX_VALUE, rate));
+          childrenList.add(new Property("rateAdjustment", "Quantity", "The change in the rate of administration over a given time, e.g. increase by 10 mL/hour every 4 hours.", 0, java.lang.Integer.MAX_VALUE, rateAdjustment));
           childrenList.add(new Property("maxVolumeToDeliver", "Quantity", "The maximum total quantity of formula that may be administered to a subject over the period of time, e.g., 1440 mL over 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxVolumeToDeliver));
         }
 
@@ -1615,13 +1615,13 @@ public class NutritionOrder extends DomainResource {
     protected DateTimeType dateTime;
 
     /**
-     * The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.
+     * A link to a record of allergies or Intolerances  which should be included in the nutrition order.
      */
     @Child(name ="allergyIntolerance", type={AllergyIntolerance.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="List of the patient's food and nutrition-related allergies and intolerances", formalDefinition="The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order." )
+    @Description(shortDefinition="List of the patient's food and nutrition-related allergies and intolerances", formalDefinition="A link to a record of allergies or Intolerances  which should be included in the nutrition order." )
     protected List<Reference> allergyIntolerance;
     /**
-     * The actual objects that are the target of the reference (The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
+     * The actual objects that are the target of the reference (A link to a record of allergies or Intolerances  which should be included in the nutrition order.)
      */
     protected List<AllergyIntolerance> allergyIntoleranceTarget;
 
@@ -1641,31 +1641,31 @@ public class NutritionOrder extends DomainResource {
     protected List<CodeableConcept> excludeFoodModifier;
 
     /**
-     * Class that defines the components of an oral diet order for the patient.
+     * Diet given orally in contrast to enteral (tube) feeding.
      */
     @Child(name ="oralDiet", type={}, order=8, min=0, max=1)
-    @Description(shortDefinition="Oral diet components", formalDefinition="Class that defines the components of an oral diet order for the patient." )
+    @Description(shortDefinition="Oral diet components", formalDefinition="Diet given orally in contrast to enteral (tube) feeding." )
     protected NutritionOrderOralDietComponent oralDiet;
 
     /**
-     * Class that defines the components of a supplement order for the patient.
+     * Oral nutritional products given in order to add further nutritional value to the patient's diet.
      */
     @Child(name ="supplement", type={}, order=9, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Supplement components", formalDefinition="Class that defines the components of a supplement order for the patient." )
+    @Description(shortDefinition="Supplement components", formalDefinition="Oral nutritional products given in order to add further nutritional value to the patient's diet." )
     protected List<NutritionOrderSupplementComponent> supplement;
 
     /**
-     * Class that defines the components of an enteral formula order for the patient.
+     * Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.
      */
     @Child(name ="enteralFormula", type={}, order=10, min=0, max=1)
-    @Description(shortDefinition="Enteral formula components", formalDefinition="Class that defines the components of an enteral formula order for the patient." )
+    @Description(shortDefinition="Enteral formula components", formalDefinition="Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity." )
     protected NutritionOrderEnteralFormulaComponent enteralFormula;
 
     /**
-     * The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.
+     * The workflow status of the nutrition order/request.
      */
     @Child(name ="status", type={CodeType.class}, order=11, min=0, max=1)
-    @Description(shortDefinition="proposed | draft | planned | requested | active | on-hold | completed | cancelled", formalDefinition="The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended." )
+    @Description(shortDefinition="proposed | draft | planned | requested | active | on-hold | completed | cancelled", formalDefinition="The workflow status of the nutrition order/request." )
     protected Enumeration<NutritionOrderStatus> status;
 
     private static final long serialVersionUID = -966362649L;
@@ -1898,7 +1898,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #allergyIntolerance} (The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
+     * @return {@link #allergyIntolerance} (A link to a record of allergies or Intolerances  which should be included in the nutrition order.)
      */
     public List<Reference> getAllergyIntolerance() { 
       if (this.allergyIntolerance == null)
@@ -1916,7 +1916,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #allergyIntolerance} (The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
+     * @return {@link #allergyIntolerance} (A link to a record of allergies or Intolerances  which should be included in the nutrition order.)
      */
     // syntactic sugar
     public Reference addAllergyIntolerance() { //3
@@ -1938,7 +1938,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #allergyIntolerance} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
+     * @return {@link #allergyIntolerance} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A link to a record of allergies or Intolerances  which should be included in the nutrition order.)
      */
     public List<AllergyIntolerance> getAllergyIntoleranceTarget() { 
       if (this.allergyIntoleranceTarget == null)
@@ -1948,7 +1948,7 @@ public class NutritionOrder extends DomainResource {
 
     // syntactic sugar
     /**
-     * @return {@link #allergyIntolerance} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
+     * @return {@link #allergyIntolerance} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A link to a record of allergies or Intolerances  which should be included in the nutrition order.)
      */
     public AllergyIntolerance addAllergyIntoleranceTarget() { 
       AllergyIntolerance r = new AllergyIntolerance();
@@ -2039,7 +2039,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #oralDiet} (Class that defines the components of an oral diet order for the patient.)
+     * @return {@link #oralDiet} (Diet given orally in contrast to enteral (tube) feeding.)
      */
     public NutritionOrderOralDietComponent getOralDiet() { 
       if (this.oralDiet == null)
@@ -2055,7 +2055,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #oralDiet} (Class that defines the components of an oral diet order for the patient.)
+     * @param value {@link #oralDiet} (Diet given orally in contrast to enteral (tube) feeding.)
      */
     public NutritionOrder setOralDiet(NutritionOrderOralDietComponent value) { 
       this.oralDiet = value;
@@ -2063,7 +2063,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #supplement} (Class that defines the components of a supplement order for the patient.)
+     * @return {@link #supplement} (Oral nutritional products given in order to add further nutritional value to the patient's diet.)
      */
     public List<NutritionOrderSupplementComponent> getSupplement() { 
       if (this.supplement == null)
@@ -2081,7 +2081,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #supplement} (Class that defines the components of a supplement order for the patient.)
+     * @return {@link #supplement} (Oral nutritional products given in order to add further nutritional value to the patient's diet.)
      */
     // syntactic sugar
     public NutritionOrderSupplementComponent addSupplement() { //3
@@ -2103,7 +2103,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #enteralFormula} (Class that defines the components of an enteral formula order for the patient.)
+     * @return {@link #enteralFormula} (Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.)
      */
     public NutritionOrderEnteralFormulaComponent getEnteralFormula() { 
       if (this.enteralFormula == null)
@@ -2119,7 +2119,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #enteralFormula} (Class that defines the components of an enteral formula order for the patient.)
+     * @param value {@link #enteralFormula} (Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.)
      */
     public NutritionOrder setEnteralFormula(NutritionOrderEnteralFormulaComponent value) { 
       this.enteralFormula = value;
@@ -2127,7 +2127,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<NutritionOrderStatus> getStatusElement() { 
       if (this.status == null)
@@ -2147,7 +2147,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public NutritionOrder setStatusElement(Enumeration<NutritionOrderStatus> value) { 
       this.status = value;
@@ -2155,14 +2155,14 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.
+     * @return The workflow status of the nutrition order/request.
      */
     public NutritionOrderStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.
+     * @param value The workflow status of the nutrition order/request.
      */
     public NutritionOrder setStatus(NutritionOrderStatus value) { 
       if (value == null)
@@ -2182,13 +2182,13 @@ public class NutritionOrder extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order sender or by the order receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("dateTime", "dateTime", "The date and time that this nutrition order was requested.", 0, java.lang.Integer.MAX_VALUE, dateTime));
-        childrenList.add(new Property("allergyIntolerance", "Reference(AllergyIntolerance)", "The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.", 0, java.lang.Integer.MAX_VALUE, allergyIntolerance));
+        childrenList.add(new Property("allergyIntolerance", "Reference(AllergyIntolerance)", "A link to a record of allergies or Intolerances  which should be included in the nutrition order.", 0, java.lang.Integer.MAX_VALUE, allergyIntolerance));
         childrenList.add(new Property("foodPreferenceModifier", "CodeableConcept", "This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.", 0, java.lang.Integer.MAX_VALUE, foodPreferenceModifier));
         childrenList.add(new Property("excludeFoodModifier", "CodeableConcept", "This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.", 0, java.lang.Integer.MAX_VALUE, excludeFoodModifier));
-        childrenList.add(new Property("oralDiet", "", "Class that defines the components of an oral diet order for the patient.", 0, java.lang.Integer.MAX_VALUE, oralDiet));
-        childrenList.add(new Property("supplement", "", "Class that defines the components of a supplement order for the patient.", 0, java.lang.Integer.MAX_VALUE, supplement));
-        childrenList.add(new Property("enteralFormula", "", "Class that defines the components of an enteral formula order for the patient.", 0, java.lang.Integer.MAX_VALUE, enteralFormula));
-        childrenList.add(new Property("status", "code", "The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("oralDiet", "", "Diet given orally in contrast to enteral (tube) feeding.", 0, java.lang.Integer.MAX_VALUE, oralDiet));
+        childrenList.add(new Property("supplement", "", "Oral nutritional products given in order to add further nutritional value to the patient's diet.", 0, java.lang.Integer.MAX_VALUE, supplement));
+        childrenList.add(new Property("enteralFormula", "", "Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.", 0, java.lang.Integer.MAX_VALUE, enteralFormula));
+        childrenList.add(new Property("status", "code", "The workflow status of the nutrition order/request.", 0, java.lang.Integer.MAX_VALUE, status));
       }
 
       public NutritionOrder copy() {
