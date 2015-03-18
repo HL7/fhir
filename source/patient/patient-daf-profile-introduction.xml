@@ -54,7 +54,7 @@ The DAF Patient profile mapping to Meaningful Use data elements and FHIR Resourc
 		  <tr>
 			<td>Preferred Language</td>
 			<td>Preferred Language</td>
-			<td>Patient.communication (TBD: Need to address how to indicate preference)</td>
+			<td>Patient.communication.preferred</td>
 		  </tr>
 		  <tr>
 			<td/>

@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This Resource covers data about persons and animals involved in a wide range of health-related activities, including:
+This Resource covers data about patients and animals involved in a wide range of health-related activities, including:
 </p>
 <ul>
 <li>Curative activities</li>
@@ -17,7 +17,7 @@ This Resource covers data about persons and animals involved in a wide range of 
 <p>
 The data in the Resource covers the "who" information about the patient: its attributes are focused on the demographic
 information necessary to support the administrative, financial and logistic procedures. A Patient record is generally 
-created and maintained by each organization providing care for a patient. A person or animal receiving care at multiple
+created and maintained by each organization providing care for a patient. A patient or animal receiving care at multiple
 organizations may therefore have its information present in multiple Patient Resources.
 </p>
 </div>

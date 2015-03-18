@@ -38,6 +38,9 @@
       </valueCodeableConcept>
     </extension>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+    <valueInstant value="2012-06-07T06:12:45-05:00"/>
+  </extension>
 
   <text>
     <status value="generated"/>
@@ -71,7 +74,6 @@
 
   <gender value="male"/>
   <birthDate value="2012-06-07"/>
-  <birthTime value="06:12:00"/>
   <deceasedBoolean value="false"/>
 
   <address>
