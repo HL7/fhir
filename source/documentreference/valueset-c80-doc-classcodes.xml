@@ -1,0 +1,199 @@
+﻿<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="valueset-doc-classcodes"/>
+  <meta>
+    <lastUpdated value="2015-03-17T12:06:30.047+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.46"/>
+  </extension>
+  <url value="http://hl7.org/fhir/vs/valueset-doc-classcodes"/>
+  <version value="20091109"/>
+  <name value="Document Class Value Set"/>
+  <publisher value="USHIK"/>
+  <description value="This is the code specifying the high-level kind of document (e.g., Prescription, Discharge Summary, Report, etc.). The Document Class value set is reproduced from HITSP C80 Table 2-144 Document Class Value Set Definition. Note: Class code for documents comes from LOINC, and is based upon one of the following:The type of service described by the document. It is described at a very high level in Section 7.3 of the LOINC Manual. The type study performed. It was determined by identifying modalities for study reports. The section of the chart where the document is placed. It was determined from the SETs created for Claims Attachment requests."/>
+  <copyright value="This content from LOINC&#174; is copyright &#169; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  
+  <status value="active"/>
+  <experimental value="false"/>
+
+
+  <compose>
+   <include>
+   <system value="http://loinc.org"/>
+      
+
+   <concept>
+    <code value="11369-6"/>
+    <display value="History of Immunization"/>
+   </concept>
+   <concept>
+    <code value="11485-0"/>
+    <display value="Anesthesia records"/>
+   </concept>
+   <concept>
+    <code value="11486-8"/>
+    <display value="Chemotherapy records"/>
+   </concept>
+   <concept>
+    <code value="11488-4"/>
+    <display value="Consult Note"/>
+   </concept>
+   <concept>
+    <code value="11506-3"/>
+    <display value="Provider-unspecified progress note"/>
+   </concept>
+   <concept>
+    <code value="11543-6"/>
+    <display value="Nursery records"/>
+   </concept>
+   <concept>
+    <code value="15508-5"/>
+    <display value="Labor and delivery records"/>
+   </concept>
+   <concept>
+    <code value="18726-0"/>
+    <display value="Radiology studies (set)"/>
+   </concept>
+   <concept>
+    <code value="18761-7"/>
+    <display value="Provider-unspecified transfer summary"/>
+   </concept>
+   <concept>
+    <code value="18842-5"/>
+    <display value="Discharge summary"/>
+   </concept>
+   <concept>
+    <code value="26436-6"/>
+    <display value="Laboratory Studies (set)"/>
+   </concept>
+   <concept>
+    <code value="26441-6"/>
+    <display value="Cardiology studies (set)"/>
+   </concept>
+   <concept>
+    <code value="26442-4"/>
+    <display value="Obstetrical studies (set)"/>
+   </concept>
+   <concept>
+    <code value="27895-2"/>
+    <display value="Gastroenterology endoscopy studies (set)"/>
+   </concept>
+   <concept>
+    <code value="27896-0"/>
+    <display value="Pulmonary studies (set)"/>
+   </concept>
+   <concept>
+    <code value="27897-8"/>
+    <display value="Neuromuscular electrophysiology studies (set)"/>
+   </concept>
+   <concept>
+    <code value="27898-6"/>
+    <display value="Pathology studies (set)"/>
+   </concept>
+   <concept>
+    <code value="28570-0"/>
+    <display value="Provider-unspecified procedure note"/>
+   </concept>
+   <concept>
+    <code value="28619-5"/>
+    <display value="Ophthalmology/optometry studies (set)"/>
+   </concept>
+   <concept>
+    <code value="28634-4"/>
+    <display value="Miscellaneous studies (set)"/>
+   </concept>
+   <concept>
+    <code value="29749-9"/>
+    <display value="Dialysis records"/>
+   </concept>
+   <concept>
+    <code value="29750-7"/>
+    <display value="Neonatal intensive care records"/>
+   </concept>
+   <concept>
+    <code value="29751-5"/>
+    <display value="Critical care records"/>
+   </concept>
+   <concept>
+    <code value="29752-3"/>
+    <display value="Perioperative records"/>
+   </concept>
+   <concept>
+    <code value="34109-9"/>
+    <display value="Evaluation and management note"/>
+   </concept>
+   <concept>
+    <code value="34117-2"/>
+    <display value="Provider-unspecified, History and physical note"/>
+   </concept>
+   <concept>
+    <code value="34121-4"/>
+    <display value="Interventional procedure note"/>
+   </concept>
+   <concept>
+    <code value="34122-2"/>
+    <display value="Pathology procedure note"/>
+   </concept>
+   <concept>
+    <code value="34133-9"/>
+    <display value="Summarization of episode note"/>
+   </concept>
+   <concept>
+    <code value="34140-4"/>
+    <display value="Transfer of care referral note"/>
+   </concept>
+   <concept>
+    <code value="34748-4"/>
+    <display value="Telephone encounter note"/>
+   </concept>
+   <concept>
+    <code value="34775-7"/>
+    <display value="General surgery Pre-operative evaluation and management note"/>
+   </concept>
+   <concept>
+    <code value="47039-3"/>
+    <display value="Inpatient Admission history and physical note"/>
+   </concept>
+   <concept>
+    <code value="47042-7"/>
+    <display value="Counseling note"/>
+   </concept>
+   <concept>
+    <code value="47045-0"/>
+    <display value="Study report Document"/>
+   </concept>
+   <concept>
+    <code value="47046-8"/>
+    <display value="Summary of death"/>
+   </concept>
+   <concept>
+    <code value="47049-2"/>
+    <display value="Non-patient Communication"/>
+   </concept>
+   <concept>
+    <code value="57017-6"/>
+    <display value="Privacy Policy Organization Document"/>
+   </concept>
+   <concept>
+    <code value="57016-8"/>
+    <display value="Privacy Policy Acknowledgment Document"/>
+   </concept>
+   <concept>
+    <code value="56445-0"/>
+    <display value="Medication Summary Document"/>
+   </concept>
+   <concept>
+    <code value="53576-5"/>
+    <display value="Personal health monitoring report Document"/>
+   </concept>
+
+
+   </include>
+  
+
+  </compose>  
+
+
+</ValueSet>
+

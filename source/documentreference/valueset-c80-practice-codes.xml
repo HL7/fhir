@@ -1,0 +1,497 @@
+﻿<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="valueset-xds-practice-codes"/>
+  <meta>
+    <lastUpdated value="2015-03-17T12:06:30.047+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.72"/>
+  </extension>
+  <url value="http://hl7.org/fhir/vs/valueset-clinical-speciality"/>
+  <version value="20091109"/>
+  <name value="Practice Setting Code Value Set"/>
+  <publisher value="HITSP"/>
+  <description value="This is the code representing the clinical specialty of the clinician or provider who 
+   interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty 
+   has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright &#169; 2002+ International
+   Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement
+   between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+
+   <concept>
+    <code value="408467006"/>
+    <display value="Adult mental illness"/>
+   </concept>
+   <concept>
+    <code value="394577000"/>
+    <display value="Anesthetics"/>
+   </concept>
+   <concept>
+    <code value="394578005"/>
+    <display value="Audiological medicine"/>
+   </concept>
+   <concept>
+    <code value="421661004"/>
+    <display value="Blood banking and transfusion medicine"/>
+   </concept>
+   <concept>
+    <code value="408462000"/>
+    <display value="Burns care"/>
+   </concept>
+   <concept>
+    <code value="394579002"/>
+    <display value="Cardiology"/>
+   </concept>
+   <concept>
+    <code value="394804000"/>
+    <display value="Clinical cytogenetics and molecular genetics"/>
+   </concept>
+   <concept>
+    <code value="394580004"/>
+    <display value="Clinical genetics"/>
+   </concept>
+   <concept>
+    <code value="394803006"/>
+    <display value="Clinical hematology"/>
+   </concept>
+   <concept>
+    <code value="408480009"/>
+    <display value="Clinical immunology"/>
+   </concept>
+   <concept>
+    <code value="408454008"/>
+    <display value="Clinical microbiology"/>
+   </concept>
+   <concept>
+    <code value="394809005"/>
+    <display value="Clinical neuro-physiology"/>
+   </concept>
+   <concept>
+    <code value="394592004"/>
+    <display value="Clinical oncology"/>
+   </concept>
+   <concept>
+    <code value="394600006"/>
+    <display value="Clinical pharmacology"/>
+   </concept>
+   <concept>
+    <code value="394601005"/>
+    <display value="Clinical physiology"/>
+   </concept>
+   <concept>
+    <code value="394581000"/>
+    <display value="Community medicine"/>
+   </concept>
+   <concept>
+    <code value="408478003"/>
+    <display value="Critical care medicine"/>
+   </concept>
+   <concept>
+    <code value="394812008"/>
+    <display value="Dental medicine specialties"/>
+   </concept>
+   <concept>
+    <code value="408444009"/>
+    <display value="Dental-General dental practice"/>
+   </concept>
+   <concept>
+    <code value="394582007"/>
+    <display value="Dermatology"/>
+   </concept>
+   <concept>
+    <code value="408475000"/>
+    <display value="Diabetic medicine"/>
+   </concept>
+   <concept>
+    <code value="410005002"/>
+    <display value="Dive medicine"/>
+   </concept>
+   <concept>
+    <code value="394583002"/>
+    <display value="Endocrinology"/>
+   </concept>
+   <concept>
+    <code value="419772000"/>
+    <display value="Family practice"/>
+   </concept>
+   <concept>
+    <code value="394584008"/>
+    <display value="Gastroenterology"/>
+   </concept>
+   <concept>
+    <code value="408443003"/>
+    <display value="General medical practice"/>
+   </concept>
+   <concept>
+    <code value="394802001"/>
+    <display value="General medicine"/>
+   </concept>
+   <concept>
+    <code value="394915009"/>
+    <display value="General pathology"/>
+   </concept>
+   <concept>
+    <code value="394814009"/>
+    <display value="General practice"/>
+   </concept>
+   <concept>
+    <code value="394808002"/>
+    <display value="Genito-urinary medicine"/>
+   </concept>
+   <concept>
+    <code value="394811001"/>
+    <display value="Geriatric medicine"/>
+   </concept>
+   <concept>
+    <code value="408446006"/>
+    <display value="Gynecological oncology"/>
+   </concept>
+   <concept>
+    <code value="394586005"/>
+    <display value="Gynecology"/>
+   </concept>
+   <concept>
+    <code value="394916005"/>
+    <display value="Hematopathology"/>
+   </concept>
+   <concept>
+    <code value="408472002"/>
+    <display value="Hepatology"/>
+   </concept>
+   <concept>
+    <code value="394597005"/>
+    <display value="Histopathology"/>
+   </concept>
+   <concept>
+    <code value="394598000"/>
+    <display value="Immunopathology"/>
+   </concept>
+   <concept>
+    <code value="394807007"/>
+    <display value="Infectious diseases"/>
+   </concept>
+   <concept>
+    <code value="419192003"/>
+    <display value="Internal medicine"/>
+   </concept>
+   <concept>
+    <code value="408468001"/>
+    <display value="Learning disability"/>
+   </concept>
+   <concept>
+    <code value="394593009"/>
+    <display value="Medical oncology"/>
+   </concept>
+   <concept>
+    <code value="394813003"/>
+    <display value="Medical ophthalmology"/>
+   </concept>
+   <concept>
+    <code value="410001006"/>
+    <display value="Military medicine"/>
+   </concept>
+   <concept>
+    <code value="394589003"/>
+    <display value="Nephrology"/>
+   </concept>
+   <concept>
+    <code value="394591006"/>
+    <display value="Neurology"/>
+   </concept>
+   <concept>
+    <code value="394599008"/>
+    <display value="Neuropathology"/>
+   </concept>
+   <concept>
+    <code value="394649004"/>
+    <display value="Nuclear medicine"/>
+   </concept>
+   <concept>
+    <code value="408470005"/>
+    <display value="Obstetrics"/>
+   </concept>
+   <concept>
+    <code value="394585009"/>
+    <display value="Obstetrics and gynecology"/>
+   </concept>
+   <concept>
+    <code value="394821009"/>
+    <display value="Occupational medicine"/>
+   </concept>
+   <concept>
+    <code value="422191005"/>
+    <display value="Ophthalmic surgery"/>
+   </concept>
+   <concept>
+    <code value="394594003"/>
+    <display value="Ophthalmology"/>
+   </concept>
+   <concept>
+    <code value="416304004"/>
+    <display value="Osteopathic manipulative medicine"/>
+   </concept>
+   <concept>
+    <code value="418960008"/>
+    <display value="Otolaryngology"/>
+   </concept>
+   <concept>
+    <code value="394882004"/>
+    <display value="Pain management"/>
+   </concept>
+   <concept>
+    <code value="394806003"/>
+    <display value="Palliative medicine"/>
+   </concept>
+   <concept>
+    <code value="394588006"/>
+    <display value="Pediatric (Child and adolescent) psychiatry"/>
+   </concept>
+   <concept>
+    <code value="408459003"/>
+    <display value="Pediatric cardiology"/>
+   </concept>
+   <concept>
+    <code value="394607009"/>
+    <display value="Pediatric dentistry"/>
+   </concept>
+   <concept>
+    <code value="419610006"/>
+    <display value="Pediatric endocrinology"/>
+   </concept>
+   <concept>
+    <code value="418058008"/>
+    <display value="Pediatric gastroenterology"/>
+   </concept>
+   <concept>
+    <code value="420208008"/>
+    <display value="Pediatric genetics"/>
+   </concept>
+   <concept>
+    <code value="418652005"/>
+    <display value="Pediatric hematology"/>
+   </concept>
+   <concept>
+    <code value="418535003"/>
+    <display value="Pediatric immunology"/>
+   </concept>
+   <concept>
+    <code value="418862001"/>
+    <display value="Pediatric infectious diseases"/>
+   </concept>
+   <concept>
+    <code value="419365004"/>
+    <display value="Pediatric nephrology"/>
+   </concept>
+   <concept>
+    <code value="418002000"/>
+    <display value="Pediatric oncology"/>
+   </concept>
+   <concept>
+    <code value="419983000"/>
+    <display value="Pediatric ophthalmology"/>
+   </concept>
+   <concept>
+    <code value="419170002"/>
+    <display value="Pediatric pulmonology"/>
+   </concept>
+   <concept>
+    <code value="419472004"/>
+    <display value="Pediatric rheumatology"/>
+   </concept>
+   <concept>
+    <code value="394539006"/>
+    <display value="Pediatric surgery"/>
+   </concept>
+   <concept>
+    <code value="420112009"/>
+    <display value="Pediatric surgery-bone marrow transplantation"/>
+   </concept>
+   <concept>
+    <code value="409968004"/>
+    <display value="Preventive medicine"/>
+   </concept>
+   <concept>
+    <code value="394587001"/>
+    <display value="Psychiatry"/>
+   </concept>
+   <concept>
+    <code value="394913002"/>
+    <display value="Psychotherapy"/>
+   </concept>
+   <concept>
+    <code value="408440000"/>
+    <display value="Public health medicine"/>
+   </concept>
+   <concept>
+    <code value="418112009"/>
+    <display value="Pulmonary medicine"/>
+   </concept>
+   <concept>
+    <code value="419815003"/>
+    <display value="Radiation oncology"/>
+   </concept>
+   <concept>
+    <code value="394914008"/>
+    <display value="Radiology"/>
+   </concept>
+   <concept>
+    <code value="408455009"/>
+    <display value="Radiology-Interventional radiology  "/>
+   </concept>
+   <concept>
+    <code value="394602003"/>
+    <display value="Rehabilitation"/>
+   </concept>
+   <concept>
+    <code value="408447002"/>
+    <display value="Respite care"/>
+   </concept>
+   <concept>
+    <code value="394810000"/>
+    <display value="Rheumatology"/>
+   </concept>
+   <concept>
+    <code value="408450004"/>
+    <display value="Sleep studies"/>
+   </concept>
+   <concept>
+    <code value="408476004"/>
+    <display value="Surgery-Bone and marrow transplantation"/>
+   </concept>
+   <concept>
+    <code value="408469009"/>
+    <display value="Surgery-Breast surgery"/>
+   </concept>
+   <concept>
+    <code value="408466002"/>
+    <display value="Surgery-Cardiac surgery"/>
+   </concept>
+   <concept>
+    <code value="408471009"/>
+    <display value="Surgery-Cardiothoracic transplantation"/>
+   </concept>
+   <concept>
+    <code value="408464004"/>
+    <display value="Surgery-Colorectal surgery"/>
+   </concept>
+   <concept>
+    <code value="408441001"/>
+    <display value="Surgery-Dental-Endodontics"/>
+   </concept>
+   <concept>
+    <code value="408465003"/>
+    <display value="Surgery-Dental-Oral and maxillofacial surgery"/>
+   </concept>
+   <concept>
+    <code value="394605001"/>
+    <display value="Surgery-Dental-Oral surgery"/>
+   </concept>
+   <concept>
+    <code value="394608004"/>
+    <display value="Surgery-Dental-Orthodontics"/>
+   </concept>
+   <concept>
+    <code value="408461007"/>
+    <display value="Surgery-Dental-Periodontal surgery"/>
+   </concept>
+   <concept>
+    <code value="408460008"/>
+    <display value="Surgery-Dental-Prosthetic dentistry (Prosthodontics)"/>
+   </concept>
+   <concept>
+    <code value="408460008"/>
+    <display value="Surgery-Dental-surgical-Prosthodontics"/>
+   </concept>
+   <concept>
+    <code value="394606000"/>
+    <display value="Surgery-Dentistry-Restorative dentistry"/>
+   </concept>
+   <concept>
+    <code value="408449004"/>
+    <display value="Surgery-Dentistry&#45;-surgical"/>
+   </concept>
+   <concept>
+    <code value="394608004"/>
+    <display value="Surgery-Dentistry-surgical-Orthodontics"/>
+   </concept>
+   <concept>
+    <code value="418018006"/>
+    <display value="Surgery-Dermatologic surgery"/>
+   </concept>
+   <concept>
+    <code value="394604002"/>
+    <display value="Surgery-Ear, nose and throat surgery"/>
+   </concept>
+   <concept>
+    <code value="394609007"/>
+    <display value="Surgery-general"/>
+   </concept>
+   <concept>
+    <code value="408474001"/>
+    <display value="Surgery-Hepatobiliary and pancreatic surgery"/>
+   </concept>
+   <concept>
+    <code value="394610002"/>
+    <display value="Surgery-Neurosurgery"/>
+   </concept>
+   <concept>
+    <code value="394611003"/>
+    <display value="Surgery-Plastic surgery"/>
+   </concept>
+   <concept>
+    <code value="408477008"/>
+    <display value="Surgery-Transplantation surgery"/>
+   </concept>
+   <concept>
+    <code value="394801008"/>
+    <display value="Surgery-Trauma and orthopedics"/>
+   </concept>
+   <concept>
+    <code value="408463005"/>
+    <display value="Surgery-Vascular"/>
+   </concept>
+   <concept>
+    <code value="419321007"/>
+    <display value="Surgical oncology"/>
+   </concept>
+   <concept>
+    <code value="394576009"/>
+    <display value="Surgical-Accident &amp; emergency"/>
+   </concept>
+   <concept>
+    <code value="394590007"/>
+    <display value="Thoracic medicine"/>
+   </concept>
+   <concept>
+    <code value="409967009"/>
+    <display value="Toxicology "/>
+   </concept>
+   <concept>
+    <code value="408448007"/>
+    <display value="Tropical medicine"/>
+   </concept>
+   <concept>
+    <code value="419043006"/>
+    <display value="Urological oncology"/>
+   </concept>
+   <concept>
+    <code value="394612005"/>
+    <display value="Urology"/>
+   </concept>
+   <concept>
+    <code value="394733009"/>
+    <display value="Medical specialty&#45;-OTHER&#45;-NOT LISTED"/>
+   </concept>
+   <concept>
+    <code value="394732004"/>
+    <display value="Surgical specialty&#45;-OTHER-NOT LISTED"/>
+   </concept>
+    </include>
+  </compose>
+</ValueSet>
+

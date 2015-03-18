@@ -1,0 +1,345 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="valueset-xds-facilitycodes"/>
+  <meta>
+    <lastUpdated value="2015-03-17T12:06:30.047+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>
+  </extension>
+  <url value="http://hl7.org/fhir/vs/valueset-xds-facilitycodes"/>
+  <version value="20091109"/>
+  <name value="Facililty Type Code Value Set"/>
+  <publisher value="HITSP"/>
+  <description value="This is the code representing the type of organizational setting where the clinical encounter, service, interaction, or treatment occurred. The value set used for Healthcare Facility Type has been defined by HITSP to be the value set reproduced from HITSP C80 Table 2-147."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright &#169; 2002+ International
+   Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement
+   between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+
+   <concept>
+    <code value="82242000"/>
+    <display value="Hospital-children's"/>
+   </concept>
+   <concept>
+    <code value="225732001"/>
+    <display value="Hospital-community"/>
+   </concept>
+   <concept>
+    <code value="79993009"/>
+    <display value="Hospital-government"/>
+   </concept>
+   <concept>
+    <code value="32074000"/>
+    <display value="Hospital-long term care"/>
+   </concept>
+   <concept>
+    <code value="4322002"/>
+    <display value="Hospital-military field"/>
+   </concept>
+   <concept>
+    <code value="224687002"/>
+    <display value="Hospital-prison"/>
+   </concept>
+   <concept>
+    <code value="62480006"/>
+    <display value="Hospital-psychiatric"/>
+   </concept>
+   <concept>
+    <code value="80522000"/>
+    <display value="Hospital-rehabilitation"/>
+   </concept>
+   <concept>
+    <code value="36125001"/>
+    <display value="Hospital-trauma center"/>
+   </concept>
+   <concept>
+    <code value="48311003"/>
+    <display value="Hospital-Veterans' Administration"/>
+   </concept>
+   <concept>
+    <code value="284546000"/>
+    <display value="Hospice facility"/>
+   </concept>
+   <concept>
+    <code value="42665001"/>
+    <display value="Nursing home"/>
+   </concept>
+   <concept>
+    <code value="45618002"/>
+    <display value="Skilled nursing facility"/>
+   </concept>
+   <concept>
+    <code value="418518002"/>
+    <display value="Dialysis unit&#45;-hospital"/>
+   </concept>
+   <concept>
+    <code value="73770003"/>
+    <display value="Emergency department&#45;-hospital"/>
+   </concept>
+   <concept>
+    <code value="69362002"/>
+    <display value="Hospital ambulatory surgery facility"/>
+   </concept>
+   <concept>
+    <code value="52668009"/>
+    <display value="Hospital birthing center"/>
+   </concept>
+   <concept>
+    <code value="360957003"/>
+    <display value="Hospital outpatient allergy clinic"/>
+   </concept>
+   <concept>
+    <code value="10206005"/>
+    <display value="Hospital outpatient dental clinic"/>
+   </concept>
+   <concept>
+    <code value="37550003"/>
+    <display value="Hospital outpatient dermatology clinic"/>
+   </concept>
+   <concept>
+    <code value="73644007"/>
+    <display value="Hospital outpatient endocrinology clinic"/>
+   </concept>
+   <concept>
+    <code value="31628002"/>
+    <display value="Hospital outpatient family medicine clinic"/>
+   </concept>
+   <concept>
+    <code value="58482006"/>
+    <display value="Hospital outpatient gastroenterology clinic"/>
+   </concept>
+   <concept>
+    <code value="90484001"/>
+    <display value="Hospital outpatient general surgery clinic"/>
+   </concept>
+   <concept>
+    <code value="1814000"/>
+    <display value="Hospital outpatient geriatric health center"/>
+   </concept>
+   <concept>
+    <code value="22549003"/>
+    <display value="Hospital outpatient gynecology clinic"/>
+   </concept>
+   <concept>
+    <code value="56293002"/>
+    <display value="Hospital outpatient hematology clinic"/>
+   </concept>
+   <concept>
+    <code value="360966004"/>
+    <display value="Hospital outpatient immunology clinic"/>
+   </concept>
+   <concept>
+    <code value="2849009"/>
+    <display value="Hospital outpatient infectious disease clinic"/>
+   </concept>
+   <concept>
+    <code value="14866005"/>
+    <display value="Hospital outpatient mental health center"/>
+   </concept>
+   <concept>
+    <code value="38238005"/>
+    <display value="Hospital outpatient neurology clinic"/>
+   </concept>
+   <concept>
+    <code value="56189001"/>
+    <display value="Hospital outpatient obstetrical clinic"/>
+   </concept>
+   <concept>
+    <code value="89972002"/>
+    <display value="Hospital outpatient oncology clinic"/>
+   </concept>
+   <concept>
+    <code value="78088001"/>
+    <display value="Hospital outpatient ophthalmology clinic"/>
+   </concept>
+   <concept>
+    <code value="78001009"/>
+    <display value="Hospital outpatient orthopedics clinic"/>
+   </concept>
+   <concept>
+    <code value="23392004"/>
+    <display value="Hospital outpatient otorhinolaryngology clinic"/>
+   </concept>
+   <concept>
+    <code value="36293008"/>
+    <display value="Hospital outpatient pain clinic"/>
+   </concept>
+   <concept>
+    <code value="3729002"/>
+    <display value="Hospital outpatient pediatric clinic"/>
+   </concept>
+   <concept>
+    <code value="5584006"/>
+    <display value="Hospital outpatient peripheral vascular clinic"/>
+   </concept>
+   <concept>
+    <code value="37546005"/>
+    <display value="Hospital outpatient rehabilitation clinic"/>
+   </concept>
+   <concept>
+    <code value="57159002"/>
+    <display value="Hospital outpatient respiratory disease clinic"/>
+   </concept>
+   <concept>
+    <code value="331006"/>
+    <display value="Hospital outpatient rheumatology clinic"/>
+   </concept>
+   <concept>
+    <code value="50569004"/>
+    <display value="Hospital outpatient urology clinic"/>
+   </concept>
+   <concept>
+    <code value="79491001"/>
+    <display value="Hospital radiology facility"/>
+   </concept>
+   <concept>
+    <code value="33022008"/>
+    <display value="Hospital-based outpatient clinic or department&#45;-OTHER-NOT LISTED"/>
+   </concept>
+   <concept>
+    <code value="19602009"/>
+    <display value="Fee-for-service private physicians' group office"/>
+   </concept>
+   <concept>
+    <code value="39350007"/>
+    <display value="Private physicians' group office"/>
+   </concept>
+   <concept>
+    <code value="83891005"/>
+    <display value="Solo practice private office"/>
+   </concept>
+   <concept>
+    <code value="394759007"/>
+    <display value="Independent ambulatory care provider site&#45;-OTHER&#45;-NOT LISTED"/>
+   </concept>
+   <concept>
+    <code value="405607001"/>
+    <display value="Ambulatory surgery center"/>
+   </concept>
+   <concept>
+    <code value="309900005"/>
+    <display value="Care of the elderly day hospital"/>
+   </concept>
+   <concept>
+    <code value="275576008"/>
+    <display value="Elderly assessment clinic"/>
+   </concept>
+   <concept>
+    <code value="10531005"/>
+    <display value="Free-standing ambulatory surgery facility"/>
+   </concept>
+   <concept>
+    <code value="91154008"/>
+    <display value="Free-standing birthing center"/>
+   </concept>
+   <concept>
+    <code value="41844007"/>
+    <display value="Free-standing geriatric health center"/>
+   </concept>
+   <concept>
+    <code value="45899008"/>
+    <display value="Free-standing laboratory facility"/>
+   </concept>
+   <concept>
+    <code value="51563005"/>
+    <display value="Free-standing mental health center"/>
+   </concept>
+   <concept>
+    <code value="1773006"/>
+    <display value="Free-standing radiology facility"/>
+   </concept>
+   <concept>
+    <code value="72311000"/>
+    <display value="Health maintenance organization"/>
+   </concept>
+   <concept>
+    <code value="6827000"/>
+    <display value="Local community health center"/>
+   </concept>
+   <concept>
+    <code value="309898008"/>
+    <display value="Psychogeriatric day hospital"/>
+   </concept>
+   <concept>
+    <code value="39913001"/>
+    <display value="Residential school infirmary"/>
+   </concept>
+   <concept>
+    <code value="77931003"/>
+    <display value="Rural health center"/>
+   </concept>
+   <concept>
+    <code value="25681007"/>
+    <display value="Sexually transmitted disease health center"/>
+   </concept>
+   <concept>
+    <code value="20078004"/>
+    <display value="Substance abuse treatment center"/>
+   </concept>
+   <concept>
+    <code value="46224007"/>
+    <display value="Vaccination clinic"/>
+   </concept>
+   <concept>
+    <code value="81234003"/>
+    <display value="Walk-in clinic"/>
+   </concept>
+   <concept>
+    <code value="35971002"/>
+    <display value="Ambulatory care site&#45;-OTHER&#45;-NOT LISTED"/>
+   </concept>
+   <concept>
+    <code value="11424001"/>
+    <display value="Ambulance-based care"/>
+   </concept>
+   <concept>
+    <code value="409519008"/>
+    <display value="Contained casualty setting"/>
+   </concept>
+   <concept>
+    <code value="901005"/>
+    <display value="Helicopter-based care"/>
+   </concept>
+   <concept>
+    <code value="2081004"/>
+    <display value="Hospital ship"/>
+   </concept>
+   <concept>
+    <code value="59374000"/>
+    <display value="Traveler's aid clinic"/>
+   </concept>
+   <concept>
+    <code value="413456002"/>
+    <display value="Adult day care center"/>
+   </concept>
+   <concept>
+    <code value="413817003"/>
+    <display value="Child day care center"/>
+   </concept>
+   <concept>
+    <code value="310205006"/>
+    <display value="Private residential home"/>
+   </concept>
+   <concept>
+    <code value="419955002"/>
+    <display value="Residential institution"/>
+   </concept>
+   <concept>
+    <code value="272501009"/>
+    <display value="Sports facility"/>
+   </concept>
+   <concept>
+    <code value="394777002"/>
+    <display value="Health encounter site&#45;-NOT LISTED"/>
+   </concept>
+
+     
+    </include>  
+  </compose>  
+</ValueSet>
+
