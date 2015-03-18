@@ -4644,9 +4644,9 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Binding can only be present for coded elements, and string</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Binding can only be present for coded elements, string, and uri</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity','Extension', 'string')</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity','Extension', 'string', 'uri')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s106"><Data ss:Type="Number">12</Data><NamedCell
@@ -5029,8 +5029,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

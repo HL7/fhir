@@ -313,7 +313,7 @@ public class ResourceValidator extends BaseValidator {
 		
 		if (e.hasBinding()) {
 		  rule(errors, "structure", path, e.typeCode().equals("code") || e.typeCode().contains("Coding") 
-				  || e.typeCode().contains("CodeableConcept"), "Can only specify bindings for coded data types");
+				  || e.typeCode().contains("CodeableConcept") || e.typeCode().equals("uri"), "Can only specify bindings for coded data types");
       rule(errors, "structure", path, !e.getBindingName().toLowerCase().contains("code"), "Binding name " + e.getBindingName()+" is invalid - contains 'code'");
 			BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
 			rule(errors, "structure", path, cd != null, "Unable to resolve binding name " + e.getBindingName());
