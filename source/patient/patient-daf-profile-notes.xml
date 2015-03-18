@@ -33,7 +33,7 @@ Implementers need to be mindful of the following during their implementation
 	
 	<p><b>Capturing BirthPlace: </b> Many systems may only capture the birth place as a city name, or a state name or a county name instead of using a highly structured Address data type. In these cases these systems should use the address.text field to record the birth place.</p>
 	
-	<p>See<a href="daf.html">DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
+	<p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 </ul>
 
 </div>

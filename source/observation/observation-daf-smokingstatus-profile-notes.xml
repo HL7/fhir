@@ -1,5 +1,10 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<h2>Search Parameters</h2>
+<p>
+The full list of supported search parameters are can be accessed at <a href="conformance-daf-query-requestor.html">DAF Requestor conformance expectations</a> and <a href="conformance-daf-query-responder.html">DAF Responder conformance expectations</a>.
+</p>
+
 <h2>Example Usage Scenarios</h2>
 
 <p>
@@ -13,17 +18,14 @@ The following are example usage scenarios for the DAF Smoking Status profile:
 	<li>Query for all patients who have a smoking history and are in an age group</li>
 </ul>
 
-<h2>Additional Implementation Guidance</h2>
+<h2>Profile specific implementation guidance</h2>
 
 <p>
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<p><b>Specifying Patients as part of the Smoking Status Queries:</b> DAF Smoking Status profile supports the querying the Smoking Status for a particular patient. In order to achieve this in implementation, it is recommended to use Patient.identifier field to precisely identify the observations relevant to the patient. While other parameters such as  Patient.name, Patient.given could be used this could lead to incorrect Patient matching and/or inefficient queries when systems are not tuned. </p>
-	
 	<p><b>Smoking Status Applicability:</b> The Smoking Status values describe point-in-time smoking status, and implementers have to be mindful of the semantic meaning while using these codes to describe smoking behavior. For example, if I want to say that a patient used to smoke heavily between 2000 and 2010, it <u>does not</u> make sense to use the code for Former smoker', along with an appliesPeriod representing 2000-2010. This is because 'Former smoker' <u>did not</u> apply during that time range. Instead implementers should use a 'current smoker' along with a time range representing 2000-2010. </p>
-	
-	<p><b>Patient Matching:</b> Patient Matching rules and criteria have to be evaluated by the implementing organization and have to comply with local policies and regulations. Query Requestors will have to deal with result sets that can return zero,one or more Observation Resources in response to a query.</p>
+	<p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 </ul>
 
 </div>

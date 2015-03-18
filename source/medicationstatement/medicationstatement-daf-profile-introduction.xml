@@ -3,71 +3,70 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This profile sets expectations for use of the <a href="medicationstatement.html">MedicationStatement</a> resource to record summary of active medication information for a patient within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements,extensions,vocabularies and value sets must be supported by DAF actors.
-</p>
-<p>
-For the purposes of this profile, <i>Supported</i> means the following:
-<ul>
-  <p><b>SearchParameters:</b></p>
-  <li>DAF Query Requestor (client) SHALL be capable of querying the MedicationStatement resource using one or more of the search parameters for data elements tagged as MUST SUPPORT in this profile.</li>
-  <li>DAF Query Responder (server) SHALL be capable of receiving the queries submitted by the DAF Query Requestor and provide Query Results or error responses per the FHIR specifications.</li>
-  <li>DAF Query Responder MAY provide valid or error responses when the query parameters submitted contain data elements which are not tagged as MUST SUPPORT by this profile.</li>
-  <p/>
-  <p><b>Query Results:</b></p>
-  <li>Query Results returned by DAF Query Responder SHOULD contain the data elements identified as MUST SUPPORT in the profile.</li>
-  <li>Query Results returned MAY contain data elements not tagged as MUST SUPPORT by the this profile.</li>
-  <li>Query Requestor SHALL process the Query Results containing additional data elements without indicating that the response is an erroneous response.</li>
-  <p/>
-  <p><b>Missing Information:</b></p>
-  <li>When Query Results do not contain a particular data element identified as MUST SUPPORT, Query Requestors SHALL interpret the results to mean that the Query Responder did not have information and there is no further qualifying information as to why the information is missing.</li>
-  <li>In cases, where the Query Responder knows precisely the reason why the data is missing (e.g notasked in the data-absent-reason value set), then Query Responders MAY provide this additional information using the extension element as part of the data element. Query Requestors SHALL correctly process the data-absent-reason extension without rejecting the response as an erroneous response.</li>
-</ul>
+This profile sets expectations for use of the <a href="medicationstatement.html">MedicationStatement</a> resource to record summary of active medication information for a patient within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements,extensions,vocabularies and value sets must be <i>Supported</i> by DAF actors.
+For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases. 
+The mappings between the ONC 2014 Edition S&amp;CC data elements and DAF data elements are captured in the table below, where the first column identifies the ONC 2014 Edition S&amp;CC data element name, 
+the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data elements which are derived from ONC 2014 Edition S&amp;CC standards and DAF use cases and lastly the third column identifies the mapping to FHIR resources and attributes.
 </p>
 </div>
 
 <div>
-<h2>Relationship to Meaningful Use</h2>
+<h2>Meaningful Use Data Element Mapping</h2>
 <p>
-The DAF Medication profile provides a mapping for the following Meaningful Use data elements to FHIR data elements.
+The DAFMedicationStatement profile mapping to Meaningful Use data elements and FHIR Resources are as shown below.
 </p>
 <br/>
 	<table class="grid">
         <thead>
           <tr>
             <th>Meaningful Use Data Element Name</th>
+			<th>Mapping to Priority DAF Data Elements</th>
             <th>FHIR Resource Mapping</th>
           </tr>
         </thead>
         <tbody>
+		  <tr>
+		    <td>Medications</td>
+			<td/>
+			<td/>
+		  </tr>
           <tr>
+		    <td/>
 			<td>Medication Material</td>
 			<td>MedicationStatement.medication.code</td>
 		  </tr>
 		  <tr>
+		    <td/>
 			<td>Medication Start and End Time</td>
 			<td>MedicationStatement.whenGiven</td>
 		  </tr>
 		  <tr>
+		    <td/>
 			<td>Medication Dosage units</td>
 			<td>MedicationStatement.dosage.quantity</td>
 		  </tr>
 		  <tr>
+		    <td/>
 			<td>Medication Schedule(when/how often)</td>
 			<td>MedicationStatement.dosage.schedule</td>
 		  </tr>
 		  <tr>
+		    <td/>
 			<td>Medication Administration Route</td>
 			<td>MedicationStatement.dosage.route</td>
 		  </tr>
 		  <tr>
+		    <td/>
 			<td>Medication Administration Body site</td>
 			<td>MedicationStatement.dosage.site</td>
 		  </tr>
 		  <tr>
+		    <td/>
 			<td>Medication Dosage Rate</td>
 			<td>MedicationStatement.dosage.rate</td>
 		  </tr>
 		  <tr>
+		    <td/>
 			<td>Maximum Medication Dosage quantity</td>
 			<td>MedicationStatement.dosage.maxDosePerPeriod</td>
 		  </tr>
@@ -80,12 +79,14 @@ The DAF Medication profile provides a mapping for the following Meaningful Use d
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This profile relies on the use of other profiles, some required, others available for use "when necessary":
+This profile relies on the following other profiles:
 </p>
 <ul>
-  <li><a href="patient-daf.html">DAFPatient</a> which defines DAF Patient profile used by MedicationStatement.patient.</li>
-  <li><a href="medication-daf.html">DAFMedication</a> is used by the this profile to code the medication material(e.g drug) referenced by the DAFMedicationStatement profile.</li>
-  <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension is used to code data elements with missing information when appropriate.</li>
+  <li><a href="patient-daf.html">DAFPatient</a> which defines DAF Patient profile is used by DAFMedicationStatement profile to refer to patients.</li>
+  <li><a href="medication-daf.html">DAFMedication</a> is used by the this profile to code the medication material(e.g drug).</li>
+  <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. 
+  Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
+  See <a href="daf.html">DAF FHIR IG</a> for additional guidance.</li>
 </ul>
 </div>
 
