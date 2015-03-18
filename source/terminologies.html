@@ -44,7 +44,7 @@ The FHIR framework for using coded values is based on the fundamental framework 
 <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a> document.
 </p>
 <p>
-When codes are carried in resources, one of 3 different data types is used:
+When codes are carried in resources, one of 4 different data types is used:
 </p>
 <table class="grid">
  <tr><td><a href="datatypes.html#code">code</a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
@@ -60,6 +60,17 @@ codes defined by FHIR itself are case sensitive and SHALL be used in the provide
 (usually, but not always, lowercase).
 </p>
 
+<a name="strings"> </a>
+<h3>Binding String Values</h3>
+<p>
+In a few special cases, humans customarily use codes directly for elements that have type "string". A typical case is codes for states,
+adnd there are several places where a URIs must come from a set of controlled values. 
+An element of type <a href="datatypes.html#string">string</a> or <a href="datatypes.html#uri">uri</a> can also be bound to a value set. 
+When a string or uri is bound to a value set, the value property SHALL contain the code specified by the value set, and the system 
+and display values are ignored. 
+</p>
+
+<a name="binding"> </a>
 <h2>Controlling the use of Coded Values</h2>
 <p>
 The set of coded values that is allowed to be used in an element of one of these
@@ -103,11 +114,145 @@ When an element is bound to a value set, the binding has these properties:
 In the FHIR declarative datatypes, a binding is always represented using an <a href="elementdefinition-definitions.html#ElementDefinition.binding">ElementDefinition,binding</a>.
 </p>
 
-<h3>Binding Strings</h3>
+<a name="references"> </a>
+
+<h3>Value Set References</h3>
 <p>
-In a few special cases, humans customarily use codes directly for elements that have type "string". A typical case is codes for states. 
-An element of type <a href="datatypes.html#string">string</a> can also be bound to a value set. When a string is bound to a value set,
-the string element contains the code specified by the value set, and the system and display values are ignored. 
+There are a number of places in the specification where value sets are referenced in order to bind a coded value to a value set:
+</p>
+<table class="grid">
+ <tr><td><a href="elementdefinition.html">ElementDefinition</a>.binding.valueSet[x]</td><td>Used to bind a defined element to a value set</td></tr>
+ <tr><td><a href="conceptmap.html">ConceptMap</a>.source[x] and .target[x]</td><td>used to indicate the scope of the mapping in the Concept Map - from one value set to another</td></tr>
+ <tr><td><a href="questionnaire.html">Questionnaire</a>.group.question.options</td><td>Indicates that answers to a set of questions come from a value set</td></tr>
+ <tr><td><a href="valueset.html">ValueSet</a>.compose.import</td><td>The content of a value set includes the content in the imported value set too</td></tr>
+ <tr><td><a href="extension-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a particular coded value was chosen from the specified value set</td></tr>
+</table>
+<p>
+There are two types of value set references in this list, direct and logical. 
+</p>
+
+<a name="direct"> </a>
+<h4>Direct Value Set references</h4>
+<p>
+A direct value set reference has the type <a href="references.html#Reference">Reference</a>, 
+and refers directly to a ValueSet based on a URL, usually to a terminology server running
+a <a href="http.html">FHIR RESTful API</a>. When accessing a value set based on this kind of reference, a system should
+access the URL directly (after converting a relative reference to an absolute reference
+according to the local context). If this process fails, the system is unable to resolve
+the value set and must handle the error appropriately. 
+</p>
+<p>
+Example:
+</p>
+<pre>
+GET fhir/Questionnaire/234
+
+&lt;Questionnaire&gt;
+  ...
+  &lt;question&gt;
+    &lt;options&gt;
+      &lt;reference value=&quot;ValueSet/234234&quot;/&gt;
+    &lt;/options&gt;
+  &lt;/question&gt;
+  ....
+&lt;/Questionnaire&gt;
+</pre>
+<p>
+This specifies that the values for a particular questionnaire come from the 
+ValueSet with id 234234 on the same FHIR end-point. To resolve this, the
+system would GET fhir/ValueSet/234234
+</p>
+<p>
+Typically, a direct reference like this is good for in-process references, in closed
+or carefully managed eco-systems. In a more general context, these references tend 
+to be fragile over time because web URLs - including RESTful API URLS - are easily
+reassigned. For this reason, systems are encouraged to use logical value set references. 
+</p>
+
+<a name="logical"> </a>
+<h4>Logical Value Set references</h4>
+<p>
+A logical value set reference has the type <a href="datatypes.html#uri">uri</a>, 
+where an absolute URI is provided that matches the one in ValueSet.url. The 
+value set URL can - and is preferred to be - a web address that actually resolves
+directly to a fixed web address that serves as the authoritative source for that
+value set. Alternatively, the system can query its terminology server(s) to
+resolve a value set with that URL as its identity.
+</p>
+<p>
+Example:
+</p>
+<pre>
+&lt;StructureDefinition&gt;
+  ...
+  &lt;element&gt;
+    ...
+    &lt;binding&gt;
+      ...
+      &lt;valueSetUri value=&quot;http://hl7.org/fhir/vs/clinical-findings&quot;/&gt;
+    &lt;/binding&gt;
+    ...
+  &lt;/element&gt;
+  ....
+&lt;/StructureDefinition&gt;
+</pre>
+<p>
+This specifies that the element is bound to the value set with a Value.url of
+<a href="http://hl7.org/fhir/vs/clinical-findings">http://hl7.org/fhir/vs/clinical-findings</a>. One way to accees this value set is 
+to try GET http://hl7.org/fhir/vs/clinical-findings - which works, for this value set - http://hl7.org/fhir/vs/clinical-findings 
+returns the authoritative value set for this URL. 
+</p>
+<p>
+Alternatively, the value set could be resolved using a local terminology server.
+If that's running a <a href="terminology-service.html">FHIR Terminology Server</a>,
+then this would work like this:
+</p>
+<pre>
+GET fhir/ValueSet?url=http://hl7.org/fhir/vs/clinical-findings
+</pre>
+<p>
+if the terminology server knows the value set, then it will return the value set.
+If the URL doesn't resolve to an authoritative value set, and the terminology
+server(s) don't know the value set, the system is unable to resolve
+the value set and must handle the error appropriately. 
+</p>
+<p>
+The value set URL is allowed to be a URI such as a UUID (e.g. urn:uuid:c0e0d027-1250-4278-8f44-33a49dc67916).
+These value sets can never be accessed directly, and must come from a terminology server. Note
+that this specification defines many value sets that have a logical URL that is not resolvable
+(examples for <a href="snomedct.html#implicit">SNOMED CT</a>, <a href="rxnorm.html#implicit">RxNorm</a>, <a href="loinc.html#implicit">LOINC</a>)
+</p>
+<p>
+Using a logical reference which is a direct reference to the authoritative value set 
+is the easiest and most reliable approach. However this requires suitable hosting 
+arrangements, and cannot always be guaranteed, so it is not required.
+</p>
+<p><b>Version specific Logical References</b></p>
+<p>
+A value set has a two part identifier: a url, and a version. Some value sets only 
+ever have a single 'version'; a revision of the value set contents will cause 
+a new url to be assigned. Others, however, maintain the same URL, and change
+the version. A terminology server may have multiple value sets for the same 
+ValueSet.url with different versions. 
+</p>
+<p>
+To be precise about which version of a value set is being referred to in 
+a value set reference, append the the version to the logical url like this:
+</p>
+<pre>
+&lt;valueSetUri value=&quot;http://hl7.org/fhir/vs/clinical-findings?amp;version=0.8&quot;/&gt;
+</pre>
+<p>
+This is a version specific reference to a value set. Searching
+for this on a terminology server would look like this:
+</p>
+<pre>
+GET fhir/ValueSet?url=http://hl7.org/fhir/vs/clinical-findings&version=0.8
+</pre>
+<p>
+Note that if a value set reference does not have a version, and the server finds multiple
+versions for the value set, the system using the value set should pick the latest version
+of the value set and use that.
 </p>
 
 <a name="strength"> </a>
