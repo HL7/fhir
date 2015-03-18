@@ -276,13 +276,13 @@ public class HeirarchicalTableGenerator  {
   public TableModel initNormalTable() {
     TableModel model = new TableModel();
     
-    model.getTitles().add(new Title(null, null, "Name", null, null, 0));
-    model.getTitles().add(new Title(null, null, "Flags", null, null, 0));
-    model.getTitles().add(new Title(null, null, "Card.", null, null, 0));
-    model.getTitles().add(new Title(null, null, "Type", null, null, 100));
-    model.getTitles().add(new Title(null, null, "Description & Constraints", null, null, 0));
     model.setDocoImg("help16.png");
     model.setDocoRef("formats.html#table");
+    model.getTitles().add(new Title(null, model.getDocoRef(), "Name", "The logical name of the element", null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), "Flags", "Information about the use of the element", null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance", null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), "Type", "Reference to the type of the element", null, 100));
+    model.getTitles().add(new Title(null, model.getDocoRef(), "Description & Constraints", "Additional information about the element", null, 0));
     return model;
   }
 
