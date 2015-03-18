@@ -18,7 +18,7 @@ Audit Event resources are often (though not exclusively) created by the applicat
 <h2>Boundaries and Relationships</h2>
 <p>
 Many other FHIR resources contain some elements that represent information
-about how the resource was obtained, and therefore thay overlap with the 
+about how the resource was obtained, and therefore they overlap with the 
 functionality of the Provenance resource. These properties in other resources
 should always be used in preference to the provenance resource, and the 
 provenance resource should be used where additional information is required,
@@ -31,6 +31,11 @@ though overlap can occur.
 <p>
 The provenance resource is based on the <a href="http://www.w3.org/TR/2013/NOTE-prov-overview-20130430/">W3C Provenance specification</a>, 
 and mappings are provided. The Provenance resource is tailored to fit the FHIR use-cases for provenance more directly. 
+In terms of <a htef="http://www.w3.org/TR/prov-dm/">W3C Provenance</a> the FHIR <a href="provenance.html">Provenance resources</a> covers "Generation" of "Entity" with 
+respect to FHIR defined Resources for creation or updating; 
+where as <a href="auditevent.html">Audit Event</a> covers "Usage" of "Entity" and all other "Activity" as defined in W3C Provenance.
+</p>
+<p>
 The W3C Provenance Specification has the following fundamental model:
 </p>
 <p>

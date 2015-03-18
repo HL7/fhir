@@ -60,7 +60,7 @@ images and internally contained style attributes.
 The XHTML content SHALL not contain
 a head, a body element, external stylesheet references, deprecated elements, scripts, forms, base/link/xlink, frames, iframes, objects or event related attributes (e.g. onClick).
 This is to ensure that the content of the narrative is contained within the resource and that there is no active content - this would introduce
-security issues and potentially safety issues with regard to extracting text from the XHTML.
+<a href="security.html#narrative">security issues</a> and potentially safety issues with regard to extracting text from the XHTML.
 </p>
 <p>
 The div element SHALL have some non-whitespace content (text or an image).
@@ -271,7 +271,7 @@ should use this approach with care. Authoring systems may fix the following styl
 These style properties are specified in-line using the style attribute. Rendering systems
 SHOULD respect any of these rendering styles when they are specified in the style
 attribute, though appropriate interpretation is allowed (e.g. a low-contrast display for dark
-room contexts or a high-contrast display for the visually impaired may adjust colors accordingly).
+room contexts or a high-contrast display for the visually impaired may adjust colours accordingly).
 </p>
 <p>
 Note that rendering systems are allowed to ignore or override any of the internal or
@@ -281,8 +281,8 @@ of the text may create clinical safety issues.
 </p>
 <p>
 Authors MAY specify additional styles and style properties as specified in the CSS specification,
-but these are extensions to this specification and renderers are not required to honor them.
-It SHOULD be safe to view the narrrative without these additional styling features available.
+but these are extensions to this specification and renderers are not required to heed them.
+It SHOULD be safe to view the narrative without these additional styling features available.
 </p>
 <p>
 Note that there is additional rules around styling for <a href="documents.html#css">documents</a> presentation.
@@ -307,7 +307,7 @@ In particular:
 the match between the xhtml <i>div</i> and <i>span</i> elements and styles, and
 those that include nested tables (possibly with images) as well make rendering consistency
 difficult, and implementations SHOULD avoid these</li>
- <li>The use of styles e.g. bolding, italics and color; SHOULD not be utilized as the
+ <li>The use of styles e.g. bolding, italics and colour; SHOULD not be utilized as the
    sole way to convey meaning or semantics, but should be used in conjunction with other
    FHIR resources to ensure consistent, long term interoperability. </li>
 </ul>

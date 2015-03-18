@@ -21,6 +21,12 @@ unless specifically requested, the FHIR XML/JSON representation is not returned.
 Note that in the native binary representation, the metadata is not available directly,
 though some of it is replicated in the HTTP response headers.
 </p>
+<h3>Security Considerations</h3>
+<p>
+Binary resources are not constrained, and therefore can be of any content type and encoding. 
+Therefore extra care needs to be taken to validate the content of the Binary resource against 
+malicious or malformed content. For more details see <a href="security.html#narrative">Security of Narrative</a>.
+</p>
 <!--
 <a name="binary"> </a>
 <h3>Binary Support</h3>

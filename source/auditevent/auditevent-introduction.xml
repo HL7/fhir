@@ -4,11 +4,12 @@
 <h2>Scope and Usage</h2>
 <p>
 The audit event is based on the ATNA Audit record definitions, originally from <a href="http://tools.ietf.org/html/rfc3881">RFC 3881</a>, and now managed by
-DICOM (see <a href="http://medical.nema.org/DICOM/2011/11_15pu.pdf">DICOM Part 15 Annex A5</a>). This resource is managed collaboratively between HL7, DICOM,
+DICOM (see <a href="http://medical.nema.org/medical/dicom/current/output/html/part15.html#sect_A.5">DICOM Part 15 Annex A5</a>). This resource is managed collaboratively between HL7, DICOM,
 and IHE for the MHD/mHealth initiatives. 
 </p>
 <p>
-The primary purpose of this resource is the maintenance of audit log information.  However, it can also be used for simple event-based notification or even
+The primary purpose of this resource is the maintenance of audit log information.  However, 
+it can also be used for simple event-based notification or even
 general indexing of resources stored in a variety of repositories.
 </p>
 </div>
@@ -16,11 +17,14 @@ general indexing of resources stored in a variety of repositories.
 <div>
 <h2>Background and Context</h2>
 <p>
-Servers that provide support for Audit Event resources should not generally accept update or delete operations on the resources, as this would compromise the integrity of the audit record. 
+Servers that provide support for Audit Event resources should not generally accept update or delete 
+operations on the resources, as this would compromise the integrity of the audit record. 
 </p>
 <p>
-Audit Events are created as events occur, to track and audit the events. Audit Event resources are often (though not exclusively) created by the application responding to the read/query/create/update etc. event. 
-A <a href="provenance.html">Provenance resource</a> contains overlapping information, but is a record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
+Audit Events are created as events occur, to track and audit the events. Audit Event resources are often (though not exclusively) 
+created by the application responding to the create/read/query/update/delete/execute etc. event. 
+A <a href="provenance.html">Provenance resource</a> contains overlapping information, but is a 
+record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
 Provenance resources are prepared by the application that initiates the create/update etc. of the resource.
 </p>
 </div>

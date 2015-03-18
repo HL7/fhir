@@ -23,31 +23,12 @@ as a pair using a <a href="http.html#transaction">transaction</a>.
 <h3>Digital Signatures</h3>
 
 <p>
-The provenance resource includes an integritySignature element which contains 
-an <a href="http://www.w3.org/TR/xmldsig-core/">XML digital signature</a>. 
+The provenance resource includes a Digital Signature element which can be used for 
+standards based integrity verification, and non-repudiation purposes. The <i>Signature</i> datatype
+provides details on use of the Signature element. The purposeOfSignature of "source" should be used
+when the signature is for simply proving that the Resource content is the same as it was when the resource
+was updated or created.
 </p>
-<p>
-The purpose of the signature is limited to checking cryptographic integrity of the target Reference(s); 
-e.g. detecting whether changes have occurred between the original construction of the resource and the application
-processing it. In order to make proper use of the signature element, 
-implementation profiles are required to further clarify the obligations 
-around creating and checking the signature.
-</p>
-<p>
-The following rules apply to digital signature:
-</p>
-<ul>
- <li>The Certificate identifier SHOULD match the identity of an agent (Provenance.agent.reference)</li>
- <li>If the signature has an IHE purposeOfSignature property, the value SHALL be "source", 
-   OID "1.2.840.10065.1.12", which means "the signature of an automated data source". If 
-   the signature does not have a purposeOfSignature property, the signature is still to used 
-   for this use</li>
- <li>Whether the representation of the Provenance resource is xml or json, the signature is a base64 of the 
-   <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#sec-Signature">XML signature</a></li>
- <li>The signature is always a signature of the target resource XML representation using a stated canonicalization</li> 
-</ul>
-The signature is only added to support , and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.			
- 
 <h3>Party References</h3>
 
 <p>

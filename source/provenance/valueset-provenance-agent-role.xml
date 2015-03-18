@@ -17,6 +17,7 @@
   </contact>
   <description value="The role that a provenance participant played"/>
   <status value="draft"/>
+  <extensible value="true"/>
   <date value="2023-05-12"/>
   <define>
     <system value="http://hl7.org/fhir/provenance-participant-role"/>
@@ -60,24 +61,6 @@
       <code value="informant"/>
       <definition value="A person who reported information that contributed to the resource"/>
     </concept>
-    <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="May be an electronic document, application, paper record, etc.  *Not* a person"/>
-      </extension>
-      <code value="source"/>
-      <definition value="An information source from which the portions of the resource are derived"/>
-    </concept>
-    <concept>
-      <code value="cc"/>
-      <definition value="A party, who may or should receive or who has received a copy of the resource or subsequent or derivative information of that resource"/>
-    </concept>
-    <concept>
-      <code value="application"/>
-      <definition value="An application with a user interface that interacts with a person"/>
-    </concept>
-    <concept>
-      <code value="daemon"/>
-      <definition value="A background process that transfers information from one place or form to another"/>
-    </concept>
+   
   </define>
 </ValueSet>

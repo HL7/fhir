@@ -36,8 +36,7 @@ in one section. A summary:
 <p>
 Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
 the <a href="http://wiki.hl7.org/index.php?title=FHIR_email_list_subscription_instructions">FHIR email 
-list</a> for prompt consideration. Alternatively, issues can be raised through the 
-<a href="http://wiki.hl7.org/index.php?title=FHIR_Security_Page">community input</a> mechanism.
+list</a> for prompt consideration. 
 </p>
 
 <p>
@@ -163,7 +162,7 @@ the relevant resources and the underlying systems. Note that this isn't necessar
 on any security being in place, or any particular implementation. But real world usage will generally require this. 
 </p>
 <p>
-A holder of data should not allow the data to be communicated unless there is assurances that the 
+A holder of data should not allow the data to be communicated unless there are sufficient assurances that the 
 other party is authorized to receive it. This is true for a Client creating a resource through a PUT/POST, 
 as much as it is true for a Server returning resources on a GET. The presumption is that without 
 proper authorization, to the satisfaction of the data holder, the data does not get communicated.
@@ -250,6 +249,7 @@ However, care is still needed when displaying the narrative:
  <li>Validate the narrative (the standard FHIR schemas do not allow active content, and the reference implementations won't handle it). Note, though, that external references could still be included in CSS, and these are outside the scope of schemas and reference implementations.</li>
  <li>Ensure that any external references to images or anchors (e.g. outside the resource) do not cause the display software to <a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">leak sensitive information in headers</a></li>
  <li>Do not allow external links to run in a privileged context such as the EHR unless you are sure they can be trusted</li>
+ <li>Care should be taken to differentiate HTTP RESTful (API) from browser based server content. Specifically one should separate user session cookies, as an attacker could create content that serves up with content-type "text/html" and has content like "&lt;script&gt;send_to_attacker(document.cookie);&lt;/script&gt;".</li>
 </ul>
 <p>
 Also note that the inclusion of an external reference to an image can allow the server that hosts the image to track 
