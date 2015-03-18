@@ -5,12 +5,14 @@
 		<p>
 			Slot resources are used to provide time-slots that can be booked using an appointment.
 			They do not provide any information about appointments that are available, just the time,
-			and optionally what the time can be used for. These are effectively spaces of free/busy time.
-		</p>
+			and optionally what the time can be used for. These are effectively spaces of free/busy time.<br/>
+      Slots can also be marked as busy without having appointments associated.
+    </p>
 		<p>
-			The slot can have more than one appointment allocated to it. The scheduling system may permit
-			this up to a specific number of places. An example of this type of usage could be where the slot
-			is being used for a group service that permits 5 participants at the same time.
+			A slot can have more than one appointment allocated to it. A scheduling system may permit
+			multiple allocations up to a specific number of places. An example of this type of usage 
+      could be where the slot is being used for a group service that permits 5 participants at 
+      the same time.
 		</p>
 		<p>
 			A slot can be marked as over-booked indicating that there are too many appointments allocated
@@ -23,5 +25,17 @@
 			Security Permissions or specific business rules on the system could enforce that only eligible
 			appointments are allocated to them.
 		</p>
-	</div>
+    <p>
+      If a service had a weekly schedule created that permitted eight 1 hour appointments each
+      day of a working week (Monday - Friday), this would be constructed by a single Schedule
+      resource with the dates for the start and end of the week set, and then 40 (5x8) Slot 
+      resources associated with it.<br/>
+      As appointments fill up the schedule, these slots would individually be marked as busy
+      as the appointments are filled into the slots.<br/>
+      The slots in a schedule do not need to be the same size, and can be different for different
+      days of the week.<br/>
+      Slot instances do not have any recurrance information included. If recurring information is
+      desired, this will be managed outside these resources, or included as extensions.
+    </p>
+  </div>
 </div>
