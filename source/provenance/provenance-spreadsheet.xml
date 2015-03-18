@@ -24,7 +24,7 @@
   <WindowWidth>19095</WindowWidth>
   <WindowTopX>-30</WindowTopX>
   <WindowTopY>165</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1439,14 +1439,12 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Entity role</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">derivation | revision | quotation | source</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">How the entity was used during the activity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">derivation | revision | quotation | source</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="18" ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">./typeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3888,12 +3886,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>14</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3901,6 +3900,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3908,7 +3908,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3978,14 +3978,14 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C14:R9C14,R12C14:R14C14,R16C14:R100C14</Range>
+   <Range>R2C14:R9C14,R12C14:R100C14</Range>
    <Condition>
     <Value1>(R[-1]C1=&quot;&quot;)&lt;&gt;(R[-1]C[-13]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R9C26,R12C1:R12C4,R13C1:R14C26,R10C1:R11C13,R10C15:R10C16,R10C18:R12C26,R12C6:R12C13,R11C15:R12C15,R15C1:R100C13,R15C15:R15C16,R16C15,R15C18:R100C26,R17C14:R100C15,R18C16:R100C17,R11C17</Range>
+   <Range>R2C1:R9C26,R12C1:R12C4,R13C1:R14C26,R10C1:R11C13,R10C15:R10C16,R10C18:R12C26,R12C6:R12C13,R11C15:R12C15,R15C1:R100C13,R15C15:R15C16,R17C14:R100C15,R18C16:R100C17,R11C17,R16C15,R15C18:R100C26,R15C14:R16C14</Range>
    <Condition>
     <Value1>R[-1]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -4038,7 +4038,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C14:R9C15,R10C17,R10C15,R13C14:R14C15,R17C14:R100C15,R15C17,R15C15</Range>
+   <Range>R2C14:R9C15,R10C17,R10C15,R13C14:R100C15</Range>
    <Condition>
     <Value1>AND(R[-1]C14&lt;&gt;&quot;&quot;,R[-1]C14=R[-1]C15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -4066,7 +4066,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R9C26,R12C1:R12C4,R12C6:R12C26,R13C1:R14C26,R10C1:R11C13,R10C15:R11C26,R17C1:R100C26,R15C1:R15C13,R15C15:R15C26,R16C18:R16C26,R16C1:R16C16</Range>
+   <Range>R2C1:R9C26,R12C1:R12C4,R12C6:R12C26,R13C1:R14C26,R10C1:R11C13,R10C15:R11C26,R17C1:R100C26,R15C18:R16C26,R15C1:R16C16</Range>
    <Condition>
     <Value1>LEFT(R[-1]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -4098,7 +4098,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C17:R11C17,R15C17</Range>
+   <Range>R10C17:R11C17</Range>
    <Condition>
     <Value1>(R[-1]C1=&quot;&quot;)&lt;&gt;(R[-1]C[-16]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
@@ -4116,7 +4116,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C17,R15C17</Range>
+   <Range>R10C17</Range>
    <Condition>
     <Value1>R[-1]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -4127,7 +4127,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R12C14:R12C15,R11C15,R11C17,R16C14:R16C15</Range>
+   <Range>R12C14:R12C15,R11C15,R11C17</Range>
    <Condition>
     <Value1>AND(R[-1]C17&lt;&gt;&quot;&quot;,R[-1]C17=R[-1]C15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -4145,7 +4145,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R12C14,R16C14</Range>
+   <Range>R12C14</Range>
    <Condition>
     <Value1>R[-1]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -7533,7 +7533,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
