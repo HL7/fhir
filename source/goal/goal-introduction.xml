@@ -5,7 +5,8 @@
 <p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
     <p>
-    The Goal resource represents targets and/or expectation for the progression, mitigation, enhancement or prevention of particular health-related concerns whose course can be impacted by a number of health-related activities.
+        Resource representing the purpose toward which one or more activities are directed, such as the outcome of diagnostic, therapeutic, and educational management of a patient's health problem. 
+        It may represent desired targets and/or expectation for the progression, mitigation, enhancement or prevention of particular health-related concerns whose course can be impacted by a number of health-related activities.
     </p>
     
     <p>
