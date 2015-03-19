@@ -18,13 +18,15 @@
 
 <h3>Summary</h3>
 
-<p>This Implementation Guide is prepared as a U.S. Realm Specification on behalf of the Centers for Medicare &amp; Medicaid Services and the U.S. Office of the National Coordinator (ONC). Much of the content is likely to be usable in other jurisdictions. QICore provides a physical implementation of the Quality Information and Clinical Knowledge (QUICK) logical model. Authors of future quality measures and clinical decision support rules may use QUICK, together with the Clinical Quality Language (CQL), to create interoperable and executable knowledge artifacts. QICore bridges between QUICK and FHIR, making data accessible via the FHIR API.</p>
+<p>This Implementation Guide is prepared as a U.S. Realm Specification on behalf of the Centers for Medicare &amp; Medicaid Services and the U.S. Office of the National Coordinator (ONC). Much of the content is likely to be usable in other jurisdictions. ​The Quality Improvement Core (QICore) model defines a set of FHIR profiles that provide a physical implementation of the Quality Information and Clinical Knowledge (QUICK) logical model. Authors of future quality measures and clinical decision support rules may use QUICK, together with the Clinical Quality Language (CQL), to create interoperable and executable knowledge artifacts. QICore bridges QUICK and FHIR, making data accessible via the FHIR API.</p>
 
 <p>The use of QICore FHIR profiles to implement quality applications is optional. If the QICore FHIR profiles are not used, the implementer is responsible for mapping their data directly into the QUICK model via their own customized data access layer.</p>
 
 <h3>Background</h3>
 
-<p>​The Quality Improvement Core (QICore) model is an initiative of the Clinical Quality Information (CQI) and Clinical Decision Support (CDS) HL7 Work Groups. QICore defines a set of FHIR profiles with extensions and bindings needed to create interoperable applications focused on quality. This project is part of an effort to align the HL7 Product Family in the area of health quality improvement. The goal is to have a single logical data model (QUICK), as well as a single logical processing language (CQL), for clinical decision support (CDS) and clinical quality measurement (CQM). This alignment will lessen the cost and complexity for product developers and vendors, reduce the learning curve, and consolidate efforts to maintain multiple standards.</p>
+<p>​The Quality Improvement Core (QICore) model is an initiative of the Clinical Quality Information (CQI) and Clinical Decision Support (CDS) HL7 Work Groups. QICore defines a set of FHIR profiles with extensions and bindings needed to create interoperable applications focused on quality. QICore defines classes and attributes appearing frequently in quality use cases (the subjective "80%"). When additional classes and attributes are needed for specific quality rules and measures, they can be added through FHIR's extension mechanism. However, these extensions would not automatically result in sharable measures and rules without additional coordinating agreements between interested parties.</p>
+
+<p>This project is part of an effort to align the HL7 Product Family in the area of health quality improvement. The goal is to have a single logical data model (QUICK), as well as a single logical processing language (CQL), for clinical decision support (CDS) and clinical quality measurement (CQM). This alignment will lessen the cost and complexity for product developers and vendors, reduce the learning curve, and consolidate efforts to maintain multiple standards.</p>
 
 <p>This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the HL7 Virtual Medical Record for Clinical Decision Support (vMR) and QDM as sources of requirements. QIDAM gave rise to the QUICK logical model in 2014. Recognizing the broader community focus on FHIR, QUICK was aligned, structurally and semantically, as closely as possible to FHIR. This alignment not only creates a common model for quality and interoperability, but will also make it easier in the future to leverage other FHIR-related efforts, such as CDA on FHIR. In summary, the conceptual, logical, and physical models in this initiative are, respectively, QIDAM, QUICK, and the QICore FHIR Profiles.</p>
 
@@ -213,8 +215,13 @@
 
 <h2>Understanding the QICore Profiles</h2>
 
+<a name="naming"></a>
+<h3>Naming Conventions</h3>
+
+<p>QICore profiles are indicated by the prefix "QICore-". For example, the QICore profile of Patient is named QICore-Patient. The official URLs for QICore profiles follow the pattern http://hl7.org/fhir/StructureDefinition/[resource]-qicore-qicore-[resource], for example, http://hl7.org/fhir/StructureDefinition/patient-qicore-qicore-patient. <i>Note: the URL cannot be much simplified under the current design of FHIR, so please no ballot comments on naming. Other profiles follow a similar pattern, save a dash, e.g., patient-daf-dafpatient, patient-uslab-uslabpatient, etc.)</i> </p>
+
 <a name="extensions"></a>
-<h3>Extensions</h3>
+<h3>Extensions and Mappings</h3>
 
 <p>QICore adds a variety of extensions to core FHIR classes. These extensions derive from two primary sources: the Quality  Improvement Domain Analysis Model (QIDAM), and from the Quality Data Model (QDM). Profile pages contain definitions of extensions as well as mappings that document the origin of the extensions.</p>
 
@@ -236,7 +243,7 @@
 <a name="modifying"></a>
 <h3>Modifying Attributes</h3>
 
-<p>Is-Modifier is a boolean property of an element, indicating that the value of that element may change the interpretation of the resource. Typical examples of elements that are labeled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty". Decision support and quality implementations must always check the values of modifying elements. For example, in processing an Immunization resource, the application must inspect the "wasNotGiven" element to distinguish whether the immunization was given or was not given to the patient.</p>
+<p>Is-Modifier is a boolean property of an element, indicating that the value of that element may change the interpretation of the resource. Examples of modifying elements include status (in many resources), negations (e.g. Immunization.wasNotGiven), and certainty qualifications (e.g. Observation.reliability). Decision support and quality implementations MUST always check the values of modifying elements. For example, in processing an Immunization resource, the application must inspect the "wasNotGiven" element to determine whether the immunization was given or was not given to the patient.</p>
 
 <p>Inclusion of modifying elements is a departure from the previous (January 2014) informative version of the QICore profiles, where profiles were developed for each meaning of each modifying attribute. For example, the Condition resource was represented using two profiles, one representing the occurrence of the condition, and the other the non-occurrence of the condition. However, it was felt the proliferation of profiles under this approach would lead to a non-sustainable situation, particularly in light of the future need to expand QICore by incorporatation third-party profiles, such as those being developed by CIMI. The current approach requires rule and measure authors to make explicit checks in their rules and measures.</p>
 
@@ -244,6 +251,15 @@
 <h3>Terminology Bindings</h3>
 
 <p>Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data owners to translate local data into the required vocabulary. As a U.S. Realm product, QICore recommends value sets and vocabularies required by Meaningful Use. DAF provides the FHIR realization of these requirements. Because QICore is expected to be applied outside the U.S. Realm, and also in clinical settings where local terminologies exist, U.S. Realm bindings are preferred but not required in the QICore profiles. When and if Meaningful Use adopts QICore, QUICK, and CQL, the preferred bindings would become required by policy, in that context.</p>
+
+<a name="references"></a>
+<h3>Resource References and "Any"</h3>
+
+<p>FHIR resources frequently contain references (pointers) to other FHIR resources. For example, Encounter.patient is a reference to a Patient resource. In QICore, most references are constrained to QICore-profiled resources. For example, Encounter.patient must point to a Patient resource that conforms to the QICore-Patient profile. Consequently, any extensions or bindings expected to exist in QICore-Patient are also present in the resource pointed to by Encounter.patient. References to QICore extensions accessed through references, such as Encounter.patient.veteranMilitaryStatus, are guaranteed to be valid. References to resources that do not currently have QICore profiles are not constrained, and as such, only the core FHIR properties and bindings are guaranteed to exist. 
+</p>
+<p>A particular problem occurs when a resource reference permits any type of resource, such as Encounter.indication. When dealing with "Any" references, current method of specifying profiles does not allow the profile author to specify something to the effect of "a QICore resource when there is one, and a FHIR core resource if there isn't." In QICore, the resources in "Any" references SHALL conform to QICore profiles if the base resource has been profiled. </p>
+
+
 
 <a name="conformance"></a>
 <h3>Conformance Requirements</h3>
