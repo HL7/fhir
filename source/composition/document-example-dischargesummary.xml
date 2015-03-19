@@ -121,9 +121,6 @@
             <h1>Eve Everywoman</h1>
           </div>
         </text>
-        <identifier>
-          <system value="nhi"/>
-        </identifier>
         <name>
           <text value="Eve Everywoman"/>
           <family value="Everywoman1"/>
@@ -358,7 +355,7 @@
             <name value="Theophylline 200mg"/>
             <code>
               <coding>
-                <system value="http:/snomed.org"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="66493003"/>
               </coding>
             </code>
@@ -487,7 +484,7 @@
         <event>
           <manifestation>
             <coding>
-              <system value="sys"/>
+              <system value="http://example.org/system"/>
               <code value="xxx"/>
               <display value="Hives"/>
             </coding>
