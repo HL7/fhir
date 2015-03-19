@@ -21,7 +21,7 @@
    <SheetName>Invariants</SheetName>
   </SupBook>
   <WindowHeight>10155</WindowHeight>
-  <WindowWidth>24345</WindowWidth>
+  <WindowWidth>23100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -3820,7 +3820,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>17</TopRowBottomPane>
+   <TopRowBottomPane>88</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3838,8 +3838,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>20</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R17</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6768,8 +6769,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6905,7 +6906,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s145"><Data ss:Type="String">PharmacyServiceProduct</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">!PharmacyServiceProduct</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Allowable service and product codes</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Y</Data></Cell>
@@ -7072,8 +7073,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
