@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10545</WindowHeight>
-  <WindowWidth>21780</WindowWidth>
+  <WindowHeight>10125</WindowHeight>
+  <WindowWidth>22020</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>669</TabRatio>
@@ -1173,14 +1173,14 @@
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="102" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s86" ss:Width="68.25"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="59.25"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="138"/>
    <Column ss:StyleID="s85" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s85" ss:Width="29.25"/>
    <Column ss:StyleID="s85" ss:Width="35.25"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="195.75"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="243.75"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="60" ss:Span="1"/>
@@ -1383,7 +1383,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="30.75">
     <Cell ss:StyleID="s104"><Data ss:Type="String">AdverseEvent-cause.certainty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1608,7 +1608,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Patient)</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/StructureDefinition/patient-qicore-qicore-patient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3963,7 +3963,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3978,8 +3978,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5034,7 +5034,7 @@
    <Column ss:StyleID="s85" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s85" ss:Width="29.25"/>
    <Column ss:StyleID="s85" ss:Width="35.25"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="128.25"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="342"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="60"/>
@@ -5176,7 +5176,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="88.3125">
+   <Row ss:AutoFitHeight="0" ss:Height="238.5">
     <Cell ss:StyleID="s139"><Data ss:Type="String">cause-item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Resource</Data><NamedCell
@@ -5188,7 +5188,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Medication | MedicationAdministration | Device | Procedure | ImagingStudy| Communication | DiagnosticStudy)</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Medication|MedicationAdministration|Device|Procedure|ImagingStudy|Communication|DiagnosticStudy)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5218,7 +5218,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">certainty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">CodeableConcept</Data><NamedCell
@@ -5817,7 +5817,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5825,15 +5825,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
