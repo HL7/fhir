@@ -21,6 +21,54 @@
 				<code value="28647000"/>
 				<display value="Meat"/>
 			</concept>
+			<concept>
+				<code value="22836000"/>
+				<display value="Vegetables"/>
+			</concept>
+			<concept>
+				<code value="72511004"/>
+				<display value="Fruit"/>
+			</concept>
+			<concept>
+				<code value="22676005"/>
+				<display value="Dairy foods"/>
+			</concept>
+			<concept>
+				<code value="226887002"/>
+				<display value="Dietary Fats and Oils"/>
+			</concept>
+			<concept>
+				<code value="102263004"/>
+				<display value="Eggs"/>
+			</concept>
+			<concept>
+				<code value="74242007"/>
+				<display value="Food Starch"/>
+			</concept>
+			<concept>
+				<code value="227415002"/>
+				<display value="Fruit Nuts and Seeds"/>
+			</concept>
+			<concept>
+				<code value="264331002"/>
+				<display value="Grain"/>
+			</concept>
+			<concept>
+				<code value="227518002"/>
+				<display value="Sauce seasonings and soups"/>
+			</concept>
+			<concept>
+				<code value="44027008"/>
+				<display value="Seafood"/>
+			</concept>
+			<concept>
+				<code value="226529007"/>
+				<display value="Starchy food"/>
+			</concept>
+			<concept>
+				<code value="227210005"/>
+				<display value="Vegetables plus herbs and spices"/>
+			</concept>
 		</include>
 	</compose>
 </ValueSet>
