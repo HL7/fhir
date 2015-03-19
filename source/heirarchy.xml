@@ -182,7 +182,7 @@ signatures.html
 			<page type="resource" resource="CarePlan"/>
 			<page type="resource" resource="CarePlan2"/>
 			<page type="resource" resource="Goal"/>
-			<page type="resource" resource="ClinicalAssessment"/>
+			<page type="resource" resource="ClinicalImpression"/>
 			<page type="resource" resource="ReferralRequest"/>
 			<page type="resource" resource="Procedure"/>
 			<page type="resource" resource="ProcedureRequest"/>
