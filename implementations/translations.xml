@@ -702,14 +702,15 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="ru">Контент для проверки</translation>
     </item>
     <item id="MSG_CREATED">
-        <translation lang="en">existing resource created</translation>
-        <translation lang="it">risorsa esistente aggiornata</translation>
+        <translation lang="en">New resource created</translation>
+<!--        <translation lang="it">risorsa esistente aggiornata</translation>
         <translation lang="nl">nieuwe resource gemaakt</translation>
         <translation lang="zh">存在的资源已创建</translation>
         <translation lang="pl">utworzono istniejący zasób</translation>
         <translation lang="es">recurso existente creado</translation>
         <translation lang="fr">ressource existante créée</translation>
         <translation lang="ru">существующий ресурс создан</translation>
+-->        
     </item>
     <item id="MSG_DATE_FORMAT">
         <translation lang="en">The Date value %s is not in the correct format (Xml Date Format required)</translation>
