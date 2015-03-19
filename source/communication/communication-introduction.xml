@@ -6,18 +6,15 @@
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
     <p>
         <b>These resources have not yet undergone proper review by PC, CQI, CDS, and OO. At this time, 
-            they are to be considered only as draft resource proposals for potential submission.</b>
+            they are to be considered only as draft resource proposals for potential submission for DSTU2.</b>
     </p>
     
     <p>
-	  This resource is a record of a request for a communication to be performed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Uses of communication request include 
+	  This resource is a record of a communication. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Uses of communication request include 
 	  <li>A computer-based decision-support system requesting a reminder or alert be delivered to a responsible provider</li>
 	  <li>A physician requesting notification from the nurse if a patient's temperature exceeds a value</li>
 	  <li>A monitoring system or a provider requesting a staff member or department to notify a public health agency of a patient presenting with a reportable communicable disease public health agency</li>
-	  
-	  As indicated above the request, may represent an order that entered by a practitioner in a CPOE 
-        system as well as a proposal made by a clinical decision support system (CDSS) based 
-        on a patient's clinical record and context of care.
+      <li>A computer-based decision-support system sending relevant patient educational material as part of the consequent of a rule triggered based on information in the patient record.</li>
     </p>
 </p>
 </div>
@@ -26,13 +23,9 @@
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource is a record of a request. It does not represent the actual flow of communication.
+This resource is a record of a communication that has occurred. It does not represent the actual flow of communication.
 
-The use of CommunicationRequest. excludes requests for referrals which are covered by the ReferralRequest resource.
-
-The resource also excludes the types of communications supported by the Alert resource (need to better describe this overlap).
-
-Communication of orders and the ensuing responses are described by Order and OrderResponse resources.
+The resource excludes the types of communications supported by the Alert resource (need to better describe this overlap).
 
 </p>
 </div>
