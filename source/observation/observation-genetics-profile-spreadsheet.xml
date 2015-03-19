@@ -21,7 +21,7 @@
   <WindowTopX>14940</WindowTopX>
   <WindowTopY>3990</WindowTopY>
   <TabRatio>788</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -810,44 +810,33 @@
    <Interior/>
   </Style>
   <Style ss:ID="s153">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s154">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
+  <Style ss:ID="s154" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
    <Interior/>
   </Style>
-  <Style ss:ID="s156" ss:Parent="s63">
+  <Style ss:ID="s155">
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Size="11"
+    ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s156">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
   <Style ss:ID="s157">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s158">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s159" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
@@ -857,10 +846,33 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s161">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s162" ss:Parent="s63">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s163">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s164">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
@@ -868,7 +880,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s162" ss:Parent="s63">
+  <Style ss:ID="s165" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
@@ -878,25 +890,13 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s163">
+  <Style ss:ID="s166">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
-  </Style>
-  <Style ss:ID="s165">
-   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s166" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s167">
-   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Size="11"
-    ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -1015,7 +1015,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1247,7 +1246,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">The Genome Build used for reference, with version number if used.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">The Genome Build used for reference.  Version number must be included if a versioned release of a primary build was used.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1279,7 +1279,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The chromosome containing the variant.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The chromosome containing the genetic finding.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1311,7 +1312,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The genomic reference sequence identifier.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The genomic reference sequence identifier is included, to support testing using alternative reference sequences.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1343,7 +1345,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Nucleotide location start</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Nucleotide location for start of genomic finding.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1375,7 +1378,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Nucleotide location end</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Nucleotide location for end of genomic finding.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1407,7 +1411,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Nucleotides at location on reference sequence. Use '-' for insertions.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Nucleotide(s) from genomic start to genomic stop on reference sequence. Use '-' for insertions.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1439,7 +1444,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Oserved nucleotides at genomic location. Use '-' for delections.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Oserved nucleotides from genomic start to genomic stop. Use '-' for delections.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1471,7 +1477,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">HGNC gene symbol and identifier.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">HGNC gene symbol and identifier from HUGO Gene Nomenclature Committee at: http://www.genenames.org/</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1503,7 +1510,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Reference identifier for cDNA transcript, with version.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference identifier for cDNA transcript, with version, from NCBI's RefSeq or ENSEMBL</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1535,7 +1543,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">cDNA variant following HGVS nomenclature and identifiers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">cDNA variant following HGVS nomenclature and identifiers to internal and external systems if known (e.g. ClinVar identifier).</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1567,7 +1576,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Exonic location of variant.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Details of exonic location of variant (e.g. Exon 1).</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1599,10 +1609,12 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Type of variation expressed using Sequence Ontology or LOINC codes.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Codified type for associated DNA Sequence Variation.  DNA Sequence Variations use the HGVS notation which implies the DNA Sequence Variation Type, but the concurrent use of this code will allow a standard and explicit type for technical and display convenience. LOINC Answer List values 48019-4 or Sequence Ontology vaues.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Need OID for SO</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1631,7 +1643,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Reference identifier for protein transcript, with version.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference identifier for protein transcript, with version, from NCBI's RefSeq or ENSEMBL.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1663,7 +1676,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Protein variant following HGVS nomenclature and identifiers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Protein variant following HGVS nomenclature and identifiers to internal and external systems if known.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1695,10 +1709,12 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Type of protien variation expressed using Sequence Ontology or LOINC codes.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Type of variation expressed using Sequence Ontology or LOINC answer list 48006-1.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Need OID for SO</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1727,7 +1743,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Common name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Common name for variant or gene allele</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1759,7 +1776,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Genomic source of the variant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The genomic class of the variant: Germline for inherited genome, somatic for cancer genome (e.g. DNA from tumor cells), and prenatal for fetal genome. Associated with LOINC answer list: 48002-0</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1791,7 +1809,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Variant allelic state</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The part of the body that this is an image of</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The level of occurrence of a DNA Sequence Variation.  Heterozygous: present in one of the two genes of homologous chromosomes, while Homozygous means it's present in both genes.  Hemizygous: Variation in the only single copy of a gene in a non-homologous chromosome (i.e. male X and Y chromosome).  Homoplasmic: Variation is present in all of the copies of mitochondrial DNA while Hemiplasmic is present in only some copies. LOINC Answer List values 53034-5</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3951,6 +3969,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3971,8 +3990,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4229,6 +4248,77 @@
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R4C15:R20C15</Range>
+   <Condition>
+    <Value1>LEFT(R[1]C1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C16</Range>
+   <Condition>
+    <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C16</Range>
+   <Condition>
+    <Value1>RC6=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C16</Range>
+   <Condition>
+    <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C16:R20C16</Range>
+   <Condition>
+    <Value1>AND(RC14&lt;&gt;&quot;&quot;,RC14=RC15)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C16</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C16:R20C16</Range>
+   <Condition>
+    <Value1>(R[1]C1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C16:R20C16</Range>
+   <Condition>
+    <Value1>RC6=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[1]C1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C16:R20C16</Range>
+   <Condition>
+    <Value1>(R[1]C1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C16:R20C16</Range>
    <Condition>
     <Value1>LEFT(R[1]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -8009,7 +8099,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">HGNC-geneNomenclature</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">HGNC-geneIdentifiers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -8900,9 +8990,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -8910,14 +9000,17 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>14</ActiveCol>
+     <RangeSelection>R2C15:R19C15</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8979,7 +9072,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R3C1,R5C1:R41C1</Range>
+   <Range>R2C1:R3C1,R5C1:R41C1,R9C10,R11C10,R15C10</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -9035,7 +9128,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R41C1,R2C2:R2C23</Range>
+   <Range>R2C1:R41C1,R2C2:R2C23,R9C10,R11C10,R15C10</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -9099,38 +9192,10 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C10</Range>
+   <Range>R9C10,R11C10,R15C10</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C10</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C10</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C10</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C10</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
@@ -9156,90 +9221,6 @@
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C10</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C10</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C10</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C10</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C10</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C10</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C10</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C10</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C10</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C10</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C10</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C10</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
@@ -10387,7 +10368,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">HGNC-geneNomenclature</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">HGNC-geneIdentifiers</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The HGNC reference catalogs the internationally accepted gene names, gene symbols, and HGNC gene identifiers</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
@@ -10413,7 +10394,7 @@
     <Cell ss:StyleID="s62" ss:HRef="http://www.hgvs.org/mutnomen/"><Data
       ss:Type="String">http://www.hgvs.org/mutnomen/</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Sequence Variation Nomenclature</Data></Cell>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">2.16.840.1.113883.6.282</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">2.16.840.1.113883.6.282</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s62" ss:HRef="http://www.hgvs.org/mutnomen/"><Data
       ss:Type="String">http://www.hgvs.org/mutnomen/</Data></Cell>
@@ -10428,10 +10409,10 @@
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s166" ss:HRef="http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"><Data
+    <Cell ss:StyleID="s154" ss:HRef="http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"><Data
       ss:Type="String">http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore </Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">NCBI Referece Sequence Identifiers</Data></Cell>
-    <Cell ss:StyleID="s167"><Data ss:Type="String">2.16.840.1.113883.6.280</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">2.16.840.1.113883.6.280</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s62" ss:HRef="http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"><Data
       ss:Type="String">http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore </Data></Cell>
@@ -10891,7 +10872,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>11</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10926,7 +10907,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R30C5,R6C6:R30C6,R2C6:R4C6,R2C7:R30C9,R2C11:R30C14,R2C10:R4C10,R6C10:R30C10</Range>
+   <Range>R6C6:R30C6,R2C10:R4C10,R6C10:R30C10,R2C1:R30C5,R2C6:R4C6,R2C7:R30C9,R2C11:R30C14</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -10947,7 +10928,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R4C6,R6C6:R30C6</Range>
+   <Range>R6C6:R30C6,R2C6:R4C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC3=&quot;unbound&quot;)&lt;&gt;(RC=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -10961,63 +10942,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8:R30C9,R2C11:R30C11,R2C10:R4C10,R6C10:R30C10</Range>
+   <Range>R2C10:R4C10,R6C10:R30C10,R2C8:R30C9,R2C11:R30C11</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R30C5,R6C6:R30C6,R2C6:R4C6,R2C7:R30C9,R2C11:R30C14,R2C10:R4C10,R6C10:R30C10</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C8,R2C1:R5C5,R2C7:R5C7,R4C6,R2C8,R2C9:R5C9,R2C11:R5C11</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R5C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R5C5</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C6</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC3=&quot;unbound&quot;)&lt;&gt;(RC=&quot;&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R5C7</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC&lt;&gt;&quot;&quot;)&lt;&gt;(RC3=&quot;reference&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C8,R2C8,R2C9:R5C9,R2C11:R5C11</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3&lt;&gt;&quot;code list&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C8,R2C1:R5C5,R2C7:R5C7,R4C6,R2C8,R2C9:R5C9,R2C11:R5C11</Range>
+   <Range>R6C6:R30C6,R2C10:R4C10,R6C10:R30C10,R2C1:R30C5,R2C6:R4C6,R2C7:R30C9,R2C11:R30C14</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -11055,14 +10987,14 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s153" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s153" ss:Width="80.25"/>
-   <Column ss:StyleID="s153" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s153" ss:AutoFitWidth="0" ss:Width="155.25"/>
-   <Column ss:StyleID="s153" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s153" ss:AutoFitWidth="0" ss:Width="244.5"/>
-   <Column ss:StyleID="s153" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s153" ss:AutoFitWidth="0" ss:Width="242.25"/>
+   x:FullRows="1" ss:StyleID="s156" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s156" ss:Width="80.25"/>
+   <Column ss:StyleID="s156" ss:AutoFitWidth="0" ss:Width="34.5"/>
+   <Column ss:StyleID="s156" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s156" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s156" ss:AutoFitWidth="0" ss:Width="244.5"/>
+   <Column ss:StyleID="s156" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
+   <Column ss:Index="9" ss:StyleID="s156" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
@@ -11102,543 +11034,543 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s157"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s163"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s164"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s163"/>
+    <Cell ss:StyleID="s166"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75"/>
   </Table>
