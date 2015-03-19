@@ -892,6 +892,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       con2.append("//  CHECK_"+tn+" : Array["+tn+"] of "+tn+" = (");
       con6.append("  PATHS_"+tn+" : Array["+tn+"] of String = (");
       con7.append("  TARGETS_"+tn+" : Array["+tn+"] of TFhirResourceTypeSet = (");
+      int l4 = 0;
+      int l2 = 0;
 
       List<String> names = new ArrayList<String>();
       Map<String, SearchParameterDefn> params = new HashMap<String, SearchParameterDefn>();
@@ -932,6 +934,14 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           con3.append("'"+defCodeType.escape(n)+"', ");
           con6.append("'"+defCodeType.escape(n+": "+t)+"',\r\n     ");
           con7.append(""+t+", ");
+          if (con4.length() - l4 > 250) {
+            con4.append("\r\n      ");
+            l4 = con4.length();
+          }
+          if (con2.length() - l2 > 250) {
+            con2.append("\r\n      // ");
+            l2 = con2.length();
+          }
         }
       }
 

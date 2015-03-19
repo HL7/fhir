@@ -683,7 +683,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    composeElement(element);\r\n");
     write("    if (element.hasModifierExtension()) {\r\n");
     write("      openArray(\"modifierExtension\");\r\n");
-    write("      for (Extension e : element.getExtension())\r\n");
+    write("      for (Extension e : element.getModifierExtension())\r\n");
     write("        composeExtension(null, e);\r\n");
     write("      closeArray();\r\n");
     write("    }\r\n");
