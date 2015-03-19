@@ -10,11 +10,11 @@
     </p>
     
     <p>
-	  This resource is a record of a communication. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Uses of communication request include 
-	  <li>A computer-based decision-support system requesting a reminder or alert be delivered to a responsible provider</li>
-	  <li>A physician requesting notification from the nurse if a patient's temperature exceeds a value</li>
-	  <li>A monitoring system or a provider requesting a staff member or department to notify a public health agency of a patient presenting with a reportable communicable disease public health agency</li>
-      <li>A computer-based decision-support system sending relevant patient educational material as part of the consequent of a rule triggered based on information in the patient record.</li>
+	  This resource is a record of a communication. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Communication use cases include 
+	  <li>A reminder or alert delivered to a responsible provider</li>
+	  <li>A recorded notification from the nurse that a patient's temperature exceeds a value</li>
+	  <li>A notification to a public health agency of a patient presenting with a reportable communicable disease public health agency</li>
+      <li>Patient educational material sent by a provider to a patient.</li>
     </p>
 </p>
 </div>

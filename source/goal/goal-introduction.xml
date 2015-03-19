@@ -3,8 +3,14 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-Todo
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+    <p>
+    The Goal resource represents targets and/or expectation for the progression, mitigation, enhancement or prevention of particular health-related concerns whose course can be impacted by a number of health-related activities.
+    </p>
+    
+    <p>
+    Goals may address for instance the prevention of illness, cure or mitigation of a condition, prolongation of life, mitigation of pain and discomfort, or improved satisfaction with care.
+    </p>
 </p>
 </div>
 

@@ -14,6 +14,7 @@
 	  <li>A computer-based decision-support system requesting a reminder or alert be delivered to a responsible provider</li>
 	  <li>A physician requesting notification from the nurse if a patient's temperature exceeds a value</li>
 	  <li>A monitoring system or a provider requesting a staff member or department to notify a public health agency of a patient presenting with a reportable communicable disease public health agency</li>
+      <li>A computer-based decision-support system sends patient educational material sent as part of the consequent of a rule triggered based on information in the patient record.</li>
 	  
 	  As indicated above the request, may represent an order that entered by a practitioner in a CPOE 
         system as well as a proposal made by a clinical decision support system (CDSS) based 
