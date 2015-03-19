@@ -277,14 +277,14 @@ signatures.html
 			<page type="resource" resource="ExplanationOfBenefit"/>
 			<page type="resource" resource="EnrollmentRequest"/>
 			<page type="resource" resource="EnrollmentResponse"/>
-			<page type="resource" resource="InstitutionalClaim"/>
-			<page type="resource" resource="OralHealthClaim"/>
+<!--			<page type="resource" resource="InstitutionalClaim"/>
+			<page type="resource" resource="OralHealthClaim"/> -->
 			<page type="resource" resource="PaymentNotice"/>
 			<page type="resource" resource="PaymentReconciliation"/>
-			<page type="resource" resource="PharmacyClaim"/>
-			<page type="resource" resource="ProfessionalClaim"/>
+<!--			<page type="resource" resource="PharmacyClaim"/>
+			<page type="resource" resource="ProfessionalClaim"/> -->
 			<page type="resource" resource="SupportingDocumentation"/>
-			<page type="resource" resource="VisionClaim"/>
+<!--			<page type="resource" resource="VisionClaim"/> -->
 		</page>
 	</page>
 </fhir>
