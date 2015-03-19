@@ -376,12 +376,13 @@ If a value set is referenced, and the value set defines the code system, and the
 Note that the following systems SHOULD always have a version specified:
 </p>
 <ul>
- <li><a href="http://loinc.org">LOINC</a></li>
- <li>Various versions of ICD</li>
  <li>National releases of SNOMED CT (consistency of definitions varies amongst jurisdictions, and some jurisdictions may make their own rules on this)</li>
+ <li>Various versions of ICD (note: the major releases are labelled as different code systems altogether, but there is veration within versions)</li>
 </ul>
 <p>
-See the <a href="valueset.html#versioning">discussion of code system versions in the Value Set resource</a> for further discussion on versioning.
+More generally, any classification (e.g.  a code system that incldues concepts with relative definitions such as "not otherwise coded"
+will require a version. See the <a href="valueset.html#versioning">discussion of code system versions in the Value Set resource</a> for 
+further discussion on versioning.
 </p>
 
 <p>
