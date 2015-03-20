@@ -991,7 +991,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">A request for a procedure to be performed.</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">A request for a procedure to be performed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">A request for a procedure to be performed. May be a proposal or an order.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3759,7 +3759,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
