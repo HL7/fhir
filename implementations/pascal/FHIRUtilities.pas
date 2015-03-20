@@ -558,10 +558,10 @@ begin
       for i := 0 to value.eventList.count - 1 do
         result := DateTimeMax(result, AsUTCMax(value.eventList[i]));
   end
-  else if (value.repeat_.end_ <> nil) then
-    result := asUTCMax(value.repeat_.end_Element)
+  else if (value.repeat_.bounds <> nil) and (value.repeat_.bounds.end_ <> nil) then
+    result := asUTCMax(value.repeat_.bounds.end_Element)
   else if (value.repeat_.count <> '') and (value.eventList.Count > 0) and
-    (value.repeat_.frequency <> '') and (value.repeat_.duration <> '') and (value.repeat_.units <> UnitsOfTimeNull) then
+    (value.repeat_.frequency <> '') and (value.repeat_.period <> '') and (value.repeat_.periodunits <> UnitsOfTimeNull) then
   begin
     result := MIN_DATE;
     for i := 0 to value.eventList.count - 1 do
@@ -570,7 +570,7 @@ begin
       result := MAX_DATE
     else
     begin
-      case value.repeat_.units of
+      case value.repeat_.periodunits of
         UnitsOfTimeS : duration := DATETIME_SECOND_ONE;
         UnitsOfTimeMin : duration := DATETIME_MINUTE_ONE;
         UnitsOfTimeH : duration := DATETIME_HOUR_ONE;
@@ -579,7 +579,7 @@ begin
         UnitsOfTimeMo : duration := 30;
         UnitsOfTimeA : duration := 365 // todo - how to correct for leap years?;
       else
-        raise exception.create('unknown duration units "'+value.repeat_.unitsElement.value+'"');
+        raise exception.create('unknown duration units "'+value.repeat_.periodunitsElement.value+'"');
       end;
       result := result + (StrToInt(value.repeat_.count) * duration / StrToInt(value.repeat_.frequency));
     end;

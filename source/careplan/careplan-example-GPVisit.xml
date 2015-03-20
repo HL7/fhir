@@ -48,7 +48,7 @@
     <participant id="part1">
         <role>
             <coding>
-                <system value='local'/>
+                <system value="http://example.org/local"/>
                 <code value='nur'/>
             </coding>
             <text value='nurse'></text>
@@ -61,7 +61,7 @@
     <participant id="part2">
         <role>
             <coding>
-                <system value='local'/>
+                <system value="http://example.org/local"/>
                 <code value='doc'/>
             </coding>
             <text value='doctor'></text>
@@ -89,7 +89,7 @@
           <category value="encounter"></category>
           <code>
               <coding>
-                  <system value='local'/>
+                  <system value="http://example.org/local"/>
                   <code value='nursecon'/>
               </coding>
               <text value="Nurse Consultation"></text>
@@ -115,7 +115,7 @@
           <category value="encounter"></category>
           <code>
               <coding>
-                  <system value='local'/>
+                  <system value="http://example.org/local"/>
                   <code value='doccon'/>
               </coding>
               <text value="Doctor Consultation"></text>

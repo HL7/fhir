@@ -104,13 +104,13 @@ edited by Eric Haas Health eData Inc-->
 		</type>
 		<!-- EH example of three times a day starting on 2/10  -->
 		<scheduled>
-			<event>
-				<start value="2015-02-10"/>
-			</event>
 			<repeat>
+        <bounds>
+          <start value="2015-02-10"/>
+        </bounds>
 				<frequency value="3"/>
-				<duration value="1"/>
-				<units value="d"/>
+				<period value="1"/>
+				<periodUnits value="d"/>
 			</repeat>
 		</scheduled>
 		<nutrient>

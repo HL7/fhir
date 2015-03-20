@@ -747,7 +747,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     				checkPrimitive(errors, ei.path, type, ei.definition, ei.element);
     			else {
     				if (type.equals("Identifier"))
-    					checkIdentifier(ei.path, ei.element, ei.definition);
+    					checkIdentifier(errors, ei.path, ei.element, ei.definition);
     				else if (type.equals("Coding"))
     					checkCoding(errors, ei.path, ei.element, profile, ei.definition);
     				else if (type.equals("CodeableConcept"))
@@ -1258,8 +1258,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return fmt.contains("T");
   }
   
-  private void checkIdentifier(String path, WrapperElement element, ElementDefinition context) {
+  private void checkIdentifier(List<ValidationMessage> errors, String path, WrapperElement element, ElementDefinition context) {
+    String system = element.getNamedChildValue("system");
+    rule(errors, "code-unknown", path, isAbsolute(system), "Identifier.system must be an absolute reference, not a local reference");
+  }
 
+  private boolean isAbsolute(String uri) {
+    return !Utilities.noString(uri) && (uri.startsWith("http:") || uri.startsWith("https:") || uri.startsWith("urn:uuid:") || uri.startsWith("urn:oid:"));
   }
 
   private void checkIdentifier(String path, Element element, ElementDefinition context) {
@@ -1282,6 +1287,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     String code = element.getNamedChildValue("code");
     String system = element.getNamedChildValue("system");
     String display = element.getNamedChildValue("display");
+    rule(errors, "code-unknown", path, isAbsolute(system), "Coding.system must be an absolute reference, not a local reference");
 
     if (system != null && code != null) {
       if (checkCode(errors, path, code, system, display)) 

@@ -86,7 +86,7 @@
           <div xmlns="http://www.w3.org/1999/xhtml">Person DOE, John, M, dob: 27/05/1956</div>
         </text>
         <identifier>
-          <system value="usual"/>
+          <use value="usual"/>
           <value value="MRN"/>
         </identifier>
         <name>
@@ -163,9 +163,6 @@
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
         </text>
-        <identifier>
-          <system value="usual"/>
-        </identifier>
         <name>
           <use value="usual"/>
           <family value="Dopplemeyer"/>

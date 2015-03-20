@@ -56,23 +56,20 @@ edited by Eric Haas Health eData Inc-->
 			<text value="High Protein Powder"/>
 		</type>
 		<productName value="Beneprotein"/>
-		<!-- <scheduled>
-			<event>
-				<start value="2015-02-10"/>
-			</event>
-			02/11/2015  EH: currently no way to use data type to say "with meal" created a gforge comment for MNM on this also schematron doesn't allow '0 minutes before a meal'  gg fixed this so will update when update my build
+		<scheduled>
 			<repeat>
-				<when value="AC"/>
-				<duration value="0"/>
-				<units value="min"/>
+        <bounds>
+          <start value="2015-02-10"/>
+        </bounds>
+				<when value="C"/>
 			</repeat>
 		</scheduled>
 		<quantity>
 			<value value="1"/>
 			<units value="scoop"/>
-			<system value="http://unitsofmeasure.org "/>
+			<system value="http://unitsofmeasure.org"/>
 			<code value="{scoop}"/>
-		</quantity> -->
+		</quantity> 
 		<!-- EH:  use the .instructions element to list diet  supplement order-->
 		<instruction value="Beneprotein 1 scoop TID with meal.starting on  2015-02-10" />
 	</supplement>

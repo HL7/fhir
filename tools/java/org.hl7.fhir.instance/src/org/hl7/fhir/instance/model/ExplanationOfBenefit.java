@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -127,14 +127,14 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * Original request resource reference.
      */
-    @Child(name ="request", type={OralHealthClaim.class}, order=1, min=0, max=1)
+    @Child(name ="request", type={Claim.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Claim reference", formalDefinition="Original request resource reference." )
     protected Reference request;
 
     /**
      * The actual object that is the target of the reference (Original request resource reference.)
      */
-    protected OralHealthClaim requestTarget;
+    protected Claim requestTarget;
 
     /**
      * Transaction status: error, complete.
@@ -207,7 +207,7 @@ public class ExplanationOfBenefit extends DomainResource {
      */
     protected Organization requestOrganizationTarget;
 
-    private static final long serialVersionUID = 1627363360L;
+    private static final long serialVersionUID = 2098041034L;
 
     public ExplanationOfBenefit() {
       super();
@@ -280,19 +280,19 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public OralHealthClaim getRequestTarget() { 
+    public Claim getRequestTarget() { 
       if (this.requestTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExplanationOfBenefit.request");
         else if (Configuration.doAutoCreate())
-          this.requestTarget = new OralHealthClaim(); // aa
+          this.requestTarget = new Claim(); // aa
       return this.requestTarget;
     }
 
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public ExplanationOfBenefit setRequestTarget(OralHealthClaim value) { 
+    public ExplanationOfBenefit setRequestTarget(Claim value) { 
       this.requestTarget = value;
       return this;
     }
@@ -627,7 +627,7 @@ public class ExplanationOfBenefit extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("request", "Reference(OralHealthClaim)", "Original request resource reference.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("request", "Reference(Claim)", "Original request resource reference.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));

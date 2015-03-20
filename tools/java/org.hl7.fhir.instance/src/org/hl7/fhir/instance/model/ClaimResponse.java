@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -3098,14 +3098,14 @@ public class ClaimResponse extends DomainResource {
     /**
      * Original request resource referrence.
      */
-    @Child(name ="request", type={OralHealthClaim.class, PharmacyClaim.class, VisionClaim.class, ProfessionalClaim.class, InstitutionalClaim.class}, order=1, min=0, max=1)
+    @Child(name ="request", type={Claim.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Id of resource triggering adjudication", formalDefinition="Original request resource referrence." )
     protected Reference request;
 
     /**
      * The actual object that is the target of the reference (Original request resource referrence.)
      */
-    protected Resource requestTarget;
+    protected Claim requestTarget;
 
     /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
@@ -3290,7 +3290,7 @@ public class ClaimResponse extends DomainResource {
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected List<CoverageComponent> coverage;
 
-    private static final long serialVersionUID = -815831366L;
+    private static final long serialVersionUID = -1720247756L;
 
     public ClaimResponse() {
       super();
@@ -3363,14 +3363,19 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
      */
-    public Resource getRequestTarget() { 
+    public Claim getRequestTarget() { 
+      if (this.requestTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ClaimResponse.request");
+        else if (Configuration.doAutoCreate())
+          this.requestTarget = new Claim(); // aa
       return this.requestTarget;
     }
 
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
      */
-    public ClaimResponse setRequestTarget(Resource value) { 
+    public ClaimResponse setRequestTarget(Claim value) { 
       this.requestTarget = value;
       return this;
     }
@@ -4194,7 +4199,7 @@ public class ClaimResponse extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("request", "Reference(OralHealthClaim|PharmacyClaim|VisionClaim|ProfessionalClaim|InstitutionalClaim)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("request", "Reference(Claim)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         childrenList.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, created));

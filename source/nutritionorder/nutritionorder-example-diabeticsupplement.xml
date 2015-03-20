@@ -79,13 +79,13 @@ edited by Eric Haas Health eData Inc-->
 		<productName value="Glucerna"/>
 		<!-- EH 02/11/2015 - no way to say at 3 and HS using the timing datatype -->
 		<scheduled>
-			<event>
-				<start value="2015-02-10"/>
-			</event>
 			<repeat>
+        <bounds>
+          <start value="2015-02-10"/>
+        </bounds>
 				<when value="HS"/>
-				<duration value="1"/>
-				<units value="h"/>
+				<period value="1"/>
+				<periodUnits value="h"/>
 			</repeat>
 		</scheduled>
 		<quantity>

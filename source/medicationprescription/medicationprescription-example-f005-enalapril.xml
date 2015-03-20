@@ -33,13 +33,13 @@
     </medication> 
     <dosageInstruction>
         <scheduledTiming>
-            <event>
-                <start value="2011-05-01"/>
-            </event>
             <repeat>
-                <frequency value="1"/>
-                <duration value="1"/>
-                <units value="d"/>
+              <bounds>
+                  <start value="2011-05-01"/>
+              </bounds>
+              <frequency value="1"/>
+              <period value="1"/>
+              <periodUnits value="d"/>
             </repeat>
         </scheduledTiming>
         <site>

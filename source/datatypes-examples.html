@@ -1145,18 +1145,9 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
 <p>A series of appointments for radiotherapy:</p>
 <pre class="xml" fragment="Timing">
   &lt;schedule&gt;
-    &lt;event&gt;
-      &lt;start value="2012-01-07T09:00:00+10:00" /&gt;
-      &lt;end value="2012-01-07T13:00:00+10:00" /&gt;
-    &lt;/event&gt;
-    &lt;event&gt;
-      &lt;start value="2012-01-14T09:00:00+10:00" /&gt;
-      &lt;end value="2012-01-14T13:00:00+10:00" /&gt;
-    &lt;/event&gt;
-    &lt;event&gt;
-      &lt;start value="2012-01-22T11:00:00+10:00" /&gt;
-      &lt;end value="2012-01-22T15:00:00+10:00" /&gt;
-    &lt;/event&gt;
+    &lt;event value="2012-01-07T09:00:00+10:00" /&gt;
+    &lt;event value="2012-01-14T09:00:00+10:00" /&gt;
+    &lt;event value="2012-01-22T11:00:00+10:00" /&gt;
   &lt;/schedule&gt;
 </pre>
 <p>BID (twice a day) (no start or end specified):</p>
@@ -1164,27 +1155,27 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
   &lt;schedule&gt;
    &lt;repeat&gt;
      &lt;frequency value="2" /&gt;
-     &lt;duration value="1" /&gt;
-     &lt;units value="d" /&gt;
+     &lt;period value="1" /&gt;
+     &lt;periodUnits value="d" /&gt;
    &lt;/repeat&gt;
   &lt;/schedule&gt;
 </pre>
 <p>1/2 an hour before breakfast for 10 days from 23-Dec 2011:</p>
 <pre class="xml" fragment="Timing">
   &lt;schedule&gt;
-    &lt;event&gt;
-      &lt;start value="2011-12-23" /&gt;
-    &lt;/event&gt;
     &lt;repeat&gt;
+      &lt;bounds&gt;
+        &lt;start value="2011-12-23" /&gt;
+        &lt;end value="2012-01-02" /&gt;
+      &lt;/bounds&gt;
       &lt;when value="ACM" /&gt;
-      &lt;duration value="30" /&gt;
-      &lt;units value="min" /&gt;
-      &lt;end value="2012-01-02" /&gt;
+      &lt;period value="30" /&gt;
+      &lt;periodUnits value="min" /&gt;
     &lt;/repeat&gt;
   &lt;/schedule&gt;
 </pre>
 <p>
-Note that the end date is inclusive like the high date of a Period.
+Note that the end date is inclusive like the end date of a Period.
 </p>
 </div>
 

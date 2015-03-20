@@ -75,7 +75,7 @@
         <!-- In New Zealand, there is a Lead Maternity Carer (LMC) - often a midwife -->
         <role>
             <coding>
-                <system value="mySys"/>
+                <system value="http://example.org/mysys"/>
                 <code value="lmc"/>
             </coding>
             <text value='Midwife'></text>
@@ -90,7 +90,7 @@
         <!-- To indicate that there is an obstretian consultant involved in this case. -->
         <role>
             <coding>
-                <system value="mySys"/>
+                <system value="http://example.org/mysys"/>
                 <code value="obs"/>
             </coding>
             <text value='Obstretitian'></text>
@@ -118,17 +118,19 @@
         <category value="encounter"></category>
         <code>
             <coding>
-                <system value="mySystem"/>
+                <system value="http://example.org/mySystem"/>
                 <code value="1an"/>
             </coding>
             <text value='First Antenatal encounter'></text>
         </code>
         <scheduledTiming>
             <!-- The encounter should occur between 14 feb and 28 feb -->
-            <event>
+            <repeat>
+              <bounds>
                 <start value="2013-02-14"/>
                 <end value="2013-02-28"/>
-            </event>
+              </bounds>
+            </repeat>
         </scheduledTiming>
         <performer>
             <reference value="#pr1"/>
@@ -155,17 +157,19 @@
         <code>
             <!-- The code is just for an antenatal encounter. There are many of these, the first is special... -->
             <coding>
-                <system value="mySystem"/>
+                <system value="http://example.org/mySystem"/>
                 <code value="an"/>
             </coding>
             <text value='Follow-up Antenatal encounter'></text>           
         </code>
         <scheduledTiming>
             <!-- The encounter should occur between 1 march and 14 march -->
-            <event>
+            <repeat>
+              <bounds>
                 <start value="2013-03-01"/>
                 <end value="2013-03-14"/>
-            </event>
+              </bounds>
+            </repeat>
         </scheduledTiming>
         <performer>
             <!-- The performer is known, but the actual appointment is not yet made, hence there is no action element... -->
@@ -190,7 +194,7 @@
         <category value="encounter"></category>
         <code>
             <coding>
-                <system value="mySystem"/>
+                <system value="http://example.org/mySystem"/>
                 <code value="del"/>
             </coding>
             <text value='Delivery'></text>
@@ -198,10 +202,12 @@
         </code>
         <scheduledTiming>
             <!-- The delivery should occur between 1 September and 14 September -->
-            <event>
+            <repeat>
+              <bounds>
                 <start value="2013-09-01"/>
                 <end value="2013-09-14"/>
-            </event>
+              </bounds>
+            </repeat>
         </scheduledTiming>
         <!-- Where the delivery is to occur... 
           Commented out for now because location resource isn't defined

@@ -55,8 +55,8 @@
     <scheduleTiming>
       <repeat>
         <frequency value="3"/>
-        <duration value="1"/>
-        <units value="d"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
       </repeat>
     </scheduleTiming>
     <route>
@@ -76,7 +76,7 @@
   <substitution>
     <type>
       <coding>
-        <system value="./MedDispSubType"/>
+        <system value="http://example.org/MedDispSubType"/>
         <code value="NoSub"/>
         <display value="No substitution made or expected"/>
       </coding>

@@ -342,7 +342,7 @@ public class ResourceValidator extends BaseValidator {
             String esd = b.substring(3);
             rule(errors, "structure", path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
 			    } else
-			      rule(errors, "structure", path, cd.getCodes().size() > 20 || cd.getCodes().size() == 1 || !hasGoodCode(cd.getCodes()), "The short description of an element with a code list should have the format code | code | etc");
+			      rule(errors, "structure", path, cd.getCodes().size() > 20 || cd.getCodes().size() == 1 || !hasGoodCode(cd.getCodes()) || isExemptFromCodeList(path), "The short description of an element with a code list should have the format code | code | etc");
 			  }
 			  boolean isComplex = !e.typeCode().equals("code");
 //      quality scan for heather:			  
@@ -372,6 +372,10 @@ public class ResourceValidator extends BaseValidator {
 		}
 	}
 
+
+  private boolean isExemptFromCodeList(String path) {
+    return path.equals("Timing.repeat.when");
+  }
 
   private boolean hasGoodCode(List<DefinedCode> codes) {
     for (DefinedCode d : codes) 

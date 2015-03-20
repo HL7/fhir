@@ -1482,7 +1482,7 @@ public class SpreadsheetParser {
       exe.getElements().add(exv);
       exv.setBindingName(sheet.getColumn(row, "Binding"));
       exv.setMaxLength(sheet.getColumn(row, "Max Length"));
-      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), false, profileExtensionBase, definitions));
+      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, definitions));
       exv.setExample(processValue(sheet, row, "Example", exv));
     }
   }

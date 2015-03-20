@@ -80,13 +80,13 @@ edited by Eric Haas Health eData Inc-->
 		<productName value="Ensure"/>
 		<!--EH:  1 8 oz can tid using coded data -->
 		<scheduled>
-			<event>
-				<start value="2015-02-10"/>
-			</event>
 			<repeat>
+        <bounds>
+          <start value="2015-02-10"/>
+        </bounds>
 				<frequency value="3"/>
-				<duration value="1"/>
-				<units value="d"/>
+				<period value="1"/>
+				<periodUnits value="d"/>
 			</repeat>
 		</scheduled>
 		<quantity>

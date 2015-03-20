@@ -63,10 +63,10 @@ edited by Eric Haas Health eData Inc-->
 		</type>
 		<productName value="Ensure Pudding"/>
 		<scheduled>
-			<event>
-				<start value="2015-02-10"/>
-			</event>
 			<repeat>
+        <bounds>
+          <start value="2015-02-10"/>
+        </bounds>
 				<when value="AC"/>
 				<duration value="0"/>
 				<units value="min"/>

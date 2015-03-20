@@ -24,15 +24,15 @@
     <text value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
     <scheduledTiming>
       <!--2 months-->
-      <event>
-        <start value="2013-03-11"/>
-        <end value="2013-05-11"/>
-      </event>
       <repeat>
+        <bounds>
+          <start value="2013-03-11"/>
+          <end value="2013-05-11"/>
+        </bounds>
         <!-- twice per day -->
         <frequency value="2"/>
-        <duration value="1"/>
-        <units value="d"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
       </repeat>
     </scheduledTiming>
     <site>

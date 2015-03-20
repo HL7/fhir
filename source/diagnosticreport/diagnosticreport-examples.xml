@@ -13277,7 +13277,7 @@
             <id value="o3"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="AMS"/>
                 <display value="AMPICILLIN/SULBACTAM"/>
               </coding>
@@ -13301,7 +13301,7 @@
             <id value="o4"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="AM"/>
                 <display value="AMPICILLIN"/>
               </coding>
@@ -13325,7 +13325,7 @@
             <id value="o5"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="ATM"/>
                 <display value="AZTREONAM"/>
               </coding>
@@ -13350,7 +13350,7 @@
             <id value="o6"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="CFZ"/>
                 <display value="CEFAZOLIN"/>
               </coding>
@@ -13375,7 +13375,7 @@
             <id value="o7"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="FEP"/>
                 <display value="CEFEPIME"/>
               </coding>
@@ -13400,7 +13400,7 @@
             <id value="o8"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="CTN"/>
                 <display value="CEFOTETAN"/>
               </coding>
@@ -13425,7 +13425,7 @@
             <id value="o9"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="TAZ"/>
                 <display value="CEFTAZIDIME"/>
               </coding>
@@ -13450,7 +13450,7 @@
             <id value="o10"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="CRO"/>
                 <display value="CEFTRIAXONE"/>
               </coding>
@@ -13475,7 +13475,7 @@
             <id value="o11"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="CIPRO"/>
                 <display value="CIPROFLOXACIN"/>
               </coding>
@@ -13500,7 +13500,7 @@
             <id value="o12"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="GM"/>
                 <display value="GENTAMICIN"/>
               </coding>
@@ -13525,7 +13525,7 @@
             <id value="o13"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="IPM"/>
                 <display value="IMIPENEM"/>
               </coding>
@@ -13550,7 +13550,7 @@
             <id value="o14"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="LVX"/>
                 <display value="LEVOFLOXACIN"/>
               </coding>
@@ -13575,7 +13575,7 @@
             <id value="o15"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="NIT"/>
                 <display value="NITROFURANTOIN"/>
               </coding>
@@ -13599,7 +13599,7 @@
             <id value="o16"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="PTZ"/>
                 <display value="PIPERACILLIN/TAZOBAC"/>
               </coding>
@@ -13624,7 +13624,7 @@
             <id value="o17"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="TRSUV"/>
                 <display value="TRIMETH/SULFA"/>
               </coding>
@@ -13649,7 +13649,7 @@
             <id value="o18"/>
             <code>
               <coding>
-                <system value="local"/>
+                <system value="http://example.org/local"/>
                 <code value="TOB"/>
                 <display value="TOBRAMYCIN"/>
               </coding>

@@ -10,7 +10,7 @@
 		</coding>
 	</kind>
 	<identifier>
-		<system value="OR-Supply-Application"/>
+		<system value="http://example.org/OR-Supply-Application"/>
 		<value value="23455"/>
 		<assigner>
 			<reference value="Organization/2.16.840.1.113883.19.5"/>
@@ -25,7 +25,7 @@
 	<dispense>
 		<identifier>
 			<use value="usual"/>
-			<system value="MM-Supply-Application"/>
+			<system value="http://example.org/MM-Supply-Application"/>
 			<value value="12345"/>
 			<assigner>
 				<reference value="Organization/2.16.840.1.113883.19.5"/>
@@ -44,7 +44,7 @@
 		<quantity>
 			<value value="1"/>
 			<units value="EA"/>
-			<system value="http://unitsofmeasure.org/trac/"/>
+			<system value="http://unitsofmeasure.org/"/>
 			<code value="{each}"/>
 		</quantity>
 		<suppliedItem>

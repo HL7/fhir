@@ -38,14 +38,14 @@
           <text value="for use during pregnancy, contact physician"/>
         </additionalInstructions>
         <scheduledTiming>
-            <event>
-                <start value="2013-08-04"/>
-                <end value="2013-11-05"/>
-            </event>
             <repeat>
+                <bounds>
+                    <start value="2013-08-04"/>
+                    <end value="2013-11-05"/>
+                </bounds>
                 <frequency value="3"/>
-                <duration value="1"/>
-                <units value="d"/>
+                <period value="1"/>
+                <periodUnits value="d"/>
             </repeat>
         </scheduledTiming>
         <site>

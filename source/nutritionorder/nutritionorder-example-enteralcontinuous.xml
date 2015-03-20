@@ -53,9 +53,7 @@ editor Eric Haas Health eData Inc-->
 		</baseFormulaType>
 		<baseFormulaProductName value=" Acme Diabetes Formula"/>
 		<scheduled>
-			<event>
-				<start value="2014-09-17"/>
-			</event>
+			<event value="2014-09-17"/>
 		</scheduled>
 		<caloricDensity>
 			<value value="1"/>

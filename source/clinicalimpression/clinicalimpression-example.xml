@@ -31,14 +31,14 @@
     </item>
   </investigations>
   <summary value="provisional diagnoses of laceration of head and traumatic brain injury (TBI)"/>
-  <diagnosis>
+  <finding>
     <item>
       <coding>
         <system value="http://hl7.org/fhir/sid/icd-9"/>
         <code value="850.0"/>
       </coding>
     </item>
-  </diagnosis>
+  </finding>
   <plan>
     <!-- in real life, this would be a reference -->
     <display value="hospital standard closed head injury management protocol "/>

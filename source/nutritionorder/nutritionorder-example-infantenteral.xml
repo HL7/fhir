@@ -56,13 +56,13 @@ edited by Eric Haas Health eData Inc-->
 		<baseFormulaProductName value="Acme Infant Formula + Iron"/>
 		<!-- scheduled 4 oz every 3hrs not to exceed 32 oz/day-->
 		<scheduled>
-			<event>
-				<start value="2014-09-17"/>
-			</event>
 			<repeat>
+        <bounds>
+          <start value="2014-09-17"/>
+        </bounds>
 				<frequency value="1"/>
-				<duration value="3"/>
-				<units value="h"/>
+				<period value="3"/>
+				<periodUnits value="h"/>
 			</repeat>
 		</scheduled>
 		<additiveType>

@@ -1038,11 +1038,11 @@ public class ProfileUtilities {
             left.getPieces().get(0).setHint("Extension URL = "+element.getType().get(0).getProfile());
             genCardinality(gen, element, row, hasDef, used, extDefn.getSnapshot().getElement().get(0));
             ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
-            if (valueDefn != null)
+            if (valueDefn != null && !valueDefn.getMax().equals("0"))
                genTypes(gen, pkp, row, valueDefn, profileBaseFileName, profile);
              else // if it's complex, we just call it nothing
                 // genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
-              row.getCells().add(gen.new Cell());
+              row.getCells().add(gen.new Cell(null, null, "(Complex)", null, null));
             generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, null, pkp, profile);
         }
       } else {

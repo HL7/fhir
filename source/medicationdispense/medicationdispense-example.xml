@@ -38,7 +38,7 @@
   <substitution>
     <type>
       <coding>
-        <system value="./MedDispSubType"/>
+        <system value="http://example.org/MedDispSubType"/>
         <code value="NoSub"/>
         <display value="No substitution made or expected"/>
       </coding>

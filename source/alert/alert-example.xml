@@ -7,7 +7,7 @@
   </text>
   <category>
     <coding>
-      <system value="local"/>
+      <system value="http://example.org/local"/>
       <code value="admin"/>
       <display value="Admin"/>
     </coding>
@@ -27,7 +27,7 @@
   
   <note>
     <coding>
-      <system value="local"/>
+      <system value="http://example.org/local"/>
       <code value="bigdog"/>
       <display value="Big dog"/>
     </coding>

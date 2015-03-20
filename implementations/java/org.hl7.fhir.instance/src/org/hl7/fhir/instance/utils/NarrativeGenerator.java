@@ -800,39 +800,59 @@ public class NarrativeGenerator implements INarrativeGenerator {
   
   
   private String displayTiming(Timing s) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     if (s.getEvent().size() > 1 || (!s.hasRepeat() && !s.getEvent().isEmpty())) {
       CommaSeparatedStringBuilder c = new CommaSeparatedStringBuilder();
-      for (Period p : s.getEvent()) {
-        c.append(displayPeriod(p));
+      for (DateTimeType p : s.getEvent()) {
+        c.append(p.toHumanDisplay());
       }
-      return c.toString();
-    } else if (s.hasRepeat()) {
+      b.append("Events: "+ c.toString());
+    }
+    if (s.hasRepeat()) {
       TimingRepeatComponent rep = s.getRepeat();
-      StringBuilder b = new StringBuilder();
-      if (s.getEvent().size() == 1) 
-        b.append("Starting "+displayPeriod(s.getEvent().get(0))+", ");
+      if (rep.hasBounds() && rep.getBounds().hasStart()) 
+        b.append("Starting "+rep.getBounds().getStartElement().toHumanDisplay());
+      if (rep.hasCount()) 
+        b.append("Count "+Integer.toString(rep.getCount())+"x");
+      if (rep.hasDuration()) 
+        b.append("Duration "+rep.getDuration().toPlainString()+displayTimeUnits(rep.getPeriodUnits()));
+      
       if (rep.hasWhen()) {
-        b.append(rep.getDuration().toString()+" "+displayTimeUnits(rep.getUnits()));
-        b.append(" ");
-        b.append(displayEventCode(rep.getWhen()));
+        String st = "";
+        if (rep.hasPeriod()) {
+          st = rep.getPeriod().toPlainString();
+          if (rep.hasPeriodMax())
+            st = st + "-"+rep.getPeriodMax().toPlainString();
+          st = st + displayTimeUnits(rep.getPeriodUnits());
+        }
+        b.append("Do "+st+displayEventCode(rep.getWhen()));
       } else {
-        if (rep.getFrequency() == 1)
-          b.append("Once per ");
-        else 
-          b.append(Integer.toString(rep.getFrequency())+" per ");
-        b.append(rep.getDuration().toString()+" "+displayTimeUnits(rep.getUnits()));
-        if (rep.hasCountElement())
-          b.append(" "+Integer.toString(rep.getCount())+" times");
-        else if (rep.hasEnd()) 
-          b.append(" until "+rep.getEndElement().toHumanDisplay());
+        String st = "";
+        if (!rep.hasFrequency() || (!rep.hasFrequencyMax() && rep.getFrequency() == 1) ) 
+          st = "Once";
+        else {  
+          st = Integer.toString(rep.getFrequency());
+          if (rep.hasFrequencyMax())
+            st = st + "-"+Integer.toString(rep.getFrequency());
+        }
+        st = st + " per "+rep.getPeriod().toPlainString();
+        if (rep.hasPeriodMax())
+          st = st + "-"+rep.getPeriodMax().toPlainString();
+        st = st + displayTimeUnits(rep.getPeriodUnits());
+        b.append("Do "+st);
+      }
+      if (rep.hasBounds() && rep.getBounds().hasEnd()) 
+        b.append("Until "+rep.getBounds().getEndElement().toHumanDisplay());
       }
       return b.toString();
-    } else
-      return "??";    
   }
   
   private Object displayEventCode(EventTiming when) {
     switch (when) {
+    case C: return "at meals";
+    case CD: return "at lunch";
+    case CM: return "at breakfast";
+    case CV: return "at dinner";
     case AC: return "before meals";
     case ACD: return "before lunch";
     case ACM: return "before breakfast";

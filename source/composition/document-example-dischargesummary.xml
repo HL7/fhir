@@ -22,7 +22,7 @@
         <date value="2013-02-01T12:30:02Z"/>
         <type>
           <coding>
-            <system value="www.loinc.org"/>
+            <system value="http://loinc.org"/>
             <code value="28655-9"/>
           </coding>
           <text value="Discharge Summary from Responsible Clinician"/>
@@ -389,8 +389,8 @@
           <scheduledTiming>
             <repeat>
               <frequency value="2"/>
-              <duration value="1"/>
-              <units value="d"/>
+              <period value="1"/>
+              <periodUnits value="d"/>
             </repeat>
           </scheduledTiming>
           <!-- Orally -->

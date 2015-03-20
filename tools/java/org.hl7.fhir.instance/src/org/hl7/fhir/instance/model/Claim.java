@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -3369,16 +3369,28 @@ public class Claim extends DomainResource {
     protected Resource prescriptionTarget;
 
     /**
+     * Original prescription to support the dispensing of pharmacy services, medications or products.
+     */
+    @Child(name ="originalPrescription", type={MedicationPrescription.class}, order=14, min=0, max=1)
+    @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription to support the dispensing of pharmacy services, medications or products." )
+    protected Reference originalPrescription;
+
+    /**
+     * The actual object that is the target of the reference (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     */
+    protected MedicationPrescription originalPrescriptionTarget;
+
+    /**
      * The party to be reimbursed for the services.
      */
-    @Child(name ="payee", type={}, order=14, min=0, max=1)
+    @Child(name ="payee", type={}, order=15, min=0, max=1)
     @Description(shortDefinition="Payee", formalDefinition="The party to be reimbursed for the services." )
     protected PayeeComponent payee;
 
     /**
      * The referral resource which lists the date, practitioner, reason and other supporting information.
      */
-    @Child(name ="referral", type={ReferralRequest.class}, order=15, min=0, max=1)
+    @Child(name ="referral", type={ReferralRequest.class}, order=16, min=0, max=1)
     @Description(shortDefinition="Treatment Referral", formalDefinition="The referral resource which lists the date, practitioner, reason and other supporting information." )
     protected Reference referral;
 
@@ -3390,21 +3402,21 @@ public class Claim extends DomainResource {
     /**
      * Ordered list of patient diagnosis for which care is sought.
      */
-    @Child(name ="diagnosis", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="diagnosis", type={}, order=17, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Diagnosis", formalDefinition="Ordered list of patient diagnosis for which care is sought." )
     protected List<DiagnosisComponent> diagnosis;
 
     /**
      * List of patient conditions for which care is sought.
      */
-    @Child(name ="condition", type={Coding.class}, order=17, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="condition", type={Coding.class}, order=18, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="List of presenting Conditions", formalDefinition="List of patient conditions for which care is sought." )
     protected List<Coding> condition;
 
     /**
      * Patient Resource.
      */
-    @Child(name ="patient", type={Patient.class}, order=18, min=1, max=1)
+    @Child(name ="patient", type={Patient.class}, order=19, min=1, max=1)
     @Description(shortDefinition="The subject of the Products and Services", formalDefinition="Patient Resource." )
     protected Reference patient;
 
@@ -3416,67 +3428,67 @@ public class Claim extends DomainResource {
     /**
      * Financial instrument by which payment information for health care.
      */
-    @Child(name ="coverage", type={}, order=19, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="coverage", type={}, order=20, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected List<CoverageComponent> coverage;
 
     /**
      * Factors which may influence the applicability of coverage.
      */
-    @Child(name ="exception", type={Coding.class}, order=20, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="exception", type={Coding.class}, order=21, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Eligibility exceptions", formalDefinition="Factors which may influence the applicability of coverage." )
     protected List<Coding> exception;
 
     /**
      * Name of school for over-aged dependants.
      */
-    @Child(name ="school", type={StringType.class}, order=21, min=0, max=1)
+    @Child(name ="school", type={StringType.class}, order=22, min=0, max=1)
     @Description(shortDefinition="Name of School", formalDefinition="Name of school for over-aged dependants." )
     protected StringType school;
 
     /**
      * Date of an accident which these services are addressing.
      */
-    @Child(name ="accident", type={DateType.class}, order=22, min=0, max=1)
+    @Child(name ="accident", type={DateType.class}, order=23, min=0, max=1)
     @Description(shortDefinition="Accident Date", formalDefinition="Date of an accident which these services are addressing." )
     protected DateType accident;
 
     /**
      * Type of accident: work, auto, etc.
      */
-    @Child(name ="accidentType", type={Coding.class}, order=23, min=0, max=1)
+    @Child(name ="accidentType", type={Coding.class}, order=24, min=0, max=1)
     @Description(shortDefinition="Accident Type", formalDefinition="Type of accident: work, auto, etc." )
     protected Coding accidentType;
 
     /**
      * A list of intervention and exception codes which may influence the adjudication of the claim.
      */
-    @Child(name ="interventionException", type={Coding.class}, order=24, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="interventionException", type={Coding.class}, order=25, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Intervention and exception code (Pharma)", formalDefinition="A list of intervention and exception codes which may influence the adjudication of the claim." )
     protected List<Coding> interventionException;
 
     /**
      * First tier of goods and services.
      */
-    @Child(name ="item", type={}, order=25, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="item", type={}, order=26, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Goods and Services", formalDefinition="First tier of goods and services." )
     protected List<ItemsComponent> item;
 
     /**
      * Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.
      */
-    @Child(name ="additionalMaterials", type={Coding.class}, order=26, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="additionalMaterials", type={Coding.class}, order=27, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Additional materials, documents, etc.", formalDefinition="Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission." )
     protected List<Coding> additionalMaterials;
 
     /**
      * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
      */
-    @Child(name ="missingTeeth", type={}, order=27, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="missingTeeth", type={}, order=28, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Only if type = oral", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
     protected List<MissingTeethComponent> missingTeeth;
 
-    private static final long serialVersionUID = 1389002234L;
+    private static final long serialVersionUID = 764017933L;
 
     public Claim() {
       super();
@@ -4023,6 +4035,50 @@ public class Claim extends DomainResource {
      */
     public Claim setPrescriptionTarget(Resource value) { 
       this.prescriptionTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #originalPrescription} (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     */
+    public Reference getOriginalPrescription() { 
+      if (this.originalPrescription == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Claim.originalPrescription");
+        else if (Configuration.doAutoCreate())
+          this.originalPrescription = new Reference(); // cc
+      return this.originalPrescription;
+    }
+
+    public boolean hasOriginalPrescription() { 
+      return this.originalPrescription != null && !this.originalPrescription.isEmpty();
+    }
+
+    /**
+     * @param value {@link #originalPrescription} (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     */
+    public Claim setOriginalPrescription(Reference value) { 
+      this.originalPrescription = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     */
+    public MedicationPrescription getOriginalPrescriptionTarget() { 
+      if (this.originalPrescriptionTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Claim.originalPrescription");
+        else if (Configuration.doAutoCreate())
+          this.originalPrescriptionTarget = new MedicationPrescription(); // aa
+      return this.originalPrescriptionTarget;
+    }
+
+    /**
+     * @param value {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     */
+    public Claim setOriginalPrescriptionTarget(MedicationPrescription value) { 
+      this.originalPrescriptionTarget = value;
       return this;
     }
 
@@ -4596,6 +4652,7 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("enterer", "Reference(Practitioner)", "Person who created the invoice/claim/pre-determination or pre-authorization.", 0, java.lang.Integer.MAX_VALUE, enterer));
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));
         childrenList.add(new Property("prescription", "Reference(MedicationPrescription|VisionPrescription)", "Prescription to support the dispensing of Pharmacy or Vision products.", 0, java.lang.Integer.MAX_VALUE, prescription));
+        childrenList.add(new Property("originalPrescription", "Reference(MedicationPrescription)", "Original prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
         childrenList.add(new Property("payee", "", "The party to be reimbursed for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("referral", "Reference(ReferralRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
         childrenList.add(new Property("diagnosis", "", "Ordered list of patient diagnosis for which care is sought.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
@@ -4633,6 +4690,7 @@ public class Claim extends DomainResource {
         dst.enterer = enterer == null ? null : enterer.copy();
         dst.facility = facility == null ? null : facility.copy();
         dst.prescription = prescription == null ? null : prescription.copy();
+        dst.originalPrescription = originalPrescription == null ? null : originalPrescription.copy();
         dst.payee = payee == null ? null : payee.copy();
         dst.referral = referral == null ? null : referral.copy();
         if (diagnosis != null) {
@@ -4698,12 +4756,13 @@ public class Claim extends DomainResource {
            && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true)
            && compareDeep(use, o.use, true) && compareDeep(priority, o.priority, true) && compareDeep(fundsReserve, o.fundsReserve, true)
            && compareDeep(enterer, o.enterer, true) && compareDeep(facility, o.facility, true) && compareDeep(prescription, o.prescription, true)
-           && compareDeep(payee, o.payee, true) && compareDeep(referral, o.referral, true) && compareDeep(diagnosis, o.diagnosis, true)
-           && compareDeep(condition, o.condition, true) && compareDeep(patient, o.patient, true) && compareDeep(coverage, o.coverage, true)
-           && compareDeep(exception, o.exception, true) && compareDeep(school, o.school, true) && compareDeep(accident, o.accident, true)
-           && compareDeep(accidentType, o.accidentType, true) && compareDeep(interventionException, o.interventionException, true)
-           && compareDeep(item, o.item, true) && compareDeep(additionalMaterials, o.additionalMaterials, true)
-           && compareDeep(missingTeeth, o.missingTeeth, true);
+           && compareDeep(originalPrescription, o.originalPrescription, true) && compareDeep(payee, o.payee, true)
+           && compareDeep(referral, o.referral, true) && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(condition, o.condition, true)
+           && compareDeep(patient, o.patient, true) && compareDeep(coverage, o.coverage, true) && compareDeep(exception, o.exception, true)
+           && compareDeep(school, o.school, true) && compareDeep(accident, o.accident, true) && compareDeep(accidentType, o.accidentType, true)
+           && compareDeep(interventionException, o.interventionException, true) && compareDeep(item, o.item, true)
+           && compareDeep(additionalMaterials, o.additionalMaterials, true) && compareDeep(missingTeeth, o.missingTeeth, true)
+          ;
       }
 
       @Override
@@ -4724,7 +4783,8 @@ public class Claim extends DomainResource {
            && (organization == null || organization.isEmpty()) && (use == null || use.isEmpty()) && (priority == null || priority.isEmpty())
            && (fundsReserve == null || fundsReserve.isEmpty()) && (enterer == null || enterer.isEmpty())
            && (facility == null || facility.isEmpty()) && (prescription == null || prescription.isEmpty())
-           && (payee == null || payee.isEmpty()) && (referral == null || referral.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
+           && (originalPrescription == null || originalPrescription.isEmpty()) && (payee == null || payee.isEmpty())
+           && (referral == null || referral.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
            && (condition == null || condition.isEmpty()) && (patient == null || patient.isEmpty()) && (coverage == null || coverage.isEmpty())
            && (exception == null || exception.isEmpty()) && (school == null || school.isEmpty()) && (accident == null || accident.isEmpty())
            && (accidentType == null || accidentType.isEmpty()) && (interventionException == null || interventionException.isEmpty())

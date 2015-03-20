@@ -79,13 +79,13 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		</baseFormulaType>
 		<baseFormulaProductName value="Acme High Protein Formula"/>
 		<scheduled>
-			<event>
-				<start value="2014-09-17"/>
-			</event>
 			<repeat>
+        <bounds>
+          <start value="2014-09-17"/>
+        </bounds>
 				<frequency value="1"/>
-				<duration value="4"/>
-				<units value="h"> </units>
+				<period value="4"/>
+				<periodUnits value="h"/>
 			</repeat>
 		</scheduled>
 		<additiveType>

@@ -70,8 +70,8 @@
     <schedule>
       <repeat>
         <frequency value="1"/>
-        <duration value="1"/>
-        <units value="d"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
       </repeat>
     </schedule>
     <asNeededBoolean value="true"/>

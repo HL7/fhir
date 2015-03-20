@@ -927,26 +927,40 @@ See also <a href="datatypes-examples.html#Timing">Examples</a>, <a href="datatyp
 </p>
 <p>
 Specifies an event that may occur multiple times. Timing schedules are not used for recording when things did happen, but when they are expected or requested to occur.
-A Timing schedule can be either a list of events - periods on which the event occurs, 
-or a single event with repeating criteria, or just repeating criteria with no actual event. 
+A Timing schedule can be either a list of events, or criteria for when the event happens. In addition, both can be proposed. When both event and a repeating specification 
+are provided, the list of events should be understood as an interpretation of the information in the repeat structure
 </p>
-<!--
 <p>
-Note: a possible enhancement to this is to have the repeat content repeat with each event. This is richer and more complex - is the added functionality useful?
+Many systems avoid the complexity of the Timing structure by using a text field for these things (e.g. "Dosage Text"). 
+Those systems do not use the Timing data type. Other systems use a set of 'common' codes - including, but usually
+not limited to, widely understood acronyms such as "BID". The timing data uses a fully structured representation 
+of the meaning of the codes for most general interoperability. 
 </p>
--->
 [%dt Timing%]
 <p>
-If events are specified, at least <i>event.start</i> SHALL be specified for each event. If no <i>event.end</i> is 
-specified, the event is assumed to last a limited but unknown time as clinically relevant.
-</p>
-<p>
 If the timing schedule has repeating criteria, the repeat can occur a given number of times per 
-the specified duration or in relation to some real world event. Also, if the event repeats,
-a time to end the timing can be specified, either with a count of the number of times 
-it can occur or a date/time at which to end the schedule. If no end condition is specified, 
+the specified duration or in relation to some real world event. If no end condition is specified, 
 the schedule will terminate on some criteria that are expressed elsewhere. 
 </p>
+<p>
+This table summarises some common uses of the Timing Data Type criteria.
+</p>
+<table class="grid">
+ <tr><td><b>text</b></td><td><b>duration+units</b></td><td><b>frequency</b></td><td><b>frequencyMax</b></td><td><b>period+units</b></td><td><b>periodMax</b></td><td><b>when</b></td></tr>
+ <tr><td>BID</td><td></td><td>2</td><td></td><td>1 d</td><td></td><td></td></tr>
+ <tr><td>TID</td><td></td><td>3</td><td></td><td>1 d</td><td></td><td></td></tr>
+ <tr><td>QID</td><td></td><td>4</td><td></td><td>1 d</td><td></td><td></td></tr>
+ <tr><td>Q6H</td><td></td><td>1</td><td></td><td>6 h</td><td></td><td></td></tr>
+ <tr><td>Every 8 hours</td><td></td><td>1</td><td></td><td>8 h</td><td></td><td></td></tr>
+ <tr><td>Every 7 days</td><td></td><td>1</td><td></td><td>7 d</td><td></td><td></td></tr>
+ <tr><td>3 times a day</td><td></td><td>3</td><td></td><td>1 d</td><td></td><td></td></tr>
+ <tr><td>3-4 times a day</td><td></td><td>3</td><td>4</td><td>1 d</td><td></td><td></td></tr>
+ <tr><td>Every 4-6 hours</td><td></td><td>1</td><td></td><td>4 h</td><td>6</td><td></td></tr>
+ <tr><td>Every 21 days for 1 hour</td><td>1 hr</td><td>1</td><td></td><td>21 d</td><td></td><td></td></tr>
+ <tr><td>Three times a week for ½ hour</td><td>0.5 hr</td><td>3</td><td></td><td>1 wk</td><td></td><td></td></tr>
+ <tr><td>With breakfast</td><td></td><td></td><td></td><td></td><td></td><td>CM</td></tr>
+ <tr><td>For 10 minutes before meals</td><td>10 min</td><td></td><td></td><td>10 min</td><td></td><td>AC</td></tr>
+</table>
 
 <p>
 Timing is used in the following places: [%dtusage Timing%]

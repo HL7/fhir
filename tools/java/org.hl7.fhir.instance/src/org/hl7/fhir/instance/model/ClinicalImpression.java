@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Mar 19, 2015 09:22+1100 for FHIR v0.4.0
+// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -42,11 +42,11 @@ import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow.
  */
-@ResourceDef(name="ClinicalAssessment", profile="http://hl7.org/fhir/Profile/ClinicalAssessment")
-public class ClinicalAssessment extends DomainResource {
+@ResourceDef(name="ClinicalImpression", profile="http://hl7.org/fhir/Profile/ClinicalImpression")
+public class ClinicalImpression extends DomainResource {
 
     @Block()
-    public static class ClinicalAssessmentInvestigationsComponent extends BackboneElement {
+    public static class ClinicalImpressionInvestigationsComponent extends BackboneElement {
         /**
          * A name/code for the group ("set") of investigations. Typically, this will be something like "signs", "symptoms", "clinical", "diagnostic", but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used.
          */
@@ -68,11 +68,11 @@ public class ClinicalAssessment extends DomainResource {
 
         private static final long serialVersionUID = -301363326L;
 
-      public ClinicalAssessmentInvestigationsComponent() {
+      public ClinicalImpressionInvestigationsComponent() {
         super();
       }
 
-      public ClinicalAssessmentInvestigationsComponent(CodeableConcept code) {
+      public ClinicalImpressionInvestigationsComponent(CodeableConcept code) {
         super();
         this.code = code;
       }
@@ -83,7 +83,7 @@ public class ClinicalAssessment extends DomainResource {
         public CodeableConcept getCode() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ClinicalAssessmentInvestigationsComponent.code");
+              throw new Error("Attempt to auto-create ClinicalImpressionInvestigationsComponent.code");
             else if (Configuration.doAutoCreate())
               this.code = new CodeableConcept(); // cc
           return this.code;
@@ -96,7 +96,7 @@ public class ClinicalAssessment extends DomainResource {
         /**
          * @param value {@link #code} (A name/code for the group ("set") of investigations. Typically, this will be something like "signs", "symptoms", "clinical", "diagnostic", but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used.)
          */
-        public ClinicalAssessmentInvestigationsComponent setCode(CodeableConcept value) { 
+        public ClinicalImpressionInvestigationsComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
@@ -132,7 +132,7 @@ public class ClinicalAssessment extends DomainResource {
         }
 
     // syntactic sugar
-        public ClinicalAssessmentInvestigationsComponent addItem(Reference t) { //3
+        public ClinicalImpressionInvestigationsComponent addItem(Reference t) { //3
           if (t == null)
             return this;
           if (this.item == null)
@@ -156,8 +156,8 @@ public class ClinicalAssessment extends DomainResource {
           childrenList.add(new Property("item", "Reference(Observation|QuestionnaireAnswers|FamilyHistory|DiagnosticReport)", "A record of a specific investigation that was undertaken.", 0, java.lang.Integer.MAX_VALUE, item));
         }
 
-      public ClinicalAssessmentInvestigationsComponent copy() {
-        ClinicalAssessmentInvestigationsComponent dst = new ClinicalAssessmentInvestigationsComponent();
+      public ClinicalImpressionInvestigationsComponent copy() {
+        ClinicalImpressionInvestigationsComponent dst = new ClinicalImpressionInvestigationsComponent();
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
         if (item != null) {
@@ -172,9 +172,9 @@ public class ClinicalAssessment extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ClinicalAssessmentInvestigationsComponent))
+        if (!(other instanceof ClinicalImpressionInvestigationsComponent))
           return false;
-        ClinicalAssessmentInvestigationsComponent o = (ClinicalAssessmentInvestigationsComponent) other;
+        ClinicalImpressionInvestigationsComponent o = (ClinicalImpressionInvestigationsComponent) other;
         return compareDeep(code, o.code, true) && compareDeep(item, o.item, true);
       }
 
@@ -182,9 +182,9 @@ public class ClinicalAssessment extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ClinicalAssessmentInvestigationsComponent))
+        if (!(other instanceof ClinicalImpressionInvestigationsComponent))
           return false;
-        ClinicalAssessmentInvestigationsComponent o = (ClinicalAssessmentInvestigationsComponent) other;
+        ClinicalImpressionInvestigationsComponent o = (ClinicalImpressionInvestigationsComponent) other;
         return true;
       }
 
@@ -196,7 +196,7 @@ public class ClinicalAssessment extends DomainResource {
   }
 
     @Block()
-    public static class ClinicalAssessmentDiagnosisComponent extends BackboneElement {
+    public static class ClinicalImpressionDiagnosisComponent extends BackboneElement {
         /**
          * Specific text of code for diagnosis.
          */
@@ -213,11 +213,11 @@ public class ClinicalAssessment extends DomainResource {
 
         private static final long serialVersionUID = -888590978L;
 
-      public ClinicalAssessmentDiagnosisComponent() {
+      public ClinicalImpressionDiagnosisComponent() {
         super();
       }
 
-      public ClinicalAssessmentDiagnosisComponent(CodeableConcept item) {
+      public ClinicalImpressionDiagnosisComponent(CodeableConcept item) {
         super();
         this.item = item;
       }
@@ -228,7 +228,7 @@ public class ClinicalAssessment extends DomainResource {
         public CodeableConcept getItem() { 
           if (this.item == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ClinicalAssessmentDiagnosisComponent.item");
+              throw new Error("Attempt to auto-create ClinicalImpressionDiagnosisComponent.item");
             else if (Configuration.doAutoCreate())
               this.item = new CodeableConcept(); // cc
           return this.item;
@@ -241,7 +241,7 @@ public class ClinicalAssessment extends DomainResource {
         /**
          * @param value {@link #item} (Specific text of code for diagnosis.)
          */
-        public ClinicalAssessmentDiagnosisComponent setItem(CodeableConcept value) { 
+        public ClinicalImpressionDiagnosisComponent setItem(CodeableConcept value) { 
           this.item = value;
           return this;
         }
@@ -252,7 +252,7 @@ public class ClinicalAssessment extends DomainResource {
         public StringType getCauseElement() { 
           if (this.cause == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ClinicalAssessmentDiagnosisComponent.cause");
+              throw new Error("Attempt to auto-create ClinicalImpressionDiagnosisComponent.cause");
             else if (Configuration.doAutoCreate())
               this.cause = new StringType(); // bb
           return this.cause;
@@ -269,7 +269,7 @@ public class ClinicalAssessment extends DomainResource {
         /**
          * @param value {@link #cause} (Which investigations support diagnosis.). This is the underlying object with id, value and extensions. The accessor "getCause" gives direct access to the value
          */
-        public ClinicalAssessmentDiagnosisComponent setCauseElement(StringType value) { 
+        public ClinicalImpressionDiagnosisComponent setCauseElement(StringType value) { 
           this.cause = value;
           return this;
         }
@@ -284,7 +284,7 @@ public class ClinicalAssessment extends DomainResource {
         /**
          * @param value Which investigations support diagnosis.
          */
-        public ClinicalAssessmentDiagnosisComponent setCause(String value) { 
+        public ClinicalImpressionDiagnosisComponent setCause(String value) { 
           if (Utilities.noString(value))
             this.cause = null;
           else {
@@ -301,8 +301,8 @@ public class ClinicalAssessment extends DomainResource {
           childrenList.add(new Property("cause", "string", "Which investigations support diagnosis.", 0, java.lang.Integer.MAX_VALUE, cause));
         }
 
-      public ClinicalAssessmentDiagnosisComponent copy() {
-        ClinicalAssessmentDiagnosisComponent dst = new ClinicalAssessmentDiagnosisComponent();
+      public ClinicalImpressionDiagnosisComponent copy() {
+        ClinicalImpressionDiagnosisComponent dst = new ClinicalImpressionDiagnosisComponent();
         copyValues(dst);
         dst.item = item == null ? null : item.copy();
         dst.cause = cause == null ? null : cause.copy();
@@ -313,9 +313,9 @@ public class ClinicalAssessment extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ClinicalAssessmentDiagnosisComponent))
+        if (!(other instanceof ClinicalImpressionDiagnosisComponent))
           return false;
-        ClinicalAssessmentDiagnosisComponent o = (ClinicalAssessmentDiagnosisComponent) other;
+        ClinicalImpressionDiagnosisComponent o = (ClinicalImpressionDiagnosisComponent) other;
         return compareDeep(item, o.item, true) && compareDeep(cause, o.cause, true);
       }
 
@@ -323,9 +323,9 @@ public class ClinicalAssessment extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ClinicalAssessmentDiagnosisComponent))
+        if (!(other instanceof ClinicalImpressionDiagnosisComponent))
           return false;
-        ClinicalAssessmentDiagnosisComponent o = (ClinicalAssessmentDiagnosisComponent) other;
+        ClinicalImpressionDiagnosisComponent o = (ClinicalImpressionDiagnosisComponent) other;
         return compareValues(cause, o.cause, true);
       }
 
@@ -337,7 +337,7 @@ public class ClinicalAssessment extends DomainResource {
   }
 
     @Block()
-    public static class ClinicalAssessmentRuledOutComponent extends BackboneElement {
+    public static class ClinicalImpressionRuledOutComponent extends BackboneElement {
         /**
          * Specific text of code for diagnosis.
          */
@@ -354,11 +354,11 @@ public class ClinicalAssessment extends DomainResource {
 
         private static final long serialVersionUID = -1001661243L;
 
-      public ClinicalAssessmentRuledOutComponent() {
+      public ClinicalImpressionRuledOutComponent() {
         super();
       }
 
-      public ClinicalAssessmentRuledOutComponent(CodeableConcept item) {
+      public ClinicalImpressionRuledOutComponent(CodeableConcept item) {
         super();
         this.item = item;
       }
@@ -369,7 +369,7 @@ public class ClinicalAssessment extends DomainResource {
         public CodeableConcept getItem() { 
           if (this.item == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ClinicalAssessmentRuledOutComponent.item");
+              throw new Error("Attempt to auto-create ClinicalImpressionRuledOutComponent.item");
             else if (Configuration.doAutoCreate())
               this.item = new CodeableConcept(); // cc
           return this.item;
@@ -382,7 +382,7 @@ public class ClinicalAssessment extends DomainResource {
         /**
          * @param value {@link #item} (Specific text of code for diagnosis.)
          */
-        public ClinicalAssessmentRuledOutComponent setItem(CodeableConcept value) { 
+        public ClinicalImpressionRuledOutComponent setItem(CodeableConcept value) { 
           this.item = value;
           return this;
         }
@@ -393,7 +393,7 @@ public class ClinicalAssessment extends DomainResource {
         public StringType getReasonElement() { 
           if (this.reason == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ClinicalAssessmentRuledOutComponent.reason");
+              throw new Error("Attempt to auto-create ClinicalImpressionRuledOutComponent.reason");
             else if (Configuration.doAutoCreate())
               this.reason = new StringType(); // bb
           return this.reason;
@@ -410,7 +410,7 @@ public class ClinicalAssessment extends DomainResource {
         /**
          * @param value {@link #reason} (Grounds for elimination.). This is the underlying object with id, value and extensions. The accessor "getReason" gives direct access to the value
          */
-        public ClinicalAssessmentRuledOutComponent setReasonElement(StringType value) { 
+        public ClinicalImpressionRuledOutComponent setReasonElement(StringType value) { 
           this.reason = value;
           return this;
         }
@@ -425,7 +425,7 @@ public class ClinicalAssessment extends DomainResource {
         /**
          * @param value Grounds for elimination.
          */
-        public ClinicalAssessmentRuledOutComponent setReason(String value) { 
+        public ClinicalImpressionRuledOutComponent setReason(String value) { 
           if (Utilities.noString(value))
             this.reason = null;
           else {
@@ -442,8 +442,8 @@ public class ClinicalAssessment extends DomainResource {
           childrenList.add(new Property("reason", "string", "Grounds for elimination.", 0, java.lang.Integer.MAX_VALUE, reason));
         }
 
-      public ClinicalAssessmentRuledOutComponent copy() {
-        ClinicalAssessmentRuledOutComponent dst = new ClinicalAssessmentRuledOutComponent();
+      public ClinicalImpressionRuledOutComponent copy() {
+        ClinicalImpressionRuledOutComponent dst = new ClinicalImpressionRuledOutComponent();
         copyValues(dst);
         dst.item = item == null ? null : item.copy();
         dst.reason = reason == null ? null : reason.copy();
@@ -454,9 +454,9 @@ public class ClinicalAssessment extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ClinicalAssessmentRuledOutComponent))
+        if (!(other instanceof ClinicalImpressionRuledOutComponent))
           return false;
-        ClinicalAssessmentRuledOutComponent o = (ClinicalAssessmentRuledOutComponent) other;
+        ClinicalImpressionRuledOutComponent o = (ClinicalImpressionRuledOutComponent) other;
         return compareDeep(item, o.item, true) && compareDeep(reason, o.reason, true);
       }
 
@@ -464,9 +464,9 @@ public class ClinicalAssessment extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ClinicalAssessmentRuledOutComponent))
+        if (!(other instanceof ClinicalImpressionRuledOutComponent))
           return false;
-        ClinicalAssessmentRuledOutComponent o = (ClinicalAssessmentRuledOutComponent) other;
+        ClinicalImpressionRuledOutComponent o = (ClinicalImpressionRuledOutComponent) other;
         return compareValues(reason, o.reason, true);
       }
 
@@ -518,14 +518,14 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.
      */
-    @Child(name ="previous", type={ClinicalAssessment.class}, order=4, min=0, max=1)
+    @Child(name ="previous", type={ClinicalImpression.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Reference to last assessment", formalDefinition="A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes." )
     protected Reference previous;
 
     /**
      * The actual object that is the target of the reference (A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.)
      */
-    protected ClinicalAssessment previousTarget;
+    protected ClinicalImpression previousTarget;
 
     /**
      * This a list of the general problems/conditions for a patient.
@@ -568,7 +568,7 @@ public class ClinicalAssessment extends DomainResource {
      */
     @Child(name ="investigations", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="One or more sets of investigations (signs, symptions, etc)", formalDefinition="One or more sets of investigations (signs, symptions, etc). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes." )
-    protected List<ClinicalAssessmentInvestigationsComponent> investigations;
+    protected List<ClinicalImpressionInvestigationsComponent> investigations;
 
     /**
      * Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.
@@ -589,7 +589,7 @@ public class ClinicalAssessment extends DomainResource {
      */
     @Child(name ="diagnosis", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Possible or likely diagnosis", formalDefinition="An specific diagnosis that was considered likely or relevant to ongoing treatment." )
-    protected List<ClinicalAssessmentDiagnosisComponent> diagnosis;
+    protected List<ClinicalImpressionDiagnosisComponent> diagnosis;
 
     /**
      * Diagnoses/conditions resolved since the last assessment.
@@ -603,7 +603,7 @@ public class ClinicalAssessment extends DomainResource {
      */
     @Child(name ="ruledOut", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Diagnosis considered not possible", formalDefinition="Diagnosis considered not possible." )
-    protected List<ClinicalAssessmentRuledOutComponent> ruledOut;
+    protected List<ClinicalImpressionRuledOutComponent> ruledOut;
 
     /**
      * Estimate of likely outcome.
@@ -636,13 +636,13 @@ public class ClinicalAssessment extends DomainResource {
     protected List<Resource> actionTarget;
 
 
-    private static final long serialVersionUID = 1041335013L;
+    private static final long serialVersionUID = -1322237577L;
 
-    public ClinicalAssessment() {
+    public ClinicalImpression() {
       super();
     }
 
-    public ClinicalAssessment(Reference patient, Reference assessor, DateTimeType date) {
+    public ClinicalImpression(Reference patient, Reference assessor, DateTimeType date) {
       super();
       this.patient = patient;
       this.assessor = assessor;
@@ -655,7 +655,7 @@ public class ClinicalAssessment extends DomainResource {
     public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.patient");
+          throw new Error("Attempt to auto-create ClinicalImpression.patient");
         else if (Configuration.doAutoCreate())
           this.patient = new Reference(); // cc
       return this.patient;
@@ -668,7 +668,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #patient} (The patient being asssesed.)
      */
-    public ClinicalAssessment setPatient(Reference value) { 
+    public ClinicalImpression setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -679,7 +679,7 @@ public class ClinicalAssessment extends DomainResource {
     public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.patient");
+          throw new Error("Attempt to auto-create ClinicalImpression.patient");
         else if (Configuration.doAutoCreate())
           this.patientTarget = new Patient(); // aa
       return this.patientTarget;
@@ -688,7 +688,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient being asssesed.)
      */
-    public ClinicalAssessment setPatientTarget(Patient value) { 
+    public ClinicalImpression setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -699,7 +699,7 @@ public class ClinicalAssessment extends DomainResource {
     public Reference getAssessor() { 
       if (this.assessor == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.assessor");
+          throw new Error("Attempt to auto-create ClinicalImpression.assessor");
         else if (Configuration.doAutoCreate())
           this.assessor = new Reference(); // cc
       return this.assessor;
@@ -712,7 +712,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #assessor} (The clinician performing the assessment.)
      */
-    public ClinicalAssessment setAssessor(Reference value) { 
+    public ClinicalImpression setAssessor(Reference value) { 
       this.assessor = value;
       return this;
     }
@@ -723,7 +723,7 @@ public class ClinicalAssessment extends DomainResource {
     public Practitioner getAssessorTarget() { 
       if (this.assessorTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.assessor");
+          throw new Error("Attempt to auto-create ClinicalImpression.assessor");
         else if (Configuration.doAutoCreate())
           this.assessorTarget = new Practitioner(); // aa
       return this.assessorTarget;
@@ -732,7 +732,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #assessor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
      */
-    public ClinicalAssessment setAssessorTarget(Practitioner value) { 
+    public ClinicalImpression setAssessorTarget(Practitioner value) { 
       this.assessorTarget = value;
       return this;
     }
@@ -743,7 +743,7 @@ public class ClinicalAssessment extends DomainResource {
     public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.date");
+          throw new Error("Attempt to auto-create ClinicalImpression.date");
         else if (Configuration.doAutoCreate())
           this.date = new DateTimeType(); // bb
       return this.date;
@@ -760,7 +760,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #date} (The point in time at which the assessment was concluded (not when it was recorded).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public ClinicalAssessment setDateElement(DateTimeType value) { 
+    public ClinicalImpression setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -775,7 +775,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value The point in time at which the assessment was concluded (not when it was recorded).
      */
-    public ClinicalAssessment setDate(Date value) { 
+    public ClinicalImpression setDate(Date value) { 
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
@@ -788,7 +788,7 @@ public class ClinicalAssessment extends DomainResource {
     public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.description");
+          throw new Error("Attempt to auto-create ClinicalImpression.description");
         else if (Configuration.doAutoCreate())
           this.description = new StringType(); // bb
       return this.description;
@@ -805,7 +805,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #description} (A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ClinicalAssessment setDescriptionElement(StringType value) { 
+    public ClinicalImpression setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -820,7 +820,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it.
      */
-    public ClinicalAssessment setDescription(String value) { 
+    public ClinicalImpression setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -837,7 +837,7 @@ public class ClinicalAssessment extends DomainResource {
     public Reference getPrevious() { 
       if (this.previous == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.previous");
+          throw new Error("Attempt to auto-create ClinicalImpression.previous");
         else if (Configuration.doAutoCreate())
           this.previous = new Reference(); // cc
       return this.previous;
@@ -850,7 +850,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #previous} (A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.)
      */
-    public ClinicalAssessment setPrevious(Reference value) { 
+    public ClinicalImpression setPrevious(Reference value) { 
       this.previous = value;
       return this;
     }
@@ -858,19 +858,19 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @return {@link #previous} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.)
      */
-    public ClinicalAssessment getPreviousTarget() { 
+    public ClinicalImpression getPreviousTarget() { 
       if (this.previousTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.previous");
+          throw new Error("Attempt to auto-create ClinicalImpression.previous");
         else if (Configuration.doAutoCreate())
-          this.previousTarget = new ClinicalAssessment(); // aa
+          this.previousTarget = new ClinicalImpression(); // aa
       return this.previousTarget;
     }
 
     /**
      * @param value {@link #previous} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.)
      */
-    public ClinicalAssessment setPreviousTarget(ClinicalAssessment value) { 
+    public ClinicalImpression setPreviousTarget(ClinicalImpression value) { 
       this.previousTarget = value;
       return this;
     }
@@ -906,7 +906,7 @@ public class ClinicalAssessment extends DomainResource {
     }
 
     // syntactic sugar
-    public ClinicalAssessment addProblem(Reference t) { //3
+    public ClinicalImpression addProblem(Reference t) { //3
       if (t == null)
         return this;
       if (this.problem == null)
@@ -930,7 +930,7 @@ public class ClinicalAssessment extends DomainResource {
     public Reference getCareplan() { 
       if (this.careplan == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.careplan");
+          throw new Error("Attempt to auto-create ClinicalImpression.careplan");
         else if (Configuration.doAutoCreate())
           this.careplan = new Reference(); // cc
       return this.careplan;
@@ -943,7 +943,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #careplan} (A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.)
      */
-    public ClinicalAssessment setCareplan(Reference value) { 
+    public ClinicalImpression setCareplan(Reference value) { 
       this.careplan = value;
       return this;
     }
@@ -954,7 +954,7 @@ public class ClinicalAssessment extends DomainResource {
     public CarePlan getCareplanTarget() { 
       if (this.careplanTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.careplan");
+          throw new Error("Attempt to auto-create ClinicalImpression.careplan");
         else if (Configuration.doAutoCreate())
           this.careplanTarget = new CarePlan(); // aa
       return this.careplanTarget;
@@ -963,7 +963,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #careplan} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.)
      */
-    public ClinicalAssessment setCareplanTarget(CarePlan value) { 
+    public ClinicalImpression setCareplanTarget(CarePlan value) { 
       this.careplanTarget = value;
       return this;
     }
@@ -974,7 +974,7 @@ public class ClinicalAssessment extends DomainResource {
     public Reference getReferral() { 
       if (this.referral == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.referral");
+          throw new Error("Attempt to auto-create ClinicalImpression.referral");
         else if (Configuration.doAutoCreate())
           this.referral = new Reference(); // cc
       return this.referral;
@@ -987,7 +987,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #referral} (A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.)
      */
-    public ClinicalAssessment setReferral(Reference value) { 
+    public ClinicalImpression setReferral(Reference value) { 
       this.referral = value;
       return this;
     }
@@ -998,7 +998,7 @@ public class ClinicalAssessment extends DomainResource {
     public ReferralRequest getReferralTarget() { 
       if (this.referralTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.referral");
+          throw new Error("Attempt to auto-create ClinicalImpression.referral");
         else if (Configuration.doAutoCreate())
           this.referralTarget = new ReferralRequest(); // aa
       return this.referralTarget;
@@ -1007,7 +1007,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #referral} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.)
      */
-    public ClinicalAssessment setReferralTarget(ReferralRequest value) { 
+    public ClinicalImpression setReferralTarget(ReferralRequest value) { 
       this.referralTarget = value;
       return this;
     }
@@ -1015,16 +1015,16 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @return {@link #investigations} (One or more sets of investigations (signs, symptions, etc). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.)
      */
-    public List<ClinicalAssessmentInvestigationsComponent> getInvestigations() { 
+    public List<ClinicalImpressionInvestigationsComponent> getInvestigations() { 
       if (this.investigations == null)
-        this.investigations = new ArrayList<ClinicalAssessmentInvestigationsComponent>();
+        this.investigations = new ArrayList<ClinicalImpressionInvestigationsComponent>();
       return this.investigations;
     }
 
     public boolean hasInvestigations() { 
       if (this.investigations == null)
         return false;
-      for (ClinicalAssessmentInvestigationsComponent item : this.investigations)
+      for (ClinicalImpressionInvestigationsComponent item : this.investigations)
         if (!item.isEmpty())
           return true;
       return false;
@@ -1034,20 +1034,20 @@ public class ClinicalAssessment extends DomainResource {
      * @return {@link #investigations} (One or more sets of investigations (signs, symptions, etc). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.)
      */
     // syntactic sugar
-    public ClinicalAssessmentInvestigationsComponent addInvestigations() { //3
-      ClinicalAssessmentInvestigationsComponent t = new ClinicalAssessmentInvestigationsComponent();
+    public ClinicalImpressionInvestigationsComponent addInvestigations() { //3
+      ClinicalImpressionInvestigationsComponent t = new ClinicalImpressionInvestigationsComponent();
       if (this.investigations == null)
-        this.investigations = new ArrayList<ClinicalAssessmentInvestigationsComponent>();
+        this.investigations = new ArrayList<ClinicalImpressionInvestigationsComponent>();
       this.investigations.add(t);
       return t;
     }
 
     // syntactic sugar
-    public ClinicalAssessment addInvestigations(ClinicalAssessmentInvestigationsComponent t) { //3
+    public ClinicalImpression addInvestigations(ClinicalImpressionInvestigationsComponent t) { //3
       if (t == null)
         return this;
       if (this.investigations == null)
-        this.investigations = new ArrayList<ClinicalAssessmentInvestigationsComponent>();
+        this.investigations = new ArrayList<ClinicalImpressionInvestigationsComponent>();
       this.investigations.add(t);
       return this;
     }
@@ -1058,7 +1058,7 @@ public class ClinicalAssessment extends DomainResource {
     public UriType getProtocolElement() { 
       if (this.protocol == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.protocol");
+          throw new Error("Attempt to auto-create ClinicalImpression.protocol");
         else if (Configuration.doAutoCreate())
           this.protocol = new UriType(); // bb
       return this.protocol;
@@ -1075,7 +1075,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #protocol} (Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.). This is the underlying object with id, value and extensions. The accessor "getProtocol" gives direct access to the value
      */
-    public ClinicalAssessment setProtocolElement(UriType value) { 
+    public ClinicalImpression setProtocolElement(UriType value) { 
       this.protocol = value;
       return this;
     }
@@ -1090,7 +1090,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.
      */
-    public ClinicalAssessment setProtocol(String value) { 
+    public ClinicalImpression setProtocol(String value) { 
       if (Utilities.noString(value))
         this.protocol = null;
       else {
@@ -1107,7 +1107,7 @@ public class ClinicalAssessment extends DomainResource {
     public StringType getSummaryElement() { 
       if (this.summary == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.summary");
+          throw new Error("Attempt to auto-create ClinicalImpression.summary");
         else if (Configuration.doAutoCreate())
           this.summary = new StringType(); // bb
       return this.summary;
@@ -1124,7 +1124,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #summary} (A text summary of the investigations and the diagnosis.). This is the underlying object with id, value and extensions. The accessor "getSummary" gives direct access to the value
      */
-    public ClinicalAssessment setSummaryElement(StringType value) { 
+    public ClinicalImpression setSummaryElement(StringType value) { 
       this.summary = value;
       return this;
     }
@@ -1139,7 +1139,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value A text summary of the investigations and the diagnosis.
      */
-    public ClinicalAssessment setSummary(String value) { 
+    public ClinicalImpression setSummary(String value) { 
       if (Utilities.noString(value))
         this.summary = null;
       else {
@@ -1153,16 +1153,16 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @return {@link #diagnosis} (An specific diagnosis that was considered likely or relevant to ongoing treatment.)
      */
-    public List<ClinicalAssessmentDiagnosisComponent> getDiagnosis() { 
+    public List<ClinicalImpressionDiagnosisComponent> getDiagnosis() { 
       if (this.diagnosis == null)
-        this.diagnosis = new ArrayList<ClinicalAssessmentDiagnosisComponent>();
+        this.diagnosis = new ArrayList<ClinicalImpressionDiagnosisComponent>();
       return this.diagnosis;
     }
 
     public boolean hasDiagnosis() { 
       if (this.diagnosis == null)
         return false;
-      for (ClinicalAssessmentDiagnosisComponent item : this.diagnosis)
+      for (ClinicalImpressionDiagnosisComponent item : this.diagnosis)
         if (!item.isEmpty())
           return true;
       return false;
@@ -1172,20 +1172,20 @@ public class ClinicalAssessment extends DomainResource {
      * @return {@link #diagnosis} (An specific diagnosis that was considered likely or relevant to ongoing treatment.)
      */
     // syntactic sugar
-    public ClinicalAssessmentDiagnosisComponent addDiagnosis() { //3
-      ClinicalAssessmentDiagnosisComponent t = new ClinicalAssessmentDiagnosisComponent();
+    public ClinicalImpressionDiagnosisComponent addDiagnosis() { //3
+      ClinicalImpressionDiagnosisComponent t = new ClinicalImpressionDiagnosisComponent();
       if (this.diagnosis == null)
-        this.diagnosis = new ArrayList<ClinicalAssessmentDiagnosisComponent>();
+        this.diagnosis = new ArrayList<ClinicalImpressionDiagnosisComponent>();
       this.diagnosis.add(t);
       return t;
     }
 
     // syntactic sugar
-    public ClinicalAssessment addDiagnosis(ClinicalAssessmentDiagnosisComponent t) { //3
+    public ClinicalImpression addDiagnosis(ClinicalImpressionDiagnosisComponent t) { //3
       if (t == null)
         return this;
       if (this.diagnosis == null)
-        this.diagnosis = new ArrayList<ClinicalAssessmentDiagnosisComponent>();
+        this.diagnosis = new ArrayList<ClinicalImpressionDiagnosisComponent>();
       this.diagnosis.add(t);
       return this;
     }
@@ -1221,7 +1221,7 @@ public class ClinicalAssessment extends DomainResource {
     }
 
     // syntactic sugar
-    public ClinicalAssessment addResolved(CodeableConcept t) { //3
+    public ClinicalImpression addResolved(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.resolved == null)
@@ -1233,16 +1233,16 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @return {@link #ruledOut} (Diagnosis considered not possible.)
      */
-    public List<ClinicalAssessmentRuledOutComponent> getRuledOut() { 
+    public List<ClinicalImpressionRuledOutComponent> getRuledOut() { 
       if (this.ruledOut == null)
-        this.ruledOut = new ArrayList<ClinicalAssessmentRuledOutComponent>();
+        this.ruledOut = new ArrayList<ClinicalImpressionRuledOutComponent>();
       return this.ruledOut;
     }
 
     public boolean hasRuledOut() { 
       if (this.ruledOut == null)
         return false;
-      for (ClinicalAssessmentRuledOutComponent item : this.ruledOut)
+      for (ClinicalImpressionRuledOutComponent item : this.ruledOut)
         if (!item.isEmpty())
           return true;
       return false;
@@ -1252,20 +1252,20 @@ public class ClinicalAssessment extends DomainResource {
      * @return {@link #ruledOut} (Diagnosis considered not possible.)
      */
     // syntactic sugar
-    public ClinicalAssessmentRuledOutComponent addRuledOut() { //3
-      ClinicalAssessmentRuledOutComponent t = new ClinicalAssessmentRuledOutComponent();
+    public ClinicalImpressionRuledOutComponent addRuledOut() { //3
+      ClinicalImpressionRuledOutComponent t = new ClinicalImpressionRuledOutComponent();
       if (this.ruledOut == null)
-        this.ruledOut = new ArrayList<ClinicalAssessmentRuledOutComponent>();
+        this.ruledOut = new ArrayList<ClinicalImpressionRuledOutComponent>();
       this.ruledOut.add(t);
       return t;
     }
 
     // syntactic sugar
-    public ClinicalAssessment addRuledOut(ClinicalAssessmentRuledOutComponent t) { //3
+    public ClinicalImpression addRuledOut(ClinicalImpressionRuledOutComponent t) { //3
       if (t == null)
         return this;
       if (this.ruledOut == null)
-        this.ruledOut = new ArrayList<ClinicalAssessmentRuledOutComponent>();
+        this.ruledOut = new ArrayList<ClinicalImpressionRuledOutComponent>();
       this.ruledOut.add(t);
       return this;
     }
@@ -1276,7 +1276,7 @@ public class ClinicalAssessment extends DomainResource {
     public StringType getPrognosisElement() { 
       if (this.prognosis == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.prognosis");
+          throw new Error("Attempt to auto-create ClinicalImpression.prognosis");
         else if (Configuration.doAutoCreate())
           this.prognosis = new StringType(); // bb
       return this.prognosis;
@@ -1293,7 +1293,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #prognosis} (Estimate of likely outcome.). This is the underlying object with id, value and extensions. The accessor "getPrognosis" gives direct access to the value
      */
-    public ClinicalAssessment setPrognosisElement(StringType value) { 
+    public ClinicalImpression setPrognosisElement(StringType value) { 
       this.prognosis = value;
       return this;
     }
@@ -1308,7 +1308,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value Estimate of likely outcome.
      */
-    public ClinicalAssessment setPrognosis(String value) { 
+    public ClinicalImpression setPrognosis(String value) { 
       if (Utilities.noString(value))
         this.prognosis = null;
       else {
@@ -1325,7 +1325,7 @@ public class ClinicalAssessment extends DomainResource {
     public Reference getPlan() { 
       if (this.plan == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.plan");
+          throw new Error("Attempt to auto-create ClinicalImpression.plan");
         else if (Configuration.doAutoCreate())
           this.plan = new Reference(); // cc
       return this.plan;
@@ -1338,7 +1338,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #plan} (Plan of action after assessment.)
      */
-    public ClinicalAssessment setPlan(Reference value) { 
+    public ClinicalImpression setPlan(Reference value) { 
       this.plan = value;
       return this;
     }
@@ -1349,7 +1349,7 @@ public class ClinicalAssessment extends DomainResource {
     public CarePlan getPlanTarget() { 
       if (this.planTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalAssessment.plan");
+          throw new Error("Attempt to auto-create ClinicalImpression.plan");
         else if (Configuration.doAutoCreate())
           this.planTarget = new CarePlan(); // aa
       return this.planTarget;
@@ -1358,7 +1358,7 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @param value {@link #plan} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Plan of action after assessment.)
      */
-    public ClinicalAssessment setPlanTarget(CarePlan value) { 
+    public ClinicalImpression setPlanTarget(CarePlan value) { 
       this.planTarget = value;
       return this;
     }
@@ -1394,7 +1394,7 @@ public class ClinicalAssessment extends DomainResource {
     }
 
     // syntactic sugar
-    public ClinicalAssessment addAction(Reference t) { //3
+    public ClinicalImpression addAction(Reference t) { //3
       if (t == null)
         return this;
       if (this.action == null)
@@ -1418,7 +1418,7 @@ public class ClinicalAssessment extends DomainResource {
         childrenList.add(new Property("assessor", "Reference(Practitioner)", "The clinician performing the assessment.", 0, java.lang.Integer.MAX_VALUE, assessor));
         childrenList.add(new Property("date", "dateTime", "The point in time at which the assessment was concluded (not when it was recorded).", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("previous", "Reference(ClinicalAssessment)", "A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.", 0, java.lang.Integer.MAX_VALUE, previous));
+        childrenList.add(new Property("previous", "Reference(ClinicalImpression)", "A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.", 0, java.lang.Integer.MAX_VALUE, previous));
         childrenList.add(new Property("problem", "Reference(Condition|AllergyIntolerance)", "This a list of the general problems/conditions for a patient.", 0, java.lang.Integer.MAX_VALUE, problem));
         childrenList.add(new Property("careplan", "Reference(CarePlan)", "A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.", 0, java.lang.Integer.MAX_VALUE, careplan));
         childrenList.add(new Property("referral", "Reference(ReferralRequest)", "A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.", 0, java.lang.Integer.MAX_VALUE, referral));
@@ -1433,8 +1433,8 @@ public class ClinicalAssessment extends DomainResource {
         childrenList.add(new Property("action", "Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationPrescription|DiagnosticOrder|NutritionOrder|Supply|Appointment)", "Actions taken during assessment.", 0, java.lang.Integer.MAX_VALUE, action));
       }
 
-      public ClinicalAssessment copy() {
-        ClinicalAssessment dst = new ClinicalAssessment();
+      public ClinicalImpression copy() {
+        ClinicalImpression dst = new ClinicalImpression();
         copyValues(dst);
         dst.patient = patient == null ? null : patient.copy();
         dst.assessor = assessor == null ? null : assessor.copy();
@@ -1449,15 +1449,15 @@ public class ClinicalAssessment extends DomainResource {
         dst.careplan = careplan == null ? null : careplan.copy();
         dst.referral = referral == null ? null : referral.copy();
         if (investigations != null) {
-          dst.investigations = new ArrayList<ClinicalAssessmentInvestigationsComponent>();
-          for (ClinicalAssessmentInvestigationsComponent i : investigations)
+          dst.investigations = new ArrayList<ClinicalImpressionInvestigationsComponent>();
+          for (ClinicalImpressionInvestigationsComponent i : investigations)
             dst.investigations.add(i.copy());
         };
         dst.protocol = protocol == null ? null : protocol.copy();
         dst.summary = summary == null ? null : summary.copy();
         if (diagnosis != null) {
-          dst.diagnosis = new ArrayList<ClinicalAssessmentDiagnosisComponent>();
-          for (ClinicalAssessmentDiagnosisComponent i : diagnosis)
+          dst.diagnosis = new ArrayList<ClinicalImpressionDiagnosisComponent>();
+          for (ClinicalImpressionDiagnosisComponent i : diagnosis)
             dst.diagnosis.add(i.copy());
         };
         if (resolved != null) {
@@ -1466,8 +1466,8 @@ public class ClinicalAssessment extends DomainResource {
             dst.resolved.add(i.copy());
         };
         if (ruledOut != null) {
-          dst.ruledOut = new ArrayList<ClinicalAssessmentRuledOutComponent>();
-          for (ClinicalAssessmentRuledOutComponent i : ruledOut)
+          dst.ruledOut = new ArrayList<ClinicalImpressionRuledOutComponent>();
+          for (ClinicalImpressionRuledOutComponent i : ruledOut)
             dst.ruledOut.add(i.copy());
         };
         dst.prognosis = prognosis == null ? null : prognosis.copy();
@@ -1480,7 +1480,7 @@ public class ClinicalAssessment extends DomainResource {
         return dst;
       }
 
-      protected ClinicalAssessment typedCopy() {
+      protected ClinicalImpression typedCopy() {
         return copy();
       }
 
@@ -1488,9 +1488,9 @@ public class ClinicalAssessment extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ClinicalAssessment))
+        if (!(other instanceof ClinicalImpression))
           return false;
-        ClinicalAssessment o = (ClinicalAssessment) other;
+        ClinicalImpression o = (ClinicalImpression) other;
         return compareDeep(patient, o.patient, true) && compareDeep(assessor, o.assessor, true) && compareDeep(date, o.date, true)
            && compareDeep(description, o.description, true) && compareDeep(previous, o.previous, true) && compareDeep(problem, o.problem, true)
            && compareDeep(careplan, o.careplan, true) && compareDeep(referral, o.referral, true) && compareDeep(investigations, o.investigations, true)
@@ -1503,9 +1503,9 @@ public class ClinicalAssessment extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ClinicalAssessment))
+        if (!(other instanceof ClinicalImpression))
           return false;
-        ClinicalAssessment o = (ClinicalAssessment) other;
+        ClinicalImpression o = (ClinicalImpression) other;
         return compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(protocol, o.protocol, true)
            && compareValues(summary, o.summary, true) && compareValues(prognosis, o.prognosis, true);
       }
@@ -1522,34 +1522,34 @@ public class ClinicalAssessment extends DomainResource {
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.ClinicalAssessment;
+    return ResourceType.ClinicalImpression;
    }
 
-  @SearchParamDefinition(name="previous", path="ClinicalAssessment.previous", description="Reference to last assessment", type="reference" )
+  @SearchParamDefinition(name="previous", path="ClinicalImpression.previous", description="Reference to last assessment", type="reference" )
   public static final String SP_PREVIOUS = "previous";
-  @SearchParamDefinition(name="referral", path="ClinicalAssessment.referral", description="A specific referral that lead to this assessment", type="reference" )
+  @SearchParamDefinition(name="referral", path="ClinicalImpression.referral", description="A specific referral that lead to this assessment", type="reference" )
   public static final String SP_REFERRAL = "referral";
-  @SearchParamDefinition(name="diagnosis", path="ClinicalAssessment.diagnosis.item", description="Specific text or code for diagnosis", type="token" )
+  @SearchParamDefinition(name="diagnosis", path="ClinicalImpression.diagnosis.item", description="Specific text or code for diagnosis", type="token" )
   public static final String SP_DIAGNOSIS = "diagnosis";
-  @SearchParamDefinition(name="problem", path="ClinicalAssessment.problem", description="General assessment of patient state", type="reference" )
+  @SearchParamDefinition(name="problem", path="ClinicalImpression.problem", description="General assessment of patient state", type="reference" )
   public static final String SP_PROBLEM = "problem";
-  @SearchParamDefinition(name="careplan", path="ClinicalAssessment.careplan", description="A specific careplan that prompted this assessment", type="reference" )
+  @SearchParamDefinition(name="careplan", path="ClinicalImpression.careplan", description="A specific careplan that prompted this assessment", type="reference" )
   public static final String SP_CAREPLAN = "careplan";
-  @SearchParamDefinition(name="date", path="ClinicalAssessment.date", description="When the assessment occurred", type="date" )
+  @SearchParamDefinition(name="date", path="ClinicalImpression.date", description="When the assessment occurred", type="date" )
   public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="ruledout", path="ClinicalAssessment.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
+  @SearchParamDefinition(name="ruledout", path="ClinicalImpression.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
   public static final String SP_RULEDOUT = "ruledout";
-  @SearchParamDefinition(name="assessor", path="ClinicalAssessment.assessor", description="The clinician performing the assessment", type="reference" )
+  @SearchParamDefinition(name="assessor", path="ClinicalImpression.assessor", description="The clinician performing the assessment", type="reference" )
   public static final String SP_ASSESSOR = "assessor";
-  @SearchParamDefinition(name="patient", path="ClinicalAssessment.patient", description="The patient being asssesed", type="reference" )
+  @SearchParamDefinition(name="patient", path="ClinicalImpression.patient", description="The patient being asssesed", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="resolved", path="ClinicalAssessment.resolved", description="Diagnosies/conditions resolved since previous assessment", type="token" )
+  @SearchParamDefinition(name="resolved", path="ClinicalImpression.resolved", description="Diagnosies/conditions resolved since previous assessment", type="token" )
   public static final String SP_RESOLVED = "resolved";
-  @SearchParamDefinition(name="plan", path="ClinicalAssessment.plan", description="Plan of action after assessment", type="reference" )
+  @SearchParamDefinition(name="plan", path="ClinicalImpression.plan", description="Plan of action after assessment", type="reference" )
   public static final String SP_PLAN = "plan";
-  @SearchParamDefinition(name="action", path="ClinicalAssessment.action", description="Actions taken during assessment", type="reference" )
+  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Actions taken during assessment", type="reference" )
   public static final String SP_ACTION = "action";
-  @SearchParamDefinition(name="investigation", path="ClinicalAssessment.investigations.item", description="Record of a specific investigation", type="reference" )
+  @SearchParamDefinition(name="investigation", path="ClinicalImpression.investigations.item", description="Record of a specific investigation", type="reference" )
   public static final String SP_INVESTIGATION = "investigation";
 
 }
