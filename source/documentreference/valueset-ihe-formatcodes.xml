@@ -41,14 +41,6 @@
     <display value="IHE Antepartum Summary"/>
    </concept>
    <concept>
-    <code value="urn:ihe:iti:xds-sd:pdf:2008"/>
-    <display value="PDF embedded in CDA per XDS-SD profile"/>
-   </concept>
-   <concept>
-    <code value="urn:ihe:iti:xds-sd:text:2008"/>
-    <display value="Text embedded in CDA per XDS-SD profile"/>
-   </concept>
-   <concept>
     <code value="urn:ihe:pcc:xds-ms:2007"/>
     <display value="XDS Medical Summaries"/>
    </concept>
@@ -89,24 +81,57 @@
     <display value="Care Management (CM)"/>
    </concept>
    <concept>
+    <code value="urn:ihe:pcc:ic:2009"/>
+    <display value="Immunization Content (IC)"/>
+   </concept>
+      <concept>
+     <code value="urn:ihe:pcc:tn:2007"/> <display value="PCC TN"/>
+   </concept>
+   <concept>
+        <code value="urn:ihe:pcc:nn:2007"/> <display value="PCC NN"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:ctn:2007"/> <display value="PCC CTN"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:edpn:2007"/> <display value="PCC EDPN"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:hp:2008"/> <display value="PCC HP"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:ldhp:2009"/> <display value="PCC LDHP"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:lds:2009"/> <display value="PCC LDS"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:mds:2009"/> <display value="PCC MDS"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:nds:2010"/> <display value="PCC NDS"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:ppvs:2010"/> <display value="PCC PPVS"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:trs:2011"/> <display value="PCC TRS"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:ets:2011"/> <display value="PCC ETS"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pcc:its:2011"/> <display value="PCC ITS"/>
+   </concept>
+
+   <!-- IT Infrastructure -->
+   <concept>
     <code value="urn:ihe:iti:bppc:2007"/>
     <display value="Basic Patient Privacy Consents"/>
    </concept>
    <concept>
     <code value="urn:ihe:iti:bppc-sd:2007"/>
     <display value="Basic Patient Privacy Consents with Scanned Document"/>
-   </concept>
-   <concept>
-    <code value="urn:ihe:lab:xd-lab:2008"/>
-    <display value="CDA Laboratory Report"/>
-   </concept>
-   <concept>
-    <code value="urn:nhin:names:acp:XACML"/>
-    <display value="Access Consent Policy document formatted as XACML"/>
-   </concept>
-   <concept>
-    <code value="urn:ihe:pcc:ic:2009"/>
-    <display value="Immunization Content (IC)"/>
    </concept>
    <concept>
     <code value="urn:ihe:iti:xdw:2011:workflowDoc"/>
@@ -121,10 +146,140 @@
     <display value="DSG Enveloping Document"/>
    </concept>
    <concept>
+    <code value="urn:ihe:iti:xds-sd:pdf:2008"/>
+    <display value="PDF embedded in CDA per XDS-SD profile"/>
+   </concept>
+   <concept>
+    <code value="urn:ihe:iti:xds-sd:text:2008"/>
+    <display value="Text embedded in CDA per XDS-SD profile"/>
+   </concept>
+
+   <!-- Laboratory -->
+   <concept>
+    <code value="urn:ihe:lab:xd-lab:2008"/>
+    <display value="CDA Laboratory Report"/>
+   </concept>
+   
+   <!-- Radiology -->
+   <concept>
+     <code value="urn:ihe:rad:TEXT"/> <display value="Radiology XDS-I Text"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:rad:PDF"/> <display value="Radiology XDS-I PDF"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:rad:CDA:ImagingReportStructuredHeadings:2013"/> <display value="Radiology XDS-I Structured CDA"/>
+   </concept>
+   
+   <!-- Cardiology -->
+   <concept>
     <code value="urn:ihe:card:imaging:2011"/>
     <display value="Cardiac Imaging Report"/>
    </concept>
-
+   <concept>
+     <code value="urn:ihe:card:CRC:2012"/> <display value="Cardiology CRC"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:card:EPRC-IE:2014"/> <display value="Cardiology EPRC-IE"/>
+   </concept>
+   
+   <!-- Dental -->
+   <concept>
+     <code value="urn:ihe:dent:TEXT"/> <display value="Dental Text"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:dent:PDF"/> <display value="Dental PDF"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:dent:CDA:ImagingReportStructuredHeadings:2013"/> <display value="Dental CDA"/>
+   </concept>
+   
+   <!-- Anatomic Pathology -->
+   <concept>
+     <code value="urn:ihe:pat:apsr:all:2010"/> <display value="Anatomic Pathology Structured Report All"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:all:2010"/> <display value="Anatomic Pathology Structured Report Cancer All"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:breast:2010"/> <display value="Anatomic Pathology Structured Report Cancer Breast"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:colon:2010"/> <display value="Anatomic Pathology Structured Report Cancer Colon"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:prostate:2010"/> <display value="Anatomic Pathology Structured Report Cancer Prostate"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:thyroid:2010"/> <display value="Anatomic Pathology Structured Report Cancer Thyroid"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:lung:2010"/> <display value="Anatomic Pathology Structured Report Cancer Lung"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:skin:2010"/> <display value="Anatomic Pathology Structured Report Cancer Skin"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:kidney:2010"/> <display value="Anatomic Pathology Structured Report Cancer Kidney"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:cervix:2010"/> <display value="Anatomic Pathology Structured Report Cancer Cervix"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:endometrium:2010"/> <display value="Anatomic Pathology Structured Report Cancer Endometrium"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:ovary:2010"/> <display value="Anatomic Pathology Structured Report Cancer Ovary"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:esophagus: 2010"/> <display value="Anatomic Pathology Structured Report Cancer Esophagus"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:stomach: 2010"/> <display value="Anatomic Pathology Structured Report Cancer Stomach"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:liver:2010"/> <display value="Anatomic Pathology Structured Report Cancer Liver"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:pancreas: 2010"/> <display value="Anatomic Pathology Structured Report Cancer Pancreas"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:testis:2010"/> <display value="Anatomic Pathology Structured Report Cancer Testis"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:urinary_bladder:2010"/> <display value="Anatomic Pathology Structured Report Cancer Urinary Bladder"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:lip_oral_cavity:2010"/> <display value="Anatomic Pathology Structured Report Cancer Lip Oral Cavity"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:pharynx:2010"/> <display value="Anatomic Pathology Structured Report Cancer Pharynx"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:salivary_gland:2010"/> <display value="Anatomic Pathology Structured Report Cancer Salivary Gland"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pat:apsr:cancer:larynx:2010"/> <display value="Anatomic Pathology Structured Report Cancer Larynx"/>
+   </concept>
+   
+   <!-- Pharmacy -->
+   <concept>
+     <code value="urn:ihe:pharm:pre:2010"/> <display value="Pharmacy Pre"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pharm:padv:2010"/> <display value="Pharmacy PADV"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pharm:dis:2010"/> <display value="Pharmacy DIS"/>
+   </concept>
+   <concept>
+     <code value="urn:ihe:pharm:pml:2013"/> <display value="Pharmacy PML"/>
+   </concept>
+   <!-- NHIN -->
+   <concept>
+    <code value="urn:nhin:names:acp:XACML"/>
+    <display value="Access Consent Policy document formatted as XACML"/>
+   </concept>
 
    </include>
   
