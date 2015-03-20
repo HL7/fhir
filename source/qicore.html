@@ -30,14 +30,14 @@ Much of the content is likely to be usable in other jurisdictions. ​The Qualit
 
 <p>This project is part of an effort to align the HL7 Product Family in the area of health quality improvement. The goal is to have a single logical data model (QUICK), as well as a single logical processing language (CQL), for clinical decision support (CDS) and clinical quality measurement (CQM). This alignment will lessen the cost and complexity for product developers and vendors, reduce the learning curve, and consolidate efforts to maintain multiple standards.</p>
 
-<p>This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the HL7 Virtual Medical Record for Clinical Decision Support (vMR) and QDM as sources of requirements. QIDAM gave rise to the QUICK logical model in 2014. Recognizing the broader community focus on FHIR, QUICK was aligned, structurally and semantically, as closely as possible to FHIR. This alignment not only creates a common model for quality and interoperability, but will also make it easier in the future to leverage other FHIR-related efforts, such as CDA on FHIR. In summary, the conceptual, logical, and physical models in this initiative are, respectively, QIDAM, QUICK, and the QICore FHIR Profiles.</p>
+<p>This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the HL7 Virtual Medical Record for Clinical Decision Support (vMR) and the Quality Data Model (QDM) as sources of requirements. QIDAM gave rise to the QUICK logical model in 2014. Recognizing the broader community focus on FHIR, QUICK was aligned, structurally and semantically, as closely as possible to FHIR. This alignment not only creates a common model for quality and interoperability, but will also make it easier in the future to leverage other FHIR-related efforts, such as CDA on FHIR. In summary, the conceptual, logical, and physical models in this initiative are, respectively, QIDAM, QUICK, and the QICore FHIR Profiles.</p>
 
 <h3>Scope</h3>
 
 <p>The QICore FHIR Implementation Guide provides requirements and guidance on the use of FHIR in quality measurement and decision support. The profiles in this implementation guide will be used to meet QICore project objectives of:</p>
 
 <ul>
-	<li>Encouraging consistent access and use of data for clinical quality applications, across organizations between healthcare systems,</li>
+	<li>Encouraging consistent access and use of data for clinical quality applications, across organizations and between healthcare systems,</li>
 	<li>Providing guidance for consistent use of vocabularies and value sets, and</li>
 	<li>Standardizing the requirements for data servers and data consumers (clients) that exchange quality-related clinical data needed for calculation of quality measures and decision support.</li>
 </ul>
@@ -61,7 +61,7 @@ Much of the content is likely to be usable in other jurisdictions. ​The Qualit
 
 <p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="daf.html">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
 
-<p>QICore's extensions have also been reviewed by HL7 Work Groups and initiatives to validate that QICore extensions will not create future conflicts. One initiative that provided reviews and feedback is <a href="http://www.opencimi.org/">Clinical Information Modeling Initiative (CIMI)</a>. </p>
+<p>QICore's extensions have also been reviewed by HL7 Work Groups and initiatives to validate that QICore extensions will not create future conflicts. One initiative that provided reviews and feedback is the <a href="http://www.opencimi.org/">Clinical Information Modeling Initiative (CIMI)</a>. </p>
 
 <a name="contents"></a>
 <h3>Contents</h3>
@@ -220,7 +220,7 @@ Much of the content is likely to be usable in other jurisdictions. ​The Qualit
 <a name="naming"></a>
 <h3>Naming Conventions</h3>
 
-<p>QICore profiles are indicated by the prefix "QICore-". For example, the QICore profile of Patient is named QICore-Patient. The official URLs for QICore profiles follow the pattern http://hl7.org/fhir/StructureDefinition/[resource]-qicore-qicore-[resource], for example, http://hl7.org/fhir/StructureDefinition/patient-qicore-qicore-patient. <i>Note: the URL cannot be significantly simplified under the current design of FHIR, so please no ballot comments on naming. Other profiles follow a similar pattern, e.g., patient-daf-dafpatient, patient-uslab-uslabpatient, etc.)</i> </p>
+<p>QICore profiles are indicated by the prefix "QICore-". For example, the QICore profile of Patient is named QICore-Patient. The official URLs for QICore profiles follow the pattern http://hl7.org/fhir/StructureDefinition/[resource]-qicore-qicore-[resource], for example, http://hl7.org/fhir/StructureDefinition/patient-qicore-qicore-patient. <i>Note: the URL cannot be significantly simplified under the current design of FHIR, so please no ballot comments on naming. Other profiles follow a similar pattern, e.g., patient-daf-dafpatient, patient-uslab-uslabpatient, etc.</i> </p>
 
 <a name="extensions"></a>
 <h3>Extensions and Mappings</h3>
@@ -231,7 +231,7 @@ Much of the content is likely to be usable in other jurisdictions. ​The Qualit
 
 <h3>MustSupport Flag</h3>
 
-<p>Certain elements in the QICore profiles have a "MustSupport" flag. In the QICore quality profiles, the MustSupport flag is used to indicate whether the element must be supported in rules and measures. More specifically, labeling an element as MustSupport means that a rule or measure interpreter must understand and process the element. Specific applications can modify the profiles and set MustSupport flags to true if they will process additional elements, but setting a MustSupport flag from true to false is noncompliant.</p>
+<p>Certain elements in the QICore profiles have a "MustSupport" flag. In the QICore quality profiles, the MustSupport flag is used to indicate whether the element must be supported in QI implementations. More specifically, labeling an element as MustSupport means that rule or measure interpreters must understand and process the element, and the elements are available to CQM and CDS artifacts. Specific applications can modify the profiles and set MustSupport flags to true if they will process additional elements, but setting a MustSupport flag from true to false is noncompliant.</p>
 
 <p>If MustSupport is false (or does not appear), there is no assurance that an interpreter will recognize or process a rule containing the element. Although the element may be returned in a resource when the resource is retrieved from an EHR, no rule or measure processing involving that data element can be expected. Note that the MustSupport flag does not imply that the element will always have a value. If the lower cardinality is zero, the element may not have a value, regardless of MustSupport. The only assurance associated with MustSupport is that the rule engine will try to retrieve the data and, if possible, evaluate the rule.</p> 
 
@@ -247,7 +247,7 @@ Much of the content is likely to be usable in other jurisdictions. ​The Qualit
 
 <p>Is-Modifier is a boolean property of an element, indicating that the value of that element may change the interpretation of the resource. Examples of modifying elements include status (in many resources), negations (e.g. Immunization.wasNotGiven), and certainty qualifications (e.g. Observation.reliability). Decision support and quality implementations MUST always check the values of modifying elements. For example, in processing an Immunization resource, the application must inspect the "wasNotGiven" element to determine whether the immunization was given or was not given to the patient.</p>
 
-<p>Inclusion of modifying elements is a departure from the previous (January 2014) informative version of the QICore profiles, where profiles were developed for each meaning of each modifying attribute. For example, the Condition resource was represented using two profiles, one representing the occurrence of the condition, and the other the non-occurrence of the condition. However, it was felt the proliferation of profiles under this approach would lead to a non-sustainable situation, particularly in light of the future need to expand QICore by incorporatation third-party profiles, such as those being developed by CIMI. The current approach requires rule and measure authors to make explicit checks in their rules and measures.</p>
+<p>Inclusion of modifying elements is a departure from the previous (January 2014) informative version of the QICore profiles, where profiles were developed for each meaning of each modifying attribute. For example, the Condition resource was represented using two profiles, one representing the occurrence of the condition, and the other the non-occurrence of the condition. However, it was felt the proliferation of profiles under this approach would lead to a non-sustainable situation, particularly in light of the future need to expand QICore by incorporation of third-party profiles, such as those being developed by CIMI. The current approach requires rule and measure authors to make explicit checks in their rules and measures.</p>
 
 <a name="bindings"></a>
 <h3>Terminology Bindings</h3>
