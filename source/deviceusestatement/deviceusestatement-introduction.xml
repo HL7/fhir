@@ -20,7 +20,8 @@
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource is different from DeviceUseRequest which records a request to use the device. This also is distinct from the Procedure resource which may describe the implantation or explantation of a device.
+This resource is different from DeviceUseRequest which records a request to use the device. This also is distinct from the Procedure resource 
+which may describe the implantation or explantation of a device.
 </p>
 </div>
 

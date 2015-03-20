@@ -15,10 +15,9 @@
     </p>
     <p>
         The procedure request may represent an order that is entered by a practitioner in a CPOE 
-        system as well as a proposal made by a clinical decision support system (CDSS) based 
+        system as well as a proposal made by a clinical decision support (CDS) system based 
         on a patient's clinical record and context of care. Planned procedures may also be 
-        represented by this resource (though this use case is still being discussed and will 
-        need to be validated by Patient Care and Orders and Observation).
+        represented by this resource.
     </p>
 </p>
 </div>
@@ -31,6 +30,9 @@
     <p>
         <i>Please note that the boundaries between a Diagnostic Order and a Procedure Request will need to be concretely
         defined by Patient Care.</i>
+    </p>
+    <p>
+        <i>Also note that referrals should use the ReferralRequest resource rather than ProcedureRequest.</i>
     </p>
 </p>
 </div>

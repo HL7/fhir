@@ -10,11 +10,12 @@
     </p>
     
     <p>
-	  This resource is a record of a communication. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Communication use cases include 
+	  This resource is a record of a communication. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. 
+	  The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Communication use cases include 
 	  <li>A reminder or alert delivered to a responsible provider</li>
 	  <li>A recorded notification from the nurse that a patient's temperature exceeds a value</li>
-	  <li>A notification to a public health agency of a patient presenting with a reportable communicable disease public health agency</li>
-      <li>Patient educational material sent by a provider to a patient.</li>
+	  <li>A notification to a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
+      <li>Patient educational material sent by a provider to a patient</li>
     </p>
 </p>
 </div>
@@ -26,6 +27,8 @@
 This resource is a record of a communication that has occurred. It does not represent the actual flow of communication.
 
 The resource excludes the types of communications supported by the Alert resource (need to better describe this overlap).
+
+It excludes the type of communication where two systems are exchanging data.
 
 </p>
 </div>
