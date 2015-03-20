@@ -9,7 +9,7 @@
     </text>
     <url value="http://www.example.com/valueset/deltaflag"/>
     <version value="0.01"/>
-    <name value="HSPC Delta Flag Value Set Definition"/>
+    <name value="Precoordinated BodySite Value Set Definition"/>
     <immutable value="true"/>
     <publisher value="Health Services Platform Consortium (HSPC)"/>
     <description value="SELECT SNOMED CT code system values representing precoordinated body sites."/>
