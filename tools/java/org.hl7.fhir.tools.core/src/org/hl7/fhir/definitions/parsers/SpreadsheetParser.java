@@ -670,10 +670,10 @@ public class SpreadsheetParser {
               if (t == SearchType.reference) {
                 if (e == null && !forProfile && !sheet.hasColumn(row, "Target Types"))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has wrong path "+ getLocation(row));
-                if (!forProfile && e != null && (!e.typeCode().startsWith("Reference(") && !e.typeCode().startsWith("uri|Reference(")))
+                if (!forProfile && e != null && (!e.hasType("Reference")))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is reference, but the element type is "+e.typeCode());
               } else {
-                if (e != null && e.typeCode().startsWith("Reference("))
+                if (e != null && e.hasOnlyType("Reference"))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
                 if (t == SearchType.uri) {
                   if (e != null && !e.typeCode().equals("uri"))

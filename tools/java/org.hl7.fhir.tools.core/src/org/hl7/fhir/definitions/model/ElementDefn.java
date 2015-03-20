@@ -417,10 +417,19 @@ public class ElementDefn {
 		return types;
 	}
 	
-	public boolean hasType(String name) {
+	public boolean hasOnlyType(String name) {
 		return types.size() == 1 && types.get(0).getName().equals(name);
 	}
 
+  public boolean hasType(String name) {
+    for (TypeRef t : types) {
+      if (t.getName().equals(name))
+        return true;
+    }
+    return false;
+  }
+
+	
 	public String typeCode() {
 		StringBuilder tn = new StringBuilder();
 		boolean first = true;
