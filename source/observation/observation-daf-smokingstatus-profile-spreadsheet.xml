@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Brett A Marquard</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-09T15:05:05Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2015-03-19T23:38:35Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -31,14 +31,6 @@
    <SheetName>observation-status</SheetName>
    <SheetName>observation-relationshiptypes</SheetName>
    <SheetName>some-code-list</SheetName>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>0</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>1</SheetIndex>
-   </Xct>
    <Xct>
     <Count>4</Count>
     <SheetIndex>2</SheetIndex>
@@ -67,52 +59,12 @@
      <Number>6</Number>
     </Crn>
    </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>3</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>4</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>5</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>6</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>7</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>8</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>9</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>10</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>11</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>12</SheetIndex>
-   </Xct>
   </SupBook>
-  <WindowHeight>13020</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <WindowHeight>5985</WindowHeight>
+  <WindowWidth>25260</WindowWidth>
+  <WindowTopX>-15</WindowTopX>
+  <WindowTopY>-15</WindowTopY>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4096,7 +4048,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4117,8 +4068,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9997,7 +9948,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s129" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s129" ss:Width="114.75"/>
+   <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="114.75"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s129" ss:Width="51"/>
    <Column ss:StyleID="s129" ss:Width="67.5"/>
@@ -10074,12 +10025,10 @@
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">N</Data></Cell>
-    <Cell ss:StyleID="s153" ss:HRef="http://hl7.org/fhir/vs/observation-ccdasmokingstatus"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/observation-ccdasmokingstatus</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">valueset-observation-ccdasmokingstatus</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Smoking Status value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">2.16.840.1.113883.4.642.2.0</Data></Cell>
-    <Cell ss:StyleID="s153" ss:HRef="http://hl7.org/fhir/vs/observation-ccdasmokingstatus"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/observation-ccdasmokingstatus</Data></Cell>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
@@ -10532,12 +10481,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -10545,15 +10495,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10634,6 +10582,27 @@
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6</Range>
+   <Condition>
+    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6</Range>
+   <Condition>
+    <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC3=&quot;unbound&quot;)&lt;&gt;(RC=&quot;&quot;))</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>

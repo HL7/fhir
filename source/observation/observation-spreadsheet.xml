@@ -21,7 +21,7 @@
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -6416,7 +6416,7 @@
     <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s115"><Data ss:Type="String">C-CDA Smoking Status Observation</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">!C-CDA Smoking Status Observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">observation-ccda-smokingstatus.xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6427,42 +6427,42 @@
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s118"><Data ss:Type="String">C-CDA Age Observation</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">!C-CDA Age Observation</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">observation-ccda-age.xml</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">observation-ccda-age-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s118"><Data ss:Type="String">C-CDA Assessment Scale Observation</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">!C-CDA Assessment Scale Observation</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">observation-ccda-assessmentscale.xml</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">observation-ccda-assessmentscale-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">C-CDA Caregiver Characteristics Observation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Caregiver Characteristics Observation</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-caregiverchar.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-caregiverchar-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">C-CDA Cognitive Status Result Observation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Cognitive Status Result Observation</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-cognitivestatusresult.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-cognitivestatusresult-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">C-CDA Comment Activity</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Comment Activity</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-commentactivity.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-commentactivity-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">C-CDA Deceased Observation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Deceased Observation</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-deceasedobservation.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-deceasedobservation-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
@@ -6678,10 +6678,11 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6694,12 +6695,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7752,7 +7752,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
