@@ -5573,14 +5573,14 @@
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">!trigger</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">trigger</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">ClinicalImpression.triggerReference</Data></Cell>
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">!trigger-code</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">trigger-code</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">ClinicalImpression.triggerCodeableConcept</Data></Cell>
@@ -5727,7 +5727,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
