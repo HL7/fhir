@@ -775,7 +775,7 @@ GET [base]/MedicationDispense?_include=MedicationDispense.authorizingPrescriptio
     &amp;_include=MedicationPrescription.prescriber&amp;criteria...
 </pre>
 <p>
-Both _include and _reverseInclude and use the wild care "*" for the search parameter
+Both _include and _reverseInclude and use the wild card "*" for the search parameter
 name, indicating by this that any search parameter of type=reference be included, though 
 though both clients and servers need to take care not to request or return too many resources
 when doing this. Most notably, re-applying inclusion paths over newly included resources
