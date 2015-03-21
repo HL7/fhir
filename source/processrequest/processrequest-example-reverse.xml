@@ -6,10 +6,10 @@
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Reversal ProcessRequest</div>
   </text>
 
-  <action value="reverse"/>
+  <action value="cancel"/>
   
   <identifier>
-       <system value="http://happyvalley.com/reproccess"/>
+       <system value="http://happyvalley.com/processrequest"/>
     <value value="76543"/>
   </identifier>
  
