@@ -4,8 +4,8 @@
 <h2>Scope and Usage</h2>
 <p>
 Performing a clinical assessment is a fundamental part of a clinician's workflow, performed repeatedly throughout the day. 
-In spite of this - or perhaps, because of it - there is wide variance in how clinical assessments are recorded. 
-Some clinical assessments simply result in a single text note in the patient 'record' (e.g. "Progress satisfactory, 
+In spite of this - or perhaps, because of it - there is wide variance in how clinical impressions are recorded. 
+Some clinical assessments simply result in an impression recorded as a single text note in the patient 'record' (e.g. "Progress satisfactory, 
 continue with treatment"), while others are associated with careful, detailed record keeping of the 
 evidence gathered, the reasoning leading to a differential diagnosis, and the actions taken during or planned
 as a result of the clinical assessment, and there is a continuum between these. This resource is intended to be 
@@ -13,10 +13,10 @@ used to cover all these use cases.
 </p>
 <p>
 The assessment is intimately linked to the process of care. It may occur in the context of a care plan,
-and it very often results in a new (or revised) care plan. Normally. clinical assessments are partof an 
+and it very often results in a new (or revised) care plan. Normally. clinical assessments are part of an 
 ongoing process of care, and the patient will be re-assessed repeatedly. For this reason, the clinical
-assessment can explicit reference both care plans (preceeding and resulting) and reference a previous
-assessment that this assessment follows on from.
+impression can explicit reference both care plans (preceeding and resulting) and reference a previous
+impression that this impression follows on from.
 </p>
 <p>
 Unlike many other resources, there is little prior art with regard to exchanging records of 
@@ -25,11 +25,11 @@ prone to ongoing revision. In terms of scope and usage, the Patient Care workgro
 draw the attention of reviewers and implementers to the following issues: 
 </p>
 <ul>
- <li>When is an existing clinical assessment revised, rather than a new one created (that references the existing one)? How does that affect the status? what's the interplay between the status of the diagnosis and the status of the assesment? (e.g. for a 'provisional' assessment, which bit is provisional?)</li>
+ <li>When is an existing clinical impression revised, rather than a new one created (that references the existing one)? How does that affect the status? what's the interplay between the status of the diagnosis and the status of the impression? (e.g. for a 'provisional' impression, which bit is provisional?)</li>
  <li>This structure doesn't differentiate between a working and a final diagnosis. Given an answer to the previous question, should it?</li>
- <li>Further clarify around the relationship between care plan and assessment is needed. Both answers to the previous questions and ongoing discussions around revisions to the care plan will influence the design of clinical assessment</li>
+ <li>Further clarify around the relationship between care plan and impression is needed. Both answers to the previous questions and ongoing discussions around revisions to the care plan will influence the design of clinical impression</li>
  <li>Should prognosis be represented, and if so, how much structure should it have?</li>
- <li>Should an assessment reference other assesments that are related? (how related?)</li>
+ <li>Should an impression reference other impressions that are related? (how related?)</li>
  <li>Investigations - the specification needs a good value set for the code for the group, and will be considering the name "investigations" further</li>
 </ul> 
 </div>
@@ -37,10 +37,10 @@ draw the attention of reviewers and implementers to the following issues:
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-There is another related clinical concept often called an "assessment": assessment Tools such as Apgar (also known as "Assessment Scales"),
-and this is different to the scope of the "clinical assessment" resource. Assessment tools such as Apgar are represented as 
+There is another related clinical concept often called an "assessment": assessment Tools such as Apgar (also known as "Assessment Scales").
+This is not what the ClinicalImpression resource is about; assessment tools such as Apgar are represented as 
 <a href="observation.html">Observations</a>, and <a href="questionnaire.html">Questionnaires</a> may be used to help 
-generate these. Clinical Assessments will often refer to these assessment tools as one of the investigations that was performed
+generate these. Clinical Impressions may refer to these assessment tools as one of the investigations that was performed
 during the assessment process.
 </p>
 </div>
