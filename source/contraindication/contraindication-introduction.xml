@@ -7,7 +7,7 @@ This resource applies to various circumstances where there is a concern about an
 </p>
 <ul>
   <li>Drug-drug interactions</li>
-  <li>In appropriate therapy (wrong dose, frequency, body site)</li>
+  <li>Inappropriate therapy (wrong dose, frequency, body site)</li>
   <li>Duplicate therapy</li>
 </ul>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
