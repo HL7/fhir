@@ -29,6 +29,8 @@
   <device>
     <action>
       <coding>
+        <system value="http://hl7.org/fhir/device-action"/>
+        <code value="implanted"/>
       </coding>
     </action>
     <manipulated>
