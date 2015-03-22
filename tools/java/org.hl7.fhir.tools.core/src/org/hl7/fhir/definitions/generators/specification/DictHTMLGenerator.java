@@ -61,8 +61,6 @@ import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
-import com.github.rjeschke.txtmark.Processor;
-
 public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private Definitions definitions;

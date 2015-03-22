@@ -1134,6 +1134,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     return i == -1 ? path : path.substring(0, i);
   }
 
+  @Override
   protected String getElementName(String name, boolean alone) {
     if (name.equals("[type]"))
       return "value";

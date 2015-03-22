@@ -14,6 +14,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Font;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition;
 
@@ -38,7 +39,7 @@ public class ReviewSpreadsheetGenerator {
     sheet.setColumnWidth(3, 100);
     
     HSSFFont font = workbook.createFont();
-    font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+    font.setBoldweight(Font.BOLDWEIGHT_BOLD);
     font.setFontName("Calibri");
     HSSFCellStyle style = workbook.createCellStyle();
     style.setFont(font);
@@ -155,7 +156,7 @@ public class ReviewSpreadsheetGenerator {
   private void generateReviewHeader(HSSFWorkbook workbook) {
     HSSFSheet sheet = workbook.createSheet("Review Details");
     HSSFFont font = workbook.createFont();
-    font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+    font.setBoldweight(Font.BOLDWEIGHT_BOLD);
     HSSFCellStyle style = workbook.createCellStyle();
     style.setFont(font);
     

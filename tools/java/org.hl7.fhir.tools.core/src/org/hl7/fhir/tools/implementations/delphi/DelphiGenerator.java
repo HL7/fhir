@@ -856,7 +856,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    generateParser(tn, category.Resource, !superClass.equals("TFHIRObject"), root.getRoot().typeCode());
+    generateParser(tn, ClassCategory.Resource, !superClass.equals("TFHIRObject"), root.getRoot().typeCode());
   }
 
   private boolean hasASummary(ResourceDefn root) {

@@ -48,7 +48,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.Config;
-import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.JsonSpecGenerator;
@@ -121,7 +120,6 @@ import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.WorkerContext;
-import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -1605,7 +1603,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     } else {
       for (ValueSet ae : valueSets.values()) {
         if ((name+".html").equals(ae.getUserData("path"))) {
-          ValueSet vs = (ValueSet) ae;
+          ValueSet vs = ae;
             if (vs.hasDefine())
                 csn = vs.getDefine().getSystem();
             vsn = vs.getUrl();         
@@ -2411,7 +2409,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String sn : sorts) {
       ValueSet ae = valueSets.get(sn);
       String n = getTail(sn);
-      ValueSet vs = (ValueSet) ae;
+      ValueSet vs = ae;
       String path = (String) ae.getUserData("path");
       s.append(" <tr><td><a href=\""+Utilities.changeFileExt(path, ".html")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
       if (hasId)
