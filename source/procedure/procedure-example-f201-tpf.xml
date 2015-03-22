@@ -6,6 +6,7 @@
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </patient>
+  <status value="completed"/>
   <type>
     <!--The procedure is TPF-based chemotherapy-->
     <coding>
