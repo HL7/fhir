@@ -589,7 +589,7 @@ public class SourceParser {
             cd.getReferredValueSet().setVersion(version);
 		    } else
 		      throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(termDir)+cd.getReference()+".xml/json)");
-		    if (cd.getReferredValueSet().getId() == null)
+		    if (cd.getReferredValueSet() != null && cd.getReferredValueSet().getId() == null)
 		      cd.getReferredValueSet().setId(FormatUtilities.makeId(cd.getBinding().name())); 
 		  }
 		}
