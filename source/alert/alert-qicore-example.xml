@@ -23,10 +23,10 @@
 
   </category>
   <status value="inactive"/>
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
-  </subject>
+  </patient>
 
   <author>
     <reference value="Practitioner/example"/>

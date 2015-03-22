@@ -1095,7 +1095,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Alert.subject</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Alert.patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4389,14 +4389,14 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Alert.subject</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Alert.patient</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">The identity of a subject to list alerts for</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">Alert.subject</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Alert.patient</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">The identity of a subject to list alerts for</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
