@@ -1,0 +1,34 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <url value="http://hl7.org/fhir/vs/device-action"/>
+  <name value="Procedure Device Action Codes"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="Example value set for Procedure Device Action code (what happened to a device during a procedure"/>
+  <status value="draft"/>
+  <!-- due to the lack of any available codes, we invent our own examples here -->
+  <define>
+    <system value="http://hl7.org/fhir/device-action"/>
+    <caseSensitive value="true"/>    
+    <concept>
+      <code value="implanted"/>
+      <display value="Implanted"/>
+      <definition value="The device was implanted in the patient during the procedure"/>
+    </concept>
+    <concept>
+      <code value="explanted"/>
+      <display value="Explanted"/>
+      <definition value="The device was explanted from the patient during the procedure"/>
+    </concept>
+    <concept>
+      <code value="manipulated"/>
+      <display value="Manipulated"/>
+      <definition value="The device remains in that patient, but it's location, settings, or functionality was changed"/>
+    </concept>
+  </define>
+</ValueSet>
