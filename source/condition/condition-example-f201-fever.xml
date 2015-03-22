@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f201"/>
- <subject><!--It entails Roel's problem-->
+ <patient><!--It entails Roel's problem-->
      <reference value="Patient/f201"/>
      <display value="Roel"/>
- </subject>
+ </patient>
  <encounter>
      <reference value="Encounter/f201"/>
  </encounter>
@@ -30,7 +30,7 @@
         <code value="condition" />
     </coding>
  </category>
- <status value="confirmed"/>
+ <clinicalStatus value="confirmed"/>
  <severity><!--The fever is mild -->
     <coding>
         <system value="http://snomed.info/sct"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow.
+ * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
  */
 @ResourceDef(name="ClinicalImpression", profile="http://hl7.org/fhir/Profile/ClinicalImpression")
 public class ClinicalImpression extends DomainResource {
@@ -196,39 +196,39 @@ public class ClinicalImpression extends DomainResource {
   }
 
     @Block()
-    public static class ClinicalImpressionDiagnosisComponent extends BackboneElement {
+    public static class ClinicalImpressionFindingComponent extends BackboneElement {
         /**
-         * Specific text of code for diagnosis.
+         * Specific text of code for finding or diagnosis.
          */
         @Child(name ="item", type={CodeableConcept.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="Specific text or code for diagnosis", formalDefinition="Specific text of code for diagnosis." )
+        @Description(shortDefinition="Specific text or code for finding", formalDefinition="Specific text of code for finding or diagnosis." )
         protected CodeableConcept item;
 
         /**
-         * Which investigations support diagnosis.
+         * Which investigations support finding or diagnosis.
          */
         @Child(name ="cause", type={StringType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Which investigations support diagnosis", formalDefinition="Which investigations support diagnosis." )
+        @Description(shortDefinition="Which investigations support finding", formalDefinition="Which investigations support finding or diagnosis." )
         protected StringType cause;
 
         private static final long serialVersionUID = -888590978L;
 
-      public ClinicalImpressionDiagnosisComponent() {
+      public ClinicalImpressionFindingComponent() {
         super();
       }
 
-      public ClinicalImpressionDiagnosisComponent(CodeableConcept item) {
+      public ClinicalImpressionFindingComponent(CodeableConcept item) {
         super();
         this.item = item;
       }
 
         /**
-         * @return {@link #item} (Specific text of code for diagnosis.)
+         * @return {@link #item} (Specific text of code for finding or diagnosis.)
          */
         public CodeableConcept getItem() { 
           if (this.item == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ClinicalImpressionDiagnosisComponent.item");
+              throw new Error("Attempt to auto-create ClinicalImpressionFindingComponent.item");
             else if (Configuration.doAutoCreate())
               this.item = new CodeableConcept(); // cc
           return this.item;
@@ -239,20 +239,20 @@ public class ClinicalImpression extends DomainResource {
         }
 
         /**
-         * @param value {@link #item} (Specific text of code for diagnosis.)
+         * @param value {@link #item} (Specific text of code for finding or diagnosis.)
          */
-        public ClinicalImpressionDiagnosisComponent setItem(CodeableConcept value) { 
+        public ClinicalImpressionFindingComponent setItem(CodeableConcept value) { 
           this.item = value;
           return this;
         }
 
         /**
-         * @return {@link #cause} (Which investigations support diagnosis.). This is the underlying object with id, value and extensions. The accessor "getCause" gives direct access to the value
+         * @return {@link #cause} (Which investigations support finding or diagnosis.). This is the underlying object with id, value and extensions. The accessor "getCause" gives direct access to the value
          */
         public StringType getCauseElement() { 
           if (this.cause == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ClinicalImpressionDiagnosisComponent.cause");
+              throw new Error("Attempt to auto-create ClinicalImpressionFindingComponent.cause");
             else if (Configuration.doAutoCreate())
               this.cause = new StringType(); // bb
           return this.cause;
@@ -267,24 +267,24 @@ public class ClinicalImpression extends DomainResource {
         }
 
         /**
-         * @param value {@link #cause} (Which investigations support diagnosis.). This is the underlying object with id, value and extensions. The accessor "getCause" gives direct access to the value
+         * @param value {@link #cause} (Which investigations support finding or diagnosis.). This is the underlying object with id, value and extensions. The accessor "getCause" gives direct access to the value
          */
-        public ClinicalImpressionDiagnosisComponent setCauseElement(StringType value) { 
+        public ClinicalImpressionFindingComponent setCauseElement(StringType value) { 
           this.cause = value;
           return this;
         }
 
         /**
-         * @return Which investigations support diagnosis.
+         * @return Which investigations support finding or diagnosis.
          */
         public String getCause() { 
           return this.cause == null ? null : this.cause.getValue();
         }
 
         /**
-         * @param value Which investigations support diagnosis.
+         * @param value Which investigations support finding or diagnosis.
          */
-        public ClinicalImpressionDiagnosisComponent setCause(String value) { 
+        public ClinicalImpressionFindingComponent setCause(String value) { 
           if (Utilities.noString(value))
             this.cause = null;
           else {
@@ -297,12 +297,12 @@ public class ClinicalImpression extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("item", "CodeableConcept", "Specific text of code for diagnosis.", 0, java.lang.Integer.MAX_VALUE, item));
-          childrenList.add(new Property("cause", "string", "Which investigations support diagnosis.", 0, java.lang.Integer.MAX_VALUE, cause));
+          childrenList.add(new Property("item", "CodeableConcept", "Specific text of code for finding or diagnosis.", 0, java.lang.Integer.MAX_VALUE, item));
+          childrenList.add(new Property("cause", "string", "Which investigations support finding or diagnosis.", 0, java.lang.Integer.MAX_VALUE, cause));
         }
 
-      public ClinicalImpressionDiagnosisComponent copy() {
-        ClinicalImpressionDiagnosisComponent dst = new ClinicalImpressionDiagnosisComponent();
+      public ClinicalImpressionFindingComponent copy() {
+        ClinicalImpressionFindingComponent dst = new ClinicalImpressionFindingComponent();
         copyValues(dst);
         dst.item = item == null ? null : item.copy();
         dst.cause = cause == null ? null : cause.copy();
@@ -313,9 +313,9 @@ public class ClinicalImpression extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ClinicalImpressionDiagnosisComponent))
+        if (!(other instanceof ClinicalImpressionFindingComponent))
           return false;
-        ClinicalImpressionDiagnosisComponent o = (ClinicalImpressionDiagnosisComponent) other;
+        ClinicalImpressionFindingComponent o = (ClinicalImpressionFindingComponent) other;
         return compareDeep(item, o.item, true) && compareDeep(cause, o.cause, true);
       }
 
@@ -323,9 +323,9 @@ public class ClinicalImpression extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ClinicalImpressionDiagnosisComponent))
+        if (!(other instanceof ClinicalImpressionFindingComponent))
           return false;
-        ClinicalImpressionDiagnosisComponent o = (ClinicalImpressionDiagnosisComponent) other;
+        ClinicalImpressionFindingComponent o = (ClinicalImpressionFindingComponent) other;
         return compareValues(cause, o.cause, true);
       }
 
@@ -540,82 +540,65 @@ public class ClinicalImpression extends DomainResource {
 
 
     /**
-     * A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.
+     * The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.
      */
-    @Child(name ="careplan", type={CarePlan.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="A specific careplan that prompted this assessment", formalDefinition="A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment." )
-    protected Reference careplan;
-
-    /**
-     * The actual object that is the target of the reference (A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.)
-     */
-    protected CarePlan careplanTarget;
-
-    /**
-     * A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.
-     */
-    @Child(name ="referral", type={ReferralRequest.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="A specific referral that lead to this assessment", formalDefinition="A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment." )
-    protected Reference referral;
-
-    /**
-     * The actual object that is the target of the reference (A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.)
-     */
-    protected ReferralRequest referralTarget;
+    @Child(name ="trigger", type={CodeableConcept.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Request or event that necessitated this assessment", formalDefinition="The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource." )
+    protected Type trigger;
 
     /**
      * One or more sets of investigations (signs, symptions, etc). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.
      */
-    @Child(name ="investigations", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="investigations", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="One or more sets of investigations (signs, symptions, etc)", formalDefinition="One or more sets of investigations (signs, symptions, etc). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes." )
     protected List<ClinicalImpressionInvestigationsComponent> investigations;
 
     /**
      * Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.
      */
-    @Child(name ="protocol", type={UriType.class}, order=9, min=0, max=1)
+    @Child(name ="protocol", type={UriType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Clinical Protocol followed", formalDefinition="Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis." )
     protected UriType protocol;
 
     /**
      * A text summary of the investigations and the diagnosis.
      */
-    @Child(name ="summary", type={StringType.class}, order=10, min=0, max=1)
+    @Child(name ="summary", type={StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Summary of the assessment", formalDefinition="A text summary of the investigations and the diagnosis." )
     protected StringType summary;
 
     /**
-     * An specific diagnosis that was considered likely or relevant to ongoing treatment.
+     * Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.
      */
-    @Child(name ="diagnosis", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Possible or likely diagnosis", formalDefinition="An specific diagnosis that was considered likely or relevant to ongoing treatment." )
-    protected List<ClinicalImpressionDiagnosisComponent> diagnosis;
+    @Child(name ="finding", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Possible or likely findings and diagnoses", formalDefinition="Specific findings or diagnoses that was considered likely or relevant to ongoing treatment." )
+    protected List<ClinicalImpressionFindingComponent> finding;
 
     /**
      * Diagnoses/conditions resolved since the last assessment.
      */
-    @Child(name ="resolved", type={CodeableConcept.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="resolved", type={CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Diagnosies/conditions resolved since previous assessment", formalDefinition="Diagnoses/conditions resolved since the last assessment." )
     protected List<CodeableConcept> resolved;
 
     /**
      * Diagnosis considered not possible.
      */
-    @Child(name ="ruledOut", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="ruledOut", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Diagnosis considered not possible", formalDefinition="Diagnosis considered not possible." )
     protected List<ClinicalImpressionRuledOutComponent> ruledOut;
 
     /**
      * Estimate of likely outcome.
      */
-    @Child(name ="prognosis", type={StringType.class}, order=14, min=0, max=1)
+    @Child(name ="prognosis", type={StringType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Estimate of likely outcome", formalDefinition="Estimate of likely outcome." )
     protected StringType prognosis;
 
     /**
      * Plan of action after assessment.
      */
-    @Child(name ="plan", type={CarePlan.class}, order=15, min=0, max=1)
+    @Child(name ="plan", type={CarePlan.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Plan of action after assessment", formalDefinition="Plan of action after assessment." )
     protected Reference plan;
 
@@ -627,7 +610,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * Actions taken during assessment.
      */
-    @Child(name ="action", type={ReferralRequest.class, ProcedureRequest.class, Procedure.class, MedicationPrescription.class, DiagnosticOrder.class, NutritionOrder.class, Supply.class, Appointment.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="action", type={ReferralRequest.class, ProcedureRequest.class, Procedure.class, MedicationPrescription.class, DiagnosticOrder.class, NutritionOrder.class, Supply.class, Appointment.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Actions taken during assessment", formalDefinition="Actions taken during assessment." )
     protected List<Reference> action;
     /**
@@ -636,7 +619,7 @@ public class ClinicalImpression extends DomainResource {
     protected List<Resource> actionTarget;
 
 
-    private static final long serialVersionUID = -1322237577L;
+    private static final long serialVersionUID = -1824330279L;
 
     public ClinicalImpression() {
       super();
@@ -925,90 +908,39 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #careplan} (A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.)
+     * @return {@link #trigger} (The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.)
      */
-    public Reference getCareplan() { 
-      if (this.careplan == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalImpression.careplan");
-        else if (Configuration.doAutoCreate())
-          this.careplan = new Reference(); // cc
-      return this.careplan;
-    }
-
-    public boolean hasCareplan() { 
-      return this.careplan != null && !this.careplan.isEmpty();
+    public Type getTrigger() { 
+      return this.trigger;
     }
 
     /**
-     * @param value {@link #careplan} (A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.)
+     * @return {@link #trigger} (The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.)
      */
-    public ClinicalImpression setCareplan(Reference value) { 
-      this.careplan = value;
-      return this;
+    public CodeableConcept getTriggerCodeableConcept() throws Exception { 
+      if (!(this.trigger instanceof CodeableConcept))
+        throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.trigger.getClass().getName()+" was encountered");
+      return (CodeableConcept) this.trigger;
     }
 
     /**
-     * @return {@link #careplan} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.)
+     * @return {@link #trigger} (The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.)
      */
-    public CarePlan getCareplanTarget() { 
-      if (this.careplanTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalImpression.careplan");
-        else if (Configuration.doAutoCreate())
-          this.careplanTarget = new CarePlan(); // aa
-      return this.careplanTarget;
+    public Reference getTriggerReference() throws Exception { 
+      if (!(this.trigger instanceof Reference))
+        throw new Exception("Type mismatch: the type Reference was expected, but "+this.trigger.getClass().getName()+" was encountered");
+      return (Reference) this.trigger;
+    }
+
+    public boolean hasTrigger() { 
+      return this.trigger != null && !this.trigger.isEmpty();
     }
 
     /**
-     * @param value {@link #careplan} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.)
+     * @param value {@link #trigger} (The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.)
      */
-    public ClinicalImpression setCareplanTarget(CarePlan value) { 
-      this.careplanTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #referral} (A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.)
-     */
-    public Reference getReferral() { 
-      if (this.referral == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalImpression.referral");
-        else if (Configuration.doAutoCreate())
-          this.referral = new Reference(); // cc
-      return this.referral;
-    }
-
-    public boolean hasReferral() { 
-      return this.referral != null && !this.referral.isEmpty();
-    }
-
-    /**
-     * @param value {@link #referral} (A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.)
-     */
-    public ClinicalImpression setReferral(Reference value) { 
-      this.referral = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #referral} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.)
-     */
-    public ReferralRequest getReferralTarget() { 
-      if (this.referralTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalImpression.referral");
-        else if (Configuration.doAutoCreate())
-          this.referralTarget = new ReferralRequest(); // aa
-      return this.referralTarget;
-    }
-
-    /**
-     * @param value {@link #referral} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.)
-     */
-    public ClinicalImpression setReferralTarget(ReferralRequest value) { 
-      this.referralTarget = value;
+    public ClinicalImpression setTrigger(Type value) { 
+      this.trigger = value;
       return this;
     }
 
@@ -1151,42 +1083,42 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #diagnosis} (An specific diagnosis that was considered likely or relevant to ongoing treatment.)
+     * @return {@link #finding} (Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.)
      */
-    public List<ClinicalImpressionDiagnosisComponent> getDiagnosis() { 
-      if (this.diagnosis == null)
-        this.diagnosis = new ArrayList<ClinicalImpressionDiagnosisComponent>();
-      return this.diagnosis;
+    public List<ClinicalImpressionFindingComponent> getFinding() { 
+      if (this.finding == null)
+        this.finding = new ArrayList<ClinicalImpressionFindingComponent>();
+      return this.finding;
     }
 
-    public boolean hasDiagnosis() { 
-      if (this.diagnosis == null)
+    public boolean hasFinding() { 
+      if (this.finding == null)
         return false;
-      for (ClinicalImpressionDiagnosisComponent item : this.diagnosis)
+      for (ClinicalImpressionFindingComponent item : this.finding)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #diagnosis} (An specific diagnosis that was considered likely or relevant to ongoing treatment.)
+     * @return {@link #finding} (Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.)
      */
     // syntactic sugar
-    public ClinicalImpressionDiagnosisComponent addDiagnosis() { //3
-      ClinicalImpressionDiagnosisComponent t = new ClinicalImpressionDiagnosisComponent();
-      if (this.diagnosis == null)
-        this.diagnosis = new ArrayList<ClinicalImpressionDiagnosisComponent>();
-      this.diagnosis.add(t);
+    public ClinicalImpressionFindingComponent addFinding() { //3
+      ClinicalImpressionFindingComponent t = new ClinicalImpressionFindingComponent();
+      if (this.finding == null)
+        this.finding = new ArrayList<ClinicalImpressionFindingComponent>();
+      this.finding.add(t);
       return t;
     }
 
     // syntactic sugar
-    public ClinicalImpression addDiagnosis(ClinicalImpressionDiagnosisComponent t) { //3
+    public ClinicalImpression addFinding(ClinicalImpressionFindingComponent t) { //3
       if (t == null)
         return this;
-      if (this.diagnosis == null)
-        this.diagnosis = new ArrayList<ClinicalImpressionDiagnosisComponent>();
-      this.diagnosis.add(t);
+      if (this.finding == null)
+        this.finding = new ArrayList<ClinicalImpressionFindingComponent>();
+      this.finding.add(t);
       return this;
     }
 
@@ -1420,12 +1352,11 @@ public class ClinicalImpression extends DomainResource {
         childrenList.add(new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("previous", "Reference(ClinicalImpression)", "A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.", 0, java.lang.Integer.MAX_VALUE, previous));
         childrenList.add(new Property("problem", "Reference(Condition|AllergyIntolerance)", "This a list of the general problems/conditions for a patient.", 0, java.lang.Integer.MAX_VALUE, problem));
-        childrenList.add(new Property("careplan", "Reference(CarePlan)", "A reference to a specific care plan that prompted this assessment. The care plan provides further context for the assessment.", 0, java.lang.Integer.MAX_VALUE, careplan));
-        childrenList.add(new Property("referral", "Reference(ReferralRequest)", "A reference to a specific care plan that prompted this assessment. The referral request may provide further context for the assessment.", 0, java.lang.Integer.MAX_VALUE, referral));
+        childrenList.add(new Property("trigger[x]", "CodeableConcept|Reference(Any)", "The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.", 0, java.lang.Integer.MAX_VALUE, trigger));
         childrenList.add(new Property("investigations", "", "One or more sets of investigations (signs, symptions, etc). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.", 0, java.lang.Integer.MAX_VALUE, investigations));
         childrenList.add(new Property("protocol", "uri", "Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.", 0, java.lang.Integer.MAX_VALUE, protocol));
         childrenList.add(new Property("summary", "string", "A text summary of the investigations and the diagnosis.", 0, java.lang.Integer.MAX_VALUE, summary));
-        childrenList.add(new Property("diagnosis", "", "An specific diagnosis that was considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
+        childrenList.add(new Property("finding", "", "Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, finding));
         childrenList.add(new Property("resolved", "CodeableConcept", "Diagnoses/conditions resolved since the last assessment.", 0, java.lang.Integer.MAX_VALUE, resolved));
         childrenList.add(new Property("ruledOut", "", "Diagnosis considered not possible.", 0, java.lang.Integer.MAX_VALUE, ruledOut));
         childrenList.add(new Property("prognosis", "string", "Estimate of likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosis));
@@ -1446,8 +1377,7 @@ public class ClinicalImpression extends DomainResource {
           for (Reference i : problem)
             dst.problem.add(i.copy());
         };
-        dst.careplan = careplan == null ? null : careplan.copy();
-        dst.referral = referral == null ? null : referral.copy();
+        dst.trigger = trigger == null ? null : trigger.copy();
         if (investigations != null) {
           dst.investigations = new ArrayList<ClinicalImpressionInvestigationsComponent>();
           for (ClinicalImpressionInvestigationsComponent i : investigations)
@@ -1455,10 +1385,10 @@ public class ClinicalImpression extends DomainResource {
         };
         dst.protocol = protocol == null ? null : protocol.copy();
         dst.summary = summary == null ? null : summary.copy();
-        if (diagnosis != null) {
-          dst.diagnosis = new ArrayList<ClinicalImpressionDiagnosisComponent>();
-          for (ClinicalImpressionDiagnosisComponent i : diagnosis)
-            dst.diagnosis.add(i.copy());
+        if (finding != null) {
+          dst.finding = new ArrayList<ClinicalImpressionFindingComponent>();
+          for (ClinicalImpressionFindingComponent i : finding)
+            dst.finding.add(i.copy());
         };
         if (resolved != null) {
           dst.resolved = new ArrayList<CodeableConcept>();
@@ -1493,8 +1423,8 @@ public class ClinicalImpression extends DomainResource {
         ClinicalImpression o = (ClinicalImpression) other;
         return compareDeep(patient, o.patient, true) && compareDeep(assessor, o.assessor, true) && compareDeep(date, o.date, true)
            && compareDeep(description, o.description, true) && compareDeep(previous, o.previous, true) && compareDeep(problem, o.problem, true)
-           && compareDeep(careplan, o.careplan, true) && compareDeep(referral, o.referral, true) && compareDeep(investigations, o.investigations, true)
-           && compareDeep(protocol, o.protocol, true) && compareDeep(summary, o.summary, true) && compareDeep(diagnosis, o.diagnosis, true)
+           && compareDeep(trigger, o.trigger, true) && compareDeep(investigations, o.investigations, true)
+           && compareDeep(protocol, o.protocol, true) && compareDeep(summary, o.summary, true) && compareDeep(finding, o.finding, true)
            && compareDeep(resolved, o.resolved, true) && compareDeep(ruledOut, o.ruledOut, true) && compareDeep(prognosis, o.prognosis, true)
            && compareDeep(plan, o.plan, true) && compareDeep(action, o.action, true);
       }
@@ -1513,10 +1443,9 @@ public class ClinicalImpression extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (patient == null || patient.isEmpty()) && (assessor == null || assessor.isEmpty())
            && (date == null || date.isEmpty()) && (description == null || description.isEmpty()) && (previous == null || previous.isEmpty())
-           && (problem == null || problem.isEmpty()) && (careplan == null || careplan.isEmpty()) && (referral == null || referral.isEmpty())
-           && (investigations == null || investigations.isEmpty()) && (protocol == null || protocol.isEmpty())
-           && (summary == null || summary.isEmpty()) && (diagnosis == null || diagnosis.isEmpty()) && (resolved == null || resolved.isEmpty())
-           && (ruledOut == null || ruledOut.isEmpty()) && (prognosis == null || prognosis.isEmpty())
+           && (problem == null || problem.isEmpty()) && (trigger == null || trigger.isEmpty()) && (investigations == null || investigations.isEmpty())
+           && (protocol == null || protocol.isEmpty()) && (summary == null || summary.isEmpty()) && (finding == null || finding.isEmpty())
+           && (resolved == null || resolved.isEmpty()) && (ruledOut == null || ruledOut.isEmpty()) && (prognosis == null || prognosis.isEmpty())
            && (plan == null || plan.isEmpty()) && (action == null || action.isEmpty());
       }
 
@@ -1525,16 +1454,12 @@ public class ClinicalImpression extends DomainResource {
     return ResourceType.ClinicalImpression;
    }
 
+  @SearchParamDefinition(name="trigger", path="ClinicalImpression.triggerReference", description="Request or event that necessitated this assessment", type="reference" )
+  public static final String SP_TRIGGER = "trigger";
   @SearchParamDefinition(name="previous", path="ClinicalImpression.previous", description="Reference to last assessment", type="reference" )
   public static final String SP_PREVIOUS = "previous";
-  @SearchParamDefinition(name="referral", path="ClinicalImpression.referral", description="A specific referral that lead to this assessment", type="reference" )
-  public static final String SP_REFERRAL = "referral";
-  @SearchParamDefinition(name="diagnosis", path="ClinicalImpression.diagnosis.item", description="Specific text or code for diagnosis", type="token" )
-  public static final String SP_DIAGNOSIS = "diagnosis";
   @SearchParamDefinition(name="problem", path="ClinicalImpression.problem", description="General assessment of patient state", type="reference" )
   public static final String SP_PROBLEM = "problem";
-  @SearchParamDefinition(name="careplan", path="ClinicalImpression.careplan", description="A specific careplan that prompted this assessment", type="reference" )
-  public static final String SP_CAREPLAN = "careplan";
   @SearchParamDefinition(name="date", path="ClinicalImpression.date", description="When the assessment occurred", type="date" )
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="ruledout", path="ClinicalImpression.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
@@ -1543,10 +1468,14 @@ public class ClinicalImpression extends DomainResource {
   public static final String SP_ASSESSOR = "assessor";
   @SearchParamDefinition(name="patient", path="ClinicalImpression.patient", description="The patient being asssesed", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="trigger-code", path="ClinicalImpression.triggerCodeableConcept", description="Request or event that necessitated this assessment", type="token" )
+  public static final String SP_TRIGGERCODE = "trigger-code";
   @SearchParamDefinition(name="resolved", path="ClinicalImpression.resolved", description="Diagnosies/conditions resolved since previous assessment", type="token" )
   public static final String SP_RESOLVED = "resolved";
   @SearchParamDefinition(name="plan", path="ClinicalImpression.plan", description="Plan of action after assessment", type="reference" )
   public static final String SP_PLAN = "plan";
+  @SearchParamDefinition(name="finding", path="ClinicalImpression.finding.item", description="Specific text or code for finding", type="token" )
+  public static final String SP_FINDING = "finding";
   @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Actions taken during assessment", type="reference" )
   public static final String SP_ACTION = "action";
   @SearchParamDefinition(name="investigation", path="ClinicalImpression.investigations.item", description="Record of a specific investigation", type="reference" )

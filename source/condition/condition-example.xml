@@ -5,9 +5,9 @@
    <status value="generated"/>
    <div xmlns="http://www.w3.org/1999/xhtml">Severe burn of left ear (Date: 24-May 2012)</div>   
  </text>
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
-  </subject>
+  </patient>
   <code> 
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -29,7 +29,7 @@
     <display value="Diagnosis"/>
    </coding>
  </category>
- <status value="confirmed"/>
+ <clinicalStatus value="confirmed"/>
  <severity>
    <coding>
     <system value="http://snomed.info/sct"/>

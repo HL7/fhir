@@ -56,10 +56,10 @@
   <contained>
     <Condition>
       <id value="p1"/>
-      <subject>
+      <patient>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </subject>
+      </patient>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -68,7 +68,7 @@
         </coding>
         <text value="Asthma"/>
       </code>
-      <status value="confirmed"/>
+      <clinicalStatus value="confirmed"/>
     </Condition>
   </contained>
   

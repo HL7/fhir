@@ -2,11 +2,11 @@
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f202"/>
-   <subject>
+   <patient>
       <!--It entails Roel's problem-->
       <reference value="Patient/f201"/>
       <display value="Roel"/>
-   </subject>
+   </patient>
    <!--It was not established during an encounter, but through a diagnostic report of december 2012-->
    <dateAsserted value="2012-12-01"/>
    <!--The problem was asserted at December first-->
@@ -24,14 +24,7 @@
          <code value="diagnose"/>
       </coding>
    </category>
-   <status value="confirmed"/>
-   <certainty>
-      <coding>
-         <system value="http://snomed.info/sct"/>
-         <code value="17162000"/>
-         <display value="Certain"/>
-      </coding>
-   </certainty>
+   <clinicalStatus value="confirmed"/>
    <severity>
       <coding>
          <system value="http://snomed.info/sct"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * Represents a request for the use of a device.
+ * Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
  */
 @ResourceDef(name="DeviceUseRequest", profile="http://hl7.org/fhir/Profile/DeviceUseRequest")
 public class DeviceUseRequest extends DomainResource {

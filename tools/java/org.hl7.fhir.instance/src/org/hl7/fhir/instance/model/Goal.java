@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * Describes the intended objective(s) of the care.
+ * Describes the intended objective(s) of patient care, for example, weight loss, restoring an activity of daily living, etc.
  */
 @ResourceDef(name="Goal", profile="http://hl7.org/fhir/Profile/Goal")
 public class Goal extends DomainResource {

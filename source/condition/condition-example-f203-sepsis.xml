@@ -2,10 +2,10 @@
 <!--@version June 2013 @author Melchior Ferdinand Pot-->
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f203"/>
- <subject><!--It entails Roel's problem-->
+ <patient><!--It entails Roel's problem-->
      <reference value="Patient/f201"/>
      <display value="Roel"/>
- </subject>
+ </patient>
  <encounter>
      <reference value="Encounter/f203"/>
      <display value="Roel's encounter on March eleventh"/>
@@ -32,14 +32,7 @@
          <code value="finding"/>
      </coding>
  </category>
- <status value="confirmed"/>
- <certainty>
-    <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="17162000"/>
-        <display value="Certain"/> 
-    </coding>
- </certainty>
+ <clinicalStatus value="confirmed"/>
  <severity>
     <coding>
         <system value="http://snomed.info/sct"/>

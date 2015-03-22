@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -471,16 +471,28 @@ public class Procedure extends DomainResource {
     protected Encounter encounterTarget;
 
     /**
+     * The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant.
+     */
+    @Child(name ="location", type={Location.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Where the procedure happened", formalDefinition="The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant." )
+    protected Reference location;
+
+    /**
+     * The actual object that is the target of the reference (The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant.)
+     */
+    protected Location locationTarget;
+
+    /**
      * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
      */
-    @Child(name ="outcome", type={StringType.class}, order=8, min=0, max=1)
+    @Child(name ="outcome", type={StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="What was result of procedure?", formalDefinition="What was the outcome of the procedure - did it resolve reasons why the procedure was performed?" )
     protected StringType outcome;
 
     /**
      * This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.
      */
-    @Child(name ="report", type={DiagnosticReport.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="report", type={DiagnosticReport.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Any report that results from the procedure", formalDefinition="This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies." )
     protected List<Reference> report;
     /**
@@ -492,32 +504,32 @@ public class Procedure extends DomainResource {
     /**
      * Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues.
      */
-    @Child(name ="complication", type={CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="complication", type={CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Complication following the procedure", formalDefinition="Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues." )
     protected List<CodeableConcept> complication;
 
     /**
      * If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
      */
-    @Child(name ="followUp", type={StringType.class}, order=11, min=0, max=1)
+    @Child(name ="followUp", type={StringType.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Instructions for follow up", formalDefinition="If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used." )
     protected StringType followUp;
 
     /**
      * Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure.
      */
-    @Child(name ="relatedItem", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="relatedItem", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A procedure that is related to this one", formalDefinition="Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure." )
     protected List<ProcedureRelatedItemComponent> relatedItem;
 
     /**
      * Any other notes about the procedure - e.g. the operative notes.
      */
-    @Child(name ="notes", type={StringType.class}, order=13, min=0, max=1)
+    @Child(name ="notes", type={StringType.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Additional information about procedure", formalDefinition="Any other notes about the procedure - e.g. the operative notes." )
     protected StringType notes;
 
-    private static final long serialVersionUID = 1783571207L;
+    private static final long serialVersionUID = -685205266L;
 
     public Procedure() {
       super();
@@ -826,6 +838,50 @@ public class Procedure extends DomainResource {
     }
 
     /**
+     * @return {@link #location} (The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant.)
+     */
+    public Reference getLocation() { 
+      if (this.location == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Procedure.location");
+        else if (Configuration.doAutoCreate())
+          this.location = new Reference(); // cc
+      return this.location;
+    }
+
+    public boolean hasLocation() { 
+      return this.location != null && !this.location.isEmpty();
+    }
+
+    /**
+     * @param value {@link #location} (The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant.)
+     */
+    public Procedure setLocation(Reference value) { 
+      this.location = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant.)
+     */
+    public Location getLocationTarget() { 
+      if (this.locationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Procedure.location");
+        else if (Configuration.doAutoCreate())
+          this.locationTarget = new Location(); // aa
+      return this.locationTarget;
+    }
+
+    /**
+     * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant.)
+     */
+    public Procedure setLocationTarget(Location value) { 
+      this.locationTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
     public StringType getOutcomeElement() { 
@@ -1123,6 +1179,7 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("performer", "", "Limited to 'real' people rather than equipment.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("date", "Period", "The dates over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter during which the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("location", "Reference(Location)", "The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("outcome", "string", "What was the outcome of the procedure - did it resolve reasons why the procedure was performed?", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("report", "Reference(DiagnosticReport)", "This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.", 0, java.lang.Integer.MAX_VALUE, report));
         childrenList.add(new Property("complication", "CodeableConcept", "Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues.", 0, java.lang.Integer.MAX_VALUE, complication));
@@ -1158,6 +1215,7 @@ public class Procedure extends DomainResource {
         };
         dst.date = date == null ? null : date.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
+        dst.location = location == null ? null : location.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
         if (report != null) {
           dst.report = new ArrayList<Reference>();
@@ -1192,9 +1250,10 @@ public class Procedure extends DomainResource {
         Procedure o = (Procedure) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(type, o.type, true)
            && compareDeep(bodySite, o.bodySite, true) && compareDeep(indication, o.indication, true) && compareDeep(performer, o.performer, true)
-           && compareDeep(date, o.date, true) && compareDeep(encounter, o.encounter, true) && compareDeep(outcome, o.outcome, true)
-           && compareDeep(report, o.report, true) && compareDeep(complication, o.complication, true) && compareDeep(followUp, o.followUp, true)
-           && compareDeep(relatedItem, o.relatedItem, true) && compareDeep(notes, o.notes, true);
+           && compareDeep(date, o.date, true) && compareDeep(encounter, o.encounter, true) && compareDeep(location, o.location, true)
+           && compareDeep(outcome, o.outcome, true) && compareDeep(report, o.report, true) && compareDeep(complication, o.complication, true)
+           && compareDeep(followUp, o.followUp, true) && compareDeep(relatedItem, o.relatedItem, true) && compareDeep(notes, o.notes, true)
+          ;
       }
 
       @Override
@@ -1212,9 +1271,9 @@ public class Procedure extends DomainResource {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
            && (type == null || type.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (indication == null || indication.isEmpty())
            && (performer == null || performer.isEmpty()) && (date == null || date.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (outcome == null || outcome.isEmpty()) && (report == null || report.isEmpty()) && (complication == null || complication.isEmpty())
-           && (followUp == null || followUp.isEmpty()) && (relatedItem == null || relatedItem.isEmpty())
-           && (notes == null || notes.isEmpty());
+           && (location == null || location.isEmpty()) && (outcome == null || outcome.isEmpty()) && (report == null || report.isEmpty())
+           && (complication == null || complication.isEmpty()) && (followUp == null || followUp.isEmpty())
+           && (relatedItem == null || relatedItem.isEmpty()) && (notes == null || notes.isEmpty());
       }
 
   @Override
@@ -1224,6 +1283,8 @@ public class Procedure extends DomainResource {
 
   @SearchParamDefinition(name="patient", path="Procedure.patient", description="The identity of a patient to list procedures  for", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="location", path="Procedure.location", description="Where the procedure happened", type="reference" )
+  public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="performer", path="Procedure.performer.person", description="The reference to the practitioner", type="reference" )
   public static final String SP_PERFORMER = "performer";
   @SearchParamDefinition(name="date", path="Procedure.date", description="The date the procedure was performed on", type="date" )

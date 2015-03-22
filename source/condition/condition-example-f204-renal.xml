@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f204"/>
- <subject><!--It entails Roel's problem-->
+ <patient><!--It entails Roel's problem-->
      <reference value="Patient/f201"/>
      <display value="Roel"/>
- </subject>
+ </patient>
  <encounter>
      <reference value="Encounter/f203"/>
      <display value="Roel's encounter on March eleventh"/>
@@ -31,7 +31,7 @@
          <code value="condition"/>
      </coding>
  </category>
- <status value="working"/><!--The patient is being treated on the basis that this is the problem, but it is still not confirmed (<certainty> is therewith also working)-->
+ <clinicalStatus value="working"/><!--The patient is being treated on the basis that this is the problem, but it is still not confirmed (<certainty> is therewith also working)-->
  <severity>
     <coding>
         <system value="http://snomed.info/sct"/>

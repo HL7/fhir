@@ -5,9 +5,9 @@
    <status value="generated"/>
    <div xmlns="http://www.w3.org/1999/xhtml">Mild Asthma (Date: 21-Nov 2012)</div>   
  </text>
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
-  </subject>
+  </patient>
   <code> 
     <text value="Asthma"/>
   </code>
@@ -18,7 +18,7 @@
     <display value="Finding"/>
    </coding>
  </category>
- <status value="confirmed"/>
+ <clinicalStatus value="confirmed"/>
  <severity>
    <coding>
     <system value="http://snomed.info/sct"/>

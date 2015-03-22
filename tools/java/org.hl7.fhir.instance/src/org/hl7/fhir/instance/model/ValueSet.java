@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -3051,11 +3051,11 @@ public class ValueSet extends DomainResource {
     protected DateTimeType date;
 
     /**
-     * If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
+     * If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.
      */
-    @Child(name ="stableDate", type={DateType.class}, order=15, min=0, max=1)
-    @Description(shortDefinition="Fixed date for the version of all referenced code systems and value sets", formalDefinition="If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date." )
-    protected DateType stableDate;
+    @Child(name ="lockedDate", type={DateType.class}, order=15, min=0, max=1)
+    @Description(shortDefinition="Fixed date for all referenced code systems and value sets", formalDefinition="If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date." )
+    protected DateType lockedDate;
 
     /**
      * A definition of an code system, inlined into the value set.
@@ -3078,7 +3078,7 @@ public class ValueSet extends DomainResource {
     @Description(shortDefinition="Used when the value set is 'expanded'", formalDefinition="A value set can also be 'expanded', where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed." )
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = 193601097L;
+    private static final long serialVersionUID = 121117080L;
 
     public ValueSet() {
       super();
@@ -3766,50 +3766,50 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return {@link #stableDate} (If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.). This is the underlying object with id, value and extensions. The accessor "getStableDate" gives direct access to the value
+     * @return {@link #lockedDate} (If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
      */
-    public DateType getStableDateElement() { 
-      if (this.stableDate == null)
+    public DateType getLockedDateElement() { 
+      if (this.lockedDate == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ValueSet.stableDate");
+          throw new Error("Attempt to auto-create ValueSet.lockedDate");
         else if (Configuration.doAutoCreate())
-          this.stableDate = new DateType(); // bb
-      return this.stableDate;
+          this.lockedDate = new DateType(); // bb
+      return this.lockedDate;
     }
 
-    public boolean hasStableDateElement() { 
-      return this.stableDate != null && !this.stableDate.isEmpty();
+    public boolean hasLockedDateElement() { 
+      return this.lockedDate != null && !this.lockedDate.isEmpty();
     }
 
-    public boolean hasStableDate() { 
-      return this.stableDate != null && !this.stableDate.isEmpty();
+    public boolean hasLockedDate() { 
+      return this.lockedDate != null && !this.lockedDate.isEmpty();
     }
 
     /**
-     * @param value {@link #stableDate} (If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.). This is the underlying object with id, value and extensions. The accessor "getStableDate" gives direct access to the value
+     * @param value {@link #lockedDate} (If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
      */
-    public ValueSet setStableDateElement(DateType value) { 
-      this.stableDate = value;
+    public ValueSet setLockedDateElement(DateType value) { 
+      this.lockedDate = value;
       return this;
     }
 
     /**
-     * @return If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
+     * @return If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.
      */
-    public Date getStableDate() { 
-      return this.stableDate == null ? null : this.stableDate.getValue();
+    public Date getLockedDate() { 
+      return this.lockedDate == null ? null : this.lockedDate.getValue();
     }
 
     /**
-     * @param value If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
+     * @param value If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.
      */
-    public ValueSet setStableDate(Date value) { 
+    public ValueSet setLockedDate(Date value) { 
       if (value == null)
-        this.stableDate = null;
+        this.lockedDate = null;
       else {
-        if (this.stableDate == null)
-          this.stableDate = new DateType();
-        this.stableDate.setValue(value);
+        if (this.lockedDate == null)
+          this.lockedDate = new DateType();
+        this.lockedDate.setValue(value);
       }
       return this;
     }
@@ -3903,7 +3903,7 @@ public class ValueSet extends DomainResource {
         childrenList.add(new Property("experimental", "boolean", "This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
         childrenList.add(new Property("date", "dateTime", "The date that the value set status was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("stableDate", "date", "If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.", 0, java.lang.Integer.MAX_VALUE, stableDate));
+        childrenList.add(new Property("lockedDate", "date", "If a Locked Date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value sets as of the Locked Date.", 0, java.lang.Integer.MAX_VALUE, lockedDate));
         childrenList.add(new Property("define", "", "A definition of an code system, inlined into the value set.", 0, java.lang.Integer.MAX_VALUE, define));
         childrenList.add(new Property("compose", "", "When value set includes codes from elsewhere.", 0, java.lang.Integer.MAX_VALUE, compose));
         childrenList.add(new Property("expansion", "", "A value set can also be 'expanded', where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, java.lang.Integer.MAX_VALUE, expansion));
@@ -3935,7 +3935,7 @@ public class ValueSet extends DomainResource {
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.extensible = extensible == null ? null : extensible.copy();
         dst.date = date == null ? null : date.copy();
-        dst.stableDate = stableDate == null ? null : stableDate.copy();
+        dst.lockedDate = lockedDate == null ? null : lockedDate.copy();
         dst.define = define == null ? null : define.copy();
         dst.compose = compose == null ? null : compose.copy();
         dst.expansion = expansion == null ? null : expansion.copy();
@@ -3958,7 +3958,7 @@ public class ValueSet extends DomainResource {
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
            && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(extensible, o.extensible, true)
-           && compareDeep(date, o.date, true) && compareDeep(stableDate, o.stableDate, true) && compareDeep(define, o.define, true)
+           && compareDeep(date, o.date, true) && compareDeep(lockedDate, o.lockedDate, true) && compareDeep(define, o.define, true)
            && compareDeep(compose, o.compose, true) && compareDeep(expansion, o.expansion, true);
       }
 
@@ -3973,7 +3973,7 @@ public class ValueSet extends DomainResource {
            && compareValues(immutable, o.immutable, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
            && compareValues(requirements, o.requirements, true) && compareValues(copyright, o.copyright, true)
            && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(extensible, o.extensible, true)
-           && compareValues(date, o.date, true) && compareValues(stableDate, o.stableDate, true);
+           && compareValues(date, o.date, true) && compareValues(lockedDate, o.lockedDate, true);
       }
 
       public boolean isEmpty() {
@@ -3983,7 +3983,7 @@ public class ValueSet extends DomainResource {
            && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
            && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
            && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (extensible == null || extensible.isEmpty()) && (date == null || date.isEmpty()) && (stableDate == null || stableDate.isEmpty())
+           && (extensible == null || extensible.isEmpty()) && (date == null || date.isEmpty()) && (lockedDate == null || lockedDate.isEmpty())
            && (define == null || define.isEmpty()) && (compose == null || compose.isEmpty()) && (expansion == null || expansion.isEmpty())
           ;
       }

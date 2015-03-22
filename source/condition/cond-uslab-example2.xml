@@ -19,9 +19,9 @@ Description: USLab Reason For Study Profile Canonical Example: Lead Exposure -->
 			</ul>
 		</div>
 	</text>
-	<subject>
+	<patient>
 		<reference value="Patient/uslab-example1"/>
-	</subject>
+	</patient>
 	<!--EH note to balloters-  these examples are  to demonstrate content and structure the clinical scenario and ICD coding is artificial and  probably wrong.--><code>
 		<coding>
 			<system value="http://www.cms.gov/Medicare/Coding/ICD10/index.html"/>
@@ -37,6 +37,6 @@ Description: USLab Reason For Study Profile Canonical Example: Lead Exposure -->
 		</coding>
 		
 	</category>
-	<status value="provisional"/>
+	<clinicalStatus value="provisional"/>
 	
 </Condition>

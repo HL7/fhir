@@ -167,9 +167,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
   
   private void generateByProfile(DomainResource r, StructureDefinition profile, boolean showCodeDetails) throws Exception {
-    if (!r.getModifierExtension().isEmpty())
-      throw new Exception("Unable to generate narrative for resource of type "+r.getResourceType().toString()+" because it has modifier extensions");
-    
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
     try {

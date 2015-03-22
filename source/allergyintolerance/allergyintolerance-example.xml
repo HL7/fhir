@@ -70,8 +70,6 @@
       </coding>  
     </substance>
     
-    <!-- this was a challenge protocol -->
-    <certainty value="confirmed"/>
     <manifestation>
       <coding>
         <system value="http://snomed.info/sct"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1203,6 +1203,8 @@ public class JsonParser extends JsonParserBase {
       res.setRecorder(parseReference(json.getAsJsonObject("recorder")));
     if (json.has("patient"))
       res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    if (json.has("reporter"))
+      res.setReporter(parseReference(json.getAsJsonObject("reporter")));
     if (json.has("substance"))
       res.setSubstance(parseCodeableConcept(json.getAsJsonObject("substance")));
     if (json.has("status"))
@@ -2788,10 +2790,9 @@ public class JsonParser extends JsonParserBase {
         res.getProblem().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("careplan"))
-      res.setCareplan(parseReference(json.getAsJsonObject("careplan")));
-    if (json.has("referral"))
-      res.setReferral(parseReference(json.getAsJsonObject("referral")));
+    Type trigger = parseType("trigger", json);
+    if (trigger != null)
+      res.setTrigger(trigger);
     if (json.has("investigations")) {
       JsonArray array = json.getAsJsonArray("investigations");
       for (int i = 0; i < array.size(); i++) {
@@ -2806,10 +2807,10 @@ public class JsonParser extends JsonParserBase {
       res.setSummaryElement(parseString(json.get("summary").getAsString()));
     if (json.has("_summary"))
       parseElementProperties(json.getAsJsonObject("_summary"), res.getSummaryElement());
-    if (json.has("diagnosis")) {
-      JsonArray array = json.getAsJsonArray("diagnosis");
+    if (json.has("finding")) {
+      JsonArray array = json.getAsJsonArray("finding");
       for (int i = 0; i < array.size(); i++) {
-        res.getDiagnosis().add(parseClinicalImpressionClinicalImpressionDiagnosisComponent(array.get(i).getAsJsonObject(), res));
+        res.getFinding().add(parseClinicalImpressionClinicalImpressionFindingComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("resolved")) {
@@ -2853,8 +2854,8 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  protected ClinicalImpression.ClinicalImpressionDiagnosisComponent parseClinicalImpressionClinicalImpressionDiagnosisComponent(JsonObject json, ClinicalImpression owner) throws Exception {
-    ClinicalImpression.ClinicalImpressionDiagnosisComponent res = new ClinicalImpression.ClinicalImpressionDiagnosisComponent();
+  protected ClinicalImpression.ClinicalImpressionFindingComponent parseClinicalImpressionClinicalImpressionFindingComponent(JsonObject json, ClinicalImpression owner) throws Exception {
+    ClinicalImpression.ClinicalImpressionFindingComponent res = new ClinicalImpression.ClinicalImpressionFindingComponent();
     parseBackboneProperties(json, res);
     if (json.has("item"))
       res.setItem(parseCodeableConcept(json.getAsJsonObject("item")));
@@ -3305,8 +3306,8 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("subject"))
-      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("encounter"))
       res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("asserter"))
@@ -3319,12 +3320,10 @@ public class JsonParser extends JsonParserBase {
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
-    if (json.has("status"))
-      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Condition.ConditionStatus.NULL, new Condition.ConditionStatusEnumFactory()));
-    if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
-    if (json.has("certainty"))
-      res.setCertainty(parseCodeableConcept(json.getAsJsonObject("certainty")));
+    if (json.has("clinicalStatus"))
+      res.setClinicalStatusElement(parseEnumeration(json.get("clinicalStatus").getAsString(), Condition.ConditionStatus.NULL, new Condition.ConditionStatusEnumFactory()));
+    if (json.has("_clinicalStatus"))
+      parseElementProperties(json.getAsJsonObject("_clinicalStatus"), res.getClinicalStatusElement());
     if (json.has("severity"))
       res.setSeverity(parseCodeableConcept(json.getAsJsonObject("severity")));
     Type onset = parseType("onset", json);
@@ -3409,8 +3408,8 @@ public class JsonParser extends JsonParserBase {
   protected Condition.ConditionDueToComponent parseConditionConditionDueToComponent(JsonObject json, Condition owner) throws Exception {
     Condition.ConditionDueToComponent res = new Condition.ConditionDueToComponent();
     parseBackboneProperties(json, res);
-    if (json.has("codeableConcept"))
-      res.setCodeableConcept(parseCodeableConcept(json.getAsJsonObject("codeableConcept")));
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("target"))
       res.setTarget(parseReference(json.getAsJsonObject("target")));
     return res;
@@ -4249,10 +4248,14 @@ public class JsonParser extends JsonParserBase {
     parseDomainResourceProperties(json, res);
     if (json.has("issuer"))
       res.setIssuer(parseReference(json.getAsJsonObject("issuer")));
+    if (json.has("bin"))
+      res.setBin(parseIdentifier(json.getAsJsonObject("bin")));
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     if (json.has("type"))
       res.setType(parseCoding(json.getAsJsonObject("type")));
+    if (json.has("subscriberId"))
+      res.setSubscriberId(parseIdentifier(json.getAsJsonObject("subscriberId")));
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -4287,12 +4290,6 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("contract");
       for (int i = 0; i < array.size(); i++) {
         res.getContract().add(parseReference(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("subject")) {
-      JsonArray array = json.getAsJsonArray("subject");
-      for (int i = 0; i < array.size(); i++) {
-        res.getSubject().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
     return res;
@@ -8272,6 +8269,8 @@ public class JsonParser extends JsonParserBase {
       res.setDate(parsePeriod(json.getAsJsonObject("date")));
     if (json.has("encounter"))
       res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
+    if (json.has("location"))
+      res.setLocation(parseReference(json.getAsJsonObject("location")));
     if (json.has("outcome"))
       res.setOutcomeElement(parseString(json.get("outcome").getAsString()));
     if (json.has("_outcome"))
@@ -9738,10 +9737,10 @@ public class JsonParser extends JsonParserBase {
       res.setDateElement(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
       parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
-    if (json.has("stableDate"))
-      res.setStableDateElement(parseDate(json.get("stableDate").getAsString()));
-    if (json.has("_stableDate"))
-      parseElementProperties(json.getAsJsonObject("_stableDate"), res.getStableDateElement());
+    if (json.has("lockedDate"))
+      res.setLockedDateElement(parseDate(json.get("lockedDate").getAsString()));
+    if (json.has("_lockedDate"))
+      parseElementProperties(json.getAsJsonObject("_lockedDate"), res.getLockedDateElement());
     if (json.has("define"))
       res.setDefine(parseValueSetValueSetDefineComponent(json.getAsJsonObject("define"), res));
     if (json.has("compose"))
@@ -12287,6 +12286,9 @@ public class JsonParser extends JsonParserBase {
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
       }
+      if (element.hasReporter()) {
+        composeReference("reporter", element.getReporter());
+      }
       if (element.hasSubstance()) {
         composeCodeableConcept("substance", element.getSubstance());
       }
@@ -14292,11 +14294,8 @@ public class JsonParser extends JsonParserBase {
           composeReference(null, e);
         closeArray();
       };
-      if (element.hasCareplan()) {
-        composeReference("careplan", element.getCareplan());
-      }
-      if (element.hasReferral()) {
-        composeReference("referral", element.getReferral());
+      if (element.hasTrigger()) {
+        composeType("trigger", element.getTrigger());
       }
       if (element.hasInvestigations()) {
         openArray("investigations");
@@ -14312,10 +14311,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("summary", element.getSummaryElement(), false);
         composeStringExtras("summary", element.getSummaryElement(), false);
       }
-      if (element.hasDiagnosis()) {
-        openArray("diagnosis");
-        for (ClinicalImpression.ClinicalImpressionDiagnosisComponent e : element.getDiagnosis()) 
-          composeClinicalImpressionClinicalImpressionDiagnosisComponent(null, e);
+      if (element.hasFinding()) {
+        openArray("finding");
+        for (ClinicalImpression.ClinicalImpressionFindingComponent e : element.getFinding()) 
+          composeClinicalImpressionClinicalImpressionFindingComponent(null, e);
         closeArray();
       };
       if (element.hasResolved()) {
@@ -14366,15 +14365,15 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  protected void composeClinicalImpressionClinicalImpressionDiagnosisComponent(String name, ClinicalImpression.ClinicalImpressionDiagnosisComponent element) throws Exception {
+  protected void composeClinicalImpressionClinicalImpressionFindingComponent(String name, ClinicalImpression.ClinicalImpressionFindingComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeClinicalImpressionClinicalImpressionDiagnosisComponentInner(element);
+      composeClinicalImpressionClinicalImpressionFindingComponentInner(element);
       close();
     }
   }
 
-  protected void composeClinicalImpressionClinicalImpressionDiagnosisComponentInner(ClinicalImpression.ClinicalImpressionDiagnosisComponent element) throws Exception {
+  protected void composeClinicalImpressionClinicalImpressionFindingComponentInner(ClinicalImpression.ClinicalImpressionFindingComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasItem()) {
         composeCodeableConcept("item", element.getItem());
@@ -14930,8 +14929,8 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
+      if (element.hasPatient()) {
+        composeReference("patient", element.getPatient());
       }
       if (element.hasEncounter()) {
         composeReference("encounter", element.getEncounter());
@@ -14949,12 +14948,9 @@ public class JsonParser extends JsonParserBase {
       if (element.hasCategory()) {
         composeCodeableConcept("category", element.getCategory());
       }
-      if (element.hasStatusElement()) {
-        composeEnumerationCore("status", element.getStatusElement(), new Condition.ConditionStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatusElement(), new Condition.ConditionStatusEnumFactory(), false);
-      }
-      if (element.hasCertainty()) {
-        composeCodeableConcept("certainty", element.getCertainty());
+      if (element.hasClinicalStatusElement()) {
+        composeEnumerationCore("clinicalStatus", element.getClinicalStatusElement(), new Condition.ConditionStatusEnumFactory(), false);
+        composeEnumerationExtras("clinicalStatus", element.getClinicalStatusElement(), new Condition.ConditionStatusEnumFactory(), false);
       }
       if (element.hasSeverity()) {
         composeCodeableConcept("severity", element.getSeverity());
@@ -15069,8 +15065,8 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeConditionConditionDueToComponentInner(Condition.ConditionDueToComponent element) throws Exception {
       composeBackbone(element);
-      if (element.hasCodeableConcept()) {
-        composeCodeableConcept("codeableConcept", element.getCodeableConcept());
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
       }
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
@@ -16101,11 +16097,17 @@ public class JsonParser extends JsonParserBase {
       if (element.hasIssuer()) {
         composeReference("issuer", element.getIssuer());
       }
+      if (element.hasBin()) {
+        composeIdentifier("bin", element.getBin());
+      }
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
       if (element.hasType()) {
         composeCoding("type", element.getType());
+      }
+      if (element.hasSubscriberId()) {
+        composeIdentifier("subscriberId", element.getSubscriberId());
       }
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -16142,12 +16144,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasContract()) {
         openArray("contract");
         for (Reference e : element.getContract()) 
-          composeReference(null, e);
-        closeArray();
-      };
-      if (element.hasSubject()) {
-        openArray("subject");
-        for (Reference e : element.getSubject()) 
           composeReference(null, e);
         closeArray();
       };
@@ -21168,6 +21164,9 @@ public class JsonParser extends JsonParserBase {
       if (element.hasEncounter()) {
         composeReference("encounter", element.getEncounter());
       }
+      if (element.hasLocation()) {
+        composeReference("location", element.getLocation());
+      }
       if (element.hasOutcomeElement()) {
         composeStringCore("outcome", element.getOutcomeElement(), false);
         composeStringExtras("outcome", element.getOutcomeElement(), false);
@@ -22964,9 +22963,9 @@ public class JsonParser extends JsonParserBase {
         composeDateTimeCore("date", element.getDateElement(), false);
         composeDateTimeExtras("date", element.getDateElement(), false);
       }
-      if (element.hasStableDateElement()) {
-        composeDateCore("stableDate", element.getStableDateElement(), false);
-        composeDateExtras("stableDate", element.getStableDateElement(), false);
+      if (element.hasLockedDateElement()) {
+        composeDateCore("lockedDate", element.getLockedDateElement(), false);
+        composeDateExtras("lockedDate", element.getLockedDateElement(), false);
       }
       if (element.hasDefine()) {
         composeValueSetValueSetDefineComponent("define", element.getDefine());

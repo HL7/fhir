@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f003"/>
-    <subject>
+    <patient>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
-    </subject>
+    </patient>
     <encounter>
         <reference value="Encounter/f003"/>
     </encounter>
@@ -27,7 +27,7 @@
             <display value="diagnosis"/>
         </coding>
     </category>
-    <status value="confirmed"/>
+    <clinicalStatus value="confirmed"/>
     <severity>
         <coding>
             <system value="http://snomed.info/sct"/>

@@ -124,40 +124,40 @@
       For purposes of example, will represent this way. -->
     <Condition>
       <id value="p1"/>
-      <subject>
+      <patient>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </subject>
+      </patient>
       <code>
         <text value="GERDS"/>
       </code>
-      <status value="confirmed"/>
+      <clinicalStatus value="confirmed"/>
     </Condition>
   </contained>
   <contained>
     <Condition>
       <id value="p2"/>
-      <subject>
+      <patient>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </subject>
+      </patient>
       <code>
         <text value="Obesity"/>
       </code>
-      <status value="confirmed"/>
+      <clinicalStatus value="confirmed"/>
     </Condition>
   </contained>
   <contained>
     <Condition>
       <id value="p3"/>
-      <subject>
+      <patient>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
-      </subject>
+      </patient>
       <code>
         <text value="Psoriasis"/>
       </code>
-      <status value="confirmed"/>
+      <clinicalStatus value="confirmed"/>
     </Condition>
   </contained>
   <patient>

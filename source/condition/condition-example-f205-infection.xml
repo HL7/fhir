@@ -2,10 +2,10 @@
 
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f205"/>
- <subject>
+ <patient>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
- </subject>
+ </patient>
  <asserter>
      <reference value="Practitioner/f201"/>
  </asserter>
@@ -17,5 +17,5 @@
        <display value="Bacterial infectious disease"/> 
     </coding>
  </code>
- <status value="working"/>
+ <clinicalStatus value="working"/>
 </Condition>

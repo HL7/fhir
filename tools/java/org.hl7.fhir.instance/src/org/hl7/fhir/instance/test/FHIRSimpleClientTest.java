@@ -644,9 +644,9 @@ public class FHIRSimpleClientTest {
 			condition = new Condition();
 			Reference patientReference = new Reference();
 			patientReference.setReference("patient/@"+getEntryId(patientEntry));
-			condition.setSubject(patientReference);
+			condition.setPatient(patientReference);
 			condition.setCode(conditionCode);
-			condition.setStatus(ConditionStatus.CONFIRMED);
+			condition.setClinicalStatus(ConditionStatus.CONFIRMED);
 		} catch (Exception e) {
 			fail();
 		}

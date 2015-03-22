@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1403,10 +1403,10 @@ public class Conformance extends DomainResource {
         protected StringType documentation;
 
         /**
-         * Information about security of implementation.
+         * Information about security implementation from an interface perspective - what a client needs to know.
          */
         @Child(name ="security", type={}, order=3, min=0, max=1)
-        @Description(shortDefinition="Information about security of implementation", formalDefinition="Information about security of implementation." )
+        @Description(shortDefinition="Information about security of implementation", formalDefinition="Information about security implementation from an interface perspective - what a client needs to know." )
         protected ConformanceRestSecurityComponent security;
 
         /**
@@ -1550,7 +1550,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return {@link #security} (Information about security of implementation.)
+         * @return {@link #security} (Information about security implementation from an interface perspective - what a client needs to know.)
          */
         public ConformanceRestSecurityComponent getSecurity() { 
           if (this.security == null)
@@ -1566,7 +1566,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @param value {@link #security} (Information about security of implementation.)
+         * @param value {@link #security} (Information about security implementation from an interface perspective - what a client needs to know.)
          */
         public ConformanceRestComponent setSecurity(ConformanceRestSecurityComponent value) { 
           this.security = value;
@@ -1805,7 +1805,7 @@ public class Conformance extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.", 0, java.lang.Integer.MAX_VALUE, mode));
           childrenList.add(new Property("documentation", "string", "Information about the system's restful capabilities that apply across all applications, such as security.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("security", "", "Information about security of implementation.", 0, java.lang.Integer.MAX_VALUE, security));
+          childrenList.add(new Property("security", "", "Information about security implementation from an interface perspective - what a client needs to know.", 0, java.lang.Integer.MAX_VALUE, security));
           childrenList.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction));
           childrenList.add(new Property("operation", "", "Definition of an operation or a named query and with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
@@ -4967,10 +4967,10 @@ public class Conformance extends DomainResource {
     protected BooleanType acceptUnknown;
 
     /**
-     * A list of the formats supported by this implementation.
+     * A list of the formats supported by this implementation using their content types.
      */
     @Child(name ="format", type={CodeType.class}, order=15, min=1, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="formats supported (xml | json | mime type)", formalDefinition="A list of the formats supported by this implementation." )
+    @Description(shortDefinition="formats supported (xml | json | mime type)", formalDefinition="A list of the formats supported by this implementation using their content types." )
     protected List<CodeType> format;
 
     /**
@@ -5680,7 +5680,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return {@link #format} (A list of the formats supported by this implementation.)
+     * @return {@link #format} (A list of the formats supported by this implementation using their content types.)
      */
     public List<CodeType> getFormat() { 
       if (this.format == null)
@@ -5698,7 +5698,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return {@link #format} (A list of the formats supported by this implementation.)
+     * @return {@link #format} (A list of the formats supported by this implementation using their content types.)
      */
     // syntactic sugar
     public CodeType addFormatElement() {//2 
@@ -5710,7 +5710,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @param value {@link #format} (A list of the formats supported by this implementation.)
+     * @param value {@link #format} (A list of the formats supported by this implementation using their content types.)
      */
     public Conformance addFormat(String value) { //1
       CodeType t = new CodeType();
@@ -5722,7 +5722,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @param value {@link #format} (A list of the formats supported by this implementation.)
+     * @param value {@link #format} (A list of the formats supported by this implementation using their content types.)
      */
     public boolean hasFormat(String value) { 
       if (this.format == null)
@@ -5931,7 +5931,7 @@ public class Conformance extends DomainResource {
         childrenList.add(new Property("implementation", "", "Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, java.lang.Integer.MAX_VALUE, implementation));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this conformance statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("acceptUnknown", "boolean", "A flag that indicates whether the application accepts unknown elements as part of a resource.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
-        childrenList.add(new Property("format", "code", "A list of the formats supported by this implementation.", 0, java.lang.Integer.MAX_VALUE, format));
+        childrenList.add(new Property("format", "code", "A list of the formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, format));
         childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("rest", "", "A definition of the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));
         childrenList.add(new Property("messaging", "", "A description of the messaging capabilities of the solution.", 0, java.lang.Integer.MAX_VALUE, messaging));

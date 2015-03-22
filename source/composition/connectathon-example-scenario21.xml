@@ -122,10 +122,10 @@
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Hypertension</div>
       </text>
-      <subject>
+      <patient>
         <reference value='http://hl7.org.nz/fhir/Patient/patsypregnant'/>
         <display value="Patsy Pregnant"/>
-      </subject>
+      </patient>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>

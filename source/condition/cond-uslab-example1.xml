@@ -18,9 +18,9 @@ Description: USLab Condition Profile Canonical Example: Lead Exposure -->
 			</ul>
 		</div>
 	</text>
-	<subject>
+	<patient>
 		<reference value="Patient/uslab-example1"/>
-	</subject>
+	</patient>
 	<!--EH note to balloters-  these examples are  to demonstrate content and structure the clinical scenario is artificial.-->
 	<code>
 		<coding>
@@ -38,6 +38,6 @@ Description: USLab Condition Profile Canonical Example: Lead Exposure -->
 			<display value="Diagnosis"/>
 		</coding>
 	</category>
-	<status value="provisional"/>
+	<clinicalStatus value="provisional"/>
 	<notes value="Elevated lead levels on screening"/>
 </Condition>

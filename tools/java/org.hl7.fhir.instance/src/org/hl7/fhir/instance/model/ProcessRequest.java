@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Mar 20, 2015 11:52+1100 for FHIR v0.4.0
+// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -47,6 +47,10 @@ public class ProcessRequest extends DomainResource {
 
     public enum Actionlist {
         /**
+         * Cancel, Reverse or nullify the target resource.
+         */
+        CANCEL, 
+        /**
          * Check for previously un-read/ not-retrieved resources.
          */
         POLL, 
@@ -54,10 +58,6 @@ public class ProcessRequest extends DomainResource {
          * Re-process the target resource.
          */
         REPROCESS, 
-        /**
-         * Reverse or nullify the target resource.
-         */
-        REVERSE, 
         /**
          * Retrieve the processing status of the target resource.
          */
@@ -69,48 +69,48 @@ public class ProcessRequest extends DomainResource {
         public static Actionlist fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("cancel".equals(codeString))
+          return CANCEL;
         if ("poll".equals(codeString))
           return POLL;
         if ("reprocess".equals(codeString))
           return REPROCESS;
-        if ("reverse".equals(codeString))
-          return REVERSE;
         if ("status".equals(codeString))
           return STATUS;
         throw new Exception("Unknown Actionlist code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
+            case CANCEL: return "cancel";
             case POLL: return "poll";
             case REPROCESS: return "reprocess";
-            case REVERSE: return "reverse";
             case STATUS: return "status";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
+            case CANCEL: return "";
             case POLL: return "";
             case REPROCESS: return "";
-            case REVERSE: return "";
             case STATUS: return "";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
+            case CANCEL: return "Cancel, Reverse or nullify the target resource.";
             case POLL: return "Check for previously un-read/ not-retrieved resources.";
             case REPROCESS: return "Re-process the target resource.";
-            case REVERSE: return "Reverse or nullify the target resource.";
             case STATUS: return "Retrieve the processing status of the target resource.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
+            case CANCEL: return "Cancel, Reverse or Nullify";
             case POLL: return "Poll";
             case REPROCESS: return "Re-Process";
-            case REVERSE: return "Reverse or Nullify";
             case STATUS: return "Status Check";
             default: return "?";
           }
@@ -122,23 +122,23 @@ public class ProcessRequest extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("cancel".equals(codeString))
+          return Actionlist.CANCEL;
         if ("poll".equals(codeString))
           return Actionlist.POLL;
         if ("reprocess".equals(codeString))
           return Actionlist.REPROCESS;
-        if ("reverse".equals(codeString))
-          return Actionlist.REVERSE;
         if ("status".equals(codeString))
           return Actionlist.STATUS;
         throw new IllegalArgumentException("Unknown Actionlist code '"+codeString+"'");
         }
     public String toCode(Actionlist code) {
+      if (code == Actionlist.CANCEL)
+        return "cancel";
       if (code == Actionlist.POLL)
         return "poll";
       if (code == Actionlist.REPROCESS)
         return "reprocess";
-      if (code == Actionlist.REVERSE)
-        return "reverse";
       if (code == Actionlist.STATUS)
         return "status";
       return "?";
@@ -252,7 +252,7 @@ public class ProcessRequest extends DomainResource {
      * The type of procesing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest.
      */
     @Child(name ="action", type={CodeType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="poll | reprocess | reverse | status", formalDefinition="The type of procesing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest." )
+    @Description(shortDefinition="cancel | poll | reprocess | status", formalDefinition="The type of procesing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest." )
     protected Enumeration<Actionlist> action;
 
     /**
