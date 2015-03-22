@@ -1081,7 +1081,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">aborted</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">completed</Data></Cell>
@@ -1310,8 +1310,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>35</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>42</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
