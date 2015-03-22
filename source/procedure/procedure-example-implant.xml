@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <id value="example-implant"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="25267002"/>
+      <display value="Insertion of intracardiac pacemaker (procedure)"/>
+    </coding>
+    <text value="Implant Pacemaker"/>
+  </type>
+  <indication>
+    <text value="Bradycardia"/>
+  </indication> 
+  <performer>
+    <person>
+      <reference value="Practitioner/example"/>
+      <display value="Dr Cecil Surgeon"/>
+    </person>
+  </performer>
+  <date>
+    <start value="2015-04-05"/>
+  </date>
+  <followUp value="ROS 5 days  - 2013-04-10"/>
+  <notes value="Routine Appendectomy. Appendix was inflamed and in retro-caecal position"/>
+  <device>
+    <action>
+      <coding>
+      </coding>
+    </action>
+    <manipulated>
+      <reference value="Device/example-pacemaker"/>
+    </manipulated>
+  </device>
+</Procedure>

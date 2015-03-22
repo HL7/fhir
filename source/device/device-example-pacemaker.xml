@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
+  <id value="example-pacemaker"/>
+  <identifier>
+    <system value="http://acme.com/devices/pacemakers/octane/serial"/>
+    <value value="1234-5678-90AB-CDEF"/>
+  </identifier>
+  <type>
+    <coding>
+      <system value="http://acme.com/devices"/>
+      <code value="octane2014"/>
+      <display value="Performance pace maker for high octane patients"/>
+    </coding>
+  </type>
+  <manufacturer value="Acme Devices, Inc"/>
+  <model value="PM/Octane 2014"/>
+  <lotNumber value="1234-5678"/>
+  <contact>
+    <system value="phone"/>
+    <value value="ext 4352"/>
+  </contact>
+</Device>
