@@ -5,7 +5,8 @@
 
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
 	<id value="glasgow"/>
-	<text>
+	<!-- FHIR build is generating the narratives
+<text>
 		<status value="generated"></status>
 		 <div xmlns="http://www.w3.org/1999/xhtml">
 		 <h2>Observation: Glasgow Coma Scale , (GCS)</h2>
@@ -26,6 +27,7 @@
 
 		 </div>
 	</text>
+-->
 <!-- Note: will use contained elements for this example but could just as easily use external or bundled elements..-->
 <!-- First contained element = Motor component. -->
 	<contained>

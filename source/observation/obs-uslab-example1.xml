@@ -10,7 +10,8 @@ see narrative this the screen that leads to follow up order for whole blood lead
 -->
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
 	<id value="uslab-example1"/>
-	<text>
+	<!-- FHIR build is generating the narratives
+<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<ul>
@@ -21,6 +22,7 @@ see narrative this the screen that leads to follow up order for whole blood lead
 			</ul>
 		</div>
 	</text>
+-->
 	<!-- extension for specimen reject goes here - not for this use case
 	<extension url="http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason">
 		<valueCodeableConcept>
