@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9612</WindowHeight>
-  <WindowWidth>20160</WindowWidth>
+  <WindowHeight>9780</WindowHeight>
+  <WindowWidth>25128</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -974,71 +974,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s195">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
-   </Borders>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s196">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s197">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s198">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s199">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s200">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s201">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s202">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
-   </Borders>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s203">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1684,33 +1619,33 @@
     <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s203">
-    <Cell ss:StyleID="s195"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s196"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s196"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">!Condition.certainty</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:StyleID="s104">
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">!Condition.certainty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">Y</Data><NamedCell
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s200"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s199"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s200"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s202"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s104">
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2083,7 +2018,7 @@
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/StructureDefinition/condition-qicore-qicore-condition} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/procedure-qicore-qicore-procedure} | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/medicationadministration-qicore-qicore-medicationadministration} |  Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/medicationstatement-qicore-qicore-medicationstatement} |  Reference(Immunization){http://hl7.org/fhir/StructureDefinition/Immunization-qicore-qicore-Immunization}</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/StructureDefinition/condition-qicore-qicore-condition} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/procedure-qicore-qicore-procedure} | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/medicationadministration-qicore-qicore-medicationadministration} |  Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/medicationstatement-qicore-qicore-medicationstatement} |  Reference(Immunization){http://hl7.org/fhir/StructureDefinition/immunization-qicore-qicore-immunization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2165,7 +2100,7 @@
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/StructureDefinition/condition-qicore-qicore-condition} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/procedure-qicore-qicore-procedure} | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/medicationadministration-qicore-qicore-medicationadministration} |  Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/medicationstatement-qicore-qicore-medicationstatement} |  Reference(Immunization){http://hl7.org/fhir/StructureDefinition/Immunization-qicore-qicore-Immunization}</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Reference(Condition){http://hl7.org/fhir/StructureDefinition/condition-qicore-qicore-condition} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/procedure-qicore-qicore-procedure} | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/medicationadministration-qicore-qicore-medicationadministration} |  Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/medicationstatement-qicore-qicore-medicationstatement} |  Reference(Immunization){http://hl7.org/fhir/StructureDefinition/immunization-qicore-qicore-immunization}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3450,7 +3385,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>21</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3464,11 +3399,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>29</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
