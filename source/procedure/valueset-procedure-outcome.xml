@@ -1,0 +1,29 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <url value="http://hl7.org/fhir/vs/procedure-type"/>
+  <name value="Procedure Outcome Codes (SNOMED CT)"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="Procedure Outcome code: A selection of relevant SNOMED CT codes"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="385669000"/>
+      </concept>
+      <concept>
+        <code value="385671000"/>
+      </concept>
+      <concept>
+        <code value="385670004"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

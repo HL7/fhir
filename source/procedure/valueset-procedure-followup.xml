@@ -1,0 +1,50 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <url value="http://hl7.org/fhir/vs/procedure-type"/>
+  <name value="Procedure Follow up Codes (SNOMED CT)"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="Procedure follow up codes: a selection of snomed codes relevant to procedure follow up"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="18949003"/> <!-- Change of dressing (procedure) -->
+      </concept>
+      <concept>
+        <code value="30549001"/> <!-- Removal of suture (procedure) -->
+      </concept>
+      <concept>
+        <code value="241031001"/> <!-- Removal of drain (procedure) -->
+      </concept>
+      <concept>
+        <code value="35963001"/> <!-- Removal of staples (procedure) -->
+      </concept>
+      <concept>
+        <code value="225164002"/> <!-- Removal of ligature (procedure) -->
+      </concept>
+      <concept>
+        <code value="447346005"/> <!-- Cardiopulmonary exercise test (procedure) -->
+      </concept>
+      <concept>
+        <code value="229506003"/> <!-- Scar tissue massage (regime/therapy) -->
+      </concept>
+      <concept>
+        <code value="274441001"/> <!-- Suction drainage (procedure) -->
+      </concept>
+      <concept>
+        <code value="394725008"/> <!-- Diabetes medication review (procedure) -->
+      </concept>
+      <concept>
+        <code value="359825008"/> <!-- Cytopathology, review of bronchioalveolar lavage specimen (procedure) -->
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
