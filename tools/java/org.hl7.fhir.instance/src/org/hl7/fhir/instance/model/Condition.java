@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
+// Generated on Mon, Mar 23, 2015 15:32+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -914,14 +914,14 @@ public class Condition extends DomainResource {
     /**
      * Estimated or actual date or date-time  the condition began, in the opinion of the clinician.
      */
-    @Child(name ="onset", type={DateTimeType.class, Age.class}, order=9, min=0, max=1)
+    @Child(name ="onset", type={DateTimeType.class, Age.class, Period.class, Range.class, StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Estimated or actual date,  date-time, or age", formalDefinition="Estimated or actual date or date-time  the condition began, in the opinion of the clinician." )
     protected Type onset;
 
     /**
      * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
-    @Child(name ="abatement", type={DateType.class, Age.class, BooleanType.class}, order=10, min=0, max=1)
+    @Child(name ="abatement", type={DateType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="If/when in resolution/remission", formalDefinition="The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate." )
     protected Type abatement;
 
@@ -1338,6 +1338,33 @@ public class Condition extends DomainResource {
       return (Age) this.onset;
     }
 
+    /**
+     * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
+     */
+    public Period getOnsetPeriod() throws Exception { 
+      if (!(this.onset instanceof Period))
+        throw new Exception("Type mismatch: the type Period was expected, but "+this.onset.getClass().getName()+" was encountered");
+      return (Period) this.onset;
+    }
+
+    /**
+     * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
+     */
+    public Range getOnsetRange() throws Exception { 
+      if (!(this.onset instanceof Range))
+        throw new Exception("Type mismatch: the type Range was expected, but "+this.onset.getClass().getName()+" was encountered");
+      return (Range) this.onset;
+    }
+
+    /**
+     * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
+     */
+    public StringType getOnsetStringType() throws Exception { 
+      if (!(this.onset instanceof StringType))
+        throw new Exception("Type mismatch: the type StringType was expected, but "+this.onset.getClass().getName()+" was encountered");
+      return (StringType) this.onset;
+    }
+
     public boolean hasOnset() { 
       return this.onset != null && !this.onset.isEmpty();
     }
@@ -1382,6 +1409,33 @@ public class Condition extends DomainResource {
       if (!(this.abatement instanceof BooleanType))
         throw new Exception("Type mismatch: the type BooleanType was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (BooleanType) this.abatement;
+    }
+
+    /**
+     * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
+     */
+    public Period getAbatementPeriod() throws Exception { 
+      if (!(this.abatement instanceof Period))
+        throw new Exception("Type mismatch: the type Period was expected, but "+this.abatement.getClass().getName()+" was encountered");
+      return (Period) this.abatement;
+    }
+
+    /**
+     * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
+     */
+    public Range getAbatementRange() throws Exception { 
+      if (!(this.abatement instanceof Range))
+        throw new Exception("Type mismatch: the type Range was expected, but "+this.abatement.getClass().getName()+" was encountered");
+      return (Range) this.abatement;
+    }
+
+    /**
+     * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
+     */
+    public StringType getAbatementStringType() throws Exception { 
+      if (!(this.abatement instanceof StringType))
+        throw new Exception("Type mismatch: the type StringType was expected, but "+this.abatement.getClass().getName()+" was encountered");
+      return (StringType) this.abatement;
     }
 
     public boolean hasAbatement() { 
@@ -1640,8 +1694,8 @@ public class Condition extends DomainResource {
         childrenList.add(new Property("category", "CodeableConcept", "A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("clinicalStatus", "code", "The clinical status of the condition.", 0, java.lang.Integer.MAX_VALUE, clinicalStatus));
         childrenList.add(new Property("severity", "CodeableConcept", "A subjective assessment of the severity of the condition as evaluated by the clinician.", 0, java.lang.Integer.MAX_VALUE, severity));
-        childrenList.add(new Property("onset[x]", "dateTime|Age", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, java.lang.Integer.MAX_VALUE, onset));
-        childrenList.add(new Property("abatement[x]", "date|Age|boolean", "The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
+        childrenList.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, java.lang.Integer.MAX_VALUE, onset));
+        childrenList.add(new Property("abatement[x]", "date|Age|boolean|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
         childrenList.add(new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage));
         childrenList.add(new Property("evidence", "", "Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.", 0, java.lang.Integer.MAX_VALUE, evidence));
         childrenList.add(new Property("location", "", "The anatomical location where this condition manifests itself.", 0, java.lang.Integer.MAX_VALUE, location));
@@ -1750,10 +1804,12 @@ public class Condition extends DomainResource {
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="subject", path="Condition.patient", description="Who has the condition?", type="reference" )
   public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="When the Condition started (if started on a date)", type="date" )
+  @SearchParamDefinition(name="onset", path="Condition.onset[x]", description="Date related onsets (dateTime and Period)", type="date" )
   public static final String SP_ONSET = "onset";
   @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
   public static final String SP_EVIDENCE = "evidence";
+  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="date" )
+  public static final String SP_ONSETINFO = "onset-info";
   @SearchParamDefinition(name="following-item", path="Condition.occurredFollowing.target", description="Relationship target resource", type="reference" )
   public static final String SP_FOLLOWINGITEM = "following-item";
   @SearchParamDefinition(name="severity", path="Condition.severity", description="The severity of the condition", type="token" )

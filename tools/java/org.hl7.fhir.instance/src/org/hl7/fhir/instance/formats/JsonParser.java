@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
+// Generated on Mon, Mar 23, 2015 15:32+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1177,8 +1177,8 @@ public class JsonParser extends JsonParserBase {
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Alert.AlertStatus.NULL, new Alert.AlertStatusEnumFactory()));
     if (json.has("_status"))
       parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
-    if (json.has("subject"))
-      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("author"))
       res.setAuthor(parseReference(json.getAsJsonObject("author")));
     if (json.has("note"))
@@ -6339,10 +6339,8 @@ public class JsonParser extends JsonParserBase {
       res.setDateElement(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
       parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
-    if (json.has("ordered"))
-      res.setOrderedElement(parseBoolean(json.get("ordered").getAsBoolean()));
-    if (json.has("_ordered"))
-      parseElementProperties(json.getAsJsonObject("_ordered"), res.getOrderedElement());
+    if (json.has("orderedBy"))
+      res.setOrderedBy(parseCodeableConcept(json.getAsJsonObject("orderedBy")));
     if (json.has("mode"))
       res.setModeElement(parseEnumeration(json.get("mode").getAsString(), List_.ListMode.NULL, new List_.ListModeEnumFactory()));
     if (json.has("_mode"))
@@ -8245,6 +8243,10 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("patient"))
       res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Procedure.ProcedureStatus.NULL, new Procedure.ProcedureStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("bodySite")) {
@@ -8265,8 +8267,9 @@ public class JsonParser extends JsonParserBase {
         res.getPerformer().add(parseProcedureProcedurePerformerComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("date"))
-      res.setDate(parsePeriod(json.getAsJsonObject("date")));
+    Type performed = parseType("performed", json);
+    if (performed != null)
+      res.setPerformed(performed);
     if (json.has("encounter"))
       res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("location"))
@@ -8301,6 +8304,12 @@ public class JsonParser extends JsonParserBase {
       res.setNotesElement(parseString(json.get("notes").getAsString()));
     if (json.has("_notes"))
       parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesElement());
+    if (json.has("device")) {
+      JsonArray array = json.getAsJsonArray("device");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDevice().add(parseProcedureProcedureDeviceComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
     return res;
   }
 
@@ -8323,6 +8332,16 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("target"))
       res.setTarget(parseReference(json.getAsJsonObject("target")));
+    return res;
+  }
+
+  protected Procedure.ProcedureDeviceComponent parseProcedureProcedureDeviceComponent(JsonObject json, Procedure owner) throws Exception {
+    Procedure.ProcedureDeviceComponent res = new Procedure.ProcedureDeviceComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("action"))
+      res.setAction(parseCodeableConcept(json.getAsJsonObject("action")));
+    if (json.has("manipulated"))
+      res.setManipulated(parseReference(json.getAsJsonObject("manipulated")));
     return res;
   }
 
@@ -12250,8 +12269,8 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("status", element.getStatusElement(), new Alert.AlertStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new Alert.AlertStatusEnumFactory(), false);
       }
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
+      if (element.hasPatient()) {
+        composeReference("patient", element.getPatient());
       }
       if (element.hasAuthor()) {
         composeReference("author", element.getAuthor());
@@ -18681,9 +18700,8 @@ public class JsonParser extends JsonParserBase {
         composeDateTimeCore("date", element.getDateElement(), false);
         composeDateTimeExtras("date", element.getDateElement(), false);
       }
-      if (element.hasOrderedElement()) {
-        composeBooleanCore("ordered", element.getOrderedElement(), false);
-        composeBooleanExtras("ordered", element.getOrderedElement(), false);
+      if (element.hasOrderedBy()) {
+        composeCodeableConcept("orderedBy", element.getOrderedBy());
       }
       if (element.hasModeElement()) {
         composeEnumerationCore("mode", element.getModeElement(), new List_.ListModeEnumFactory(), false);
@@ -21137,6 +21155,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
       }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new Procedure.ProcedureStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new Procedure.ProcedureStatusEnumFactory(), false);
+      }
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }
@@ -21158,8 +21180,8 @@ public class JsonParser extends JsonParserBase {
           composeProcedureProcedurePerformerComponent(null, e);
         closeArray();
       };
-      if (element.hasDate()) {
-        composePeriod("date", element.getDate());
+      if (element.hasPerformed()) {
+        composeType("performed", element.getPerformed());
       }
       if (element.hasEncounter()) {
         composeReference("encounter", element.getEncounter());
@@ -21197,6 +21219,12 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("notes", element.getNotesElement(), false);
         composeStringExtras("notes", element.getNotesElement(), false);
       }
+      if (element.hasDevice()) {
+        openArray("device");
+        for (Procedure.ProcedureDeviceComponent e : element.getDevice()) 
+          composeProcedureProcedureDeviceComponent(null, e);
+        closeArray();
+      };
   }
 
   protected void composeProcedureProcedurePerformerComponent(String name, Procedure.ProcedurePerformerComponent element) throws Exception {
@@ -21233,6 +21261,24 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
+      }
+  }
+
+  protected void composeProcedureProcedureDeviceComponent(String name, Procedure.ProcedureDeviceComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeProcedureProcedureDeviceComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeProcedureProcedureDeviceComponentInner(Procedure.ProcedureDeviceComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasAction()) {
+        composeCodeableConcept("action", element.getAction());
+      }
+      if (element.hasManipulated()) {
+        composeReference("manipulated", element.getManipulated());
       }
   }
 

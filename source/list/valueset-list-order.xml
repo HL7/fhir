@@ -1,0 +1,58 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="List Order Codes"/>
+  <publisher value="FHIR Project"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="Base values for the order of the items in a list resource"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/list-order"/>
+    <caseSensitive value="true"/>      
+    <concept>
+      <code value="user"/>
+      <display value="Sorted by User"/>
+      <definition value="The list was sorted by a user. The criteria the user used are not specified"/>
+    </concept>
+    <concept>
+      <code value="system"/>
+      <display value="Sorted by System"/>
+      <definition value="The list was sorted by the system. The criteria the user used are not specified; define additional codes to specify a particular order (or use other defined codes)"/>
+    </concept>
+    <concept>
+      <code value="event-date"/>
+      <display value="Sorted by Event Date"/>
+      <definition value="The list is sorted by the data of the event. This can be used when the list has items which are dates with past or future events"/>
+    </concept>
+    <concept>
+      <code value="entry-date"/>
+      <display value="Sorted by Item Date"/>
+      <definition value="The list is sorted by the date the item was added to the list. Note that the date added to the list is not explicit in the list itself"/>
+    </concept>
+    <concept>
+      <code value="priority"/>
+      <display value="Sorted by Priority"/>
+      <definition value="The list is sorted by priority. The exact method in which priority has been determined is not specified"/>
+    </concept>
+    <concept>
+      <code value="alphabetic"/>
+      <display value="Sorted Alphabetically"/>
+      <definition value="The list is sorted alphabetically by an unspecified property of the items in the list"/>
+    </concept>
+    <concept>
+      <code value="category"/>
+      <display value="Sorted by Category"/>
+      <definition value="The list is sorted categorically by an unspecified property of the items in the list"/>
+    </concept>
+    <concept>
+      <code value="patient"/>
+      <display value="Sorted by Patient"/>
+      <definition value="The list is sorted by patient, with items for each patient grouped together"/>
+    </concept>
+  </define>
+</ValueSet>
+

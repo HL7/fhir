@@ -12247,7 +12247,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">      List.ordered</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">List.orderedBy</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
+// Generated on Mon, Mar 23, 2015 15:32+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -155,14 +155,14 @@ public class Alert extends DomainResource {
     /**
      * The person who this alert concerns.
      */
-    @Child(name ="subject", type={Patient.class}, order=3, min=1, max=1)
+    @Child(name ="patient", type={Patient.class}, order=3, min=1, max=1)
     @Description(shortDefinition="Who is alert about?", formalDefinition="The person who this alert concerns." )
-    protected Reference subject;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (The person who this alert concerns.)
      */
-    protected Patient subjectTarget;
+    protected Patient patientTarget;
 
     /**
      * The person or device that created the alert.
@@ -183,16 +183,16 @@ public class Alert extends DomainResource {
     @Description(shortDefinition="Partially deaf, Requires easy open caps, No permanent address, etc.", formalDefinition="The coded value or textual component of the alert to display to the user." )
     protected CodeableConcept note;
 
-    private static final long serialVersionUID = -1519932996L;
+    private static final long serialVersionUID = -747954870L;
 
     public Alert() {
       super();
     }
 
-    public Alert(Enumeration<AlertStatus> status, Reference subject, CodeableConcept note) {
+    public Alert(Enumeration<AlertStatus> status, Reference patient, CodeableConcept note) {
       super();
       this.status = status;
-      this.subject = subject;
+      this.patient = patient;
       this.note = note;
     }
 
@@ -306,46 +306,46 @@ public class Alert extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (The person who this alert concerns.)
+     * @return {@link #patient} (The person who this alert concerns.)
      */
-    public Reference getSubject() { 
-      if (this.subject == null)
+    public Reference getPatient() { 
+      if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Alert.subject");
+          throw new Error("Attempt to auto-create Alert.patient");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference(); // cc
-      return this.subject;
+          this.patient = new Reference(); // cc
+      return this.patient;
     }
 
-    public boolean hasSubject() { 
-      return this.subject != null && !this.subject.isEmpty();
+    public boolean hasPatient() { 
+      return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
-     * @param value {@link #subject} (The person who this alert concerns.)
+     * @param value {@link #patient} (The person who this alert concerns.)
      */
-    public Alert setSubject(Reference value) { 
-      this.subject = value;
+    public Alert setPatient(Reference value) { 
+      this.patient = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who this alert concerns.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who this alert concerns.)
      */
-    public Patient getSubjectTarget() { 
-      if (this.subjectTarget == null)
+    public Patient getPatientTarget() { 
+      if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Alert.subject");
+          throw new Error("Attempt to auto-create Alert.patient");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient(); // aa
-      return this.subjectTarget;
+          this.patientTarget = new Patient(); // aa
+      return this.patientTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who this alert concerns.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who this alert concerns.)
      */
-    public Alert setSubjectTarget(Patient value) { 
-      this.subjectTarget = value;
+    public Alert setPatientTarget(Patient value) { 
+      this.patientTarget = value;
       return this;
     }
 
@@ -417,7 +417,7 @@ public class Alert extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the alert for external use (outside the FHIR environment).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("category", "CodeableConcept", "Allows an alert to be divided into different categories like clinical, administrative etc.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("status", "code", "Supports basic workflow.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("subject", "Reference(Patient)", "The person who this alert concerns.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The person who this alert concerns.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("author", "Reference(Practitioner|Patient|Device)", "The person or device that created the alert.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("note", "CodeableConcept", "The coded value or textual component of the alert to display to the user.", 0, java.lang.Integer.MAX_VALUE, note));
       }
@@ -432,7 +432,7 @@ public class Alert extends DomainResource {
         };
         dst.category = category == null ? null : category.copy();
         dst.status = status == null ? null : status.copy();
-        dst.subject = subject == null ? null : subject.copy();
+        dst.patient = patient == null ? null : patient.copy();
         dst.author = author == null ? null : author.copy();
         dst.note = note == null ? null : note.copy();
         return dst;
@@ -450,7 +450,7 @@ public class Alert extends DomainResource {
           return false;
         Alert o = (Alert) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(category, o.category, true) && compareDeep(status, o.status, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(author, o.author, true) && compareDeep(note, o.note, true)
+           && compareDeep(patient, o.patient, true) && compareDeep(author, o.author, true) && compareDeep(note, o.note, true)
           ;
       }
 
@@ -466,7 +466,7 @@ public class Alert extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (category == null || category.isEmpty())
-           && (status == null || status.isEmpty()) && (subject == null || subject.isEmpty()) && (author == null || author.isEmpty())
+           && (status == null || status.isEmpty()) && (patient == null || patient.isEmpty()) && (author == null || author.isEmpty())
            && (note == null || note.isEmpty());
       }
 
@@ -477,9 +477,9 @@ public class Alert extends DomainResource {
 
   @SearchParamDefinition(name="author", path="Alert.author", description="Alert creator", type="reference" )
   public static final String SP_AUTHOR = "author";
-  @SearchParamDefinition(name="patient", path="Alert.subject", description="The identity of a subject to list alerts for", type="reference" )
+  @SearchParamDefinition(name="patient", path="Alert.patient", description="The identity of a subject to list alerts for", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="subject", path="Alert.subject", description="The identity of a subject to list alerts for", type="reference" )
+  @SearchParamDefinition(name="subject", path="Alert.patient", description="The identity of a subject to list alerts for", type="reference" )
   public static final String SP_SUBJECT = "subject";
 
 }

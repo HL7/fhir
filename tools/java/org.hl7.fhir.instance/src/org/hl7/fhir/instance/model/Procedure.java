@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Mar 22, 2015 21:06+1100 for FHIR v0.4.0
+// Generated on Mon, Mar 23, 2015 15:32+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -44,6 +44,106 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="Procedure", profile="http://hl7.org/fhir/Profile/Procedure")
 public class Procedure extends DomainResource {
+
+    public enum ProcedureStatus {
+        /**
+         * The procedure is still occurring.
+         */
+        INPROGRESS, 
+        /**
+         * The procedure was terminated without completing successfully.
+         */
+        ABORTED, 
+        /**
+         * All actions involved in the procedure have taken place.
+         */
+        COMPLETED, 
+        /**
+         * The statement was entered in error and Is not valid.
+         */
+        ENTEREDINERROR, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static ProcedureStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("in-progress".equals(codeString))
+          return INPROGRESS;
+        if ("aborted".equals(codeString))
+          return ABORTED;
+        if ("completed".equals(codeString))
+          return COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        throw new Exception("Unknown ProcedureStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case INPROGRESS: return "in-progress";
+            case ABORTED: return "aborted";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered-in-error";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case INPROGRESS: return "";
+            case ABORTED: return "";
+            case COMPLETED: return "";
+            case ENTEREDINERROR: return "";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INPROGRESS: return "The procedure is still occurring.";
+            case ABORTED: return "The procedure was terminated without completing successfully.";
+            case COMPLETED: return "All actions involved in the procedure have taken place.";
+            case ENTEREDINERROR: return "The statement was entered in error and Is not valid.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INPROGRESS: return "In Progress";
+            case ABORTED: return "Aborted";
+            case COMPLETED: return "Completed";
+            case ENTEREDINERROR: return "Entered In Error";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ProcedureStatusEnumFactory implements EnumFactory<ProcedureStatus> {
+    public ProcedureStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("in-progress".equals(codeString))
+          return ProcedureStatus.INPROGRESS;
+        if ("aborted".equals(codeString))
+          return ProcedureStatus.ABORTED;
+        if ("completed".equals(codeString))
+          return ProcedureStatus.COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return ProcedureStatus.ENTEREDINERROR;
+        throw new IllegalArgumentException("Unknown ProcedureStatus code '"+codeString+"'");
+        }
+    public String toCode(ProcedureStatus code) {
+      if (code == ProcedureStatus.INPROGRESS)
+        return "in-progress";
+      if (code == ProcedureStatus.ABORTED)
+        return "aborted";
+      if (code == ProcedureStatus.COMPLETED)
+        return "completed";
+      if (code == ProcedureStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      return "?";
+      }
+    }
 
     public enum ProcedureRelationshipType {
         /**
@@ -404,6 +504,147 @@ public class Procedure extends DomainResource {
 
   }
 
+    @Block()
+    public static class ProcedureDeviceComponent extends BackboneElement {
+        /**
+         * The kind of change that happened to the device during the procedure.
+         */
+        @Child(name ="action", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Kind of change to device", formalDefinition="The kind of change that happened to the device during the procedure." )
+        protected CodeableConcept action;
+
+        /**
+         * The device that was manipulated (changed) during the procedure.
+         */
+        @Child(name ="manipulated", type={Device.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Device that was changed", formalDefinition="The device that was manipulated (changed) during the procedure." )
+        protected Reference manipulated;
+
+        /**
+         * The actual object that is the target of the reference (The device that was manipulated (changed) during the procedure.)
+         */
+        protected Device manipulatedTarget;
+
+        private static final long serialVersionUID = 1779937807L;
+
+      public ProcedureDeviceComponent() {
+        super();
+      }
+
+      public ProcedureDeviceComponent(Reference manipulated) {
+        super();
+        this.manipulated = manipulated;
+      }
+
+        /**
+         * @return {@link #action} (The kind of change that happened to the device during the procedure.)
+         */
+        public CodeableConcept getAction() { 
+          if (this.action == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProcedureDeviceComponent.action");
+            else if (Configuration.doAutoCreate())
+              this.action = new CodeableConcept(); // cc
+          return this.action;
+        }
+
+        public boolean hasAction() { 
+          return this.action != null && !this.action.isEmpty();
+        }
+
+        /**
+         * @param value {@link #action} (The kind of change that happened to the device during the procedure.)
+         */
+        public ProcedureDeviceComponent setAction(CodeableConcept value) { 
+          this.action = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #manipulated} (The device that was manipulated (changed) during the procedure.)
+         */
+        public Reference getManipulated() { 
+          if (this.manipulated == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProcedureDeviceComponent.manipulated");
+            else if (Configuration.doAutoCreate())
+              this.manipulated = new Reference(); // cc
+          return this.manipulated;
+        }
+
+        public boolean hasManipulated() { 
+          return this.manipulated != null && !this.manipulated.isEmpty();
+        }
+
+        /**
+         * @param value {@link #manipulated} (The device that was manipulated (changed) during the procedure.)
+         */
+        public ProcedureDeviceComponent setManipulated(Reference value) { 
+          this.manipulated = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #manipulated} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device that was manipulated (changed) during the procedure.)
+         */
+        public Device getManipulatedTarget() { 
+          if (this.manipulatedTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProcedureDeviceComponent.manipulated");
+            else if (Configuration.doAutoCreate())
+              this.manipulatedTarget = new Device(); // aa
+          return this.manipulatedTarget;
+        }
+
+        /**
+         * @param value {@link #manipulated} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device that was manipulated (changed) during the procedure.)
+         */
+        public ProcedureDeviceComponent setManipulatedTarget(Device value) { 
+          this.manipulatedTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("action", "CodeableConcept", "The kind of change that happened to the device during the procedure.", 0, java.lang.Integer.MAX_VALUE, action));
+          childrenList.add(new Property("manipulated", "Reference(Device)", "The device that was manipulated (changed) during the procedure.", 0, java.lang.Integer.MAX_VALUE, manipulated));
+        }
+
+      public ProcedureDeviceComponent copy() {
+        ProcedureDeviceComponent dst = new ProcedureDeviceComponent();
+        copyValues(dst);
+        dst.action = action == null ? null : action.copy();
+        dst.manipulated = manipulated == null ? null : manipulated.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ProcedureDeviceComponent))
+          return false;
+        ProcedureDeviceComponent o = (ProcedureDeviceComponent) other;
+        return compareDeep(action, o.action, true) && compareDeep(manipulated, o.manipulated, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ProcedureDeviceComponent))
+          return false;
+        ProcedureDeviceComponent o = (ProcedureDeviceComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (action == null || action.isEmpty()) && (manipulated == null || manipulated.isEmpty())
+          ;
+      }
+
+  }
+
     /**
      * This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
@@ -424,44 +665,51 @@ public class Procedure extends DomainResource {
     protected Patient patientTarget;
 
     /**
+     * A code specifying the state of the procedure record. Generally this will be in-progress or completed state.
+     */
+    @Child(name ="status", type={CodeType.class}, order=2, min=1, max=1)
+    @Description(shortDefinition="in-progress | aborted | completed | entered-in-error", formalDefinition="A code specifying the state of the procedure record. Generally this will be in-progress or completed state." )
+    protected Enumeration<ProcedureStatus> status;
+
+    /**
      * The specific procedure that is performed. Use text if the exact nature of the procedure can't be coded.
      */
-    @Child(name ="type", type={CodeableConcept.class}, order=2, min=1, max=1)
+    @Child(name ="type", type={CodeableConcept.class}, order=3, min=1, max=1)
     @Description(shortDefinition="Identification of the procedure", formalDefinition="The specific procedure that is performed. Use text if the exact nature of the procedure can't be coded." )
     protected CodeableConcept type;
 
     /**
      * Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.
      */
-    @Child(name ="bodySite", type={CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="bodySite", type={CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Precise location details", formalDefinition="Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion." )
     protected List<CodeableConcept> bodySite;
 
     /**
      * The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.
      */
-    @Child(name ="indication", type={CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="indication", type={CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Reason procedure performed", formalDefinition="The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text." )
     protected List<CodeableConcept> indication;
 
     /**
      * Limited to 'real' people rather than equipment.
      */
-    @Child(name ="performer", type={}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="performer", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="The people who performed the procedure", formalDefinition="Limited to 'real' people rather than equipment." )
     protected List<ProcedurePerformerComponent> performer;
 
     /**
-     * The dates over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
+     * The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
      */
-    @Child(name ="date", type={Period.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="The date the procedure was performed", formalDefinition="The dates over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured." )
-    protected Period date;
+    @Child(name ="performed", type={DateTimeType.class, Period.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Date/Period the procedure was performed", formalDefinition="The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured." )
+    protected Type performed;
 
     /**
      * The encounter during which the procedure was performed.
      */
-    @Child(name ="encounter", type={Encounter.class}, order=7, min=0, max=1)
+    @Child(name ="encounter", type={Encounter.class}, order=8, min=0, max=1)
     @Description(shortDefinition="The encounter when procedure performed", formalDefinition="The encounter during which the procedure was performed." )
     protected Reference encounter;
 
@@ -473,7 +721,7 @@ public class Procedure extends DomainResource {
     /**
      * The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant.
      */
-    @Child(name ="location", type={Location.class}, order=8, min=0, max=1)
+    @Child(name ="location", type={Location.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Where the procedure happened", formalDefinition="The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant." )
     protected Reference location;
 
@@ -485,14 +733,14 @@ public class Procedure extends DomainResource {
     /**
      * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
      */
-    @Child(name ="outcome", type={StringType.class}, order=9, min=0, max=1)
+    @Child(name ="outcome", type={StringType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="What was result of procedure?", formalDefinition="What was the outcome of the procedure - did it resolve reasons why the procedure was performed?" )
     protected StringType outcome;
 
     /**
      * This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.
      */
-    @Child(name ="report", type={DiagnosticReport.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="report", type={DiagnosticReport.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Any report that results from the procedure", formalDefinition="This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies." )
     protected List<Reference> report;
     /**
@@ -504,40 +752,48 @@ public class Procedure extends DomainResource {
     /**
      * Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues.
      */
-    @Child(name ="complication", type={CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="complication", type={CodeableConcept.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Complication following the procedure", formalDefinition="Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues." )
     protected List<CodeableConcept> complication;
 
     /**
      * If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
      */
-    @Child(name ="followUp", type={StringType.class}, order=12, min=0, max=1)
+    @Child(name ="followUp", type={StringType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Instructions for follow up", formalDefinition="If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used." )
     protected StringType followUp;
 
     /**
      * Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure.
      */
-    @Child(name ="relatedItem", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="relatedItem", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A procedure that is related to this one", formalDefinition="Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure." )
     protected List<ProcedureRelatedItemComponent> relatedItem;
 
     /**
      * Any other notes about the procedure - e.g. the operative notes.
      */
-    @Child(name ="notes", type={StringType.class}, order=14, min=0, max=1)
+    @Child(name ="notes", type={StringType.class}, order=15, min=0, max=1)
     @Description(shortDefinition="Additional information about procedure", formalDefinition="Any other notes about the procedure - e.g. the operative notes." )
     protected StringType notes;
 
-    private static final long serialVersionUID = -685205266L;
+    /**
+     * A device change during the procedure.
+     */
+    @Child(name ="device", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Device changed in procedure", formalDefinition="A device change during the procedure." )
+    protected List<ProcedureDeviceComponent> device;
+
+    private static final long serialVersionUID = 828133391L;
 
     public Procedure() {
       super();
     }
 
-    public Procedure(Reference patient, CodeableConcept type) {
+    public Procedure(Reference patient, Enumeration<ProcedureStatus> status, CodeableConcept type) {
       super();
       this.patient = patient;
+      this.status = status;
       this.type = type;
     }
 
@@ -622,6 +878,51 @@ public class Procedure extends DomainResource {
      */
     public Procedure setPatientTarget(Patient value) { 
       this.patientTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #status} (A code specifying the state of the procedure record. Generally this will be in-progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<ProcedureStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Procedure.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<ProcedureStatus>(new ProcedureStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (A code specifying the state of the procedure record. Generally this will be in-progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Procedure setStatusElement(Enumeration<ProcedureStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return A code specifying the state of the procedure record. Generally this will be in-progress or completed state.
+     */
+    public ProcedureStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value A code specifying the state of the procedure record. Generally this will be in-progress or completed state.
+     */
+    public Procedure setStatus(ProcedureStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<ProcedureStatus>(new ProcedureStatusEnumFactory());
+        this.status.setValue(value);
       return this;
     }
 
@@ -770,26 +1071,39 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #date} (The dates over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
-    public Period getDate() { 
-      if (this.date == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Procedure.date");
-        else if (Configuration.doAutoCreate())
-          this.date = new Period(); // cc
-      return this.date;
-    }
-
-    public boolean hasDate() { 
-      return this.date != null && !this.date.isEmpty();
+    public Type getPerformed() { 
+      return this.performed;
     }
 
     /**
-     * @param value {@link #date} (The dates over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
-    public Procedure setDate(Period value) { 
-      this.date = value;
+    public DateTimeType getPerformedDateTimeType() throws Exception { 
+      if (!(this.performed instanceof DateTimeType))
+        throw new Exception("Type mismatch: the type DateTimeType was expected, but "+this.performed.getClass().getName()+" was encountered");
+      return (DateTimeType) this.performed;
+    }
+
+    /**
+     * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     */
+    public Period getPerformedPeriod() throws Exception { 
+      if (!(this.performed instanceof Period))
+        throw new Exception("Type mismatch: the type Period was expected, but "+this.performed.getClass().getName()+" was encountered");
+      return (Period) this.performed;
+    }
+
+    public boolean hasPerformed() { 
+      return this.performed != null && !this.performed.isEmpty();
+    }
+
+    /**
+     * @param value {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     */
+    public Procedure setPerformed(Type value) { 
+      this.performed = value;
       return this;
     }
 
@@ -1169,15 +1483,56 @@ public class Procedure extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #device} (A device change during the procedure.)
+     */
+    public List<ProcedureDeviceComponent> getDevice() { 
+      if (this.device == null)
+        this.device = new ArrayList<ProcedureDeviceComponent>();
+      return this.device;
+    }
+
+    public boolean hasDevice() { 
+      if (this.device == null)
+        return false;
+      for (ProcedureDeviceComponent item : this.device)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #device} (A device change during the procedure.)
+     */
+    // syntactic sugar
+    public ProcedureDeviceComponent addDevice() { //3
+      ProcedureDeviceComponent t = new ProcedureDeviceComponent();
+      if (this.device == null)
+        this.device = new ArrayList<ProcedureDeviceComponent>();
+      this.device.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public Procedure addDevice(ProcedureDeviceComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.device == null)
+        this.device = new ArrayList<ProcedureDeviceComponent>();
+      this.device.add(t);
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("patient", "Reference(Patient)", "The person on whom the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("status", "code", "A code specifying the state of the procedure record. Generally this will be in-progress or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("type", "CodeableConcept", "The specific procedure that is performed. Use text if the exact nature of the procedure can't be coded.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("indication", "CodeableConcept", "The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.", 0, java.lang.Integer.MAX_VALUE, indication));
         childrenList.add(new Property("performer", "", "Limited to 'real' people rather than equipment.", 0, java.lang.Integer.MAX_VALUE, performer));
-        childrenList.add(new Property("date", "Period", "The dates over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("performed[x]", "dateTime|Period", "The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.", 0, java.lang.Integer.MAX_VALUE, performed));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter during which the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("location", "Reference(Location)", "The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("outcome", "string", "What was the outcome of the procedure - did it resolve reasons why the procedure was performed?", 0, java.lang.Integer.MAX_VALUE, outcome));
@@ -1186,6 +1541,7 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("followUp", "string", "If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.", 0, java.lang.Integer.MAX_VALUE, followUp));
         childrenList.add(new Property("relatedItem", "", "Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure.", 0, java.lang.Integer.MAX_VALUE, relatedItem));
         childrenList.add(new Property("notes", "string", "Any other notes about the procedure - e.g. the operative notes.", 0, java.lang.Integer.MAX_VALUE, notes));
+        childrenList.add(new Property("device", "", "A device change during the procedure.", 0, java.lang.Integer.MAX_VALUE, device));
       }
 
       public Procedure copy() {
@@ -1197,6 +1553,7 @@ public class Procedure extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.patient = patient == null ? null : patient.copy();
+        dst.status = status == null ? null : status.copy();
         dst.type = type == null ? null : type.copy();
         if (bodySite != null) {
           dst.bodySite = new ArrayList<CodeableConcept>();
@@ -1213,7 +1570,7 @@ public class Procedure extends DomainResource {
           for (ProcedurePerformerComponent i : performer)
             dst.performer.add(i.copy());
         };
-        dst.date = date == null ? null : date.copy();
+        dst.performed = performed == null ? null : performed.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.location = location == null ? null : location.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
@@ -1234,6 +1591,11 @@ public class Procedure extends DomainResource {
             dst.relatedItem.add(i.copy());
         };
         dst.notes = notes == null ? null : notes.copy();
+        if (device != null) {
+          dst.device = new ArrayList<ProcedureDeviceComponent>();
+          for (ProcedureDeviceComponent i : device)
+            dst.device.add(i.copy());
+        };
         return dst;
       }
 
@@ -1248,12 +1610,12 @@ public class Procedure extends DomainResource {
         if (!(other instanceof Procedure))
           return false;
         Procedure o = (Procedure) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(type, o.type, true)
-           && compareDeep(bodySite, o.bodySite, true) && compareDeep(indication, o.indication, true) && compareDeep(performer, o.performer, true)
-           && compareDeep(date, o.date, true) && compareDeep(encounter, o.encounter, true) && compareDeep(location, o.location, true)
-           && compareDeep(outcome, o.outcome, true) && compareDeep(report, o.report, true) && compareDeep(complication, o.complication, true)
-           && compareDeep(followUp, o.followUp, true) && compareDeep(relatedItem, o.relatedItem, true) && compareDeep(notes, o.notes, true)
-          ;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(status, o.status, true)
+           && compareDeep(type, o.type, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(indication, o.indication, true)
+           && compareDeep(performer, o.performer, true) && compareDeep(performed, o.performed, true) && compareDeep(encounter, o.encounter, true)
+           && compareDeep(location, o.location, true) && compareDeep(outcome, o.outcome, true) && compareDeep(report, o.report, true)
+           && compareDeep(complication, o.complication, true) && compareDeep(followUp, o.followUp, true) && compareDeep(relatedItem, o.relatedItem, true)
+           && compareDeep(notes, o.notes, true) && compareDeep(device, o.device, true);
       }
 
       @Override
@@ -1263,17 +1625,19 @@ public class Procedure extends DomainResource {
         if (!(other instanceof Procedure))
           return false;
         Procedure o = (Procedure) other;
-        return compareValues(outcome, o.outcome, true) && compareValues(followUp, o.followUp, true) && compareValues(notes, o.notes, true)
-          ;
+        return compareValues(status, o.status, true) && compareValues(outcome, o.outcome, true) && compareValues(followUp, o.followUp, true)
+           && compareValues(notes, o.notes, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
-           && (type == null || type.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (indication == null || indication.isEmpty())
-           && (performer == null || performer.isEmpty()) && (date == null || date.isEmpty()) && (encounter == null || encounter.isEmpty())
+           && (status == null || status.isEmpty()) && (type == null || type.isEmpty()) && (bodySite == null || bodySite.isEmpty())
+           && (indication == null || indication.isEmpty()) && (performer == null || performer.isEmpty())
+           && (performed == null || performed.isEmpty()) && (encounter == null || encounter.isEmpty())
            && (location == null || location.isEmpty()) && (outcome == null || outcome.isEmpty()) && (report == null || report.isEmpty())
            && (complication == null || complication.isEmpty()) && (followUp == null || followUp.isEmpty())
-           && (relatedItem == null || relatedItem.isEmpty()) && (notes == null || notes.isEmpty());
+           && (relatedItem == null || relatedItem.isEmpty()) && (notes == null || notes.isEmpty()) && (device == null || device.isEmpty())
+          ;
       }
 
   @Override
@@ -1287,7 +1651,7 @@ public class Procedure extends DomainResource {
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="performer", path="Procedure.performer.person", description="The reference to the practitioner", type="reference" )
   public static final String SP_PERFORMER = "performer";
-  @SearchParamDefinition(name="date", path="Procedure.date", description="The date the procedure was performed on", type="date" )
+  @SearchParamDefinition(name="date", path="Procedure.performed[x]", description="Date/Period the procedure was performed", type="date" )
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="type", path="Procedure.type", description="Type of procedure", type="token" )
   public static final String SP_TYPE = "type";

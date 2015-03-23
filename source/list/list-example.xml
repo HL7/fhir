@@ -42,7 +42,6 @@
     <reference value="Patient/example"/>
   </source>
   <date value="2012-11-25T22:17:00+11:00"/>
-  <ordered value="false"/>
   <mode value="changes"/>
   <entry>
     <flag>
