@@ -28,7 +28,7 @@
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
-    <valueInstant value="2001-05-06T14:35:45-05:00"/>
+    <valueDateTime value="2001-05-06T14:35:45-05:00"/>
   </extension>
 
   <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
