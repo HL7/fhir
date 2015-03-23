@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Person xmlns="http://hl7.org/fhir">
+  <id value="pd"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>
+              Harold <b>Hippocrates</b>
+            </td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>1003 Healthcare Drive, Northfield, MN</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </text>
+  <identifier>
+    <use value="official"/>
+    <label value="SSN"/>
+    <system value="http://hl7.org/fhir/sid/us-ssn"/>
+    <value value="444444444"/>
+  </identifier>
+  <name>
+    <use value="official"/>
+    <family value="Hippocrates"/>
+    <given value="Harold"/>
+  </name>
+  <telecom>
+    <system value="phone"/>
+    <value value="555-555-1003"/>
+    <use value="work"/>
+  </telecom>
+  <gender value="male"/>
+  <birthDate value="1959-04-22"/>
+  <address>
+    <use value="home"/>
+    <line value="1003 Healthcare Drive"/>
+    <city value="Northfield"/>
+    <state value="MN"/>
+  </address>
+  <managingOrganization>
+    <reference value="http://www.northfield-regional.com/Organization/2"/>
+    <display value="Northfield Regional Physician Directory"/>
+  </managingOrganization>
+  <active value="true"/>
+  <link>
+    <target>
+      <reference value="http://www.goodhealth.com/Practitioner/98574"/>
+      <display value="Dr. Harold Hippocrates"/>
+    </target>
+    <assurance value="level2"/>
+  </link>
+  <link>
+    <target>
+      <reference value="http://www.acme-medical.com/Practitioner/ab34d"/>
+      <display value="Harold Hippocrates, MD"/>
+    </target>
+    <assurance value="level2"/>
+  </link>
+</Person>
