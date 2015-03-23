@@ -44,10 +44,14 @@
     <encounter>
         <reference value="Encounter/F001"/>
     </encounter>
-    <outcome value="improved blood circulation"/>
+    <outcome>
+      <text value="improved blood circulation"/>
+    </outcome>
     <report>
         <reference value="DiagnosticReport/F002"/>
         <display value="????????"/>
     </report>
-    <followUp value="described in care plan"/>
+    <followUp>
+      <text value="described in care plan"/>
+    </followUp>
 </Procedure>

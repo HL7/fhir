@@ -35,7 +35,9 @@
     </person>
   </performer>
   <performedDateTime value="2014-02-03"/>
-  <followUp value="Review in clinic"/>
+  <followUp>
+    <text value="Review in clinic"/>
+  </followUp>
   <notes value="Standard Biopsy"/>
 </Procedure>
 <!-- 
