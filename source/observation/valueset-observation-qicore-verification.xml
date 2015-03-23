@@ -1,7 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-    <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-        <valueUri value="urn:oid:0.00.0.0000.0.000.000.5"/>
-    </extension>
+<ValueSet xmlns="http://hl7.org/fhir">
     <name value="Observation Verification Method"/>
     <publisher value="Health Services Platform Consortium (HSPC)"/>
     <contact>
@@ -9,8 +6,7 @@
         <system value="url"/>
         <value value="http://www.hspc.org/"/>
     </telecom>
-  </contact>
-    
+  </contact>   
     <description value="Code for method by which the observation result was validated, e.g., human review, sliding average."/>
     <status value="active"/>
     <compose>

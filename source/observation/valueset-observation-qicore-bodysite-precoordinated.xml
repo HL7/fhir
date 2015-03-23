@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-    <text>
-        <status value="additional"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">SNOMED CT code system values descending from: Anatomical Structure (91723000). 
-            This indicates the anatomical site. In UMLS, SNOMED CT concepts with semantic types (SY) of: Acquired Abnormality 
-            (TUI=T020), Anatomical Abnormality (TUI=T190), Anatomical Structure (TUI=T017), Body Location or Region (TUI=T029), 
-            Body Part, Organ, or Organ Component (TUI=T023), Body Space or Junction(TUI=T030), and Body System(TUI=T022). </div>
-    </text>
-    <url value="http://www.example.com/valueset/deltaflag"/>
+<ValueSet xmlns="http://hl7.org/fhir">
     <version value="0.01"/>
     <name value="Precoordinated BodySite Value Set Definition"/>
     <immutable value="true"/>

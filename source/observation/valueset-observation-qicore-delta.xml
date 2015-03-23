@@ -3,7 +3,7 @@
 	<version value="0.1.0"/>
     <name value="Observation Delta Value Set Definition"/>
 	<publisher value="Health Level Seven, Inc. - CQI WG"/>
-    <description value="Code system values for Observation Delta Value Set"/>
+    <description value="Code indicating how the current observation compares to previous observations - e.g., no change, rising trend, decreasing trend, etc..."/>
     <status value="draft"/>
     <extensible value="true"/>
     <date value="2015-02-09"/>
