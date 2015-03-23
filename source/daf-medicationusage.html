@@ -15,7 +15,7 @@
 <a name="DAFMedicationUsage"></a> 
 <h3>DAF Profiles and Usage Guidance for medications</h3>
 <p>
-This document provides guidance to implementers and how to use the various profiles related to medications within the context of the <a href="daf.html">DAF </a>Implementation Guide. The list of profiles and their intended usage is as provided in the table below
+This document provides guidance to implementers and how to use the various profiles related to medications within the context of the <a href="daf.html">DAF</a> Implementation Guide. The list of profiles and their intended usage is as provided in the table below
 </p>
 <br/>
 <div>
@@ -28,7 +28,17 @@ This document provides guidance to implementers and how to use the various profi
           </tr>
         </thead>
         <tbody>
-          <tr>
+        	<tr>
+        		<td><a href="medicationprescription-daf.html">DAF MedicationPrescription profile</a></td>
+        		<td>This profile is used to represent an order for both supply of the medication and the instructions for administration of the medicine to a patient.</td>
+        		<td><a href="medicationprescription.html">MedicationPrescription</a></td>
+        	</tr>
+        	<tr>
+        		<td><a href="medicationdispense-daf.html">DAF MedicationDispense profile</a></td>
+        		<td>This profile is used to represent the provision of a supply of a medication with the intention that it is subsequently consumed by a patient (usually in response to a prescription).</td>
+        		<td><a href="medicationdispense.html">MedicationDispense</a></td>
+        	</tr>    	
+        	<tr>
 			<td><a href="medicationstatement-daf.html">DAF MedicationStatement profile</a></td>
 			<td>This profile is used to record an assertion that a medication was given, or is being given, to a patient.</td>
 			<td><a href="medicationstatement.html">MedicationStatement</a></td>
@@ -52,7 +62,8 @@ This document provides guidance to implementers and how to use the various profi
 
 <p>
 <ul>
-	<li>TBD</li>
+	<p>Medication-related resources compliant with DAF profiles can be queried individually (e.g. by querying for a MedicationPrescription) or by querying for relevant types of List (active medications list, discharge medications list, etc.) and using _include to retrieve the items referenced by the list as well.  See the <a href="list-daf-dafmedicationlist.html">DAFMedicationList</a> profile for information on medication-specific Lists. 
+	</p>
 </ul>
 </p>
 
