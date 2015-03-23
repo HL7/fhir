@@ -37,10 +37,10 @@
             <text value="Care role"/>
         </role>
     </performer>
-    <date>
+    <performedPeriod>
         <start value="2011-06-26"/>
         <end value="2011-06-27"/>
-    </date>
+    </performedPeriod>
     <encounter>
         <reference value="Encounter/F001"/>
     </encounter>

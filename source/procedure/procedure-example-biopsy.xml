@@ -34,9 +34,7 @@
       <display value="Dr Bert Biopser"/>
     </person>
   </performer>
-  <date>
-    <start value="2014-02-03"/>
-  </date>
+  <performedDateTime value="2014-02-03"/>
   <followUp value="Review in clinic"/>
   <notes value="Standard Biopsy"/>
 </Procedure>

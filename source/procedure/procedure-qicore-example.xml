@@ -45,10 +45,10 @@
       <display value="Dr Cecil Surgeon"/>
     </person>
   </performer>
-  <date>
+  <performedPeriod>
     <start value="2013-04-05T09:20:00-04:00"/>
     <end value="2013-04-05T10:30:00-04:00"/>
-  </date>
+  </performedPeriod>
   <encounter>
     <reference value="Encounter/example"/>
   </encounter>

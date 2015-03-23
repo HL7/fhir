@@ -38,7 +38,7 @@ The DAF Procedure profile mapping to Meaningful Use data elements and FHIR Resou
 		  <tr>
 		    <td/>
 			<td>Procedure Start and End time</td>
-			<td>Procedure.date</td>
+			<td>Procedure.performed[x]</td>
 		  </tr>
 		  <tr>
 		    <td/>
