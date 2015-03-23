@@ -1,4 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
+<ValueSet xmlns="http://hl7.org/fhir"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <text>
     <status value="generated"/>
@@ -6,10 +6,10 @@
       This value set includes all codes in HL7 table HL7 v2 table 0074. It grows as new codes are defined by the release of new HL7 versions
     </div>
   </text>
-  <name value="LOINC Diagnostic Report Codes"/>
+  <name value="Diagnostic Service Section Codes"/>
   <publisher value="FHIR Project team"/>
   <contact>
-    <telecom>  
+    <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
