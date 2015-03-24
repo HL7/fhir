@@ -1,5 +1,5 @@
 <ValueSet xmlns="http://hl7.org/fhir">
-    <name value="Observation Precondition"/>
+    <name value="Diagnostic Order Precondition"/>
     <publisher value="Health Services Platform Consortium (HSPC)"/>
     <contact>
     <telecom>
@@ -12,7 +12,7 @@
     <status value="active"/>
     <compose>
         <include>
-            <system value="http://need.a.uri.org/observation/precondition"/>
+            <system value="http://need.a.uri.org/diagnosticorder/precondition"/>
             <concept>
                 <code value="1"/>
                 <display value="After activity"/>
