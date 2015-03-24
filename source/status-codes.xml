@@ -271,7 +271,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AllergyIntolerance.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -497,7 +498,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition.clinicalStatus</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1289,7 +1290,7 @@
    </Print>
    <Selected/>
    <SplitHorizontal>1845</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>0</TopRowBottomPane>
    <SplitVertical>4515</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1309,8 +1310,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>17</ActiveCol>
+     <ActiveRow>15</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
