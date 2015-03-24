@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="DAF Substance-Reactant for Intolerance"/>
+  <name value="DAF Substanc RxNorm Codes"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>  
@@ -8,8 +8,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="A substance or other type of agent (e.g., sunshine) that may be associated with an intolerance reaction event or a propensity to such an event. These concepts are expected to be at a more general level of abstraction (ingredients versus more specific formulations). This value set is quite general and includes concepts that may never cause an adverse event, particularly the included SNOMED CT concepts. The code system-specific value sets in this grouping value set are intended to provide broad coverage of all kinds of agents, but the expectation for use is that the chosen concept identifier for a substance should be appropriately specific and drawn from the available code systems in the following priority order: NDFRT, then RXNORM, then UNII, then SNOMED CT. This overarching grouping value set is intended to support identification of drug classes, individual medication ingredients, foods, general substances and environmental entities"/> 
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
+  <description value="All RxNorm codes that have TTYY = IN,PIN,MIN,BN, but TTY = OCD"/> 
   <status value="draft"/>
   <compose>
     <include>
@@ -23,9 +22,9 @@
     <exclude>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
       <filter>
-        <property value="OBSOLETE"/>
+        <property value="TTY"/>
         <op value="="/>
-        <value value="true"/>
+        <value value="OCD"/>
       </filter>
     </include>
   </compose>

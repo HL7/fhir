@@ -1,0 +1,20 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="DAF Substance UNII Codes"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="All UNII codes"/> 
+  <status value="draft"/>
+  <compose>
+    <include>
+      <!-- all of UNI -->
+      <system value="http://fdasis.nlm.nih.gov"/>
+    </include>
+  </compose>
+</ValueSet>
+
