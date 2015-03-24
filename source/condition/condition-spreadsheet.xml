@@ -4713,7 +4713,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">onset-info</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Condition.onset[x]</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Other onsets (boolean, age, range, string)</Data></Cell>
@@ -4921,7 +4921,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

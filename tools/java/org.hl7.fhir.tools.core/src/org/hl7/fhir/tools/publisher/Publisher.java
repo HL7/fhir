@@ -523,6 +523,15 @@ public class Publisher implements URIResolver {
     validateXml();
     if (isGenerate && buildFlags.get("all"))
       produceQA();
+    if (!buildFlags.get("all")) {
+      page.log("This was a Partial Build", LogMessageType.Process);
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      for (String n : buildFlags.keySet())
+        if (buildFlags.get(n))
+          b.append(n);
+      page.log("  Build: "+b.toString(), LogMessageType.Process);
+    } else
+      page.log("This was a Full Build", LogMessageType.Process);
     page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
   }
 
