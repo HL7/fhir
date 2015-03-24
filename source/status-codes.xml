@@ -512,7 +512,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:Index="17" ss:StyleID="s62"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">working, provisional</Data></Cell>
     <Cell><Data ss:Type="String">confirmed</Data></Cell>
     <Cell ss:Index="22" ss:StyleID="s73"><Data ss:Type="String">refuted</Data></Cell>
@@ -1289,9 +1289,9 @@
    </Print>
    <Selected/>
    <SplitHorizontal>1845</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>4515</SplitVertical>
-   <LeftColumnRightPane>0</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1302,16 +1302,15 @@
     <Pane>
      <Number>1</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>44</ActiveRow>
+     <ActiveRow>16</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>42</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
