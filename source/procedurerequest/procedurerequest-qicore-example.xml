@@ -21,13 +21,15 @@
     </coding>
     <text value="Appendectomy"/>
   </type>
-  <bodySiteCodeableConcept>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="66754008"/>
-      <display value="Appendix structure"/>
-    </coding>
-  </bodySiteCodeableConcept>
+  <bodySite>
+    <siteCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="66754008"/>
+        <display value="Appendix structure"/>
+      </coding>
+    </siteCodeableConcept>
+  </bodySite>
   <indication>
     <coding>
       <system value="http://snomed.info/sct"/>

@@ -14,11 +14,13 @@
         </coding>
     </type>
     <bodySite>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="17401000"/>
-            <display value="Heart valve structure"/>
-        </coding>
+        <siteCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="17401000"/>
+                <display value="Heart valve structure"/>
+            </coding>
+        </siteCodeableConcept>
     </bodySite>
     <indication>
       <text value="Heart valve disorder"/>

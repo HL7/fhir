@@ -14,11 +14,13 @@
         </coding>
     </type>
     <bodySite>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="83030008"/>
-            <display value="Retropharyngeal area"/>
-        </coding>
+        <siteCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="83030008"/>
+                <display value="Retropharyngeal area"/>
+            </coding>
+        </siteCodeableConcept>
     </bodySite>
     <indication>
       <text value="abcess in retropharyngeal area"/>

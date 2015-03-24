@@ -18,12 +18,14 @@
     <text value="Biopsy of suspected melanoma L) arm"/>
   </type>
   <bodySite>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="368225008"/>
-      <display value="Entire Left Forearm"/>
-    </coding>
-    <text value="Left forearm"/>
+    <siteCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="368225008"/>
+        <display value="Entire Left Forearm"/>
+      </coding>
+      <text value="Left forearm"/>
+    </siteCodeableConcept>
   </bodySite>
   <indication>
     <text value="Dark lesion l) forearm. getting darker last 3 months."/>

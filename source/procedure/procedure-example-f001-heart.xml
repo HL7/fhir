@@ -6,20 +6,22 @@
         <display value="P. van de Heuvel"/>
     </patient>
     <status value="completed"/>
-        <type>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="34068001"/>
-                <display value="Heart valve replacement"/>
-            </coding>
-        </type>
-        <bodySite>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="34068001"/>
+            <display value="Heart valve replacement"/>
+        </coding>
+    </type>
+    <bodySite>
+        <siteCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="17401000"/>
                 <display value="Heart valve structure"/>
             </coding>
-        </bodySite>
+        </siteCodeableConcept>
+    </bodySite>
     <indication>
       <text value="Heart valve disorder"/>
     </indication> 

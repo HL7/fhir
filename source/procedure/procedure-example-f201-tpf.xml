@@ -16,11 +16,13 @@
     </coding>
   </type>
   <bodySite>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="272676008"/>
-      <display value="Sphenoid bone"/>
-    </coding>
+    <siteCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="272676008"/>
+        <display value="Sphenoid bone"/>
+      </coding>
+    </siteCodeableConcept>
   </bodySite>
   <indication>
     <text value="DiagnosticReport/f201"/>

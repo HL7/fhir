@@ -6,20 +6,22 @@
         <display value="P. van de Heuvel"/>
     </patient>
     <status value="completed"/>
-        <type>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="359615001"/>
-                <display value="Partial lobectomy of lung"/>
-            </coding>
-        </type>
-        <bodySite>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="359615001"/>
+            <display value="Partial lobectomy of lung"/>
+        </coding>
+    </type>
+    <bodySite>
+        <siteCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="39607008"/>
                 <display value="Lung structure"/>
             </coding>
-        </bodySite>
+        </siteCodeableConcept>
+    </bodySite>
     <indication>
       <text value="Malignant tumor of lung"/>
     </indication>
