@@ -1180,7 +1180,7 @@ public class SpreadsheetParser {
 		String c = sheet.getColumn(row, "Card.");
 		if (c == null || c.equals("") || c.startsWith("!")) {
 			if (!isRoot && !profile)
-				throw new Exception("Missing cardinality");
+				throw new Exception("Missing cardinality at "+ getLocation(row) + " on " + path);
 			if (isRoot) {
 			  e.setMinCardinality(1);
 			  e.setMaxCardinality(1);
