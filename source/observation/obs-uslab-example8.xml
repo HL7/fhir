@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Observation/uslab-example8
+file: obs-uslab-example8.xml
+ id: uslab-example8
+ Name: USLab Observation Example8
+Description: USLab Range Observation Profile  Example: WBCs in Urine
+
+see narrative this the screen that leads to follow up order for whole blood lead
+-->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+	<id value="uslab-example8"/>
+	<!-- FHIR build is generating the narratives
+<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<ul>
+				<li> obs-uslab-example1.xml</li>
+				<li> id: uslab-example1</li>
+				<li> Name: USLab Observation Example1</li>
+				<li>Description: USLab Quantitative Observation Profile Canonical Example: Capillary Blood Lead</li>
+			</ul>
+		</div>
+	</text>
+-->
+	<!-- extension for specimen reject goes here - not for this use case
+	<extension url="http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0490"/>
+				<code value="EX"/>
+				<display value="Expired"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+-->
+	<!-- extension for observation kind goes here -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/uslabobservationkind">
+		<valueCode value="result"/>
+	</extension>
+	<!--EH :  The local and /or LOINC test codes go here -->
+	<code>
+		<!-- EH: LOINC code goes here-->
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="5821-4"/>
+			<display value="Leukocytes [#/​area] in Urine sediment by Microscopy high power field"/>
+			<!-- EH: LOINC code goes here-->
+		</coding>
+		<coding>
+			<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
+			<code value="WBCFLD"/>
+			<display value="White blood cells (WBC) in urine "/>
+		</coding>
+		<text value="White blood cells (WBC) in urine"/>
+	</code>
+	<!-- In FHIR, units may be represented twice. Once in the
+    agreed human representation, and once in a coded form.
+    Both is best, since it's not always possible to infer
+    one from the other in code.
+
+    When a computable unit is provided, UCUM (http://unitsofmeasure.org)
+    is always preferred, but it doesn't provide notional units (such as
+    "tablet"), etc. For these, something else is required (e.g. Snomed-CT)
+   -->
+	<valueRange>
+		<low>
+			<value value="10"/>
+			<units value="WBC/HPF"/>
+		</low>
+		<high>
+			<value value="20"/>
+			<units value="WBC/HPF"/>
+		</high>
+	</valueRange>
+	<!--  eH dataabsent reason  would go here if valueQuantity was empty e.g.:
+	<dataAbsentReason value="error"/> -->
+	<interpretation>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0078"/>
+			<code value="H"/>
+		</coding>
+	</interpretation>
+	<appliesDateTime value="2014-12-03"/>
+	<!-- EH: Showing dateTime to ss with TZO although only needed to Day -->
+	<issued value="2014-12-04T15:42:15-08:00"/>
+	<status value="final"/>
+	<identifier>
+		<use value="official"/>
+		<label value="lab test result ID"/>
+		<system value="http://lis.acmelabs.org/identifiers/labtestresult"/>
+		<value value="9099"/>
+	</identifier>
+	<subject>
+		<reference value="Patient/uslab-example1"/>
+		<display value="Todd Lerr"/>
+	</subject>
+	<specimen>
+		<reference value="Specimen/uslab-example1"/>
+		<display value="Blood sample"/>
+	</specimen>
+	<performer>
+		<reference value="Practitioner/uslab-example1"/>
+		<display value="Dr Leonard T Bloodraw Jr"/>
+	</performer>
+	<referenceRange>
+		<low>
+			<value value="0"> </value>
+			<units value="WBC/HPF"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="/[HPF]"/>
+		</low>
+		<high>
+			<value value="5"/>
+			<units value="WBC/HPF"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="/[HPF]"/>
+		</high>
+	</referenceRange>
+</Observation>

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Observation/uslab-example 2
-file: obs-uslab-example2.xml
- id: uslab-example2
- Name: USLab Observation Example2
-Description: USLab Coded Observation Profile Canonical Example: Chlamydia PCR
+ Observation/uslab-example 6
+ file: obs-uslab-example6.xml
+ id: uslab-example6
+ Name: USLab Observation Example6
+ Description: USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel
 
-see narrative
+ see narrative
 -->
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
-	<id value="uslab-example2"/>
+	<id value="uslab-example6"/>
 	<!-- FHIR build is generating the narratives
 <text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<ul>
-				<li>file: obs-uslab-example2.xml</li>
-				<li> id: uslab-example2</li>
-				<li> Name: USLab Observation Example2</li>
-				<li>Description: USLab Coded Observation Profile Canonical Example: N gonorrhoeae PCR</li>
+				<li>file: obs-uslab-example3.xml</li>
+				<li>id: uslab-example3</li>
+				<li>Name: USLab Observation Example3</li>
+				<li>Description: USLab Other (String) Observation Profile Canonical Example: S aureus</li>
 			</ul>
 		</div>
 	</text>
 -->
-	<!-- extenstion for specimen reject goes here - not for this use case
+	<!-- extension for specimen reject goes here - not for this use case
 	<extension url="http://hl7.org/fhir/StructureDefinition/uslabspecimenrejectreason">
 		<valueCodeableConcept>
 			<coding>
@@ -34,7 +34,7 @@ see narrative
 		</valueCodeableConcept>
 	</extension>
 -->
-	<!-- extenstion for observation kind goes here -->
+	<!-- extension for observation kind goes here -->
 	<extension url="http://hl7.org/fhir/StructureDefinition/uslabobservationkind">
 		<valueCode value="result"/>
 	</extension>
@@ -43,39 +43,18 @@ see narrative
 		<!-- EH: LOINC code goes here-->
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="43305-2"/>
-			<display value="Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+			<code value="64017-7"/>
+			<display value="Chlamydia trachomatis and Neisseria gonorrhoeae rRNA panel - Unspecified specimen by Probe and target amplification method"/>
 			<!-- EH: LOCAL code goes here-->
 		</coding>
 		<coding>
 			<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
-			<code value="GCPCR"/>
-			<display value="APTIMA GC"/>
+			<code value="GCCTPCR"/>
+			<display value="GC CT PCR"/>
 		</coding>
-		<text value="Neisseria gonorrhoeae by PCR"/>
+		<text value="GC CT RNA Panel"/>
 	</code>
-	<!--EH :  The local and SNOMED Result codes go here -->
-	<valueCodeableConcept>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="10828004"/>
-			<display value="Positive"/>
-		</coding>
-		<coding>
-			<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
-			<code value="POS"/>
-			<display value="Positive"/>
-		</coding>
-		<text value="Positive for Neisseira gonorrheoea rRNA"/>
-	</valueCodeableConcept>
-	<!--  eH dataabsent reason  would go here if valueQuantity was empty e.g.:
-	<dataAbsentReason value="error"</dataAbsentReason> -->
-	<interpretation>
-		<coding>
-			<system value="http://hl7.org/fhir/v2/0078"/>
-			<code value="A"/>
-		</coding>
-	</interpretation>
+	<!--EH :  NO value or interpretation for panel  -->
 	<appliesDateTime value="2014-12-05"/>
 	<!-- EH: Showing dateTime to ss with TZO although only needed to Day -->
 	<issued value="2014-12-06T15:42:15-08:00"/>
@@ -84,7 +63,7 @@ see narrative
 		<use value="official"/>
 		<label value="lab test result ID"/>
 		<system value="http://lis.acmelabs.org/identifiers/labtestresult"/>
-		<value value="2345"/>
+		<value value="8901"/>
 	</identifier>
 	<subject>
 		<reference value="Patient/uslab-example1"/>
@@ -92,10 +71,23 @@ see narrative
 	</subject>
 	<specimen>
 		<reference value="Specimen/uslab-example2"/>
-		<display value="Blood sample"/>
+		<display value="Urine First Void"/>
 	</specimen>
 	<performer>
 		<reference value="Practitioner/uslab-example1"/>
 		<display value="Dr Leonard T Bloodraw Jr"/>
 	</performer>
+	<related>
+		<type value="has-component"/>
+		<target>
+		<reference value="Observation/uslab-example7"></reference>
+			<display value="CT RNA"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-component"/>
+		<target><reference value="Observation/uslab-example2"></reference>
+			<display value="GC-RNA"/>
+		</target>
+	</related>
 </Observation>
