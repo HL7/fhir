@@ -8,6 +8,22 @@ provides the additional supporting information to support that action. The actio
 reprocess, and status. 
 </p>
 <p>
+
+</p>
+<p>
+<b>Cancel</b> indicates the resource which is to be reversed and provides both supporting 
+information for the reversal and whether the receiving system is permitted to retain a copy of the 
+reversed resource.
+</p>
+<p>
+The Cancel is the formal request to cease processing an incomplete prior request or to reverse 
+and/or nullify a complete prior request or information submission. When nullify=true then all copies 
+of the original submission are to be purged, although audit logs may be retained. When Nullify=false 
+a copy of the original request may be retained. A ProcessResponse may be craeted or returned to indicate 
+whether the requestion action was accepted and scucessful.
+</p>
+
+<p>
 <b>Poll</b> provides supporting information for the poll request. The response to 
 this is a previously undelivered response or a StatusResponse (or other acknowledgement stype resource which may 
 contain errors). 
@@ -16,13 +32,6 @@ contain errors).
 This is a formal request for Payors or systems which require such and/or transports which don't 
 support a 'Get Operation', for the retrieval of pended, held, resources.
 </p>
-
-<p>
-<b>Cancel</b> indicates the resource which is to be reversed and provides both supporting 
-information for the reversal and whether the receiving system is permitted to retain a copy of the 
-reversed resource.
-</p>
-
 <p>
 A simple Poll request, one which doesn't specify: request, include, exclude or period; would return
 any pended resource. Specific types of business behaviors may be supported by providing values for the
@@ -37,12 +46,6 @@ creation date, and specify 'PaymentReconciliation' as an 'include'</li>
 </ul> 
 </p>
 
-<p>
-The reversal is the formal request to cease processing an incomplete prior request or to reverse 
-and/or nullify a complete prior request or information submission. When nullify=true then all copies 
-of the original submission are to be purged, although audit logs may be retained. When Nullify=false 
-a copy of the original request may be retained.
-</p>
 <p>
 
 <p>
