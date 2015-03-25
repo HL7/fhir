@@ -26,17 +26,14 @@ See <a href="#examples">below</a> for examples.
 
 <p>
 Encounter instances may exist before the actual encounter takes place to convey pre-admission information, including
-using Encounters elements to reflect the planned start date, planned accommodation or planned encounter locations. In 
+using Encounters elements to reflect the planned start date or planned encounter locations. In 
 this case the <i>status</i> element is set to 'planned'.
 </p>
 
 <p>
 The Hospitalization component is intended to store the extended information relating to a hospitalization event.
 This is always expected to be the same period as the encounter itself, where this is different then another
-encounter is entered which captures this information which is a partOf this encounter instance.<br/>
-As such, the accomodation information is stored in the Location component 
-(which can include multiple entries, such as the bed, ward, wing, facility etc where the location.type can be used
-to determine which location entry is of interest)
+encounter is entered which captures this information which is a partOf this encounter instance.
 </p>
 
 <h3>Status Management</h3>

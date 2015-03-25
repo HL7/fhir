@@ -6,8 +6,6 @@
 <li>The <i>class</i> element describes the setting (in/outpatient etc.) in which the Encounter took place. Since this is important for 
 interpreting the context of the encounter, choosing the appropriate business rules to enforce and for the management of the process, this element
 is required.</li>
-<li>The <i>Location</i> indicates where the patient has been during the encounter (he might visit multiple locations, e.g. to an MRI room
-for examinations, while <i>Accommodation</i> keeps information about the bed in which a patient stays during a hospitalization.</li>
 <li>In future versions of FHIR, some kind of charge posting vehicle (e.g. Account) will be added.</li>
 </ul>
 </p>
