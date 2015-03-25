@@ -3,6 +3,8 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
+<b>Note to Balloters:  We are seeking input on whether BodySite should be an independent resource or a datatype to be used when a resource element is an anatomic location (for example Observation.bodySite)</b></p>
+<p>
  The BodySite resource contains details about the anatomical location of a specimen or body part, including patient information, identifiers, as well as text descriptons and images.  It provides for the addition of modifiers such as laterality and directionality to the anatomic location for those use cases where precoordination of codes is not possible.  The BodySite resource supports recording and tracking of an anatomic location or structure on a patient outside the context of another resource.  For example it can be the target of a <a href="procedure.html">Procedure</a> resource or <a href="observation.html">Observation</a> resource.
 </p>
 </div>
