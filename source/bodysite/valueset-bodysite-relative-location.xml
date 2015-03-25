@@ -1,19 +1,39 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-	<name value="RelativeLocation"/>
+	<name value="Bodysite Location Modifier"/>
 	<publisher value="Order and Observation Workgroup"/>
 	<!-- author Eric Haas, Health eData Inc.-->
 	<contact>
-    <telecom>
-		<system value="url"/>
-		<value value="http://hl7.org/fhir"/>
-	</telecom>
-  </contact>
-	<description value="RelativeLocation: SNOMED-CT concepts describing the relative locatiion in relation to an identified anatomical landmark"/>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="SNOMED-CT concepts modifying the anatomic location"/>
 	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
 	<status value="draft"/>
 	<compose>
 		<include>
 			<system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="419161000"/>
+				<display value="Unilateral left"/>
+			</concept>
+			<concept>
+				<code value="419165000"/>
+				<display value="Unilateral right"/>
+			</concept>
+			<concept>
+				<code value="51440002"/>
+				<display value="Bilateral"/>
+			</concept>
+			<concept>
+				<code value="261183002"/>
+				<display value="Upper"/>
+			</concept>
+			<concept>
+				<code value="261122009"/>
+				<display value="Lower"/>
+			</concept>
 			<concept>
 				<code value="255561001"/>
 				<display value="Medial"/>
@@ -42,6 +62,7 @@
 				<code value="352730000"/>
 				<display value="Above"/>
 			</concept>
+			
 		</include>
 	</compose>
 </ValueSet>
