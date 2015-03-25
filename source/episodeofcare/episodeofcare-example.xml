@@ -8,7 +8,7 @@
     </div>
   </text>
 
-  <currentStatus value="active" />
+  <status value="active" />
   <statusHistory>
     <status value="planned" />
     <period>
