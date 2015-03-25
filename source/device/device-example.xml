@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
   <id value="example"/>
-  <text>
+  <!--text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>example</p>
     </div>
-  </text>
+  </text-->
   <identifier>
     <system value="http://goodcare.org/devices/id"/>
     <value value="345675"/>
@@ -23,6 +23,7 @@
     </coding>
     <text value="ECG"/>
   </type>
+  <status value="available"/>
   <manufacturer value="Acme Devices, Inc"/>
   <model value="AB 45-J"/>
   <lotNumber value="43453424"/>

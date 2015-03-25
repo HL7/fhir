@@ -7,5 +7,7 @@
             <code  value="25062003"/>
             <display value="Feeding tube, device"/>
         </coding>
+
     </type>
+    <status value = "available"/>
 </Device>
