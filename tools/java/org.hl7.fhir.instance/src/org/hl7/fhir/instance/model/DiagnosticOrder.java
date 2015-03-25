@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -639,10 +639,10 @@ public class DiagnosticOrder extends DomainResource {
 
 
         /**
-         * Anatomical location where the request test should be performed.
+         * Anatomical location where the request test should be performed.  This is the target site.
          */
         @Child(name ="bodySite", type={CodeableConcept.class, BodySite.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Location of requested test (if applicable)", formalDefinition="Anatomical location where the request test should be performed." )
+        @Description(shortDefinition="Location of requested test (if applicable)", formalDefinition="Anatomical location where the request test should be performed.  This is the target site." )
         protected Type bodySite;
 
         /**
@@ -756,14 +756,14 @@ public class DiagnosticOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #bodySite} (Anatomical location where the request test should be performed.)
+         * @return {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
          */
         public Type getBodySite() { 
           return this.bodySite;
         }
 
         /**
-         * @return {@link #bodySite} (Anatomical location where the request test should be performed.)
+         * @return {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
          */
         public CodeableConcept getBodySiteCodeableConcept() throws Exception { 
           if (!(this.bodySite instanceof CodeableConcept))
@@ -772,7 +772,7 @@ public class DiagnosticOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #bodySite} (Anatomical location where the request test should be performed.)
+         * @return {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
          */
         public Reference getBodySiteReference() throws Exception { 
           if (!(this.bodySite instanceof Reference))
@@ -785,7 +785,7 @@ public class DiagnosticOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #bodySite} (Anatomical location where the request test should be performed.)
+         * @param value {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
          */
         public DiagnosticOrderItemComponent setBodySite(Type value) { 
           this.bodySite = value;
@@ -885,7 +885,7 @@ public class DiagnosticOrder extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("specimen", "Reference(Specimen)", "If the item is related to a specific specimen.", 0, java.lang.Integer.MAX_VALUE, specimen));
-          childrenList.add(new Property("bodySite[x]", "CodeableConcept|Reference(BodySite)", "Anatomical location where the request test should be performed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
+          childrenList.add(new Property("bodySite[x]", "CodeableConcept|Reference(BodySite)", "Anatomical location where the request test should be performed.  This is the target site.", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("status", "code", "The status of this individual item within the order.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("event", "@DiagnosticOrder.event", "A summary of the events of interest that have occurred as this item of the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));
         }

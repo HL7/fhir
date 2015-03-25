@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -63,6 +63,10 @@ public class AllergyIntolerance extends DomainResource {
          */
         REFUTED, 
         /**
+         * The statement was entered in error and Is not valid.
+         */
+        ENTEREDINERROR, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -77,6 +81,8 @@ public class AllergyIntolerance extends DomainResource {
           return RESOLVED;
         if ("refuted".equals(codeString))
           return REFUTED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
         throw new Exception("Unknown AllergyIntoleranceStatus code '"+codeString+"'");
         }
         public String toCode() {
@@ -85,6 +91,7 @@ public class AllergyIntolerance extends DomainResource {
             case CONFIRMED: return "confirmed";
             case RESOLVED: return "resolved";
             case REFUTED: return "refuted";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -94,6 +101,7 @@ public class AllergyIntolerance extends DomainResource {
             case CONFIRMED: return "";
             case RESOLVED: return "";
             case REFUTED: return "";
+            case ENTEREDINERROR: return "";
             default: return "?";
           }
         }
@@ -103,6 +111,7 @@ public class AllergyIntolerance extends DomainResource {
             case CONFIRMED: return "A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.";
             case RESOLVED: return "A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.";
             case REFUTED: return "A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.";
+            case ENTEREDINERROR: return "The statement was entered in error and Is not valid.";
             default: return "?";
           }
         }
@@ -112,6 +121,7 @@ public class AllergyIntolerance extends DomainResource {
             case CONFIRMED: return "Confirmed";
             case RESOLVED: return "Resolved";
             case REFUTED: return "Refuted";
+            case ENTEREDINERROR: return "Entered In Error";
             default: return "?";
           }
         }
@@ -130,6 +140,8 @@ public class AllergyIntolerance extends DomainResource {
           return AllergyIntoleranceStatus.RESOLVED;
         if ("refuted".equals(codeString))
           return AllergyIntoleranceStatus.REFUTED;
+        if ("entered-in-error".equals(codeString))
+          return AllergyIntoleranceStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown AllergyIntoleranceStatus code '"+codeString+"'");
         }
     public String toCode(AllergyIntoleranceStatus code) {
@@ -141,6 +153,8 @@ public class AllergyIntolerance extends DomainResource {
         return "resolved";
       if (code == AllergyIntoleranceStatus.REFUTED)
         return "refuted";
+      if (code == AllergyIntoleranceStatus.ENTEREDINERROR)
+        return "entered-in-error";
       return "?";
       }
     }
@@ -1117,7 +1131,7 @@ public class AllergyIntolerance extends DomainResource {
      * Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
      */
     @Child(name ="status", type={CodeType.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="unconfirmed | confirmed | resolved | refuted", formalDefinition="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance." )
+    @Description(shortDefinition="unconfirmed | confirmed | resolved | refuted | entered-in-error", formalDefinition="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance." )
     protected Enumeration<AllergyIntoleranceStatus> status;
 
     /**
@@ -1830,7 +1844,7 @@ public class AllergyIntolerance extends DomainResource {
     return ResourceType.AllergyIntolerance;
    }
 
-  @SearchParamDefinition(name="status", path="AllergyIntolerance.status", description="unconfirmed | confirmed | resolved | refuted", type="token" )
+  @SearchParamDefinition(name="status", path="AllergyIntolerance.status", description="unconfirmed | confirmed | resolved | refuted | entered-in-error", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="onset", path="AllergyIntolerance.event.onset", description="Date(/time) when manifestations showed", type="date" )
   public static final String SP_ONSET = "onset";

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -193,13 +193,13 @@ public class Practitioner extends DomainResource {
 
 
         /**
-         * The list of healthcare services that this worker offers at this location of this organization.
+         * The list of healthcare services that this worker provides for this role's Organization/Location(s).
          */
         @Child(name ="healthcareService", type={HealthcareService.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="The list of healthcare services that this worker offers at this location of this organization", formalDefinition="The list of healthcare services that this worker offers at this location of this organization." )
+        @Description(shortDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)", formalDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)." )
         protected List<Reference> healthcareService;
         /**
-         * The actual objects that are the target of the reference (The list of healthcare services that this worker offers at this location of this organization.)
+         * The actual objects that are the target of the reference (The list of healthcare services that this worker provides for this role's Organization/Location(s).)
          */
         protected List<HealthcareService> healthcareServiceTarget;
 
@@ -404,7 +404,7 @@ public class Practitioner extends DomainResource {
         }
 
         /**
-         * @return {@link #healthcareService} (The list of healthcare services that this worker offers at this location of this organization.)
+         * @return {@link #healthcareService} (The list of healthcare services that this worker provides for this role's Organization/Location(s).)
          */
         public List<Reference> getHealthcareService() { 
           if (this.healthcareService == null)
@@ -422,7 +422,7 @@ public class Practitioner extends DomainResource {
         }
 
         /**
-         * @return {@link #healthcareService} (The list of healthcare services that this worker offers at this location of this organization.)
+         * @return {@link #healthcareService} (The list of healthcare services that this worker provides for this role's Organization/Location(s).)
          */
     // syntactic sugar
         public Reference addHealthcareService() { //3
@@ -444,7 +444,7 @@ public class Practitioner extends DomainResource {
         }
 
         /**
-         * @return {@link #healthcareService} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The list of healthcare services that this worker offers at this location of this organization.)
+         * @return {@link #healthcareService} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The list of healthcare services that this worker provides for this role's Organization/Location(s).)
          */
         public List<HealthcareService> getHealthcareServiceTarget() { 
           if (this.healthcareServiceTarget == null)
@@ -454,7 +454,7 @@ public class Practitioner extends DomainResource {
 
     // syntactic sugar
         /**
-         * @return {@link #healthcareService} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The list of healthcare services that this worker offers at this location of this organization.)
+         * @return {@link #healthcareService} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The list of healthcare services that this worker provides for this role's Organization/Location(s).)
          */
         public HealthcareService addHealthcareServiceTarget() { 
           HealthcareService r = new HealthcareService();
@@ -471,7 +471,7 @@ public class Practitioner extends DomainResource {
           childrenList.add(new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty));
           childrenList.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("location", "Reference(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
-          childrenList.add(new Property("healthcareService", "Reference(HealthcareService)", "The list of healthcare services that this worker offers at this location of this organization.", 0, java.lang.Integer.MAX_VALUE, healthcareService));
+          childrenList.add(new Property("healthcareService", "Reference(HealthcareService)", "The list of healthcare services that this worker provides for this role's Organization/Location(s).", 0, java.lang.Integer.MAX_VALUE, healthcareService));
         }
 
       public PractitionerPractitionerRoleComponent copy() {
@@ -1349,7 +1349,7 @@ public class Practitioner extends DomainResource {
   public static final String SP_FAMILY = "family";
   @SearchParamDefinition(name="name", path="Practitioner.name", description="A portion of either family or given name", type="string" )
   public static final String SP_NAME = "name";
-  @SearchParamDefinition(name="telecom", path="Practitioner.telecom", description="The value in any kind of contact", type="string" )
+  @SearchParamDefinition(name="telecom", path="Practitioner.telecom", description="The value in any kind of contact", type="token" )
   public static final String SP_TELECOM = "telecom";
   @SearchParamDefinition(name="gender", path="Practitioner.gender", description="Gender of the practitioner", type="token" )
   public static final String SP_GENDER = "gender";

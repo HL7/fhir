@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -45,6 +45,78 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="Location", profile="http://hl7.org/fhir/Profile/Location")
 public class Location extends DomainResource {
+
+    public enum LocationMode {
+        /**
+         * The Location resource represents a specific instance of a Location (e.g. Operating Theatre 1A).
+         */
+        INSTANCE, 
+        /**
+         * The Location represents a class of Locations (e.g. Any Operating Theatre). Although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc).
+         */
+        KIND, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static LocationMode fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("instance".equals(codeString))
+          return INSTANCE;
+        if ("kind".equals(codeString))
+          return KIND;
+        throw new Exception("Unknown LocationMode code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case INSTANCE: return "instance";
+            case KIND: return "kind";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case INSTANCE: return "";
+            case KIND: return "";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INSTANCE: return "The Location resource represents a specific instance of a Location (e.g. Operating Theatre 1A).";
+            case KIND: return "The Location represents a class of Locations (e.g. Any Operating Theatre). Although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INSTANCE: return "Instance";
+            case KIND: return "Kind";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class LocationModeEnumFactory implements EnumFactory<LocationMode> {
+    public LocationMode fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("instance".equals(codeString))
+          return LocationMode.INSTANCE;
+        if ("kind".equals(codeString))
+          return LocationMode.KIND;
+        throw new IllegalArgumentException("Unknown LocationMode code '"+codeString+"'");
+        }
+    public String toCode(LocationMode code) {
+      if (code == LocationMode.INSTANCE)
+        return "instance";
+      if (code == LocationMode.KIND)
+        return "kind";
+      return "?";
+      }
+    }
 
     public enum LocationStatus {
         /**
@@ -128,78 +200,6 @@ public class Location extends DomainResource {
         return "suspended";
       if (code == LocationStatus.INACTIVE)
         return "inactive";
-      return "?";
-      }
-    }
-
-    public enum LocationMode {
-        /**
-         * The Location resource represents a specific instance of a Location.
-         */
-        INSTANCE, 
-        /**
-         * The Location represents a class of Locations.
-         */
-        KIND, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static LocationMode fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("instance".equals(codeString))
-          return INSTANCE;
-        if ("kind".equals(codeString))
-          return KIND;
-        throw new Exception("Unknown LocationMode code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case INSTANCE: return "instance";
-            case KIND: return "kind";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case INSTANCE: return "";
-            case KIND: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case INSTANCE: return "The Location resource represents a specific instance of a Location.";
-            case KIND: return "The Location represents a class of Locations.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case INSTANCE: return "Instance";
-            case KIND: return "Kind";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class LocationModeEnumFactory implements EnumFactory<LocationMode> {
-    public LocationMode fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("instance".equals(codeString))
-          return LocationMode.INSTANCE;
-        if ("kind".equals(codeString))
-          return LocationMode.KIND;
-        throw new IllegalArgumentException("Unknown LocationMode code '"+codeString+"'");
-        }
-    public String toCode(LocationMode code) {
-      if (code == LocationMode.INSTANCE)
-        return "instance";
-      if (code == LocationMode.KIND)
-        return "kind";
       return "?";
       }
     }
@@ -445,44 +445,51 @@ public class Location extends DomainResource {
     protected StringType description;
 
     /**
+     * Indicates whether a resource instance represents a specific location or a class of locations.
+     */
+    @Child(name ="mode", type={CodeType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="instance | kind", formalDefinition="Indicates whether a resource instance represents a specific location or a class of locations." )
+    protected Enumeration<LocationMode> mode;
+
+    /**
      * Indicates the type of function performed at the location.
      */
-    @Child(name ="type", type={CodeableConcept.class}, order=3, min=0, max=1)
+    @Child(name ="type", type={CodeableConcept.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Indicates the type of function performed at the location", formalDefinition="Indicates the type of function performed at the location." )
     protected CodeableConcept type;
 
     /**
      * The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.
      */
-    @Child(name ="telecom", type={ContactPoint.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="telecom", type={ContactPoint.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contact details of the location", formalDefinition="The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites." )
     protected List<ContactPoint> telecom;
 
     /**
      * Physical location.
      */
-    @Child(name ="address", type={Address.class}, order=5, min=0, max=1)
+    @Child(name ="address", type={Address.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Physical location", formalDefinition="Physical location." )
     protected Address address;
 
     /**
      * Physical form of the location, e.g. building, room, vehicle, road.
      */
-    @Child(name ="physicalType", type={CodeableConcept.class}, order=6, min=0, max=1)
+    @Child(name ="physicalType", type={CodeableConcept.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Physical form of the location", formalDefinition="Physical form of the location, e.g. building, room, vehicle, road." )
     protected CodeableConcept physicalType;
 
     /**
      * The absolute geographic location of the Location, expressed in with the WGS84 datum (This is the same co-ordinate system used in KML).
      */
-    @Child(name ="position", type={}, order=7, min=0, max=1)
+    @Child(name ="position", type={}, order=8, min=0, max=1)
     @Description(shortDefinition="The absolute geographic location", formalDefinition="The absolute geographic location of the Location, expressed in with the WGS84 datum (This is the same co-ordinate system used in KML)." )
     protected LocationPositionComponent position;
 
     /**
      * The organization that is responsible for the provisioning and upkeep of the location.
      */
-    @Child(name ="managingOrganization", type={Organization.class}, order=8, min=0, max=1)
+    @Child(name ="managingOrganization", type={Organization.class}, order=9, min=0, max=1)
     @Description(shortDefinition="The organization that is responsible for the provisioning and upkeep of the location", formalDefinition="The organization that is responsible for the provisioning and upkeep of the location." )
     protected Reference managingOrganization;
 
@@ -490,13 +497,6 @@ public class Location extends DomainResource {
      * The actual object that is the target of the reference (The organization that is responsible for the provisioning and upkeep of the location.)
      */
     protected Organization managingOrganizationTarget;
-
-    /**
-     * active | suspended | inactive.
-     */
-    @Child(name ="status", type={CodeType.class}, order=9, min=0, max=1)
-    @Description(shortDefinition="active | suspended | inactive", formalDefinition="active | suspended | inactive." )
-    protected Enumeration<LocationStatus> status;
 
     /**
      * Another Location which this Location is physically part of.
@@ -511,13 +511,13 @@ public class Location extends DomainResource {
     protected Location partOfTarget;
 
     /**
-     * Indicates whether a resource instance represents a specific location or a class of locations.
+     * active | suspended | inactive.
      */
-    @Child(name ="mode", type={CodeType.class}, order=11, min=0, max=1)
-    @Description(shortDefinition="instance | kind", formalDefinition="Indicates whether a resource instance represents a specific location or a class of locations." )
-    protected Enumeration<LocationMode> mode;
+    @Child(name ="status", type={CodeType.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="active | suspended | inactive", formalDefinition="active | suspended | inactive." )
+    protected Enumeration<LocationStatus> status;
 
-    private static final long serialVersionUID = -1202061661L;
+    private static final long serialVersionUID = -520735603L;
 
     public Location() {
       super();
@@ -657,6 +657,55 @@ public class Location extends DomainResource {
         if (this.description == null)
           this.description = new StringType();
         this.description.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
+     */
+    public Enumeration<LocationMode> getModeElement() { 
+      if (this.mode == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Location.mode");
+        else if (Configuration.doAutoCreate())
+          this.mode = new Enumeration<LocationMode>(new LocationModeEnumFactory()); // bb
+      return this.mode;
+    }
+
+    public boolean hasModeElement() { 
+      return this.mode != null && !this.mode.isEmpty();
+    }
+
+    public boolean hasMode() { 
+      return this.mode != null && !this.mode.isEmpty();
+    }
+
+    /**
+     * @param value {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
+     */
+    public Location setModeElement(Enumeration<LocationMode> value) { 
+      this.mode = value;
+      return this;
+    }
+
+    /**
+     * @return Indicates whether a resource instance represents a specific location or a class of locations.
+     */
+    public LocationMode getMode() { 
+      return this.mode == null ? null : this.mode.getValue();
+    }
+
+    /**
+     * @param value Indicates whether a resource instance represents a specific location or a class of locations.
+     */
+    public Location setMode(LocationMode value) { 
+      if (value == null)
+        this.mode = null;
+      else {
+        if (this.mode == null)
+          this.mode = new Enumeration<LocationMode>(new LocationModeEnumFactory());
+        this.mode.setValue(value);
       }
       return this;
     }
@@ -842,6 +891,50 @@ public class Location extends DomainResource {
     }
 
     /**
+     * @return {@link #partOf} (Another Location which this Location is physically part of.)
+     */
+    public Reference getPartOf() { 
+      if (this.partOf == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Location.partOf");
+        else if (Configuration.doAutoCreate())
+          this.partOf = new Reference(); // cc
+      return this.partOf;
+    }
+
+    public boolean hasPartOf() { 
+      return this.partOf != null && !this.partOf.isEmpty();
+    }
+
+    /**
+     * @param value {@link #partOf} (Another Location which this Location is physically part of.)
+     */
+    public Location setPartOf(Reference value) { 
+      this.partOf = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another Location which this Location is physically part of.)
+     */
+    public Location getPartOfTarget() { 
+      if (this.partOfTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Location.partOf");
+        else if (Configuration.doAutoCreate())
+          this.partOfTarget = new Location(); // aa
+      return this.partOfTarget;
+    }
+
+    /**
+     * @param value {@link #partOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another Location which this Location is physically part of.)
+     */
+    public Location setPartOfTarget(Location value) { 
+      this.partOfTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #status} (active | suspended | inactive.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<LocationStatus> getStatusElement() { 
@@ -890,113 +983,20 @@ public class Location extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #partOf} (Another Location which this Location is physically part of.)
-     */
-    public Reference getPartOf() { 
-      if (this.partOf == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Location.partOf");
-        else if (Configuration.doAutoCreate())
-          this.partOf = new Reference(); // cc
-      return this.partOf;
-    }
-
-    public boolean hasPartOf() { 
-      return this.partOf != null && !this.partOf.isEmpty();
-    }
-
-    /**
-     * @param value {@link #partOf} (Another Location which this Location is physically part of.)
-     */
-    public Location setPartOf(Reference value) { 
-      this.partOf = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another Location which this Location is physically part of.)
-     */
-    public Location getPartOfTarget() { 
-      if (this.partOfTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Location.partOf");
-        else if (Configuration.doAutoCreate())
-          this.partOfTarget = new Location(); // aa
-      return this.partOfTarget;
-    }
-
-    /**
-     * @param value {@link #partOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another Location which this Location is physically part of.)
-     */
-    public Location setPartOfTarget(Location value) { 
-      this.partOfTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
-     */
-    public Enumeration<LocationMode> getModeElement() { 
-      if (this.mode == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Location.mode");
-        else if (Configuration.doAutoCreate())
-          this.mode = new Enumeration<LocationMode>(new LocationModeEnumFactory()); // bb
-      return this.mode;
-    }
-
-    public boolean hasModeElement() { 
-      return this.mode != null && !this.mode.isEmpty();
-    }
-
-    public boolean hasMode() { 
-      return this.mode != null && !this.mode.isEmpty();
-    }
-
-    /**
-     * @param value {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
-     */
-    public Location setModeElement(Enumeration<LocationMode> value) { 
-      this.mode = value;
-      return this;
-    }
-
-    /**
-     * @return Indicates whether a resource instance represents a specific location or a class of locations.
-     */
-    public LocationMode getMode() { 
-      return this.mode == null ? null : this.mode.getValue();
-    }
-
-    /**
-     * @param value Indicates whether a resource instance represents a specific location or a class of locations.
-     */
-    public Location setMode(LocationMode value) { 
-      if (value == null)
-        this.mode = null;
-      else {
-        if (this.mode == null)
-          this.mode = new Enumeration<LocationMode>(new LocationModeEnumFactory());
-        this.mode.setValue(value);
-      }
-      return this;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Unique code or number identifying the location to its users.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("name", "string", "Name of the location as used by humans. Does not need to be unique.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("description", "string", "Description of the Location, which helps in finding or referencing the place.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("mode", "code", "Indicates whether a resource instance represents a specific location or a class of locations.", 0, java.lang.Integer.MAX_VALUE, mode));
         childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of function performed at the location.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("telecom", "ContactPoint", "The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("address", "Address", "Physical location.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("physicalType", "CodeableConcept", "Physical form of the location, e.g. building, room, vehicle, road.", 0, java.lang.Integer.MAX_VALUE, physicalType));
         childrenList.add(new Property("position", "", "The absolute geographic location of the Location, expressed in with the WGS84 datum (This is the same co-ordinate system used in KML).", 0, java.lang.Integer.MAX_VALUE, position));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The organization that is responsible for the provisioning and upkeep of the location.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
-        childrenList.add(new Property("status", "code", "active | suspended | inactive.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("partOf", "Reference(Location)", "Another Location which this Location is physically part of.", 0, java.lang.Integer.MAX_VALUE, partOf));
-        childrenList.add(new Property("mode", "code", "Indicates whether a resource instance represents a specific location or a class of locations.", 0, java.lang.Integer.MAX_VALUE, mode));
+        childrenList.add(new Property("status", "code", "active | suspended | inactive.", 0, java.lang.Integer.MAX_VALUE, status));
       }
 
       public Location copy() {
@@ -1009,6 +1009,7 @@ public class Location extends DomainResource {
         };
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
+        dst.mode = mode == null ? null : mode.copy();
         dst.type = type == null ? null : type.copy();
         if (telecom != null) {
           dst.telecom = new ArrayList<ContactPoint>();
@@ -1019,9 +1020,8 @@ public class Location extends DomainResource {
         dst.physicalType = physicalType == null ? null : physicalType.copy();
         dst.position = position == null ? null : position.copy();
         dst.managingOrganization = managingOrganization == null ? null : managingOrganization.copy();
-        dst.status = status == null ? null : status.copy();
         dst.partOf = partOf == null ? null : partOf.copy();
-        dst.mode = mode == null ? null : mode.copy();
+        dst.status = status == null ? null : status.copy();
         return dst;
       }
 
@@ -1037,10 +1037,10 @@ public class Location extends DomainResource {
           return false;
         Location o = (Location) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
-           && compareDeep(type, o.type, true) && compareDeep(telecom, o.telecom, true) && compareDeep(address, o.address, true)
-           && compareDeep(physicalType, o.physicalType, true) && compareDeep(position, o.position, true) && compareDeep(managingOrganization, o.managingOrganization, true)
-           && compareDeep(status, o.status, true) && compareDeep(partOf, o.partOf, true) && compareDeep(mode, o.mode, true)
-          ;
+           && compareDeep(mode, o.mode, true) && compareDeep(type, o.type, true) && compareDeep(telecom, o.telecom, true)
+           && compareDeep(address, o.address, true) && compareDeep(physicalType, o.physicalType, true) && compareDeep(position, o.position, true)
+           && compareDeep(managingOrganization, o.managingOrganization, true) && compareDeep(partOf, o.partOf, true)
+           && compareDeep(status, o.status, true);
       }
 
       @Override
@@ -1050,17 +1050,16 @@ public class Location extends DomainResource {
         if (!(other instanceof Location))
           return false;
         Location o = (Location) other;
-        return compareValues(name, o.name, true) && compareValues(description, o.description, true) && compareValues(status, o.status, true)
-           && compareValues(mode, o.mode, true);
+        return compareValues(name, o.name, true) && compareValues(description, o.description, true) && compareValues(mode, o.mode, true)
+           && compareValues(status, o.status, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
-           && (description == null || description.isEmpty()) && (type == null || type.isEmpty()) && (telecom == null || telecom.isEmpty())
-           && (address == null || address.isEmpty()) && (physicalType == null || physicalType.isEmpty())
+           && (description == null || description.isEmpty()) && (mode == null || mode.isEmpty()) && (type == null || type.isEmpty())
+           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty()) && (physicalType == null || physicalType.isEmpty())
            && (position == null || position.isEmpty()) && (managingOrganization == null || managingOrganization.isEmpty())
-           && (status == null || status.isEmpty()) && (partOf == null || partOf.isEmpty()) && (mode == null || mode.isEmpty())
-          ;
+           && (partOf == null || partOf.isEmpty()) && (status == null || status.isEmpty());
       }
 
   @Override
@@ -1070,7 +1069,7 @@ public class Location extends DomainResource {
 
   @SearchParamDefinition(name="organization", path="Location.managingOrganization", description="Searches for locations that are managed by the provided organization", type="reference" )
   public static final String SP_ORGANIZATION = "organization";
-  @SearchParamDefinition(name="near", path="", description="The coordinates expressed as [lat],[long] (using KML, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency)", type="token" )
+  @SearchParamDefinition(name="near", path="", description="The coordinates expressed as [lat],[long] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency)", type="token" )
   public static final String SP_NEAR = "near";
   @SearchParamDefinition(name="partof", path="Location.partOf", description="The location of which this location is a part", type="reference" )
   public static final String SP_PARTOF = "partof";

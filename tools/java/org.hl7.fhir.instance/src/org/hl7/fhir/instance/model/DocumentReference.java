@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -711,102 +711,102 @@ public class DocumentReference extends DomainResource {
         /**
          * Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.
          */
-        @Child(name ="ids", type={Identifier.class}, order=1, min=0, max=1)
+        @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Related Identifier", formalDefinition="Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing." )
-        protected Identifier ids;
+        protected Identifier identifier;
 
         /**
          * Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.
          */
-        @Child(name ="refs", type={}, order=2, min=0, max=1)
+        @Child(name ="ref", type={}, order=2, min=0, max=1)
         @Description(shortDefinition="Related Resource", formalDefinition="Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing." )
-        protected Reference refs;
+        protected Reference ref;
 
         /**
          * The actual object that is the target of the reference (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
          */
-        protected Resource refsTarget;
+        protected Resource refTarget;
 
-        private static final long serialVersionUID = -579833869L;
+        private static final long serialVersionUID = -1670123330L;
 
       public DocumentReferenceContextRelatedComponent() {
         super();
       }
 
         /**
-         * @return {@link #ids} (Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         * @return {@link #identifier} (Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
          */
-        public Identifier getIds() { 
-          if (this.ids == null)
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DocumentReferenceContextRelatedComponent.ids");
+              throw new Error("Attempt to auto-create DocumentReferenceContextRelatedComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.ids = new Identifier(); // cc
-          return this.ids;
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
         }
 
-        public boolean hasIds() { 
-          return this.ids != null && !this.ids.isEmpty();
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
-         * @param value {@link #ids} (Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         * @param value {@link #identifier} (Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
          */
-        public DocumentReferenceContextRelatedComponent setIds(Identifier value) { 
-          this.ids = value;
+        public DocumentReferenceContextRelatedComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
           return this;
         }
 
         /**
-         * @return {@link #refs} (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         * @return {@link #ref} (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
          */
-        public Reference getRefs() { 
-          if (this.refs == null)
+        public Reference getRef() { 
+          if (this.ref == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DocumentReferenceContextRelatedComponent.refs");
+              throw new Error("Attempt to auto-create DocumentReferenceContextRelatedComponent.ref");
             else if (Configuration.doAutoCreate())
-              this.refs = new Reference(); // cc
-          return this.refs;
+              this.ref = new Reference(); // cc
+          return this.ref;
         }
 
-        public boolean hasRefs() { 
-          return this.refs != null && !this.refs.isEmpty();
+        public boolean hasRef() { 
+          return this.ref != null && !this.ref.isEmpty();
         }
 
         /**
-         * @param value {@link #refs} (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         * @param value {@link #ref} (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
          */
-        public DocumentReferenceContextRelatedComponent setRefs(Reference value) { 
-          this.refs = value;
+        public DocumentReferenceContextRelatedComponent setRef(Reference value) { 
+          this.ref = value;
           return this;
         }
 
         /**
-         * @return {@link #refs} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         * @return {@link #ref} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
          */
-        public Resource getRefsTarget() { 
-          return this.refsTarget;
+        public Resource getRefTarget() { 
+          return this.refTarget;
         }
 
         /**
-         * @param value {@link #refs} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
+         * @param value {@link #ref} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.)
          */
-        public DocumentReferenceContextRelatedComponent setRefsTarget(Resource value) { 
-          this.refsTarget = value;
+        public DocumentReferenceContextRelatedComponent setRefTarget(Resource value) { 
+          this.refTarget = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("ids", "Identifier", "Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, ids));
-          childrenList.add(new Property("refs", "Reference(Any)", "Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, refs));
+          childrenList.add(new Property("identifier", "Identifier", "Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("ref", "Reference(Any)", "Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, ref));
         }
 
       public DocumentReferenceContextRelatedComponent copy() {
         DocumentReferenceContextRelatedComponent dst = new DocumentReferenceContextRelatedComponent();
         copyValues(dst);
-        dst.ids = ids == null ? null : ids.copy();
-        dst.refs = refs == null ? null : refs.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.ref = ref == null ? null : ref.copy();
         return dst;
       }
 
@@ -817,7 +817,7 @@ public class DocumentReference extends DomainResource {
         if (!(other instanceof DocumentReferenceContextRelatedComponent))
           return false;
         DocumentReferenceContextRelatedComponent o = (DocumentReferenceContextRelatedComponent) other;
-        return compareDeep(ids, o.ids, true) && compareDeep(refs, o.refs, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(ref, o.ref, true);
       }
 
       @Override
@@ -831,7 +831,7 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (ids == null || ids.isEmpty()) && (refs == null || refs.isEmpty())
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ref == null || ref.isEmpty())
           ;
       }
 
@@ -1816,6 +1816,8 @@ public class DocumentReference extends DomainResource {
   public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precise type of document", type="token" )
   public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="relatedid", path="DocumentReference.context.related.identifier", description="Related Identifier", type="token" )
+  public static final String SP_RELATEDID = "relatedid";
   @SearchParamDefinition(name="setting", path="DocumentReference.context.practiceSetting", description="Additional details about where the content was created (e.g. clinical specialty)", type="token" )
   public static final String SP_SETTING = "setting";
   @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
@@ -1840,22 +1842,20 @@ public class DocumentReference extends DomainResource {
   public static final String SP_CLASS = "class";
   @SearchParamDefinition(name="format", path="DocumentReference.format", description="Format/content rules for the document", type="uri" )
   public static final String SP_FORMAT = "format";
-  @SearchParamDefinition(name="relatedids", path="DocumentReference.context.related.ids", description="Related Identifier", type="token" )
-  public static final String SP_RELATEDIDS = "relatedids";
   @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
   public static final String SP_PERIOD = "period";
   @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/What authenticated the document", type="reference" )
   public static final String SP_AUTHENTICATOR = "authenticator";
   @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
   public static final String SP_RELATIONSHIP = "relationship";
+  @SearchParamDefinition(name="relatedref", path="DocumentReference.context.related.ref", description="Related Resource", type="reference" )
+  public static final String SP_RELATEDREF = "relatedref";
   @SearchParamDefinition(name="confidentiality", path="DocumentReference.confidentiality", description="Document security-tags", type="token" )
   public static final String SP_CONFIDENTIALITY = "confidentiality";
   @SearchParamDefinition(name="language", path="DocumentReference.content.language", description="Human language of the content (BCP-47)", type="token" )
   public static final String SP_LANGUAGE = "language";
   @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier|DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="relatedrefs", path="DocumentReference.context.related.refs", description="Related Resource", type="reference" )
-  public static final String SP_RELATEDREFS = "relatedrefs";
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -260,10 +260,10 @@ public class Person extends DomainResource {
         protected Resource targetTarget;
 
         /**
-         * Level of assurance that this link is actually associated with the referenced record.
+         * Level of assurance that this link is actually associated with the target resource.
          */
         @Child(name ="assurance", type={CodeType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="level1 | level2 | level3 | level4", formalDefinition="Level of assurance that this link is actually associated with the referenced record." )
+        @Description(shortDefinition="level1 | level2 | level3 | level4", formalDefinition="Level of assurance that this link is actually associated with the target resource." )
         protected Enumeration<IdentityAssuranceLevel> assurance;
 
         private static final long serialVersionUID = 508763647L;
@@ -317,7 +317,7 @@ public class Person extends DomainResource {
         }
 
         /**
-         * @return {@link #assurance} (Level of assurance that this link is actually associated with the referenced record.). This is the underlying object with id, value and extensions. The accessor "getAssurance" gives direct access to the value
+         * @return {@link #assurance} (Level of assurance that this link is actually associated with the target resource.). This is the underlying object with id, value and extensions. The accessor "getAssurance" gives direct access to the value
          */
         public Enumeration<IdentityAssuranceLevel> getAssuranceElement() { 
           if (this.assurance == null)
@@ -337,7 +337,7 @@ public class Person extends DomainResource {
         }
 
         /**
-         * @param value {@link #assurance} (Level of assurance that this link is actually associated with the referenced record.). This is the underlying object with id, value and extensions. The accessor "getAssurance" gives direct access to the value
+         * @param value {@link #assurance} (Level of assurance that this link is actually associated with the target resource.). This is the underlying object with id, value and extensions. The accessor "getAssurance" gives direct access to the value
          */
         public PersonLinkComponent setAssuranceElement(Enumeration<IdentityAssuranceLevel> value) { 
           this.assurance = value;
@@ -345,14 +345,14 @@ public class Person extends DomainResource {
         }
 
         /**
-         * @return Level of assurance that this link is actually associated with the referenced record.
+         * @return Level of assurance that this link is actually associated with the target resource.
          */
         public IdentityAssuranceLevel getAssurance() { 
           return this.assurance == null ? null : this.assurance.getValue();
         }
 
         /**
-         * @param value Level of assurance that this link is actually associated with the referenced record.
+         * @param value Level of assurance that this link is actually associated with the target resource.
          */
         public PersonLinkComponent setAssurance(IdentityAssuranceLevel value) { 
           if (value == null)
@@ -368,7 +368,7 @@ public class Person extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("target", "Reference(Patient|Practitioner|RelatedPerson|Person)", "The resource to which this actual person is associated.", 0, java.lang.Integer.MAX_VALUE, target));
-          childrenList.add(new Property("assurance", "code", "Level of assurance that this link is actually associated with the referenced record.", 0, java.lang.Integer.MAX_VALUE, assurance));
+          childrenList.add(new Property("assurance", "code", "Level of assurance that this link is actually associated with the target resource.", 0, java.lang.Integer.MAX_VALUE, assurance));
         }
 
       public PersonLinkComponent copy() {
@@ -475,10 +475,10 @@ public class Person extends DomainResource {
     protected BooleanType active;
 
     /**
-     * Link to a resource that converns the same actual person.
+     * Link to a resource that concerns the same actual person.
      */
     @Child(name ="link", type={}, order=9, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Link to a resource that converns the same actual person", formalDefinition="Link to a resource that converns the same actual person." )
+    @Description(shortDefinition="Link to a resource that concerns the same actual person", formalDefinition="Link to a resource that concerns the same actual person." )
     protected List<PersonLinkComponent> link;
 
     private static final long serialVersionUID = -2072707611L;
@@ -859,7 +859,7 @@ public class Person extends DomainResource {
     }
 
     /**
-     * @return {@link #link} (Link to a resource that converns the same actual person.)
+     * @return {@link #link} (Link to a resource that concerns the same actual person.)
      */
     public List<PersonLinkComponent> getLink() { 
       if (this.link == null)
@@ -877,7 +877,7 @@ public class Person extends DomainResource {
     }
 
     /**
-     * @return {@link #link} (Link to a resource that converns the same actual person.)
+     * @return {@link #link} (Link to a resource that concerns the same actual person.)
      */
     // syntactic sugar
     public PersonLinkComponent addLink() { //3
@@ -909,7 +909,7 @@ public class Person extends DomainResource {
         childrenList.add(new Property("photo", "Attachment", "An image that can be displayed as a thumbnail of the person to enhance the identification of the individual.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The Organization that is the custodian of the person record.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("active", "boolean", "Whether this person's record is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
-        childrenList.add(new Property("link", "", "Link to a resource that converns the same actual person.", 0, java.lang.Integer.MAX_VALUE, link));
+        childrenList.add(new Property("link", "", "Link to a resource that concerns the same actual person.", 0, java.lang.Integer.MAX_VALUE, link));
       }
 
       public Person copy() {
@@ -1004,7 +1004,7 @@ public class Person extends DomainResource {
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="birthdate", path="Person.birthDate", description="The person's date of birth", type="date" )
   public static final String SP_BIRTHDATE = "birthdate";
-  @SearchParamDefinition(name="telecom", path="Person.telecom", description="The value in any kind of contact", type="string" )
+  @SearchParamDefinition(name="telecom", path="Person.telecom", description="The value in any kind of contact", type="token" )
   public static final String SP_TELECOM = "telecom";
   @SearchParamDefinition(name="gender", path="Person.gender", description="The gender of the person", type="token" )
   public static final String SP_GENDER = "gender";

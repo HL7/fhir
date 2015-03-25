@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -511,9 +511,9 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * planned | active | onhold | finished | withdrawn | other.
      */
-    @Child(name ="currentStatus", type={CodeType.class}, order=1, min=1, max=1)
+    @Child(name ="status", type={CodeType.class}, order=1, min=1, max=1)
     @Description(shortDefinition="planned | active | onhold | finished | withdrawn | other", formalDefinition="planned | active | onhold | finished | withdrawn | other." )
-    protected Enumeration<EpisodeOfCareStatus> currentStatus;
+    protected Enumeration<EpisodeOfCareStatus> status;
 
     /**
      * The status history for the EpisodeOfCare.
@@ -573,16 +573,16 @@ public class EpisodeOfCare extends DomainResource {
 
 
     /**
-     * A Referral Request that this EpisodeOfCare manages activities within.
+     * Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.
      */
-    @Child(name ="referralRequest", type={ReferralRequest.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="A Referral Request that this EpisodeOfCare manages activities within", formalDefinition="A Referral Request that this EpisodeOfCare manages activities within." )
-    protected Reference referralRequest;
-
+    @Child(name ="referralRequest", type={ReferralRequest.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Referral Request(s) that this EpisodeOfCare manages activities within", formalDefinition="Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals." )
+    protected List<Reference> referralRequest;
     /**
-     * The actual object that is the target of the reference (A Referral Request that this EpisodeOfCare manages activities within.)
+     * The actual objects that are the target of the reference (Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
      */
-    protected ReferralRequest referralRequestTarget;
+    protected List<ReferralRequest> referralRequestTarget;
+
 
     /**
      * The practitioner that is the care manager/care co-ordinator for this patient.
@@ -603,15 +603,15 @@ public class EpisodeOfCare extends DomainResource {
     @Description(shortDefinition="The list of practitioners that may be facilitating this episode of care for specific purposes", formalDefinition="The list of practitioners that may be facilitating this episode of care for specific purposes." )
     protected List<EpisodeOfCareCareTeamComponent> careTeam;
 
-    private static final long serialVersionUID = -411812845L;
+    private static final long serialVersionUID = -1251791864L;
 
     public EpisodeOfCare() {
       super();
     }
 
-    public EpisodeOfCare(Enumeration<EpisodeOfCareStatus> currentStatus, Reference patient) {
+    public EpisodeOfCare(Enumeration<EpisodeOfCareStatus> status, Reference patient) {
       super();
-      this.currentStatus = currentStatus;
+      this.status = status;
       this.patient = patient;
     }
 
@@ -656,47 +656,47 @@ public class EpisodeOfCare extends DomainResource {
     }
 
     /**
-     * @return {@link #currentStatus} (planned | active | onhold | finished | withdrawn | other.). This is the underlying object with id, value and extensions. The accessor "getCurrentStatus" gives direct access to the value
+     * @return {@link #status} (planned | active | onhold | finished | withdrawn | other.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<EpisodeOfCareStatus> getCurrentStatusElement() { 
-      if (this.currentStatus == null)
+    public Enumeration<EpisodeOfCareStatus> getStatusElement() { 
+      if (this.status == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EpisodeOfCare.currentStatus");
+          throw new Error("Attempt to auto-create EpisodeOfCare.status");
         else if (Configuration.doAutoCreate())
-          this.currentStatus = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory()); // bb
-      return this.currentStatus;
+          this.status = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory()); // bb
+      return this.status;
     }
 
-    public boolean hasCurrentStatusElement() { 
-      return this.currentStatus != null && !this.currentStatus.isEmpty();
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasCurrentStatus() { 
-      return this.currentStatus != null && !this.currentStatus.isEmpty();
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
-     * @param value {@link #currentStatus} (planned | active | onhold | finished | withdrawn | other.). This is the underlying object with id, value and extensions. The accessor "getCurrentStatus" gives direct access to the value
+     * @param value {@link #status} (planned | active | onhold | finished | withdrawn | other.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public EpisodeOfCare setCurrentStatusElement(Enumeration<EpisodeOfCareStatus> value) { 
-      this.currentStatus = value;
+    public EpisodeOfCare setStatusElement(Enumeration<EpisodeOfCareStatus> value) { 
+      this.status = value;
       return this;
     }
 
     /**
      * @return planned | active | onhold | finished | withdrawn | other.
      */
-    public EpisodeOfCareStatus getCurrentStatus() { 
-      return this.currentStatus == null ? null : this.currentStatus.getValue();
+    public EpisodeOfCareStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value planned | active | onhold | finished | withdrawn | other.
      */
-    public EpisodeOfCare setCurrentStatus(EpisodeOfCareStatus value) { 
-        if (this.currentStatus == null)
-          this.currentStatus = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory());
-        this.currentStatus.setValue(value);
+    public EpisodeOfCare setStatus(EpisodeOfCareStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory());
+        this.status.setValue(value);
       return this;
     }
 
@@ -954,47 +954,64 @@ public class EpisodeOfCare extends DomainResource {
     }
 
     /**
-     * @return {@link #referralRequest} (A Referral Request that this EpisodeOfCare manages activities within.)
+     * @return {@link #referralRequest} (Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
      */
-    public Reference getReferralRequest() { 
+    public List<Reference> getReferralRequest() { 
       if (this.referralRequest == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EpisodeOfCare.referralRequest");
-        else if (Configuration.doAutoCreate())
-          this.referralRequest = new Reference(); // cc
+        this.referralRequest = new ArrayList<Reference>();
       return this.referralRequest;
     }
 
     public boolean hasReferralRequest() { 
-      return this.referralRequest != null && !this.referralRequest.isEmpty();
+      if (this.referralRequest == null)
+        return false;
+      for (Reference item : this.referralRequest)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #referralRequest} (A Referral Request that this EpisodeOfCare manages activities within.)
+     * @return {@link #referralRequest} (Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
      */
-    public EpisodeOfCare setReferralRequest(Reference value) { 
-      this.referralRequest = value;
+    // syntactic sugar
+    public Reference addReferralRequest() { //3
+      Reference t = new Reference();
+      if (this.referralRequest == null)
+        this.referralRequest = new ArrayList<Reference>();
+      this.referralRequest.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public EpisodeOfCare addReferralRequest(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.referralRequest == null)
+        this.referralRequest = new ArrayList<Reference>();
+      this.referralRequest.add(t);
       return this;
     }
 
     /**
-     * @return {@link #referralRequest} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A Referral Request that this EpisodeOfCare manages activities within.)
+     * @return {@link #referralRequest} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
      */
-    public ReferralRequest getReferralRequestTarget() { 
+    public List<ReferralRequest> getReferralRequestTarget() { 
       if (this.referralRequestTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EpisodeOfCare.referralRequest");
-        else if (Configuration.doAutoCreate())
-          this.referralRequestTarget = new ReferralRequest(); // aa
+        this.referralRequestTarget = new ArrayList<ReferralRequest>();
       return this.referralRequestTarget;
     }
 
+    // syntactic sugar
     /**
-     * @param value {@link #referralRequest} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A Referral Request that this EpisodeOfCare manages activities within.)
+     * @return {@link #referralRequest} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
      */
-    public EpisodeOfCare setReferralRequestTarget(ReferralRequest value) { 
-      this.referralRequestTarget = value;
-      return this;
+    public ReferralRequest addReferralRequestTarget() { 
+      ReferralRequest r = new ReferralRequest();
+      if (this.referralRequestTarget == null)
+        this.referralRequestTarget = new ArrayList<ReferralRequest>();
+      this.referralRequestTarget.add(r);
+      return r;
     }
 
     /**
@@ -1084,14 +1101,14 @@ public class EpisodeOfCare extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier(s) by which this EpisodeOfCare is known.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("currentStatus", "code", "planned | active | onhold | finished | withdrawn | other.", 0, java.lang.Integer.MAX_VALUE, currentStatus));
+        childrenList.add(new Property("status", "code", "planned | active | onhold | finished | withdrawn | other.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("statusHistory", "", "The status history for the EpisodeOfCare.", 0, java.lang.Integer.MAX_VALUE, statusHistory));
         childrenList.add(new Property("type", "CodeableConcept", "The type can be very important in processing as this could be used in determining if the episodeofcare is relevant to specific government reporting, or other types of classifications.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient that this episodeofcare applies to.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The organization that has assumed the specific responsibilities for the specified duration.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("period", "Period", "The interval during which the managing organization assumes the defined responsibility.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("condition", "Reference(Condition)", "A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.", 0, java.lang.Integer.MAX_VALUE, condition));
-        childrenList.add(new Property("referralRequest", "Reference(ReferralRequest)", "A Referral Request that this EpisodeOfCare manages activities within.", 0, java.lang.Integer.MAX_VALUE, referralRequest));
+        childrenList.add(new Property("referralRequest", "Reference(ReferralRequest)", "Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.", 0, java.lang.Integer.MAX_VALUE, referralRequest));
         childrenList.add(new Property("careManager", "Reference(Practitioner)", "The practitioner that is the care manager/care co-ordinator for this patient.", 0, java.lang.Integer.MAX_VALUE, careManager));
         childrenList.add(new Property("careTeam", "", "The list of practitioners that may be facilitating this episode of care for specific purposes.", 0, java.lang.Integer.MAX_VALUE, careTeam));
       }
@@ -1104,7 +1121,7 @@ public class EpisodeOfCare extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        dst.currentStatus = currentStatus == null ? null : currentStatus.copy();
+        dst.status = status == null ? null : status.copy();
         if (statusHistory != null) {
           dst.statusHistory = new ArrayList<EpisodeOfCareStatusHistoryComponent>();
           for (EpisodeOfCareStatusHistoryComponent i : statusHistory)
@@ -1123,7 +1140,11 @@ public class EpisodeOfCare extends DomainResource {
           for (Reference i : condition)
             dst.condition.add(i.copy());
         };
-        dst.referralRequest = referralRequest == null ? null : referralRequest.copy();
+        if (referralRequest != null) {
+          dst.referralRequest = new ArrayList<Reference>();
+          for (Reference i : referralRequest)
+            dst.referralRequest.add(i.copy());
+        };
         dst.careManager = careManager == null ? null : careManager.copy();
         if (careTeam != null) {
           dst.careTeam = new ArrayList<EpisodeOfCareCareTeamComponent>();
@@ -1144,10 +1165,9 @@ public class EpisodeOfCare extends DomainResource {
         if (!(other instanceof EpisodeOfCare))
           return false;
         EpisodeOfCare o = (EpisodeOfCare) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(currentStatus, o.currentStatus, true)
-           && compareDeep(statusHistory, o.statusHistory, true) && compareDeep(type, o.type, true) && compareDeep(patient, o.patient, true)
-           && compareDeep(managingOrganization, o.managingOrganization, true) && compareDeep(period, o.period, true)
-           && compareDeep(condition, o.condition, true) && compareDeep(referralRequest, o.referralRequest, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(statusHistory, o.statusHistory, true)
+           && compareDeep(type, o.type, true) && compareDeep(patient, o.patient, true) && compareDeep(managingOrganization, o.managingOrganization, true)
+           && compareDeep(period, o.period, true) && compareDeep(condition, o.condition, true) && compareDeep(referralRequest, o.referralRequest, true)
            && compareDeep(careManager, o.careManager, true) && compareDeep(careTeam, o.careTeam, true);
       }
 
@@ -1158,11 +1178,11 @@ public class EpisodeOfCare extends DomainResource {
         if (!(other instanceof EpisodeOfCare))
           return false;
         EpisodeOfCare o = (EpisodeOfCare) other;
-        return compareValues(currentStatus, o.currentStatus, true);
+        return compareValues(status, o.status, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (currentStatus == null || currentStatus.isEmpty())
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
            && (statusHistory == null || statusHistory.isEmpty()) && (type == null || type.isEmpty())
            && (patient == null || patient.isEmpty()) && (managingOrganization == null || managingOrganization.isEmpty())
            && (period == null || period.isEmpty()) && (condition == null || condition.isEmpty()) && (referralRequest == null || referralRequest.isEmpty())
@@ -1175,22 +1195,22 @@ public class EpisodeOfCare extends DomainResource {
     return ResourceType.EpisodeOfCare;
    }
 
-  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities for the specified duration", type="reference" )
+  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities of this EpisodeOfCare", type="reference" )
   public static final String SP_ORGANIZATION = "organization";
   @SearchParamDefinition(name="patient", path="EpisodeOfCare.patient", description="The patient that this episodeofcare applies to", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="condition", path="EpisodeOfCare.condition", description="A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for", type="reference" )
   public static final String SP_CONDITION = "condition";
-  @SearchParamDefinition(name="status", path="EpisodeOfCare.currentStatus", description="planned | active | onhold | finished | withdrawn | other", type="token" )
+  @SearchParamDefinition(name="status", path="EpisodeOfCare.status", description="The current status of the Episode of Care as provided (does not check the status history collection)", type="token" )
   public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="referral", path="EpisodeOfCare.referralRequest", description="A Referral Request that this EpisodeOfCare manages activities within", type="reference" )
-  public static final String SP_REFERRAL = "referral";
   @SearchParamDefinition(name="care-manager", path="EpisodeOfCare.careManager", description="The practitioner that is the care manager/care co-ordinator for this patient", type="reference" )
   public static final String SP_CAREMANAGER = "care-manager";
   @SearchParamDefinition(name="type", path="EpisodeOfCare.type", description="Specific type of EpisodeOfcare", type="token" )
   public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="date", path="EpisodeOfCare.period", description="The interval during which the managing organization assumes the defined responsibility", type="date" )
+  @SearchParamDefinition(name="date", path="EpisodeOfCare.period", description="The provided date search value falls within the episode of care's period", type="date" )
   public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference" )
+  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
   @SearchParamDefinition(name="identifier", path="EpisodeOfCare.identifier", description="Identifier(s) by which this EpisodeOfCare is known", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -63,6 +63,14 @@ public class Condition extends DomainResource {
          */
         REFUTED, 
         /**
+         * The statement was entered in error and Is not valid.
+         */
+        ENTEREDINERROR, 
+        /**
+         * The condition status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
+         */
+        UNKNOWN, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -77,6 +85,10 @@ public class Condition extends DomainResource {
           return CONFIRMED;
         if ("refuted".equals(codeString))
           return REFUTED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         throw new Exception("Unknown ConditionStatus code '"+codeString+"'");
         }
         public String toCode() {
@@ -85,6 +97,8 @@ public class Condition extends DomainResource {
             case WORKING: return "working";
             case CONFIRMED: return "confirmed";
             case REFUTED: return "refuted";
+            case ENTEREDINERROR: return "entered-in-error";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -94,6 +108,8 @@ public class Condition extends DomainResource {
             case WORKING: return "";
             case CONFIRMED: return "";
             case REFUTED: return "";
+            case ENTEREDINERROR: return "";
+            case UNKNOWN: return "";
             default: return "?";
           }
         }
@@ -103,6 +119,8 @@ public class Condition extends DomainResource {
             case WORKING: return "The patient is being treated on the basis that this is the condition, but it is still not confirmed.";
             case CONFIRMED: return "There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.";
             case REFUTED: return "This condition has been ruled out by diagnostic and clinical evidence.";
+            case ENTEREDINERROR: return "The statement was entered in error and Is not valid.";
+            case UNKNOWN: return "The condition status is unknown.  Note that 'unknown' is a value of last resort and every attempt should be made to provide a meaningful value other than 'unknown'.";
             default: return "?";
           }
         }
@@ -112,6 +130,8 @@ public class Condition extends DomainResource {
             case WORKING: return "Working";
             case CONFIRMED: return "Confirmed";
             case REFUTED: return "Refuted";
+            case ENTEREDINERROR: return "Entered In Error";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -130,6 +150,10 @@ public class Condition extends DomainResource {
           return ConditionStatus.CONFIRMED;
         if ("refuted".equals(codeString))
           return ConditionStatus.REFUTED;
+        if ("entered-in-error".equals(codeString))
+          return ConditionStatus.ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return ConditionStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown ConditionStatus code '"+codeString+"'");
         }
     public String toCode(ConditionStatus code) {
@@ -141,6 +165,10 @@ public class Condition extends DomainResource {
         return "confirmed";
       if (code == ConditionStatus.REFUTED)
         return "refuted";
+      if (code == ConditionStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      if (code == ConditionStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     }
@@ -901,7 +929,7 @@ public class Condition extends DomainResource {
      * The clinical status of the condition.
      */
     @Child(name ="clinicalStatus", type={CodeType.class}, order=7, min=1, max=1)
-    @Description(shortDefinition="provisional | working | confirmed | refuted", formalDefinition="The clinical status of the condition." )
+    @Description(shortDefinition="provisional | working | confirmed | refuted | entered-in-error | unknown", formalDefinition="The clinical status of the condition." )
     protected Enumeration<ConditionStatus> clinicalStatus;
 
     /**
@@ -1808,7 +1836,7 @@ public class Condition extends DomainResource {
   public static final String SP_ONSET = "onset";
   @SearchParamDefinition(name="evidence", path="Condition.evidence.code", description="Manifestation/symptom", type="token" )
   public static final String SP_EVIDENCE = "evidence";
-  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="date" )
+  @SearchParamDefinition(name="onset-info", path="Condition.onset[x]", description="Other onsets (boolean, age, range, string)", type="string" )
   public static final String SP_ONSETINFO = "onset-info";
   @SearchParamDefinition(name="following-item", path="Condition.occurredFollowing.target", description="Relationship target resource", type="reference" )
   public static final String SP_FOLLOWINGITEM = "following-item";

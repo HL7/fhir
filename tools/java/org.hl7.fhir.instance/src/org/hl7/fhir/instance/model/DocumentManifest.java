@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -136,102 +136,102 @@ public class DocumentManifest extends DomainResource {
         /**
          * Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
          */
-        @Child(name ="ids", type={Identifier.class}, order=1, min=0, max=1)
+        @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Related Identifier", formalDefinition="Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing." )
-        protected Identifier ids;
+        protected Identifier identifier;
 
         /**
          * Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
          */
-        @Child(name ="refs", type={}, order=2, min=0, max=1)
+        @Child(name ="ref", type={}, order=2, min=0, max=1)
         @Description(shortDefinition="Related Resource", formalDefinition="Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing." )
-        protected Reference refs;
+        protected Reference ref;
 
         /**
          * The actual object that is the target of the reference (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
          */
-        protected Resource refsTarget;
+        protected Resource refTarget;
 
-        private static final long serialVersionUID = -579833869L;
+        private static final long serialVersionUID = -1670123330L;
 
       public DocumentManifestRelatedComponent() {
         super();
       }
 
         /**
-         * @return {@link #ids} (Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         * @return {@link #identifier} (Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
          */
-        public Identifier getIds() { 
-          if (this.ids == null)
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DocumentManifestRelatedComponent.ids");
+              throw new Error("Attempt to auto-create DocumentManifestRelatedComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.ids = new Identifier(); // cc
-          return this.ids;
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
         }
 
-        public boolean hasIds() { 
-          return this.ids != null && !this.ids.isEmpty();
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
-         * @param value {@link #ids} (Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         * @param value {@link #identifier} (Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
          */
-        public DocumentManifestRelatedComponent setIds(Identifier value) { 
-          this.ids = value;
+        public DocumentManifestRelatedComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
           return this;
         }
 
         /**
-         * @return {@link #refs} (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         * @return {@link #ref} (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
          */
-        public Reference getRefs() { 
-          if (this.refs == null)
+        public Reference getRef() { 
+          if (this.ref == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DocumentManifestRelatedComponent.refs");
+              throw new Error("Attempt to auto-create DocumentManifestRelatedComponent.ref");
             else if (Configuration.doAutoCreate())
-              this.refs = new Reference(); // cc
-          return this.refs;
+              this.ref = new Reference(); // cc
+          return this.ref;
         }
 
-        public boolean hasRefs() { 
-          return this.refs != null && !this.refs.isEmpty();
+        public boolean hasRef() { 
+          return this.ref != null && !this.ref.isEmpty();
         }
 
         /**
-         * @param value {@link #refs} (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         * @param value {@link #ref} (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
          */
-        public DocumentManifestRelatedComponent setRefs(Reference value) { 
-          this.refs = value;
+        public DocumentManifestRelatedComponent setRef(Reference value) { 
+          this.ref = value;
           return this;
         }
 
         /**
-         * @return {@link #refs} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         * @return {@link #ref} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
          */
-        public Resource getRefsTarget() { 
-          return this.refsTarget;
+        public Resource getRefTarget() { 
+          return this.refTarget;
         }
 
         /**
-         * @param value {@link #refs} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
+         * @param value {@link #ref} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.)
          */
-        public DocumentManifestRelatedComponent setRefsTarget(Resource value) { 
-          this.refsTarget = value;
+        public DocumentManifestRelatedComponent setRefTarget(Resource value) { 
+          this.refTarget = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("ids", "Identifier", "Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, ids));
-          childrenList.add(new Property("refs", "Reference(Any)", "Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, refs));
+          childrenList.add(new Property("identifier", "Identifier", "Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("ref", "Reference(Any)", "Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, ref));
         }
 
       public DocumentManifestRelatedComponent copy() {
         DocumentManifestRelatedComponent dst = new DocumentManifestRelatedComponent();
         copyValues(dst);
-        dst.ids = ids == null ? null : ids.copy();
-        dst.refs = refs == null ? null : refs.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.ref = ref == null ? null : ref.copy();
         return dst;
       }
 
@@ -242,7 +242,7 @@ public class DocumentManifest extends DomainResource {
         if (!(other instanceof DocumentManifestRelatedComponent))
           return false;
         DocumentManifestRelatedComponent o = (DocumentManifestRelatedComponent) other;
-        return compareDeep(ids, o.ids, true) && compareDeep(refs, o.refs, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(ref, o.ref, true);
       }
 
       @Override
@@ -256,7 +256,7 @@ public class DocumentManifest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (ids == null || ids.isEmpty()) && (refs == null || refs.isEmpty())
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ref == null || ref.isEmpty())
           ;
       }
 
@@ -983,16 +983,18 @@ public class DocumentManifest extends DomainResource {
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
   public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="relatedids", path="DocumentManifest.related.ids", description="Related Identifier", type="token" )
-  public static final String SP_RELATEDIDS = "relatedids";
   @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
   public static final String SP_RECIPIENT = "recipient";
+  @SearchParamDefinition(name="relatedid", path="DocumentManifest.related.identifier", description="Related Identifier", type="token" )
+  public static final String SP_RELATEDID = "relatedid";
   @SearchParamDefinition(name="content", path="DocumentManifest.content", description="Contents of this set of documents", type="reference" )
   public static final String SP_CONTENT = "content";
   @SearchParamDefinition(name="author", path="DocumentManifest.author", description="Who and/or what authored the document", type="reference" )
   public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="relatedref", path="DocumentManifest.related.ref", description="Related Resource", type="reference" )
+  public static final String SP_RELATEDREF = "relatedref";
   @SearchParamDefinition(name="patient", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="source", path="DocumentManifest.source", description="The source system/application/software", type="uri" )
@@ -1003,8 +1005,6 @@ public class DocumentManifest extends DomainResource {
   public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier|DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="relatedrefs", path="DocumentManifest.related.refs", description="Related Resource", type="reference" )
-  public static final String SP_RELATEDREFS = "relatedrefs";
 
 }
 

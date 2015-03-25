@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Mar 23, 2015 16:05+1100 for FHIR v0.4.0
+// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1160,7 +1160,7 @@ public class ProcessRequest extends DomainResource {
 
   @SearchParamDefinition(name="organization", path="ProcessRequest.organization", description="The organization who generated this request", type="reference" )
   public static final String SP_ORGANIZATION = "organization";
-  @SearchParamDefinition(name="action", path="ProcessRequest.action", description="The action requested by this resource", type="string" )
+  @SearchParamDefinition(name="action", path="ProcessRequest.action", description="The action requested by this resource", type="token" )
   public static final String SP_ACTION = "action";
   @SearchParamDefinition(name="provider", path="ProcessRequest.provider", description="The provider who renerated this request", type="reference" )
   public static final String SP_PROVIDER = "provider";
