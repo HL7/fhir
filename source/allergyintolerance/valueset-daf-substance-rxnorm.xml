@@ -1,5 +1,8 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.7"/>
+  </extension> 
   <name value="DAF Substanc RxNorm Codes"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -8,7 +11,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="All RxNorm codes that have TTYY = IN,PIN,MIN,BN, but TTY = OCD"/> 
+  <description value="All RxNorm codes that have TTY = IN,PIN,MIN,BN, but TTY != OCD"/> 
   <status value="draft"/>
   <compose>
     <include>
@@ -26,7 +29,7 @@
         <op value="="/>
         <value value="OCD"/>
       </filter>
-    </include>
+    </exclude>
   </compose>
 </ValueSet>
 

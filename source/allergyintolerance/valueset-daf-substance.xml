@@ -28,6 +28,9 @@
        <li>daf-substance-sct: Substance Other Than Clinical Drug</li>
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113762.1.4.1010.1"/>
+  </extension> 
   <name value="DAF Substance-Reactant for Intolerance"/>
   <publisher value="FHIR Project team"/>
   <contact>
