@@ -17,6 +17,11 @@
     <display value="Unspecified"/>
     <display value="Non-specific (qualifier value)"/>
   </concept>
+  <concept id="10206005" display="Hospital-based outpatient dental clinic (environment)">
+    <display value="Hospital-based outpatient dental clinic"/>
+    <display value="Hospital-based outpatient dental health clinic"/>
+    <display value="Hospital-based outpatient dental clinic (environment)"/>
+  </concept>
   <concept id="102261002" display="Strawberry">
     <display value="Strawberries"/>
     <display value="Strawberry"/>
@@ -64,6 +69,11 @@
     <display value="Has urgency"/>
     <display value="Urgency (qualifier value)"/>
   </concept>
+  <concept id="103693007" display="Diagnostic procedure (procedure)">
+    <display value="Diagnostic procedure"/>
+    <display value="Diagnostic procedure, NOS"/>
+    <display value="Diagnostic procedure (procedure)"/>
+  </concept>
   <concept id="104106002" display="Platelet count, blood, manual (procedure)">
     <display value="Platelet count, blood, manual"/>
     <display value="Platelet count, blood, manual (procedure)"/>
@@ -97,6 +107,10 @@
   <concept id="104979009" display="Total globulins measurement">
     <display value="Total globulins measurement"/>
     <display value="Total globulins measurement (procedure)"/>
+  </concept>
+  <concept id="10531005" display="Free-standing ambulatory surgery facility (environment)">
+    <display value="Free-standing ambulatory surgery facility"/>
+    <display value="Free-standing ambulatory surgery facility (environment)"/>
   </concept>
   <concept id="108241001" display="Dialysis procedure (procedure)">
     <display value="Dialysis procedure"/>
@@ -171,6 +185,10 @@
     <display value="Assault and battery"/>
     <display value="Assault and battery (event)"/>
     <display value="Assault and battery (finding)"/>
+  </concept>
+  <concept id="11424001" display="Ambulance-based care (environment)">
+    <display value="Ambulance-based care"/>
+    <display value="Ambulance-based care (environment)"/>
   </concept>
   <concept id="11429006" display="Consultation">
     <display value="Consultation"/>
@@ -725,6 +743,11 @@
     <display value="Temporary"/>
     <display value="Transitory (qualifier value)"/>
   </concept>
+  <concept id="14866005" display="Hospital-based outpatient mental health clinic (environment)">
+    <display value="Hospital-based outpatient mental health clinic"/>
+    <display value="Hospital-based outpatient psychiatric clinic"/>
+    <display value="Hospital-based outpatient mental health clinic (environment)"/>
+  </concept>
   <concept id="14975008" display="Forearm">
     <display value="Forearm"/>
     <display value="Forearm, NOS"/>
@@ -941,6 +964,10 @@
     <display value="Unremarkable"/>
     <display value="Normal (qualifier value)"/>
   </concept>
+  <concept id="1773006" display="Free-standing radiology facility (environment)">
+    <display value="Free-standing radiology facility"/>
+    <display value="Free-standing radiology facility (environment)"/>
+  </concept>
   <concept id="17888004" display="HDL measurement">
     <display value="HDL measurement"/>
     <display value="High density lipoprotein measurement"/>
@@ -965,6 +992,11 @@
   <concept id="18131002" display="Acute fulminating (qualifier value)">
     <display value="Acute fulminating"/>
     <display value="Acute fulminating (qualifier value)"/>
+  </concept>
+  <concept id="1814000" display="Hospital-based outpatient geriatric clinic (environment)">
+    <display value="Hospital-based outpatient geriatric clinic"/>
+    <display value="Hospital-based outpatient gerontology clinic"/>
+    <display value="Hospital-based outpatient geriatric clinic (environment)"/>
   </concept>
   <concept id="181414000" display="Kidney">
     <display value="Kidney"/>
@@ -1003,6 +1035,16 @@
     <display value="Penile structure"/>
     <display value="Penile structure (body structure)"/>
   </concept>
+  <concept id="18949003" display="Change of dressing (procedure)">
+    <display value="Dressing change"/>
+    <display value="Change of dressing"/>
+    <display value="Change of dressing, NOS"/>
+    <display value="Reapplying a fresh dressing"/>
+    <display value="Renewing dressing"/>
+    <display value="Redressing wound"/>
+    <display value="Repeating dressing"/>
+    <display value="Change of dressing (procedure)"/>
+  </concept>
   <concept id="190372001" display="Type I diabetes mellitus maturity onset">
     <display value="Type I diabetes mellitus maturity onset"/>
     <display value="Insulin-dependent diabetes maturity onset"/>
@@ -1024,6 +1066,11 @@
     <display value="Ischaemic heart disease - angina"/>
     <display value="Angina (disorder)"/>
   </concept>
+  <concept id="19602009" display="Fee-for-service private physicians&#39; group office (environment)">
+    <display value="Fee-for-service private physicians&#39; group office"/>
+    <display value="Fee-for-service private physicians&#39; group clinic"/>
+    <display value="Fee-for-service private physicians&#39; group office (environment)"/>
+  </concept>
   <concept id="197166005" display="Rectal abscess (disorder)">
     <display value="Rectal abscess"/>
     <display value="Rectal boil"/>
@@ -1040,6 +1087,13 @@
     <display value="Barley"/>
     <display value="Hordeum (organism)"/>
   </concept>
+  <concept id="20078004" display="Substance abuse treatment center (environment)">
+    <display value="Substance abuse treatment center"/>
+    <display value="Drug abuse treatment center"/>
+    <display value="Substance abuse treatment centre"/>
+    <display value="Drug abuse treatment centre"/>
+    <display value="Substance abuse treatment center (environment)"/>
+  </concept>
   <concept id="20233005" display="Scrotal structure (body structure)">
     <display value="Scrotum"/>
     <display value="Scrotum, NOS"/>
@@ -1054,6 +1108,10 @@
     <display value="Blush"/>
     <display value="Flush"/>
     <display value="Blushing (function)"/>
+  </concept>
+  <concept id="2081004" display="Hospital ship (environment)">
+    <display value="Hospital ship"/>
+    <display value="Hospital ship (environment)"/>
   </concept>
   <concept id="2095001" display="Nasal sinus structure (body structure)">
     <display value="Accessory sinus"/>
@@ -1128,6 +1186,10 @@
     <display value="Renal nurse"/>
     <display value="Renal nurse (occupation)"/>
   </concept>
+  <concept id="224687002" display="Prison hospital (environment)">
+    <display value="Prison hospital"/>
+    <display value="Prison hospital (environment)"/>
+  </concept>
   <concept id="224943009" display="Night and day (qualifier value)">
     <display value="Night and day"/>
     <display value="Night and day (qualifier value)"/>
@@ -1135,6 +1197,10 @@
   <concept id="225109005" display="Collection of nephrostomy urine specimen (procedure)">
     <display value="Collection of nephrostomy urine specimen"/>
     <display value="Collection of nephrostomy urine specimen (procedure)"/>
+  </concept>
+  <concept id="225164002" display="Removal of ligature">
+    <display value="Removal of ligature"/>
+    <display value="Removal of ligature (procedure)"/>
   </concept>
   <concept id="225271002" display="Collection of mid-stream specimen of urine (procedure)">
     <display value="Collection of mid-stream specimen of urine"/>
@@ -1152,6 +1218,16 @@
     <display value="Following the programme plan"/>
     <display value="Implementation of planned interventions"/>
     <display value="Implementation of planned interventions (procedure)"/>
+  </concept>
+  <concept id="22549003" display="Hospital-based outpatient gynecology clinic (environment)">
+    <display value="Hospital-based outpatient gynaecology clinic"/>
+    <display value="Hospital-based outpatient gynecology clinic"/>
+    <display value="Hospital-based outpatient gynecology clinic (environment)"/>
+  </concept>
+  <concept id="225732001" display="Community hospital (environment)">
+    <display value="Community hospital"/>
+    <display value="CH - Community hospital"/>
+    <display value="Community hospital (environment)"/>
   </concept>
   <concept id="225758001" display="After food (qualifier value)">
     <display value="After food"/>
@@ -1197,6 +1273,10 @@
     <display value="Coke drink"/>
     <display value="Cola drink (substance)"/>
   </concept>
+  <concept id="226529007" display="Starchy food (substance)">
+    <display value="Starchy food"/>
+    <display value="Starchy food (substance)"/>
+  </concept>
   <concept id="226760005" display="Dairy foods (substance)">
     <display value="Dairy products"/>
     <display value="Dairy foods"/>
@@ -1240,6 +1320,11 @@
     <display value="Yoghurt"/>
     <display value="Yogurt"/>
     <display value="Yoghurt (substance)"/>
+  </concept>
+  <concept id="226887002" display="Fats and oils (substance)">
+    <display value="Dietary fats and oils"/>
+    <display value="Fats and oils"/>
+    <display value="Fats and oils (substance)"/>
   </concept>
   <concept id="226916002" display="Beef (substance)">
     <display value="Beef"/>
@@ -1335,6 +1420,10 @@
     <display value="Squid - dietary"/>
     <display value="Squid"/>
     <display value="Squid - dietary (substance)"/>
+  </concept>
+  <concept id="227210005" display="Vegetables pulses herbs and spices (substance)">
+    <display value="Vegetables pulses herbs and spices"/>
+    <display value="Vegetables pulses herbs and spices (substance)"/>
   </concept>
   <concept id="227215000" display="Artichoke (substance)">
     <display value="Artichoke"/>
@@ -1473,6 +1562,10 @@
     <display value="Tarragon"/>
     <display value="Tarragon (substance)"/>
   </concept>
+  <concept id="227415002" display="Fruit nuts and seeds (substance)">
+    <display value="Fruit nuts and seeds"/>
+    <display value="Fruit nuts and seeds (substance)"/>
+  </concept>
   <concept id="227418000" display="Blackberries (substance)">
     <display value="Blackberries"/>
     <display value="Blackberry"/>
@@ -1529,6 +1622,10 @@
     <display value="Pistachio nuts"/>
     <display value="Pistachio nut"/>
     <display value="Pistachio nut (substance)"/>
+  </concept>
+  <concept id="227518002" display="Sauces seasonings and soups (substance)">
+    <display value="Sauces seasonings and soups"/>
+    <display value="Sauces seasonings and soups (substance)"/>
   </concept>
   <concept id="227537006" display="Soy sauce">
     <display value="Soya sauce"/>
@@ -1593,6 +1690,11 @@
   <concept id="22836000" display="Vegetable (substance)">
     <display value="Vegetable"/>
     <display value="Vegetable (substance)"/>
+  </concept>
+  <concept id="229506003" display="Scar tissue massage (regime/therapy)">
+    <display value="Scar tissue massage (regime/therapy)"/>
+    <display value="Scar tissue massage"/>
+    <display value="Scar tissue massage (procedure)"/>
   </concept>
   <concept id="229774002" display="Carer">
     <display value="Carer"/>
@@ -1678,6 +1780,11 @@
     <display value="Cardiac pacemaker procedure"/>
     <display value="Cardiac pacemaker procedure (procedure)"/>
   </concept>
+  <concept id="23392004" display="Hospital-based outpatient otorhinolaryngology clinic">
+    <display value="Hospital-based outpatient otorhinolaryngology clinic"/>
+    <display value="Hospital-based outpatient ORL clinic"/>
+    <display value="Hospital-based outpatient otorhinolaryngology clinic (environment)"/>
+  </concept>
   <concept id="235157009" display="Endoscopic brushings of gastrointestinal tract (procedure)">
     <display value="Endoscopic brushings of gastrointestinal tract"/>
     <display value="Endoscopic brushings of GIT"/>
@@ -1704,6 +1811,10 @@
     <display value="Biopsy of skin"/>
     <display value="Skin biopsy"/>
     <display value="Biopsy of skin (procedure)"/>
+  </concept>
+  <concept id="241031001" display="Removal of drain (procedure)">
+    <display value="Removal of drain"/>
+    <display value="Removal of drain (procedure)"/>
   </concept>
   <concept id="241541005" display="High resolution CT of lungs">
     <display value="High resolution computed tomography of lungs (procedure)"/>
@@ -1746,6 +1857,11 @@
     <display value="Capsicum frutescens"/>
     <display value="Cayenne pepper"/>
     <display value="Capsicum frutescens (organism)"/>
+  </concept>
+  <concept id="24642003" display="Psychiatry procedure or service (procedure)">
+    <display value="Psychiatry procedure or service"/>
+    <display value="Psychiatry procedure or service, NOS"/>
+    <display value="Psychiatry procedure or service (procedure)"/>
   </concept>
   <concept id="24734008" display="Insect bite (morphologic abnormality)">
     <display value="Insect bite"/>
@@ -2054,6 +2170,10 @@
     <display value="After full dilatation of cervix"/>
     <display value="After full dilatation of cervix (qualifier value)"/>
   </concept>
+  <concept id="255620007" display="Foods (substance)">
+    <display value="Foods"/>
+    <display value="Foods (substance)"/>
+  </concept>
   <concept id="256306003" display="Orange - fruit (substance)">
     <display value="Orange - fruit"/>
     <display value="Orange - fruit (substance)"/>
@@ -2178,6 +2298,11 @@
   <concept id="256674009" display="Fat (substance)">
     <display value="Fat"/>
     <display value="Fat (substance)"/>
+  </concept>
+  <concept id="25681007" display="Sexually transmitted disease clinic (environment)">
+    <display value="Sexually transmitted disease clinic"/>
+    <display value="Venereal disease clinic"/>
+    <display value="Sexually transmitted disease clinic (environment)"/>
   </concept>
   <concept id="257261003" display="Swab (specimen)">
     <display value="Swab"/>
@@ -2819,6 +2944,10 @@
     <display value="Old age"/>
     <display value="Old age (qualifier value)"/>
   </concept>
+  <concept id="272501009" display="Sports facility (environment)">
+    <display value="Sports facility"/>
+    <display value="Sports facility (environment)"/>
+  </concept>
   <concept id="272626006" display="Respiratory organ (body structure)">
     <display value="Respiratory organ"/>
     <display value="Respiratory organ (body structure)"/>
@@ -2833,10 +2962,19 @@
     <display value="Serum urea measurement"/>
     <display value="Serum urea measurement (procedure)"/>
   </concept>
+  <concept id="274441001" display="Suction drainage (procedure)">
+    <display value="Suction drainage"/>
+    <display value="Suction drainage (procedure)"/>
+  </concept>
   <concept id="274921003" display="Accidental mechanical suffocation by falling material (event)">
     <display value="Accidental mechanical suffocation by falling material (event)"/>
     <display value="Accidental mechanical suffocation by falling material"/>
     <display value="Accidental mechanical suffocation by falling material (finding)"/>
+  </concept>
+  <concept id="275576008" display="Elderly assessment clinic (environment)">
+    <display value="Geriatric clinic"/>
+    <display value="Elderly assessment clinic"/>
+    <display value="Elderly assessment clinic (environment)"/>
   </concept>
   <concept id="275895008" display="On examination - tenderness (finding)">
     <display value="On examination - tenderness (finding)"/>
@@ -3028,6 +3166,15 @@
     <display value="Potassium supplementation"/>
     <display value="Potassium supplementation (substance)"/>
   </concept>
+  <concept id="284546000" display="Hospice (environment)">
+    <display value="Hospice (environment)"/>
+    <display value="Hospice"/>
+    <display value="Hospice (finding)"/>
+  </concept>
+  <concept id="2849009" display="Hospital-based outpatient infectious disease clinic (environment)">
+    <display value="Hospital-based outpatient infectious disease clinic"/>
+    <display value="Hospital-based outpatient infectious disease clinic (environment)"/>
+  </concept>
   <concept id="285570007" display="Taking of swab (procedure)">
     <display value="Taking of swab"/>
     <display value="Taking of swab (procedure)"/>
@@ -3168,6 +3315,13 @@
   <concept id="303949008" display="Lumbar spinal cerebrospinal fluid pathway (body structure)">
     <display value="Lumbar spinal cerebrospinal fluid pathway"/>
     <display value="Lumbar spinal cerebrospinal fluid pathway (body structure)"/>
+  </concept>
+  <concept id="30549001" display="Removal of suture (procedure)">
+    <display value="Removal of sutures"/>
+    <display value="ROS - Removal of sutures"/>
+    <display value="Removal of suture"/>
+    <display value="Removal of suture, NOS"/>
+    <display value="Removal of suture (procedure)"/>
   </concept>
   <concept id="305956004" display="Referral by physician">
     <display value="Referral from physician"/>
@@ -3367,9 +3521,22 @@
     <display value="Night and morning"/>
     <display value="Night and morning (qualifier value)"/>
   </concept>
+  <concept id="309898008" display="Psychogeriatric day hospital (environment)">
+    <display value="Psychogeriatric day hospital"/>
+    <display value="Psychogeriatric day hospital (environment)"/>
+  </concept>
+  <concept id="309900005" display="Care of the elderly day hospital (environment)">
+    <display value="Care of the elderly day hospital"/>
+    <display value="Care of the elderly day hospital (environment)"/>
+  </concept>
   <concept id="309902002" display="Clinical oncology department">
     <display value="Clinical oncology department"/>
     <display value="Clinical oncology department (environment)"/>
+  </concept>
+  <concept id="310205006" display="Private residential home (environment)">
+    <display value="Private residential home (environment)"/>
+    <display value="Private residential home"/>
+    <display value="Private residential home (finding)"/>
   </concept>
   <concept id="310252000" display="BMI less than 20">
     <display value="BMI less than 20"/>
@@ -3444,6 +3611,10 @@
     <display value="Evening"/>
     <display value="Evening (qualifier value)"/>
   </concept>
+  <concept id="31628002" display="Hospital-based outpatient family medicine clinic (environment)">
+    <display value="Hospital-based outpatient family medicine clinic"/>
+    <display value="Hospital-based outpatient family medicine clinic (environment)"/>
+  </concept>
   <concept id="318475005" display="Metoprolol tartrate 50mg tablet">
     <display value="Metoprolol tartrate 50mg tablet (product)"/>
     <display value="Metoprolol tartrate 50mg tablet"/>
@@ -3463,6 +3634,11 @@
     <display value="Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler (product)"/>
     <display value="Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler"/>
     <display value="Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler (substance)"/>
+  </concept>
+  <concept id="32074000" display="Long term care hospital (environment)">
+    <display value="Long stay hospital"/>
+    <display value="Long term care hospital"/>
+    <display value="Long term care hospital (environment)"/>
   </concept>
   <concept id="321667001" display="Respiratory tract">
     <display value="Respiratory tract structure"/>
@@ -3536,6 +3712,19 @@
     <display value="Garlic"/>
     <display value="Garlic product"/>
     <display value="Garlic product (substance)"/>
+  </concept>
+  <concept id="33022008" display="Hospital-based outpatient department (environment)">
+    <display value="Hospital outpatients department"/>
+    <display value="OPD - Outpatients department"/>
+    <display value="Hospital-based outpatient department"/>
+    <display value="Hospital-based outpatient department, NOS"/>
+    <display value="Hospital-based outpatient clinic, NOS"/>
+    <display value="Hospital-based outpatient clinic"/>
+    <display value="Hospital-based outpatient department (environment)"/>
+  </concept>
+  <concept id="331006" display="Hospital-based outpatient rheumatology clinic (environment)">
+    <display value="Hospital-based outpatient rheumatology clinic"/>
+    <display value="Hospital-based outpatient rheumatology clinic (environment)"/>
   </concept>
   <concept id="333847008" display="Ketamine (product)">
     <display value="Ketamine (product)"/>
@@ -3644,6 +3833,19 @@
     <display value="Partial lobectomy of lung"/>
     <display value="Partial lobectomy of lung (procedure)"/>
   </concept>
+  <concept id="35963001" display="Removal of staples (procedure)">
+    <display value="Removal of staples"/>
+    <display value="Removal of staples (procedure)"/>
+  </concept>
+  <concept id="35971002" display="Ambulatory care site (environment)">
+    <display value="Ambulatory care site"/>
+    <display value="Ambulatory care site, NOS"/>
+    <display value="Ambulatory care site (environment)"/>
+  </concept>
+  <concept id="359825008" display="Cytopathology, review of bronchioalveolar lavage specimen">
+    <display value="Cytopathology, review of bronchioalveolar lavage specimen"/>
+    <display value="Cytopathology, review of bronchioalveolar lavage specimen (procedure)"/>
+  </concept>
   <concept id="360020006" display="Extirpation - action">
     <display value="Extirpation - action"/>
     <display value="Extirpation - action (qualifier value)"/>
@@ -3656,6 +3858,19 @@
     <display value="Glucose measurement"/>
     <display value="Glucose measurement, NOS"/>
     <display value="Glucose measurement (procedure)"/>
+  </concept>
+  <concept id="360957003" display="Hospital-based outpatient allergy clinic (environment)">
+    <display value="Hospital-based outpatient allergy clinic"/>
+    <display value="Hospital-based outpatient allergy clinic (environment)"/>
+  </concept>
+  <concept id="360966004" display="Hospital-based outpatient immunology clinic (environment)">
+    <display value="Hospital-based outpatient immunology clinic"/>
+    <display value="Hospital-based outpatient immunology clinic (environment)"/>
+  </concept>
+  <concept id="36125001" display="Trauma center (environment)">
+    <display value="Trauma centre"/>
+    <display value="Trauma center"/>
+    <display value="Trauma center (environment)"/>
   </concept>
   <concept id="361355005" display="Head and neck">
     <display value="Entire head and neck"/>
@@ -3674,6 +3889,10 @@
     <display value="Acute tubular necrosis specified as due to procedure"/>
     <display value="Acute renal insufficiency due to procedure"/>
     <display value="Acute renal failure due to procedure (disorder)"/>
+  </concept>
+  <concept id="36293008" display="Hospital-based outpatient pain clinic (environment)">
+    <display value="Hospital-based outpatient pain clinic"/>
+    <display value="Hospital-based outpatient pain clinic (environment)"/>
   </concept>
   <concept id="363346000" display="Cancer">
     <display value="Malignant neoplastic disease (disorder)"/>
@@ -3835,6 +4054,11 @@
     <display value="Timolol (substance)"/>
     <display value="Timolol"/>
   </concept>
+  <concept id="3729002" display="Hospital-based outpatient pediatric clinic (environment)">
+    <display value="Hospital-based outpatient paediatric clinic"/>
+    <display value="Hospital-based outpatient pediatric clinic"/>
+    <display value="Hospital-based outpatient pediatric clinic (environment)"/>
+  </concept>
   <concept id="372914003" display="Chlorpheniramine">
     <display value="Chlorpheniramine (substance)"/>
     <display value="Chlorpheniramine"/>
@@ -3861,6 +4085,14 @@
     <display value="Acute onset (qualifier value)"/>
     <display value="Acute onset"/>
   </concept>
+  <concept id="37546005" display="Hospital-based outpatient rehabilitation clinic (environment)">
+    <display value="Hospital-based outpatient rehabilitation clinic"/>
+    <display value="Hospital-based outpatient rehabilitation clinic (environment)"/>
+  </concept>
+  <concept id="37550003" display="Hospital-based outpatient dermatology clinic">
+    <display value="Hospital-based outpatient dermatology clinic"/>
+    <display value="Hospital-based outpatient dermatology clinic (environment)"/>
+  </concept>
   <concept id="37595005" display="Suspension">
     <display value="Suspension"/>
     <display value="Suspension, NOS"/>
@@ -3876,6 +4108,10 @@
   <concept id="38048003" display="Uncle">
     <display value="Uncle"/>
     <display value="Uncle (person)"/>
+  </concept>
+  <concept id="38238005" display="Hospital-based outpatient neurology clinic (environment)">
+    <display value="Hospital-based outpatient neurology clinic"/>
+    <display value="Hospital-based outpatient neurology clinic (environment)"/>
   </concept>
   <concept id="38266002" display="Total body">
     <display value="Entire body as a whole"/>
@@ -3958,6 +4194,18 @@
     <display value="Started (qualifier value)"/>
     <display value="Started"/>
   </concept>
+  <concept id="385669000" display="Successful (qualifier value)">
+    <display value="Successful (qualifier value)"/>
+    <display value="Successful"/>
+  </concept>
+  <concept id="385670004" display="Partially successful (qualifier value)">
+    <display value="Partially successful (qualifier value)"/>
+    <display value="Partially successful"/>
+  </concept>
+  <concept id="385671000" display="Unsuccessful (qualifier value)">
+    <display value="Unsuccessful (qualifier value)"/>
+    <display value="Unsuccessful"/>
+  </concept>
   <concept id="386144009" display="Line insertion site (morphologic abnormality)">
     <display value="Line insertion site (morphologic abnormality)"/>
     <display value="Line insertion site"/>
@@ -4020,6 +4268,14 @@
     <display value="Floxacillin"/>
     <display value="Flucloxacillin"/>
   </concept>
+  <concept id="387713003" display="Surgical procedure (procedure)">
+    <display value="Surgical procedure (procedure)"/>
+    <display value="Surgical procedure"/>
+    <display value="Operation"/>
+    <display value="Surgical procedures"/>
+    <display value="Operative procedure"/>
+    <display value="Planned structural alteration of the body, usually requiring disruption of a body surface (usually skin or mucosa)"/>
+  </concept>
   <concept id="387961004" display="Kingdom Animalia">
     <display value="Kingdom Animalia (organism)"/>
     <display value="Kingdom Animalia"/>
@@ -4059,9 +4315,266 @@
     <display value="Chronic aggressive"/>
     <display value="Chronic aggressive (qualifier value)"/>
   </concept>
+  <concept id="39350007" display="Private physicians&#39; group office (environment)">
+    <display value="Private physicians&#39; group office"/>
+    <display value="Medical clinic"/>
+    <display value="Private physicians&#39; group office (environment)"/>
+  </concept>
+  <concept id="394539006" display="Pediatric surgery (qualifier value)">
+    <display value="Paediatric surgery (qualifier value)"/>
+    <display value="Paediatric surgery"/>
+    <display value="Pediatric surgery"/>
+    <display value="Pediatric surgery (qualifier value)"/>
+  </concept>
+  <concept id="394576009" display="Accident &amp; emergency (qualifier value)">
+    <display value="Accident &amp; emergency (qualifier value)"/>
+    <display value="Accident &amp; emergency"/>
+  </concept>
+  <concept id="394577000" display="Anesthetics (qualifier value)">
+    <display value="Anaesthetics (qualifier value)"/>
+    <display value="Anaesthetics"/>
+    <display value="Anesthetics"/>
+    <display value="Anaesthesia"/>
+    <display value="Anesthesiology"/>
+    <display value="Anesthetics (qualifier value)"/>
+  </concept>
+  <concept id="394578005" display="Audiological medicine (qualifier value)">
+    <display value="Audiological medicine (qualifier value)"/>
+    <display value="Audiological medicine"/>
+  </concept>
+  <concept id="394579002" display="Cardiology (qualifier value)">
+    <display value="Cardiology (qualifier value)"/>
+    <display value="Cardiology"/>
+  </concept>
+  <concept id="394580004" display="Clinical genetics (qualifier value)">
+    <display value="Clinical genetics (qualifier value)"/>
+    <display value="Clinical genetics"/>
+  </concept>
+  <concept id="394581000" display="Community medicine (qualifier value)">
+    <display value="Community medicine (qualifier value)"/>
+    <display value="Community medicine"/>
+  </concept>
+  <concept id="394582007" display="Dermatology (qualifier value)">
+    <display value="Dermatology (qualifier value)"/>
+    <display value="Dermatology"/>
+  </concept>
+  <concept id="394583002" display="Endocrinology (qualifier value)">
+    <display value="Endocrinology (qualifier value)"/>
+    <display value="Endocrinology"/>
+  </concept>
+  <concept id="394584008" display="Gastroenterology (qualifier value)">
+    <display value="Gastroenterology (qualifier value)"/>
+    <display value="Gastroenterology"/>
+    <display value="GE - Gastroenterology"/>
+  </concept>
+  <concept id="394585009" display="Obstetrics and gynecology (qualifier value)">
+    <display value="Obstetrics and gynaecology (qualifier value)"/>
+    <display value="Obstetrics and gynaecology"/>
+    <display value="Obstetrics and gynecology"/>
+    <display value="Obstetrics and gynecology (qualifier value)"/>
+  </concept>
+  <concept id="394586005" display="Gynecology (qualifier value)">
+    <display value="Gynaecology (qualifier value)"/>
+    <display value="Gynaecology"/>
+    <display value="Gynecology"/>
+    <display value="Gynecology (qualifier value)"/>
+  </concept>
+  <concept id="394587001" display="Psychiatry (qualifier value)">
+    <display value="Psychiatry (qualifier value)"/>
+    <display value="Psychiatry"/>
+  </concept>
+  <concept id="394588006" display="Child and adolescent psychiatry (qualifier value)">
+    <display value="Child and adolescent psychiatry (qualifier value)"/>
+    <display value="Child and adolescent psychiatry"/>
+  </concept>
+  <concept id="394589003" display="Nephrology (qualifier value)">
+    <display value="Nephrology (qualifier value)"/>
+    <display value="Nephrology"/>
+    <display value="Renal medicine"/>
+  </concept>
+  <concept id="394590007" display="Thoracic medicine (qualifier value)">
+    <display value="Thoracic medicine (qualifier value)"/>
+    <display value="Thoracic medicine"/>
+  </concept>
+  <concept id="394591006" display="Neurology (qualifier value)">
+    <display value="Neurology (qualifier value)"/>
+    <display value="Neurology"/>
+  </concept>
+  <concept id="394592004" display="Clinical oncology (qualifier value)">
+    <display value="Clinical oncology (qualifier value)"/>
+    <display value="Clinical oncology"/>
+  </concept>
+  <concept id="394593009" display="Medical oncology (qualifier value)">
+    <display value="Medical oncology (qualifier value)"/>
+    <display value="Medical oncology"/>
+  </concept>
+  <concept id="394594003" display="Ophthalmology (qualifier value)">
+    <display value="Ophthalmology (qualifier value)"/>
+    <display value="Ophthalmology"/>
+  </concept>
+  <concept id="394597005" display="Histopathology (qualifier value)">
+    <display value="Histopathology (qualifier value)"/>
+    <display value="Histopathology"/>
+    <display value="Histology speciality"/>
+    <display value="Histology specialty"/>
+  </concept>
+  <concept id="394598000" display="Immunopathology (qualifier value)">
+    <display value="Immunopathology (qualifier value)"/>
+    <display value="Immunopathology"/>
+  </concept>
+  <concept id="394599008" display="Neuropathology (qualifier value)">
+    <display value="Neuropathology (qualifier value)"/>
+    <display value="Neuropathology"/>
+  </concept>
+  <concept id="394600006" display="Clinical pharmacology (qualifier value)">
+    <display value="Clinical pharmacology (qualifier value)"/>
+    <display value="Clinical pharmacology"/>
+  </concept>
+  <concept id="394601005" display="Clinical physiology (qualifier value)">
+    <display value="Clinical physiology (qualifier value)"/>
+    <display value="Clinical physiology"/>
+  </concept>
+  <concept id="394602003" display="Rehabilitation - specialty (qualifier value)">
+    <display value="Rehabilitation - specialty (qualifier value)"/>
+    <display value="Rehabilitation - speciality"/>
+    <display value="Rehabilitation - specialty"/>
+    <display value="Rehabilitation"/>
+  </concept>
+  <concept id="394604002" display="Ear, nose and throat surgery (qualifier value)">
+    <display value="Ear, nose and throat surgery (qualifier value)"/>
+    <display value="Ear, nose and throat surgery"/>
+    <display value="ENT"/>
+  </concept>
+  <concept id="394605001" display="Oral surgery (qualifier value)">
+    <display value="Oral surgery (qualifier value)"/>
+    <display value="Oral surgery"/>
+  </concept>
+  <concept id="394606000" display="Restorative dentistry (qualifier value)">
+    <display value="Restorative dentistry (qualifier value)"/>
+    <display value="Restorative dentistry"/>
+  </concept>
+  <concept id="394607009" display="Pediatric dentistry (qualifier value)">
+    <display value="Paediatric dentistry (qualifier value)"/>
+    <display value="Paediatric dentistry"/>
+    <display value="Pediatric dentistry"/>
+    <display value="Pediatric dentistry (qualifier value)"/>
+  </concept>
+  <concept id="394608004" display="Orthodontics (qualifier value)">
+    <display value="Orthodontics (qualifier value)"/>
+    <display value="Orthodontics"/>
+  </concept>
+  <concept id="394609007" display="General surgery (qualifier value)">
+    <display value="General surgery (qualifier value)"/>
+    <display value="General surgery"/>
+  </concept>
+  <concept id="394610002" display="Neurosurgery (qualifier value)">
+    <display value="Neurosurgery (qualifier value)"/>
+    <display value="Neurosurgery"/>
+  </concept>
+  <concept id="394611003" display="Plastic surgery - specialty (qualifier value)">
+    <display value="Plastic surgery - speciality (qualifier value)"/>
+    <display value="Plastic surgery - speciality"/>
+    <display value="Plastic surgery - specialty"/>
+    <display value="Plastic surgery"/>
+    <display value="Plastic surgery - specialty (qualifier value)"/>
+  </concept>
+  <concept id="394612005" display="Urology (qualifier value)">
+    <display value="Urology (qualifier value)"/>
+    <display value="Urology"/>
+  </concept>
+  <concept id="394649004" display="Nuclear medicine - specialty (qualifier value)">
+    <display value="Nuclear medicine - specialty (qualifier value)"/>
+    <display value="Nuclear medicine - speciality"/>
+    <display value="Nuclear medicine - specialty"/>
+    <display value="Nuclear medicine"/>
+  </concept>
+  <concept id="394725008" display="Diabetes medication review (procedure)">
+    <display value="Diabetes medication review (procedure)"/>
+    <display value="Diabetes medication review"/>
+  </concept>
+  <concept id="394732004" display="Surgical specialty">
+    <display value="Surgical specialties (qualifier value)"/>
+    <display value="Surgical specialties"/>
+    <display value="Surgical specialty (qualifier value)"/>
+    <display value="Surgical speciality"/>
+    <display value="Surgical specialty"/>
+  </concept>
+  <concept id="394733009" display="Medical specialty">
+    <display value="Medical specialties (qualifier value)"/>
+    <display value="Medical specialties"/>
+    <display value="Medical specialty (qualifier value)"/>
+    <display value="Medical specialty"/>
+    <display value="Medical speciality"/>
+  </concept>
+  <concept id="394759007" display="Independent provider site (environment)">
+    <display value="Independent provider site (environment)"/>
+    <display value="Independent provider site"/>
+  </concept>
+  <concept id="394777002" display="Health encounter sites (environment)">
+    <display value="Health encounter sites (environment)"/>
+    <display value="Health encounter sites"/>
+  </concept>
+  <concept id="394801008" display="Trauma and orthopedics (qualifier value)">
+    <display value="Trauma &amp; orthopaedics (qualifier value)"/>
+    <display value="Trauma &amp; orthopaedics"/>
+    <display value="Trauma &amp; orthopedics"/>
+    <display value="Trauma and orthopedics (qualifier value)"/>
+    <display value="Trauma and orthopaedics"/>
+    <display value="Trauma and orthopedics"/>
+  </concept>
   <concept id="394802001" display="General medicine">
     <display value="General medicine (qualifier value)"/>
     <display value="General medicine"/>
+  </concept>
+  <concept id="394803006" display="Clinical hematology (qualifier value)">
+    <display value="Clinical haematology (qualifier value)"/>
+    <display value="Clinical haematology"/>
+    <display value="Clinical hematology"/>
+    <display value="Clinical hematology (qualifier value)"/>
+  </concept>
+  <concept id="394804000" display="Clinical cytogenetics and molecular genetics (qualifier value)">
+    <display value="Clinical cytogenetics and molecular genetics (qualifier value)"/>
+    <display value="Clinical cytogenetics and molecular genetics"/>
+  </concept>
+  <concept id="394806003" display="Palliative medicine (qualifier value)">
+    <display value="Palliative medicine (qualifier value)"/>
+    <display value="Palliative medicine"/>
+  </concept>
+  <concept id="394807007" display="Infectious diseases (specialty) (qualifier value)">
+    <display value="Infectious diseases (specialty) (qualifier value)"/>
+    <display value="Infectious diseases (specialty)"/>
+  </concept>
+  <concept id="394808002" display="Genito-urinary medicine (qualifier value)">
+    <display value="Genito-urinary medicine (qualifier value)"/>
+    <display value="Genito-urinary medicine"/>
+  </concept>
+  <concept id="394809005" display="Clinical neuro-physiology (qualifier value)">
+    <display value="Clinical neuro-physiology (qualifier value)"/>
+    <display value="Clinical neuro-physiology"/>
+  </concept>
+  <concept id="394810000" display="Rheumatology (qualifier value)">
+    <display value="Rheumatology (qualifier value)"/>
+    <display value="Rheumatology"/>
+  </concept>
+  <concept id="394811001" display="Geriatric medicine (qualifier value)">
+    <display value="Geriatric medicine (qualifier value)"/>
+    <display value="Geriatric medicine"/>
+  </concept>
+  <concept id="394812008" display="Dental medicine specialties (qualifier value)">
+    <display value="Dental medicine specialties (qualifier value)"/>
+    <display value="Dental medicine specialties"/>
+  </concept>
+  <concept id="394813003" display="Medical ophthalmology (qualifier value)">
+    <display value="Medical ophthalmology (qualifier value)"/>
+    <display value="Medical ophthalmology"/>
+  </concept>
+  <concept id="394814009" display="General practice (specialty) (qualifier value)">
+    <display value="General practice (specialty) (qualifier value)"/>
+    <display value="General practice (specialty)"/>
+  </concept>
+  <concept id="394821009" display="Occupational medicine (qualifier value)">
+    <display value="Occupational medicine (qualifier value)"/>
+    <display value="Occupational medicine"/>
   </concept>
   <concept id="394838008" display="Test request (procedure)">
     <display value="Test request (procedure)"/>
@@ -4075,17 +4588,37 @@
     <display value="High priority (qualifier value)"/>
     <display value="High priority"/>
   </concept>
+  <concept id="394882004" display="Pain management (specialty) (qualifier value)">
+    <display value="Pain management (specialty) (qualifier value)"/>
+    <display value="Pain management (specialty)"/>
+  </concept>
   <concept id="394899003" display="Treatment administered orally">
     <display value="Oral administration of treatment (procedure)"/>
     <display value="Oral administration of treatment"/>
     <display value="Treatment administered orally"/>
     <display value="Oral administration of treatment (navigational concept)"/>
   </concept>
+  <concept id="394913002" display="Psychotherapy (specialty) (qualifier value)">
+    <display value="Psychotherapy (specialty) (qualifier value)"/>
+    <display value="Psychotherapy (specialty)"/>
+  </concept>
   <concept id="394914008" display="Radiology">
     <display value="Radiology - specialty (qualifier value)"/>
     <display value="Radiology - speciality"/>
     <display value="Radiology - specialty"/>
     <display value="Radiology"/>
+  </concept>
+  <concept id="394915009" display="General pathology (specialty) (qualifier value)">
+    <display value="General pathology (specialty) (qualifier value)"/>
+    <display value="General pathology (specialty)"/>
+  </concept>
+  <concept id="394916005" display="Hematopathology (specialty) (qualifier value)">
+    <display value="Haematology (specialty) (qualifier value)"/>
+    <display value="Haematology (specialty)"/>
+    <display value="Hematology (specialty)"/>
+    <display value="Hematopathology (specialty) (qualifier value)"/>
+    <display value="Hematopathology"/>
+    <display value="Hematopathology (specialty)"/>
   </concept>
   <concept id="39579001" display="Anaphylactic reaction">
     <display value="Generalized anaphylaxis"/>
@@ -4198,6 +4731,11 @@
     <display value="Colostomy formed"/>
     <display value="Construction of colostomy"/>
   </concept>
+  <concept id="39913001" display="Residential school infirmary (environment)">
+    <display value="Residential school infirmary"/>
+    <display value="Residential school clinic"/>
+    <display value="Residential school infirmary (environment)"/>
+  </concept>
   <concept id="399166001" display="Fatal (qualifier value)">
     <display value="Fatal (qualifier value)"/>
     <display value="Fatal"/>
@@ -4246,6 +4784,15 @@
     <display value="Catheterisation of subclavian vein"/>
     <display value="Catheterization of subclavian vein"/>
     <display value="Insertion of subclavian vein catheter"/>
+  </concept>
+  <concept id="405607001" display="Ambulatory surgery center (environment)">
+    <display value="Ambulatory surgery center (environment)"/>
+    <display value="Ambulatory surgery centre"/>
+    <display value="Ambulatory surgery center"/>
+    <display value="Outpatient surgery center"/>
+    <display value="Same day surgery center"/>
+    <display value="Outpatient surgery centre"/>
+    <display value="Same day surgery centre"/>
   </concept>
   <concept id="405608006" display="Teaching hospital">
     <display value="Academic medical center (environment)"/>
@@ -4312,9 +4859,150 @@
     <display value="Rosuvastatin 10mg tablet (product)"/>
     <display value="Rosuvastatin 10mg tablet"/>
   </concept>
+  <concept id="408440000" display="Public health medicine (qualifier value)">
+    <display value="Public health medicine (qualifier value)"/>
+    <display value="Public health medicine"/>
+  </concept>
+  <concept id="408441001" display="Endodontics - specialty (qualifier value)">
+    <display value="Endodontics - specialty (qualifier value)"/>
+    <display value="Endodontics - speciality"/>
+    <display value="Endodontics - specialty"/>
+    <display value="Endodontics"/>
+  </concept>
+  <concept id="408443003" display="General medical practice (qualifier value)">
+    <display value="General medical practice (qualifier value)"/>
+    <display value="General medical practice"/>
+  </concept>
+  <concept id="408444009" display="General dental practice (qualifier value)">
+    <display value="General dental practice (qualifier value)"/>
+    <display value="General dental practice"/>
+  </concept>
+  <concept id="408446006" display="Gynecological oncology (qualifier value)">
+    <display value="Gynaecological oncology (qualifier value)"/>
+    <display value="Gynaecological oncology"/>
+    <display value="Gynecological oncology"/>
+    <display value="Gynecological oncology (qualifier value)"/>
+  </concept>
+  <concept id="408447002" display="Respite care - specialty (qualifier value)">
+    <display value="Respite care - specialty (qualifier value)"/>
+    <display value="Respite care - speciality"/>
+    <display value="Respite care - specialty"/>
+    <display value="Respite care"/>
+  </concept>
+  <concept id="408448007" display="Tropical medicine (qualifier value)">
+    <display value="Tropical medicine (qualifier value)"/>
+    <display value="Tropical medicine"/>
+  </concept>
+  <concept id="408449004" display="Surgical dentistry (qualifier value)">
+    <display value="Surgical dentistry (qualifier value)"/>
+    <display value="Surgical dentistry"/>
+  </concept>
+  <concept id="408450004" display="Sleep studies - specialty (qualifier value)">
+    <display value="Sleep studies - specialty (qualifier value)"/>
+    <display value="Sleep studies - speciality"/>
+    <display value="Sleep studies - specialty"/>
+    <display value="Sleep studies"/>
+  </concept>
+  <concept id="408454008" display="Clinical microbiology (qualifier value)">
+    <display value="Clinical microbiology (qualifier value)"/>
+    <display value="Clinical microbiology"/>
+  </concept>
+  <concept id="408455009" display="Interventional radiology - specialty (qualifier value)">
+    <display value="Interventional radiology - specialty (qualifier value)"/>
+    <display value="Interventional radiology - speciality"/>
+    <display value="Interventional radiology - specialty"/>
+    <display value="Interventional radiology"/>
+  </concept>
+  <concept id="408459003" display="Pediatric cardiology (qualifier value)">
+    <display value="Paediatric cardiology (qualifier value)"/>
+    <display value="Paediatric cardiology"/>
+    <display value="Pediatric cardiology"/>
+    <display value="Pediatric cardiology (qualifier value)"/>
+  </concept>
+  <concept id="408460008" display="Prosthodontics (qualifier value)">
+    <display value="Prosthodontics (qualifier value)"/>
+    <display value="Prosthodontics"/>
+    <display value="Prosthetic dentistry"/>
+  </concept>
+  <concept id="408461007" display="Periodontics (qualifier value)">
+    <display value="Periodontics (qualifier value)"/>
+    <display value="Periodontics"/>
+    <display value="Periodontology"/>
+  </concept>
+  <concept id="408462000" display="Burns care (qualifier value)">
+    <display value="Burns care (qualifier value)"/>
+    <display value="Burns care"/>
+    <display value="Burns management"/>
+  </concept>
+  <concept id="408463005" display="Vascular surgery (qualifier value)">
+    <display value="Vascular surgery (qualifier value)"/>
+    <display value="Vascular surgery"/>
+  </concept>
+  <concept id="408464004" display="Colorectal surgery (qualifier value)">
+    <display value="Colorectal surgery (qualifier value)"/>
+    <display value="Colorectal surgery"/>
+  </concept>
+  <concept id="408465003" display="Oral and maxillofacial surgery (qualifier value)">
+    <display value="Oral and maxillofacial surgery (qualifier value)"/>
+    <display value="Oral and maxillofacial surgery"/>
+    <display value="Dental and maxillofacial surgery"/>
+  </concept>
+  <concept id="408466002" display="Cardiac surgery (qualifier value)">
+    <display value="Cardiac surgery (qualifier value)"/>
+    <display value="Cardiac surgery"/>
+  </concept>
+  <concept id="408467006" display="Adult mental illness - specialty (qualifier value)">
+    <display value="Adult mental illness - specialty (qualifier value)"/>
+    <display value="Adult mental illness - speciality"/>
+    <display value="Adult mental illness - specialty"/>
+    <display value="Adult psychiatry"/>
+  </concept>
+  <concept id="408468001" display="Learning disability - specialty (qualifier value)">
+    <display value="Learning disability - specialty (qualifier value)"/>
+    <display value="Learning disability - speciality"/>
+    <display value="Learning disability - specialty"/>
+    <display value="Learning disability"/>
+  </concept>
+  <concept id="408469009" display="Breast surgery (qualifier value)">
+    <display value="Breast surgery (qualifier value)"/>
+    <display value="Breast surgery"/>
+  </concept>
+  <concept id="408470005" display="Obstetrics (qualifier value)">
+    <display value="Obstetrics (qualifier value)"/>
+    <display value="Obstetrics"/>
+    <display value="Maternity care"/>
+  </concept>
+  <concept id="408471009" display="Cardiothoracic transplantation (qualifier value)">
+    <display value="Cardiothoracic transplantation (qualifier value)"/>
+    <display value="Cardiothoracic transplantation"/>
+  </concept>
+  <concept id="408472002" display="Hepatology (qualifier value)">
+    <display value="Hepatology (qualifier value)"/>
+    <display value="Hepatology"/>
+  </concept>
+  <concept id="408474001" display="Hepatobiliary and pancreatic surgery (qualifier value)">
+    <display value="Hepatobiliary and pancreatic surgery (qualifier value)"/>
+    <display value="Hepatobiliary and pancreatic surgery"/>
+  </concept>
+  <concept id="408475000" display="Diabetic medicine (qualifier value)">
+    <display value="Diabetic medicine (qualifier value)"/>
+    <display value="Diabetic medicine"/>
+  </concept>
+  <concept id="408476004" display="Bone and marrow transplantation (qualifier value)">
+    <display value="Bone and marrow transplantation (qualifier value)"/>
+    <display value="Bone and marrow transplantation"/>
+  </concept>
+  <concept id="408477008" display="Transplantation surgery (qualifier value)">
+    <display value="Transplantation surgery (qualifier value)"/>
+    <display value="Transplantation surgery"/>
+  </concept>
   <concept id="408478003" display="Critical care medicine">
     <display value="Critical care medicine (qualifier value)"/>
     <display value="Critical care medicine"/>
+  </concept>
+  <concept id="408480009" display="Clinical immunology (qualifier value)">
+    <display value="Clinical immunology (qualifier value)"/>
+    <display value="Clinical immunology"/>
   </concept>
   <concept id="408654003" display="Specimen obtained by amputation">
     <display value="Specimen obtained by amputation (specimen)"/>
@@ -4323,6 +5011,24 @@
   <concept id="409051000" display="Stabilized (qualifier value)">
     <display value="Stabilized (qualifier value)"/>
     <display value="Stabilized"/>
+  </concept>
+  <concept id="409063005" display="Counseling (procedure)">
+    <display value="Counseling (regime/therapy)"/>
+    <display value="Counselling"/>
+    <display value="Counseling"/>
+    <display value="Counselling service"/>
+    <display value="Counseling (procedure)"/>
+    <display value="Psychosocial procedure that involves listening, reflecting, etc. to facilitate recognition of course of action / solution."/>
+  </concept>
+  <concept id="409073007" display="Education (procedure)">
+    <display value="Education (regime/therapy)"/>
+    <display value="Education"/>
+    <display value="Educating"/>
+    <display value="Education procedure"/>
+    <display value="Education (procedure)"/>
+    <display value="Instruction"/>
+    <display value="Teaching"/>
+    <display value="Procedure that is synonymous with those activities such as teaching, demonstration, instruction, explanation, and advice that aim to increase knowledge and skills, change behaviors, assist coping and increase adherence to treatment."/>
   </concept>
   <concept id="409402009" display="EGFR inhibitor">
     <display value="Epidermal growth factor receptor inhibitor (substance)"/>
@@ -4336,13 +5042,29 @@
     <display value="Fatal submersion-immersion"/>
     <display value="Drowning (finding)"/>
   </concept>
+  <concept id="409519008" display="Contained casualty setting (environment)">
+    <display value="Contained casualty setting (environment)"/>
+    <display value="Contained casualty setting"/>
+  </concept>
   <concept id="409586006" display="Complaint (finding)">
     <display value="Complaint (finding)"/>
     <display value="Complaint"/>
   </concept>
+  <concept id="409967009" display="Toxicology (qualifier value)">
+    <display value="Toxicology (qualifier value)"/>
+    <display value="Toxicology"/>
+  </concept>
+  <concept id="409968004" display="Preventive medicine (qualifier value)">
+    <display value="Preventive medicine (qualifier value)"/>
+    <display value="Preventive medicine"/>
+  </concept>
   <concept id="410001006" display="Military medicine">
     <display value="Military medicine (qualifier value)"/>
     <display value="Military medicine"/>
+  </concept>
+  <concept id="410005002" display="Dive medicine (qualifier value)">
+    <display value="Dive medicine (qualifier value)"/>
+    <display value="Dive medicine"/>
   </concept>
   <concept id="410158009" display="Physical therapy assessment">
     <display value="Physical therapy assessment (regime/therapy)"/>
@@ -4472,9 +5194,19 @@
     <display value="Problem resolved (finding)"/>
     <display value="Problem resolved"/>
   </concept>
+  <concept id="413456002" display="Adult day care center (environment)">
+    <display value="Adult day care center (environment)"/>
+    <display value="Adult day care center"/>
+    <display value="Adult day care centre"/>
+  </concept>
   <concept id="413651001" display="Bioptics">
     <display value="Bioptics (procedure)"/>
     <display value="Bioptics"/>
+  </concept>
+  <concept id="413817003" display="Child day care center (environment)">
+    <display value="Child day care center (environment)"/>
+    <display value="Child day care center"/>
+    <display value="Child day care centre"/>
   </concept>
   <concept id="414135002" display="Estimated (qualifier value)">
     <display value="Estimated (qualifier value)"/>
@@ -4519,6 +5251,10 @@
   <concept id="415945006" display="Oral temperature">
     <display value="Oral temperature (observable entity)"/>
     <display value="Oral temperature"/>
+  </concept>
+  <concept id="416304004" display="Osteopathic manipulative medicine (qualifier value)">
+    <display value="Osteopathic manipulative medicine (qualifier value)"/>
+    <display value="Osteopathic manipulative medicine"/>
   </concept>
   <concept id="416400009" display="Palpatory diagnosis (qualifier value)">
     <display value="Palpatory diagnosis (qualifier value)"/>
@@ -4568,9 +5304,29 @@
     <display value="Dissolve or mix with water before taking (qualifier value)"/>
     <display value="Dissolve or mix with water before taking"/>
   </concept>
+  <concept id="418002000" display="Pediatric oncology (qualifier value)">
+    <display value="Pediatric oncology (qualifier value)"/>
+    <display value="Pediatric oncology"/>
+    <display value="Paediatric oncology"/>
+  </concept>
+  <concept id="418018006" display="Dermatologic surgery (qualifier value)">
+    <display value="Dermatologic surgery (qualifier value)"/>
+    <display value="Dermatologic surgery"/>
+  </concept>
+  <concept id="418058008" display="Pediatric gastroenterology (qualifier value)">
+    <display value="Paediatric gastroenterology (qualifier value)"/>
+    <display value="Pediatric gastroenterology"/>
+    <display value="Paediatric gastroenterology"/>
+    <display value="Pediatric gastroenterology (qualifier value)"/>
+  </concept>
   <concept id="418071006" display="Warning. Causes drowsiness which may continue the next day. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)">
     <display value="Warning. Causes drowsiness which may continue the next day. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"/>
     <display value="Warning. Causes drowsiness which may continue the next day. If affected do not drive or operate machinery. Avoid alcoholic drink"/>
+  </concept>
+  <concept id="418112009" display="Pulmonary medicine (qualifier value)">
+    <display value="Pulmonary medicine (qualifier value)"/>
+    <display value="Pulmonary medicine"/>
+    <display value="Chest medicine"/>
   </concept>
   <concept id="418194009" display="Contains an aspirin-like medicine (qualifier value)">
     <display value="Contains an aspirin-like medicine (qualifier value)"/>
@@ -4585,6 +5341,11 @@
     <display value="Itching of skin (finding)"/>
     <display value="Itching of skin"/>
     <display value="Pruritus"/>
+  </concept>
+  <concept id="41844007" display="Free-standing geriatric clinic (environment)">
+    <display value="Free-standing geriatric clinic"/>
+    <display value="Free-standing gerontology clinic"/>
+    <display value="Free-standing geriatric clinic (environment)"/>
   </concept>
   <concept id="418443006" display="Do not take more than . . . in 24 hours or . . . in any one week (qualifier value)">
     <display value="Do not take more than . . . in 24 hours or . . . in any one week (qualifier value)"/>
@@ -4601,9 +5362,18 @@
     <display value="Oats (substance)"/>
     <display value="Oats"/>
   </concept>
+  <concept id="418518002" display="Dialysis unit (environment)">
+    <display value="Dialysis unit (environment)"/>
+    <display value="Dialysis unit"/>
+  </concept>
   <concept id="418521000" display="Avoid exposure of skin to direct sunlight or sun lamps (qualifier value)">
     <display value="Avoid exposure of skin to direct sunlight or sun lamps (qualifier value)"/>
     <display value="Avoid exposure of skin to direct sunlight or sun lamps"/>
+  </concept>
+  <concept id="418535003" display="Pediatric immunology (qualifier value)">
+    <display value="Pediatric immunology (qualifier value)"/>
+    <display value="Pediatric immunology"/>
+    <display value="Paediatric immunology"/>
   </concept>
   <concept id="418577003" display="Take at regular intervals. Complete the prescribed course unless otherwise directed (qualifier value)">
     <display value="Take at regular intervals. Complete the prescribed course unless otherwise directed (qualifier value)"/>
@@ -4616,6 +5386,11 @@
   <concept id="418639000" display="Warning. May cause drowsiness (qualifier value)">
     <display value="Warning. May cause drowsiness (qualifier value)"/>
     <display value="Warning. May cause drowsiness"/>
+  </concept>
+  <concept id="418652005" display="Pediatric hematology (qualifier value)">
+    <display value="Pediatric hematology (qualifier value)"/>
+    <display value="Pediatric hematology"/>
+    <display value="Paediatric haematology"/>
   </concept>
   <concept id="418693002" display="Swallowed whole, not chewed (qualifier value)">
     <display value="Swallowed whole, not chewed (qualifier value)"/>
@@ -4633,6 +5408,11 @@
     <display value="Contains aspirin and paracetamol. Do not take with any other paracetamol products (qualifier value)"/>
     <display value="Contains aspirin and paracetamol. Do not take with any other paracetamol products"/>
   </concept>
+  <concept id="418862001" display="Pediatric infectious diseases (qualifier value)">
+    <display value="Pediatric infectious diseases (qualifier value)"/>
+    <display value="Pediatric infectious diseases"/>
+    <display value="Paediatric infectious diseases"/>
+  </concept>
   <concept id="418914006" display="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)">
     <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"/>
     <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink"/>
@@ -4641,9 +5421,17 @@
     <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery (qualifier value)"/>
     <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery"/>
   </concept>
+  <concept id="418960008" display="Otolaryngology (qualifier value)">
+    <display value="Otolaryngology (qualifier value)"/>
+    <display value="Otolaryngology"/>
+  </concept>
   <concept id="418991002" display="Sucked or chewed (qualifier value)">
     <display value="Sucked or chewed (qualifier value)"/>
     <display value="Sucked or chewed"/>
+  </concept>
+  <concept id="419043006" display="Urological oncology (qualifier value)">
+    <display value="Urological oncology (qualifier value)"/>
+    <display value="Urological oncology"/>
   </concept>
   <concept id="419099009" display="Dead">
     <display value="Dead (finding)"/>
@@ -4663,6 +5451,17 @@
     <display value="Unilateral left (qualifier value)"/>
     <display value="Unilateral left"/>
   </concept>
+  <concept id="419170002" display="Pediatric pulmonology (qualifier value)">
+    <display value="Pediatric pulmonology (qualifier value)"/>
+    <display value="Pediatric pulmonology"/>
+    <display value="Paediatric pulmonology"/>
+    <display value="Pediatric chest medicine"/>
+    <display value="Paediatric chest medicine"/>
+  </concept>
+  <concept id="419192003" display="Internal medicine (qualifier value)">
+    <display value="Internal medicine (qualifier value)"/>
+    <display value="Internal medicine"/>
+  </concept>
   <concept id="419199007" display="Allergy to substance (disorder)">
     <display value="Allergy to substance (disorder)"/>
     <display value="Allergy to substance"/>
@@ -4670,6 +5469,15 @@
   <concept id="419303009" display="With plenty of water (qualifier value)">
     <display value="With plenty of water (qualifier value)"/>
     <display value="With plenty of water"/>
+  </concept>
+  <concept id="419321007" display="Surgical oncology (qualifier value)">
+    <display value="Surgical oncology (qualifier value)"/>
+    <display value="Surgical oncology"/>
+  </concept>
+  <concept id="419365004" display="Pediatric nephrology (qualifier value)">
+    <display value="Pediatric nephrology (qualifier value)"/>
+    <display value="Pediatric nephrology"/>
+    <display value="Paediatric nephrology"/>
   </concept>
   <concept id="419437002" display="Do not take more than 2 at any one time. Do not take more than 8 in 24 hours (qualifier value)">
     <display value="Do not take more than 2 at any one time. Do not take more than 8 in 24 hours (qualifier value)"/>
@@ -4683,9 +5491,32 @@
     <display value="Do not stop taking this medicine except on your doctor&#39;s advice (qualifier value)"/>
     <display value="Do not stop taking this medicine except on your doctor&#39;s advice"/>
   </concept>
+  <concept id="419472004" display="Pediatric rheumatology (qualifier value)">
+    <display value="Paediatric rheumatology (qualifier value)"/>
+    <display value="Pediatric rheumatology"/>
+    <display value="Paediatric rheumatology"/>
+    <display value="Pediatric rheumatology (qualifier value)"/>
+  </concept>
   <concept id="419529008" display="Dissolved under the tongue (qualifier value)">
     <display value="Dissolved under the tongue (qualifier value)"/>
     <display value="Dissolved under the tongue"/>
+  </concept>
+  <concept id="419610006" display="Pediatric endocrinology (qualifier value)">
+    <display value="Paediatric endocrinology (qualifier value)"/>
+    <display value="Pediatric endocrinology"/>
+    <display value="Paediatric endocrinology"/>
+    <display value="Pediatric endocrinology (qualifier value)"/>
+  </concept>
+  <concept id="419772000" display="Family practice (qualifier value)">
+    <display value="Family practice (qualifier value)"/>
+    <display value="Family practice"/>
+    <display value="Family medicine"/>
+  </concept>
+  <concept id="419815003" display="Radiation oncology (qualifier value)">
+    <display value="Radiation oncology (qualifier value)"/>
+    <display value="Radiation oncology"/>
+    <display value="Radiotherapy"/>
+    <display value="Therapeutic radiology"/>
   </concept>
   <concept id="419822006" display="Warning. Avoid alcoholic drink (qualifier value)">
     <display value="Warning. Avoid alcoholic drink (qualifier value)"/>
@@ -4695,11 +5526,21 @@
     <display value="Ileostomy route (qualifier value)"/>
     <display value="Ileostomy route"/>
   </concept>
+  <concept id="419955002" display="Residential institution (environment)">
+    <display value="Residential institution (environment)"/>
+    <display value="Residential institution"/>
+  </concept>
   <concept id="419974005" display="This medicine may color the urine (qualifier value)">
     <display value="This medicine may colour the urine (qualifier value)"/>
     <display value="This medicine may color the urine"/>
     <display value="This medicine may colour the urine"/>
     <display value="This medicine may color the urine (qualifier value)"/>
+  </concept>
+  <concept id="419983000" display="Pediatric ophthalmology (qualifier value)">
+    <display value="Paediatric ophthalmology (qualifier value)"/>
+    <display value="Pediatric ophthalmology"/>
+    <display value="Paediatric ophthalmology"/>
+    <display value="Pediatric ophthalmology (qualifier value)"/>
   </concept>
   <concept id="420003005" display="Do not take more than . . . in 24 hours (qualifier value)">
     <display value="Do not take more than . . . in 24 hours (qualifier value)"/>
@@ -4712,6 +5553,11 @@
   <concept id="420110001" display="Do not take indigestion remedies at the same time of day as this medicine (qualifier value)">
     <display value="Do not take indigestion remedies at the same time of day as this medicine (qualifier value)"/>
     <display value="Do not take indigestion remedies at the same time of day as this medicine"/>
+  </concept>
+  <concept id="420112009" display="Pediatric bone marrow transplantation (qualifier value)">
+    <display value="Pediatric bone marrow transplantation (qualifier value)"/>
+    <display value="Pediatric bone marrow transplantation"/>
+    <display value="Paediatric bone marrow transplantation"/>
   </concept>
   <concept id="420135007" display="Whole blood">
     <display value="Whole blood (substance)"/>
@@ -4726,6 +5572,12 @@
     <display value="Urostomy route"/>
     <display value="Urostomy"/>
     <display value="Urostomy use"/>
+  </concept>
+  <concept id="420208008" display="Pediatric genetics (qualifier value)">
+    <display value="Paediatric genetics (qualifier value)"/>
+    <display value="Pediatric genetics"/>
+    <display value="Paediatric genetics"/>
+    <display value="Pediatric genetics (qualifier value)"/>
   </concept>
   <concept id="420317006" display="Inhaler">
     <display value="Inhaler (product)"/>
@@ -4756,6 +5608,10 @@
     <display value="Aerosol spray"/>
     <display value="Aerosol spray (qualifier value)"/>
   </concept>
+  <concept id="421661004" display="Blood banking and transfusion medicine (specialty) (qualifier value)">
+    <display value="Blood banking and transfusion medicine (specialty) (qualifier value)"/>
+    <display value="Blood banking and transfusion medicine (specialty)"/>
+  </concept>
   <concept id="421769005" display="Follow directions (qualifier value)">
     <display value="Follow directions (qualifier value)"/>
     <display value="Follow directions"/>
@@ -4773,6 +5629,12 @@
   <concept id="422117008" display="Stop (qualifier value)">
     <display value="Stop (qualifier value)"/>
     <display value="Stop"/>
+  </concept>
+  <concept id="422191005" display="Ophthalmic surgery (qualifier value)">
+    <display value="Ophthalmic surgery (qualifier value)"/>
+    <display value="Ophthalmic surgery"/>
+    <display value="Ocular surgery"/>
+    <display value="Eye surgery"/>
   </concept>
   <concept id="422327006" display="Then stop - dosing instruction fragment (qualifier value)">
     <display value="Then stop - dosing instruction fragment (qualifier value)"/>
@@ -4819,6 +5681,13 @@
   <concept id="426396005" display="Cardiac chest pain">
     <display value="Cardiac chest pain (finding)"/>
     <display value="Cardiac chest pain"/>
+  </concept>
+  <concept id="42665001" display="Nursing home (environment)">
+    <display value="Long term care facility"/>
+    <display value="NH - Nursing home"/>
+    <display value="Nursing home"/>
+    <display value="Nursing home, NOS"/>
+    <display value="Nursing home (environment)"/>
   </concept>
   <concept id="427038005" display="EGFR negative non-small cell lung cancer">
     <display value="Non-small cell lung cancer, negative for epidermal growth factor receptor expression (disorder)"/>
@@ -4912,6 +5781,10 @@
   <concept id="432119003" display="Aneurysm (disorder)">
     <display value="Aneurysm (disorder)"/>
     <display value="Aneurysm"/>
+  </concept>
+  <concept id="4322002" display="Military field hospital (environment)">
+    <display value="Military field hospital (environment)"/>
+    <display value="Military field hospital"/>
   </concept>
   <concept id="43231004" display="Esophageal colic (finding)">
     <display value="Esophageal colic"/>
@@ -5348,6 +6221,10 @@
     <display value="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt (specimen)"/>
     <display value="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt"/>
   </concept>
+  <concept id="447346005" display="Cardiopulmonary exercise test (procedure)">
+    <display value="Cardiopulmonary exercise test (procedure)"/>
+    <display value="Cardiopulmonary exercise test"/>
+  </concept>
   <concept id="447488002" display="Suprapubic urine specimen (specimen)">
     <display value="Suprapubic urine specimen (specimen)"/>
     <display value="Suprapubic urine specimen"/>
@@ -5376,6 +6253,12 @@
     <display value="Parotid"/>
     <display value="Parotid gland structure (body structure)"/>
   </concept>
+  <concept id="45618002" display="Skilled nursing facility (environment)">
+    <display value="Skilled care facility"/>
+    <display value="Skilled nursing facility"/>
+    <display value="Skilled nursing facility, NOS"/>
+    <display value="Skilled nursing facility (environment)"/>
+  </concept>
   <concept id="45647009" display="Granuloma (morphologic abnormality)">
     <display value="Granuloma"/>
     <display value="Granuloma, NOS"/>
@@ -5401,6 +6284,10 @@
     <display value="SGOT measurement"/>
     <display value="Aspartate aminotransferase measurement (procedure)"/>
   </concept>
+  <concept id="45899008" display="Free-standing laboratory facility (environment)">
+    <display value="Free-standing laboratory facility"/>
+    <display value="Free-standing laboratory facility (environment)"/>
+  </concept>
   <concept id="4596009" display="Laryngeal structure (body structure)">
     <display value="Larynx structure"/>
     <display value="Laryngeal structure"/>
@@ -5425,10 +6312,20 @@
     <display value="LD"/>
     <display value="Laboratory diagnosis (contextual qualifier) (qualifier value)"/>
   </concept>
+  <concept id="46224007" display="Vaccination clinic (environment)">
+    <display value="Vaccination clinic"/>
+    <display value="Vaccination clinic (environment)"/>
+  </concept>
   <concept id="46511006" display="Chloride measurement">
     <display value="Chloride measurement"/>
     <display value="Chloride measurement, NOS"/>
     <display value="Chloride measurement (procedure)"/>
+  </concept>
+  <concept id="46947000" display="Chiropractic manipulation (procedure)">
+    <display value="Chiropractic manipulation"/>
+    <display value="Chiropractic manipulation, NOS"/>
+    <display value="Chiropractic manipulation (procedure)"/>
+    <display value="A manipulation done by a chiropractor"/>
   </concept>
   <concept id="46992007" display="Pill (qualifier value)">
     <display value="Pill (product)"/>
@@ -5488,6 +6385,11 @@
     <display value="Differential diagnosis (contextual qualifier) (qualifier value)"/>
     <display value="Differential diagnosis"/>
     <display value="Differential dx"/>
+  </concept>
+  <concept id="48311003" display="Veteran&#39;s administration hospital (environment)">
+    <display value="Veteran&#39;s administration hospital (environment)"/>
+    <display value="Veteran&#39;s administration hospital"/>
+    <display value="V.A. hospital"/>
   </concept>
   <concept id="48318009" display="Prior diagnosis (contextual qualifier)">
     <display value="Prior diagnosis (contextual qualifier)"/>
@@ -5564,6 +6466,10 @@
     <display value="Body length, NOS"/>
     <display value="Body length"/>
   </concept>
+  <concept id="50569004" display="Hospital-based outpatient urology clinic (environment)">
+    <display value="Hospital-based outpatient urology clinic (environment)"/>
+    <display value="Hospital-based outpatient urology clinic"/>
+  </concept>
   <concept id="50593009" display="Casein (substance)">
     <display value="Casein (substance)"/>
     <display value="Casein"/>
@@ -5593,6 +6499,11 @@
     <display value="Both sides"/>
     <display value="Bilateral"/>
   </concept>
+  <concept id="51563005" display="Free-standing mental health clinic (environment)">
+    <display value="Free-standing mental health clinic (environment)"/>
+    <display value="Free-standing mental health clinic"/>
+    <display value="Free-standing psychiatric clinic"/>
+  </concept>
   <concept id="51905005" display="Mustard (substance)">
     <display value="Mustard (substance)"/>
     <display value="Mustard"/>
@@ -5609,6 +6520,11 @@
     <display value="Present (qualifier value)"/>
     <display value="Present"/>
     <display value="Presence of"/>
+  </concept>
+  <concept id="52668009" display="Hospital-based birthing center (environment)">
+    <display value="Hospital-based birthing centre"/>
+    <display value="Hospital-based birthing center (environment)"/>
+    <display value="Hospital-based birthing center"/>
   </concept>
   <concept id="52870002" display="Admitting diagnosis (contextual qualifier) (qualifier value)">
     <display value="Admitting diagnosis (contextual qualifier)"/>
@@ -5699,10 +6615,23 @@
     <display value="Problem"/>
     <display value="Problem, NOS"/>
   </concept>
+  <concept id="5584006" display="Hospital-based outpatient peripheral vascular clinic (environment)">
+    <display value="Hospital-based outpatient peripheral vascular clinic"/>
+    <display value="Hospital-based outpatient peripheral vascular clinic (environment)"/>
+  </concept>
   <concept id="5605004" display="Autopsy diagnosis (contextual qualifier) (qualifier value)">
     <display value="Autopsy diagnosis"/>
     <display value="Autopsy diagnosis (contextual qualifier)"/>
     <display value="Autopsy diagnosis (contextual qualifier) (qualifier value)"/>
+  </concept>
+  <concept id="56189001" display="Hospital-based outpatient obstetrical clinic (environment)">
+    <display value="Hospital-based outpatient obstetrical clinic (environment)"/>
+    <display value="Hospital-based outpatient obstetrical clinic"/>
+  </concept>
+  <concept id="56293002" display="Hospital-based outpatient hematology clinic (environment)">
+    <display value="Hospital-based outpatient haematology clinic"/>
+    <display value="Hospital-based outpatient hematology clinic (environment)"/>
+    <display value="Hospital-based outpatient hematology clinic"/>
   </concept>
   <concept id="57066004" display="DDP">
     <display value="Cisplatin (product)"/>
@@ -5727,6 +6656,11 @@
     <display value="Regio submaxillaris"/>
     <display value="Submandibular triangle structure"/>
     <display value="Submandibular triangle structure (body structure)"/>
+  </concept>
+  <concept id="57159002" display="Hospital-based outpatient respiratory disease clinic (environment)">
+    <display value="Hospital-based outpatient respiratory disease clinic (environment)"/>
+    <display value="Hospital-based outpatient respiratory disease clinic"/>
+    <display value="Hospital-based outpatient pneumology clinic"/>
   </concept>
   <concept id="57176003" display="Few (qualifier value)">
     <display value="Few (qualifier value)"/>
@@ -5767,6 +6701,10 @@
     <display value="Brewer&#39;s yeast"/>
     <display value="Baker&#39;s yeast"/>
   </concept>
+  <concept id="58482006" display="Hospital-based outpatient gastroenterology clinic (environment)">
+    <display value="Hospital-based outpatient gastroenterology clinic (environment)"/>
+    <display value="Hospital-based outpatient gastroenterology clinic"/>
+  </concept>
   <concept id="58773004" display="Unknown physical agent (physical force)">
     <display value="Unknown physical agent (physical force)"/>
     <display value="Unknown physical agent"/>
@@ -5775,6 +6713,10 @@
   <concept id="59139008" display="Crushing chest pain (finding)">
     <display value="Crushing chest pain (finding)"/>
     <display value="Crushing chest pain"/>
+  </concept>
+  <concept id="59374000" display="Traveler&#39;s aid clinic (environment)">
+    <display value="Traveler&#39;s aid clinic (environment)"/>
+    <display value="Traveler&#39;s aid clinic"/>
   </concept>
   <concept id="59533004" display="Food additive (substance)">
     <display value="Food additive (substance)"/>
@@ -5831,6 +6773,11 @@
   <concept id="62459000" display="Chronic persistent (qualifier value)">
     <display value="Chronic persistent"/>
     <display value="Chronic persistent (qualifier value)"/>
+  </concept>
+  <concept id="62480006" display="Mental hospital">
+    <display value="Psychiatric hospital"/>
+    <display value="Mental hospital"/>
+    <display value="Psychiatric hospital (environment)"/>
   </concept>
   <concept id="62507009" display="Pins and needles (finding)">
     <display value="Tingling sensation"/>
@@ -5940,6 +6887,11 @@
     <display value="Lavage"/>
     <display value="Irrigation (procedure)"/>
   </concept>
+  <concept id="6827000" display="Local community health center">
+    <display value="Local community health center"/>
+    <display value="Local community health centre"/>
+    <display value="Local community health center (environment)"/>
+  </concept>
   <concept id="6853008" display="Nasogastric tube aspiration (procedure)">
     <display value="Aspirating nasogastric tube"/>
     <display value="Nasogastric tube aspiration"/>
@@ -5951,6 +6903,10 @@
     <display value="Poples"/>
     <display value="Popliteal region structure"/>
     <display value="Popliteal region structure (body structure)"/>
+  </concept>
+  <concept id="69362002" display="Hospital-based ambulatory surgery facility (environment)">
+    <display value="Hospital-based ambulatory surgery facility"/>
+    <display value="Hospital-based ambulatory surgery facility (environment)"/>
   </concept>
   <concept id="69480007" display="GTP measurement">
     <display value="Gamma glutamyl transferase measurement"/>
@@ -6057,6 +7013,13 @@
     <display value="At midday"/>
     <display value="Noon (qualifier value)"/>
   </concept>
+  <concept id="72311000" display="Health maintenance organization (environment)">
+    <display value="Health maintenance organization"/>
+    <display value="Prepaid healthcare organization"/>
+    <display value="Prepaid healthcare organisation"/>
+    <display value="Health maintenance organisation"/>
+    <display value="Health maintenance organization (environment)"/>
+  </concept>
   <concept id="72511004" display="Fruit (substance)">
     <display value="Fruit"/>
     <display value="Fruit (substance)"/>
@@ -6075,6 +7038,16 @@
     <display value="Inactive"/>
     <display value="Inactive (qualifier value)"/>
   </concept>
+  <concept id="73644007" display="Hospital-based outpatient endocrinology clinic (environment)">
+    <display value="Hospital-based outpatient endocrinology clinic"/>
+    <display value="Hospital-based outpatient endocrinology clinic (environment)"/>
+  </concept>
+  <concept id="73770003" display="Hospital-based outpatient emergency care center (environment)">
+    <display value="Hospital-based outpatient emergency care center"/>
+    <display value="Hospital-based outpatient emergency room"/>
+    <display value="Hospital-based outpatient emergency care centre"/>
+    <display value="Hospital-based outpatient emergency care center (environment)"/>
+  </concept>
   <concept id="73775008" display="Morning (qualifier value)">
     <display value="Morning"/>
     <display value="om - omni mane"/>
@@ -6089,6 +7062,10 @@
     <display value="Protein measurement"/>
     <display value="Protein measurement, NOS"/>
     <display value="Protein measurement (procedure)"/>
+  </concept>
+  <concept id="74242007" display="Food starch (substance)">
+    <display value="Food starch"/>
+    <display value="Food starch (substance)"/>
   </concept>
   <concept id="74262004" display="Oral cavity">
     <display value="Oral cavity"/>
@@ -6186,9 +7163,25 @@
     <display value="Rule out"/>
     <display value="Exclude (qualifier value)"/>
   </concept>
+  <concept id="77931003" display="Rural health center (environment)">
+    <display value="Rural health center"/>
+    <display value="Rural health clinic"/>
+    <display value="Rural health centre"/>
+    <display value="Rural health center (environment)"/>
+  </concept>
   <concept id="7800008" display="Punctate">
     <display value="Punctate"/>
     <display value="Punctate (qualifier value)"/>
+  </concept>
+  <concept id="78001009" display="Hospital-based outpatient orthopaedics clinic">
+    <display value="Hospital-based outpatient orthopedics clinic"/>
+    <display value="Hospital-based outpatient orthopaedics clinic"/>
+    <display value="Hospital-based outpatient orthopedics clinic (environment)"/>
+  </concept>
+  <concept id="78088001" display="Hospital-based outpatient ophthalmology clinic (environment)">
+    <display value="Hospital-based outpatient ophthalmology clinic"/>
+    <display value="Hospital-based outpatient eye clinic"/>
+    <display value="Hospital-based outpatient ophthalmology clinic (environment)"/>
   </concept>
   <concept id="78234002" display="Shin structure (body structure)">
     <display value="Shin"/>
@@ -6207,12 +7200,20 @@
     <display value="Gastric biopsy"/>
     <display value="Biopsy of stomach (procedure)"/>
   </concept>
+  <concept id="79491001" display="Hospital-based radiology facility (environment)">
+    <display value="Hospital-based radiology facility"/>
+    <display value="Hospital-based radiology facility (environment)"/>
+  </concept>
   <concept id="7970006" display="Allograft">
     <display value="Allograft"/>
     <display value="Homologous graft"/>
     <display value="Allogeneic graft"/>
     <display value="Homograft"/>
     <display value="Allograft (substance)"/>
+  </concept>
+  <concept id="79993009" display="Government hospital (environment)">
+    <display value="Government hospital"/>
+    <display value="Government hospital (environment)"/>
   </concept>
   <concept id="80032004" display="Fire (physical force)">
     <display value="Fire"/>
@@ -6228,6 +7229,10 @@
     <display value="Appendicectomy"/>
     <display value="Appendectomy (procedure)"/>
   </concept>
+  <concept id="80522000" display="Rehabilitation hospital (environment)">
+    <display value="Rehabilitation hospital"/>
+    <display value="Rehabilitation hospital (environment)"/>
+  </concept>
   <concept id="80657008" display="Bronchoscopy with brush biopsy (procedure)">
     <display value="Bronchoscopy with brush biopsy"/>
     <display value="Bronchoscopy with bronchial brushings"/>
@@ -6238,6 +7243,10 @@
     <display value="Blood group antigen Dombrock"/>
     <display value="DO1 (ISBT symbol)"/>
     <display value="Blood group antigen Do^a^ (substance)"/>
+  </concept>
+  <concept id="81234003" display="Walk-in clinic">
+    <display value="Walk-in clinic"/>
+    <display value="Walk-in clinic (environment)"/>
   </concept>
   <concept id="81723002" display="Amputation">
     <display value="Amputation"/>
@@ -6256,6 +7265,10 @@
   <concept id="82145005" display="Avalanche (event)">
     <display value="Avalanche"/>
     <display value="Avalanche (event)"/>
+  </concept>
+  <concept id="82242000" display="Children&#39;s hospital (environment)">
+    <display value="Children&#39;s hospital"/>
+    <display value="Children&#39;s hospital (environment)"/>
   </concept>
   <concept id="82334004" display="Indeterminate (qualifier value)">
     <display value="Indeterminate"/>
@@ -6297,6 +7310,11 @@
     <display value="Greater peritoneal cavity"/>
     <display value="Peritoneal cavity structure"/>
     <display value="Peritoneal cavity structure (body structure)"/>
+  </concept>
+  <concept id="83891005" display="Solo practice private office (environment)">
+    <display value="Solo practice private office"/>
+    <display value="Doctor&#39;s office"/>
+    <display value="Solo practice private office (environment)"/>
   </concept>
   <concept id="84638005" display="Occasional (qualifier value)">
     <display value="Occcasional"/>
@@ -6427,9 +7445,21 @@
     <display value="Urinary bladder structure"/>
     <display value="Urinary bladder structure (body structure)"/>
   </concept>
+  <concept id="89972002" display="Hospital-based outpatient oncology clinic (environment)">
+    <display value="Hospital-based outpatient oncology clinic"/>
+    <display value="Hospital-based outpatient oncology clinic (environment)"/>
+  </concept>
+  <concept id="901005" display="Helicopter-based care (environment)">
+    <display value="Helicopter-based care"/>
+    <display value="Helicopter-based care (environment)"/>
+  </concept>
   <concept id="90105005" display="Biopsy of soft tissue of forearm, superficial">
     <display value="Biopsy of soft tissue of forearm, superficial"/>
     <display value="Biopsy of soft tissue of forearm, superficial (procedure)"/>
+  </concept>
+  <concept id="90484001" display="Hospital-based outpatient general surgery clinic (environment)">
+    <display value="Hospital-based outpatient general surgery clinic"/>
+    <display value="Hospital-based outpatient general surgery clinic (environment)"/>
   </concept>
   <concept id="90734009" display="Chronic (qualifier value)">
     <display value="Chronic"/>
@@ -6442,6 +7472,11 @@
     <display value="Xanthochromic"/>
     <display value="Yellow colour"/>
     <display value="Yellow color (finding)"/>
+  </concept>
+  <concept id="91154008" display="Free-standing birthing center">
+    <display value="Free-standing birthing center"/>
+    <display value="Free-standing birthing centre"/>
+    <display value="Free-standing birthing center (environment)"/>
   </concept>
   <concept id="91936005" display="Penicillin allergy">
     <display value="Penicillin allergy"/>

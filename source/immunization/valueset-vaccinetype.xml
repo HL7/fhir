@@ -12,7 +12,7 @@
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="2.16.840.1.113883.3.88.12.80.22"/>
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.22"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/daf-cvx"/>
   <name value="Vaccine Administered Value Set"/>

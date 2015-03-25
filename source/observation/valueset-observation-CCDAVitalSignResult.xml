@@ -1,7 +1,7 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-    <valueUri value="2.16.840.1.113883.3.88.12.80.62"/>
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.62"/>
   </extension>
 	<name value="C-CDA Vital Sign Result "/>
 	<publisher value="FHIR OO CDA Template team"/>
