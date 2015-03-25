@@ -17,6 +17,7 @@
       <li>EpisodeOfCare: Case, Program, Problem</li>
       <li>Encounter: Visit, Contact</li>
     </ul>
+    <p></p>
     <h3>Multiple Organizations and Transfer of Care</h3>
     <p>
       Many organizations can be involved in an EpisodeOfCare, however each organization will have their own EpisodeOfCare
@@ -24,7 +25,13 @@
     </p>
     <p>
       When an Organization completes their involvement with the patient and transfers care to another Organizaion.
-      This is often in the form of a referral to another Organization (or Organizations).
+      This is often in the form of a referral to another Organization (or Organizations).<br/>
+    </p>
+    <p>
+      When an incoming referral is received a new EpisodeOfCare may be created for this organization.
+      The initial step(s) in the intake workflow for the referral often involve some form of assessment(s),
+      eligibility, capacity, care levels, which could take some time.<br/>
+      Once the intake process is completed and the patient is accepted, a CarePlan is often created.
     </p>
   </div>
   <div>
@@ -35,6 +42,12 @@
       together for problems/issues.<br/>
 
       The Example scenarios below give some good examples as to when you might want to be using an EpisodeOfCare.
+    </p>
+    <p>
+      This difference is a similar difference between the EpisodeOfCare and a CarePlan. 
+      The EpisodeOfCare is a tracking resource, rather than a planning resource.<br/>
+      The EpisodeOfCare usually exists before the CarePlan.
+      You don't need a CarePlan to use an EpisodeOfCare.
     </p>
   </div>
 
