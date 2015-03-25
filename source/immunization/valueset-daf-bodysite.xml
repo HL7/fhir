@@ -1,0 +1,61 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="daf-cvx"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.9"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/daf-bodysite"/>
+  <name value="Vaccine Administered Body Site"/>
+  <publisher value="HL7 FHIR"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="This identifies the body site at which the vaccine substance was administered"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>   
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="91723000"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>   
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="280115004"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>   
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="258331007"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>   
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="118956008"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>   
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="91722005"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
+
