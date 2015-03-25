@@ -1,12 +1,46 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<h2>
-Notes:
-</h2>
-<ul>
-<li>There are two places for contact information: one on Organization itself and zero or more using the ContactEntity construct.
-The first one is to be used for the generic, public organization point of contact. The ContactEntity is to be used for 
-reaching a person or party that has been designated by the organization to be contacted for a specific purpose or goal.</li>
-</ul>
+	<div>
+	<h2>
+		Notes:
+	</h2>
+	<ul>
+		<li>
+			There are two places for contact information: one on Organization itself and zero or more using the ContactEntity construct.
+			The first one is to be used for the generic, public organization point of contact. The ContactEntity is to be used for
+			reaching a person or party that has been designated by the organization to be contacted for a specific purpose or goal.
+		</li>
+	</ul>
+</div>
 
+	<div>
+		<h2>
+			Example Organization Hierarchy:
+		</h2>
+	<p>
+		An example organization heirachy should help give some guidance as to one example
+		of how a location heirachy could look within a fictitious Medical Organization.<br/>
+		<i>(The nesting here would be the "part-of" structure of the Organization resource)</i>
+	</p>
+	<pre>
+Burgers University Medical Center
+    Eastern Services (prov)
+        Emergency Dept
+        Oncology Dept
+            Neuclear Medicine Research Trials (edu)
+        Maternity Ward
+        Childrens Ward
+        Day Procedures Unit
+    Mobile Services (Ambulance)
+    Research Center (edu)
+        Neuclear Medicine  (edu)
+    Burgers University (edu)
+        Neuclear Medicine Faculty (edu)
+        Undergraduate Medicine (edu)
+        ...
+	</pre>
+	<p>
+		<i>Note that physical structures of this heirarchy are not present, these are defined by a Location hierarchy.</i>
+	</p>
+	</div>
 </div>

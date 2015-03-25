@@ -12,43 +12,50 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/organization-type"/>
-    <caseSensitive value="true"/>      
+    <caseSensitive value="true"/>
     <concept>
       <code value="prov"/>
       <display value="Healthcare Provider"/>
+      <definition value="An organization that provides healthcare services"/>
     </concept>
     <concept>
       <code value="dept"/>
       <display value="Hospital Department"/>
+      <definition value="A department or ward within a hospital (Generally is not applicable to top level organizations)"/>
     </concept>    
-    <concept>
+    <!--<concept> An intensive care unit is actually a Location (instance or kind) or a service type (of HealthcareService), this is a service delivery type on a location
       <code value="icu"/>
       <display value="Intensive Care Unit"/>
-    </concept>
-	<concept>
+    </concept>-->
+    <concept>
       <code value="team"/>
       <display value="Organizational team"/>
-    </concept>    	
+      <definition value="An organizational team is usualy a grouping of practitioners that perform a specific function within an organization (which could be a top level organization, or a department)"/>
+    </concept>
     <concept>
-      <code value="fed"/>
-      <display value="Federal Government"/>
+      <code value="govt"/>
+      <display value="Government"/>
+      <definition value="A political body, often used when including organization records for government bodies such as a Federal Government, State or Local Government"/>
     </concept>
     <concept>
       <code value="ins"/>
       <display value="Insurance Company"/>
-    </concept>    
+      <definition value="A company that provides insurance to its subscribers that may include healthcare related policies"/>
+    </concept>
     <concept>
       <code value="edu"/>
       <display value="Educational Institute"/>
+      <definition value="An educational institution that provides education or research facilitites"/>
     </concept>
     <concept>
       <code value="reli"/>
       <display value="Religious Institution"/>
-    </concept>    
-    <concept>
+      <definition value="An organization that identified as a part of a religeous institution"/>
+    </concept>
+    <!--<concept> A Pharmacy is not an organization, this is a service delivery type on a location
       <code value="pharm"/>
       <display value="Pharmacy"/>
-    </concept>    
+    </concept>-->
   </define>
 </ValueSet>
 

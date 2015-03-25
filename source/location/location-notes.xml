@@ -37,8 +37,7 @@ Some of Location's data elements are only relevant when mode is 'instance' and s
 	<p>
 		An example location heirachy should help give some guidance as to one example
 		of how a location heirachy could look within a fictitious Hospital.<br/>
-		<i>(The nesting here would be the "part-of" structure of the location)</i><br/>
-		Note that conceptual structures such as a 
+		<i>(The nesting here would be the "part-of" structure of the location)</i>
 	</p>
 	<pre>
 Hospital A Building C (instance)
@@ -70,6 +69,6 @@ Mobile Services (kind)
         Ambulance AMB2 (instance)
 	</pre>
 	<p>
-		<i>Note that Wards are not part of this structure, these would form part of the Organizational Hierarchy.</i>
+		<i>Note that Wards/Departments are not part of this structure, these would form part of the Organizational Hierarchy.</i>
 	</p>
 </div>
