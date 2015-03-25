@@ -14,10 +14,18 @@
   <status value="draft"/>
   <compose>
     <include>
+      <system value="http://www.ama-assn.org/go/cpt"/>
+    </include>
+    <include>
       <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="71388002"/>
+      </filter>
     </include>
    <include>
-     <system value="http://hl7.org/fhir/sid/icd-10"/>
+     <system value="http://www.icd10data.com/icd10pcs"/>
     </include>
    </compose>
 </ValueSet>
