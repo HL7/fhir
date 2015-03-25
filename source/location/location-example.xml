@@ -17,6 +17,7 @@
   </identifier>
   <name value="South Wing, second floor"/>
   <description value="Second floor of the Old South Wing, formerly in use by Psychiatry"/>
+	<mode value="instance" />
   <telecom>
     <system value="phone"/>
     <value value="2328"/>

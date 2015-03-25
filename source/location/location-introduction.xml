@@ -1,7 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<div>
-<h2>Scope and Usage</h2>
+	<div>
+		
+	<h2>Scope and Usage</h2>
 <p>
 A Location includes both incidental locations (a place which is used for healthcare without prior designation or authorization) and 
 dedicated, formally appointed locations. Locations may be private, public, mobile or fixed and scale from small 
@@ -9,12 +10,45 @@ freezers to full hospital buildings or parking garages.
 </p>
 <p>Examples of Locations are:</p>
 <ul>
-<li>Building, ward, corridor or room</li>
+<li>Building, ward, corridor, room or bed</li>
+<li>Mobile Clinic</li>
 <li>Freezer, incubator</li>
 <li>Vehicle or lift</li>
 <li>Home, shed, or a garage</li>
 <li>Road, parking place, a park</li>
+<li>Ambulance (generic)</li>
+<li>Ambulance (specific)</li>
+<li>Patient's Home (generic)</li>
+<li>Jurisdiction</li>
 </ul>
+  <p>
+    These locations are not intended to cover locations on a patient where something occurred
+    (i.e. a patient's broken leg), but can hapily cover the location where the patient broke the leg (the playground)
+  </p>
 </div>
-
+<div>
+	<h2>Boundaries and Relationships</h2>
+  <p>
+    Locations and Organizations are very closely related resources and can often be mix/matched/confused.<br/>
+		The Location is intended to describe the more physical structures managed/operated by an organization, where the Organization is intended to
+		represent the more conceptual heirarchies, such as a ward.
+	</p>
+	<p>
+		A Location is valid without an address in cases where it could be purely described by
+		a geo-coded location in remote areas, or when recorded by a device. Locations with a mode = "kind" would
+		also likely not have an address, as they are just a type of location, but could also have an address where 
+		they can be found at the address.<br/>
+	</p>
+	<p>
+		Another use of location could be for describing a Jurisdiction. This jurisdiction may be considered a classified boundary
+		which could be a combination of a physical boundary, and some other descrimintor(s):
+	</p>
+	<ul>
+		<li>Nation - Country wide community or Federal Government (Ministry of Health)</li>
+		<li>Province or State (community or Government)</li>
+		<li>Business (throughout an enterprise)</li>
+		<li>Business scope (CDC/FDA)</li>
+		<li>Business segment (UK Pharmacy)</li>
+	</ul>
+	</div>
 </div>

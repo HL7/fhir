@@ -2,7 +2,6 @@
 
 <!-- insert xhtml content here -->
 <h2>Notes</h2>
-<p>
 <ul>
 <li>Multiple Organizations or Practitioners may provide services at a Location. These references are not kept in Location, but can be found
 in the models for <a href="organization.html">Organization</a> and <a href="practitioner.html">Practitioner</a> instead.</li>
@@ -11,7 +10,6 @@ using the Location.partOf element.</li>
 <li>Location.position is expressed using the same syntax, datum and reference system as used in Google Earth's KML files,
 see <a href="http://www.opengeospatial.org/standards/kml">Google/OGS's KML</a>.</li>
 </ul>
-</p>
 
 <h3>Location Mode</h3>
 <p>The Location.mode element can be used to indicate whether a Location resource represents a specific (potentially identifiable) Location ('instance'), 
@@ -23,7 +21,9 @@ exactly which isolation room or ambulance is allocated, and it is sufficient to 
 E.g. when a patient arrived 'by ambulance', but it is not known by which ambulance, this should be represented using a Location in 'instance' mode with a
 missing identifier, not a Location of 'kind' ambulance.</p>
 <p>
-Some of Location's data elements are only relevant when mode is 'instance' and should not be used when mode is 'kind':
+Some of Location's data elements are only relevant when mode is 'instance' and should not be used when mode is 'kind':<br/>
+	<i>(however this information could still be included if was relevant, such as when it is a generic item, but not globally generic, eg a Burgers MU ambulance)</i>
+</p>
 <ul>
 <li>Location.identifier</li>
 <li>Location.telecom</li>
@@ -32,5 +32,44 @@ Some of Location's data elements are only relevant when mode is 'instance' and s
 <li>Location.status</li>
 <li>Location.managingOrganization</li>
 </ul>
-</p>
+
+	<h2>Example Location Heirachy</h2>
+	<p>
+		An example location heirachy should help give some guidance as to one example
+		of how a location heirachy could look within a fictitious Hospital.<br/>
+		<i>(The nesting here would be the "part-of" structure of the location)</i><br/>
+		Note that conceptual structures such as a 
+	</p>
+	<pre>
+Hospital A Building C (instance)
+    East Wing (instance)
+        Level 1 (instance)
+            Reception (instance)
+            Nurses Station EM-ns1 (instance)
+                Medication Cupboard A (instance)
+            Room 1 (instance)
+                Room 1a (instance) - space in room separatable via a curtain
+                    Bed 1a (instance) - always in this room
+                Room 1b (instance)
+                    Trolley 43 (instance) - moves about
+                Room 1d (instance)
+                    Trolley 19 (instance) - moves about
+                Room 2 (instance)
+                    ...
+            Theatre EM-TA (instance)
+            Coridor (generic)
+        Level 2 (instance)
+            Reception (instance)
+                ...
+            Nurses Station EM-ns1 (instance)
+                Medication Cupboard A (instance)
+            Coridor (generic)
+Mobile Services (kind)
+    Ambulance (kind)
+        Ambulance AMB1 (instance)
+        Ambulance AMB2 (instance)
+	</pre>
+	<p>
+		<i>Note that Wards are not part of this structure, these would form part of the Organizational Hierarchy.</i>
+	</p>
 </div>

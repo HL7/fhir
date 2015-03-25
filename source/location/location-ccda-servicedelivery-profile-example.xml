@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd" xmlns="http://hl7.org/fhir">
+  <id value="ccda" />
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Burgers UMC, South Wing, second floor</div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/location-ccda-servicedeliverylocation#otherAddress">
+    <valueAddress>
+      <use value="work"/>
+      <line value="100 Main St"/>
+      <city value="Toronto"/>
+      <postalCode value="M1M 1M1"/>
+      <country value="NLD"/>
+    </valueAddress>
+  </extension>
   <name value="South Wing, second floor"/>
   <type>
     <coding>
@@ -36,16 +46,7 @@
         <use value="work"/>
         <line value="Galapagosweg 91, Building A"/>
         <city value="Den Burg"/>
-        <zip value="9105 PZ"/>
+        <postalCode value="9105 PZ"/>
         <country value="NLD"/>
   </address>
-  <extension url="http://hl7.org/fhir/StructureDefinition/location-ccda-servicedeliverylocation#otherAddress">
-    <address>
-        <use value="work"/>
-        <line value="100 Main St"/>
-        <city value="Toronto"/>
-        <zip value="M1M 1M1"/>
-        <country value="NLD"/>
-    </address>
-  </extension>
 </Location>
