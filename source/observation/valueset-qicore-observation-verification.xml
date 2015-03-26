@@ -1,12 +1,12 @@
 <ValueSet xmlns="http://hl7.org/fhir">
     <name value="Observation Verification Method"/>
-    <publisher value="Health Services Platform Consortium (HSPC)"/>
-    <contact>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
     <telecom>
-        <system value="url"/>
-        <value value="http://www.hspc.org/"/>
-    </telecom>
-  </contact>   
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+  </telecom>
+  </contact>  
     <description value="Code for method by which the observation result was validated, e.g., human review, sliding average."/>
     <status value="active"/>
     <compose>

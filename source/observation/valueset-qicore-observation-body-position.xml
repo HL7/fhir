@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
     <version value="0.01"/>
-    <name value="Precoordinated BodySite Value Set Definition"/>
+    <name value="Body Position Value Set Definition"/>
     <immutable value="true"/>
-    <publisher value="Health Services Platform Consortium (HSPC)"/>
-    <description value="SELECT SNOMED CT code system values representing precoordinated body sites."/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+  </telecom>
+  </contact>
+    <description value="SNOMED CT code system values descending from the following:'body position finding' 9851009"/>
     <copyright value="TBD"/>
     <status value="draft"/>
     <extensible value="true"/>
-    <date value="2015-02-09"/>
+    <date value="2015-02-10"/>
     <compose>
         <include>
             <system value="http://snomed.info/sct"/>
             <filter>
                 <property value="concept"/>
                 <op value="is-a"/>
-                <value value="91723000"/>
+                <value value="9851009"/>
             </filter>
         </include>
     </compose>
