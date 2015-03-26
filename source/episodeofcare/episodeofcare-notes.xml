@@ -8,27 +8,91 @@
 		<p>
 			When an Organization assumes responsibility for a patient, then the EpisodeOfCare is created and a start date
 			entered to show when it has begun.<br/>
-			TODO: Depending on the Organization, there may be an assessment period
-			The Status history is included in the resource explicitly and not just relying on the the versioning support of
-			FHIR to reduce the complexity of needing to proces through the
+			As the Organizations responsibility changes, as does the status of the EpisodeOfCare.<br/>
+			This is described via an example below for an example intake workflow.
 		</p>
 		<p></p>
 		<h3>Leave Handling</h3>
-		Withdrawn/
 		<p>
-			Some systems have specific requirements around the ...
+			With long term care there is often a concept of the provision of care being suspended for various reasons.
+			Many systems have extensive Leave Management/Tracking solutions which consider the complexities of this space,
+			however this EpisodeOfCare resource is NOT intended to provide this level of tracking.<br/>
+		  Extension(s) may be used on the status/status history to track the onhold reason which can facilitite the processing.
+		</p>
+		<p>A more complete Leave Management solution may have to deal with:</p>
+		<ul>
+			<li>Leave Types</li>
+			<li>Leave Entitlements</li>
+			<li>Billing/Funding implications while on different types of leave</li>
+		</ul>
+
+		<p></p>
+		<h3>Example Intake Workflow</h3>
+		<p>
+			This example sequence demonstrates some status transitions and how other resources interact.<br/>
+			The context could be in a Community/Aged Care/Disability/Mental Health setting.
+		</p>
+		<ul>
+			<li>ReferralRequest received</li>
+			<li>
+				<i>
+					intake clerk processes referral and decides that the first level eligibility has been met<br/>
+					(e.g. Have capacity in the facility for the patient, the patient is covered by VA)
+				</i>
+			</li>
+			<li>EpisodeOfCare created with status of planned which is allocated as fulfilling the ReferralRequest</li>
+			<li>
+				<i>Further assessment of needs is scheduled to be taken, a care manager is probably allocated at this point</i>
+			</li>
+			<li>Assessment Practitioner sees the Patient and completes a series of relevant Questionnaires to rank the patient</li>
+			<li>The assessments are reviewed and a formal CarePlan is created</li>
+			<li>The EpisodeOfCare is updated to be marked as active, and the CareTeam is likely filled in</li>
+			<li>
+				<i>The provision of care is then managed through the care plan, with all activities will also being linked to the EpisodeOfCare</i>
+			</li>
+			<li>
+				The patient is admitted to hospital for some procedures, EpisodeOfCare is marked as onhold<br/>
+				Some of the services on the CarePlan (or scheduled appointments) would be reviewed to determine if they
+				can be performed without the patient (e.g. Home Maintenance), or if they should be suspended while the
+				patient is onhold.
+			</li>
+			<li>The patient returns from the hospital and the EpisodeOfCare is marked as active again (and services reviewed again)</li>
+			<li>
+				<i>Patient wished to move to another area to be closer to family</i>
+			</li>
+			<li>Organization creates an outgoing ReferralRequest to a new Organization to continue the care</li>
+			<li>The EpisodeOfCare is closed</li>
+		</ul>
+		<p>
+			In some jurisdictions an Organization may be funded by a government body for the days that a patient is under
+			their care. These are known as "active days". This does not mean that they are actively receiving a service (an encounter),
+			but that the organization is responsible for managing their care.<br/>
+			This monthly reporting value can be easily extracted from the status history as described above.<br/>
+			The actual provision of services may also be funded separately, and this would be via the Encounters.
 		</p>
 
+		<h3>EpisodeOfCare Outcomes Review</h3>
+		<p>
+			An Organization may perform analytics on their Episodes Of Care to have an understanding of how their business is performing.<br/>
+			Observing that there was a 60/40 split of episodes being finished/cancelled is not very informative. The organization would
+			prefer to know the reason why the episodes are completing so that they can plan their business effectively.<br/>
+			They’d be more interested in knowing whether it was due to services hitting their mandatory end date, client passing away, 
+			client transitioning to a higher level of services provided by them or to another provider etc.
+		</p>
+		<p>
+			Currently there are no attributes on this resource to provide this information.
+			This would be very specific to each implementation and usage, so it would be recommended to use extensions to achieve this functionality.
+		</p>
 	</div>
-	<div>
 
+	<div>
 		<h2>Example Scenarios</h2>
 		<p>
 			A General Practitioner wants to review how well his patient is managing his diabetes over time from information
 			within his clinic and also the regional community care organization's system(s).
 		</p>
 		<p>
-			The Episode Of Care enables him to easily separate the diabetes activities from the mental health problem's activities.
+			The EpisodeOfCare enables the practitioner to easily separate the diabetes activities from the mental health problem's activities.
 		</p>
 		<p>
 			A Community Care organization wants to track all activities that occur with a patient relating to their disability

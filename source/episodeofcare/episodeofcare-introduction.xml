@@ -14,7 +14,7 @@
       These resources are typically known in existing systems as:
     </p>
     <ul>
-      <li>EpisodeOfCare: Case, Program, Problem</li>
+      <li>EpisodeOfCare: Case, Program, Problem, Episode</li>
       <li>Encounter: Visit, Contact</li>
     </ul>
     <p></p>
@@ -24,7 +24,7 @@
       which tracks their responsibility with the Patient.
     </p>
     <p>
-      When an Organization completes their involvement with the patient and transfers care to another Organizaion.
+      When an Organization completes their involvement with the patient and transfers care to another Organization.
       This is often in the form of a referral to another Organization (or Organizations).<br/>
     </p>
     <p>
@@ -61,7 +61,7 @@
       The minimal information that would be required in an episode of care would be a patient, organization and a reason for the ongoing association.
       Other reasons for creating an EpisodeOfCare could be for tracking the details required for government reporting or billing.
     </p>
-    <h3>Expected Imlementations</h3>
+    <h3>Expected Implementations</h3>
     <ul>
       <li>Chronic Disease Management Systems</li>
       <li>
