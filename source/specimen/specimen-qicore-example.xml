@@ -26,13 +26,36 @@
         </coding>
       </valueCodeableConcept>
     </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/specimen-specialHandling">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ActCode"/>
+          <code value="NOPERSISTP"/>
+          <display value="no collection beyond purpose of use"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
     <collectedDateTime value="2011-03-06T06:15:00Z" />
     <quantity>
       <value value="6"/>
       <units value="mL"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/specimen-isDryWeight">
+        <valueBoolean value="false"/>
+      </extension>
     </quantity>
   </collection>
-
+  <treatment>
+    <description value="Treated with anticoagulants."/>
+    <additive>
+      <reference value="Substance/example"/>
+    </additive>
+    <extension url="http://hl7.org/fhir/StructureDefinition/specimen-treatmentTime">
+      <valuePeriod>
+        <start value="2011-03-04T07:03:00Z"/>
+        <end value="2011-03-04T07:03:00Z"/>
+      </valuePeriod>
+    </extension>
+  </treatment>
   <container>
     <extension url="http://hl7.org/fhir/StructureDefinition/specimen-sequenceNumber">
       <valueInteger value="1"/>
