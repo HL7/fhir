@@ -68,6 +68,11 @@
 			<display value="Jurisdiction"/>
 			<definition value="A wide scope that covers a conceptual domain, such as a Nation (Country wide community or Federal Government - e.g. Ministry of Health),  Province or State (community or Government), Business (throughout the enterprise), Nation with a business scope of an agency (eg. CDC, FDA etc.) or a Business segment (UK Pharmacy)" />
 		</concept>
+		<concept>
+			<code value="area"/>
+			<display value="Area"/>
+			<definition value="An defined boundary, such as a state, region, country, county" />
+		</concept>
 	</define>
 </ValueSet>
 

@@ -55,7 +55,7 @@
 	<div>
 		<h2>Boundaries and Relationships</h2>
 		<p>
-			The Schedule resource can be used with the Schedule resource to define actual availability
+			The HealthcareService resource can be used with the Schedule resource to define actual availability
 			of the service. This would be done by using the Schedule's Actor property.
 		</p>
 		<p>
