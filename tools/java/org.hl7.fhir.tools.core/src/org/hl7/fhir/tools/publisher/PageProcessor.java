@@ -738,10 +738,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     File tmp = Utilities.createTempFile("tmp", ".tmp");
     tmp.deleteOnExit();
     try {
-      String s = "[diagram]\r\n"+
+      String s = "\r\n[diagram]\r\n"+
           "classes="+dt+"\r\n"+
           "element-attributes=true\r\n";
-      TextFile.stringToFile(s, tmp.getAbsolutePath());
+      TextFile.stringToFileNoPrefix(s, tmp.getAbsolutePath());
       return new SvgGenerator(this).generate(tmp.getAbsolutePath());
     } finally {
       tmp.delete();
