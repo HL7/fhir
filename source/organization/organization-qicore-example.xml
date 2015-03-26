@@ -18,6 +18,13 @@
 
   <!-- HL7 itself -->
   <name value="Health Level Seven International"/>
+  <type>
+    <coding>
+        <system value="http://hl7.org/fhir/organization-type"/>
+        <code value="team"/>
+        <display value="Organizational team"/>
+    </coding>
+  </type>
   <telecom>
     <system value="phone"/>
     <value value="(+1) 734-677-7777"/>
@@ -37,4 +44,5 @@
     <postalCode value="48104"/>
     <country value="USA"/>
   </address>
+  <active value="true"/>
 </Organization>

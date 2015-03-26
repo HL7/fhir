@@ -14,6 +14,7 @@
       <p>by doctor X</p>
     </div>
   </text>
+  <dateWritten value="2015-03-25T19:32:52-05:00"/>
   <status value="active" />
   <patient>
     <reference value="Patient/example"/>
@@ -21,7 +22,6 @@
   <prescriber>
     <reference value="Practitioner/example"/>
   </prescriber>
-
   <medication>
     <reference value="Medication/example"/>
   </medication>
@@ -35,6 +35,38 @@
           <display value="Maintenance dose"/>
         </coding>
       </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver" >
+      <valueQuantity>
+        <value value="1" />
+        <units value="min" />
+        <system value="http://unitsofmeasure.org" />
+        <code value="m" />
+      </valueQuantity>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod" >
+      <valueRatio>
+        <numerator>
+           <value value="15" />
+           <units value="ml" />
+           <code value="ml" />
+           <system value="http://unitsofmeasure.org" />
+        </numerator>
+        <denominator>
+           <value value="1" />
+           <units value="day" />
+           <code value="day" />
+           <system value="http://unitsofmeasure.org" />
+        </denominator>
+      </valueRatio>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume" >
+      <valueQuantity>
+        <value value="15" />
+        <units value="ml" />
+        <code value="ml" />
+        <system value="http://unitsofmeasure.org" />
+      </valueQuantity>
     </extension>
     <scheduledTiming>
       <repeat>
