@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+	<id value="genetics-example2-germline"/>
+	<code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="21636-6"/>
+            <display value="BRCA1 gene mutation analysis"/>
+        </coding>
+    </code>
+    <status value="final"/> 
+	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">
+		<valueString value="GRCh 37"></valueString>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsChromosome">
+		<valueString value="17"></valueString>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicReferenceSequenceId">
+			<valueString value="NC_000017.10"></valueString>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStart">
+		<valueInteger value="41258504"></valueInteger>
+	</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStop">
+		<valueInteger value="41258504"></valueInteger>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsReferenceAllele">
+			<valueString value="A"></valueString>
+	</extension>
+			<extension url="http://hl7.org/fhir/StructureDefinition/geneticsObservedAllele">
+			<valueString value="C"></valueString>
+	</extension>
+	
+</Observation>
