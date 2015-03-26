@@ -17,7 +17,7 @@
       </valueCodeableConcept>
     </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-code">
+  <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-type">
     <valueCodeableConcept>
       <coding>
         <system value="http://snomed.info/sct"/>
