@@ -1,10 +1,10 @@
 <ValueSet xmlns="http://hl7.org/fhir">
     <name value="Diagnostic Order Precondition"/>
-    <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <publisher value="Health Level Seven, Inc. - CQI WG"/>
     <contact>
     <telecom>
         <system value="url"/>
-        <value value="http://www.hspc.gov/"/>
+        <value value="http://hl7.org/special/committees/CQI"/>
     </telecom>
   </contact>    
     <description value="The condition, state, or problem that the patient is in or has prior to a therapy or procedure. This captures temporal (temporary circumstances) that 
