@@ -3,21 +3,15 @@
     <valueUri value="urn:oid:0.00.000.0.000000.0.00.002"/>
   </extension>
   <!-- 
-    CIMI group to provide values
+    Values provided by CIMI group
   -->
   <name value="HSPC Verification"/>
-  <publisher value="CIMI"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://cimi.org/valueset/verification"/>
-  </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.cimi.org/"/>
-  </telecom>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+	</telecom>
   </contact>
  
   <description value="Verification Method Value Set"/>

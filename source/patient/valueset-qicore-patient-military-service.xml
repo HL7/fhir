@@ -6,15 +6,15 @@
 
   -->
   <name value="Military Service Codes"/>
-  <publisher value="Quality Improvement Project Team"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
   </telecom>
   </contact>
  
-  <description value="Example Value Set for Military Service"/>
+  <description value="Value Set for Military Service (Example)"/>
   <status value="draft"/>
   <compose>
     <include>

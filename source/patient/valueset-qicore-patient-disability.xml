@@ -1,0 +1,28 @@
+﻿<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="daf-problem"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.6.96.21.1340.0.2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/patient-disability"/>
+  <name value="Disability Value Set"/>
+  <publisher value="PHIN VADS"/>
+  <contact>
+    <telecom>
+    <system value="url"/>
+    <value value="http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.6.96.21.1340.0.2"/>
+  </telecom>
+  </contact>
+  <description value="Disability is broadly defined as a physical or mental condition that limits a person's movements, senses, or activities. This includes  items such as handicap, impairment, invalidism, functional dependency, and incompetence."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="105719004"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

@@ -15,25 +15,19 @@
     Very Important Person	PatientImportance:VIP:19273	VIP
   -->
   <name value="Importance"/>
-  <publisher value="CIMI"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://cimi.org/valueset/importance"/>
-  </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.cimi.org/"/>
-  </telecom>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+	</telecom>
   </contact>
  
   <description value="Importance Value Set for Patient"/>
   <status value="active"/>
   <compose>
     <include>
-      <system value="http://cimi.org/vs/patient/importance"/>
+      <system value="http://hl7.org/fhir/patient-importance"/>
       <concept>
         <code value="19266"/>
         <display value="Board Member"/>
