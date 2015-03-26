@@ -15,7 +15,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4800</WindowHeight>
+  <WindowHeight>7140</WindowHeight>
   <WindowWidth>28780</WindowWidth>
   <WindowTopX>5400</WindowTopX>
   <WindowTopY>6640</WindowTopY>
@@ -1561,7 +1561,8 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/encounter-reasonCancelled}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">QICoreActReason</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3580,7 +3581,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>12</ActiveRow>
      <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
