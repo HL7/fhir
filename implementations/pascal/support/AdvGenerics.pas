@@ -314,7 +314,7 @@ begin
   Count := 0;
   for x in Self do
   begin
-    Result[Count] := TAdvObject(x).Link;
+    TObject(Result[Count]) := TAdvObject(x).Link;
     Inc(Count);
   end;
 end;
@@ -561,7 +561,7 @@ begin
   end;
 
   for I := 0 to Length(Values) - 1 do
-    FItems[Index + I] := TAdvObject(Values[I]).Link; // yes, here we link. This means that the user cannot construct an array of objects and link them assuming this will respect that
+    TObject(FItems[Index + I]) := TAdvObject(Values[I]).Link; // yes, here we link. This means that the user cannot construct an array of objects and link them assuming this will respect that
 
   Inc(FCount, Length(Values));
 

@@ -62,6 +62,7 @@ type
     function AddValue(kind : TFHIRTagKind; uri, code, display : string) : TFhirTag;
     procedure delete(kind : TFHIRTagKind; uri, code : String); overload;
 
+    procedure checkAdd(tag : TFhirTag);
     procedure AddToList(list : TFhirCodingList);
   end;
   TFHIRAtomCategoryList = TFHIRTagList;
@@ -1289,6 +1290,22 @@ begin
   result.display := tag.display;
 end;
 
+procedure TFhirTagList.checkAdd(tag: TFhirTag);
+var
+  i : integer;
+  exists : boolean;
+begin
+  try
+    exists := false;
+    for i := 0 to Count - 1 do
+      exists := exists or ((TagItem[i].Kind = tag.Kind) and (TagItem[i].Uri = tag.Uri) and (TagItem[i].Code = tag.Code));
+    if not exists then
+      Add(tag.Link);
+  finally
+    tag.Free;
+  end;
+end;
+
 procedure TFhirTagList.CopyTags(meta: TFhirMeta);
 var
   i : integer;
@@ -1296,11 +1313,11 @@ begin
   if (meta <> nil) then
   begin
   for i := 0 to meta.profileList.Count - 1 do
-    add(makeTagFromUri(tkProfile, meta.profileList[i].value));
+      checkAdd(makeTagFromUri(tkProfile, meta.profileList[i].value));
   for i := 0 to meta.tagList.Count - 1 do
-    add(makeTagFromCoding(tkTag, meta.tagList[i]));
+      checkAdd(makeTagFromCoding(tkTag, meta.tagList[i]));
   for i := 0 to meta.securityList.Count - 1 do
-    add(makeTagFromCoding(tkSecurity, meta.securityList[i]));
+      checkAdd(makeTagFromCoding(tkSecurity, meta.securityList[i]));
   end;
 end;
 

@@ -85,6 +85,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.PrimitiveType;
+import org.hl7.fhir.instance.model.Range;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Property;
 import org.hl7.fhir.instance.model.Quantity;
@@ -372,6 +373,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       renderUri((UriType) e, x);
     } else if (e instanceof Timing) {
       renderTiming((Timing) e, x);
+    } else if (e instanceof Range) {
+      renderRange((Range) e, x);
     } else if (e instanceof Quantity || e instanceof Duration) {
       renderQuantity((Quantity) e, x, showCodeDetails);
     } else if (e instanceof Ratio) {
@@ -777,6 +780,20 @@ public class NarrativeGenerator implements INarrativeGenerator {
       sp.setAttribute("style", "background: LightGoldenRodYellow ");
       sp.addText(" (Details: "+describeSystem(q.getSystem())+" code "+q.getCode()+" = '"+lookupCode(q.getSystem(), q.getCode())+"')"); 
     }
+  }
+  
+  private void renderRange(Range q, XhtmlNode x) {
+    if (q.hasLow())
+      x.addText(q.getLow().getValue().toString());
+    else 
+      x.addText("?");
+    x.addText("-");
+    if (q.hasHigh())
+      x.addText(q.getHigh().getValue().toString());
+    else 
+      x.addText("?");
+    if (q.getLow().hasUnits())
+      x.addText(" "+q.getLow().getUnits());
   }
   
   private void renderHumanName(HumanName name, XhtmlNode x) {

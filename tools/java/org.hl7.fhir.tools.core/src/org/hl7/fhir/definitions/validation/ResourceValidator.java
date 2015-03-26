@@ -75,6 +75,7 @@ public class ResourceValidator extends BaseValidator {
 
   private Definitions definitions;
   private final Map<String, Usage> usages = new HashMap<String, Usage>();
+  private final Map<String, Integer> names = new HashMap<String, Integer>();
   private final Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
   private Translations translations;
   private final Map<String, ValueSet> codeSystems;
@@ -255,6 +256,9 @@ public class ResourceValidator extends BaseValidator {
 //  	  else
 //  	    typeCounter.put(t.getName(), typeCounter.get(t.getName())+1);
 //	  }
+	  if (!names.containsKey(e.getName()))
+	    names.put(e.getName(), 0);
+    names.put(e.getName(), names.get(e.getName())+1);
 	  
 	  rule(errors, "structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, "structure", path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
@@ -563,6 +567,12 @@ public class ResourceValidator extends BaseValidator {
 //    for (String t : typeCounter.keySet()) {
 //      System.out.println(t+": "+typeCounter.get(t).toString());
 //    }
+    int total = 0;
+    for (String n : names.keySet()) {
+      System.out.println(n+" = "+names.get(n));
+      total += names.get(n);
+    }
+    System.out.println("total = "+Integer.toString(total));
   }
 
   public List<ValidationMessage> checkBindings(Map<String, BindingSpecification> bindings) {
