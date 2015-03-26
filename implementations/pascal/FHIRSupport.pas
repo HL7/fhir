@@ -771,6 +771,8 @@ end;
 
 function TFHIRRequest.GetFeed: TFhirBundle;
 begin
+  if not (Resource is TFHIRBundle) then
+    raise Exception.Create('Found a '+resource.FhirType+' expecting a Bundle');
   result := Resource as TFhirBundle;
 end;
 

@@ -82,7 +82,7 @@ public class XSDGenerator  {
 		  write("  Generated on "+genDate+" for FHIR v"+version+" \r\n");
 		  write("-->\r\n");
 		  write("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://hl7.org/fhir\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" "+
-		      "targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
+		      "targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\"1.0\">\r\n");
 		  write("  <xs:include schemaLocation=\"fhir-base.xsd\"/>\r\n");
 		}
 		write("  <xs:element name=\""+root.getName()+"\" type=\""+root.getName()+"\">\r\n");

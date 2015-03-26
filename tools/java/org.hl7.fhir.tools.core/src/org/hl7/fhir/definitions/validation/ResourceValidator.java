@@ -346,7 +346,7 @@ public class ResourceValidator extends BaseValidator {
             String esd = b.substring(3);
             rule(errors, "structure", path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
 			    } else
-			      rule(errors, "structure", path, cd.getCodes().size() > 20 || cd.getCodes().size() == 1 || !hasGoodCode(cd.getCodes()) || isExemptFromCodeList(path), "The short description of an element with a code list should have the format code | code | etc");
+			      rule(errors, "structure", path, cd.getStrength() != BindingStrength.REQUIRED || cd.getCodes().size() > 20 || cd.getCodes().size() == 1 || !hasGoodCode(cd.getCodes()) || isExemptFromCodeList(path), "The short description of an element with a code list should have the format code | code | etc");
 			  }
 			  boolean isComplex = !e.typeCode().equals("code");
 //      quality scan for heather:			  
@@ -567,12 +567,14 @@ public class ResourceValidator extends BaseValidator {
 //    for (String t : typeCounter.keySet()) {
 //      System.out.println(t+": "+typeCounter.get(t).toString());
 //    }
-    int total = 0;
-    for (String n : names.keySet()) {
-      System.out.println(n+" = "+names.get(n));
-      total += names.get(n);
-    }
-    System.out.println("total = "+Integer.toString(total));
+    // for tracking individual name usage
+    
+//    int total = 0;
+//    for (String n : names.keySet()) {
+//      System.out.println(n+" = "+names.get(n));
+//      total += names.get(n);
+//    }
+//    System.out.println("total = "+Integer.toString(total));
   }
 
   public List<ValidationMessage> checkBindings(Map<String, BindingSpecification> bindings) {
