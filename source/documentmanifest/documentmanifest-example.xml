@@ -54,7 +54,11 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   <source value="urn:oid:1.3.6.1.4.1.21367.2009.1.2.1"/>
   <status value="current"/>
   <description value="Physical"/>
+ 
   <content>
+   <pReference>
     <reference value="DocumentReference/example"/>
+   </pReference>
   </content>
+ 
 </DocumentManifest>

@@ -1,26 +1,27 @@
 ﻿<ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-ihe-formatcodes"/>
+  <id value="valueset-formatcodes"/>
   <meta>
-    <lastUpdated value="2015-03-17T12:06:30.047+00:00"/>
+    <lastUpdated value="2015-03-26T12:06:30.047+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
   </extension>
-  <url value="http://hl7.org/fhir/vs/valueset-ihe-formatcodes"/>
-  <version value="20141206"/>
-  <name value="IHE Document Format Code Set"/>
+  <url value="http://hl7.org/fhir/vs/valueset-formatcodes"/>
+  <version value="20150326"/>
+  <name value="DocumentReference Format Code Set"/>
   <publisher value="IHE"/>
   <description value="The value set is defined to be the set of format codes defined by 
   the IHE Technical Framework, and also including additional format codes defined by the 
-  NHIN. The value set is listed in HITSP C80 Table 2-153 Format Code Value Set Definition, 
+  HL7. The value set is listed in HITSP C80 Table 2-153 Format Code Value Set Definition, 
   with additions published later by IHE as published 
   at http://wiki.ihe.net/index.php?title=IHE_Format_Codes
+  and with additions published later by HL7 as published at http://wiki.hl7.org/index.php?title=CDA_Format_Codes_for_IHE_XDS.
   This is the code specifying the technical format of the document. Along with the typeCode, 
   it should provide sufficient information to allow any potential document consumer to know 
   if it will be able to process the document. The code shall be sufficiently specific to 
   ensure processing/display by identifying a document encoding, structure and template."/>
-  <copyright value="This content from IHE&#174; Copyright &#169; 2015 IHE International, Inc. 
+  <copyright value="Some content from IHE&#174; Copyright &#169; 2015 IHE International, Inc. 
   This content is from the IHE Technical Frameworks and Supplements, 
   available for free download and use at http://www.ihe.net/Technical_Frameworks/"/>
   
@@ -30,7 +31,7 @@
 
   <compose>
    <include>
-   <system value="urn:ietf:rfc:3986"/>
+   <system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
       
    <concept>
     <code value="urn:ihe:pcc:xphr:2007"/>
@@ -275,10 +276,14 @@
    <concept>
      <code value="urn:ihe:pharm:pml:2013"/> <display value="Pharmacy PML"/>
    </concept>
-   <!-- NHIN -->
+   <!-- HL7 -->
    <concept>
-    <code value="urn:nhin:names:acp:XACML"/>
-    <display value="Access Consent Policy document formatted as XACML"/>
+    <code value="urn:hl7-org:sdwg:ccda-structuredBody:1.1"/>
+    <display value="For documents following C-CDA constraints using a structured body. "/>
+   </concept>
+   <concept>
+    <code value="urn:hl7-org:sdwg:ccda-nonXMLBody:1.1"/>
+    <display value="For documents following C-CDA constraints using a non structured body. "/>
    </concept>
 
    </include>

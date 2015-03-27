@@ -2,13 +2,13 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
   <url value="http://nema.org/dicom/dicm/400"/>
-  <version value="20100826"/>
+  <version value="20150326"/>
   <name value="Audit Event ID"/>
   <publisher value="NEMA/DICOM"/>
   <description value="Event Types for Audit Events - defined by DICOM with some FHIR specific additions"/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <status value="active"/>
-  <date value="2010-08-26"/>
+  <date value="2015-03-26"/>
   <define>
     <system value="http://hl7.org/fhir/audit-event-type"/>
     <caseSensitive value="true"/>
@@ -47,6 +47,15 @@
       </concept>
       <concept>
         <code value="110108"/>
+      </concept>
+      <concept>
+        <code value="110109"/>
+      </concept>
+      <concept>
+        <code value="110110"/>
+      </concept>
+      <concept>
+        <code value="110111"/>
       </concept>
       <concept>
         <code value="110112"/>
