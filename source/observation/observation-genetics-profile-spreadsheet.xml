@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Mollie H Ullman-Cullere</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-27T16:49:02Z</LastSaved>
+  <LastSaved>2015-03-27T17:53:57Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1033,7 +1033,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1574,7 +1574,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">VariantId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Identifier for variant.  If a germline variant, ClinVar or dbSNP identifier should be used. If a somatic variant, COSMIC identifier should be used, unless in ClinVar.</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Identifier for variant.  If a germline variant, ClinVar or dbSNP identifier should be used. If ClinVar is used, the identifier should be prefixed with 'ClinVar:' (e.g. ClinVar:17661).  dbSNP ids are start with 'rs' (rs28897672) and COSMIC id's start with 'COSM' (e.g. COSM12979). Note, dbSNP id's are not unique to a variant but a location, so nucleotide change and germline/somatic classification are needed to resolve.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1906,7 +1906,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">CIGAR</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">A sequence of of base lengths and the associated operation, used to indicate which bases align (either a match/mismatch) with the reference, are deleted from the reference, and are insertions that are not in the reference.</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">A sequence of of base lengths and the associated operation, used to indicate which bases align (either a match/mismatch) with the reference, are deleted from the reference, and are insertions that are not in the reference. string of observed nucleotides.  Observed nucleotides matching the reference are in capital letters. Observed nucleotides not matching the reference are in lower case letters. Use '-' a dash for deleted/missing nucleotides in the observed sequence. Allowable characters are A,T,C,G, a,t,c,g and -</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3895,7 +3895,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3909,10 +3909,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
+     <ActiveRow>12</ActiveRow>
      <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
@@ -8134,7 +8135,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">VariantId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Identifier for variant.  If a germline variant, ClinVar or dbSNP identifier should be used. If a somatic variant, COSMIC identifier should be used, unless in ClinVar.</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Identifier for variant.  If a germline variant, ClinVar or dbSNP identifier should be used. If ClinVar is used, the identifier should be prefixed with 'ClinVar:' (e.g. ClinVar:17661).  dbSNP ids are start with 'rs' (rs28897672) and COSMIC id's start with 'COSM' (e.g. COSM12979). Note, dbSNP id's are not unique to a variant but a location, so nucleotide change and germline/somatic classification are needed to resolve.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -8478,7 +8479,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">CIGAR</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">A sequence of of base lengths and the associated operation, used to indicate which bases align (either a match/mismatch) with the reference, are deleted from the reference, and are insertions that are not in the reference.</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">A sequence of of base lengths and the associated operation, used to indicate which bases align (either a match/mismatch) with the reference, are deleted from the reference, and are insertions that are not in the reference. string of observed nucleotides.  Observed nucleotides matching the reference are in capital letters. Observed nucleotides not matching the reference are in lower case letters. Use '-' a dash for deleted/missing nucleotides in the observed sequence. Allowable characters are A,T,C,G, a,t,c,g and -</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -8863,8 +8864,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10457,29 +10458,14 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">ClinVar-variant-database</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">NCBI central respository of potentially clinically relevant variants</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s154" ss:HRef="http://www.ncbi.nlm.nih.gov/clinvar/variation"><Data
+      ss:Type="String">http://www.ncbi.nlm.nih.gov/clinvar/variation</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">NCBI central respository for curating pathogenicity of potentially clinically relevant variants</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10489,14 +10475,15 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">COSMIC-cancer-mutation-database</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Catalog of Somatic Mutations in Cancer</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s154" ss:HRef="http://cancer.sanger.ac.uk/cancergenome/projects/cosmic/"><Data
+      ss:Type="String">http://cancer.sanger.ac.uk/cancergenome/projects/cosmic/</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Catalog of Somatic Mutations in Cancer maintained by the Welcome Trust Sanger Institute</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.3.912</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10505,13 +10492,31 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">dbSNP-variant-database</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">NCBI database of variants </Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s154" ss:HRef="http://www.ncbi.nlm.nih.gov/projects/SNP/"><Data
+      ss:Type="String">http://www.ncbi.nlm.nih.gov/projects/SNP/</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">NCBI  central repository of variants, including germline and somatic variants</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.6.284</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"><Data ss:Type="String">SO-SequenceOntology</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Sequence Ontology maintains terminologies for characterizing sequencing data</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s154" ss:HRef="http://www.sequenceontology.org/"><Data
+      ss:Type="String">http://www.sequenceontology.org/</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">SO-Sequence Ontology  is a collaborative ontology project for the definition of sequence features used in biological sequence annotation.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10873,7 +10878,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10901,7 +10907,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R30C14,R2C1:R30C6,R2C7,R6C8:R8C8,R10C8:R30C8,R5C7:R30C7</Range>
+   <Range>R2C9:R30C14,R2C1:R30C6,R2C7,R10C8:R30C8,R5C7:R30C7,R6C8:R8C8</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -10936,14 +10942,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R30C11,R6C8:R8C8,R10C8:R30C8</Range>
+   <Range>R2C9:R30C11,R10C8:R30C8,R6C8:R8C8</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R30C14,R2C1:R30C6,R2C7,R6C8:R8C8,R10C8:R30C8,R5C7:R30C7</Range>
+   <Range>R2C9:R30C14,R2C1:R30C6,R2C7,R10C8:R30C8,R5C7:R30C7,R6C8:R8C8</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
