@@ -10,6 +10,20 @@
         </coding>
     </code>
     <status value="final"/> 
+    
+	<subject>
+		<reference value="Patient/genetics-example2-germline"/>
+		<display value="Molecular Lab Patient ID: HOSP-23456"/>
+	</subject>
+	<specimen>
+		<reference value="Specimen/genetics-example2-germline"/>
+		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+	</specimen>
+	<performer>
+		<reference value="Practitioner/genetics-example2-germline"/>
+		<display value="Molecular Diagnostic Laboratory"/>
+	</performer>    
+    
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">
 		<valueString value="GRCh 37"/>
 	</extension>
@@ -48,7 +62,7 @@
 			<valueString value="c.181T>G"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsVariationId">
-			<valueCode value="X"/>
+			<valueCode value="ClinVar:17661"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNARegionName">
 			<valueString value="Exon 4"/>
