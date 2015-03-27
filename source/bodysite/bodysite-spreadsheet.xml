@@ -24,7 +24,7 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1010,7 +1010,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">RIM mappings</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Archetype ID   openEHR-EHR-CLUSTER.anatomical_location.v1     &#10;Concept name   Anatomical Location     &#10;Concept description   Record details about an anatomical location.     &#10;Keywords   location, site, anatomical     &#10;Copyright   © openEHR Foundation     &#10;Purpose   To record details about anatomical location.     &#10;Misuse   Not for specifiying unilateral/bilateral occurence - this is related to an evaluation which perhaps includes multiple locations.     &#10;Author   Author name: Heather Leslie&#10;Organisation: Ocean Informatics&#10;Email: heather.leslie@oceaninformatics.com&#10;Date of Origination: 2008-11-10&#10;     &#10;Translator   Norwegian Bokmål: Lars Bitsch-Larsen, Haukeland University Hospital of Bergen, Norway, MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.&#10;Arabic (Syria): Mona Saleh&#10;     &#10;Other contributors   Heather Leslie, Ocean Informatics, Australia (Editor)&#10;Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor)&#10;Dunmail Hodkinson, Black Pear Software Ltd, UK     &#10;References   Use cases: - 5LICS, midclavicular line - L forearm, 2cm anterior to the cubital fossa - Right iliac fossa - 5 cm below L tibial tuberosity - 2 cm medial to R nipple - 4 cm below R costal margin in midclavicular line - R femur - midline nose - medial aspect of R great toe nail. &#10;</Data><NamedCell
@@ -3622,13 +3623,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3643,8 +3643,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5832,7 +5832,7 @@
     <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"><Data ss:Type="String">!bodysite-qicore</Data><NamedCell
+    <Cell ss:StyleID="s129"><Data ss:Type="String">bodysite-qicore</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">bodysite-qicore.xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6079,6 +6079,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6098,7 +6099,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
