@@ -28,6 +28,10 @@
         <code value="veteran"/>
         <display value="Veteran"/>
       </concept>
+	  <concept>
+        <code value="active-duty"/>
+        <display value="Active Duty"/>
+      </concept>
       <concept>
         <code value="active-reserve"/>
         <display value="Active Reserve"/>
