@@ -1,16 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <HealthcareService xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/healthcareservice.xsd">
- <id value="example"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      25 Dec 2013 9:15am - 9:30am: <b>Busy</b> Physiotherapy
-    </div>
-  </text>
-  <location>
-    <reference value="Location/1" />
-  </location>
-  <serviceName value="healthcare service" />
-  <comment value="Assessments should be performed before requesting appointments in this slot." />
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			25 Dec 2013 9:15am - 9:30am: <b>Busy</b> Physiotherapy
+		</div>
+	</text>
+	<contained>
+		<Location>
+			<id value="DenBurg"/>
+			<description value="Greater Denburg area"/>
+			<mode value="instance"/>
+			<physicalType>
+				<coding>
+					<code value="area"/>
+					<display value="Area"/>
+				</coding>
+			</physicalType>
+		</Location>
+	</contained>
+	<location>
+		<reference value="Location/1"/>
+	</location>
+	<serviceType>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="394913002"/>
+				<display value="Psychotherapy"/>
+			</coding>
+		</type>
+	</serviceType>
+	<serviceType>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="394587001"/>
+				<display value="Psychiatry"/>
+			</coding>
+		</type>
+		<specialty>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="47505003"/>
+				<display value="Posttraumatic stress disorder"/>
+			</coding>
+		</specialty>
+	</serviceType>
+	<serviceName value="Consulting psychologists and/or psychology services"/>
+	<comment value="Providing Specialist psychology services to the greater Den Burg area, many years of experience dealing with PTSD issues" />
+	<extraDetails value="Several assessments are required for these specialist services, and the waiting times can be greater than 3 months at times. Existing patients are prioritized when requesting appointments on the schedule."/>
+	<telecom>
+		<system value="phone"/>
+		<value value="(555) silent"/>
+		<use value="work" />
+	</telecom>
+	<telecom>
+		<system value="email"/>
+		<value value="directaddress@example.com"/>
+		<use value="work" />
+	</telecom>
+	<coverageArea>
+		<reference value="#DenBurg"/>
+		<display value="Greater Denburg area" />
+	</coverageArea>
+	<eligibility>
+		<coding>
+			<display value="DVA Required"/>
+		</coding>
+	</eligibility>
+	<eligibilityNote value="Evidence of application for DVA status may be sufficient for commencing assessment"/>
+	<programName value="PTSD outreach"/>
+	<characteristic>
+		<coding>
+			<display value="Wheelchair access"/>
+		</coding>
+	</characteristic>
+	<referralMethod>
+		<coding>
+			<code value="phone"/>
+			<display value="Phone"/>
+		</coding>
+	</referralMethod>
+	<referralMethod>
+		<coding>
+			<code value="fax"/>
+			<display value="Fax" />
+		</coding>
+	</referralMethod>
+	<referralMethod>
+		<coding>
+			<code value="elec"/>
+			<display value="Secure Messaging" />
+		</coding>
+	</referralMethod>
+	<referralMethod>
+		<coding>
+			<code value="semail"/>
+			<display value="Secure Email" />
+		</coding>
+	</referralMethod>
+	<publicKey value="*** Base64 public key goes here to be used for secure messaging ***"/>
+	<appointmentRequired value="false"/>
+	<availableTime>
+		<daysOfWeek value="mon" />
+		<daysOfWeek value="tue" />
+		<daysOfWeek value="wed" />
+		<daysOfWeek value="thu" />
+		<daysOfWeek value="fri" />
+		<availableStartTime value="08:30:00"/>
+		<availableEndTime value="05:30:00"/>
+	</availableTime>
+	<availableTime>
+		<daysOfWeek value="sat" />
+		<daysOfWeek value="fri" />
+		<availableStartTime value="09:30:00"/>
+		<availableEndTime value="04:30:00"/>
+	</availableTime>
+	<notAvailable>
+		<description value="Christmas/Boxing Day" />
+		<during>
+			<start value="2015-12-25"/>
+			<end value="2015-12-26"/>
+		</during>
+	</notAvailable>
+	<notAvailable>
+		<description value="New Years Day" />
+		<during>
+			<start value="2016-01-01"/>
+			<end value="2016-01-01"/>
+		</during>
+	</notAvailable>
+	<availabilityExceptions value="Reduced capacity is available during the Christmas period"/>
 </HealthcareService>

@@ -51,13 +51,13 @@
     </coding>
   </admitSource>
   <!--accomodation details are not available-->
-  <diet>
+  <dietPreference>
     <coding>
        <system value="http://snomed.info/sct"/>
        <code value="276026009"/>
        <display value="Fluid balance regulation"/>
     </coding>
-  </diet>
+  </dietPreference>
   <!--no special courtesy or arrangements-->
 <!--  <destination><!-\-Fictive-\->
      <reference value="Location/f202"/>  
