@@ -171,7 +171,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
     try {
-      generateByProfile(r, r, profile.getSnapshot().getElement(), profile.getSnapshot().getElement().get(0), getChildrenForPath(profile.getSnapshot().getElement(), r.getResourceType().toString()), x, r.getResourceType().toString(), showCodeDetails);
+      generateByProfile(r, profile, r, profile.getSnapshot().getElement(), profile.getSnapshot().getElement().get(0), getChildrenForPath(profile.getSnapshot().getElement(), r.getResourceType().toString()), x, r.getResourceType().toString(), showCodeDetails);
     } catch (Exception e) {
       e.printStackTrace();
       x.addTag("p").addTag("b").setAttribute("style", "color: maroon").addText("Exception generating Narrative: "+e.getMessage());
@@ -179,57 +179,59 @@ public class NarrativeGenerator implements INarrativeGenerator {
     inject(r, x,  NarrativeStatus.GENERATED);
   }
 
-  private void generateByProfile(Resource res, Base e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
+  private void generateByProfile(Resource res, StructureDefinition profile, Base e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
     if (children.isEmpty()) {
       renderLeaf(res, e, defn, x, false, showCodeDetails, readDisplayHints(defn));
     } else {
-      for (Property p : e.children()) {
+      for (Property p : splitExtensions(profile, e.children())) {
         if (p.hasValues()) {
-          ElementDefinition child = getElementDefinition(children, path+"."+p.getName());
-          Map<String, String> displayHints = readDisplayHints(child);
-          if (!exemptFromRendering(child)) {
-            List<ElementDefinition> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
-            if (p.getValues().size() > 0 && child != null) {
-              if (isPrimitive(child)) {
-                XhtmlNode para = x.addTag("p");
-                String name = p.getName();
-                if (name.endsWith("[x]"))
-                  name = name.substring(0, name.length() - 3);
-                if (showCodeDetails || !isDefaultValue(displayHints, p.getValues())) {
-                  para.addTag("b").addText(name);
-                  para.addText(": ");
-                  if (renderAsList(child) && p.getValues().size() > 1) {
-                    XhtmlNode list = x.addTag("ul");
-                    for (Base v : p.getValues()) 
-                      renderLeaf(res, v, child, list.addTag("li"), false, showCodeDetails, displayHints);
-                  } else { 
-                    boolean first = true;
-                    for (Base v : p.getValues()) {
-                      if (first)
-                        first = false;
-                      else
-                        para.addText(", ");
-                      renderLeaf(res, v, child, para, false, showCodeDetails, displayHints);
+          ElementDefinition child = getElementDefinition(children, path+"."+p.getName(), p);
+          if (child != null) {
+            Map<String, String> displayHints = readDisplayHints(child);
+            if (!exemptFromRendering(child)) {
+              List<ElementDefinition> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
+              if (p.getValues().size() > 0 && child != null) {
+                if (isPrimitive(child)) {
+                  XhtmlNode para = x.addTag("p");
+                  String name = p.getName();
+                  if (name.endsWith("[x]"))
+                    name = name.substring(0, name.length() - 3);
+                  if (showCodeDetails || !isDefaultValue(displayHints, p.getValues())) {
+                    para.addTag("b").addText(name);
+                    para.addText(": ");
+                    if (renderAsList(child) && p.getValues().size() > 1) {
+                      XhtmlNode list = x.addTag("ul");
+                      for (Base v : p.getValues()) 
+                        renderLeaf(res, v, child, list.addTag("li"), false, showCodeDetails, displayHints);
+                    } else { 
+                      boolean first = true;
+                      for (Base v : p.getValues()) {
+                        if (first)
+                          first = false;
+                        else
+                          para.addText(", ");
+                        renderLeaf(res, v, child, para, false, showCodeDetails, displayHints);
+                      }
                     }
                   }
-                }
-              } else if (canDoTable(path, p, grandChildren)) {
-                x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
-                XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
-                addColumnHeadings(tbl.addTag("tr"), grandChildren);
-                for (Base v : p.getValues()) {
-                  if (v != null) {
-                    addColumnValues(res, tbl.addTag("tr"), grandChildren, v, showCodeDetails, displayHints);
+                } else if (canDoTable(path, p, grandChildren)) {
+                  x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
+                  XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
+                  addColumnHeadings(tbl.addTag("tr"), grandChildren);
+                  for (Base v : p.getValues()) {
+                    if (v != null) {
+                      addColumnValues(res, tbl.addTag("tr"), grandChildren, v, showCodeDetails, displayHints);
+                    }
                   }
+                } else {
+                  for (Base v : p.getValues()) {
+                    if (v != null) {
+                      XhtmlNode bq = x.addTag("blockquote");
+                      bq.addTag("p").addTag("b").addText(p.getName());
+                      generateByProfile(res, profile, v, allElements, child, grandChildren, bq, path+"."+p.getName(), showCodeDetails);
+                    }
+                  } 
                 }
-              } else {
-                for (Base v : p.getValues()) {
-                  if (v != null) {
-                    XhtmlNode bq = x.addTag("blockquote");
-                    bq.addTag("p").addTag("b").addText(p.getName());
-                    generateByProfile(res, v, allElements, child, grandChildren, bq, path+"."+p.getName(), showCodeDetails);
-                  }
-                } 
               }
             }
           }
@@ -238,6 +240,38 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
   
+  private List<Property> splitExtensions(StructureDefinition profile, List<Property> children) throws Exception {
+    List<Property> results = new ArrayList<Property>();
+    Map<String, Property> map = new HashMap<String, Property>();
+    for (Property p : children)
+      if (p.getName().equals("extension") || p.getName().equals("modifierExtension")) {
+        // we're going to split these up, and create a property for each url 
+        if (p.hasValues()) {
+          for (Base v : p.getValues()) {
+            Extension ex  = (Extension) v;
+            String url = ex.getUrl();
+            StructureDefinition ed = context.getExtensionStructure(profile, url);
+            if (p.getName().equals("modifierExtension") && ed == null)
+              throw new Exception("Unknown modifier extension "+url);
+            Property pe = map.get(p.getName()+"["+url+"]");
+            if (pe == null) {
+              if (ed == null)
+                pe = new Property(p.getName()+"["+url+"]", p.getTypeCode(), p.getDefinition(), p.getMinCardinality(), p.getMaxCardinality(), ex);
+              else {
+                ElementDefinition def = ed.getSnapshot().getElement().get(0);
+                pe = new Property(p.getName()+"["+url+"]", "Extension", def.getDefinition(), def.getMin(), def.getMax().equals("*") ? Integer.MAX_VALUE : Integer.parseInt(def.getMax()), ex);
+                pe.setStructure(ed);
+              }
+              results.add(pe);
+            } else
+              pe.getValues().add(ex);
+          }
+        }
+      } else
+        results.add(p);
+    return results;
+  }
+
   private boolean isDefaultValue(Map<String, String> displayHints, List<Base> list) {
     if (list.size() != 1)
       return false;
@@ -303,7 +337,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private List<Property> getValues(String path, Property p, ElementDefinition e) {
     List<Property> res = new ArrayList<Property>();
-    for (Base v : p.values) {
+    for (Base v : p.getValues()) {
       for (Property g : v.children()) {
         if ((path+"."+p.getName()+"."+g.getName()).equals(e.getPath()))
           res.add(p);
@@ -322,10 +356,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return !e.getType().isEmpty();
   }
   
-  private ElementDefinition getElementDefinition(List<ElementDefinition> elements, String path) {
+  private ElementDefinition getElementDefinition(List<ElementDefinition> elements, String path, Property p) {
     for (ElementDefinition element : elements)
       if (element.getPath().equals(path))
-        return element;      
+        return element;     
+    if (path.endsWith("\"]") && p.getStructure() != null)
+      return p.getStructure().getSnapshot().getElement().get(0);
     return null;
   }
 
@@ -566,7 +602,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       boolean firstElement = true;
       boolean last = false;
       for (Property p : dres.children()) {
-        ElementDefinition child = getElementDefinition(profile.getSnapshot().getElement(), path+"."+p.getName());
+        ElementDefinition child = getElementDefinition(profile.getSnapshot().getElement(), path+"."+p.getName(), p);
         if (p.getValues().size() > 0 && p.getValues().get(0) != null && child != null && isPrimitive(child) && includeInSummary(child)) {
           if (firstElement)
             firstElement = false;
@@ -1000,7 +1036,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     
     List<ElementDefinition> results = new ArrayList<ElementDefinition>();
     for (ElementDefinition e : elements) {
-      if (e.getPath().startsWith(path+".") && !e.getPath().substring(path.length()+1).contains(".") && !(e.getPath().endsWith(".extension") || e.getPath().endsWith(".modifierExtension")))
+      if (e.getPath().startsWith(path+".") && !e.getPath().substring(path.length()+1).contains("."))
         results.add(e);
     }
     return results;

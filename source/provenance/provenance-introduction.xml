@@ -31,7 +31,7 @@ though overlap can occur.
 <p>
 The provenance resource is based on the <a href="http://www.w3.org/TR/2013/NOTE-prov-overview-20130430/">W3C Provenance specification</a>, 
 and mappings are provided. The Provenance resource is tailored to fit the FHIR use-cases for provenance more directly. 
-In terms of <a htef="http://www.w3.org/TR/prov-dm/">W3C Provenance</a> the FHIR <a href="provenance.html">Provenance resources</a> covers "Generation" of "Entity" with 
+In terms of <a href="http://www.w3.org/TR/prov-dm/">W3C Provenance</a> the FHIR <a href="provenance.html">Provenance resources</a> covers "Generation" of "Entity" with 
 respect to FHIR defined Resources for creation or updating; 
 where as <a href="auditevent.html">Audit Event</a> covers "Usage" of "Entity" and all other "Activity" as defined in W3C Provenance.
 </p>

@@ -2725,7 +2725,7 @@ public class Publisher implements URIResolver {
   }
 
   private void produceProfiledTypeProfile(ProfiledType pt) throws Exception {
-    String fn = pt.getName() + ".profile.xml";
+    String fn = pt.getName().toLowerCase() + ".profile.xml";
     StructureDefinition rp = pt.getProfile();
 
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + fn), rp);
@@ -2739,7 +2739,7 @@ public class Publisher implements URIResolver {
 
   private void producePrimitiveTypeProfile(DefinedCode type) throws Exception {
 
-    String fn = type.getCode() + ".profile.xml";
+    String fn = type.getCode().toLowerCase() + ".profile.xml";
     StructureDefinition rp = type.getProfile();
 
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + fn), rp);
@@ -2768,7 +2768,7 @@ public class Publisher implements URIResolver {
     //    StructureDefinition rp = pgen.generate(p, "type-" + type.getName() + ".profile", "<div>Type definition for " + type.getName() + " from <a href=\"http://hl7.org/fhir/datatypes.html#" + type.getName()
     //        + "\">FHIR Specification</a></div>");
 
-    String fn = type.getName() + ".profile.xml";
+    String fn = type.getName().toLowerCase() + ".profile.xml";
     StructureDefinition rp = type.getProfile();
 
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + fn), rp);
@@ -2779,7 +2779,9 @@ public class Publisher implements URIResolver {
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
     // + File.separator + "datatypes.html"));
     cloneToXhtml(type.getName() + ".profile", "StructureDefinition for " + type.getName(), false, "profile-instance:type:" + type.getName(), "Type");
+    page.getEpub().registerExternal(type.getName() + ".profile.xml.html");
     jsonToXhtml(type.getName() + ".profile", "StructureDefinition for " + type.getName(), resource2Json(rp), "profile-instance:type:" + type.getName(), "Type");
+    page.getEpub().registerExternal(type.getName() + ".profile.json.html");
   }
 
   protected XmlPullParser loadXml(InputStream stream) throws Exception {

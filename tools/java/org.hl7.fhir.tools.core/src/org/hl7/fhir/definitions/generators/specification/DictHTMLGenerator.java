@@ -273,6 +273,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private void describeType(StringBuilder b, TypeRefComponent t) throws Exception {
+    if (t.getCode().startsWith("="))
+      return;
+    
     if (t.getCode().startsWith("xs:")) {
       b.append(t.getCode());
     } else {

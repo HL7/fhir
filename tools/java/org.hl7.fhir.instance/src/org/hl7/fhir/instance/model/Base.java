@@ -83,7 +83,7 @@ private Map<String, Object> userData;
     listChildren(children);
     for (Property c : children)
       if (c.getName().equals(name) || (c.getName().endsWith("[x]") && name.startsWith(c.getName())))
-        return c.values;
+        return c.getValues();
     return new ArrayList<Base>();
   }
 

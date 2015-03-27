@@ -118,6 +118,7 @@ public class WorkerContext {
 
   public WorkerContext clone(IFHIRClient altClient) {
     WorkerContext res = new WorkerContext(terminologyServices, null, codeSystems, valueSets, maps, profiles);
+    res.extensionDefinitions.putAll(extensionDefinitions);
     res.client = altClient;
     return res;
   }

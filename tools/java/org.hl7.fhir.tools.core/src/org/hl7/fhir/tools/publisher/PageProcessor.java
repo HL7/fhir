@@ -4423,9 +4423,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("base-link"))
         src = s1 + baseLink(profile.getResource()) + s3;  
       else if (com[0].equals("profile-structure-table-diff"))
-        src = s1 + generateProfileStructureTable(profile, true, filename) + s3;      
+        src = s1 + generateProfileStructureTable(profile, true, filename, pack.getId()) + s3;      
       else if (com[0].equals("profile-structure-table"))
-        src = s1 + generateProfileStructureTable(profile, false, filename) + s3;      
+        src = s1 + generateProfileStructureTable(profile, false, filename, pack.getId()) + s3;      
       else if (com[0].equals("maponthispage"))
         src = s1+mapOnPageProfile(profile.getResource())+s3;
       else if (com[0].equals("mappings"))
@@ -4905,7 +4905,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (definitions.hasResource(name))
         return "<a href=\""+name.toLowerCase()+".html\">"+name+"</a>";
       else if (definitions.hasElementDefn(name))
-        return "<a href=\""+definitions.getSrcFile(name)+"#"+name+".html\">"+name+"</a>";  
+        return "<a href=\""+definitions.getSrcFile(name)+".html#"+name+"\">"+name+"</a>";  
       else {
         StructureDefinition p = definitions.getSnapShotForBase(structure.getBase());
         if (p == null)
@@ -4926,10 +4926,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String generateProfileStructureTable(ConstraintStructure profile, boolean diff, String filename) throws Exception {
+  private String generateProfileStructureTable(ConstraintStructure profile, boolean diff, String filename, String baseName) throws Exception {
     String fn = filename.contains(".") ? filename.substring(0, filename.indexOf('.')) : filename;
     String deffile = fn+"-definitions.html";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, this, fn, !diff));
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, this, baseName, !diff));
   }
 
   private boolean isAggregationEndpoint(String name) {
@@ -5214,8 +5214,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public String getLinkFor(String type) throws Exception {
     if (definitions.hasResource(type) || definitions.getBaseResources().containsKey(type)) 
       return type.toLowerCase()+".html";
-    else 
+    else if (definitions.hasType(type))
       return definitions.getSrcFile(type)+".html#"+type;
+    else if (profiles.containsKey(type) && profiles.get(type).hasUserData("path"))
+      return (String) profiles.get(type).getUserData("path");
+    else if (profiles.containsKey("http://hl7.org/fhir/StructureDefinition/"+type) && profiles.get("http://hl7.org/fhir/StructureDefinition/"+type).hasUserData("path"))
+      return (String) profiles.get("http://hl7.org/fhir/StructureDefinition/"+type).getUserData("path");
+    else
+      return type.toLowerCase()+".html";
   }
 
   public Translations getTranslations() {
