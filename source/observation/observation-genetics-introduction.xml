@@ -1,11 +1,24 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 
+<h2>Overview</h2>
+<p>
+Observation-genetics-profile (i.e. Standard Profile for Genetics) extends <a href="observation.html">Observation</a> resource to enable reporting of structured genetic test results. In addition, the genetics profile contextualizes well established standards from the field of clinical genetics into the standards of healthcare (e.g. HGNC - HUGO Gene Nomenclature Committee's international standard for gene names, symbols, and identifiers).
+</p>
+<p>
+<h3>Genetic Standards and Resources include:</h3>
+			<ul> 
+				<li>Variant Databases: dbSNP, ClinVar, and COSMIC </li>
+				<li>Reference Sequences: RefSeq and ENSEMBL</li>
+				<li> Gene Symbols and Identifiers: HGNC - Human Genee Nomenclature Committee</li>
+				<li>Variant Nomenclature: HGVS nomenclature from the Human Genome Variantion Society</li>
+				<li>Variant Feature Annotation: Sequence Ontology (SO) and LOINC</li>
+			</ul>
+</p>
 <h2>Scope and Usage</h2>
 <p>
-Observation-genetics-profile extends <a href="observation.html">Observation</a> resource to enable reporting of structured genetic test results. In addition, the genetics profile contextualizes well established standards from the field of clinical genetics into the standards of healthcare (e.g. HGNC - HUGO Gene Nomenclature Committee's international standard for gene names, symbols, and identifiers).
+The Standard Profile for Genetics supports reporting of a DNA variant at the genomic, cDNA, and protein change level. In addition, a condition context may be provided, as AssessedCondition. For large genomic tests, a condition may be used as an input into the analytic pipeline to aid in the identification of clinically relevant variants related to the test order. It is strongly encouraged to provide all available information in this profile for any reported variants, because receiving systems (e.g. discovery research, outcomes analysis, and public health reporting) may use this information to normalize variants over time or across sources.  However, these data should not be used to dynamically correct/change variant representations for clinical use outside of the laboratory, due to insufficient information.
 
 </p>
-
 
 </div>
