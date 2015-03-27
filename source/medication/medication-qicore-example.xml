@@ -4,9 +4,9 @@
   <name value="Salmeterol/fluticason"/>
   <code>
     <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="411106009"/>
-      <display value="25ug Flutacisone + 250ug Salmeterol"/>
+      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <code value="896239"/>
+      <display value="60 ACTUAT Fluticasone propionate 0.115 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler"/>
     </coding>
   </code>
   <isBrand value="false"/>
@@ -38,7 +38,7 @@
       </item>
       <amount>
         <numerator>
-          <value value="25"/>
+          <value value="115"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="ug"/>
         </numerator>
@@ -58,7 +58,7 @@
       </item>
       <amount>
         <numerator>
-          <value value="250"/>
+          <value value="21"/>
           <system value="http://unitsofmeasure.org"/>
           <code value="ug"/>
         </numerator>
