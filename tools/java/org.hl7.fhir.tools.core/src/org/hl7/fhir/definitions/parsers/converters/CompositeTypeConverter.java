@@ -107,7 +107,7 @@ public class CompositeTypeConverter {
 							.getExamples()));
 			newResource.getSearch().addAll(
 					SearchParameterConverter
-							.buildSearchParametersFromFhirModel(resource
+							.buildSearchParametersFromFhirModel(resource, resource
 									.getSearchParams().values()));		
 		}
 		

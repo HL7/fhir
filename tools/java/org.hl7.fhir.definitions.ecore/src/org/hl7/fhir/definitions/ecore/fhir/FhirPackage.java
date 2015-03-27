@@ -1556,13 +1556,22 @@ public interface FhirPackage extends EPackage {
 	int SEARCH_PARAMETER__COMPOSITE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__TARGET = 5;
+
+	/**
 	 * The number of structural features of the '<em>Search Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEARCH_PARAMETER_FEATURE_COUNT = 5;
+	int SEARCH_PARAMETER_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.hl7.fhir.definitions.ecore.fhir.impl.AnnotationsImpl <em>Annotations</em>}' class.
@@ -3443,6 +3452,17 @@ public interface FhirPackage extends EPackage {
 	EAttribute getSearchParameter_Composite();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Target</em>'.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getTarget()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EAttribute getSearchParameter_Target();
+
+	/**
 	 * Returns the meta object for enum '{@link org.hl7.fhir.definitions.ecore.fhir.BindingType <em>Binding Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4673,6 +4693,14 @@ public interface FhirPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SEARCH_PARAMETER__COMPOSITE = eINSTANCE.getSearchParameter_Composite();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEARCH_PARAMETER__TARGET = eINSTANCE.getSearchParameter_Target();
 
 		/**
 		 * The meta object literal for the '{@link org.hl7.fhir.definitions.ecore.fhir.BindingType <em>Binding Type</em>}' enum.

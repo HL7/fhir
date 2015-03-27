@@ -29,6 +29,7 @@ import org.hl7.fhir.definitions.ecore.fhir.SearchType;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getPath <em>Path</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getComposite <em>Composite</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *
@@ -114,6 +115,16 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 	 * @ordered
 	 */
 	protected EList<String> composite;
+
+	/**
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTarget()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,6 +246,19 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 	 * @generated
 	 */
 	@Override
+  public EList<String> getTarget() {
+		if (target == null) {
+			target = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__TARGET);
+		}
+		return target;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FhirPackage.SEARCH_PARAMETER__NAME:
@@ -247,6 +271,8 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 				return getPath();
 			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
 				return getComposite();
+			case FhirPackage.SEARCH_PARAMETER__TARGET:
+				return getTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,6 +303,10 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 				getComposite().clear();
 				getComposite().addAll((Collection<? extends String>)newValue);
 				return;
+			case FhirPackage.SEARCH_PARAMETER__TARGET:
+				getTarget().clear();
+				getTarget().addAll((Collection<? extends String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -304,6 +334,9 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
 				getComposite().clear();
 				return;
+			case FhirPackage.SEARCH_PARAMETER__TARGET:
+				getTarget().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -326,6 +359,8 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 				return path != null && !path.isEmpty();
 			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
 				return composite != null && !composite.isEmpty();
+			case FhirPackage.SEARCH_PARAMETER__TARGET:
+				return target != null && !target.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -350,6 +385,8 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 		result.append(path);
 		result.append(", composite: ");
 		result.append(composite);
+		result.append(", target: ");
+		result.append(target);
 		result.append(')');
 		return result.toString();
 	}

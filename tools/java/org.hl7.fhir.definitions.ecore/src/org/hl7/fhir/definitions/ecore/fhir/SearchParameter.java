@@ -143,4 +143,19 @@ public interface SearchParameter extends EObject {
 	 */
 	EList<String> getComposite();
 
+	/**
+	 * Returns the value of the '<em><b>Target</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target</em>' attribute list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getSearchParameter_Target()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getTarget();
 } // SearchParameter

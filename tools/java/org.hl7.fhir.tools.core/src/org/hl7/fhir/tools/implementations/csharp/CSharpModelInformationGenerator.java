@@ -27,7 +27,7 @@ package org.hl7.fhir.tools.implementations.csharp;
  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 
 import org.hl7.fhir.definitions.ecore.fhir.Definitions;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
@@ -38,152 +38,142 @@ import org.hl7.fhir.tools.implementations.GenBlock;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
+public class CSharpModelInformationGenerator extends GenBlock {
+  CSharpModelGenerator rgen;
 
-public class CSharpModelInformationGenerator extends GenBlock
-{
-	CSharpModelGenerator rgen;
-	
-	private Definitions definitions;
-	
-	
-	public Definitions getDefinitions() {
-		return definitions;
-	}
+  private Definitions definitions;
 
-	
-	public CSharpModelInformationGenerator(Definitions defs)
-	{
-		definitions = defs;
-		
-		rgen = new CSharpModelGenerator(defs);
-	}
-
-	public GenBlock generateInformation() throws Exception
-	{
-		begin();
-		
-		inc( rgen.header(definitions.getDate(), definitions.getVersion() ) );
-		ln();
-		ln("using Hl7.Fhir.Model;");
-		ln();
-		ln("namespace Hl7.Fhir.Model");
-		bs("{");		
-			ln("/*");
-			ln("* A class with methods to retrieve informationa about the");
-			ln("* FHIR definitions based on which this assembly was generated.");
-			ln("*/");
-			ln("public static partial class ModelInfo");
-			bs("{");
-				generateSupportedResourcesList(definitions);
-				ln();		
-				generateVersionInfo(definitions);
-				ln();
-				generateTypeMappings(definitions);
-				ln();
-				generateSearchParams(definitions);
-			es("}");
-		es("}");
-	
-		return end();
-	}
-
-
-	private void generateSearchParams(Definitions definitions2) 
-	{
-    ln("public static List<SearchParamDefinition> SearchParameters = ");
-    bs(); 
-      ln("new List<SearchParamDefinition>");
-      bs("{");  
-      for( ResourceDefn resource : definitions.getResources() )
-        if( resource.isAbstract() == false )
-         for( SearchParameter param : resource.getSearch() )
-            {
-              ln("new SearchParamDefinition() { ");
-              nl("Resource = \"" + resource.getName() + "\"" );
-              nl(", Name = \"" + param.getName() + "\"" );
-              nl(", Description = " + GeneratorUtils.makeCsStringLiteral(param.getDescription()) );
-              
-              String type = Utilities.capitalize(param.getType().toString());
-              nl(", Type = Conformance.SearchParamType." + type );
-
-              if( param.getType() == SearchType.COMPOSITE)
-              {
-                nl(", CompositeParams = new string[] { ");
-                for( String compositePar : param.getComposite() )
-                  nl("\"" + compositePar + "\", ");
-                nl("}");
-              }
-              
-              if( param.getPath() != null && param.getPath().size() > 0)
-              {
-                nl(", Path = new string[] { ");
-                for( String elem : param.getPath() )
-                  nl("\"" + elem + "\", ");
-                nl("}");
-              }
-
-              nl(" }, ");          
-            }
-	    es("};");
+  public Definitions getDefinitions() {
+    return definitions;
   }
 
+  public CSharpModelInformationGenerator(Definitions defs) {
+    definitions = defs;
+
+    rgen = new CSharpModelGenerator(defs);
+  }
+
+  public GenBlock generateInformation() throws Exception {
+    begin();
+
+    inc(rgen.header(definitions.getDate(), definitions.getVersion()));
+    ln();
+    ln("using Hl7.Fhir.Model;");
+    ln();
+    ln("namespace Hl7.Fhir.Model");
+    bs("{");
+    ln("/*");
+    ln("* A class with methods to retrieve informationa about the");
+    ln("* FHIR definitions based on which this assembly was generated.");
+    ln("*/");
+    ln("public static partial class ModelInfo");
+    bs("{");
+    generateSupportedResourcesList(definitions);
+    ln();
+    generateVersionInfo(definitions);
+    ln();
+    generateTypeMappings(definitions);
+    ln();
+    generateSearchParams(definitions);
+    es("}");
+    es("}");
+
+    return end();
+  }
+
+  private void generateSearchParams(Definitions definitions2) {
+    ln("public static List<SearchParamDefinition> SearchParameters = ");
+    bs();
+    ln("new List<SearchParamDefinition>");
+    bs("{");
+    for (ResourceDefn resource : definitions.getResources())
+      if (resource.isAbstract() == false)
+        for (SearchParameter param : resource.getSearch()) {
+          ln("new SearchParamDefinition() { ");
+          nl("Resource = \"" + resource.getName() + "\"");
+          nl(", Name = \"" + param.getName() + "\"");
+          nl(", Description = " + GeneratorUtils.makeCsStringLiteral(param.getDescription()));
+
+          String type = Utilities.capitalize(param.getType().toString());
+          nl(", Type = Conformance.SearchParamType." + type);
+
+          if (param.getType() == SearchType.COMPOSITE) {
+            nl(", CompositeParams = new string[] { ");
+            for (String compositePar : param.getComposite())
+              nl("\"" + compositePar + "\", ");
+            nl("}");
+          }
+
+          if (param.getPath() != null && param.getPath().size() > 0) {
+            nl(", Path = new string[] { ");
+            for (String elem : param.getPath())
+              nl("\"" + elem + "\", ");
+            nl("}");
+          }
+
+          if (param.getType() == SearchType.REFERENCE) {
+            nl(", Target = new ResourceType[] { ");
+            for (String targetPar : param.getTarget())
+              nl("ResourceType." + targetPar + ", ");
+            nl("}");
+          }
+
+          nl(" }, ");
+        }
+    es("};");
+  }
 
   private void generateVersionInfo(Definitions definitions) {
-		ln("public static string Version");
-		bs("{");
-			ln("get { return \"" + definitions.getVersion() + "\"; }");
-		es("}");
-	}
-	
-	
-	private void generateSupportedResourcesList(Definitions definitions) 
-	{
-		ln("public static List<string> SupportedResources = ");
-		bs();	
-    	ln("new List<string>");
-			bs("{");	
-				for( ResourceDefn resource : definitions.getResources() )
-				  if(!resource.isAbstract() && !resource.isFuture())
-				    ln("\"" + resource.getName() + "\",");
-      es("};");
+    ln("public static string Version");
+    bs("{");
+    ln("get { return \"" + definitions.getVersion() + "\"; }");
+    es("}");
+  }
+
+  private void generateSupportedResourcesList(Definitions definitions) {
+    ln("public static List<string> SupportedResources = ");
+    bs();
+    ln("new List<string>");
+    bs("{");
+    for (ResourceDefn resource : definitions.getResources())
+      if (!resource.isAbstract() && !resource.isFuture())
+        ln("\"" + resource.getName() + "\",");
+    es("};");
     es();
-	}
+  }
 
+  private void generateTypeMappings(Definitions definitions) throws Exception {
+    ln("public static Dictionary<string,Type> FhirTypeToCsType =");
+    bs();
+    ln("new Dictionary<string,Type>()");
+    bs("{");
+    for (TypeDefn type : definitions.getType()) {
+      if (type instanceof ResourceDefn && ((ResourceDefn) type).isFuture())
+        continue;
 
-	private void generateTypeMappings(Definitions definitions) throws Exception
-	{
-		ln("public static Dictionary<string,Type> FhirTypeToCsType =");
-		bs();
-			ln("new Dictionary<string,Type>()");
-			bs("{");
-				for( TypeDefn type : definitions.getType() )
-				{
-				  if(type instanceof ResourceDefn && ((ResourceDefn)type).isFuture()) continue;
+      String cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);
+      ln(tuple("\"" + type.getName() + "\"", "typeof(" + cSharpName + ")"));
+    }
+    es("};");
+    es();
+    ln();
+    ln("public static Dictionary<Type,string> FhirCsTypeToString =");
+    bs();
+    ln("new Dictionary<Type,string>()");
+    bs("{");
+    for (TypeDefn type : definitions.getType()) {
+      if (type instanceof ResourceDefn && ((ResourceDefn) type).isFuture())
+        continue;
 
-				  String cSharpName = GeneratorUtils.buildFullyScopedTypeName(type); 
-					ln( tuple("\"" + type.getName() + "\"", "typeof(" + cSharpName + ")" ) );
-				}
-			es("};");
-		es();
-		ln();
-		ln("public static Dictionary<Type,string> FhirCsTypeToString =");
-		bs();
-			ln("new Dictionary<Type,string>()");
-			bs("{");
-				for( TypeDefn type : definitions.getType() )
-				{
-          if(type instanceof ResourceDefn && ((ResourceDefn)type).isFuture() ) continue;
-          
-          String cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);				
-					ln( tuple("typeof(" + cSharpName + ")", "\"" + type.getName() + "\"" ) );
-				}
-			es("};");
-		es();
-	}
-	
-	private String tuple( String left, String right )
-	{
-		return "{ " + left + ", " + right + " },";
-	}
-	
+      String cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);
+      ln(tuple("typeof(" + cSharpName + ")", "\"" + type.getName() + "\""));
+    }
+    es("};");
+    es();
+  }
+
+  private String tuple(String left, String right) {
+    return "{ " + left + ", " + right + " },";
+  }
+
 }
