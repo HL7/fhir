@@ -5210,7 +5210,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="205.8">
+   <Row ss:AutoFitHeight="0" ss:Height="173.39999999999998">
     <Cell ss:StyleID="s139"><Data ss:Type="String">cause-item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Resource</Data><NamedCell
@@ -5222,7 +5222,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Medication){http://hl7.org/fhir/StructureDefinition/medication-qicore-qicore-medication} | Reference(MedicationAdministration) {http://hl7.org/fhir/StructureDefinition/medicationadministration-qicore-qicore-medicationadministration} | Reference(Device){http://hl7.org/fhir/StructureDefinition/device-qicore-qicore-device} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/procedure-qicore- qicore-procedure} | Reference(ImagingStudy){http://hl7.org/fhir/StructureDefinition/imagingstudy-qicore-qicore-imagingstudy}  | Reference (Communication){http://hl7.org/fhir/StructureDefinition/communication-qicore-qicore-communication} | Reference(ImagingStudy){http://hl7.org/fhir/StructureDefinition/imagingstudy-qicore-qicore-imagingstudy}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Medication){http://hl7.org/fhir/StructureDefinition/medication-qicore-qicore-medication} | Reference(MedicationAdministration) {http://hl7.org/fhir/StructureDefinition/medicationadministration-qicore-qicore-medicationadministration} | Reference(Device){http://hl7.org/fhir/StructureDefinition/device-qicore-qicore-device} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/procedure-qicore- qicore-procedure} | Reference(ImagingStudy){http://hl7.org/fhir/StructureDefinition/imagingstudy-qicore-qicore-imagingstudy}  | Reference (Communication){http://hl7.org/fhir/StructureDefinition/communication-qicore-qicore-communication}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5849,7 +5849,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5862,10 +5862,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
