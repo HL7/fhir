@@ -52,6 +52,38 @@
         </coding>
       </valueCodeableConcept>
     </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver">
+      <valueQuantity>
+        <value value="1"/>
+        <units value="min"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="m"/>
+      </valueQuantity>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod">
+      <valueRatio>
+        <numerator>
+          <value value="15"/>
+          <units value="ml"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="ml"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <units value="day"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="day"/>
+        </denominator>
+      </valueRatio>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume">
+      <valueQuantity>
+        <value value="15"/>
+        <units value="ml"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+      </valueQuantity>
+    </extension>
     <scheduleTiming>
       <repeat>
         <frequency value="3"/>
