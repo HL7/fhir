@@ -2,12 +2,28 @@
 
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
 	<id value="genetics-example1-somatic"/>
-	<!--
-	<text>
-			<status value="generated"/>
-		<xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Observation - Genetics - Example1 - Somatic Variant in Lung Cancer</xhtml:div>
-	</text>
--->
+	
+<code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="21665-5"/>
+            <display value="EGFR gene mutation analysis"/>
+        </coding>
+    </code>
+    <status value="final"/> 
+	<subject>
+		<reference value="Patient/genetics-example1-somatic"/>
+		<display value="Molecular Lab Patient ID: HOSP-23456"/>
+	</subject>
+	<specimen>
+		<reference value="Specimen/genetics-example1-somatic"/>
+		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+	</specimen>
+	<performer>
+		<reference value="Practitioner/genetics-example1-somatic"/>
+		<display value="Molecular Diagnostic Laboratory"/>
+	</performer>
+	<comments value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/>
 	<contained>
 	  <Condition>
 		<id value="c1"/>
@@ -112,31 +128,6 @@
 			 <reference value="#c1"/>
 		  </valueReference>
 	</extension>
-		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneticsLaboratory">
-		  <valueReference>
-			 <reference value="#o1"/>
-		  </valueReference>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneticsPatientId">
-		  <valueReference>
-			 <reference value="#o1"/>
-		  </valueReference>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneticsSpecimenId">
-		  <valueReference>
-			 <reference value="#s1"/>
-		  </valueReference>
-	</extension>
-	
-	
-<code>
-        <coding>
-            <system value="http://loinc.org"/>
-            <code value="21665-5"/>
-            <display value="EGFR gene mutation analysis"/>
-        </coding>
-    </code>
-    <status value="final"/> 
 </Observation>
 
 	
