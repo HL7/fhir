@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
 	<id value="genetics-example1-somatic"/>
 	<!--
-<?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
-  <id value="qicore"/>
- <extension url="http://hl7.org/fhir/StructureDefinition/observation-bodyPosition">
-      <valueCodeableConcept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="33586001"/>
-            <display value="Sitting position (finding)"/>
-        </coding>
-      </valueCodeableConcept>
-    </extension>
-
 	<text>
 			<status value="generated"/>
 		<xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Observation - Genetics - Example1 - Somatic Variant in Lung Cancer</xhtml:div>
 	</text>
 -->
+	<contained>
+	  <Condition>
+		<id value="c1"/>
+		<patient>
+			<reference value="Patient/p1"/>
+		</patient>
+		<code>
+		<coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="254626006"/>
+      </coding>
+      <text value="Adenocarcinoma of lung "/>
+    </code>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="finding"/>
+      <display value="Finding"/>
+    </coding>
+    </category>
+<clinicalStatus value="working"/>
+  </Condition>
+</contained>	
+
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">
 		<valueString value="GRCh 37"/>
 	</extension>
@@ -27,7 +39,7 @@
 		<valueString value="7"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicReferenceSequenceId">
-			<valueString value="NC_000007.13"/>
+			<valueCode value="NC_000007.13"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStart">
 		<valueInteger value="55259515"/>
@@ -42,42 +54,37 @@
 			<valueString value="G"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneId">
-		<valueCode value="HGNC:3236(EGFR)"/>
-			<!--
-<system value="http://www.genenames.org"/>
+		<valueCodeableConcept>
+			<coding>
+			<system value="http://www.genenames.org"/>
 			<code value="3236"/>
 			<display value="EGFR"/>
--->
-	
+			</coding>
+		</valueCodeableConcept>
 	</extension>
 		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsTranscriptReferenceSequenseId">
-			<valueString value="ENSESTT00000085772.1"/>
+			<valueCode value="ENSESTT00000085772.1"/>
 	</extension>
 		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
 			<valueString value="c.2573T>G"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsVariationId">
-			<valueString value="COSM12979G"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsVariationId">
-			<valueString value="COSM12979G"/>
+			<valueCode value="COSM12979G"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNARegionName">
 			<valueString value="Exon 21"/>
 	</extension>
-	<!--
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariationType">
-		<code>
+		<valueCodeableConcept>
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="x"/>
-			<display value="x"/>
+			<code value="LA6690-7"/>
+			<display value="Substitution"/>
 		</coding>
-		</code>
+		</valueCodeableConcept>
 	</extension>
-	-->
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsProteinReferenceSequenceId">
-			<valueString value="ENSESTP00000085772.1"/>
+			<valueCode value="ENSESTP00000085772.1"/>
 	</extension>	
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsAminoAcidChange">
 			<valueString value="p.Leu858Arg"/>
@@ -85,24 +92,44 @@
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsAlleleName">
 			<valueString value="p.L858R"/>
 	</extension>	
-	<!--
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicSourceClass">
-	<code>
+	<valueCodeableConcept>
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="x"/>
-			<display value="x"/>
+			<code value="LA6684-0"/>
+			<display value="Somatic"/>
 		</coding>
-		</code>
+		</valueCodeableConcept>
 	</extension>	
--->
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsSpecies">
-			<valueString value="x"/>
+			<valueString value="Human"/>
 	</extension>	
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsCIGAR">
-			<valueString value="x"/>
-	</extension>	
-	<code>
+			<valueString value="GATTTTGGGCtGGCCAAACTG"/>
+	</extension>			
+	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsAssessedCondition">
+		  <valueReference>
+			 <reference value="#c1"/>
+		  </valueReference>
+	</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneticsLaboratory">
+		  <valueReference>
+			 <reference value="#o1"/>
+		  </valueReference>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneticsPatientId">
+		  <valueReference>
+			 <reference value="#o1"/>
+		  </valueReference>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneticsSpecimenId">
+		  <valueReference>
+			 <reference value="#s1"/>
+		  </valueReference>
+	</extension>
+	
+	
+<code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="21665-5"/>
