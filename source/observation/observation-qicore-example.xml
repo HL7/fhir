@@ -47,15 +47,6 @@
     <status value="final"/> 
     <reliability value="ok"/>
     <bodySiteCodeableConcept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/observation-laterality">
-          <valueCodeableConcept>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="7771000"/>
-                <display value="Left (qualifier)"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="308046002"/>
