@@ -6,13 +6,6 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Large Dog warning for Peter Patient</div>
   </text>
 
-  <extension url="http://hl7.org/fhir/StructureDefinition/flag-period">
-    <valuePeriod>
-      <start value="2015-01-09"/>
-      <end value="2015-02-28"/>
-    </valuePeriod>
-  </extension>
-
   <category>
     <coding>
       <system value="http://example.org/local"/>
@@ -23,6 +16,10 @@
 
   </category>
   <status value="inactive"/>
+  <period>
+    <start value="2015-01-09"/>
+    <end value="2015-02-28"/>
+  </period>
   <patient>
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
