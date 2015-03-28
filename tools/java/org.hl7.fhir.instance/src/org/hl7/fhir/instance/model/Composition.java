@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -699,16 +699,9 @@ public class Composition extends DomainResource {
         protected CodeableConcept code;
 
         /**
-         * A nested sub-section within this section.
-         */
-        @Child(name ="section", type={SectionComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Nested Section", formalDefinition="A nested sub-section within this section." )
-        protected List<SectionComponent> section;
-
-        /**
          * The content (narrative and data entries) associated with the section.
          */
-        @Child(name ="content", type={List_.class}, order=4, min=0, max=1)
+        @Child(name ="content", type={List_.class}, order=3, min=0, max=1)
         @Description(shortDefinition="The Content of the section (narrative + data entries)", formalDefinition="The content (narrative and data entries) associated with the section." )
         protected Reference content;
 
@@ -717,7 +710,14 @@ public class Composition extends DomainResource {
          */
         protected List_ contentTarget;
 
-        private static final long serialVersionUID = -1846311673L;
+        /**
+         * A nested sub-section within this section.
+         */
+        @Child(name ="section", type={SectionComponent.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Nested Section", formalDefinition="A nested sub-section within this section." )
+        protected List<SectionComponent> section;
+
+        private static final long serialVersionUID = -1683518435L;
 
       public SectionComponent() {
         super();
@@ -797,46 +797,6 @@ public class Composition extends DomainResource {
         }
 
         /**
-         * @return {@link #section} (A nested sub-section within this section.)
-         */
-        public List<SectionComponent> getSection() { 
-          if (this.section == null)
-            this.section = new ArrayList<SectionComponent>();
-          return this.section;
-        }
-
-        public boolean hasSection() { 
-          if (this.section == null)
-            return false;
-          for (SectionComponent item : this.section)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #section} (A nested sub-section within this section.)
-         */
-    // syntactic sugar
-        public SectionComponent addSection() { //3
-          SectionComponent t = new SectionComponent();
-          if (this.section == null)
-            this.section = new ArrayList<SectionComponent>();
-          this.section.add(t);
-          return t;
-        }
-
-    // syntactic sugar
-        public SectionComponent addSection(SectionComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.section == null)
-            this.section = new ArrayList<SectionComponent>();
-          this.section.add(t);
-          return this;
-        }
-
-        /**
          * @return {@link #content} (The content (narrative and data entries) associated with the section.)
          */
         public Reference getContent() { 
@@ -880,12 +840,52 @@ public class Composition extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #section} (A nested sub-section within this section.)
+         */
+        public List<SectionComponent> getSection() { 
+          if (this.section == null)
+            this.section = new ArrayList<SectionComponent>();
+          return this.section;
+        }
+
+        public boolean hasSection() { 
+          if (this.section == null)
+            return false;
+          for (SectionComponent item : this.section)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #section} (A nested sub-section within this section.)
+         */
+    // syntactic sugar
+        public SectionComponent addSection() { //3
+          SectionComponent t = new SectionComponent();
+          if (this.section == null)
+            this.section = new ArrayList<SectionComponent>();
+          this.section.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public SectionComponent addSection(SectionComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.section == null)
+            this.section = new ArrayList<SectionComponent>();
+          this.section.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("title", "string", "The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("code", "CodeableConcept", "A code identifying the kind of content contained within the section. This must be consistent with the section title.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));
           childrenList.add(new Property("content", "Reference(List)", "The content (narrative and data entries) associated with the section.", 0, java.lang.Integer.MAX_VALUE, content));
+          childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));
         }
 
       public SectionComponent copy() {
@@ -893,12 +893,12 @@ public class Composition extends DomainResource {
         copyValues(dst);
         dst.title = title == null ? null : title.copy();
         dst.code = code == null ? null : code.copy();
+        dst.content = content == null ? null : content.copy();
         if (section != null) {
           dst.section = new ArrayList<SectionComponent>();
           for (SectionComponent i : section)
             dst.section.add(i.copy());
         };
-        dst.content = content == null ? null : content.copy();
         return dst;
       }
 
@@ -909,8 +909,8 @@ public class Composition extends DomainResource {
         if (!(other instanceof SectionComponent))
           return false;
         SectionComponent o = (SectionComponent) other;
-        return compareDeep(title, o.title, true) && compareDeep(code, o.code, true) && compareDeep(section, o.section, true)
-           && compareDeep(content, o.content, true);
+        return compareDeep(title, o.title, true) && compareDeep(code, o.code, true) && compareDeep(content, o.content, true)
+           && compareDeep(section, o.section, true);
       }
 
       @Override
@@ -925,7 +925,7 @@ public class Composition extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (title == null || title.isEmpty()) && (code == null || code.isEmpty())
-           && (section == null || section.isEmpty()) && (content == null || content.isEmpty());
+           && (content == null || content.isEmpty()) && (section == null || section.isEmpty());
       }
 
   }

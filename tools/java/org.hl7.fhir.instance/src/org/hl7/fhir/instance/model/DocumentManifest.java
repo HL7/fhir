@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -51,7 +51,7 @@ public class DocumentManifest extends DomainResource {
          */
         CURRENT, 
         /**
-         * This reference has been superseded by another reference.
+         * This reference has been superceded by another reference.
          */
         SUPERCEDED, 
         /**
@@ -92,7 +92,7 @@ public class DocumentManifest extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case CURRENT: return "This is the current reference for this document.";
-            case SUPERCEDED: return "This reference has been superseded by another reference.";
+            case SUPERCEDED: return "This reference has been superceded by another reference.";
             case ENTEREDINERROR: return "This reference was created in error.";
             default: return "?";
           }
@@ -130,6 +130,101 @@ public class DocumentManifest extends DomainResource {
       return "?";
       }
     }
+
+    @Block()
+    public static class DocumentManifestContentComponent extends BackboneElement {
+        /**
+         * The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.
+         */
+        @Child(name ="p", type={Attachment.class, DocumentReference.class, Media.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Contents of this set of documents", formalDefinition="The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed." )
+        protected Type p;
+
+        private static final long serialVersionUID = -347538500L;
+
+      public DocumentManifestContentComponent() {
+        super();
+      }
+
+      public DocumentManifestContentComponent(Type p) {
+        super();
+        this.p = p;
+      }
+
+        /**
+         * @return {@link #p} (The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.)
+         */
+        public Type getP() { 
+          return this.p;
+        }
+
+        /**
+         * @return {@link #p} (The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.)
+         */
+        public Attachment getPAttachment() throws Exception { 
+          if (!(this.p instanceof Attachment))
+            throw new Exception("Type mismatch: the type Attachment was expected, but "+this.p.getClass().getName()+" was encountered");
+          return (Attachment) this.p;
+        }
+
+        /**
+         * @return {@link #p} (The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.)
+         */
+        public Reference getPReference() throws Exception { 
+          if (!(this.p instanceof Reference))
+            throw new Exception("Type mismatch: the type Reference was expected, but "+this.p.getClass().getName()+" was encountered");
+          return (Reference) this.p;
+        }
+
+        public boolean hasP() { 
+          return this.p != null && !this.p.isEmpty();
+        }
+
+        /**
+         * @param value {@link #p} (The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.)
+         */
+        public DocumentManifestContentComponent setP(Type value) { 
+          this.p = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("p[x]", "Attachment|Reference(DocumentReference|Media)", "The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.", 0, java.lang.Integer.MAX_VALUE, p));
+        }
+
+      public DocumentManifestContentComponent copy() {
+        DocumentManifestContentComponent dst = new DocumentManifestContentComponent();
+        copyValues(dst);
+        dst.p = p == null ? null : p.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DocumentManifestContentComponent))
+          return false;
+        DocumentManifestContentComponent o = (DocumentManifestContentComponent) other;
+        return compareDeep(p, o.p, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DocumentManifestContentComponent))
+          return false;
+        DocumentManifestContentComponent o = (DocumentManifestContentComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (p == null || p.isEmpty());
+      }
+
+  }
 
     @Block()
     public static class DocumentManifestRelatedComponent extends BackboneElement {
@@ -348,16 +443,11 @@ public class DocumentManifest extends DomainResource {
     protected StringType description;
 
     /**
-     * The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.
+     * The manifest list.
      */
-    @Child(name ="content", type={DocumentReference.class, Binary.class, Media.class}, order=10, min=1, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Contents of this set of documents", formalDefinition="The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed." )
-    protected List<Reference> content;
-    /**
-     * The actual objects that are the target of the reference (The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
-     */
-    protected List<Resource> contentTarget;
-
+    @Child(name ="content", type={}, order=10, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contents of the manifest", formalDefinition="The manifest list." )
+    protected List<DocumentManifestContentComponent> content;
 
     /**
      * Related identifiers or resources associated with the DocumentManifest.
@@ -366,7 +456,7 @@ public class DocumentManifest extends DomainResource {
     @Description(shortDefinition="Related things", formalDefinition="Related identifiers or resources associated with the DocumentManifest." )
     protected List<DocumentManifestRelatedComponent> related;
 
-    private static final long serialVersionUID = -1530351014L;
+    private static final long serialVersionUID = -2056683927L;
 
     public DocumentManifest() {
       super();
@@ -795,52 +885,43 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
-     * @return {@link #content} (The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
+     * @return {@link #content} (The manifest list.)
      */
-    public List<Reference> getContent() { 
+    public List<DocumentManifestContentComponent> getContent() { 
       if (this.content == null)
-        this.content = new ArrayList<Reference>();
+        this.content = new ArrayList<DocumentManifestContentComponent>();
       return this.content;
     }
 
     public boolean hasContent() { 
       if (this.content == null)
         return false;
-      for (Reference item : this.content)
+      for (DocumentManifestContentComponent item : this.content)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #content} (The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
+     * @return {@link #content} (The manifest list.)
      */
     // syntactic sugar
-    public Reference addContent() { //3
-      Reference t = new Reference();
+    public DocumentManifestContentComponent addContent() { //3
+      DocumentManifestContentComponent t = new DocumentManifestContentComponent();
       if (this.content == null)
-        this.content = new ArrayList<Reference>();
+        this.content = new ArrayList<DocumentManifestContentComponent>();
       this.content.add(t);
       return t;
     }
 
     // syntactic sugar
-    public DocumentManifest addContent(Reference t) { //3
+    public DocumentManifest addContent(DocumentManifestContentComponent t) { //3
       if (t == null)
         return this;
       if (this.content == null)
-        this.content = new ArrayList<Reference>();
+        this.content = new ArrayList<DocumentManifestContentComponent>();
       this.content.add(t);
       return this;
-    }
-
-    /**
-     * @return {@link #content} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
-     */
-    public List<Resource> getContentTarget() { 
-      if (this.contentTarget == null)
-        this.contentTarget = new ArrayList<Resource>();
-      return this.contentTarget;
     }
 
     /**
@@ -895,7 +976,7 @@ public class DocumentManifest extends DomainResource {
         childrenList.add(new Property("source", "uri", "Identifies the source system, application, or software that produced the document manifest.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("status", "code", "The status of this document manifest.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the 'title'.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("content", "Reference(DocumentReference|Binary|Media)", "The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.", 0, java.lang.Integer.MAX_VALUE, content));
+        childrenList.add(new Property("content", "", "The manifest list.", 0, java.lang.Integer.MAX_VALUE, content));
         childrenList.add(new Property("related", "", "Related identifiers or resources associated with the DocumentManifest.", 0, java.lang.Integer.MAX_VALUE, related));
       }
 
@@ -925,8 +1006,8 @@ public class DocumentManifest extends DomainResource {
         dst.status = status == null ? null : status.copy();
         dst.description = description == null ? null : description.copy();
         if (content != null) {
-          dst.content = new ArrayList<Reference>();
-          for (Reference i : content)
+          dst.content = new ArrayList<DocumentManifestContentComponent>();
+          for (DocumentManifestContentComponent i : content)
             dst.content.add(i.copy());
         };
         if (related != null) {
@@ -989,8 +1070,6 @@ public class DocumentManifest extends DomainResource {
   public static final String SP_RECIPIENT = "recipient";
   @SearchParamDefinition(name="relatedid", path="DocumentManifest.related.identifier", description="Related Identifier", type="token" )
   public static final String SP_RELATEDID = "relatedid";
-  @SearchParamDefinition(name="content", path="DocumentManifest.content", description="Contents of this set of documents", type="reference" )
-  public static final String SP_CONTENT = "content";
   @SearchParamDefinition(name="author", path="DocumentManifest.author", description="Who and/or what authored the document", type="reference" )
   public static final String SP_AUTHOR = "author";
   @SearchParamDefinition(name="relatedref", path="DocumentManifest.related.ref", description="Related Resource", type="reference" )
@@ -1003,6 +1082,8 @@ public class DocumentManifest extends DomainResource {
   public static final String SP_CREATED = "created";
   @SearchParamDefinition(name="description", path="DocumentManifest.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="contentref", path="DocumentManifest.content.pReference", description="Contents of this set of documents", type="reference" )
+  public static final String SP_CONTENTREF = "contentref";
   @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier|DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 

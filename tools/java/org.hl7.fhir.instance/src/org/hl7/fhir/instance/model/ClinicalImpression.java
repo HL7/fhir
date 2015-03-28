@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -57,7 +57,7 @@ public class ClinicalImpression extends DomainResource {
         /**
          * A record of a specific investigation that was undertaken.
          */
-        @Child(name ="item", type={Observation.class, QuestionnaireAnswers.class, FamilyHistory.class, DiagnosticReport.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="item", type={Observation.class, QuestionnaireAnswers.class, FamilyMemberHistory.class, DiagnosticReport.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Record of a specific investigation", formalDefinition="A record of a specific investigation that was undertaken." )
         protected List<Reference> item;
         /**
@@ -153,7 +153,7 @@ public class ClinicalImpression extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A name/code for the group ('set') of investigations. Typically, this will be something like 'signs', 'symptoms', 'clinical', 'diagnostic', but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("item", "Reference(Observation|QuestionnaireAnswers|FamilyHistory|DiagnosticReport)", "A record of a specific investigation that was undertaken.", 0, java.lang.Integer.MAX_VALUE, item));
+          childrenList.add(new Property("item", "Reference(Observation|QuestionnaireAnswers|FamilyMemberHistory|DiagnosticReport)", "A record of a specific investigation that was undertaken.", 0, java.lang.Integer.MAX_VALUE, item));
         }
 
       public ClinicalImpressionInvestigationsComponent copy() {

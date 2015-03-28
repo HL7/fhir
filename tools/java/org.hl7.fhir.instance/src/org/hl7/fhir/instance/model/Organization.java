@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -298,25 +298,13 @@ public class Organization extends DomainResource {
     protected List<OrganizationContactComponent> contact;
 
     /**
-     * Location(s) the organization uses to provide services.
-     */
-    @Child(name ="location", type={Location.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Location(s) the organization uses to provide services", formalDefinition="Location(s) the organization uses to provide services." )
-    protected List<Reference> location;
-    /**
-     * The actual objects that are the target of the reference (Location(s) the organization uses to provide services.)
-     */
-    protected List<Location> locationTarget;
-
-
-    /**
      * Whether the organization's record is still in active use.
      */
-    @Child(name ="active", type={BooleanType.class}, order=8, min=0, max=1)
+    @Child(name ="active", type={BooleanType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Whether the organization's record is still in active use", formalDefinition="Whether the organization's record is still in active use." )
     protected BooleanType active;
 
-    private static final long serialVersionUID = -75313696L;
+    private static final long serialVersionUID = 1766834739L;
 
     public Organization() {
       super();
@@ -600,67 +588,6 @@ public class Organization extends DomainResource {
     }
 
     /**
-     * @return {@link #location} (Location(s) the organization uses to provide services.)
-     */
-    public List<Reference> getLocation() { 
-      if (this.location == null)
-        this.location = new ArrayList<Reference>();
-      return this.location;
-    }
-
-    public boolean hasLocation() { 
-      if (this.location == null)
-        return false;
-      for (Reference item : this.location)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #location} (Location(s) the organization uses to provide services.)
-     */
-    // syntactic sugar
-    public Reference addLocation() { //3
-      Reference t = new Reference();
-      if (this.location == null)
-        this.location = new ArrayList<Reference>();
-      this.location.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public Organization addLocation(Reference t) { //3
-      if (t == null)
-        return this;
-      if (this.location == null)
-        this.location = new ArrayList<Reference>();
-      this.location.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #location} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Location(s) the organization uses to provide services.)
-     */
-    public List<Location> getLocationTarget() { 
-      if (this.locationTarget == null)
-        this.locationTarget = new ArrayList<Location>();
-      return this.locationTarget;
-    }
-
-    // syntactic sugar
-    /**
-     * @return {@link #location} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Location(s) the organization uses to provide services.)
-     */
-    public Location addLocationTarget() { 
-      Location r = new Location();
-      if (this.locationTarget == null)
-        this.locationTarget = new ArrayList<Location>();
-      this.locationTarget.add(r);
-      return r;
-    }
-
-    /**
      * @return {@link #active} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
     public BooleanType getActiveElement() { 
@@ -714,7 +641,6 @@ public class Organization extends DomainResource {
         childrenList.add(new Property("address", "Address", "An address for the organization.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("partOf", "Reference(Organization)", "The organization of which this organization forms a part.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("contact", "", "Contact for the organization for a certain purpose.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("location", "Reference(Location)", "Location(s) the organization uses to provide services.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("active", "boolean", "Whether the organization's record is still in active use.", 0, java.lang.Integer.MAX_VALUE, active));
       }
 
@@ -744,11 +670,6 @@ public class Organization extends DomainResource {
           for (OrganizationContactComponent i : contact)
             dst.contact.add(i.copy());
         };
-        if (location != null) {
-          dst.location = new ArrayList<Reference>();
-          for (Reference i : location)
-            dst.location.add(i.copy());
-        };
         dst.active = active == null ? null : active.copy();
         return dst;
       }
@@ -766,8 +687,7 @@ public class Organization extends DomainResource {
         Organization o = (Organization) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(type, o.type, true)
            && compareDeep(telecom, o.telecom, true) && compareDeep(address, o.address, true) && compareDeep(partOf, o.partOf, true)
-           && compareDeep(contact, o.contact, true) && compareDeep(location, o.location, true) && compareDeep(active, o.active, true)
-          ;
+           && compareDeep(contact, o.contact, true) && compareDeep(active, o.active, true);
       }
 
       @Override
@@ -783,8 +703,8 @@ public class Organization extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
            && (type == null || type.isEmpty()) && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty())
-           && (partOf == null || partOf.isEmpty()) && (contact == null || contact.isEmpty()) && (location == null || location.isEmpty())
-           && (active == null || active.isEmpty());
+           && (partOf == null || partOf.isEmpty()) && (contact == null || contact.isEmpty()) && (active == null || active.isEmpty())
+          ;
       }
 
   @Override
@@ -796,6 +716,8 @@ public class Organization extends DomainResource {
   public static final String SP_PHONETIC = "phonetic";
   @SearchParamDefinition(name="partof", path="Organization.partOf", description="Search all organizations that are part of the given organization", type="reference" )
   public static final String SP_PARTOF = "partof";
+  @SearchParamDefinition(name="address", path="Organization.address", description="A (part of the) address of the Organization", type="string" )
+  public static final String SP_ADDRESS = "address";
   @SearchParamDefinition(name="name", path="Organization.name", description="A portion of the organization's name", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="active", path="Organization.active", description="Whether the organization's record is active", type="token" )

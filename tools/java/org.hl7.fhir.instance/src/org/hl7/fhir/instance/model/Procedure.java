@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -455,7 +455,7 @@ public class Procedure extends DomainResource {
         /**
          * The related item - e.g. a procedure.
          */
-        @Child(name ="target", type={AllergyIntolerance.class, CarePlan.class, Condition.class, DiagnosticReport.class, FamilyHistory.class, ImagingStudy.class, Immunization.class, ImmunizationRecommendation.class, MedicationAdministration.class, MedicationDispense.class, MedicationPrescription.class, MedicationStatement.class, Observation.class, Procedure.class}, order=2, min=0, max=1)
+        @Child(name ="target", type={AllergyIntolerance.class, CarePlan.class, Condition.class, DiagnosticReport.class, FamilyMemberHistory.class, ImagingStudy.class, Immunization.class, ImmunizationRecommendation.class, MedicationAdministration.class, MedicationDispense.class, MedicationPrescription.class, MedicationStatement.class, Observation.class, Procedure.class}, order=2, min=0, max=1)
         @Description(shortDefinition="The related item - e.g. a procedure", formalDefinition="The related item - e.g. a procedure." )
         protected Reference target;
 
@@ -561,7 +561,7 @@ public class Procedure extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The nature of the relationship.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("target", "Reference(AllergyIntolerance|CarePlan|Condition|DiagnosticReport|FamilyHistory|ImagingStudy|Immunization|ImmunizationRecommendation|MedicationAdministration|MedicationDispense|MedicationPrescription|MedicationStatement|Observation|Procedure)", "The related item - e.g. a procedure.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("target", "Reference(AllergyIntolerance|CarePlan|Condition|DiagnosticReport|FamilyMemberHistory|ImagingStudy|Immunization|ImmunizationRecommendation|MedicationAdministration|MedicationDispense|MedicationPrescription|MedicationStatement|Observation|Procedure)", "The related item - e.g. a procedure.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public ProcedureRelatedItemComponent copy() {

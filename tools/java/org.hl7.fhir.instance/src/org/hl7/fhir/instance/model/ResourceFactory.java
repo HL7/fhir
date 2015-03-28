@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 public class ResourceFactory extends Factory {
 
@@ -86,6 +86,8 @@ public class ResourceFactory extends Factory {
             return new OperationOutcome();
         if ("Conformance".equals(name))
             return new Conformance();
+        if ("FamilyMemberHistory".equals(name))
+            return new FamilyMemberHistory();
         if ("NamingSystem".equals(name))
             return new NamingSystem();
         if ("Media".equals(name))
@@ -110,10 +112,10 @@ public class ResourceFactory extends Factory {
             return new OrderResponse();
         if ("ConceptMap".equals(name))
             return new ConceptMap();
-        if ("Practitioner".equals(name))
-            return new Practitioner();
         if ("ImagingStudy".equals(name))
             return new ImagingStudy();
+        if ("Practitioner".equals(name))
+            return new Practitioner();
         if ("CarePlan".equals(name))
             return new CarePlan();
         if ("Provenance".equals(name))
@@ -156,10 +158,10 @@ public class ResourceFactory extends Factory {
             return new List_();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
-        if ("ImagingObjectSelection".equals(name))
-            return new ImagingObjectSelection();
         if ("Goal".equals(name))
             return new Goal();
+        if ("ImagingObjectSelection".equals(name))
+            return new ImagingObjectSelection();
         if ("OperationDefinition".equals(name))
             return new OperationDefinition();
         if ("NutritionOrder".equals(name))
@@ -172,6 +174,8 @@ public class ResourceFactory extends Factory {
             return new ClinicalImpression();
         if ("ReferralRequest".equals(name))
             return new ReferralRequest();
+        if ("Flag".equals(name))
+            return new Flag();
         if ("BodySite".equals(name))
             return new BodySite();
         if ("CommunicationRequest".equals(name))
@@ -180,8 +184,6 @@ public class ResourceFactory extends Factory {
             return new RiskAssessment();
         if ("Claim".equals(name))
             return new Claim();
-        if ("FamilyHistory".equals(name))
-            return new FamilyHistory();
         if ("EnrollmentRequest".equals(name))
             return new EnrollmentRequest();
         if ("Location".equals(name))
@@ -204,8 +206,6 @@ public class ResourceFactory extends Factory {
             return new ProcessResponse();
         if ("Specimen".equals(name))
             return new Specimen();
-        if ("Alert".equals(name))
-            return new Alert();
         if ("AuditEvent".equals(name))
             return new AuditEvent();
         if ("EnrollmentResponse".equals(name))
@@ -214,8 +214,6 @@ public class ResourceFactory extends Factory {
             return new Patient();
         if ("EligibilityResponse".equals(name))
             return new EligibilityResponse();
-        if ("CarePlan2".equals(name))
-            return new CarePlan2();
         if ("Person".equals(name))
             return new Person();
         if ("DiagnosticOrder".equals(name))

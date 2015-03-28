@@ -118,6 +118,7 @@ public class WorkerContext {
 
   public WorkerContext clone(IFHIRClient altClient) {
     WorkerContext res = new WorkerContext(terminologyServices, null, codeSystems, valueSets, maps, profiles);
+    res.extensionDefinitions.putAll(extensionDefinitions);
     res.client = altClient;
     return res;
   }
@@ -383,6 +384,8 @@ public class WorkerContext {
 	  if (url.startsWith("#")) {
       throw new Error("Contained extensions not done yet");
 	  } else {
+	    if (url.contains("#"))
+	      url = url.substring(0, url.indexOf("#"));
 		  StructureDefinition res = extensionDefinitions.get(url);
 		  if (res == null)
 		  	res = profiles.get(url);

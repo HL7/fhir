@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -781,11 +781,11 @@ public class Encounter extends DomainResource {
         protected CodeableConcept admitSource;
 
         /**
-         * Dietary restrictions for the patient.
+         * Diet preferences reported by the patient.
          */
-        @Child(name ="diet", type={CodeableConcept.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Dietary restrictions for the patient", formalDefinition="Dietary restrictions for the patient." )
-        protected CodeableConcept diet;
+        @Child(name ="dietPreference", type={CodeableConcept.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Diet preferences reported by the patient", formalDefinition="Diet preferences reported by the patient." )
+        protected CodeableConcept dietPreference;
 
         /**
          * Special courtesies (VIP, board member).
@@ -839,7 +839,7 @@ public class Encounter extends DomainResource {
         @Description(shortDefinition="Is this hospitalization a readmission?", formalDefinition="Whether this hospitalization is a readmission." )
         protected BooleanType reAdmission;
 
-        private static final long serialVersionUID = 1133194252L;
+        private static final long serialVersionUID = -990619663L;
 
       public EncounterHospitalizationComponent() {
         super();
@@ -938,26 +938,26 @@ public class Encounter extends DomainResource {
         }
 
         /**
-         * @return {@link #diet} (Dietary restrictions for the patient.)
+         * @return {@link #dietPreference} (Diet preferences reported by the patient.)
          */
-        public CodeableConcept getDiet() { 
-          if (this.diet == null)
+        public CodeableConcept getDietPreference() { 
+          if (this.dietPreference == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.diet");
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.dietPreference");
             else if (Configuration.doAutoCreate())
-              this.diet = new CodeableConcept(); // cc
-          return this.diet;
+              this.dietPreference = new CodeableConcept(); // cc
+          return this.dietPreference;
         }
 
-        public boolean hasDiet() { 
-          return this.diet != null && !this.diet.isEmpty();
+        public boolean hasDietPreference() { 
+          return this.dietPreference != null && !this.dietPreference.isEmpty();
         }
 
         /**
-         * @param value {@link #diet} (Dietary restrictions for the patient.)
+         * @param value {@link #dietPreference} (Diet preferences reported by the patient.)
          */
-        public EncounterHospitalizationComponent setDiet(CodeableConcept value) { 
-          this.diet = value;
+        public EncounterHospitalizationComponent setDietPreference(CodeableConcept value) { 
+          this.dietPreference = value;
           return this;
         }
 
@@ -1198,7 +1198,7 @@ public class Encounter extends DomainResource {
           childrenList.add(new Property("preAdmissionIdentifier", "Identifier", "Pre-admission identifier.", 0, java.lang.Integer.MAX_VALUE, preAdmissionIdentifier));
           childrenList.add(new Property("origin", "Reference(Location)", "The location from which the patient came before admission.", 0, java.lang.Integer.MAX_VALUE, origin));
           childrenList.add(new Property("admitSource", "CodeableConcept", "From where patient was admitted (physician referral, transfer).", 0, java.lang.Integer.MAX_VALUE, admitSource));
-          childrenList.add(new Property("diet", "CodeableConcept", "Dietary restrictions for the patient.", 0, java.lang.Integer.MAX_VALUE, diet));
+          childrenList.add(new Property("dietPreference", "CodeableConcept", "Diet preferences reported by the patient.", 0, java.lang.Integer.MAX_VALUE, dietPreference));
           childrenList.add(new Property("specialCourtesy", "CodeableConcept", "Special courtesies (VIP, board member).", 0, java.lang.Integer.MAX_VALUE, specialCourtesy));
           childrenList.add(new Property("specialArrangement", "CodeableConcept", "Wheelchair, translator, stretcher, etc.", 0, java.lang.Integer.MAX_VALUE, specialArrangement));
           childrenList.add(new Property("destination", "Reference(Location)", "Location to which the patient is discharged.", 0, java.lang.Integer.MAX_VALUE, destination));
@@ -1213,7 +1213,7 @@ public class Encounter extends DomainResource {
         dst.preAdmissionIdentifier = preAdmissionIdentifier == null ? null : preAdmissionIdentifier.copy();
         dst.origin = origin == null ? null : origin.copy();
         dst.admitSource = admitSource == null ? null : admitSource.copy();
-        dst.diet = diet == null ? null : diet.copy();
+        dst.dietPreference = dietPreference == null ? null : dietPreference.copy();
         if (specialCourtesy != null) {
           dst.specialCourtesy = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : specialCourtesy)
@@ -1239,10 +1239,11 @@ public class Encounter extends DomainResource {
           return false;
         EncounterHospitalizationComponent o = (EncounterHospitalizationComponent) other;
         return compareDeep(preAdmissionIdentifier, o.preAdmissionIdentifier, true) && compareDeep(origin, o.origin, true)
-           && compareDeep(admitSource, o.admitSource, true) && compareDeep(diet, o.diet, true) && compareDeep(specialCourtesy, o.specialCourtesy, true)
-           && compareDeep(specialArrangement, o.specialArrangement, true) && compareDeep(destination, o.destination, true)
-           && compareDeep(dischargeDisposition, o.dischargeDisposition, true) && compareDeep(dischargeDiagnosis, o.dischargeDiagnosis, true)
-           && compareDeep(reAdmission, o.reAdmission, true);
+           && compareDeep(admitSource, o.admitSource, true) && compareDeep(dietPreference, o.dietPreference, true)
+           && compareDeep(specialCourtesy, o.specialCourtesy, true) && compareDeep(specialArrangement, o.specialArrangement, true)
+           && compareDeep(destination, o.destination, true) && compareDeep(dischargeDisposition, o.dischargeDisposition, true)
+           && compareDeep(dischargeDiagnosis, o.dischargeDiagnosis, true) && compareDeep(reAdmission, o.reAdmission, true)
+          ;
       }
 
       @Override
@@ -1258,7 +1259,7 @@ public class Encounter extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (preAdmissionIdentifier == null || preAdmissionIdentifier.isEmpty())
            && (origin == null || origin.isEmpty()) && (admitSource == null || admitSource.isEmpty())
-           && (diet == null || diet.isEmpty()) && (specialCourtesy == null || specialCourtesy.isEmpty())
+           && (dietPreference == null || dietPreference.isEmpty()) && (specialCourtesy == null || specialCourtesy.isEmpty())
            && (specialArrangement == null || specialArrangement.isEmpty()) && (destination == null || destination.isEmpty())
            && (dischargeDisposition == null || dischargeDisposition.isEmpty()) && (dischargeDiagnosis == null || dischargeDiagnosis.isEmpty())
            && (reAdmission == null || reAdmission.isEmpty());
@@ -1490,7 +1491,7 @@ public class Encounter extends DomainResource {
     /**
      * inpatient | outpatient | ambulatory | emergency +.
      */
-    @Child(name ="class_", type={CodeType.class}, order=3, min=1, max=1)
+    @Child(name ="class_", type={CodeType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="inpatient | outpatient | ambulatory | emergency +", formalDefinition="inpatient | outpatient | ambulatory | emergency +." )
     protected Enumeration<EncounterClass> class_;
 
@@ -1567,7 +1568,7 @@ public class Encounter extends DomainResource {
      * Quantity of time the encounter lasted. This excludes the time during leaves of absence.
      */
     @Child(name ="length", type={Duration.class}, order=11, min=0, max=1)
-    @Description(shortDefinition="Quantity of time the encounter lasted", formalDefinition="Quantity of time the encounter lasted. This excludes the time during leaves of absence." )
+    @Description(shortDefinition="Quantity of time the encounter lasted (less time absent)", formalDefinition="Quantity of time the encounter lasted. This excludes the time during leaves of absence." )
     protected Duration length;
 
     /**
@@ -1642,10 +1643,9 @@ The indication will typically be a Condition (with other resources referenced in
       super();
     }
 
-    public Encounter(Enumeration<EncounterState> status, Enumeration<EncounterClass> class_) {
+    public Encounter(Enumeration<EncounterState> status) {
       super();
       this.status = status;
-      this.class_ = class_;
     }
 
     /**
@@ -1812,9 +1812,13 @@ The indication will typically be a Condition (with other resources referenced in
      * @param value inpatient | outpatient | ambulatory | emergency +.
      */
     public Encounter setClass_(EncounterClass value) { 
+      if (value == null)
+        this.class_ = null;
+      else {
         if (this.class_ == null)
           this.class_ = new Enumeration<EncounterClass>(new EncounterClassEnumFactory());
         this.class_.setValue(value);
+      }
       return this;
     }
 

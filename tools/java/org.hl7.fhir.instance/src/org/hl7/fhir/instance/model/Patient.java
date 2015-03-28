@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2022,7 +2022,7 @@ public class Patient extends DomainResource {
   public static final String SP_ACTIVE = "active";
   @SearchParamDefinition(name="deceased", path="Patient.deceased[x]", description="This patient has been marked as deceased, or as a death date entered", type="token" )
   public static final String SP_DECEASED = "deceased";
-  @SearchParamDefinition(name="language", path="Patient.communication", description="Language code (irrespective of use value)", type="token" )
+  @SearchParamDefinition(name="language", path="Patient.communication.language", description="Language code (irrespective of use value)", type="token" )
   public static final String SP_LANGUAGE = "language";
   @SearchParamDefinition(name="identifier", path="Patient.identifier", description="A patient identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";

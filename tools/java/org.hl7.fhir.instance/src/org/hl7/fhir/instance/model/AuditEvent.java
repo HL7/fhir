@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -487,7 +487,7 @@ public class AuditEvent extends DomainResource {
          */
         _3, 
         /**
-         * A logical object related to the event.  (Deprecated).
+         * A logical object related to a health record event.  This is any healthcare  specific resource (object) not restricted to FHIR defined Resources.
          */
         _4, 
         /**
@@ -690,7 +690,7 @@ public class AuditEvent extends DomainResource {
             case _1: return "This object is the patient that is the subject of care related to this event.  It is identifiable by patient ID or equivalent.  The patient may be either human or animal.";
             case _2: return "This is a location identified as related to the event.  This is usually the location where the event took place.  Note that for shipping, the usual events are arrival at a location or departure from a location.";
             case _3: return "This object is any kind of persistent document created as a result of the event.  This could be a paper report, film, electronic report, DICOM Study, etc.  Issues related to medical records life cycle management are conveyed elsewhere.";
-            case _4: return "A logical object related to the event.  (Deprecated).";
+            case _4: return "A logical object related to a health record event.  This is any healthcare  specific resource (object) not restricted to FHIR defined Resources.";
             case _5: return "This is any configurable file used to control creation of documents.  Examples include the objects maintained by the HL7 Master File transactions, Value Sets, etc.";
             case _6: return "A human participant not otherwise identified by some other category.";
             case _7: return "(deprecated).";
@@ -1151,7 +1151,14 @@ public class AuditEvent extends DomainResource {
         @Description(shortDefinition="Description of the event outcome", formalDefinition="A free text description of the outcome of the event." )
         protected StringType outcomeDesc;
 
-        private static final long serialVersionUID = 2099108136L;
+        /**
+         * The purposeOfUse (reason) that was used during the event being recorded.
+         */
+        @Child(name ="purposeOfEvent", type={Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="The purposeOfUse of the event", formalDefinition="The purposeOfUse (reason) that was used during the event being recorded." )
+        protected List<Coding> purposeOfEvent;
+
+        private static final long serialVersionUID = 339035171L;
 
       public AuditEventEventComponent() {
         super();
@@ -1419,6 +1426,46 @@ public class AuditEvent extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #purposeOfEvent} (The purposeOfUse (reason) that was used during the event being recorded.)
+         */
+        public List<Coding> getPurposeOfEvent() { 
+          if (this.purposeOfEvent == null)
+            this.purposeOfEvent = new ArrayList<Coding>();
+          return this.purposeOfEvent;
+        }
+
+        public boolean hasPurposeOfEvent() { 
+          if (this.purposeOfEvent == null)
+            return false;
+          for (Coding item : this.purposeOfEvent)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #purposeOfEvent} (The purposeOfUse (reason) that was used during the event being recorded.)
+         */
+    // syntactic sugar
+        public Coding addPurposeOfEvent() { //3
+          Coding t = new Coding();
+          if (this.purposeOfEvent == null)
+            this.purposeOfEvent = new ArrayList<Coding>();
+          this.purposeOfEvent.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public AuditEventEventComponent addPurposeOfEvent(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.purposeOfEvent == null)
+            this.purposeOfEvent = new ArrayList<Coding>();
+          this.purposeOfEvent.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Identifier for a family of the event.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1427,6 +1474,7 @@ public class AuditEvent extends DomainResource {
           childrenList.add(new Property("dateTime", "instant", "The time when the event occurred on the source.", 0, java.lang.Integer.MAX_VALUE, dateTime));
           childrenList.add(new Property("outcome", "code", "Indicates whether the event succeeded or failed.", 0, java.lang.Integer.MAX_VALUE, outcome));
           childrenList.add(new Property("outcomeDesc", "string", "A free text description of the outcome of the event.", 0, java.lang.Integer.MAX_VALUE, outcomeDesc));
+          childrenList.add(new Property("purposeOfEvent", "Coding", "The purposeOfUse (reason) that was used during the event being recorded.", 0, java.lang.Integer.MAX_VALUE, purposeOfEvent));
         }
 
       public AuditEventEventComponent copy() {
@@ -1442,6 +1490,11 @@ public class AuditEvent extends DomainResource {
         dst.dateTime = dateTime == null ? null : dateTime.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.outcomeDesc = outcomeDesc == null ? null : outcomeDesc.copy();
+        if (purposeOfEvent != null) {
+          dst.purposeOfEvent = new ArrayList<Coding>();
+          for (Coding i : purposeOfEvent)
+            dst.purposeOfEvent.add(i.copy());
+        };
         return dst;
       }
 
@@ -1454,7 +1507,7 @@ public class AuditEvent extends DomainResource {
         AuditEventEventComponent o = (AuditEventEventComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(subtype, o.subtype, true) && compareDeep(action, o.action, true)
            && compareDeep(dateTime, o.dateTime, true) && compareDeep(outcome, o.outcome, true) && compareDeep(outcomeDesc, o.outcomeDesc, true)
-          ;
+           && compareDeep(purposeOfEvent, o.purposeOfEvent, true);
       }
 
       @Override
@@ -1471,7 +1524,8 @@ public class AuditEvent extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (subtype == null || subtype.isEmpty())
            && (action == null || action.isEmpty()) && (dateTime == null || dateTime.isEmpty()) && (outcome == null || outcome.isEmpty())
-           && (outcomeDesc == null || outcomeDesc.isEmpty());
+           && (outcomeDesc == null || outcomeDesc.isEmpty()) && (purposeOfEvent == null || purposeOfEvent.isEmpty())
+          ;
       }
 
   }
@@ -1558,7 +1612,14 @@ public class AuditEvent extends DomainResource {
         @Description(shortDefinition="Logical network location for application activity", formalDefinition="Logical network location for application activity, if the activity has a network location." )
         protected AuditEventParticipantNetworkComponent network;
 
-        private static final long serialVersionUID = -424356495L;
+        /**
+         * The purposeOfUse (reason) specific to this participant that was used during the event being recorded.
+         */
+        @Child(name ="purposeOfUse", type={Coding.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Participant purposeOfUse", formalDefinition="The purposeOfUse (reason) specific to this participant that was used during the event being recorded." )
+        protected List<Coding> purposeOfUse;
+
+        private static final long serialVersionUID = -1555724321L;
 
       public AuditEventParticipantComponent() {
         super();
@@ -1986,6 +2047,46 @@ public class AuditEvent extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #purposeOfUse} (The purposeOfUse (reason) specific to this participant that was used during the event being recorded.)
+         */
+        public List<Coding> getPurposeOfUse() { 
+          if (this.purposeOfUse == null)
+            this.purposeOfUse = new ArrayList<Coding>();
+          return this.purposeOfUse;
+        }
+
+        public boolean hasPurposeOfUse() { 
+          if (this.purposeOfUse == null)
+            return false;
+          for (Coding item : this.purposeOfUse)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #purposeOfUse} (The purposeOfUse (reason) specific to this participant that was used during the event being recorded.)
+         */
+    // syntactic sugar
+        public Coding addPurposeOfUse() { //3
+          Coding t = new Coding();
+          if (this.purposeOfUse == null)
+            this.purposeOfUse = new ArrayList<Coding>();
+          this.purposeOfUse.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public AuditEventParticipantComponent addPurposeOfUse(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.purposeOfUse == null)
+            this.purposeOfUse = new ArrayList<Coding>();
+          this.purposeOfUse.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
@@ -1998,6 +2099,7 @@ public class AuditEvent extends DomainResource {
           childrenList.add(new Property("policy", "uri", "The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.", 0, java.lang.Integer.MAX_VALUE, policy));
           childrenList.add(new Property("media", "Coding", "Type of media involved. Used when the event is about exporting/importing onto media.", 0, java.lang.Integer.MAX_VALUE, media));
           childrenList.add(new Property("network", "", "Logical network location for application activity, if the activity has a network location.", 0, java.lang.Integer.MAX_VALUE, network));
+          childrenList.add(new Property("purposeOfUse", "Coding", "The purposeOfUse (reason) specific to this participant that was used during the event being recorded.", 0, java.lang.Integer.MAX_VALUE, purposeOfUse));
         }
 
       public AuditEventParticipantComponent copy() {
@@ -2021,6 +2123,11 @@ public class AuditEvent extends DomainResource {
         };
         dst.media = media == null ? null : media.copy();
         dst.network = network == null ? null : network.copy();
+        if (purposeOfUse != null) {
+          dst.purposeOfUse = new ArrayList<Coding>();
+          for (Coding i : purposeOfUse)
+            dst.purposeOfUse.add(i.copy());
+        };
         return dst;
       }
 
@@ -2034,7 +2141,7 @@ public class AuditEvent extends DomainResource {
         return compareDeep(role, o.role, true) && compareDeep(reference, o.reference, true) && compareDeep(userId, o.userId, true)
            && compareDeep(altId, o.altId, true) && compareDeep(name, o.name, true) && compareDeep(requestor, o.requestor, true)
            && compareDeep(location, o.location, true) && compareDeep(policy, o.policy, true) && compareDeep(media, o.media, true)
-           && compareDeep(network, o.network, true);
+           && compareDeep(network, o.network, true) && compareDeep(purposeOfUse, o.purposeOfUse, true);
       }
 
       @Override
@@ -2053,7 +2160,7 @@ public class AuditEvent extends DomainResource {
            && (userId == null || userId.isEmpty()) && (altId == null || altId.isEmpty()) && (name == null || name.isEmpty())
            && (requestor == null || requestor.isEmpty()) && (location == null || location.isEmpty())
            && (policy == null || policy.isEmpty()) && (media == null || media.isEmpty()) && (network == null || network.isEmpty())
-          ;
+           && (purposeOfUse == null || purposeOfUse.isEmpty());
       }
 
   }
@@ -2457,17 +2564,17 @@ public class AuditEvent extends DomainResource {
         protected Resource referenceTarget;
 
         /**
-         * Object type being audited.
+         * The type of the object that was involved in this audit event.
          */
         @Child(name ="type", type={CodeType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Object type being audited", formalDefinition="Object type being audited." )
+        @Description(shortDefinition="Type of object involved", formalDefinition="The type of the object that was involved in this audit event." )
         protected Enumeration<ObjectType> type;
 
         /**
          * Code representing the functional application role of Participant Object being audited.
          */
         @Child(name ="role", type={CodeType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Functional application role of Object", formalDefinition="Code representing the functional application role of Participant Object being audited." )
+        @Description(shortDefinition="What role the Object played", formalDefinition="Code representing the functional application role of Participant Object being audited." )
         protected Enumeration<ObjectRole> role;
 
         /**
@@ -2582,7 +2689,7 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (Object type being audited.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @return {@link #type} (The type of the object that was involved in this audit event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public Enumeration<ObjectType> getTypeElement() { 
           if (this.type == null)
@@ -2602,7 +2709,7 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (Object type being audited.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @param value {@link #type} (The type of the object that was involved in this audit event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public AuditEventObjectComponent setTypeElement(Enumeration<ObjectType> value) { 
           this.type = value;
@@ -2610,14 +2717,14 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return Object type being audited.
+         * @return The type of the object that was involved in this audit event.
          */
         public ObjectType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
-         * @param value Object type being audited.
+         * @param value The type of the object that was involved in this audit event.
          */
         public AuditEventObjectComponent setType(ObjectType value) { 
           if (value == null)
@@ -2943,7 +3050,7 @@ public class AuditEvent extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifies a specific instance of the participant object. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("reference", "Reference(Any)", "Identifies a specific instance of the participant object. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, reference));
-          childrenList.add(new Property("type", "code", "Object type being audited.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "code", "The type of the object that was involved in this audit event.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("role", "code", "Code representing the functional application role of Participant Object being audited.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("lifecycle", "code", "Identifier for the data life-cycle stage for the participant object.", 0, java.lang.Integer.MAX_VALUE, lifecycle));
           childrenList.add(new Property("sensitivity", "CodeableConcept", "Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics.", 0, java.lang.Integer.MAX_VALUE, sensitivity));
@@ -3427,7 +3534,7 @@ public class AuditEvent extends DomainResource {
   public static final String SP_PARTICIPANT = "participant";
   @SearchParamDefinition(name="policy", path="AuditEvent.participant.policy", description="Policy that authorized event", type="uri" )
   public static final String SP_POLICY = "policy";
-  @SearchParamDefinition(name="object-type", path="AuditEvent.object.type", description="Object type being audited", type="token" )
+  @SearchParamDefinition(name="object-type", path="AuditEvent.object.type", description="Type of object involved", type="token" )
   public static final String SP_OBJECTTYPE = "object-type";
   @SearchParamDefinition(name="user", path="AuditEvent.participant.userId", description="Unique identifier for the user", type="token" )
   public static final String SP_USER = "user";

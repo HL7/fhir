@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Mar 25, 2015 13:49+1100 for FHIR v0.4.0
+// Generated on Sat, Mar 28, 2015 18:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -51,7 +51,7 @@ public class DocumentReference extends DomainResource {
          */
         CURRENT, 
         /**
-         * This reference has been superseded by another reference.
+         * This reference has been superceded by another reference.
          */
         SUPERCEDED, 
         /**
@@ -92,7 +92,7 @@ public class DocumentReference extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case CURRENT: return "This is the current reference for this document.";
-            case SUPERCEDED: return "This reference has been superseded by another reference.";
+            case SUPERCEDED: return "This reference has been superceded by another reference.";
             case ENTEREDINERROR: return "This reference was created in error.";
             default: return "?";
           }
@@ -864,24 +864,24 @@ public class DocumentReference extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).
+     * Specifies the particular kind of document. This usually equates to the purpose of making the document. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).
      */
     @Child(name ="type", type={CodeableConcept.class}, order=3, min=1, max=1)
-    @Description(shortDefinition="Precise type of document", formalDefinition="The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.)." )
+    @Description(shortDefinition="Kind of document", formalDefinition="Specifies the particular kind of document. This usually equates to the purpose of making the document. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.)." )
     protected CodeableConcept type;
 
     /**
-     * The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).
+     * A categorization for the type of document. The class is an abstraction from the type specifying the high-level kind of document  (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow) at a macro level.
      */
     @Child(name ="class_", type={CodeableConcept.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="High-level classification of document", formalDefinition="The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow)." )
+    @Description(shortDefinition="Categorization of document", formalDefinition="A categorization for the type of document. The class is an abstraction from the type specifying the high-level kind of document  (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow) at a macro level." )
     protected CodeableConcept class_;
 
     /**
-     * An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.
+     * An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.
      */
     @Child(name ="format", type={UriType.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Format/content rules for the document", formalDefinition="An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType." )
+    @Description(shortDefinition="Format/content rules for the document", formalDefinition="An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType." )
     protected List<UriType> format;
 
     /**
@@ -1100,7 +1100,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
+     * @return {@link #type} (Specifies the particular kind of document. This usually equates to the purpose of making the document. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
      */
     public CodeableConcept getType() { 
       if (this.type == null)
@@ -1116,7 +1116,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @param value {@link #type} (The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
+     * @param value {@link #type} (Specifies the particular kind of document. This usually equates to the purpose of making the document. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
      */
     public DocumentReference setType(CodeableConcept value) { 
       this.type = value;
@@ -1124,7 +1124,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #class_} (The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).)
+     * @return {@link #class_} (A categorization for the type of document. The class is an abstraction from the type specifying the high-level kind of document  (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow) at a macro level.)
      */
     public CodeableConcept getClass_() { 
       if (this.class_ == null)
@@ -1140,7 +1140,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @param value {@link #class_} (The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).)
+     * @param value {@link #class_} (A categorization for the type of document. The class is an abstraction from the type specifying the high-level kind of document  (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow) at a macro level.)
      */
     public DocumentReference setClass_(CodeableConcept value) { 
       this.class_ = value;
@@ -1148,7 +1148,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #format} (An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.)
+     * @return {@link #format} (An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.)
      */
     public List<UriType> getFormat() { 
       if (this.format == null)
@@ -1166,7 +1166,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #format} (An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.)
+     * @return {@link #format} (An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.)
      */
     // syntactic sugar
     public UriType addFormatElement() {//2 
@@ -1178,7 +1178,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @param value {@link #format} (An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.)
+     * @param value {@link #format} (An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.)
      */
     public DocumentReference addFormat(String value) { //1
       UriType t = new UriType();
@@ -1190,7 +1190,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @param value {@link #format} (An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.)
+     * @param value {@link #format} (An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.)
      */
     public boolean hasFormat(String value) { 
       if (this.format == null)
@@ -1694,9 +1694,9 @@ public class DocumentReference extends DomainResource {
         childrenList.add(new Property("masterIdentifier", "Identifier", "Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document, including version independent identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device)", "Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("type", "CodeableConcept", "The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("class", "CodeableConcept", "The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).", 0, java.lang.Integer.MAX_VALUE, class_));
-        childrenList.add(new Property("format", "uri", "An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.", 0, java.lang.Integer.MAX_VALUE, format));
+        childrenList.add(new Property("type", "CodeableConcept", "Specifies the particular kind of document. This usually equates to the purpose of making the document. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("class", "CodeableConcept", "A categorization for the type of document. The class is an abstraction from the type specifying the high-level kind of document  (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow) at a macro level.", 0, java.lang.Integer.MAX_VALUE, class_));
+        childrenList.add(new Property("format", "uri", "An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.", 0, java.lang.Integer.MAX_VALUE, format));
         childrenList.add(new Property("author", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("custodian", "Reference(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.", 0, java.lang.Integer.MAX_VALUE, custodian));
         childrenList.add(new Property("authenticator", "Reference(Practitioner|Organization)", "Which person or organization authenticates that this document is valid.", 0, java.lang.Integer.MAX_VALUE, authenticator));
@@ -1814,7 +1814,7 @@ public class DocumentReference extends DomainResource {
   public static final String SP_RELATESTO = "relatesto";
   @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
   public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precise type of document", type="token" )
+  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Kind of document", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="relatedid", path="DocumentReference.context.related.identifier", description="Related Identifier", type="token" )
   public static final String SP_RELATEDID = "relatedid";
@@ -1838,7 +1838,7 @@ public class DocumentReference extends DomainResource {
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
   public static final String SP_RELATION = "relation";
-  @SearchParamDefinition(name="class", path="DocumentReference.class", description="High-level classification of document", type="token" )
+  @SearchParamDefinition(name="class", path="DocumentReference.class", description="Categorization of document", type="token" )
   public static final String SP_CLASS = "class";
   @SearchParamDefinition(name="format", path="DocumentReference.format", description="Format/content rules for the document", type="uri" )
   public static final String SP_FORMAT = "format";
