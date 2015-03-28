@@ -6,7 +6,7 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>
   </text>
-  <status value="sent"/>
+  <status value="requested"/>
   <identifier>
     <system value="http://orionhealth.com/fhir/apps/referralids"/>
     <value value="ret4421"/>
