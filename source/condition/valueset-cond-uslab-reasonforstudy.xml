@@ -3,6 +3,7 @@
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p>This value set includes all ICD-9CM and  ICD-10CM concepts.  This content may not be published ( EH:Todo - whether and how can display this)</p>
+      <p>This value set includes content from ICD-9 and ICD-10 , which is © Copyright World Health Organization (WHO), 2014. All Rights Reserved.</p>  
 		</div>
 	</text>
 	<url value="http://hl7.org/fhir/vs/"/>

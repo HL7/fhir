@@ -2,7 +2,12 @@
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-      This value set includes all UCUM codes
+    <p>
+      This value set includes all UCUM codes.
+     </p>
+     <p> 
+      The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
+     </p>
     </div>
 	</text>
 	<name value="UCUM Codes"/>

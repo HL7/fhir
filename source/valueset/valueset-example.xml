@@ -17,6 +17,7 @@
         <li>35200-5</li>
         <li>9342-7</li>
       </ul>
+      <p>This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</p>
     </div>
   </text>
   <!-- this example, we elected to use a UUID. We could have used 

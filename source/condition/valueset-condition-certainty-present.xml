@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>This value set includes all SNOMED CT codes relating to the qualifier "Known" (concepts with an is-a relationship with 36692007)
-	  that are present, possible or suspected.
-	  </p>
-    </div>
-  </text>
   <url value="http://hl7.org/fhir/vs/condition-certainty-present"/>
   <name value="Condition/Diagnosis Certainty"/>
   <publisher value="CQF Project team"/>

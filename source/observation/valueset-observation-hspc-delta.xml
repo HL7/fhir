@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-    <text>
-        <status value="additional"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">SELECT SNOMED CT code system values descending from 'change values' (288533004).</div>
-    </text>
     <url value="http://www.example.com/valueset/deltaflag"/>
     <version value="0.01"/>
     <name value="HSPC Delta Flag Value Set Definition"/>

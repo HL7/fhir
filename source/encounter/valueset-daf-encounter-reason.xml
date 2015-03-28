@@ -1,17 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="daf-encounter-type"/>
-  <text>
-    <status value="additional"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-     <p>
-     This value set includes all terms in <a href="snomedct.html">SNOMED CT</a>, IDC-10-AM, and CPT-4.
-     </p>
-     <p>
-       <b>Open Issue</b>: Due to CPT license conditions, the correct use of CPT-4 in FHIR cannot be described.
-     </p>
-    </div>
-  </text>
   <name value="DAF Encounter Diagnoses"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -32,7 +21,7 @@
      <system value="http://hl7.org/fhir/sid/icd-10"/>
     </include>
     <include>
-      <system value="http://www.dont.use/cpt4"/>
+      <system value="http://www.ama-assn.org/go/cpt"/>
     </include>
   </compose>
 </ValueSet>

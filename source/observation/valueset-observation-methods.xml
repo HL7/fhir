@@ -9,6 +9,9 @@
         <li>SNOMED CT Techniques (descendents of 272394005): this is very incomplete, more than just observation methods, and has SNOMED CT licensing issues</li>      
         <li>LOINC Method List: this is less incomplete, but not designed to be used as a formal code system</li>      
       </ul>
+      <p>
+        This value set includes content from LOINC®, which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.
+      </p>
     </div>
   </text> 
   <name value="Observation Methods"/>

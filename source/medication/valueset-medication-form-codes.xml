@@ -11,7 +11,8 @@
 <!--        <li>NCIt - Children of NCIt concept C66729 "route of administration" (note: this covers SDTM and FDA route of administration concepts)</li>
         <li>EDQM - Route of administration</li>
 -->      </ul>
-      <p>Snomed is being used here as the example terminology.</p>
+      <p>SNOMED CT is being used here as the example terminology.</p>
+      <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p>  
     </div>
   </text>
   <name value="SNOMED CT Form Codes"/>

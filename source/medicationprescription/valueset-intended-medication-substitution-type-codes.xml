@@ -1,17 +1,5 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
-        contains concepts to support the medication process, in particular the process and reasons for substitution.</p>
-      <p>Possible sources include:</p>
-      <ul>
-        <li>Values from the HL7 ActSubstanceAdminSubstitutionCode code system</li>
-      </ul>
-      <p>The HL7 set is used here as the example terminology.</p>
-    </div>
-  </text>
   <name value="Substitution Type Codes"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -20,7 +8,8 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="This value set includes values from the HL7 code system ActSubstanceAdminSubstitutionCode"/>
+  <description value="This example value set includes values from the HL7 code system ActSubstanceAdminSubstitutionCode. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
+        contains concepts to support the medication process, in particular the process and reasons for substitution"/>
   <status value="draft"/>
   <compose>
     <include>

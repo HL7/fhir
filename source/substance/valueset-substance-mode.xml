@@ -1,11 +1,5 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>This value sets indicates whether a given quantity is absolute or relative</p>
-    </div>
-  </text>
   <name value="Substance Quantity Mode"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -14,7 +8,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="Substance Quantity Mode"/>
+  <description value="This value sets indicates whether a given quantity is absolute or relative"/>
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/substance-quantity-mode"/>

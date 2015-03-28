@@ -12,6 +12,7 @@
         <li>EDQM - Route of administration</li>
 -->      </ul>
       <p>SNOMED CT is being used here as the example terminology.</p>
+      <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p>  
     </div>
   </text>
   <name value="SNOMED CT Form Codes"/>
