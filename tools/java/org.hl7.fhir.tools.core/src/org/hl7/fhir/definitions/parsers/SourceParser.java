@@ -120,7 +120,8 @@ import org.w3c.dom.Element;
  */
 public class SourceParser {
 
-	private Logger logger;
+  private boolean ballotOnly;
+  private Logger logger;
 	private IniFile ini;
 	private Definitions definitions;
   private String srcDir;
@@ -320,7 +321,8 @@ public class SourceParser {
       Element ig = XMLUtil.getFirstChild(root);
       while (ig != null) {
         if (ig.getNodeName().equals("ig")) {
-          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), "1".equals(ig.getAttribute("review")));
+          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), 
+              "1".equals(ig.getAttribute("review")), !ballotOnly || !"no".equals(ig.getAttribute("ballot")));
           definitions.getIgs().put(igg.getCode(), igg);
           definitions.getSortedIgs().add(igg);
         }
