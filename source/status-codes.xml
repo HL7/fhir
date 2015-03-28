@@ -156,12 +156,12 @@
    <Font ss:FontName="Calibri" x:Family="Swiss"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s81" ss:Parent="s62">
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
+  <Style ss:ID="s83" ss:Parent="s62">
+   <Font ss:FontName="Calibri" x:Family="Swiss"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s82" ss:Parent="s62">
-   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  <Style ss:ID="s85" ss:Parent="s62">
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
@@ -1160,10 +1160,10 @@
     <Cell ss:StyleID="s33"><Data ss:Type="String">missing</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">sent</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">accepted</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -1302,7 +1302,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>3</SplitHorizontal>
-   <TopRowBottomPane>3</TopRowBottomPane>
+   <TopRowBottomPane>39</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1315,10 +1315,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>3</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>49</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
