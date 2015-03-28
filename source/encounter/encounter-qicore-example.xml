@@ -11,48 +11,36 @@
   <patient>
     <reference value="Patient/qicore"/>
   </patient>
+  <period>
+    <start value="2015-02-09T00:00:00Z"/>
+    <end value="2015-02-20T00:00:00Z"/>
+  </period>
 
   <hospitalization>
-    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-admission">
-      <valueDateTime value="2015-02-09T00:00:00Z"/>
-    </extension>
-
-    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-discharge">
-      <valueDateTime value="2015-02-20T00:00:00Z"/>
-    </extension>
-  </hospitalization>
-
-  <extension url="http://hl7.org/fhir/StructureDefinition/encounter-primaryCondition">
-    <valueCodeableConcept>
+    <dischargeDisposition>
       <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="39065001"/>
-        <display value="Burn of ear"/>
+        <system value="http://hl7.org/fhir/discharge-disposition"/>
+        <code value="home"/>
+        <display value="Home"/>
       </coding>
-    </valueCodeableConcept>
-  </extension>
+    </dischargeDisposition>
+  </hospitalization>
 
   <extension url="http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition">
     <extension url="http://hl7.org/fhir/StructureDefinition/encounter-condition">
-      <valueCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="110182002" />
-          <display value="burn of forehead"/>
-        </coding>
-      </valueCodeableConcept>
+      <valueReference>
+        <reference value="Condition/qicore"/>
+      </valueReference>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/encounter-conditionRole">
       <valueCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>
-          <code value="398192003" />
-          <display value="Co-morbid conditions (finding)"/>
+          <code value="8319008" />
+          <display value="Principal diagnosis"/>
         </coding>
       </valueCodeableConcept>
     </extension>
   </extension>
-
-
 
 </Encounter>
