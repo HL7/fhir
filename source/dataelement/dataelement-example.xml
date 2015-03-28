@@ -144,67 +144,67 @@
   <name value="Gender Code"/>
   <useContext>
     <coding>
-      <system value="http://unknown/FBPP"/>
+      <system value="http://example.org/FBPP"/>
       <display value="FBPP Pooled Database"/>
     </coding>
     <coding>
-      <system value="http://unknown/PhenX"/>
+      <system value="http://example.org/PhenX"/>
       <display value="Demographics"/>
     </coding>
     <coding>
-      <system value="http://unknown/Eligibility Criteria"/>
+      <system value="http://example.org/EligibilityCriteria"/>
       <display value="Pt. Administrative"/>
     </coding>
     <coding>
-      <system value="http://unknown/UAMS Clinical Research"/>
+      <system value="http://example.org/UAMSClinicalResearch"/>
       <display value="UAMS New CDEs"/>
     </coding>
     <coding>
-      <system value="http://unknown/PhenX"/>
+      <system value="http://example.org/PhenX"/>
       <display value="Substance Abuse and "/>
     </coding>
     <coding>
-      <system value="http://unknown/Category"/>
+      <system value="http://example.org/Category"/>
       <display value="CSAERS Adverse Event"/>
     </coding>
     <coding>
-      <system value="http://unknown/PhenX"/>
+      <system value="http://example.org/PhenX"/>
       <display value="Core: Tier 1"/>
     </coding>
     <coding>
-      <system value="http://unknown/Category"/>
+      <system value="http://example.org/Category"/>
       <display value="Case Report Forms"/>
     </coding>
     <coding>
-      <system value="http://unknown/Category"/>
+      <system value="http://example.org/Category"/>
       <display value="CSAERS Review Set"/>
     </coding>
     <coding>
-      <system value="http://unknown/Demonstration%20Applications"/>
+      <system value="http://example.org/Demonstration%20Applications"/>
       <display value="CIAF"/>
     </coding>
     <coding>
-      <system value="http://unknown/NIDA%20CTN%20Usage"/>
+      <system value="http://example.org/NIDA%20CTN%20Usage"/>
       <display value="Clinical Research"/>
     </coding>
     <coding>
-      <system value="http://unknown/NIDA%20CTN%20Usage"/>
+      <system value="http://example.org/NIDA%20CTN%20Usage"/>
       <display value="Electronic Health Re"/>
     </coding>
     <coding>
-      <system value="http://unknown/Condition"/>
+      <system value="http://example.org/Condition"/>
       <display value="Barretts Esophagus"/>
     </coding>
     <coding>
-      <system value="http://unknown/Condition"/>
+      <system value="http://example.org/Condition"/>
       <display value="Bladder Cancer"/>
     </coding>
     <coding>
-      <system value="http://unknown/Condition"/>
+      <system value="http://example.org/Condition"/>
       <display value="Oral Leukoplakia"/>
     </coding>
     <coding>
-      <system value="http://unknown/Condition"/>
+      <system value="http://example.org/Condition"/>
       <display value="Sulindac for Breast"/>
     </coding>
   </useContext>
