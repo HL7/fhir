@@ -8,7 +8,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Chris Moesel</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-26T19:12:47Z</LastSaved>
+  <LastSaved>2015-03-28T02:48:15Z</LastSaved>
   <Version>14.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,8 +17,8 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>7360</WindowHeight>
   <WindowWidth>28780</WindowWidth>
-  <WindowTopX>2700</WindowTopX>
-  <WindowTopY>5120</WindowTopY>
+  <WindowTopX>7860</WindowTopX>
+  <WindowTopY>4360</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
@@ -1123,9 +1123,9 @@
  <Worksheet ss:Name="QICore-Encounter">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='QICore-Encounter'!R1C1:R86C24" ss:Hidden="1"/>
+    ss:RefersTo="='QICore-Encounter'!R1C1:R88C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="87" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="89" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s86" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="201"/>
@@ -1648,7 +1648,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">DAFEncounterType</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">QICoreEncounterType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1869,7 +1869,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">DAFEncounterReasonValueset</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">QICoreEncounterReason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1884,6 +1884,33 @@
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">reason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Encounter.priority</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6" ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">QICoreEncounterPriority</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1927,6 +1954,34 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Encounter.hospitalization.dietPreference</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">QICoreEncounterDiet</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3565,9 +3620,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3579,11 +3634,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3596,92 +3652,92 @@
    <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R21C10:R22C10,R2C10:R16C10,R25C10:R86C10</Range>
+   <Range>R21C10:R22C10,R2C10:R16C10,R26C10,R28C10:R88C10</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R86C6</Range>
+   <Range>R2C6:R88C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;0..0,0..1,1..1,0..*,1..*,[n]..[m]&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C8:R86C8</Range>
+   <Range>R3C8:R88C8</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C9:R86C9</Range>
+   <Range>R5C9:R88C9</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C20:R86C22</Range>
+   <Range>R2C20:R88C22</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;N/A&quot;</Value>
    <ErrorHide/>
   </DataValidation>
-  <AutoFilter x:Range="R1C1:R86C24"
+  <AutoFilter x:Range="R1C1:R88C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R34C1:R86C4,R34C6:R86C24,R35C5:R75C5,R33C5:R33C24,R33C1:R33C3</Range>
+   <Range>R36C1:R88C4,R36C6:R88C24,R37C5:R77C5,R35C5:R35C24,R35C1:R35C3</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048352]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048350]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048352]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048352]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048350]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048350]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R34C4:R86C4</Range>
+   <Range>R36C4:R88C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048301]C[16336]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048300]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048299]C[16336]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048298]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R33C2:R86C3</Range>
+   <Range>R35C2:R88C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048348]C1=&quot;&quot;,'QICore-Encounter'!R[1048348]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048346]C1=&quot;&quot;,'QICore-Encounter'!R[1048346]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R33C11:R86C14</Range>
+   <Range>R35C11:R88C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048348]C8)&lt;&gt;0,'QICore-Encounter'!R[1048348]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048346]C8)&lt;&gt;0,'QICore-Encounter'!R[1048346]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R33C14:R86C14</Range>
+   <Range>R35C14:R88C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048348]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048348]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048348]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048346]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048346]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048346]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C16:R14C16,R15C15:R16C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048478]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048478]C15='QICore-Encounter'!R[1048478]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048480]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048480]C15='QICore-Encounter'!R[1048480]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R35C1:R86C24,R34C1:R34C4,R34C6:R34C24,R33C5:R33C24,R33C1:R33C3</Range>
+   <Range>R37C1:R88C24,R36C1:R36C4,R36C6:R36C24,R35C5:R35C24,R35C1:R35C3</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048352]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048350]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
@@ -3720,75 +3776,75 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C15:R9C15</Range>
    <Condition>
-    <Value1>('QICore-Encounter'!R[1048519]C1=&quot;&quot;)&lt;&gt;('QICore-Encounter'!R[1048519]C[16083]=&quot;&quot;)</Value1>
+    <Value1>('QICore-Encounter'!R[1048521]C1=&quot;&quot;)&lt;&gt;('QICore-Encounter'!R[1048521]C[16083]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C15:R9C15</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048519]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048521]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048519]C[16174]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048519]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048521]C[16174]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048521]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C15:R9C15</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048519]C14&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048519]C14='QICore-Encounter'!R[1048519]C15)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048521]C14&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048521]C14='QICore-Encounter'!R[1048521]C15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R22C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048440]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048442]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C15:R13C15</Range>
    <Condition>
-    <Value1>('QICore-Encounter'!R[1048444]C1=&quot;&quot;)&lt;&gt;('QICore-Encounter'!R[1048444]C[16083]=&quot;&quot;)</Value1>
+    <Value1>('QICore-Encounter'!R[1048446]C1=&quot;&quot;)&lt;&gt;('QICore-Encounter'!R[1048446]C[16083]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C15:R13C15</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048444]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048446]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048444]C[16174]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048444]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048446]C[16174]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048446]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C15:R13C15</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048444]C14&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048444]C14='QICore-Encounter'!R[1048444]C15)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048446]C14&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048446]C14='QICore-Encounter'!R[1048446]C15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C15:R13C15</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048444]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048446]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C16:R7C24,R7C5:R7C7,R7C9:R7C14,R6C1:R7C3,R6C5:R6C14</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048533]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048535]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048533]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048533]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048535]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048535]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -3809,7 +3865,7 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C2:R7C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048528]C1=&quot;&quot;,'QICore-Encounter'!R[1048528]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048530]C1=&quot;&quot;,'QICore-Encounter'!R[1048530]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -3823,7 +3879,7 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C11:R7C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048528]C8)&lt;&gt;0,'QICore-Encounter'!R[1048528]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048530]C8)&lt;&gt;0,'QICore-Encounter'!R[1048530]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -3837,7 +3893,7 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048528]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048528]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048528]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048530]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048530]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048530]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -3851,97 +3907,97 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048528]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048528]C15='QICore-Encounter'!R[1048528]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048530]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048530]C15='QICore-Encounter'!R[1048530]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R23C4:R24C4</Range>
+   <Range>R25C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048444]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048443]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R3C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048556]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048558]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048556]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048556]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048558]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048558]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R3C8</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048556]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048558]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C8:R9C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048511]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048513]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048511]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048511]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048513]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048513]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C8:R9C8</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048511]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048513]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048490]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048492]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048490]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048490]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048492]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048492]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C8:R11C8,R8C1:R9C3,R8C5:R9C7,R8C16:R9C24,R8C9:R9C14</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048506]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048508]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048479]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048481]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048479]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048479]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048481]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048481]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R12C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048468]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048470]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048468]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048468]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048470]C[16307]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048470]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R21C8,R23C6:R23C8,R23C11:R23C24,R22C1:R23C3,R22C6:R22C24</Range>
+   <Range>R21C8,R23C6:R24C8,R23C11:R24C24,R22C1:R24C3,R22C6:R22C24</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048419]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048421]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
@@ -3959,21 +4015,21 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048546]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048548]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048497]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048499]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048486]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048488]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -3987,266 +4043,266 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R12C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048475]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048477]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048529]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048531]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C4:R9C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048518]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048520]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C16:R9C24,R8C9:R9C14,R8C1:R9C3,R8C5:R9C7</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048506]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048508]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048506]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048506]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048508]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048508]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C2:R9C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048506]C1=&quot;&quot;,'QICore-Encounter'!R[1048506]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048508]C1=&quot;&quot;,'QICore-Encounter'!R[1048508]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C11:R9C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048506]C8)&lt;&gt;0,'QICore-Encounter'!R[1048506]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048508]C8)&lt;&gt;0,'QICore-Encounter'!R[1048508]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C14:R9C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048506]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048506]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048506]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048508]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048508]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048508]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C16:R9C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048506]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048506]C15='QICore-Encounter'!R[1048506]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048508]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048508]C15='QICore-Encounter'!R[1048508]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C16:R10C24</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048487]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048489]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048487]C[16249]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048487]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048489]C[16249]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048489]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C2:R10C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048487]C1=&quot;&quot;,'QICore-Encounter'!R[1048487]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048489]C1=&quot;&quot;,'QICore-Encounter'!R[1048489]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C11:R10C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048487]C8)&lt;&gt;0,'QICore-Encounter'!R[1048487]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048489]C8)&lt;&gt;0,'QICore-Encounter'!R[1048489]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048487]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048487]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048487]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048489]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048489]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048489]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048487]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048487]C15='QICore-Encounter'!R[1048487]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048489]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048489]C15='QICore-Encounter'!R[1048489]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R33C4</Range>
+   <Range>R35C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048377]C3=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048375]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048377]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048377]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048375]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048375]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R13C4,R15C4:R16C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048495]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048494]C[16360]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048497]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048496]C[16360]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R33C4</Range>
+   <Range>R35C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048377]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048375]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R14C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048475]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048471]C[16360]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048477]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048473]C[16360]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048411]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048413]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048411]C[16335]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048411]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048413]C[16335]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048413]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R22C5</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048420]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048422]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048420]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048420]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048422]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048422]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R82C5</Range>
+   <Range>R84C5</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048053]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048051]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048046]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048053]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048044]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048051]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R76C5</Range>
+   <Range>R78C5</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048088]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048086]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048088]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048086]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R22C5,R23C10</Range>
+   <Range>R22C5,R23C10:R24C10</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048420]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048422]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R23C6:R23C8,R23C11:R23C24,R22C1:R23C3,R22C6:R22C24</Range>
+   <Range>R23C6:R24C8,R23C11:R24C24,R22C1:R24C3,R22C6:R22C24</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048414]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048416]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048414]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048414]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048416]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048416]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C2:R24C3</Range>
+   <Range>R25C2:R25C3</Range>
    <Condition>
     <Value1>AND('QICore-Encounter'!R[1048402]C1=&quot;&quot;,'QICore-Encounter'!R[1048402]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C11:R24C14</Range>
+   <Range>R25C11:R25C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048402]C8)&lt;&gt;0,'QICore-Encounter'!R[1048402]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C14</Range>
+   <Range>R25C14</Range>
    <Condition>
     <Value1>AND('QICore-Encounter'!R[1048402]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048402]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048402]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R33C15:R86C16</Range>
+   <Range>R35C15:R88C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048348]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048348]C15='QICore-Encounter'!R[1048348]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048346]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048346]C15='QICore-Encounter'!R[1048346]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R22C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048440]C3=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048442]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048440]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048440]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048442]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048442]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R33C4</Range>
+   <Range>R35C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048377]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048376]C[16360]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048375]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048374]C[16360]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R23C4:R24C4</Range>
+   <Range>R25C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048444]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048443]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048444]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048444]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048443]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048443]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R23C10:R24C10</Range>
+   <Range>R25C10</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048414]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048413]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048414]C[16325]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048414]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048413]C[16325]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048413]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C15:R24C16</Range>
+   <Range>R25C15:R25C16</Range>
    <Condition>
     <Value1>AND('QICore-Encounter'!R[1048402]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048402]C15='QICore-Encounter'!R[1048402]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -4255,449 +4311,449 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R22C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048440]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048439]C[16360]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048442]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048441]C[16360]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C5:R12C7,R13C5:R14C14,R10C1:R16C3,R15C5:R15C24,R16C5:R16C7,R16C9:R16C24,R11C16:R14C24,R10C9:R12C14</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048487]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048489]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048487]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048487]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048489]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048489]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C2:R21C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048424]C1=&quot;&quot;,'QICore-Encounter'!R[1048424]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048426]C1=&quot;&quot;,'QICore-Encounter'!R[1048426]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C11:R21C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048424]C8)&lt;&gt;0,'QICore-Encounter'!R[1048424]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048426]C8)&lt;&gt;0,'QICore-Encounter'!R[1048426]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048424]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048424]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048424]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048426]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048426]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048426]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C16:R14C24,R13C5:R14C14,R10C1:R16C3,R15C5:R15C24,R16C5:R16C7,R16C9:R16C24,R10C9:R12C14,R10C5:R12C7,R17C10:R20C10</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048487]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048489]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048451]C3=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048453]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048451]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048451]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048453]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048453]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048451]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048453]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R83C5:R86C5,R79C5:R81C5</Range>
+   <Range>R85C5:R88C5,R81C5:R83C5</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048112]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048110]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048112]C[16364]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048112]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048110]C[16364]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048110]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R23C9:R24C9</Range>
+   <Range>R25C9</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048407]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048406]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048407]C[16344]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048407]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048406]C[16344]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048406]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R23C9:R24C9,R24C6:R24C8,R24C11:R24C24,R24C1:R24C3,R26C8</Range>
+   <Range>R28C8</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048407]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048402]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R23C4:R24C4</Range>
+   <Range>R25C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048444]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!#REF!=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048443]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C15:R21C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048424]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048424]C15='QICore-Encounter'!R[1048424]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048426]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048426]C15='QICore-Encounter'!R[1048426]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C15:R9C15,R13C4:R16C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048519]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048521]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R16C8,R12C8</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048468]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048470]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048451]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048450]C[16360]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048453]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048452]C[16360]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R16C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048440]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048442]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048440]C[16335]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048440]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048442]C[16335]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048442]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C1:R21C3,R21C5:R21C7,R21C9:R21C24</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048428]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048430]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048428]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048428]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048430]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048430]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C2:R16C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048478]C1=&quot;&quot;,'QICore-Encounter'!R[1048478]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048480]C1=&quot;&quot;,'QICore-Encounter'!R[1048480]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C11:R16C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048478]C8)&lt;&gt;0,'QICore-Encounter'!R[1048478]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048480]C8)&lt;&gt;0,'QICore-Encounter'!R[1048480]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R11C14:R16C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048478]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048478]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048478]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048480]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048480]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048480]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C1:R21C3,R21C5:R21C7,R21C9:R21C24</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048428]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048430]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R13C4:R16C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048495]C3=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048497]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048495]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048495]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048497]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048497]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C6:R20C8,R24C10,R17C1:R20C3,R17C11:R20C24</Range>
+   <Range>R25C10</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048446]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048439]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C6:R20C8,R17C11:R20C24,R17C1:R20C3</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048446]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048448]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048446]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048446]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048448]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048448]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C2:R20C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048443]C1=&quot;&quot;,'QICore-Encounter'!R[1048443]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048445]C1=&quot;&quot;,'QICore-Encounter'!R[1048445]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C11:R20C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048443]C8)&lt;&gt;0,'QICore-Encounter'!R[1048443]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048445]C8)&lt;&gt;0,'QICore-Encounter'!R[1048445]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C14:R20C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048443]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048443]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048443]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048445]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048445]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048445]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R19C4:R20C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048472]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048474]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048472]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048472]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048474]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048474]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C10:R20C10</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048451]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048453]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048451]C[16325]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048451]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048453]C[16325]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048453]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C15:R20C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048443]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048443]C15='QICore-Encounter'!R[1048443]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048445]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048445]C15='QICore-Encounter'!R[1048445]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C9:R20C9</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048444]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048446]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048444]C[16344]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048444]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048446]C[16344]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048446]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C9:R20C9,R4C8</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048509]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048511]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4:R4C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048569]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048571]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C5:R25C24,R25C1:R26C3,R26C5:R26C7,R26C9:R26C24</Range>
+   <Range>R28C5:R28C7,R28C9:R28C24,R28C1:R28C3</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048396]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048393]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048396]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048396]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048393]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048393]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C2:R26C3</Range>
+   <Range>R28C2:R28C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048392]C1=&quot;&quot;,'QICore-Encounter'!R[1048392]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048389]C1=&quot;&quot;,'QICore-Encounter'!R[1048389]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C11:R26C14</Range>
+   <Range>R28C11:R28C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048392]C8)&lt;&gt;0,'QICore-Encounter'!R[1048392]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048389]C8)&lt;&gt;0,'QICore-Encounter'!R[1048389]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C14:R26C14</Range>
+   <Range>R28C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048392]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048392]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048392]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048389]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048389]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048389]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C5:R25C24,R25C1:R26C3,R26C5:R26C7,R26C9:R26C24</Range>
+   <Range>R28C5:R28C7,R28C9:R28C24,R28C1:R28C3</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048396]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048393]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C4:R26C4</Range>
+   <Range>R28C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048421]C3=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048418]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048421]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048421]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048418]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048418]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C4:R26C4</Range>
+   <Range>R28C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048421]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048418]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C15:R26C16</Range>
+   <Range>R28C15:R28C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048392]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048392]C15='QICore-Encounter'!R[1048392]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048389]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048389]C15='QICore-Encounter'!R[1048389]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C4:R26C4</Range>
+   <Range>R28C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048421]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048420]C[16360]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048418]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048417]C[16360]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R32C5:R32C7,R31C9:R32C24,R31C1:R32C3</Range>
+   <Range>R34C5:R34C7,R33C9:R34C24,R33C1:R34C3</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048364]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048362]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048364]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048364]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048362]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048362]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C5:R32C7,R31C9:R32C24,R31C1:R32C3</Range>
+   <Range>R33C5:R34C7,R33C9:R34C24,R33C1:R34C3</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048364]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048362]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C5:R7C7,R7C9:R7C14,R6C5:R6C14,R6C16:R7C24,R6C1:R7C3</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048533]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048535]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R22C2:R23C3</Range>
+   <Range>R22C2:R24C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048411]C1=&quot;&quot;,'QICore-Encounter'!R[1048411]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048413]C1=&quot;&quot;,'QICore-Encounter'!R[1048413]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R22C11:R23C14</Range>
+   <Range>R22C11:R24C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048411]C8)&lt;&gt;0,'QICore-Encounter'!R[1048411]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048413]C8)&lt;&gt;0,'QICore-Encounter'!R[1048413]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R22C14:R23C14</Range>
+   <Range>R22C14:R24C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048411]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048411]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048411]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048413]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048413]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048413]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R22C15:R23C16</Range>
+   <Range>R22C15:R24C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048411]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048411]C15='QICore-Encounter'!R[1048411]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048413]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048413]C15='QICore-Encounter'!R[1048413]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C4:R18C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048481]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048483]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R19C4:R20C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048472]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048474]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C5:R78C5</Range>
+   <Range>R79C5:R80C5</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048121]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048119]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048121]C[16364]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048121]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048119]C[16364]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048119]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C4:R18C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048481]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048483]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048481]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048481]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048483]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048483]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R17C4:R20C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048481]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!#REF!=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048483]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -4715,253 +4771,253 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R4C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048545]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048547]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C6:R24C8,R24C11:R24C24,R24C1:R24C3,R26C8</Range>
+   <Range>R28C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048405]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048401]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048405]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048405]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048401]C[-7]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048401]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C1:R30C3,R27C5:R30C24</Range>
+   <Range>R29C1:R32C3,R29C5:R32C24</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048385]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048383]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048385]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048385]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048383]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048383]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C2:R30C3</Range>
+   <Range>R29C2:R32C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048381]C1=&quot;&quot;,'QICore-Encounter'!R[1048381]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048379]C1=&quot;&quot;,'QICore-Encounter'!R[1048379]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C11:R30C14</Range>
+   <Range>R29C11:R32C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048381]C8)&lt;&gt;0,'QICore-Encounter'!R[1048381]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048379]C8)&lt;&gt;0,'QICore-Encounter'!R[1048379]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C14:R30C14</Range>
+   <Range>R29C14:R32C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048381]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048381]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048381]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048379]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048379]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048379]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C1:R30C3,R27C5:R30C24,R31C8:R32C8</Range>
+   <Range>R29C1:R32C3,R29C5:R32C24,R33C8:R34C8</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048385]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048383]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C4:R30C4</Range>
+   <Range>R29C4:R32C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048410]C3=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048408]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048410]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048410]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048408]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048408]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C4:R30C4</Range>
+   <Range>R29C4:R32C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048410]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048408]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C15:R30C16</Range>
+   <Range>R29C15:R32C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048381]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048381]C15='QICore-Encounter'!R[1048381]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048379]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048379]C15='QICore-Encounter'!R[1048379]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C4:R30C4</Range>
+   <Range>R29C4:R32C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048410]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048409]C[16360]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048408]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048407]C[16360]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C8:R32C8</Range>
+   <Range>R33C8:R34C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048369]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048367]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048369]C[16349]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048369]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048367]C[16349]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048367]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C5:R31C7</Range>
+   <Range>R33C5:R33C7</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048364]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048362]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048364]C[16364]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048364]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048362]C[16364]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048362]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C2:R32C3</Range>
+   <Range>R33C2:R34C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048360]C1=&quot;&quot;,'QICore-Encounter'!R[1048360]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048358]C1=&quot;&quot;,'QICore-Encounter'!R[1048358]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C11:R32C14</Range>
+   <Range>R33C11:R34C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048360]C8)&lt;&gt;0,'QICore-Encounter'!R[1048360]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048358]C8)&lt;&gt;0,'QICore-Encounter'!R[1048358]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C14:R32C14</Range>
+   <Range>R33C14:R34C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048360]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048360]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048360]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048358]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048358]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048358]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C4:R32C4</Range>
+   <Range>R33C4:R34C4</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048389]C3=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048387]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048389]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048389]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048387]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048387]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C4:R32C4</Range>
+   <Range>R33C4:R34C4</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048389]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048387]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C15:R32C16</Range>
+   <Range>R33C15:R34C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048360]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048360]C15='QICore-Encounter'!R[1048360]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048358]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048358]C15='QICore-Encounter'!R[1048358]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R31C4:R32C4</Range>
+   <Range>R33C4:R34C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048389]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048388]C[16360]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048387]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048386]C[16360]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C15</Range>
    <Condition>
-    <Value1>('QICore-Encounter'!R[1048530]C1=&quot;&quot;)&lt;&gt;('QICore-Encounter'!R[1048530]C[16083]=&quot;&quot;)</Value1>
+    <Value1>('QICore-Encounter'!R[1048532]C1=&quot;&quot;)&lt;&gt;('QICore-Encounter'!R[1048532]C[16083]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C15</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048530]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048532]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048530]C[16174]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048530]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048532]C[16174]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048532]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C15</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048530]C14&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048530]C14='QICore-Encounter'!R[1048530]C15)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048532]C14&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048532]C14='QICore-Encounter'!R[1048532]C15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C16:R5C24,R5C1:R5C3,R5C5:R5C14</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048539]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048541]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048539]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048539]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048541]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048541]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C2:R5C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048539]C1=&quot;&quot;,'QICore-Encounter'!R[1048539]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048541]C1=&quot;&quot;,'QICore-Encounter'!R[1048541]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C11:R5C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048539]C8)&lt;&gt;0,'QICore-Encounter'!R[1048539]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048541]C8)&lt;&gt;0,'QICore-Encounter'!R[1048541]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048539]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048539]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048539]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048541]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048541]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048541]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048539]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048539]C15='QICore-Encounter'!R[1048539]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048541]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048541]C15='QICore-Encounter'!R[1048541]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C15</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048530]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048532]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R4C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048501]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048503]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048501]C[16335]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048501]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048503]C[16335]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048503]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R5C1:R5C3,R5C5:R5C14,R5C16:R5C24</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048539]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048541]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
@@ -4975,64 +5031,64 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C15</Range>
    <Condition>
-    <Value1>('QICore-Encounter'!R[1048524]C1=&quot;&quot;)&lt;&gt;('QICore-Encounter'!R[1048524]C[16083]=&quot;&quot;)</Value1>
+    <Value1>('QICore-Encounter'!R[1048526]C1=&quot;&quot;)&lt;&gt;('QICore-Encounter'!R[1048526]C[16083]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C15</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048524]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048526]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048524]C[16174]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048524]C1=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048526]C[16174]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048526]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C15</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048524]C14&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048524]C14='QICore-Encounter'!R[1048524]C15)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048526]C14&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048526]C14='QICore-Encounter'!R[1048526]C15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C16:R6C24</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048533]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048535]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048533]C[16309]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048533]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048535]C[16309]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048535]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C2:R6C3</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048533]C1=&quot;&quot;,'QICore-Encounter'!R[1048533]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048535]C1=&quot;&quot;,'QICore-Encounter'!R[1048535]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C11:R6C14</Range>
    <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048533]C8)&lt;&gt;0,'QICore-Encounter'!R[1048533]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048535]C8)&lt;&gt;0,'QICore-Encounter'!R[1048535]C[16224]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C14</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048533]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048533]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048533]C8,1)))))</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048535]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048535]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048535]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C16</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048533]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048533]C15='QICore-Encounter'!R[1048533]C16)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048535]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048535]C15='QICore-Encounter'!R[1048535]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -5050,33 +5106,201 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C4</Range>
    <Condition>
-    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048534]C[16336]=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!#REF!&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048536]C[16336]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C15</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048524]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048526]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C8</Range>
    <Condition>
-    <Value1>LEFT('QICore-Encounter'!R[1048494]C4,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT('QICore-Encounter'!R[1048496]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C8</Range>
    <Condition>
-    <Value1>'QICore-Encounter'!R[1048486]C6=&quot;0..0&quot;</Value1>
+    <Value1>'QICore-Encounter'!R[1048488]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND('QICore-Encounter'!R[1048486]C[16335]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048486]C4=&quot;&quot;)</Value1>
+    <Value1>AND('QICore-Encounter'!R[1048488]C[16335]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048488]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R25C11:R25C24,R25C1:R25C3,R25C6:R25C9</Range>
+   <Condition>
+    <Value1>LEFT('QICore-Encounter'!R[1048406]C4,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C1:R27C3,R26C5:R26C24,R27C5:R27C9,R27C11:R27C24</Range>
+   <Condition>
+    <Value1>'QICore-Encounter'!R[1048396]C6=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048396]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048396]C4=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C2:R27C3</Range>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048392]C1=&quot;&quot;,'QICore-Encounter'!R[1048392]C[16368]&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C11:R27C14</Range>
+   <Condition>
+    <Value1>AND(SEARCH(&quot;|&quot;,'QICore-Encounter'!R[1048392]C8)&lt;&gt;0,'QICore-Encounter'!R[1048392]C[16224]&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C14:R27C14</Range>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048392]C[16176]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT('QICore-Encounter'!R[1048392]C8,1),LOWER(LEFT('QICore-Encounter'!R[1048392]C8,1)))))</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C1:R27C3,R26C5:R26C24,R27C5:R27C9,R27C11:R27C24</Range>
+   <Condition>
+    <Value1>LEFT('QICore-Encounter'!R[1048396]C4,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C4:R27C4</Range>
+   <Condition>
+    <Value1>'QICore-Encounter'!R[1048421]C3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048421]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048421]C1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C4:R27C4</Range>
+   <Condition>
+    <Value1>LEFT('QICore-Encounter'!R[1048421]C1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C15:R27C16</Range>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048392]C15&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048392]C15='QICore-Encounter'!R[1048392]C16)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C4:R27C4</Range>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048421]C[16360]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048420]C[16360]=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R25C11:R25C24,R25C1:R25C3,R25C6:R25C8</Range>
+   <Condition>
+    <Value1>'QICore-Encounter'!R[1048405]C6=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048405]C&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048405]C4=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R27C10</Range>
+   <Condition>
+    <Value1>LEFT('QICore-Encounter'!R[1048416]C4,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R27C10</Range>
+   <Condition>
+    <Value1>'QICore-Encounter'!R[1048411]C6=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048411]C[16325]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048411]C4=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R23C4:R24C4</Range>
+   <Condition>
+    <Value1>LEFT('QICore-Encounter'!R[1048446]C4,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R23C4:R24C4</Range>
+   <Condition>
+    <Value1>'QICore-Encounter'!R[1048446]C6=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048446]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048446]C4=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R23C10:R24C10</Range>
+   <Condition>
+    <Value1>'QICore-Encounter'!R[1048416]C6=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048416]C[16325]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048416]C4=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R23C9:R24C9</Range>
+   <Condition>
+    <Value1>'QICore-Encounter'!R[1048409]C6=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048409]C[16344]&lt;&gt;&quot;&quot;,'QICore-Encounter'!R[1048409]C4=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R23C4:R24C4</Range>
+   <Condition>
+    <Value1>AND('QICore-Encounter'!R[1048446]C[16366]&lt;&gt;&quot;&quot;,'QICore-Encounter'!#REF!=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R17C1:R20C3,R17C11:R20C24,R17C6:R20C8</Range>
+   <Condition>
+    <Value1>LEFT('QICore-Encounter'!R[1048448]C4,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R23C9:R24C9</Range>
+   <Condition>
+    <Value1>LEFT('QICore-Encounter'!R[1048409]C4,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
@@ -8773,14 +8997,14 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s94"><Data ss:Type="String">!QICoreEncounterReasonValueset</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Encounter Diagnoses Value set to describe the specific encounter code.</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">QICoreEncounterReason</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Encounter Reason Value Set to describe reason for encounter</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s158" ss:HRef="http://hl7.org/fhir/vs/daf-encounter-reason"><Data
       ss:Type="String">http://hl7.org/fhir/vs/daf-encounter-reason</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">Concept for encounter reason</Data></Cell>
+    <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
@@ -8791,15 +9015,14 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s105"><Data ss:Type="String">QICoreEncounterConditionRole</Data></Cell>
-    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The role of the condition within this encounter</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">valueset-qicore-encounter-condition-role</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">The role of the condition within this encounter</Data></Cell>
     <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s159" ss:HRef="http://hl7.org/fhir/vs/qicore-encounter-condition-role"><Data
-      ss:Type="String">http://hl7.org/fhir/vs/qicore-encounter-condition-role</Data></Cell>
+    <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
@@ -8807,28 +9030,13 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QICoreEncounterType</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Encounter Type Value set to describe the type of encounter</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s159" ss:HRef="http://hl7.org/fhir/vs/daf-encounter-type"><Data
+      ss:Type="String">http://hl7.org/fhir/vs/daf-encounter-type</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
@@ -8839,13 +9047,29 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QICoreEncounterDiet</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The dietary preferences for the patient in the encounter</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">valueset-qicore-encounter-diet</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The dietary preferences for the patient in the encounter</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s141"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">QICoreEncounterPriority</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The priority of the encounter (e.g., Urgent, Normal, etc.)</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">valueset-qicore-encounter-priority</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The priority of the encounter (e.g., Urgent, Normal, etc.)</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
@@ -9223,8 +9447,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9294,7 +9518,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C1:R9C14,R2C1,R2C3:R2C14,R3C1:R3C7,R3C9:R3C14</Range>
+   <Range>R2C1,R2C3:R2C14,R3C1:R3C7,R3C9:R3C14,R4C1:R9C14</Range>
    <Condition>
     <Value1>AND(Bindings!R[1048557]C1=&quot;&quot;,Bindings!R[1048557]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -9329,7 +9553,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C2:R9C5,R2C3:R2C5</Range>
+   <Range>R2C3:R2C5,R3C2:R9C5</Range>
    <Condition>
     <Value1>AND(Bindings!R[1048557]C1&lt;&gt;&quot;&quot;,Bindings!R[1048557]C[16368]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -9385,7 +9609,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C1:R9C14,R2C1,R2C3:R2C14,R3C1:R3C7,R3C9:R3C14</Range>
+   <Range>R2C1,R2C3:R2C14,R3C1:R3C7,R3C9:R3C14,R4C1:R9C14</Range>
    <Condition>
     <Value1>LEFT(Bindings!R[1048557]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -9494,6 +9718,20 @@
    <Condition>
     <Value1>LEFT(Bindings!R[1048527]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R5C7</Range>
+   <Condition>
+    <Value1>AND(Bindings!R[1048554]C1&lt;&gt;&quot;&quot;,Bindings!R[1048554]C[16363]=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R6C7</Range>
+   <Condition>
+    <Value1>AND(Bindings!R[1048553]C1&lt;&gt;&quot;&quot;,Bindings!R[1048553]C[16363]=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
