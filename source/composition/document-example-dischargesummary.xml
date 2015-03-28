@@ -213,6 +213,11 @@
             <display value="Hospital admission diagnosis"/>
           </coding>
         </code>
+        <subject>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
+          <display value="Peter Patient"/>
+        </subject>
+        <status value="current"/>
         <mode value="working"/>
         <!-- This is an entry that refers to an Observation resource in this document. -->
         <entry>
@@ -290,6 +295,11 @@
             <display value="Hospital discharge medications"/>
           </coding>
         </code>
+        <subject>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
+          <display value="Peter Patient"/>
+        </subject>
+        <status value="current"/>
         <mode value="working"/>
         <!-- This is an entry that refers to a MedicationPrescription resource in this document.
                 It is a new medication (as indicated by the flag)-->
@@ -446,6 +456,11 @@
             <display value="Allergies and adverse reactions Document"/>
           </coding>
         </code>
+        <subject>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
+          <display value="Peter Patient"/>
+        </subject>
+        <status value="current"/>
         <mode value="working"/>
         <!-- This is an entry that refers to an allergy resource in this document. -->
         <entry>

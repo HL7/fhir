@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/valueset.xsd">
+	<name value="GoalPriority"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
+		</telecom>
+	</contact>
+	<description value="goal priority - indicates the level of importance associated with reaching or sustaining a goal"/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<status value="draft"/>
+	<define>
+    <system value="http://hl7.org/fhir/goal-priority"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="high"/>
+      <display value="high"/>
+      <definition value="Indicates that the goal is of considerable importance and should be a primary focus of care delivery"/>
+    </concept>
+    <concept>
+      <code value="medium"/>
+      <display value="medium"/>
+      <definition value="Indicates that the goal has a reasonable degree of importance and that concrete action should be taken towards the goal.  Attainment is not as critical as high-priority goals."/>
+    </concept>
+    <concept>
+      <code value="low"/>
+      <display value="low"/>
+      <definition value="The goal is desirable but is not sufficiently important to devote significant resources to.  Achievement of the goal may be sought when incidental to achieving other goals."/>
+    </concept>
+  </define>
+</ValueSet>

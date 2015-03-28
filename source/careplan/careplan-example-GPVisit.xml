@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd"
- xmlns="http://hl7.org/fhir">
-    <id value="gpvisit"/>
-    <text>
-        <status value="additional"></status>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>  Represents the flow of a patient within a practice. The plan is created when
+<CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd" xmlns="http://hl7.org/fhir">
+  <id value="gpvisit"/>
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>  Represents the flow of a patient within a practice. The plan is created when
         they arrive and represents the 'care' of the patient over the course of that encounter.
         They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
         the consultation and finally the nurse again for a tetanus immunization. As the plan is
@@ -14,122 +12,128 @@
         for reporting can be gained by examining the plan history. This example is the version after
         seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
         the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
-        </div>
-    </text>
-    <contained>
-        <!-- This is the reason for the encounter. It is referenced by the concern -->
-        <Condition>
-          <id value="p1"/>
-            <patient>
-                <reference value="Patient/100"/>
-                <display value="Peter James Chalmers"/>
-            </patient>
-            <code>
-                <!-- Could coded if we wanted to...-->
-                <text value="Overseas encounter"/>
-            </code>
-            <clinicalStatus value="confirmed"/>
-    </Condition>
-    </contained>
-    <patient>
+    </div>
+  </text>
+  <contained>
+    <!-- This is the reason for the encounter. It is referenced by the concern -->
+    <Condition>
+      <id value="p1"/>
+      <patient>
         <reference value="Patient/100"/>
         <display value="Peter James Chalmers"/>
-    </patient>
-    <status value="active"/>
-    <period>
-        <!-- This is the time the plan started - i.e. when they arrived-->
-        <start value ="2013-01-01T10:30:00+00:00"/>
-        <!-- No end yet as the encounter is still in progress.-->
-    </period>
-    <concern>
-        <reference value="#p1"/>
-        <display value="obesity"/>
-    </concern>
-    <participant id="part1">
-        <role>
-            <coding>
-                <system value="http://example.org/local"/>
-                <code value='nur'/>
-            </coding>
-            <text value='nurse'></text>
-        </role>
-        <member>
-            <reference value="Practitioner/13"/>
-            <display value="Nurse Nancy"/>
-        </member>
-    </participant>
-    <participant id="part2">
-        <role>
-            <coding>
-                <system value="http://example.org/local"/>
-                <code value='doc'/>
-            </coding>
-            <text value='doctor'></text>
-        </role>
-        <member>
-            <reference value="Practitioner/14"/>
-            <display value="Doctor Dave"/>
-        </member>
-    </participant>
-    
-    <goal>
+      </patient>
+      <code>
+        <!-- Could coded if we wanted to...-->
+        <text value="Overseas encounter"/>
+      </code>
+      <clinicalStatus value="confirmed"/>
+    </Condition>
+  </contained>
+  <contained>
+    <Goal>
+      <id value="goal"/>
+      <patient>
+        <reference value="Patient/100"/>
+        <display value="Peter James Chalmers"/>
+      </patient>
       <description value="Complete consultation"/>
-    </goal>
-    <activity>
-        <status value="completed"/>
-        <prohibited value="false"></prohibited>
-        <actionResulting>
-            <!-- This is a link to the nurse encounter. The assumption is that all contacts with practitioners
+      <status value="planned"/>
+    </Goal>
+  </contained>
+  <patient>
+    <reference value="Patient/100"/>
+    <display value="Peter James Chalmers"/>
+  </patient>
+  <status value="active"/>
+  <period>
+    <!-- This is the time the plan started - i.e. when they arrived-->
+    <start value="2013-01-01T10:30:00+00:00"/>
+    <!-- No end yet as the encounter is still in progress.-->
+  </period>
+  <concern>
+    <reference value="#p1"/>
+    <display value="obesity"/>
+  </concern>
+  <participant id="part1">
+    <role>
+      <coding>
+        <system value="http://example.org/local"/>
+        <code value='nur'/>
+      </coding>
+      <text value='nurse'/>
+    </role>
+    <member>
+      <reference value="Practitioner/13"/>
+      <display value="Nurse Nancy"/>
+    </member>
+  </participant>
+  <participant id="part2">
+    <role>
+      <coding>
+        <system value="http://example.org/local"/>
+        <code value='doc'/>
+      </coding>
+      <text value='doctor'/>
+    </role>
+    <member>
+      <reference value="Practitioner/14"/>
+      <display value="Doctor Dave"/>
+    </member>
+  </participant>
+  <goal>
+    <reference value="#goal"/>
+  </goal>
+  <activity>
+    <actionResulting>
+      <!-- This is a link to the nurse encounter. The assumption is that all contacts with practitioners
             are modelled as separate encounters. Ideally, there will be  a 'master/parent' encounter that ties them together.
             If there is a single encounter, then all participants will be linked to that encounter.-->
-            <reference value="Encounter/example"/>
-        </actionResulting>
-        <simple>
-          <!-- This activity is for the initial nurse encounter where vitals are taken. It has been completed.-->
-          <category value="encounter"></category>
-          <code>
-              <coding>
-                  <system value="http://example.org/local"/>
-                  <code value='nursecon'/>
-              </coding>
-              <text value="Nurse Consultation"></text>
-          </code>
-          <scheduledPeriod>
-              <!-- the nurse saw the patient between 10:38 and 10:50 -->
-              <start value ="2013-01-01T10:38:00+00:00"/>
-              <end value ="2013-01-01T10:50:00+00:00"/>            
-          </scheduledPeriod>
-          <performer>
-              <!-- refer to the participant (the nurse) in this resource-->
-              <reference value="Practitioner/13"/>
-            <display value="Nurse Nancy"/>
-          </performer>
-        </simple>
-    </activity>
-    <activity>
-        <status value="scheduled"/>
-        <prohibited value="false"></prohibited>
-        <simple>
-          <!-- This activity is for the encounter with the doctor. It is scheduled, but not yet started,
+      <reference value="Encounter/example"/>
+    </actionResulting>
+    <detail>
+      <!-- This activity is for the initial nurse encounter where vitals are taken. It has been completed.-->
+      <category value="encounter"/>
+      <code>
+        <coding>
+          <system value="http://example.org/local"/>
+          <code value='nursecon'/>
+        </coding>
+        <text value="Nurse Consultation"/>
+      </code>
+      <status value="completed"/>
+      <prohibited value="false"/>
+      <scheduledPeriod>
+        <!-- the nurse saw the patient between 10:38 and 10:50 -->
+        <start value="2013-01-01T10:38:00+00:00"/>
+        <end value="2013-01-01T10:50:00+00:00"/>
+      </scheduledPeriod>
+      <performer>
+        <!-- refer to the participant (the nurse) in this resource-->
+        <reference value="Practitioner/13"/>
+        <display value="Nurse Nancy"/>
+      </performer>
+    </detail>
+  </activity>
+  <activity>
+    <detail>
+      <!-- This activity is for the encounter with the doctor. It is scheduled, but not yet started,
               so there is no timing[x]  or actionTaken element yet -->
-          <category value="encounter"></category>
-          <code>
-              <coding>
-                  <system value="http://example.org/local"/>
-                  <code value='doccon'/>
-              </coding>
-              <text value="Doctor Consultation"></text>
-          </code>
-          
-          <!-- The status is 'scheduled' so the doctor knows the patient is waiting.  --> 
-          
-  
-          <performer>
-              <!-- refer to the participant (the nurse) in this resource-->
-              <reference value="Practitioner/14"/>
-              <display value="Doctor Dave"/>
-          </performer>
-        </simple>
-    </activity>
+      <category value="encounter"/>
+      <code>
+        <coding>
+          <system value="http://example.org/local"/>
+          <code value='doccon'/>
+        </coding>
+        <text value="Doctor Consultation"/>
+      </code>
+      <status value="scheduled"/>
+      <prohibited value="false"/>
+      <!-- The status is 'scheduled' so the doctor knows the patient is waiting.  -->
+      <performer>
+        <!-- refer to the participant (the nurse) in this resource-->
+        <reference value="Practitioner/14"/>
+        <display value="Doctor Dave"/>
+      </performer>
+    </detail>
+  </activity>
 </CarePlan>
-

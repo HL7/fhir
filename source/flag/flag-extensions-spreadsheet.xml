@@ -10,7 +10,7 @@
   <LastAuthor>Claude Nanjo</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-02-24T01:41:10Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -33,6 +33,10 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s109" ss:Name="Hyperlink">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
+    ss:Underline="Single"/>
   </Style>
   <Style ss:ID="s62">
    <Alignment ss:Vertical="Top"/>
@@ -120,16 +124,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior/>
-  </Style>
-  <Style ss:ID="s72">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior/>
-   <NumberFormat ss:Format="yyyy\-mm\-dd;@"/>
   </Style>
   <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
@@ -438,6 +432,30 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s108">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s110" ss:Parent="s109">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s112">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="15" x:FullColumns="1"
@@ -451,15 +469,15 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">alert-extensions</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">flag-extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Alert HL7 Extensions</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Flag HL7 Extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">author.name</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Health Level Seven, Inc. - FHIR WG</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Health Level Seven, Inc. - Patient Care WG</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">author.reference</Data></Cell>
@@ -471,7 +489,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s67"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Defines common extensions used with or related to the Alert resource</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Defines common extensions used with or related to the Flag resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">status</Data></Cell>
@@ -479,7 +497,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="DateTime">2015-02-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="DateTime">2015-02-21T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">published.structure</Data></Cell>
@@ -490,7 +508,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/StructureDefinition/alert-</Data></Cell>
+    <Cell ss:StyleID="s110" ss:HRef="http://hl7.org/fhir/StructureDefinition/flag-"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/flag-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">introduction</Data></Cell>
@@ -533,8 +552,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -693,12 +711,12 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Not published</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="42.75">
+   <Row ss:Height="75">
     <Cell ss:StyleID="s84"><Data ss:Type="String">period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Alert</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Flag</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -713,9 +731,9 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Time period when alert is active</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Time period when flag is active</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">The period of time from the activation of the alert to inactivation of the alert. If the alert is active, the end of the period should be unspecified.</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1372,7 +1390,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1380,15 +1398,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

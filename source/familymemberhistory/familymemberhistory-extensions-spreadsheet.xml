@@ -10,18 +10,17 @@
   <LastAuthor>Mathews, Jason</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-24T15:17:33Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7260</WindowHeight>
-  <WindowWidth>20445</WindowWidth>
+  <WindowHeight>12240</WindowHeight>
+  <WindowWidth>20355</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -860,11 +859,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">familyhistory-extensions</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">familymemberhistory-extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s75" ss:HRef="http://hl7.org/fhir"><Data ss:Type="String">Family History HL7 Extensions</Data></Cell>
+    <Cell ss:StyleID="s75" ss:HRef="http://hl7.org/fhir"><Data ss:Type="String">Family Member History HL7 Extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
@@ -880,7 +879,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Defines common extensions used with or related to the FamilyHistory resource</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Defines common extensions used with or related to the FamilyMemberHistory resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -900,8 +899,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/familyhistory-"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/familyhistory-</Data></Cell>
+    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/familymemberhistory-"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/familymemberhistory-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>
@@ -928,7 +927,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -941,11 +940,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
+     <ActiveRow>12</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3222,8 +3220,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>40</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4149,7 +4147,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyHistory.relation.condition</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyMemberHistory.condition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">abatement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4182,7 +4180,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyHistory.relation.condition</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyMemberHistory.condition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">didNotHave</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4216,7 +4214,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyHistory.relation.condition</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyMemberHistory.condition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">severity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4250,7 +4248,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyHistory.relation</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyMemberHistory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">gender</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4285,7 +4283,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyHistory.relation</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">FamilyMemberHistory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Patient Record</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4797,8 +4795,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6509,7 +6507,7 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C2</Range>
    <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(ISERR(SEARCH(&quot;.&quot;,#REF!))),#REF!&lt;&gt;&quot;IN&quot;, #REF!&lt;&gt;&quot;OUT&quot;)</Value1>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(ISERR(SEARCH(&quot;.&quot;,#REF!))),#REF!&lt;&gt;&quot;IN&quot;,#REF!&lt;&gt; &quot;OUT&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -6603,7 +6601,7 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R8C5</Range>
    <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(ISERR(SEARCH(&quot;.&quot;,#REF!))),#REF!&lt;&gt;&quot;QUERY&quot;, #REF!&lt;&gt;&quot;OPERATION&quot;)</Value1>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(ISERR(SEARCH(&quot;.&quot;,#REF!))),#REF!&lt;&gt;&quot;QUERY&quot;,#REF!&lt;&gt; &quot;OPERATION&quot;)</Value1>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">

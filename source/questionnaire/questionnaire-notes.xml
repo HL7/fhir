@@ -19,7 +19,7 @@ Observations to model Questionnaires. Such use cases should now utilize the Ques
 <a name="qversusr" />
 <h3>Using Questionnaires versus using Resources</h3>
 <p>
-There is considerable overlap between the information covered by <b>Questionnaires</b> and other Resources (especially <a href="familyhistory.html">FamilyHistory</a>,
+There is considerable overlap between the information covered by <b>Questionnaires</b> and other Resources (especially <a href="familymemberhistory.html">FamilyMemberHistory</a>,
 <a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.): 
 <b>Questionnaire's</b> flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using <b>Questionnaires</b> or separate 
 Resources may be dictated by the procedure of collection and recording. E.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 

@@ -37,12 +37,6 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">ReacciónAdversa</translation>
         <translation lang="fr">RéactionAdverse</translation>
     </item>
-    <item id="Alert">
-        <translation lang="en">Alert</translation>
-        <translation lang="zh">警报</translation>
-        <translation lang="es">Alerta</translation>
-        <translation lang="fr">Alerte</translation>
-    </item>
     <item id="AllergyIntolerance">
         <translation lang="en">AllergyIntolerance</translation>
         <translation lang="es">AllergiaIntolerancia</translation>
@@ -82,12 +76,6 @@ NOTE: while translations on Resources are possible they should be used for rende
       <translation lang="en">NewBundle</translation>
     </item>
     <item id="CarePlan">
-        <translation lang="en">CarePlan</translation>
-        <translation lang="zh">护理计划</translation>
-        <translation lang="es">PlanCuidado</translation>
-        <translation lang="fr">PlanDeSoins</translation>
-    </item>
-    <item id="CarePlan2">
         <translation lang="en">CarePlan</translation>
         <translation lang="zh">护理计划</translation>
         <translation lang="es">PlanCuidado</translation>
@@ -228,11 +216,11 @@ NOTE: while translations on Resources are possible they should be used for rende
      <item id="ExtensionDefinition">
         <translation lang="en">ExtensionDefinition</translation>
     </item>
-    <item id="FamilyHistory">
-        <translation lang="en">FamilyHistory</translation>
-        <translation lang="zh">家族病史</translation>
-        <translation lang="es">AntecedentesFamiliares</translation>
-        <translation lang="fr">AntécédentsFamiliaux</translation>
+    <item id="FamilyMemberHistory">
+        <translation lang="en">FamilyMemberHistory</translation>
+    </item>
+    <item id="Flag">
+        <translation lang="en">Flag</translation>
     </item>
     <item id="Goal">
         <translation lang="en">Goal</translation>

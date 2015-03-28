@@ -41,14 +41,14 @@
 <contained>
   <Observation>
     <id value='obs1'/>
-    <name>
+    <code>
       <coding>
         <system value='http://snomed.info/sct'/>
         <code value="229819007"/>
         <display value="Tobacco use and exposure (observable entity)"/>
       </coding>
       <text value="Smoking History"/>
-    </name>
+    </code>
     <valueString value="Smoked 20x day for 10 years. Has not smokde for last 3 years."/>
     <status value="final"/>
     <reliability value="ok"/>
@@ -58,14 +58,14 @@
   <contained>
     <Observation>
       <id value='obs2'/>
-      <name>
+      <code>
         <coding>
           <system value='http://snomed.info/sct'/>
           <code value="397021000000108"/>
           <display value="Alcohol use (UK Specific)"/>
         </coding>
         <text value="Smoking History"/>
-      </name>
+      </code>
       <valueString value="Social drinker. 3 bottle Gin per week, 6 bottles beer per day."/>
       <status value="final"/>
       <reliability value="ok"/>
@@ -85,6 +85,7 @@
   <source>
     <reference value="Patient/example"/>
   </source>
+  <status value="current"/>
   <date value="2012-11-25T22:17:00+11:00"/>
   <mode value="snapshot"/>
   

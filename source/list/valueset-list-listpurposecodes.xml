@@ -11,6 +11,14 @@
 2.16.840.1.113883.6.96) "/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
 	<status value="draft"/>
+	<define>
+    <system value="http://hl7.org/fhir/list-codes"/>
+    <concept>
+      <code value="folder"/>
+      <display value="Folder"/>
+      <definition value="A Folder is a logical collection of resources that are related in some way, such as to a clinical use case. A Folder is an arbitrary grouping relationship established by the author. Folders may be updated by multiple organizations/departments at different times. For example, a Folder may be used to collect resources that relate to an exam event, such as the exam request and prior results as well as the eventual exam results. As the exam results become available, the resources can be added to the Folder for the exam records.  Folders are concepts in XDS, in EHR extracts and a variety of other data-organization paradigms."/>
+    </concept>
+  </define>
 	<compose>
 		<include>
 			<system value="http://snomed.info/sct"/>

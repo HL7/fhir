@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FamilyMemberHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familymemberhistory.xsd">
+  <id value="father"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Father died of a heart attack aged 74</div>
+  </text>
+
+  <patient>
+    <reference value="Patient/example"/>
+    <display value="Peter Patient"/>
+  </patient>
+  
+  <date value="2011-03-18"/>
+
+  <relationship>
+    <coding>
+      <system value="http://hl7.org/fhir/familial-relationship"/>
+      <code value="father"/>
+    </coding>
+  </relationship>
+  <condition>
+    <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="315619001"/>
+      <display value="Myocardial Infarction"/>
+    </coding>
+    <text value='Heart Attack'/>
+    </type>
+ 
+
+    <onsetAge>
+      <value value="74" />
+      <units value="a" />
+      <system value="http://unitsofmeasure.org" />
+    </onsetAge>
+    <note value="Was fishing at the time. At least he went doing someting he loved." />
+  </condition>
+</FamilyMemberHistory>

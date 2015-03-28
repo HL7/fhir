@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FamilyMemberHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familymemberhistory.xsd">
+  <id value="mother"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Mother died of a stroke aged 56. Brother has diabetes</div>
+  </text>
+  <patient>
+    <reference value="Patient/100"/>
+    <display value="Peter Patient"/>
+  </patient>
+  <relationship>
+    <coding>
+      <system value="http://hl7.org/fhir/familial-relationship"/>
+      <code value="mother"/>
+    </coding>
+  </relationship>
+  <condition>
+    <type>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="371041009"/>
+       <display value="Embolic Stroke"/>
+     </coding>
+     <text value='Stroke'/>
+    </type>
+
+   <onsetAge>
+     <value value="56" />
+     <units value="a" />
+     <system value="http://unitsofmeasure.org" />
+   </onsetAge>
+
+  </condition>
+</FamilyMemberHistory>

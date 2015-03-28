@@ -120,18 +120,18 @@
             </td>
           </tr>
 		  <tr>
-            <th>DAFFamilyHistory</th>
+            <th>DAFFamilyMemberHistory</th>
             <td>
-              <a title="Allows discovery of DAFFamilyHistory resources based on different search criteria" href="#DAFFamilyHistory-search-type">SHALL</a>
+              <a title="Allows discovery of DAFFamilyMemberHistory resources based on different search criteria" href="#DAFFamilyMemberHistory-search-type">SHALL</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFFamilyHistory by id" href="#DAFFamilyHistory-read">SHALL</a>
+              <a title="Allows retrieval of a specific DAFFamilyMemberHistory by id" href="#DAFFamilyMemberHistory-read">SHALL</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFFamilyHistory" href="#DAFFamilyHistory-vread">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFFamilyMemberHistory" href="#DAFFamilyMemberHistory-vread">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFFamilyHistory over time" href="#DAFFamilyHistory-history-instance">SHOULD</a>
+              <a title="Allows review of changes to DAFFamilyMemberHistory over time" href="#DAFFamilyMemberHistory-history-instance">SHOULD</a>
             </td>
           </tr>
 		  <tr>
@@ -376,13 +376,13 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFFamilyHistory</td>
+			<td>DAFFamilyMemberHistory</td>
 			<td>
 				<ul>
-					<li>identifier - Search for FamilyHistory by id</li>
-					<li>patient - Search for FamilyHistory for a patient</li>
-					<li>relationship - Search based on FamilyHistory Relationship type</li>
-					<li>familyhistorycondition - Search based on the clinical condition of the related person</li>
+					<li>identifier - Search for FamilyMemberHistory by id</li>
+					<li>patient - Search for FamilyMemberHistory for a patient</li>
+					<li>relationship - Search based on FamilyMemberHistory Relationship type</li>
+					<li>familymemberhistorycondition - Search based on the clinical condition of the related person</li>
 				</ul>
 			</td>
 		  </tr>
@@ -998,37 +998,37 @@
       </searchParam>
     </resource>
 	<resource>
-      <type value="DAFFamilyHistory"/>
+      <type value="DAFFamilyMemberHistory"/>
       <profile>
-        <reference value="familyhistory-daf.html"/>
+        <reference value="familymemberhistory-daf.html"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
-        <documentation value="Allows discovery of existing DAFFamilyHistory resources using different search criteria"/>
+        <documentation value="Allows discovery of existing DAFFamilyMemberHistory resources using different search criteria"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
-        <documentation value="Allows retrieval of a specific DAFFamilyHistory by id"/>
+        <documentation value="Allows retrieval of a specific DAFFamilyMemberHistory by id"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
-        <documentation value="Allows review of changes to DAFFamilyHistory instance over time"/>
+        <documentation value="Allows review of changes to DAFFamilyMemberHistory instance over time"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
-        <documentation value="Allows retrieval of a historical version of a DAFFamilyHistory instance"/>
+        <documentation value="Allows retrieval of a historical version of a DAFFamilyMemberHistory instance"/>
       </interaction>
 	  <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
@@ -1055,7 +1055,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="familyHistoryCondition"/>
+        <name value="familyMemberHistoryCondition"/>
         <type value="token"/>
       </searchParam>
     </resource>

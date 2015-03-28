@@ -190,13 +190,16 @@ notes: do not list revision in the version
         <li>Remove DeviceObservationReport and Query</li>
         <li>Collapse AdverseReaction into <a href="allergyintolerance.html">AllergyIntolerance</a></li>
         <li><a href="appointment.html">Appointment</a> changes - individual field renamed to actor, and added mappings to v2 and v3</li>
+        <li><a href="familymemberhistory.html">FamilyMemberHistory</a> combined with <a href="list.html">List</a> replaces FamilyHistory (with corresponding updates to related profiles)</li>
+        <li><a href="flag.html">Flag</a> replaces Alert including improved clarification of how it is used and replacement of "note" with "code"</li>
+        <li><a href="careplan.html">CarePlan</a> significantly refactored including splitting Goal out as a distinct resource, moving elements between activity and detail, introduction of several new elements and supported relationship types</li>
+        <li></li>
 			</ul>
       <p>New Resources:</p>
       <ul>
         <li><a href="appointment.html">Appointment</a></li>
         <li><a href="appointmentresponse.html">AppointmentResponse</a></li>
         <li><a href="basic.html">Basic</a></li>
-        <li><a href="careplan2.html">CarePlan2</a> </li>
         <li><a href="claimresponse.html">ClaimResponse</a></li>
         <li><a href="clinicalimpression.html">ClinicalImpression</a></li>
         <li><a href="communication.html">Communication</a></li>
@@ -219,17 +222,17 @@ notes: do not list revision in the version
         <li><a href="goal.html">Goal</a> </li>
         <li><a href="healthcareservice.html">HealthcareService</a></li>
         <li><a href="imagingobjectselection.html">ImagingObjectSelection</a></li>
-        <li><a href="institutionalclaim.html">InstitutionalClaim</a></li>
+        <li><a href="claim.html">InstitutionalClaim</a></li>
         <li><a href="namingsystem.html">NamingSystem</a></li>
         <li><a href="nutritionorder.html">NutritionOrder</a></li>
         <li><a href="operationdefinition.html">OperationDefinition</a></li>
-        <li><a href="oralhealthclaim.html">OralHealthClaim</a></li>
+        <li><a href="claim.html">OralHealthClaim</a></li>
         <li><a href="paymentnotice.html">PaymentNotice</a></li>
         <li><a href="paymentreconciliation.html">PaymentReconciliation</a></li>
         <li><a href="person.html">Person</a></li>
-        <li><a href="pharmacyclaim.html">PharmacyClaim</a></li>
+        <li><a href="claim.html">PharmacyClaim</a></li>
         <li><a href="procedurerequest.html">ProcedureRequest</a> </li>
-        <li><a href="professionalclaim.html">ProfessionalClaim</a></li>
+        <li><a href="claim.html">ProfessionalClaim</a></li>
         <li><a href="questionnaireanswers.html">QuestionnaireAnswers</a></li>
         <li><a href="referralrequest.html">ReferralRequest</a></li>
         <li><a href="riskassessment.html">RiskAssessment</a></li>
@@ -238,7 +241,7 @@ notes: do not list revision in the version
         <li><a href="slot.html">Slot</a></li>
         <li><a href="subscription.html">Subscription</a></li>
         <li><a href="supportingdocumentation.html">SupportingDocumentation</a></li>
-        <li><a href="visionclaim.html">VisionClaim</a></li>
+        <li><a href="claim.html">VisionClaim</a></li>
         <li><a href="visionprescription.html">VisionPrescription</a></li>
       </ul>
       <p>New Implementation Guides (see <a href="iglist.html">discussion of status</a>)</p>
@@ -270,7 +273,7 @@ notes: do not list revision in the version
        <li>Add <a href="referralrequest.html">Referral Request</a></li>
        <li>Add supportingInformation to <a href="diagnosticorder.html">DiagnosticOrder</a></li>
        <li>Add fulfills to <a href="encounter.html">Encounter</a></li>
-       <li>Add date and age[x] to <a href="familyhistory.html">FamilyHistory</a></li>
+       <li>Add date and age[x] to <a href="familymemberhistory.html">FamilyHistory</a></li>
        <li>Change cardinality of <a href="location.html">Location</a>.identifier to 0..*</li>
        <li>Change cardinality of <a href="practitioner.html">Practitioner</a>.address to 0..*</li>
        <li>Add <a href="observation.html">Observation</a>.encounter to 0..*</li>

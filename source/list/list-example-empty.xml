@@ -18,6 +18,7 @@
   <source>
     <reference value="Patient/example"/>
   </source>
+  <status value="current"/>
   <date value="2012-11-26T07:30:23+11:00"/>
   <mode value="snapshot"/>
 

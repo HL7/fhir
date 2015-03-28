@@ -10,16 +10,16 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2015-03-08T06:04:14Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8832</WindowHeight>
+  <WindowHeight>8835</WindowHeight>
   <WindowWidth>23040</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopX>7530</WindowTopX>
+  <WindowTopY>2835</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -89,31 +89,20 @@
    <Interior/>
   </Style>
   <Style ss:ID="s68" ss:Parent="s62">
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
-   </Borders>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s69" ss:Parent="s62">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s70" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s69" ss:Parent="s62">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -124,7 +113,7 @@
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s71">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
     <Border ss:Position="Left" ss:LineStyle="Continuous"/>
@@ -133,15 +122,15 @@
    </Borders>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="8" ss:Color="#333333"/>
   </Style>
-  <Style ss:ID="s74" ss:Parent="s62">
+  <Style ss:ID="s73" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s77" ss:Parent="s33">
+  <Style ss:ID="s76" ss:Parent="s33">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s77">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
     <Border ss:Position="Left" ss:LineStyle="Continuous"/>
@@ -151,28 +140,39 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s82" ss:Parent="s62">
+  <Style ss:ID="s78" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s80" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s83" ss:Parent="s62">
+  <Style ss:ID="s81" ss:Parent="s62">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s84" ss:Parent="s62">
+  <Style ss:ID="s82" ss:Parent="s62">
    <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="56" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="55" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="314.39999999999998"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
+   <Column ss:StyleID="s63" ss:Width="314.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Column ss:Index="7" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.6"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.4"/>
+   <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
    <Column ss:Index="35" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -243,42 +243,22 @@
     <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Alert.status</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">inactive</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AllergyIntolerance.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="17" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:Index="17" ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">unconfirmed</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String"> confirmed</Data></Cell>
@@ -286,128 +266,88 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">refuted</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Appointment.participant.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Appointment.participant.status</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">tentative</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">declined</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">needs-action</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">pending</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">booked</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">arrived</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">noshow?</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">fulfilled</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">AppointmentResponse.participantStatus</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">tentative</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s72"><Data ss:Type="String">declined</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s72"><Data ss:Type="String">in-process</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="s72"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">needs-action</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">AppointmentResponse.participantStatus</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:Index="5" ss:StyleID="s71"><Data ss:Type="String">tentative</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s71"><Data ss:Type="String">declined</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">in-process</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="s71"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s71"><Data ss:Type="String">needs-action</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CarePlan.activity.status</Data></Cell>
+    <Cell><Data ss:Type="String">CarePlan.activity.detail.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">not-started</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">not-started</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">scheduled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">scheduled</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">on-hold</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CarePlan.goal.status</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">on-hold</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress,sustaining</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">achieved</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.95">
-    <Cell><Data ss:Type="String">CarePlan2.status</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -420,14 +360,14 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -435,63 +375,63 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CommunicationRequest.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s33"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Composition.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">preliminary</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">preliminary</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">amended,appended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">amended,appended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">final</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConceptMap.status</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition.clinicalStatus</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -506,94 +446,94 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:Index="17" ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">working, provisional</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">working, provisional</Data></Cell>
     <Cell><Data ss:Type="String">confirmed</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s70"><Data ss:Type="String">refuted</Data></Cell>
+    <Cell ss:Index="22" ss:StyleID="s68"><Data ss:Type="String">refuted</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Conformance.status</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DataElement.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">(retired)</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">(retired)</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">available</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">not-available</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">available</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">not-available</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceMetric.operationalStatus</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s70"><Data ss:Type="String">on</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">standby</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">off</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">on</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">standby</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">off</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceUseRequest.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s33"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">aborted,failed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">aborted,failed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -601,67 +541,67 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.event.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress,review</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress,review</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.item.status</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress,review</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">failed</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress,review</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.status</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s33"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress,review</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">failed</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress,review</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticReport.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">partial</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">partial</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">registered</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">registered</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -669,14 +609,14 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">corrected, amended, appended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">final</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentManifest.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -685,16 +625,16 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">current</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">current</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">superceded</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">superceded</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s77">
     <Cell ss:StyleID="s63"><Data ss:Type="String">DocumentReference.docStatus</Data></Cell>
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
@@ -738,7 +678,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentReference.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -747,12 +687,12 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">current</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">current</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">superceded</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">superceded</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
@@ -760,14 +700,14 @@
     <Cell><Data ss:Type="String">Encounter.location.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">reserved</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">reserved</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">present</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">present</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -780,98 +720,137 @@
     <Cell><Data ss:Type="String">Encounter.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">arrived</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">onleave</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">arrived</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">onleave</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">finished</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">finished</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter.statusHistory.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">arrived</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">onleave</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">arrived</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">onleave</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">finished</Data></Cell>
-    <Cell ss:Index="17" ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">finished</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EpisodeOfCare.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">waitlist</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">onhold</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">onhold</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">finished</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">finished</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EpisodeOfCare.statusHistory.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">waitlist</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">onhold</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">onhold</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">finished</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">finished</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Flag.status</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Goal.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress, sustaining</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress, sustaining</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">achieved</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">achieved</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">List.status</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">current</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
     <Cell><Data ss:Type="String">Location.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -882,17 +861,17 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
     <Cell><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -901,17 +880,17 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">on-hold</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationDispense.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -920,34 +899,34 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">on-hold</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationPrescription.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">on-hold</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">superceded</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">superceded</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationStatement.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -956,190 +935,190 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NamingSystem.status</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">NutritionOrder.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">NutritionOrder.status</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s33"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">on-hold</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Observation.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">preliminary</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">preliminary</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">registered</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">registered</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">amended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">final</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">amended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell><Data ss:Type="String">unknown</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OperationDefinition.status</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OrderResponse.orderStatus</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">pending</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">pending</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">accepted</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">review</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">review</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">aborted,error</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">replaced</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Procedure.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">aborted</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">aborted</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ProcedureRequest.status</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">accepted</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">aborted</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">aborted</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Questionnaire.status</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">published</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">published</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">QuestionnaireAnswers.status</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1148,11 +1127,11 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">amended</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">amended</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1160,55 +1139,55 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s33"><Data ss:Type="String">missing</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">sent</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">sent</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">accepted</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SearchParameter.status</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">StructureDefinition.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Subscription.status</Data></Cell>
@@ -1216,17 +1195,17 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">off</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">off</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1240,13 +1219,13 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">dispensed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">dispensed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">abandoned</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">abandoned</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Supply.status</Data></Cell>
@@ -1254,36 +1233,36 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">received</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">received</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">dispensed</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">dispensed</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
   </Table>
@@ -1300,30 +1279,28 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
-   <SplitHorizontal>1848</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
-   <SplitVertical>4512</SplitVertical>
-   <LeftColumnRightPane>0</LeftColumnRightPane>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>3</SplitHorizontal>
+   <TopRowBottomPane>3</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>42</ActiveRow>
-     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>20</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R9</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

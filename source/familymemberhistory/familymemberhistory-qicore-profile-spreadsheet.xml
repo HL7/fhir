@@ -10,18 +10,17 @@
   <LastAuthor>Jason Walonoski</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-19T01:55:43Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7155</WindowHeight>
-  <WindowWidth>20430</WindowWidth>
+  <WindowHeight>9780</WindowHeight>
+  <WindowWidth>20355</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1004,11 +1003,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">familyhistory-qicore</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">familymemberhistory-qicore</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">QICore-FamilyHistory</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">QICore-FamilyMemberHistory</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
@@ -1025,7 +1024,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Profile of Family History for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Profile of Family Member History for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -1037,7 +1036,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">QICore-FamilyHistory</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">QICore-FamilyMemberHistory</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">version</Data></Cell>
@@ -1046,7 +1045,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
     <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/StructureDefinition/familyhistory-qicore-"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/familyhistory-qicore-</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/familymemberhistory-qicore-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>
@@ -1090,8 +1089,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <RangeSelection>R4C2:R5C2</RangeSelection>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1161,12 +1159,12 @@
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
- <Worksheet ss:Name="QICore-FamilyHistory">
+ <Worksheet ss:Name="QICore-FamilyMemberHistory">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='QICore-FamilyHistory'!R1C1:R72C24" ss:Hidden="1"/>
+    ss:RefersTo="='QICore-FamilyMemberHistory'!R1C1:R71C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="73" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="72" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="289.5"/>
@@ -1290,11 +1288,11 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><Data ss:Type="String">QICore-FamilyHistory</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">QICore-FamilyMemberHistory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">FamilyHistory</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">FamilyMemberHistory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1323,7 +1321,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">FamilyHistory.relation</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">FamilyMemberHistory.condition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1347,44 +1345,17 @@
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">FamilyHistory.relation.condition</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">FamilyHistory.relation.condition.abatement</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">FamilyMemberHistory.condition.abatement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">FamilyHistory.relation.condition.extension</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">FamilyMemberHistory.condition.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/familyhistory-abatement}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/familymemberhistory-abatement}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1405,17 +1376,17 @@
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">!FamilyHistory.relation.condition.didNotHave</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">FamilyMemberHistory.condition.didNotHave</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">!FamilyHistory.relation.condition.extension</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">!FamilyMemberHistory.condition.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/familyhistory-didNotHave}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/familymemberhistory-didNotHave}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1436,17 +1407,17 @@
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">FamilyHistory.relation.condition.severity</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">FamilyMemberHistory.condition.severity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">FamilyHistory.relation.condition.extension</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">FamilyMemberHistory.condition.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/familyhistory-severity}</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">QICoreConditionSeverity</Data><NamedCell
@@ -1471,7 +1442,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">FamilyHistory.relation.condition.onset[x]</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">FamilyMemberHistory.condition.onset[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1499,7 +1470,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">FamilyHistory.relation.condition.outcome</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">FamilyMemberHistory.condition.outcome</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1527,7 +1498,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">FamilyHistory.patient</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">FamilyMemberHistory.patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1556,7 +1527,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">FamilyHistory.date</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">FamilyMemberHistory.date</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1584,7 +1555,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">FamilyHistory.relation.relationship</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">FamilyMemberHistory.relationship</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1612,7 +1583,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">FamilyHistory.relation.condition.type</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">FamilyMemberHistory.condition.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3185,6 +3156,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3214,50 +3186,50 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C9:R71C9</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;Y,N&quot;</Value>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C8</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R72C6</Range>
+   <Range>R2C6:R71C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;0..0,0..1,1..1,0..*,1..*,[n]..[m]&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C8:R72C8</Range>
+   <Range>R3C8:R71C8</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C9:R72C9</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>&quot;Y,N&quot;</Value>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C10:R72C10</Range>
+   <Range>R2C10:R71C10</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C20:R72C22</Range>
+   <Range>R2C20:R71C22</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;N/A&quot;</Value>
    <ErrorHide/>
   </DataValidation>
-  <AutoFilter x:Range="R1C1:R72C24"
+  <AutoFilter x:Range="R1C1:R71C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C1:R72C24,R11C5:R11C14,R12C5:R12C24,R14C2:R14C24,R10C16:R11C24,R10C1:R13C3,R10C5:R10C7,R10C9:R10C14,R13C5:R13C9,R13C11:R13C24</Range>
+   <Range>R14C1:R71C24,R10C5:R10C14,R11C5:R11C24,R13C2:R13C24,R9C16:R10C24,R9C1:R12C3,R9C5:R9C7,R9C9:R9C14,R12C5:R12C9,R12C11:R12C24</Range>
    <Condition>
     <Value1>R[1048508]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3268,56 +3240,56 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R14C4:R72C4</Range>
+   <Range>R13C4:R71C4</Range>
    <Condition>
     <Value1>AND(R[1048475]C[16345]&lt;&gt;&quot;&quot;,R[1048474]C[16345]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R45C2:R72C3,R10C2:R40C3</Range>
+   <Range>R44C2:R71C3,R9C2:R39C3</Range>
    <Condition>
     <Value1>AND(R[1048508]C1=&quot;&quot;,R[1048508]C[16371]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R45C11:R72C14,R10C11:R40C14</Range>
+   <Range>R44C11:R71C14,R9C11:R39C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,R[1048508]C8)&lt;&gt;0,R[1048508]C[16254]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R45C14:R72C14,R10C14:R40C14</Range>
+   <Range>R44C14:R71C14,R9C14:R39C14</Range>
    <Condition>
     <Value1>AND(R[1048508]C[16215]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(R[1048508]C8,1),LOWER(LEFT(R[1048508]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R12C15:R72C16,R10C16:R11C16</Range>
+   <Range>R11C15:R71C16,R9C16:R10C16</Range>
    <Condition>
     <Value1>AND(R[1048508]C15&lt;&gt;&quot;&quot;,R[1048508]C15=R[1048508]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C1:R72C24,R12C5:R12C24,R14C2:R14C24,R10C16:R11C24,R10C1:R13C3,R10C5:R11C14,R13C5:R13C9,R13C11:R13C24</Range>
+   <Range>R14C1:R71C24,R11C5:R11C24,R13C2:R13C24,R9C16:R10C24,R9C1:R12C3,R9C5:R10C14,R12C5:R12C9,R12C11:R12C24</Range>
    <Condition>
     <Value1>LEFT(R[1048508]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C15</Range>
+   <Range>R10C15</Range>
    <Condition>
     <Value1>(#REF!=&quot;&quot;)&lt;&gt;(#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C15,R2C2:R2C24,R3C1:R4C3,R3C9:R4C24,R3C5:R4C7</Range>
+   <Range>R10C15,R2C2:R2C24,R3C1:R3C3,R3C9:R3C24,R3C5:R3C7</Range>
    <Condition>
     <Value1>#REF!=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3328,28 +3300,28 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C15</Range>
+   <Range>R10C15</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=#REF!)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C15,R2C2:R2C24,R3C1:R4C3,R3C9:R4C24,R3C5:R4C7</Range>
+   <Range>R10C15,R2C2:R2C24,R3C1:R3C3,R3C9:R3C24,R3C5:R3C7</Range>
    <Condition>
     <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C15:R9C15</Range>
+   <Range>R4C15:R8C15</Range>
    <Condition>
     <Value1>(R[1048525]C1=&quot;&quot;)&lt;&gt;(R[1048525]C[16125]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C15:R9C15</Range>
+   <Range>R4C15:R8C15</Range>
    <Condition>
     <Value1>R[1048525]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3360,28 +3332,28 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C15:R9C15</Range>
+   <Range>R4C15:R8C15</Range>
    <Condition>
     <Value1>AND(R[1048525]C14&lt;&gt;&quot;&quot;,R[1048525]C14=R[1048525]C15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C15:R9C15</Range>
+   <Range>R4C15:R8C15</Range>
    <Condition>
     <Value1>LEFT(R[1048525]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C15</Range>
+   <Range>R9C15</Range>
    <Condition>
     <Value1>(R[1048470]C1=&quot;&quot;)&lt;&gt;(R[1048470]C[16125]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C15</Range>
+   <Range>R9C15</Range>
    <Condition>
     <Value1>R[1048470]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3392,21 +3364,21 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C15</Range>
+   <Range>R9C15</Range>
    <Condition>
     <Value1>AND(R[1048470]C14&lt;&gt;&quot;&quot;,R[1048470]C14=R[1048470]C15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C15</Range>
+   <Range>R9C15</Range>
    <Condition>
     <Value1>LEFT(R[1048470]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C16:R6C24,R5C1:R6C3,R5C5:R6C14</Range>
+   <Range>R4C16:R5C24,R4C1:R5C3,R4C5:R5C14</Range>
    <Condition>
     <Value1>R[1048534]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3419,82 +3391,82 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4</Range>
    <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,R[1048563]C[16345]=&quot;&quot;)</Value1>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,R[1048562]C[16345]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C23:R4C23,R2C6:R4C7,R2C9:R4C14,R2C2:R4C3</Range>
+   <Range>R2C23:R3C23,R2C6:R3C7,R2C9:R3C14,R2C2:R3C3</Range>
    <Condition>
     <Value1>#REF!&lt;&gt;&quot;&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R4C3</Range>
+   <Range>R2C2:R3C3</Range>
    <Condition>
     <Value1>AND(#REF!=&quot;&quot;,#REF!&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C2:R6C3</Range>
+   <Range>R4C2:R5C3</Range>
    <Condition>
     <Value1>AND(R[1048534]C1=&quot;&quot;,R[1048534]C[16371]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C11:R4C14</Range>
+   <Range>R2C11:R3C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,#REF!)&lt;&gt;0,#REF!&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C11:R6C14</Range>
+   <Range>R4C11:R5C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,R[1048534]C8)&lt;&gt;0,R[1048534]C[16254]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C14:R4C14</Range>
+   <Range>R2C14:R3C14</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(#REF!,1),LOWER(LEFT(#REF!,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C14:R6C14</Range>
+   <Range>R4C14:R5C14</Range>
    <Condition>
     <Value1>AND(R[1048534]C[16215]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(R[1048534]C8,1),LOWER(LEFT(R[1048534]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C15:R4C16</Range>
+   <Range>R2C15:R3C16</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=#REF!)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C16:R6C16</Range>
+   <Range>R4C16:R5C16</Range>
    <Condition>
     <Value1>AND(R[1048534]C15&lt;&gt;&quot;&quot;,R[1048534]C15=R[1048534]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C16:R6C24,R5C1:R6C3,R5C5:R6C14</Range>
+   <Range>R4C16:R5C24,R4C1:R5C3,R4C5:R5C14</Range>
    <Condition>
     <Value1>LEFT(R[1048534]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C8:R4C8</Range>
+   <Range>R3C8</Range>
    <Condition>
     <Value1>R[1048548]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3505,14 +3477,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C8:R4C8</Range>
+   <Range>R3C8</Range>
    <Condition>
     <Value1>LEFT(R[1048548]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C4:R7C4</Range>
+   <Range>R4C4:R6C4</Range>
    <Condition>
     <Value1>R[1048506]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3523,42 +3495,42 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C4:R7C4</Range>
+   <Range>R4C4:R6C4</Range>
    <Condition>
     <Value1>LEFT(R[1048506]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C4:R7C4</Range>
+   <Range>R4C4:R6C4</Range>
    <Condition>
     <Value1>(R[1048506]C[16348]=&quot;&quot;)&lt;&gt;(R[1048506]C[16349]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R41C2:R44C3</Range>
+   <Range>R40C2:R43C3</Range>
    <Condition>
     <Value1>AND(#REF!=&quot;&quot;,#REF!&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R41C11:R44C14</Range>
+   <Range>R40C11:R43C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,#REF!)&lt;&gt;0,#REF!&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R41C14:R44C14</Range>
+   <Range>R40C14:R43C14</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(#REF!,1),LOWER(LEFT(#REF!,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C4:R4C4</Range>
+   <Range>R3C4</Range>
    <Condition>
     <Value1>R[1048517]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3569,21 +3541,21 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C4:R4C4</Range>
+   <Range>R3C4</Range>
    <Condition>
     <Value1>LEFT(R[1048517]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C4:R4C4</Range>
+   <Range>R3C4</Range>
    <Condition>
     <Value1>(R[1048517]C[16348]=&quot;&quot;)&lt;&gt;(R[1048517]C[16349]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C8:R9C8</Range>
+   <Range>R6C8:R8C8</Range>
    <Condition>
     <Value1>R[1048524]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3594,14 +3566,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C8:R9C8</Range>
+   <Range>R6C8:R8C8</Range>
    <Condition>
     <Value1>LEFT(R[1048524]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C8</Range>
+   <Range>R9C8</Range>
    <Condition>
     <Value1>R[1048507]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3612,7 +3584,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C4</Range>
+   <Range>R7C4</Range>
    <Condition>
     <Value1>R[-4]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3623,21 +3595,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C4</Range>
-   <Condition>
-    <Value1>AND(R[-4]C[16378]&lt;&gt;&quot;&quot;,R[-5]C[16378]=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C4</Range>
+   <Range>R7C4</Range>
    <Condition>
     <Value1>LEFT(R[-4]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C16:R9C24,R7C1:R9C3,R7C5:R9C7,R7C9:R9C14</Range>
+   <Range>R6C16:R8C24,R6C1:R8C3,R6C5:R8C7,R6C9:R8C14</Range>
    <Condition>
     <Value1>R[1048513]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3648,42 +3613,42 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C2:R9C3</Range>
+   <Range>R6C2:R8C3</Range>
    <Condition>
     <Value1>AND(R[1048513]C1=&quot;&quot;,R[1048513]C[16371]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C11:R9C14</Range>
+   <Range>R6C11:R8C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,R[1048513]C8)&lt;&gt;0,R[1048513]C[16254]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C14:R9C14</Range>
+   <Range>R6C14:R8C14</Range>
    <Condition>
     <Value1>AND(R[1048513]C[16215]&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(R[1048513]C8,1),LOWER(LEFT(R[1048513]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C16:R9C16</Range>
+   <Range>R6C16:R8C16</Range>
    <Condition>
     <Value1>AND(R[1048513]C15&lt;&gt;&quot;&quot;,R[1048513]C15=R[1048513]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C16:R9C24,R7C1:R9C3,R7C5:R9C7,R7C9:R9C14</Range>
+   <Range>R6C16:R8C24,R6C1:R8C3,R6C5:R8C7,R6C9:R8C14</Range>
    <Condition>
     <Value1>LEFT(R[1048513]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C4</Range>
+   <Range>R8C4</Range>
    <Condition>
     <Value1>R[1048565]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3694,21 +3659,21 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C4</Range>
+   <Range>R8C4</Range>
    <Condition>
     <Value1>AND(R[1048565]C[-3]&lt;&gt;&quot;&quot;,R[1048564]C[-3]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C4</Range>
+   <Range>R8C4</Range>
    <Condition>
     <Value1>LEFT(R[1048565]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R13C10</Range>
+   <Range>R12C10</Range>
    <Condition>
     <Value1>R[1048507]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3719,10 +3684,17 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R13C10</Range>
+   <Range>R12C10</Range>
    <Condition>
     <Value1>LEFT(R[1048507]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R7C4</Range>
+   <Condition>
+    <Value1>AND(R[-4]C[16378]&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
@@ -6121,9 +6093,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R11</RangeSelection>
+     <RangeSelection>R2C1:R2C9</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7178,7 +7149,7 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R20C2</Range>
    <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(ISERR(SEARCH(&quot;.&quot;,#REF!))),#REF!&lt;&gt;&quot;IN&quot;, #REF!&lt;&gt;&quot;OUT&quot;)</Value1>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(ISERR(SEARCH(&quot;.&quot;,#REF!))),#REF!&lt;&gt;&quot;IN&quot;,#REF!&lt;&gt; &quot;OUT&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -7272,7 +7243,7 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R20C5</Range>
    <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(ISERR(SEARCH(&quot;.&quot;,#REF!))),#REF!&lt;&gt;&quot;QUERY&quot;, #REF!&lt;&gt;&quot;OPERATION&quot;)</Value1>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,NOT(ISERR(SEARCH(&quot;.&quot;,#REF!))),#REF!&lt;&gt;&quot;QUERY&quot;,#REF!&lt;&gt; &quot;OPERATION&quot;)</Value1>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7351,8 +7322,8 @@
    <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s136" ss:Width="51"/>
    <Column ss:StyleID="s136" ss:Width="67.5"/>
-   <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="63"/>
-   <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="177"/>
+   <Column ss:StyleID="s136" ss:Width="54"/>
+   <Column ss:StyleID="s136" ss:Width="145.5"/>
    <Column ss:StyleID="s136" ss:Width="172.5"/>
    <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="97.5"/>
    <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="88.5"/>
@@ -7418,7 +7389,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unpublished notes</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="34.5">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><Data ss:Type="String">QICoreConditionSeverity</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Valueset to identify the severity of the problem</Data></Cell>
     <Cell ss:StyleID="s142"><Data ss:Type="String">value set</Data></Cell>
@@ -7430,11 +7401,11 @@
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s172" ss:HRef="http://hl7.org/fhir/vs/condition-severity"><Data
       ss:Type="String">http://hl7.org/fhir/vs/condition-severity</Data></Cell>
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"/>
@@ -7882,7 +7853,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7902,8 +7872,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7988,7 +7958,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R10C14</Range>
+   <Range>R2C1:R10C14</Range>
    <Condition>
     <Value1>AND(R[1048562]C1=&quot;&quot;,R[1048562]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8009,7 +7979,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R10C1</Range>
+   <Range>R2C1:R10C1</Range>
    <Condition>
     <Value1>AND(R[1048562]C&lt;&gt;&quot;&quot;,R[1048561]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8037,7 +8007,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C2:R10C5</Range>
+   <Range>R2C2:R10C5</Range>
    <Condition>
     <Value1>AND(R[1048562]C1&lt;&gt;&quot;&quot;,R[1048562]C[16371]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8058,7 +8028,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C6:R10C6</Range>
+   <Range>R2C6:R10C6</Range>
    <Condition>
     <Value1>AND(R[1048562]C1&lt;&gt;&quot;&quot;,(R[1048562]C3=&quot;unbound&quot;)&lt;&gt;(R[1048562]C[16319]=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8079,7 +8049,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C7:R10C7</Range>
+   <Range>R2C7:R10C7</Range>
    <Condition>
     <Value1>AND(R[1048562]C1&lt;&gt;&quot;&quot;,(R[1048562]C[16306]&lt;&gt;&quot;&quot;)&lt;&gt;(R[1048562]C3=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8100,7 +8070,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C8:R10C11</Range>
+   <Range>R2C8:R10C11</Range>
    <Condition>
     <Value1>AND(R[1048562]C[16293]&lt;&gt;&quot;&quot;,R[1048562]C3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8121,7 +8091,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R10C14</Range>
+   <Range>R2C1:R10C14</Range>
    <Condition>
     <Value1>LEFT(R[1048562]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -8142,7 +8112,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R2C14</Range>
+   <Range>R2C2:R2C9</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8170,14 +8140,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8:R2C11</Range>
+   <Range>R2C8:R2C9</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R2C14</Range>
+   <Range>R2C2:R2C9</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>

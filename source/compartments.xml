@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
   <LastSaved>2015-03-13T10:04:14Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -131,7 +132,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="93" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="92" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -142,12 +143,6 @@
     <Cell><Data ss:Type="String">relatedPerson</Data></Cell>
     <Cell><Data ss:Type="String">practitioner</Data></Cell>
     <Cell><Data ss:Type="String">device</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Alert</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
@@ -194,12 +189,6 @@
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">participant | performer</Data></Cell>
     <Cell><Data ss:Type="String">participant | performer</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CarePlan2</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">participant</Data></Cell>
-    <Cell><Data ss:Type="String">participant</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim</Data></Cell>
@@ -345,8 +334,14 @@
     <Cell><Data ss:Type="String">ExplanationOfBenefit</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">FamilyHistory</Data></Cell>
+    <Cell><Data ss:Type="String">FamilyMemberHistory</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Flag</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Goal</Data></Cell>
@@ -603,7 +598,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>70</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -611,7 +606,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>94</ActiveRow>
+     <ActiveRow>40</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

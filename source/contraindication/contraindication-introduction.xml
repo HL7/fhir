@@ -13,7 +13,7 @@ This resource applies to various circumstances where there is a concern about an
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 <p>
 This resource is <b>not</b> intended to be used in defining general prohibitions on actions such as "No NSAIDs", "No solid oral dose forms" or "No MRIs - metalic tatoos".  
-These guidelines can be captured using the <a href="allergyintolerance.html">AllergyIntolerance</a>, and/or <a href="alert.html">Alert</a> resources.  
+These guidelines can be captured using the <a href="allergyintolerance.html">AllergyIntolerance</a>, and/or <a href="flag.html">Flag</a> resources.  
 Similarly this resource is not to be used to capture clinical facts that may imply contraindications such as pregnancy, breast feeding, patient preferences, past procedures, etc.  These would be represented using <a href="condition.html">Condition</a>, <a href="procedure.html">Procedure</a> or other resources.
 </p>
 </div>
@@ -22,7 +22,7 @@ Similarly this resource is not to be used to capture clinical facts that may imp
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resources only applies to documenting a risk associated with a specific planned or ongoing action, not a general propensity to risk.  The latter would be handled using <a href="allergyintolerance.html">AllergyIntolerance</a> for substance-specific issues or <a href="alert.html">Alert</a> for other types of issues.
+This resources only applies to documenting a risk associated with a specific planned or ongoing action, not a general propensity to risk.  The latter would be handled using <a href="allergyintolerance.html">AllergyIntolerance</a> for substance-specific issues or <a href="flag.html">Flag</a> for other types of issues.
 </p>
 <p>This resource is limited to clinical issues associated with a proposed or ongoing action.  It does not cover business/technical issues such as lack of permission, duplicate identifiers and other business rule violations.  Business and technical issues are conveyed using the <a href="operationoutcome.html">OperationOutcome</a> resource.  
 It is possible to have both <a href="operationoutcome.html">OperationOutcome</a> and <b>Contraindication together</b>, where the OperationOutcome might 

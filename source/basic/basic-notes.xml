@@ -48,7 +48,7 @@ strategies for managing this issue are welcome.
 Documents are constructed of sections, where a key part of each section is the narrative.  The narratives
 are stitched together to form the overall text of the document.  Many documentsections will correspond neatly to
 resources that are already defined - <a href="list.html">List</a>, <a href="diagnosticreport.html">DiagnosticReport</a>,
-<a href="familyhistory.html">FamilyHistory</a>, etc.  However, oddly enough, alignment with FHIR resources isn't
+<a href="familymemberhistory.html">FamilyMemberHistory</a>, etc.  However, oddly enough, alignment with FHIR resources isn't
 always top of mind when clinicians and others design documents and some sections won't neatly align with the
 boundaries of resources.  Sometimes there's simply a need for a place where a document author can say "stuff"
 without any particular constraints on what they may choose to talk about.  Basic is intended to provide a

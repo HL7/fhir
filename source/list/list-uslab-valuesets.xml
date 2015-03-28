@@ -73,6 +73,7 @@
 	<!--Published by:  HL7 Orders and Observations Workgroup"
 -Primary Author/Editor:  Eric M Haas, Health eData Inc"-->
 	<!-- This list contains all the USLabReport specific bindings-->
+  <status value="current"/>
 	<date value="2014-11-29"/>
 	<mode value="working"/>
 	<entry>

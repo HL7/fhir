@@ -4,7 +4,8 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>The patient is not on any medications</p>
+      <p>Add hydroxocobalamin</p>
+      <p>Cancel Morphine Sulphate</p>
     </div>
   </text>
   <code>
@@ -18,6 +19,7 @@
   <source>
     <reference value="Patient/example"/>
   </source>
+  <status value="current"/>
   <date value="2013-11-20T23:10:23+11:00"/>
   <mode value="changes"/>
   <!-- 
@@ -32,9 +34,12 @@
     <flag>
       <coding>
         <system value="http://nehta.gov.au/codes/medications/changetype"/>
-        <code value="02"/>
+        <code value="01"/>
         <display value="Prescribed"/>
       </coding>
+    </flag>
+    <flag>
+      <text value="Review required"/>
     </flag>
     <item> 
       <display value="hydroxocobalamin"/>

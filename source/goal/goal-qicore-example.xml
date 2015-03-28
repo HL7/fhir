@@ -43,6 +43,15 @@
 			</valueRange>
 		</extension>
 	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/goal-reasonRejected">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/ActReason"/>
+				<code value="PREFUS" />
+				<display value="patient refuse"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
 	<patient>
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
@@ -53,13 +62,4 @@
 		<reference value="Condition/12345"/>
 		<display value="obesity"/>
 	</concern>
-	<extension url="http://hl7.org/fhir/StructureDefinition/goal-reasonRejected">
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://hl7.org/fhir/v3/ActReason"/>
-				<code value="PREFUS" />
-				<display value="patient refuse"/>
-			</coding>
-		</valueCodeableConcept>
-	</extension>
 </Goal>

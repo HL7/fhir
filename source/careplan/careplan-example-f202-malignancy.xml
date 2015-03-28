@@ -61,6 +61,17 @@
       </product>
     </Medication>
   </contained>
+  <contained>
+    <Goal>
+      <id value="goal"/>
+      <patient>
+        <reference value="Patient/f201"/>
+        <display value="Roel"/>
+      </patient>
+      <description value="Elimination of the spenoid bone tumor"/>
+      <status value="in-progress"/>
+    </Goal>
+  </contained>
   <patient>
     <!--It entails Roel's careplan-->
     <reference value="Patient/f201"/>
@@ -85,17 +96,14 @@
     </member>
   </participant>
   <goal>
-    <description value="Elimination of the spenoid bone tumor"/>
-    <status value="in-progress"/>
+    <reference value="#goal"/>
   </goal>
   <activity>
-    <status value="in-progress"/>
-    <prohibited value="false"/>
     <actionResulting>
       <reference value="Procedure/f201"/>
       <display value="Roel's Chemotherapy"/>
     </actionResulting>
-    <simple>
+    <detail>
       <category value="procedure"/>
       <code>
         <coding>
@@ -104,9 +112,11 @@
           <display value="Chemotherapy"/>
         </coding>
       </code>
+      <status value="in-progress"/>
+      <prohibited value="false"/>
       <product>
         <reference value="#tpf"/>
       </product>
-    </simple>
+    </detail>
   </activity>
 </CarePlan>

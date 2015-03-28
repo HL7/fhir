@@ -1,96 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
-    <id value="example"/>
-    <text>
-        <status value="additional"></status>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-           <p> A simple care plan to indicate a patient taking their weight once a day because of obesity.
+  <id value="example"/>
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p> A simple care plan to indicate a patient taking their weight once a day because of obesity.
             Some Notes: </p>
-            <ul>
-            <li>It would be good to have some way of specifying/coding a goal. e.g. what the target weight is</li>
-            <li>In the codeable concepts I've been lazy and just put the text. There should, of course, be a code behind these</li>
-        </ul>
-        </div>
-    </text>
-    <contained>
-      <Condition>
-        <id value="p1"/>
-        <patient>
-          <reference value="Patient/example"/>
-          <display value="Peter James Chalmers"/>
-        </patient>
-        <code>
-          <text value="Obesity"/>
-        </code>
-        <clinicalStatus value="confirmed"/>
-      </Condition>
-    </contained>
-    <contained>
-      <Practitioner>
-        <id value="pr1"/>
-          <name>
-            <family value="Dietician"/>
-            <given value="Dorothy"/>
-          </name>
-				<practitionerRole>
-			  <specialty>
-          <text value="Dietician"/>
-        </specialty>
-				</practitionerRole>
-      </Practitioner>
-    </contained>
-    <patient>
+      <ul>
+        <li>It would be good to have some way of specifying/coding a goal. e.g. what the target weight is</li>
+        <li>In the codeable concepts I've been lazy and just put the text. There should, of course, be a code behind these</li>
+      </ul>
+    </div>
+  </text>
+  <contained>
+    <Condition>
+      <id value="p1"/>
+      <patient>
         <reference value="Patient/example"/>
         <display value="Peter James Chalmers"/>
-    </patient>
-    <status value="active"/>
-    <period>
-      <end value ="2013-01-01"/>
-    </period>
-    <concern>
-        <reference value="#p1"/>
-        <display value="obesity"/>
-    </concern>
-    <participant>
-        <role>
-            <text value='responsiblePerson'></text>
-        </role>
-        <member>
-          <reference value="Patient/example"/>
-          <display value="Peter James Chalmers"/>
-        </member>
-    </participant>
-    <participant>
-        <role>
-            <text value='adviser'></text>
-        </role>
-        <member>
-            <reference value="#pr1"/>
-            <display value="Dorothy Dietition"/>
-        </member>
-    </participant>
-    <goal>
-      <description value="Target weight is 80 kg. Note: be nice if this could be coded"/>
-    </goal>
-    <activity>
-        <prohibited value="false"></prohibited>
-      <simple>
-        <category value="observation"></category>
-        <code>
-            <text value="a code for weight measurement"></text>
-        </code>
-        <scheduledTiming>
-            <repeat>
-                <frequency value="1" />
-                <period value="1" />
-                <periodUnits value="d" />
-            </repeat>
-        </scheduledTiming>
-        <performer>
-          <reference value="Patient/example"/>
-          <display value="Peter James Chalmers"/>
-        </performer>
-      </simple>
-    </activity>
+      </patient>
+      <code>
+        <text value="Obesity"/>
+      </code>
+      <clinicalStatus value="confirmed"/>
+    </Condition>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="pr1"/>
+      <name>
+        <family value="Dietician"/>
+        <given value="Dorothy"/>
+      </name>
+      <practitionerRole>
+        <specialty>
+          <text value="Dietician"/>
+        </specialty>
+      </practitionerRole>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Goal>
+      <id value="goal"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/goal-target">
+        <extension url="goal-target.measure">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://loinc.org"/>
+              <code value="29463-7"/>
+              <display value="Body weight"/>
+            </coding>
+          </valueCodeableConcept>  
+        </extension>
+        <extension url="goal-target.detail">
+          <valueQuantity>
+            <value value="80"/>
+            <system value="http://units-of-measure.org"/>
+            <code value="kg"/>
+          </valueQuantity>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/example"/>
+        <display value="Peter James Chalmers"/>
+      </patient>
+      <description value="Target weight is 80 kg"/>
+      <status value="planned"/>
+    </Goal>
+  </contained>
+  <patient>
+    <reference value="Patient/example"/>
+    <display value="Peter James Chalmers"/>
+  </patient>
+  <status value="active"/>
+  <period>
+    <end value="2013-01-01"/>
+  </period>
+  <concern>
+    <reference value="#p1"/>
+    <display value="obesity"/>
+  </concern>
+  <participant>
+    <role>
+      <text value='responsiblePerson'/>
+    </role>
+    <member>
+      <reference value="Patient/example"/>
+      <display value="Peter James Chalmers"/>
+    </member>
+  </participant>
+  <participant>
+    <role>
+      <text value='adviser'/>
+    </role>
+    <member>
+      <reference value="#pr1"/>
+      <display value="Dorothy Dietition"/>
+    </member>
+  </participant>
+  <goal>
+    <reference value="#goal"/>
+  </goal>
+  <activity>
+    <detail>
+      <category value="observation"/>
+      <code>
+        <text value="a code for weight measurement"/>
+      </code>
+      <prohibited value="false"/>
+      <scheduledTiming>
+        <repeat>
+          <frequency value="1"/>
+          <period value="1"/>
+          <periodUnits value="d"/>
+        </repeat>
+      </scheduledTiming>
+      <performer>
+        <reference value="Patient/example"/>
+        <display value="Peter James Chalmers"/>
+      </performer>
+    </detail>
+  </activity>
 </CarePlan>
-

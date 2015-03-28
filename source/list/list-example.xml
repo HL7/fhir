@@ -41,6 +41,7 @@
   <source>
     <reference value="Patient/example"/>
   </source>
+  <status value="current"/>
   <date value="2012-11-25T22:17:00+11:00"/>
   <mode value="changes"/>
   <entry>

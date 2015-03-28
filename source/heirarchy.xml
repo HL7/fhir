@@ -180,7 +180,6 @@ signatures.html
 			<page type="resource" resource="BodySite"/>
 			<page type="resource" resource="Condition"/>
 			<page type="resource" resource="CarePlan"/>
-			<page type="resource" resource="CarePlan2"/>
 			<page type="resource" resource="Goal"/>
 			<page type="resource" resource="ClinicalImpression"/>
 			<page type="resource" resource="ReferralRequest"/>
@@ -205,7 +204,7 @@ signatures.html
 			<!--<page type="resource" resource="DeviceObservationReport"/>-->
 			<page type="resource" resource="Questionnaire"/>
 			<page type="resource" resource="QuestionnaireAnswers"/>
-			<page type="resource" resource="FamilyHistory"/>
+			<page type="resource" resource="FamilyMemberHistory"/>
 			<page type="resource" resource="VisionPrescription"/>
 		</page>
 		<page title="Administrative" filename="administration.html">
@@ -228,7 +227,7 @@ signatures.html
 			<page type="resource" resource="Group"/>
 			<page type="resource" resource="Encounter"/>
 			<page type="resource" resource="EpisodeOfCare"/>
-			<page type="resource" resource="Alert"/>
+			<page type="resource" resource="Flag"/>
 			<page type="resource" resource="Communication"/>
 			<page type="resource" resource="CommunicationRequest"/>
 			<page type="resource" resource="Supply"/>

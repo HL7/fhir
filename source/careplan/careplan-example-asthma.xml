@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd"
- xmlns="http://hl7.org/fhir" id="cp1">
+<CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd" xmlns="http://hl7.org/fhir">
   <id value="asthma"/>
   <text>
     <status value="generated"/>
@@ -14,7 +12,6 @@
       <p>If the peakflow drops below 250, seek urgent medical assistance</p>
     </div>
   </text>
-  
   <!-- The provenance resource. Identifies the author and date created-->
   <contained>
     <Provenance>
@@ -33,7 +30,9 @@
           <system value="http://hl7.org/fhir/provenance-participant-type"/>
           <code value="practitioner"/>
         </type>
-        <reference value="mailto:david.hay25@gmail.com"/>
+        <referenceReference>
+          <reference value="mailto:david.hay25@gmail.com"/>
+        </referenceReference>
         <display value="David Hay"/>
       </agent>
       <!-- Indicate that the patient (Eve) was also an author of this plan -->
@@ -46,12 +45,13 @@
           <system value="http://hl7.org/fhir/provenance-participant-type"/>
           <code value="person"/>
         </type>
-        <reference value="Patient/1"/>
+        <referenceReference>
+          <reference value="Patient/1"/>
+        </referenceReference>
         <display value="Eve Everywoman"/>
       </agent>
     </Provenance>
   </contained>
-  
   <!-- The Condition that this careplan refers to. It is referenced from the concern. -->
   <contained>
     <Condition>
@@ -64,14 +64,13 @@
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="195967001"/>
-          <display value="Asthma (disorder)"></display>
+          <display value="Asthma (disorder)"/>
         </coding>
         <text value="Asthma"/>
       </code>
       <clinicalStatus value="confirmed"/>
     </Condition>
   </contained>
-  
   <!-- The medication that the prescription refers to -->
   <contained>
     <Medication>
@@ -81,9 +80,9 @@
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="373994007"/>
-          <display value="Prednisone 5mg Tablet"></display>
+          <display value="Prednisone 5mg Tablet"/>
         </coding>
-        <text value="Prednisone 5mg Tablet"></text>
+        <text value="Prednisone 5mg Tablet"/>
       </code>
     </Medication>
   </contained>
@@ -110,8 +109,8 @@
         <scheduledTiming>
           <repeat>
             <count value="12"/>
-            <period value="1" />
-            <periodUnits value="d" />
+            <period value="1"/>
+            <periodUnits value="d"/>
           </repeat>
         </scheduledTiming>
       </dosageInstruction>
@@ -120,12 +119,12 @@
         <scheduledTiming>
           <repeat>
             <count value="10"/>
-            <period value="1" />
-            <periodUnits value="d" />
+            <period value="1"/>
+            <periodUnits value="d"/>
           </repeat>
         </scheduledTiming>
         <doseQuantity>
-          <value value="5"/>          
+          <value value="5"/>
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
@@ -133,12 +132,12 @@
         <scheduledTiming>
           <repeat>
             <count value="8"/>
-            <period value="1" />
-            <periodUnits value="d" />
+            <period value="1"/>
+            <periodUnits value="d"/>
           </repeat>
         </scheduledTiming>
         <doseQuantity>
-          <value value="4"/>          
+          <value value="4"/>
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
@@ -146,12 +145,12 @@
         <scheduledTiming>
           <repeat>
             <count value="6"/>
-            <period value="1" />
-            <periodUnits value="d" />
+            <period value="1"/>
+            <periodUnits value="d"/>
           </repeat>
         </scheduledTiming>
         <doseQuantity>
-          <value value="3"/>          
+          <value value="3"/>
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
@@ -159,12 +158,12 @@
         <scheduledTiming>
           <repeat>
             <count value="4"/>
-            <period value="1" />
-            <periodUnits value="d" />
+            <period value="1"/>
+            <periodUnits value="d"/>
           </repeat>
         </scheduledTiming>
         <doseQuantity>
-          <value value="2"/>          
+          <value value="2"/>
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
@@ -172,15 +171,56 @@
         <scheduledTiming>
           <repeat>
             <count value="2"/>
-            <period value="1" />
-            <periodUnits value="d" />
+            <period value="1"/>
+            <periodUnits value="d"/>
           </repeat>
         </scheduledTiming>
         <doseQuantity>
-          <value value="1"/>          
+          <value value="1"/>
         </doseQuantity>
       </dosageInstruction>
     </MedicationPrescription>
+  </contained>
+  <contained>
+    <Goal>
+      <id value="g1"/>
+      <!-- An extension that specifies the minimum peak flow target for this person. Its coded so that UI's can display this in charts for example-->
+      <extension url='http://hl7.org/fhir/StructureDefinition/goal-target'>
+        <extension url="goal-target.measure">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://loinc.org"/>
+              <code value="19935-6"/>
+              <display value="Maximum expiratory gas flow Respiratory system airway by Peak flow meter --post therapy"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="goal-target.detail">
+          <valueRange>
+            <low>
+              <value value="500"/>
+            </low>
+          </valueRange>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/1"/>
+        <display value="Eve Everywoman"/>
+      </patient>
+      <description value="Maintain Peak flow above 500"/>
+      <status value="in-progress"/>
+    </Goal>
+  </contained>
+  <contained>
+    <Goal>
+      <id value="g1"/>
+      <patient>
+        <reference value="Patient/1"/>
+        <display value="Eve Everywoman"/>
+      </patient>
+      <description value="Eve will aim to record Peak Flow daily. An activity is created to prompt her."/>
+      <status value="in-progress"/>
+    </Goal>
   </contained>
   <patient>
     <reference value="Patient/1"/>
@@ -188,107 +228,96 @@
   </patient>
   <status value="active"/>
   <modified value="2012-09-10"/>
-  
   <concern>
     <!-- The concern points to the contained Condition. Other options are to point to a 'real' Condition resource-->
-    <reference value="#p1"/> <!-- Local reference -->
+    <reference value="#p1"/>
+    <!-- Local reference -->
     <display value="Asthma"/>
   </concern>
-
-  <goal id="g1">
-    <!-- An extension that specifies the minimum peak flow target for this person. Its coded so that UI's can display this in charts for example-->
-    <extension url='www.moh.govt.nz/fhir/asthma#minimumPF'>
-      <valueInteger value="500"></valueInteger>
-    </extension>
-    <description value="Maintain Peak flow above 500"/>
-    <status value="in-progress"/>
-  </goal>
-  
   <goal>
-    <description value="Eve will aim to record Peak Flow daily. An activity is created to prompt her."/>
+    <reference value="#g1"/>
   </goal>
-  
- <!-- This activity specifies that the patient take a peak flow daily --> 
- <activity>
-   <prohibited value="false"/>
-   <simple>
-     <category value="observation"/>
-     <code>
-       <coding>
-         <system value="http://snomed.info/sct"/>
-         <code value="313193502"/>
-         <display value="Respiratory flow rate (observable entity)"></display>
-       </coding>
-      <text value="Peak Flow"></text>
-     </code>
-     <scheduledTiming>
-       <repeat>
-         <period value="1" />
-         <periodUnits value="d" />
-       </repeat>
-     </scheduledTiming>
-     <performer>
-       <reference value="Patient/1"/>
-       <display value="Eve Everywoman"/>
-     </performer>
-     <details value="Daily Peak Flow Measurement"/>
-  </simple>
- </activity>
-  
+  <goal>
+    <reference value="#g2"/>
+  </goal>
+  <!-- This activity specifies that the patient take a peak flow daily -->
+  <activity>
+    <detail>
+      <category value="observation"/>
+      <code>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="313193502"/>
+          <display value="Respiratory flow rate (observable entity)"/>
+        </coding>
+        <text value="Peak Flow"/>
+      </code>
+      <prohibited value="false"/>
+      <scheduledTiming>
+        <repeat>
+          <period value="1"/>
+          <periodUnits value="d"/>
+        </repeat>
+      </scheduledTiming>
+      <performer>
+        <reference value="Patient/1"/>
+        <display value="Eve Everywoman"/>
+      </performer>
+      <note value="Daily Peak Flow Measurement"/>
+    </detail>
+  </activity>
   <activity>
     <!-- Specifies that this activity (start a reducing dose of steriods) is only triggered when the peak flow drops below 350-->
-    <status value="not-started"/>
-    <prohibited value="false"/>
-      <actionResulting>
-          <reference value="#rx1"/>
-          <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
-      </actionResulting>
-      <notes value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
-    <simple>
-      <modifierExtension url="www.moh.govt.nz/fhir/trigger">
-        <extension url="www.moh.govt.nz/fhir/trigger#code">
+    <actionResulting>
+      <reference value="#rx1"/>
+      <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
+    </actionResulting>
+    <notes value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
+    <detail>
+      <extension url="http://example.org/StructureDefinition/trigger">
+        <extension url="trigger.code">
           <valueCoding>
             <system value="http://snomed.info/sct"/>
             <code value="313193502"/>
-            <display value="Respiratory flow rate (observable entity)"></display>
+            <display value="Respiratory flow rate (observable entity)"/>
           </valueCoding>
         </extension>
-        <extension url="www.moh.govt.nz/fhir/trigger#value">
+        <extension url="trigger.value">
           <valueQuantity>
             <value value="350"/>
             <comparator value="&lt;"/>
           </valueQuantity>
         </extension>
-      </modifierExtension>
+      </extension>
       <category value="drug"/>
-      <details value="Eve will start oral steroids if the peakflow drops below 350"/>
-    </simple>
+      <status value="not-started"/>
+      <prohibited value="false"/>
+      <note value="Eve will start oral steroids if the peakflow drops below 350"/>
+    </detail>
   </activity>
-  
   <activity>
-    <status value="not-started"/>
-    <prohibited value="false"/>
     <notes value="In response to a peakflow below 250, seek urgent Medical Assistance. This can be life threatening."/>
     <!-- Specifies that this activity (get medical help) is only triggered when the peak flow drops below 250-->
-    <simple>
-      <modifierExtension url="www.moh.govt.nz/fhir/trigger">
-        <extension url="www.moh.govt.nz/fhir/trigger#code">
+    <detail>
+      <extension url="http://example.org/StructureDefinition/trigger">
+        <extension url="trigger.code">
           <valueCoding>
             <system value="http://snomed.info/sct"/>
             <code value="313193502"/>
-            <display value="Respiratory flow rate (observable entity)"></display>
+            <display value="Respiratory flow rate (observable entity)"/>
           </valueCoding>
         </extension>
-        <extension url="www.moh.govt.nz/fhir/trigger#value">
+        <extension url="trigger.value">
           <valueQuantity>
             <value value="250"/>
             <comparator value="&lt;"/>
           </valueQuantity>
         </extension>
-      </modifierExtension>
+      </extension>
       <category value="encounter"/>
-      <details value="Get Medical assistance immediately"/>
-    </simple>
+      <status value="not-started"/>
+      <prohibited value="false"/>
+      <note value="Get Medical assistance immediately"/>
+    </detail>
   </activity>
-  
 </CarePlan>
