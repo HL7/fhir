@@ -1,12 +1,5 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
-        contains concepts to support the medication process.</p>
-    </div>
-  </text>
   <name value="Reason Medication Not Given Codes"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -15,7 +8,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="This value set is provided as an exemplar"/>
+  <description value="This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process"/>
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/reason-medication-not-given"/>
