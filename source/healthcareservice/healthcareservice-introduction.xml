@@ -59,7 +59,7 @@
 			of the service. This would be done by using the Schedule's Actor property.
 		</p>
 		<p>
-			When creating an Appointment, the HealthcareService is be assigned to one of the participants.<br/>
+			When creating an Appointment, the HealthcareService is to be assigned to one of the participants.<br/>
 			It is up to the scheduling system to determine if the service is available, and can be accepted.
 		</p>
 	</div>
