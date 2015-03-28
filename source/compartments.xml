@@ -132,7 +132,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="92" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="91" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -461,10 +461,6 @@
     <Cell><Data ss:Type="String">Organization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Other</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient</Data></Cell>
     <Cell><Data ss:Type="String">{def}</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s66"><Data ss:Type="String">careprovider</Data></Cell>
@@ -598,7 +594,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>42</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -606,7 +602,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>40</ActiveRow>
+     <ActiveRow>65</ActiveRow>
+     <RangeSelection>R66</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -392,12 +392,6 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Organización</translation>
         <translation lang="fr">Organisation</translation>
     </item>
-    <item id="Other">
-        <translation lang="en">Other</translation>
-        <translation lang="zh">其他</translation>
-        <translation lang="es">Otro</translation>
-        <translation lang="fr">Autre</translation>
-    </item>
     <item id="Patient">
         <translation lang="en">Patient</translation>
         <translation lang="zh">病人</translation>

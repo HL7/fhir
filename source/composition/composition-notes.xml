@@ -16,8 +16,8 @@ Notes:
  </li>
  <li>Narrative only sections can be created by setting Content to a resource of the appropriate type and only populating the 
    <a href="narrative.html">narrative</a> portion of the resource.  If the meaning of the section is such that an appropriate resource does not
-   exist, the <a href="other.html">Other</a> resource should be used.  (In some cases, the a resource may have mandatory elements that preclude the
-   resource containing only narrative.  This will be addressed in a future release, but for now, <a href="other.html">Other</a> should be used in
+   exist, the <a href="list.html">List</a> resource should be used.  (In some cases, the a resource may have mandatory elements that preclude the
+   resource containing only narrative.  This will be addressed in a future release, but for now, <a href="list.html">List</a> should be used in
    these circumstances as well.)</li>
 </ul>  
 

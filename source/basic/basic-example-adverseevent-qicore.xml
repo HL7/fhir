@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
+<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/basic.xsd">
   <id value="qicore"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause">
     <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause-item">
@@ -45,4 +45,4 @@
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
   </subject>
-</Other>
+</Basic>
