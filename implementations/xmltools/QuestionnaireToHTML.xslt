@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  - (c) 2014 Lloyd McKenzie & Associates Consulting Ltd.  All rights reserved
+  - Released under the terms of the FHIR license
+  - Initial development by Lloyd McKenzie
   -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:saxon="http://saxon.sf.net/" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:common="http://exslt.org/common" exclude-result-prefixes="f atom saxon msxsl common html">
   <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
@@ -288,20 +289,20 @@
               <xsl:text>var questionnaireAnswersVersion = null;&#x0a;</xsl:text>
               <xsl:text>var questionnaireAnswersEndpoint = null;&#x0a;</xsl:text>
               <xsl:apply-templates mode="validateScript" select="//f:group|//f:question"/>
-<!--              <xsl:apply-templates mode="parseScript" select="//f:group|//f:question"/>-->
+              <xsl:apply-templates mode="serializeScript" select="//f:group|//f:question"/>
               <xsl:text>function validateQuestionnaire() {&#x0a;</xsl:text>
               <xsl:value-of select="concat('  return validate', f:group/f:linkId/@safeValue, '(document.getElementById(&quot;div-cnt&quot;));&#x0a;')"/>
               <xsl:text>}&#x0a;&#x0a;</xsl:text>
               <xsl:text>function populateQuestionnaire() {&#x0a;</xsl:text>
               <xsl:text>  return null;&#x0a;</xsl:text>
               <xsl:text>}&#x0a;&#x0a;</xsl:text>
-              <xsl:text>function parseQuestionnaire() {&#x0a;</xsl:text>
-<!--              <xsl:value-of select="concat('  var content = parse', f:group/f:linkId/@safeValue, '(document.getElementById(&quot;div-cnt&quot;));&#x0a;')"/>
-              <xsl:text>  if (content.length == 0)&#x0a;</xsl:text>
+              <xsl:text>function serializeQuestionnaire() {&#x0a;</xsl:text>
+              <xsl:value-of select="concat('  var rootGroup = serialize', f:group/f:linkId/@safeValue, '(document.getElementById(&quot;div-cnt&quot;));&#x0a;')"/>
+              <xsl:text>  if (rootGroup.length == 0)&#x0a;</xsl:text>
               <xsl:text>    delete answers.group&#x0a;</xsl:text>
               <xsl:text>  else&#x0a;</xsl:text>
-              <xsl:text>    answers.group = content;&#x0a;</xsl:text>
-              <xsl:text>  return answers;&#x0a;</xsl:text>-->
+              <xsl:text>    answers.group = rootGroup;&#x0a;</xsl:text>
+              <xsl:text>  return answers;&#x0a;</xsl:text>
               <xsl:text>}&#x0a;&#x0a;</xsl:text>
             </xsl:comment>
           </script>
@@ -353,32 +354,98 @@
       </body>
     </html>
   </xsl:template>
-  <xsl:template mode="script" match="f:group">
+<!--  <xsl:template mode="script" match="f:group">
+<xsl:message>Got here</xsl:message>
     <xsl:value-of select="concat('function validate', generate-id(), '(node) {&#x0a;')"/>
     <xsl:text>}&#x0a;&#x0a;</xsl:text>
     <xsl:value-of select="concat('function populate', generate-id(), '(node, answers) {&#x0a;')"/>
     <xsl:text>}&#x0a;&#x0a;</xsl:text>
-    <xsl:value-of select="concat('function parse', generate-id(), '(node) {&#x0a;')"/>
+    <xsl:value-of select="concat('function serialize', generate-id(), '(node) {&#x0a;')"/>
     <xsl:text>}&#x0a;&#x0a;</xsl:text>
-  </xsl:template>
-  <xsl:template mode="parseScript" match="f:group">
-    <xsl:value-of select="concat('&#x0a;function parse', f:linkId/@safeValue, '(node) {&#x0a;')"/>
-<!--    <xsl:value-of select="concat('  var groupNodes = findDiv(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
-    <xsl:text disable-output-escaping="yes">  if (groupNodes.length &lt; </xsl:text>
-    <xsl:value-of select="concat(f:_minOccurs/@value, ')&#x0a;')"/>
-    <xsl:text>    return false&#x0a;  else&#x0a;    return </xsl:text>
-    <xsl:for-each select="f:group|f:question">
-      <xsl:if test="position()!=1">
-        <xsl:text disable-output-escaping="yes">&#x0a;         &amp;&amp; </xsl:text>
-      </xsl:if>
-      <xsl:value-of select="concat('parse', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
-    </xsl:for-each>-->
-    <xsl:text>;&#x0a;}&#x0a;&#x0a;</xsl:text>
-  </xsl:template>
-  <xsl:template mode="parseScript" match="f:question">
-    <xsl:value-of select="concat('&#x0a;function parse', f:linkId/@safeValue, '(node) {&#x0a;')"/>
-<!--    <xsl:value-of select="concat('  var answerNodes = findAnswers(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+  </xsl:template>-->
+  <xsl:template mode="serializeScript" match="f:group">
+    <xsl:value-of select="concat('&#x0a;function serialize', f:linkId/@safeValue, '(node, groups) {&#x0a;')"/>
+    <xsl:value-of select="concat('  var groupNodes = findDiv(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+    <xsl:text disable-output-escaping="yes">  for (var i=0; i&lt;groupNodes.length;i++) {&#x0a;</xsl:text>
+    <xsl:value-of select="concat('    var group = {&#x0a;      &quot;linkId&quot;:&quot;', f:linkId/@value, '&quot;')"/>
+    <xsl:for-each select="f:title/@value">
+      <xsl:text>,&#x0a;      "title":"</xsl:text>
+      <xsl:call-template name="escapeText">
+        <xsl:with-param name="text" select="."/>
+      </xsl:call-template>
+      <xsl:text>"</xsl:text>
+    </xsl:for-each>
+    <xsl:for-each select="f:text/@value">
+      <xsl:text>,&#x0a;      "text":"</xsl:text>
+      <xsl:call-template name="escapeText">
+        <xsl:with-param name="text" select="."/>
+      </xsl:call-template>
+      <xsl:text>"</xsl:text>
+    </xsl:for-each>
+    <xsl:text>&#x0a;    }&#x0a;</xsl:text>
     <xsl:choose>
+      <xsl:when test="f:group">
+        <xsl:text>    var childGroups = [];</xsl:text>
+        <xsl:for-each select="f:group">
+          <xsl:value-of select="concat('    serialize', f:linkId/@safeValue, '(groupNodes[i], childGroups);&#x0a;')"/>
+        </xsl:for-each>
+        <xsl:text>    if (childGroups.length != 0) {&#x0a;</xsl:text>
+        <xsl:text>      group.group = childGroups;&#x0a;</xsl:text>
+        <xsl:text>      groups.push(group);&#x0a;</xsl:text>
+        <xsl:text>    }&#x0a;</xsl:text>
+      </xsl:when>
+      <xsl:when test="f:question">
+        <xsl:text>    var childQuestions = [];</xsl:text>
+        <xsl:for-each select="f:question">
+          <xsl:value-of select="concat('    serialize', f:linkId/@safeValue, '(groupNodes[i], childQuestions);&#x0a;')"/>
+        </xsl:for-each>
+        <xsl:text>    if (childQuestions.length != 0){&#x0a;</xsl:text>
+        <xsl:text>      group.question = childQuestions;&#x0a;</xsl:text>
+        <xsl:text>      groups.push(group);&#x0a;</xsl:text>
+        <xsl:text>    }&#x0a;</xsl:text>
+      </xsl:when>
+    </xsl:choose>
+    <xsl:text>  }&#x0a;&#x0a;}&#x0a;&#x0a;</xsl:text>
+  </xsl:template>
+  <xsl:template mode="serializeScript" match="f:question">
+    <xsl:value-of select="concat('&#x0a;function serialize', f:linkId/@safeValue, '(node, answers) {&#x0a;')"/>
+    <xsl:value-of select="concat('  var question = {&#x0a;      &quot;linkId&quot;:&quot;', f:linkId/@value, '&quot;')"/>
+    <xsl:for-each select="f:text/@value">
+      <xsl:text>,&#x0a;      "text":"</xsl:text>
+      <xsl:call-template name="escapeText">
+        <xsl:with-param name="text" select="."/>
+      </xsl:call-template>
+      <xsl:text>"</xsl:text>
+    </xsl:for-each>
+    <xsl:text>&#x0a;    }&#x0a;</xsl:text>
+    <xsl:value-of select="concat('  var answerNodes = findAnswers(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+    <xsl:text>  if (answerNodes.length != 0) {&#x0a;</xsl:text>
+    <xsl:text disable-output-escaping="yes">    for (int i=0; i &lt; answerNodes.length; i++) {</xsl:text>
+    <xsl:variable name="answerType">
+      <xsl:choose>
+        <xsl:when test="f:type/@value='string'">answerString</xsl:when>
+        <xsl:when test="f:type/@value='string'">answerString</xsl:when>
+        <xsl:when test="f:type/@value='string'">answerString</xsl:when>
+        <xsl:when test="f:type/@value='string'">answerString</xsl:when>
+        <xsl:when test="f:type/@value='string'">answerString</xsl:when>
+        <xsl:when test="f:type/@value='string'">answerString</xsl:when>
+        <xsl:when test="f:type/@value='string'">answerString</xsl:when>
+        <xsl:when test="f:type/@value='string'">answerString</xsl:when>
+        <xsl:when test="f:type/@value='string'">answerString</xsl:when>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:text>    }&#x0a;  }&#x0a;</xsl:text>
+    <xsl:if test="f:group">
+      <xsl:text>    var childGroups = [];</xsl:text>
+      <xsl:for-each select="f:group">
+        <xsl:value-of select="concat('    serialize', f:linkId/@safeValue, '(groupNodes[i], childGroups);&#x0a;')"/>
+      </xsl:for-each>
+      <xsl:text>    if (childGroups.length != 0) {&#x0a;</xsl:text>
+      <xsl:text>      group.group = childGroups;&#x0a;</xsl:text>
+      <xsl:text>      groups.push(group);&#x0a;</xsl:text>
+      <xsl:text>    }&#x0a;</xsl:text>
+    </xsl:if>
+<!--    <xsl:choose>
       <xsl:when test="f:_minOccurs/@value!=0">
         <xsl:text disable-output-escaping="yes">  if (answerNodes == null || answerNodes.length &lt; </xsl:text>
         <xsl:value-of select="concat(f:_minOccurs/@value, ')&#x0a;')"/>
@@ -392,9 +459,9 @@
       <xsl:if test="position()!=1">
         <xsl:text disable-output-escaping="yes">&#x0a;         &amp;&amp; </xsl:text>
       </xsl:if>
-      <xsl:value-of select="concat('parse', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
+      <xsl:value-of select="concat('serialize', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
     </xsl:for-each>-->
-    <xsl:text>;&#x0a;}&#x0a;&#x0a;</xsl:text>
+    <xsl:text>&#x0a;}&#x0a;&#x0a;</xsl:text>
   </xsl:template>
   <xsl:template mode="validateScript" match="f:group">
     <xsl:value-of select="concat('&#x0a;function validate', f:linkId/@safeValue, '(node) {&#x0a;')"/>
@@ -403,7 +470,7 @@
       <xsl:when test="f:_minOccurs/@value!=0">
         <xsl:text disable-output-escaping="yes">  if (groupNodes.length &lt; </xsl:text>
         <xsl:value-of select="concat(f:_minOccurs/@value, ') {&#x0a;')"/>
-<xsl:text>showError();&#x0a;</xsl:text>
+        <xsl:value-of select="concat('    setAddFocus(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
         <xsl:text>    node.focus()&#x0a;    alert('Must have at least </xsl:text>
         <xsl:value-of select="concat(f:_minOccurs/@value, ' occurrences of: ')"/>
         <xsl:choose>
@@ -555,8 +622,15 @@
   </xsl:choose>
 function findDiv(node, linkId) {
   return $(node).children("div").filter(function() {
-    return $(this).children("span:first-child").text() == linkId;
+    return $(this).children("span:first-child").text() == linkId
+        &amp;&amp; this.style.display != "none";
   });
+}
+
+function setAddFocus(node, linkId) {
+  $(node).children("div").filter(function() {
+    return $(this).children("span:first-child").text() == linkId
+  }).last().next(":input").focus();
 }
 
 function answerCell(node, linkId) {
@@ -757,7 +831,7 @@ function padTime(num) {
 }
 
 function saveDraft() {
-  parseQuestionnaire();
+  serializeQuestionnaire();
   questionnaireAnswers.status = "draft"
   questionnaireAnswers.authored = currentTime();
   saveQuestionnaire(questionnaireAnswers);
@@ -765,7 +839,7 @@ function saveDraft() {
 
 function saveFinal() {
   if (validateQuestionnaire()) {
-    parseQuestionnaire();
+    serializeQuestionnaire();
     if (questionnaireAnswers.status == "completed")
       questionnaireAnswers.status = "amended"
      else
@@ -1492,6 +1566,9 @@ function closeReferenceSelect() {
       <p>
         <xsl:value-of select="f:text/@value"/>
       </p>
+    </xsl:if>
+    <xsl:if test="normalize-space($label)='' and not(f:text/@value)">
+      <br/>
     </xsl:if>
     <xsl:variable name="repetitions">
       <xsl:choose>
