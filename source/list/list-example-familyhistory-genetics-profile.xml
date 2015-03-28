@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir ../../schema/list.xsd">
+  <id value="genetic"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">To do</div>
+  </text>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="1"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="parent.type">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="FTH"/>
+              <display value="father"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="parent.identifier">
+          <valueUri value="#2"/>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/example"/>
+        <display value="Peter Patient"/>
+      </patient>
+      <name value="Dave"/>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="FTH"/>
+          <display value="father"/>
+        </coding>
+      </relationship>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="2"/>
+      <patient>
+        <reference value="Patient/example"/>
+        <display value="Peter Patient"/>
+      </patient>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="GRFTH"/>
+          <display value="grandfather"/>
+        </coding>
+      </relationship>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="3"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="parent.type">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="FTH"/>
+              <display value="father"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="parent.identifier">
+          <valueUri value="#2"/>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/example"/>
+        <display value="Peter Patient"/>
+      </patient>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="PUNCLE"/>
+          <display value="paternal uncle"/>
+        </coding>
+      </relationship>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="4"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="parent.type">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="FTH"/>
+              <display value="father"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="parent.identifier">
+          <valueUri value="#2"/>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/example"/>
+        <display value="Peter Patient"/>
+      </patient>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="PUNCLE"/>
+          <display value="paternal uncle"/>
+        </coding>
+      </relationship>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="5"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="parent.type">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="FTH"/>
+              <display value="father"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="parent.identifier">
+          <valueUri value="#2"/>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/example"/>
+        <display value="Peter Patient"/>
+      </patient>
+      <name value="Eve"/>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="PAUNT"/>
+          <display value="paternal aunt"/>
+        </coding>
+      </relationship>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="6"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="parent.type">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="FTH"/>
+              <display value="father"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="parent.identifier">
+          <valueUri value="#2"/>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/example"/>
+        <display value="Peter Patient"/>
+      </patient>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="PAUNT"/>
+          <display value="paternal aunt"/>
+        </coding>
+      </relationship>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="7"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="parent.type">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="FTH"/>
+              <display value="father"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="parent.identifier">
+          <valueUri value="#2"/>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/example"/>
+        <display value="Peter Patient"/>
+      </patient>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="PAUNT"/>
+          <display value="paternal aunt"/>
+        </coding>
+      </relationship>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="8"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="parent.type">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="MTH"/>
+              <display value="mother"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="parent.identifier">
+          <valueUri value="#5"/>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/example"/>
+        <display value="Peter Patient"/>
+      </patient>
+      <name value="Alice"/>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="PCOUSN"/>
+          <display value="paternal cousin"/>
+        </coding>
+      </relationship>
+    </FamilyMemberHistory>
+  </contained>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="8670-2"/>
+      <display value="History of family member diseases"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter Patient">
+      <!-- Should be 'Bob', but didn't make sense to define a new patient -->
+    </display>
+  </subject>
+  <status value="current"/>
+  <mode value="snapshot"/>
+  <entry>
+    <item>
+      <reference value="#1"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#2"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#3"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#4"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#5"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#6"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#7"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#8"/>
+    </item>
+  </entry>
+</List>
