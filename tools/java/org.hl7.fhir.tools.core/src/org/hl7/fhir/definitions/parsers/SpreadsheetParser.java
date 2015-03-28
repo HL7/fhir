@@ -1058,13 +1058,13 @@ public class SpreadsheetParser {
 				}
 			}
 		}
-		if (defn.getExamples().size() == 0 && !isAbstract) {
+		if (defn.getExamples().size() == 0) {
 			File file = new CSFile(folder + title + "-example.xml");
-			if (!file.exists())
-				throw new Exception("Example (file '" + file.getAbsolutePath()
-						+ "') not found parsing " + this.name);
-			defn.getExamples().add(
-					new Example("General", "example", "Example of " + title, file, ExampleType.XmlFile, true, isAbstract));
+			if (!file.exists() && !isAbstract)
+				throw new Exception("Example (file '" + file.getAbsolutePath() + "') not found parsing " + this.name);
+			if (file.exists())
+			  defn.getExamples().add(
+			      new Example("General", "example", "Example of " + title, file, ExampleType.XmlFile, true, isAbstract));
 		}		
 	}
 

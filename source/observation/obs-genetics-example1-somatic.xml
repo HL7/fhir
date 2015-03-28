@@ -78,10 +78,12 @@
 			</coding>
 		</valueCodeableConcept>
 	</extension>
+
 		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsTranscriptReferenceSequenseId">
 			<valueCode value="ENSESTT00000085772.1"/>
 	</extension>
-		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
 			<valueString value="c.2573T>G"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsVariationId">

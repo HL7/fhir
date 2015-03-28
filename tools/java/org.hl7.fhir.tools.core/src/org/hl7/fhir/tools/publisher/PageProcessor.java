@@ -1867,8 +1867,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (ProfiledType c : definitions.getConstraints().values()) {
       if (c.getBaseType().equals(name)) {
         b.append("<a name=\""+c.getName()+"\"> </a><a name=\""+c.getName().toLowerCase()+"\"> </a>\r\n");
-        b2.append(" <tr><td>"+c.getName()+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>StructureDefinition (<a href=\""+c.getName()+
-            ".profile.xml.html\">XML</a>, <a href=\""+c.getName()+".profile.json.html\">JSON</a>)</td>");
+        b2.append(" <tr><td>"+c.getName()+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>StructureDefinition (<a href=\""+c.getName().toLowerCase()+
+            ".profile.xml.html\">XML</a>, <a href=\""+c.getName().toLowerCase()+".profile.json.html\">JSON</a>)</td>");
         b2.append("<td>"+genDataTypeUsage(c.getName())+"</td>");
         b2.append("</tr>\r\n");
       }

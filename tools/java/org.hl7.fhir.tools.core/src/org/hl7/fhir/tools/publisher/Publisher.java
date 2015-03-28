@@ -2959,7 +2959,7 @@ public class Publisher implements URIResolver {
         insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html"), st, n
             + "-definitions.html"), page.getFolders().dstDir + n + "-definitions.html");
     page.getEpub().registerFile(n + "-definitions.html", "Detailed Descriptions for " + resource.getName(), EPubManager.XHTML_TYPE);
-    if (!isAbstract) {
+    if (!isAbstract || !resource.getExamples().isEmpty()) {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-examples.html");
       TextFile.stringToFile(
           insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html"), st, n + "-examples.html"),

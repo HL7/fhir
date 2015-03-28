@@ -5,6 +5,7 @@
     <lastUpdated value="2014-11-05T20:31:00Z"/>
   </meta>
   <type value="document"/>
+  <base value="http://hl7.org/fhir/StructureDefinition"/>
   <entry>
     <resource>
       <Composition>
@@ -1857,7 +1858,7 @@
           <path value="Extension.value[x]"/>
           <type>
             <code value="Reference"/>
-            <profile value="#birthplace"/>
+            <profile value="StructureDefinition/cda-birthplace"/>
           </type>
         </element>
       </differential>

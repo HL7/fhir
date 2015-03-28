@@ -292,9 +292,13 @@ public class EPubManager implements FileNotifier {
   }
 
   private boolean ok(String msg) {
-    if (msg.startsWith("Broken Link in extension-cda"))
+    if (msg.contains("hspc"))
       return true;
-    if (msg.startsWith("Broken Link in hspc-qnlab"))
+    if (msg.contains("cda"))
+      return true;
+    if (msg.contains("history.html"))
+      return true;
+    if (msg.contains("toc.html"))
       return true;
     if (msg.contains("'??"))
       return true;
