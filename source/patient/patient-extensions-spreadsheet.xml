@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7260</WindowHeight>
-  <WindowWidth>20445</WindowWidth>
+  <WindowHeight>6330</WindowHeight>
+  <WindowWidth>18030</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>3</ActiveSheet>
@@ -4313,7 +4313,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="39.75">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">adoptionInfo</Data><NamedCell
+    <Cell ss:StyleID="s120"><Data ss:Type="String">!adoptionInfo</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5253,8 +5253,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
