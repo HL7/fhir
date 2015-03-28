@@ -6,13 +6,15 @@ public class ImplementationGuide {
   private String name;
   private String page;
   private boolean review;
+  private boolean ballot;
   
-  public ImplementationGuide(String code, String name, String page, boolean review) {
+  public ImplementationGuide(String code, String name, String page, boolean review, boolean ballot) {
     super();
     this.code = code;
     this.name = name;
     this.page = page;
     this.review = review;
+    this.ballot = ballot;
   }
   
   public String getCode() {
@@ -29,6 +31,10 @@ public class ImplementationGuide {
   }
   public void setReview(boolean review) {
     this.review = review;
+  }
+
+  public boolean isBallot() {
+    return ballot;
   }
   
 }

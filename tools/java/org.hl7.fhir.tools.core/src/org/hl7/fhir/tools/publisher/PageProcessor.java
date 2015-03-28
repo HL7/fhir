@@ -4752,7 +4752,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<String> txlist = new ArrayList<String>();
     Map<String, ElementDefinitionBindingComponent> txmap = new HashMap<String, ElementDefinitionBindingComponent>();
     for (ElementDefinition ed : profile.getSnapshot().getElement()) {
-      if (ed.hasBinding()) {
+      if (ed.hasBinding() && !"0".equals(ed.getMax())) {
         String path = ed.getPath();
         if (ed.getType().size() == 1 && ed.getType().get(0).getCode().equals("Extension"))
           path = path + "<br/>"+ed.getType().get(0).getProfile();
@@ -4794,8 +4794,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<String> txlist = new ArrayList<String>();
     Map<String, List<ElementDefinitionConstraintComponent>> txmap = new HashMap<String, List<ElementDefinitionConstraintComponent>>();
     for (ElementDefinition ed : profile.getSnapshot().getElement()) {
-      txlist.add(ed.getPath());
-      txmap.put(ed.getPath(), ed.getConstraint());
+      if (!"0".equals(ed.getMax())) {
+        txlist.add(ed.getPath());
+        txmap.put(ed.getPath(), ed.getConstraint());
+      }
     }
     if (txlist.isEmpty())
       return "";
