@@ -1,0 +1,20 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="daf-encounter-dischargedisposition"/>
+  <name value="DAF Encounter Discharge Disposition"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="Discharge Disposition - NUBC manual UB-04, UB form locator 17"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://www.nubc.org/patient-discharge"/>
+    </include>
+  </compose>
+</ValueSet>
+
