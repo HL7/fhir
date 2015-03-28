@@ -1,0 +1,23 @@
+﻿<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Disease Stage Value Set"/>
+  <publisher value="Health Level Seven, Inc. - CQI WG"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/special/committees/CQI"/>
+  </telecom>
+  </contact>
+  <description value="A period or phase in the course of a disease, or the degree of involvement or severity of a disease. Stage acts as a qualifier for the condition."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="261612004"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

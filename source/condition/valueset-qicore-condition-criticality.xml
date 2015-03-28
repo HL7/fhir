@@ -1,0 +1,45 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <!-- 
+
+  -->
+  <name value="Condition Criticality Codes"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+  </telecom>
+  </contact>
+ 
+  <description value="Value Set for Condition Criticality (Example)"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/conditionCriticality"/>
+      <concept>
+        <code value="unspecified"/>
+        <display value="Not Specified"/>
+      </concept>
+      <concept>
+        <code value="self-resolving"/>
+        <display value="Expected to Self-Resolve"/>
+      </concept>
+	  <concept>
+        <code value="controllable"/>
+        <display value="Controllable"/>
+      </concept>
+      <concept>
+        <code value="functional-loss"/>
+        <display value="Potential loss of function or capacity"/>
+      </concept>
+      <concept>
+        <code value="life-threatening"/>
+        <display value="Life Threatening"/>
+      </concept>
+	  <concept>
+        <code value="requires-hospitalization"/>
+        <display value="Requires Hospitalization"/>
+      </concept>
+    </include>
+  </compose>    
+</ValueSet>
