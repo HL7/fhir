@@ -7,6 +7,7 @@
   <assessor>
     <reference value="Practitioner/example"/>
   </assessor>
+  <status value="completed"/>
   <date value="2014-12-06T22:33:00+11:00"/>
   <description value="This 26 yo male patient is brought into ER by ambulance after being involved in a motor vehicle accident"/>
   <problem>
