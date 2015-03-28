@@ -2,21 +2,17 @@
 
 <div>
 <h2>Scope and Usage</h2>
-<p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-    <p>
-        <b>These resources have not yet undergone proper review by PC, CQI, CDS, and OO. At this time, 
-            they are to be considered only as draft resource proposals for potential submission.</b>
-    </p>
     
-    <p>
-	  This resource is a record of a request for a communication to be performed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Uses of communication request include 
-	  <li>A computer-based decision-support system requesting a reminder or alert be delivered to a responsible provider</li>
-	  <li>A physician requesting notification from the nurse if a patient's temperature exceeds a value</li>
-	  <li>A monitoring system or a provider requesting a staff member or department to notify a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
-      <li>A computer-based decision-support system proposes to send educational material to a patient</li>
-    </p>
+<p>
+This resource is a record of a request for a communication to be performed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Uses of communication request include:
 </p>
+<ul>
+<li>A computer-based decision-support system requesting a reminder or alert be delivered to a responsible provider</li>
+<li>A physician requesting notification from the nurse if a patient's temperature exceeds a value</li>
+<li>A monitoring system or a provider requesting a staff member or department to notify a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
+<li>A computer-based decision-support system proposes to send educational material to a patient</li>
+</ul>
 </div>
 
 <!-- (recommended): -->
@@ -25,13 +21,9 @@
 <p>
 This resource is a record of a request. It does not represent the actual flow of communication.
 
-The use of CommunicationRequest excludes requests for referrals which are covered by the ReferralRequest resource.
-
-The resource also excludes the types of communications supported by the Alert resource (need to better describe this overlap).
-
-The transmission of orders and the ensuing responses are described by Order and OrderResponse resources.
-
-The performance of a communication request may result in a Communication resource.
+The use of <b>CommunicationRequest</b> excludes requests for referrals which are covered by the <a href="referralrequest.html">ReferralRequest</a> resource.
+It also excludes requests for therapy or counciling which would be handled by the <a href="procedurerequest.html">ProcedureRequest</a> resource.
+The performance of a <b>CommunicationRequest</b> may result in a <a href="communication.html">Communication</a> resource.
 
 </p>
 </div>

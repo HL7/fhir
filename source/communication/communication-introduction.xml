@@ -2,22 +2,18 @@
 
 <div>
 <h2>Scope and Usage</h2>
-<p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-    <p>
-        <b>These resources have not yet undergone proper review by PC, CQI, CDS, and OO. At this time, 
-            they are to be considered only as draft resource proposals for potential submission for DSTU2.</b>
-    </p>
     
-    <p>
-	  This resource is a record of a communication. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. 
-	  The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Communication use cases include 
-	  <li>A reminder or alert delivered to a responsible provider</li>
-	  <li>A recorded notification from the nurse that a patient's temperature exceeds a value</li>
-	  <li>A notification to a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
-      <li>Patient educational material sent by a provider to a patient</li>
-    </p>
+<p>
+This resource is a record of a communication. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. 
+The sender and receivers may be patients, practitioners, related persons, organizations, or devices. Communication use cases include:
 </p>
+<ul>
+<li>A reminder or alert delivered to a responsible provider</li>
+<li>A recorded notification from the nurse that a patient's temperature exceeds a value</li>
+<li>A notification to a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
+<li>Patient educational material sent by a provider to a patient</li>
+</ul>
 </div>
 
 <!-- (recommended): -->
@@ -25,11 +21,18 @@
 <h2>Boundaries and Relationships</h2>
 <p>
 This resource is a record of a communication that has occurred. It does not represent the actual flow of communication.
-
-The resource excludes the types of communications supported by the Alert resource (need to better describe this overlap).
-
-It excludes the type of communication where two systems are exchanging data.
-
+While <a href="auditevent.html">AuditEvent</a> can track electronic disclosures of information, it cannot track conversations,
+phone calls, letters and other interactions that are not system-to-system.  And even for system-to-system communications, the
+specific end recipients may not be known.  As well, <a href="auditevent.html">AuditEvents</a> are not considered to be "part"
+of the patient record, while <b>Communication</b> instances are.  The <b>Communication</b> resource is not used as a general
+audit mechanism to track every disclosure of every record.  Rather, it is used when a clinician or other user wants to ensure
+a record of a particular communication is itself maintaned as part of the reviewable health record.
+</p>
+<p>
+<a href="flag.html">Flag</a> resources represent a continuous ongoing "communication" alerting anyone dealing with the patient
+of certain precautions to take or issues to be aware of.  The flags are continuously present as an ongoing reminder.  This is 
+distinct from <b>Communication</b> where there is a specific intended sender and receiver and the information is delivered only
+once.
 </p>
 </div>
 
