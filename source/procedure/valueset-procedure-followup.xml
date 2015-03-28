@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <url value="http://hl7.org/fhir/vs/procedure-type"/>
+  <url value="http://hl7.org/fhir/vs/procedure-followup"/>
   <name value="Procedure Follow up Codes (SNOMED CT)"/>
   <publisher value="FHIR Project team"/>
   <contact>

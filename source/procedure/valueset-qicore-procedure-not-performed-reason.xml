@@ -1,0 +1,80 @@
+﻿<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Procedure Not Performed Reason (SNOMED-CT)"/>
+  <url value="http://hl7.org/fhir/vs/qicore-procedure-not-performed-reason"/>
+  <publisher value="Health Level Seven, Inc. - CQI WG"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/special/committees/CQI"/>
+  </telecom>
+  </contact>
+  <description value="Situation codes describing the reason that a procedure, which might otherwise be expected, was not performed, or a procedure that was started was not completed. Consists of SNOMED CT codes, children of procedure contraindicated (183932001), procedure discontinued (416406003), procedure not done (416237000), procedure not indicated (428119001), procedure not offered (416064006), procedure not wanted (416432009), procedure refused (183944003), and procedure stopped (394908001)."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="183932001"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="416406003"/>
+      </filter>
+    </include>
+	    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="416237000"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="428119001"/>
+      </filter>
+    </include>
+	    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="416064006"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="416432009"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="183944003"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="394908001"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
