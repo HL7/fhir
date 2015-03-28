@@ -51,13 +51,13 @@
   </summary>
  </stage>
  <location> 
-  <code>
+  <siteCodeableConcept>
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="181414000"/>
         <display value="Kidney"/> 
     </coding>
-  </code>
+  </siteCodeableConcept>
  </location>
  <dueTo>  
   <!--TODO the difference between "due-to" and "follows" is very unclear in the current documentation-->

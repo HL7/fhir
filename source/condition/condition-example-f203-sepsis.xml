@@ -48,13 +48,13 @@
   </detail>
  </evidence>
  <location><!--Location is intravascular pulmonary-->
-  <code>
+  <siteCodeableConcept>
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="281158006"/>
         <display value="Pulmonary vascular structure"/> 
     </coding>
-  </code>
+  </siteCodeableConcept>
  </location>
  <!-- todo - this is an illegal reference (Grahame, 2/2/2015)
  

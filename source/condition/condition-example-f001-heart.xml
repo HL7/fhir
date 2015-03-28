@@ -46,13 +46,13 @@
         </code>
     </evidence>
     <location>
-        <code>
+        <siteCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="40768004"/>
                 <display value="Left thorax"/>
             </coding>
-        </code>
-        <detail value="heart structure"/>
+        <text value="heart structure"/>
+        </siteCodeableConcept>
     </location>
 </Condition>

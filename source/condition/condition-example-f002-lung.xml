@@ -55,13 +55,13 @@
         </code>
     </evidence>
     <location>
-        <code>
+        <siteCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="51185008"/>
                 <display value="Thorax"/>    
             </coding>
-        </code>
-        <detail value="lung"/>
+          <text value="lung"/>
+        </siteCodeableConcept>
     </location>
 </Condition>

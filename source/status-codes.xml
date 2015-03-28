@@ -353,7 +353,7 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClinicalAssessment.status</Data></Cell>
+    <Cell><Data ss:Type="String">ClinicalImpression.status</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"/>

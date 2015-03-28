@@ -48,12 +48,12 @@
    </evidence>
    <location>
       <!--Head and neck malignancy-->
-      <code>
+      <siteCodeableConcept>
          <coding>
             <system value="http://snomed.info/sct"/>
             <code value="361355005"/>
             <display value="Entire head and neck"/>
          </coding>
-      </code>
+      </siteCodeableConcept>
    </location>
 </Condition>

@@ -46,12 +46,12 @@
         </code>
     </evidence>
     <location>
-        <code>
+        <siteCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="280193007"/>
                 <display value="Entire retropharyngeal area"/>    
             </coding>
-        </code>
+        </siteCodeableConcept>
     </location>
 </Condition>

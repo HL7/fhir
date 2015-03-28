@@ -6,6 +6,24 @@
    <status value="generated"/>
    <div xmlns="http://www.w3.org/1999/xhtml">Severe burn of left ear (Date: 24-May 2012)</div>
  </text>
+ <extension url="http://hl7.org/fhir/StructureDefinition/condition-contributionToDeath">
+   <valueCodeableConcept>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="410591008" />
+       <display value="Definitely present (qualifier value)"/>
+     </coding>
+   </valueCodeableConcept>
+ </extension>
+ <extension url="http://hl7.org/fhir/StructureDefinition/condition-criticality">
+   <valueCodeableConcept>
+     <coding>
+       <system value="http://hl7.org/fhir/vs/condition-severity"/>
+       <code value="399166001" />
+       <display value="Fatal"/>
+     </coding>
+   </valueCodeableConcept>
+ </extension>
   <patient>
     <reference value="Patient/example"/>
   </patient>
@@ -40,31 +58,13 @@
  </severity>
  <onsetDateTime value="2012-05-24"/>
  <location>
-  <code>
+  <siteCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="49521004"/>
       <display value="Left external ear structure"/>
     </coding>
     <text value="Left Ear"/>
-  </code>
+  </siteCodeableConcept>
  </location>
- <extension url="http://hl7.org/fhir/StructureDefinition/condition-contributionToDeath">
-   <valueCodeableConcept>
-     <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="410591008" />
-       <display value="Definitely present (qualifier value)"/>
-     </coding>
-   </valueCodeableConcept>
- </extension>
- <extension url="http://hl7.org/fhir/StructureDefinition/condition-criticality">
-   <valueCodeableConcept>
-     <coding>
-       <system value="http://hl7.org/fhir/vs/condition-severity"/>
-       <code value="399166001" />
-       <display value="Fatal"/>
-     </coding>
-   </valueCodeableConcept>
- </extension>
 </Condition>

@@ -54,13 +54,13 @@
   </detail>
  </evidence>
  <location><!--Fever applies to whole body-->
-  <code>
+  <siteCodeableConcept>
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
         <display value="Entire body as a whole"/>  
     </coding>
-  </code>
+  </siteCodeableConcept>
  </location>
  <dueTo>  <!-- 0..* Causes or precedents for this problem -->
   
