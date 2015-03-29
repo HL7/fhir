@@ -33,10 +33,10 @@
   <item>
     <code>
       <coding>
-        <system value="http://acme.org/tests"/>
-        <code value="LIPID"/>
+        <system value="http://loinc.org"/>
+        <code value="57698-3"/>
       </coding>
-      <text value="Lipid Panel"/>
+      <text value="Lipid panel with direct LDL - Serum or Plasma"/>
     </code>
   </item>
   <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticorder-reason">
