@@ -29,9 +29,9 @@
       <definition value="A bounded time-period when a particular set of resources (practioners, devices and/or locations) is available for the delivery of healthcare services.  Used for scheduling."/>
     </concept>
     <concept>
-      <code value="APTMT"/>
-      <display value="appointment"/>
-      <definition value="An agreement for a particular type of service to occur for a specified patient at a specific time with a particular set of resources (practitioners, devices, locations, etc.)"/>
+      <code value="ADVEVENT"/>
+      <display value="adverse event"/>
+      <definition value="An undesired reaction caused by exposure to some agent (e.g., a medication, immunization, food, or environmental agent)."/>
     </concept>
     <concept>
       <code value="APTMTREQ"/>
