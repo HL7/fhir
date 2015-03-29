@@ -757,7 +757,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     					checkReference(errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
 
           if (type.equals("Extension"))
-            checkExtension(errors, ei.path, ei.element, profile, localStack);          
+            checkExtension(errors, ei.path, ei.element, ei.definition, profile, localStack);          
           else if (type.equals("Resource"))
     					validateContains(errors, ei.path, ei.definition, definition, ei.element, localStack, !isBundleEntry(ei.path)); //    if (str.matches(".*([.,/])work\\1$"))
           else {
@@ -1047,7 +1047,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return context.getProfiles().get(pr);
   }
   
-  private StructureDefinition checkExtension(List<ValidationMessage> errors, String path, WrapperElement element, StructureDefinition profile, NodeStack stack) throws Exception {
+  private StructureDefinition checkExtension(List<ValidationMessage> errors, String path, WrapperElement element, ElementDefinition def, StructureDefinition profile, NodeStack stack) throws Exception {
     String url = element.getAttribute("url");
     boolean isModifier = element.getName().equals("modifierExtension");
     
@@ -1056,6 +1056,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       if (!rule(errors, "structure", path, allowUnknownExtension(url), "The extension "+url+" is unknown, and not allowed here"))
         warning(errors, "structure", path, allowUnknownExtension(url), "Unknown extension "+url);
     } else {
+      if (def.getIsModifier()) 
+        rule(errors, "structure", path+"[url='"+url+"']", ex.getSnapshot().getElement().get(0).getIsModifier(), "Extension modifier mismatch: the extension element is labelled as a modifier, but the underlying extension is not");
+      else
+        rule(errors, "structure", path+"[url='"+url+"']", !ex.getSnapshot().getElement().get(0).getIsModifier(), "Extension modifier mismatch: the extension element is not labelled as a modifier, but the underlying extension is");
+
       // two questions 
       // 1. can this extension be used here?
       checkExtensionContext(errors, /*path+"[url='"+url+"']",*/ ex, stack, ex.getUrl());
