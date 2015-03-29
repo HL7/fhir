@@ -1,0 +1,69 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <!-- 
+
+  -->
+  <name value="Communication Medium Codes"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+  </telecom>
+  </contact>
+ 
+  <description value="Value Set for Communication Medium (Example)"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/communicationMedium"/>
+      <concept>
+        <code value="unspecified"/>
+        <display value="Not Specified"/>
+      </concept>
+      <concept>
+        <code value="telephone"/>
+        <display value="Telephone"/>
+      </concept>
+	  <concept>
+        <code value="fax"/>
+        <display value="Facsimile (fax)"/>
+      </concept>
+      <concept>
+        <code value="device"/>
+        <display value="Via medical device"/>
+      </concept>
+      <concept>
+        <code value="video"/>
+        <display value="Video call"/>
+      </concept>
+	  <concept>
+        <code value="voicemail"/>
+        <display value="Voice message (voicemail)"/>
+      </concept>
+	  <concept>
+        <code value="text"/>
+        <display value="Text message (SMS)"/>
+      </concept>
+	  <concept>
+        <code value="social-media"/>
+        <display value="Social media"/>
+      </concept>
+	  <concept>
+	    <code value="in-person"/>
+        <display value="In person"/>
+      </concept>
+	  <concept>
+	    <code value="mail"/>
+        <display value="Mail (conventional)"/>
+      </concept>
+	  <concept>
+	    <code value="email"/>
+        <display value="Electronic mail (email)"/>
+      </concept>
+	  <concept>
+	    <code value="portal"/>
+        <display value="Patient portal"/>
+      </concept>
+    </include>
+  </compose>    
+</ValueSet>
