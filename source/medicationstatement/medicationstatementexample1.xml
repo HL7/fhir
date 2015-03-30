@@ -11,11 +11,10 @@
     </div>
   </text>
   <patient>
-    <reference value="Patient/f001"/>
-    <display value="Eve Everywoman"/>         
+    <reference value="Patient/pat1"/>
   </patient>
   <informationSource>
-    <reference value="patient/f002" />
+    <reference value="Patient/pat2" />
   </informationSource>
   <dateAsserted value="2015-02-22"/>
   <status value="completed" />
