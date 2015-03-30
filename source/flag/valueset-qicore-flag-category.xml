@@ -1,0 +1,55 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <!-- 
+
+  -->
+  <name value="Flag Category Codes"/>
+  <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+  </telecom>
+  </contact>
+ 
+  <description value="Value Set for Flag Category (Example). This value set defines category codes for Patient Record Flags. Patient record flags is a mechanism in which an alert can be assigned to patients who have certain high risk clinical needs or behavior problems. Flags can be configured to appear during the patient look-up process."/>
+  <status value="draft"/>
+  <define>
+      <system value="http://hl7.org/fhir/flagCategory"/>
+	  <caseSensitive value="true"/>   
+	  <concept>
+        <code value="CL"/>
+        <display value="Clinical"/>
+		<definition value="Patient has special needs, limitations, or preferences that impact clinical treatment"/> 
+      </concept>
+      <concept>
+        <code value="BH"/>
+        <display value="Behavioral"/>
+		<definition value="Patient actions that pose risk or otherwise impact health or treatement, e.g. verbal threats, possession of weapons in a health care facility, acts of violence, history of suicidal behavior, drug-seeking behavior, or sexual harrassment"/>
+      </concept>
+	  <concept>
+        <code value="RES"/>
+        <display value="Research"/>
+		<definition value="Patient is a participant in a research study"/>
+      </concept>
+	  <concept>
+        <code value="SC"/>
+        <display value="Special Circumstances"/>
+		<definition value="Special circumstances in terms of transportation, living situation, or communications"/>
+      </concept>
+	  <concept> 
+        <code value="ADM"/>
+        <display value="Administrative"/>
+		<definition value="Special issues with respect to payment, insurance, or other administrative matters"/>
+      </concept>
+	  <concept> 
+        <code value="ADV"/>
+        <display value="Advance Directive"/>
+		<definition value="Patient has advance directives"/>
+      </concept>
+      <concept>
+        <code value="OT"/>
+        <display value="Other"/>
+		<definition value="Flag or alert not belonging to any other category"/> 
+      </concept>
+   </define>    
+</ValueSet>
