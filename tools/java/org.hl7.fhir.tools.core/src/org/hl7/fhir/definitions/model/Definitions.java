@@ -499,13 +499,13 @@ public class Definitions {
     if (ig == null)
       throw new Error("No known IG for "+category);
     if (publishAll)
-      return true;
+      return false;
     return !ig.isBallot();
   }
 
   public boolean noPublish(ImplementationGuide ig)  {
     if (publishAll)
-      return true;
+      return false;
     return !ig.isBallot();
   }
 
