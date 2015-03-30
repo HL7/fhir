@@ -32,6 +32,15 @@ The narrative for a resource is allowed to contain additional information that i
 the structured data, including human-edited content. Such additional information SHALL be
 in the scope of the definition of the resource, though it is common for the narrative to
 include additional descriptional information extracted from other referenced resources.
+Narrative for a resource should include summary information about referenced resources as 
+necessary for a consumer of the resource to be able to understand the key essential information 
+about a resource without retrieving additional resources.  For example, the narrative for a 
+MedicationPrescription might include brief summary information about the referenced patient, 
+prescriber and medication.  Some resources (e.g. List, Composition) may provide specific 
+rules about what content must (or must not) be included in the resource narrative.  Consideration 
+should be given to the fact that referenced resources may be updated without updating 
+referencing resources, so the proportion of content of a referenced resource included 
+in a referencing resource should be limited.
 </p>
 <p>
 Resources SHOULD always contain narrative to support human-consumption
