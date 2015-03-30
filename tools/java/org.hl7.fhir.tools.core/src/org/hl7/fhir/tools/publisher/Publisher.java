@@ -91,6 +91,7 @@ import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Compartment;
+import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
@@ -380,7 +381,6 @@ public class Publisher implements URIResolver {
    * @return the revision number, or "????" if SVN was not available
    */
   private static String checkSubversion(String folder) {
-
     SVNClient svnClient = new SVNClient();
     Status[] status;
     try {
@@ -498,6 +498,7 @@ public class Publisher implements URIResolver {
       page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
       throw new Exception("Errors executing build. Details logged.");
     }
+    page.getDefinitions().setPublishAll(!web);
     processProfiles();
     if (page.hasIG()) {
       processIGFiles();
@@ -1672,7 +1673,7 @@ public class Publisher implements URIResolver {
       }
     }
     for (String n : page.getDefinitions().getDictionaries().keySet()) {
-      if (buildFlags.get("all")) { // || buildFlags.get("dict-" + n.toLowerCase())) {
+      if (buildFlags.get("all") && page.getDefinitions().doPublish(page.getDefinitions().getDictionaries().get(n).getCategory())) { // || buildFlags.get("dict-" + n.toLowerCase())) {
         page.log(" ...dictionary " + n, LogMessageType.Process);
         produceDictionary(n);
       }
@@ -1758,7 +1759,8 @@ public class Publisher implements URIResolver {
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
         addSearchParams(searchParamsFeed, rd);
       for (Profile cp : page.getDefinitions().getConformancePackages().values()) {
-        addSearchParams(searchParamsFeed, cp);
+        if (page.getDefinitions().doPublish(cp.getCategory()))
+          addSearchParams(searchParamsFeed, cp);
       }
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "search-parameters.xml"), searchParamsFeed);
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "search-parameters.json"), searchParamsFeed);
@@ -1772,7 +1774,8 @@ public class Publisher implements URIResolver {
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
         addOtherProfiles(profileOthersFeed, rd);
       for (Profile cp : page.getDefinitions().getConformancePackages().values()) {
-        addOtherProfiles(profileOthersFeed, cp);
+        if (page.getDefinitions().doPublish(cp.getCategory()))
+          addOtherProfiles(profileOthersFeed, cp);
       }
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-others.xml"), profileOthersFeed);
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-others.json"), profileOthersFeed);
@@ -3502,6 +3505,9 @@ public class Publisher implements URIResolver {
   }
 
   private void produceConformancePackage(String resourceName, Profile pack) throws Exception {
+    if (!web && page.getDefinitions().noPublish(pack.getCategory()))
+      return;
+          
     // first, we produce each profile
     for (ConstraintStructure profile : pack.getProfiles())
       produceProfile(resourceName, pack, profile);

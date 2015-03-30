@@ -62,6 +62,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
 import org.hl7.fhir.definitions.model.Compartment;
+import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -1011,10 +1012,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     Collections.sort(names);
     for (String s : names) {
       Profile ap = definitions.getConformancePackages().get(s);
-      b.append("  <tr>\r\n");
-      b.append("    <td><a href=\"").append(ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
-      b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
-      b.append(" </tr>\r\n");
+      if (definitions.doPublish(ap.getCategory())) {
+        b.append("  <tr>\r\n");
+        b.append("    <td><a href=\"").append(ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
+        b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
+        b.append(" </tr>\r\n");
+      }
     }
 // todo-profiles - do we want to list these here?    
 //    for (String n : definitions.sortedResourceNames()) {
@@ -1680,12 +1683,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private void scanForProfileUsage(StringBuilder b, BindingSpecification cd, ResourceDefn r) {
     for (Profile ap : r.getConformancePackages()) {
-      for (ConstraintStructure p : ap.getProfiles()) {
-        for (ElementDefinition ed : p.getResource().getSnapshot().getElement()) {
-          if (ed.hasBinding()) {
-            if (ed.getBinding().getName().equals(cd.getName()))
-              b.append(" <li><a href=\"").append(p.getId()).append(".html\">StructureDefinition ")
-                      .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ").append(getBindingTypeDesc(ed.getBinding())).append("</li>\r\n");
+      if (definitions.doPublish(ap.getCategory())) {
+        for (ConstraintStructure p : ap.getProfiles()) {
+          for (ElementDefinition ed : p.getResource().getSnapshot().getElement()) {
+            if (ed.hasBinding()) {
+              if (ed.getBinding().getName().equals(cd.getName()))
+                b.append(" <li><a href=\"").append(p.getId()).append(".html\">StructureDefinition ")
+                .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ").append(getBindingTypeDesc(ed.getBinding())).append("</li>\r\n");
+            }
           }
         }
       }
@@ -2454,12 +2459,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       ValueSet ae = valueSets.get(sn);
       String n = getTail(sn);
       ValueSet vs = ae;
-      String path = (String) ae.getUserData("path");
-      s.append(" <tr><td><a href=\""+Utilities.changeFileExt(path, ".html")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
-      if (hasId)
-        s.append("<td>"+Utilities.oidTail(ToolingExtensions.getOID(ae))+"</td>");
-      s.append("<td>"+usageSummary(vs)+"</td>");
-      s.append("</tr>\r\n");
+      String usage = usageSummary(vs);
+      if (definitions.doPublish(usage)) {
+        String path = (String) ae.getUserData("path");
+        s.append(" <tr><td><a href=\""+Utilities.changeFileExt(path, ".html")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
+        if (hasId)
+          s.append("<td>"+Utilities.oidTail(ToolingExtensions.getOID(ae))+"</td>");
+        s.append("<td>"+usage+"</td>");
+        s.append("</tr>\r\n");
+      }
     }
   }
 
@@ -3993,17 +4001,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       s.append("<tr><td colspan=\"2\">No Profiles defined for this resource</td></tr>");
     } else { 
       for (ImplementationGuide ig : definitions.getSortedIgs()) {
-        boolean started = false;
-        for (Profile ap: resource.getConformancePackages()) {
-          if (ig.getCode().equals(ap.getCategory())) {
-            if (!started) {
-              started = true;
-              s.append("  <tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ig.getName())+"</b></td></tr>\r\n");
+        if (definitions.doPublish(ig)) {
+          boolean started = false;
+          for (Profile ap: resource.getConformancePackages()) {
+            if (ig.getCode().equals(ap.getCategory())) {
+              if (!started) {
+                started = true;
+                s.append("  <tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ig.getName())+"</b></td></tr>\r\n");
+              }
+              s.append("  <tr>\r\n");
+              s.append("    <td><a href=\"").append(ap.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
+              s.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
+              s.append(" </tr>\r\n");
             }
-            s.append("  <tr>\r\n");
-            s.append("    <td><a href=\"").append(ap.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
-            s.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
-            s.append(" </tr>\r\n");
           }
         }
       }
@@ -4021,9 +4031,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         produceExampleListEntry(s, e, null);
       }
       for (Profile p : resource.getConformancePackages()) {
-        for (Example e: p.getExamples()) {
-          produceExampleListEntry(s, e, p);
-        }        
+        if (definitions.doPublish(p.getCategory())) {
+          for (Example e: p.getExamples()) {
+            produceExampleListEntry(s, e, p);
+          }        
+        }
       }
       s.append("<tr><td colspan=\"4\">&nbsp;</td></tr></table>\r\n");
       return s.toString();
@@ -4112,9 +4124,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (ConstraintStructure p : definitions.getConformancePackages().get(pn).getProfiles())
         constraints.put(p.getId(), p);
     for (String rn : definitions.sortedResourceNames()) 
-      for (Profile ap: definitions.getResourceByName(rn).getConformancePackages()) 
-        for (ConstraintStructure p : ap.getProfiles()) 
-          constraints.put(p.getId(), p);
+      for (Profile ap: definitions.getResourceByName(rn).getConformancePackages())
+        if (definitions.doPublish(ap.getCategory())) {
+          for (ConstraintStructure p : ap.getProfiles()) 
+            constraints.put(p.getId(), p);
+        }
     names.clear();
     names.addAll(constraints.keySet());
     Collections.sort(names);
@@ -4512,13 +4526,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String uri = ToolingExtensions.readStringExtension(profile.getResource(), "http://hl7.org/fhir/StructureDefinition/datadictionary");
     if (Utilities.noString(uri))
       return "<!-- no uri -->";
-    String dict = definitions.getDictionaries().get(uri);
-    if (Utilities.noString(dict))
+    Dictionary dict = definitions.getDictionaries().get(uri);
+    if (dict == null)
       return "<p>This profile specifies that the value of the "+profile.getResource().getSnapshot().getElement().get(0).getPath()+
           " resource must be a valid Observation as defined in the data dictionary (Unknown? - "+uri+").</p>";
     else
       return "<p>This profile specifies that the value of the "+profile.getResource().getSnapshot().getElement().get(0).getPath()+
-          " resource must be a valid Observation as defined in the data dictionary <a href=\""+uri+".html\">"+dict+"</a>.</p>";
+          " resource must be a valid Observation as defined in the data dictionary <a href=\""+uri+".html\">"+dict.getName()+"</a>.</p>";
   }
 
   private String generateHumanSummary(Profile pack, StructureDefinition profile) {

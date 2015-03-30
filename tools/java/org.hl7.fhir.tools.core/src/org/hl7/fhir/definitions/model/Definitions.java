@@ -74,7 +74,7 @@ public class Definitions {
 
 	// profiles not owned by a particular resource
   private Map<String, Profile> packs = new HashMap<String, Profile>();
-  private Map<String, String> dictionaries = new HashMap<String, String>();
+  private Map<String, Dictionary> dictionaries = new HashMap<String, Dictionary>();
 
   // indexes of above
   private Map<String, DefinedCode> knownResources = new HashMap<String, DefinedCode>();
@@ -103,6 +103,7 @@ public class Definitions {
   private Map<String, ImplementationGuide> igs = new HashMap<String, ImplementationGuide>();
   private List<ImplementationGuide> sortedIgs = new ArrayList<ImplementationGuide>();
   private Map<String, String> pageTitles = new HashMap<String, String>();
+
   
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -289,6 +290,7 @@ public class Definitions {
   }
 
   private List<String> sortedNames;
+  private boolean publishAll;
   
   public List<String> sortedResourceNames() {
     if (sortedNames == null) {
@@ -428,7 +430,7 @@ public class Definitions {
     return igs;
   }
 
-  public Map<String, String> getDictionaries() {
+  public Map<String, Dictionary> getDictionaries() {
     return dictionaries;
   }
 
@@ -490,6 +492,37 @@ public class Definitions {
 
   public Map<String, String> getPageTitles() {
     return pageTitles;
+  }
+
+  public boolean noPublish(String category)  {
+    ImplementationGuide ig = igs.get(category);
+    if (ig == null)
+      throw new Error("No known IG for "+category);
+    if (publishAll)
+      return true;
+    return !ig.isBallot();
+  }
+
+  public boolean noPublish(ImplementationGuide ig)  {
+    if (publishAll)
+      return true;
+    return !ig.isBallot();
+  }
+
+  public boolean isPublishAll() {
+    return publishAll;
+  }
+
+  public void setPublishAll(boolean publishAll) {
+    this.publishAll = publishAll;
+  }
+
+  public boolean doPublish(String category) {
+    return !noPublish(category);
+  }
+
+  public boolean doPublish(ImplementationGuide ig) {
+    return !noPublish(ig);
   }
 
 

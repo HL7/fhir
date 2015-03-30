@@ -44,6 +44,9 @@ import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
+import net.sf.saxon.functions.Doc;
+
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
@@ -62,6 +65,7 @@ import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.ImplementationGuide;
@@ -120,7 +124,6 @@ import org.w3c.dom.Element;
  */
 public class SourceParser {
 
-  private boolean ballotOnly;
   private Logger logger;
 	private IniFile ini;
 	private Definitions definitions;
@@ -305,8 +308,8 @@ public class SourceParser {
   private void loadDictionaries() {
     String[] dicts = ini.getPropertyNames("dictionaries");
     for (String dict : dicts) {
-     String s = ini.getStringProperty("dictionaries", dict);
-     definitions.getDictionaries().put(dict, s);
+     String[] s = ini.getStringProperty("dictionaries", dict).split("\\:");
+     definitions.getDictionaries().put(dict, new Dictionary(dict, s[1], s[0]));
     }   
   }
 
@@ -322,7 +325,7 @@ public class SourceParser {
       while (ig != null) {
         if (ig.getNodeName().equals("ig")) {
           ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), 
-              "1".equals(ig.getAttribute("review")), !ballotOnly || !"no".equals(ig.getAttribute("ballot")));
+              "1".equals(ig.getAttribute("review")), !"no".equals(ig.getAttribute("ballot")));
           definitions.getIgs().put(igg.getCode(), igg);
           definitions.getSortedIgs().add(igg);
         }
