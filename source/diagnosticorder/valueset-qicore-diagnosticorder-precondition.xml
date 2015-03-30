@@ -1,30 +1,31 @@
 <ValueSet xmlns="http://hl7.org/fhir">
-    <name value="Diagnostic Order Precondition"/>
-    <publisher value="Health Level Seven, Inc. - CQI WG"/>
-    <contact>
+  <name value="QICore Diagnostic Order Precondition"/>
+  <publisher value="Health Level Seven, Inc. - CQI WG"/>
+  <contact>
     <telecom>
-        <system value="url"/>
-        <value value="http://hl7.org/special/committees/CQI"/>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/CQI"/>
     </telecom>
   </contact>    
-    <description value="The condition, state, or problem that the patient is in or has prior to a therapy or procedure. This captures temporal (temporary circumstances) that 
-        have bearing on the data that it qualifies but will not necessarily modify its meaning. Things like 'after activity', 'at rest', or 'post-op'. "/>
-    <status value="active"/>
-    <compose>
-        <include>
-            <system value="http://need.a.uri.org/diagnosticorder/precondition"/>
-            <concept>
-                <code value="1"/>
-                <display value="After activity"/>
-            </concept>
-            <concept>
-                <code value="2"/>
-                <display value="At rest"/>
-            </concept>
-            <concept>
-                <code value="3"/>
-                <display value="Post-op"/>
-            </concept>
-        </include>
-    </compose>    
+  <description value="The condition, state, or problem that the patient is in or has prior to a therapy or procedure. This captures temporal (temporary circumstances) that have bearing on the data that it qualifies but will not necessarily modify its meaning. Things like 'after activity', 'at rest', or 'post-op'. "/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/qicore-diagnosticorder-precondition"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="1"/>
+      <display value="After activity"/>
+      <definition value="The diagnostic test was or should be performed after the patient has engaged in physical activity"/>
+    </concept>
+    <concept>
+      <code value="2"/>
+      <display value="At rest"/>
+      <definition value="The diagnostic test was or should be performed while the patient is at rest"/>
+    </concept>
+    <concept>
+      <code value="3"/>
+      <display value="Post-op"/>
+      <definition value="The diagnostic test was or should be performed after the patient operation"/>
+    </concept>
+  </define>    
 </ValueSet>

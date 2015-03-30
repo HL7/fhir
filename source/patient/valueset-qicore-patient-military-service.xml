@@ -1,45 +1,46 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <!-- 
-
-  -->
   <name value="Military Service Codes"/>
   <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
   <contact>
     <telecom>
       <system value="url"/>
       <value value="http://www.hl7.org/Special/committees/cqi"/>
-  </telecom>
+    </telecom>
   </contact>
- 
   <description value="Value Set for Military Service (Example)"/>
   <status value="draft"/>
-  <compose>
-    <include>
-      <system value="http://hl7.org/fhir/militaryService"/>
-      <concept>
-        <code value="not-indicated"/>
-        <display value="Not Indicated"/>
-      </concept>
-      <concept>
-        <code value="no-military-service"/>
-        <display value="No Military Service"/>
-      </concept>
-      <concept>
-        <code value="veteran"/>
-        <display value="Veteran"/>
-      </concept>
-	  <concept>
-        <code value="active-duty"/>
-        <display value="Active Duty"/>
-      </concept>
-      <concept>
-        <code value="active-reserve"/>
-        <display value="Active Reserve"/>
-      </concept>
-      <concept>
-        <code value="inactive-reserve"/>
-        <display value="Inactive Reserve"/>
-      </concept>
-    </include>
-  </compose>    
+  <define>
+    <system value="http://hl7.org/fhir/qicore-military-service"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="not-indicated"/>
+      <display value="Not Indicated"/>
+      <definition value="The military status is not indicated"/>
+    </concept>
+    <concept>
+      <code value="no-military-service"/>
+      <display value="No Military Service"/>
+      <definition value="The subject has no history of military service"/>
+    </concept>
+    <concept>
+      <code value="veteran"/>
+      <display value="Veteran"/>
+      <definition value="The subject is has served in the military but is no longer active"/>
+    </concept>
+    <concept>
+      <code value="active-duty"/>
+      <display value="Active Duty"/>
+      <definition value="The subject is not a reserve member and is currently engaged in full-time military activity"/>
+    </concept>
+    <concept>
+      <code value="active-reserve"/>
+      <display value="Active Reserve"/>
+      <definition value="The subject is a reserve member and is currently engaged in full-time military activity"/>
+    </concept>
+    <concept>
+      <code value="inactive-reserve"/>
+      <display value="Inactive Reserve"/>
+      <definition value="The subject is a reserve member and is not currently engaged in full-time military activity"/>
+    </concept>
+  </define>    
 </ValueSet>

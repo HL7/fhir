@@ -1,25 +1,26 @@
 <ValueSet xmlns="http://hl7.org/fhir">
-    <name value="Observation Verification Method"/>
+  <name value="QICore Observation Verification Method"/>
   <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
   <contact>
     <telecom>
       <system value="url"/>
       <value value="http://www.hl7.org/Special/committees/cqi"/>
-  </telecom>
+    </telecom>
   </contact>  
-    <description value="Code for method by which the observation result was validated, e.g., human review, sliding average."/>
-    <status value="active"/>
-    <compose>
-        <include>
-            <system value="http://need.a.uri.org/observation/verification-method"/>
-            <concept>
-                <code value="1"/>
-                <display value="Human review"/>
-            </concept>
-            <concept>
-                <code value="2"/>
-                <display value="Sliding average"/>
-            </concept>
-        </include>
-    </compose>    
+  <description value="Code for method by which the observation result was validated, e.g., human review, sliding average."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/qicore-observation-verification-method"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="1"/>
+      <display value="Human review"/>
+      <definition value="The observation was reviewed and verified by a person"/>
+    </concept>
+    <concept>
+      <code value="2"/>
+      <display value="Sliding average"/>
+      <definition value="The observation was verified against a sliding average"/>
+    </concept>
+  </define>    
 </ValueSet>
