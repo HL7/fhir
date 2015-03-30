@@ -21,6 +21,7 @@ import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -462,7 +463,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           profile = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+resourceName);
           ok = rule(errors, "invalid", stack.getLiteralPath() + "/f:"+resourceName, profile != null, "No profile found for resource type '"+resourceName+"'");
         } else {
-          String type = profile.getSnapshot().getElement().get(0).getType().get(0).getCode();
+          String type = profile.getType() == StructureDefinitionType.RESOURCE ? profile.getSnapshot().getElement().get(0).getPath() : profile.getSnapshot().getElement().get(0).getType().get(0).getCode();
           ok = rule(errors, "invalid", stack.getLiteralPath() + "/f:"+resourceName, type.equals(resourceName), "Specified profile type was '"+profile.getType()+"', but resource type was '"+resourceName+"'");
         }
       }
@@ -756,7 +757,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     					checkReference(errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
 
     				if (type.equals("Extension"))
-            checkExtension(errors, ei.path, ei.element, profile, localStack);          
+            checkExtension(errors, ei.path, ei.element, ei.definition, profile, localStack);          
     				else if (type.equals("Resource"))
     					validateContains(errors, ei.path, ei.definition, definition, ei.element, localStack, !isBundleEntry(ei.path)); //    if (str.matches(".*([.,/])work\\1$"))
     				else {
@@ -1029,6 +1030,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       StructureDefinition p = resolveProfile(profile, pr);
       if (p == null)
         return null;
+      else if (p.getType() == StructureDefinitionType.RESOURCE)
+        return p.getSnapshot().getElement().get(0).getPath();
       else
         return p.getSnapshot().getElement().get(0).getType().get(0).getCode();
 //    }
@@ -1046,7 +1049,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return context.getProfiles().get(pr);
   }
   
-  private StructureDefinition checkExtension(List<ValidationMessage> errors, String path, WrapperElement element, StructureDefinition profile, NodeStack stack) throws Exception {
+  private StructureDefinition checkExtension(List<ValidationMessage> errors, String path, WrapperElement element, ElementDefinition def, StructureDefinition profile, NodeStack stack) throws Exception {
     String url = element.getAttribute("url");
     boolean isModifier = element.getName().equals("modifierExtension");
     
@@ -1055,6 +1058,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       if (!rule(errors, "structure", path, allowUnknownExtension(url), "The extension "+url+" is unknown, and not allowed here"))
         warning(errors, "structure", path, allowUnknownExtension(url), "Unknown extension "+url);
     } else {
+      if (def.getIsModifier()) 
+        rule(errors, "structure", path+"[url='"+url+"']", ex.getSnapshot().getElement().get(0).getIsModifier(), "Extension modifier mismatch: the extension element is labelled as a modifier, but the underlying extension is not");
+      else
+        rule(errors, "structure", path+"[url='"+url+"']", !ex.getSnapshot().getElement().get(0).getIsModifier(), "Extension modifier mismatch: the extension element is not labelled as a modifier, but the underlying extension is");
+
       // two questions 
       // 1. can this extension be used here?
       checkExtensionContext(errors, /*path+"[url='"+url+"']",*/ ex, stack, ex.getUrl());

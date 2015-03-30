@@ -735,6 +735,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return "LOINC";
     if (system.startsWith("http://snomed.info"))
       return "SNOMED CT";
+    if (system.startsWith("http://www.nlm.nih.gov/research/umls/rxnorm"))
+      return "RxNorm";     
     return system;
   }
 
@@ -1350,8 +1352,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (vs.hasDefine())
       count = count + countConcepts(vs.getDefine().getConcept());
     if (vs.hasCompose()) {
-      if (vs.getCompose().hasExclude())
-        throw new Error("Not done yet"); // can't simply subtract. do an expand?
+      if (vs.getCompose().hasExclude()) {
+        try {
+          ValueSet vse = context.getTerminologyServices().expandVS(vs);
+          count = 0;
+          for (ValueSetExpansionContainsComponent exc : vse.getExpansion().getContains()) {
+            count += conceptCount(exc);
+          }
+          return count;
+        } catch (Exception e) {
+          return null;
+        }
+      } 
       for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
         if (inc.hasFilter())
           return null;
@@ -1360,6 +1372,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
         count = count + inc.getConcept().size();
       }
     }
+    return count;
+  }
+
+  private int conceptCount(ValueSetExpansionContainsComponent exc) {
+    int count = 0;
+    if (!exc.getAbstract())
+      count++;
+    for (ValueSetExpansionContainsComponent c : exc.getContains()) 
+      count += conceptCount(c);
     return count;
   }
 

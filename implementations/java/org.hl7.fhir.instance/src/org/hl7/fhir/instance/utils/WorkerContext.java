@@ -437,6 +437,11 @@ public class WorkerContext {
       return false;
     }
 
+    @Override
+    public ValueSet expandVS(ValueSet vs) {
+      throw new Error("call to NullTerminologyServices");
+    }
+
   }
 
 }

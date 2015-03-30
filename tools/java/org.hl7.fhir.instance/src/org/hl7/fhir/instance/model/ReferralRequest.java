@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -53,7 +53,7 @@ public class ReferralRequest extends DomainResource {
         /**
          * The referral has been transmitted, but not yet acknowledged by the recipient.
          */
-        SENT, 
+        REQUESTED, 
         /**
          * The referral has been acknowledged by the recipient, and is in the process of being actioned.
          */
@@ -62,6 +62,10 @@ public class ReferralRequest extends DomainResource {
          * The referral has been cancelled without being completed. For example it is no longer needed.
          */
         CANCELLED, 
+        /**
+         * The recipient has agreed to deliver the care requested by the referral.
+         */
+        ACCEPTED, 
         /**
          * The recipient has declined to accept the referral.
          */
@@ -79,12 +83,14 @@ public class ReferralRequest extends DomainResource {
                 return null;
         if ("draft".equals(codeString))
           return DRAFT;
-        if ("sent".equals(codeString))
-          return SENT;
+        if ("requested".equals(codeString))
+          return REQUESTED;
         if ("active".equals(codeString))
           return ACTIVE;
         if ("cancelled".equals(codeString))
           return CANCELLED;
+        if ("accepted".equals(codeString))
+          return ACCEPTED;
         if ("rejected".equals(codeString))
           return REJECTED;
         if ("completed".equals(codeString))
@@ -94,9 +100,10 @@ public class ReferralRequest extends DomainResource {
         public String toCode() {
           switch (this) {
             case DRAFT: return "draft";
-            case SENT: return "sent";
+            case REQUESTED: return "requested";
             case ACTIVE: return "active";
             case CANCELLED: return "cancelled";
+            case ACCEPTED: return "accepted";
             case REJECTED: return "rejected";
             case COMPLETED: return "completed";
             default: return "?";
@@ -105,9 +112,10 @@ public class ReferralRequest extends DomainResource {
         public String getSystem() {
           switch (this) {
             case DRAFT: return "";
-            case SENT: return "";
+            case REQUESTED: return "";
             case ACTIVE: return "";
             case CANCELLED: return "";
+            case ACCEPTED: return "";
             case REJECTED: return "";
             case COMPLETED: return "";
             default: return "?";
@@ -116,9 +124,10 @@ public class ReferralRequest extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case DRAFT: return "A draft referral that has yet to be send.";
-            case SENT: return "The referral has been transmitted, but not yet acknowledged by the recipient.";
+            case REQUESTED: return "The referral has been transmitted, but not yet acknowledged by the recipient.";
             case ACTIVE: return "The referral has been acknowledged by the recipient, and is in the process of being actioned.";
             case CANCELLED: return "The referral has been cancelled without being completed. For example it is no longer needed.";
+            case ACCEPTED: return "The recipient has agreed to deliver the care requested by the referral.";
             case REJECTED: return "The recipient has declined to accept the referral.";
             case COMPLETED: return "The referral has been completely actioned.";
             default: return "?";
@@ -127,9 +136,10 @@ public class ReferralRequest extends DomainResource {
         public String getDisplay() {
           switch (this) {
             case DRAFT: return "Draft";
-            case SENT: return "Sent";
+            case REQUESTED: return "Requested";
             case ACTIVE: return "Active";
             case CANCELLED: return "Cancelled";
+            case ACCEPTED: return "Accepted";
             case REJECTED: return "Rejected";
             case COMPLETED: return "Completed";
             default: return "?";
@@ -144,12 +154,14 @@ public class ReferralRequest extends DomainResource {
                 return null;
         if ("draft".equals(codeString))
           return Referralstatus.DRAFT;
-        if ("sent".equals(codeString))
-          return Referralstatus.SENT;
+        if ("requested".equals(codeString))
+          return Referralstatus.REQUESTED;
         if ("active".equals(codeString))
           return Referralstatus.ACTIVE;
         if ("cancelled".equals(codeString))
           return Referralstatus.CANCELLED;
+        if ("accepted".equals(codeString))
+          return Referralstatus.ACCEPTED;
         if ("rejected".equals(codeString))
           return Referralstatus.REJECTED;
         if ("completed".equals(codeString))
@@ -159,12 +171,14 @@ public class ReferralRequest extends DomainResource {
     public String toCode(Referralstatus code) {
       if (code == Referralstatus.DRAFT)
         return "draft";
-      if (code == Referralstatus.SENT)
-        return "sent";
+      if (code == Referralstatus.REQUESTED)
+        return "requested";
       if (code == Referralstatus.ACTIVE)
         return "active";
       if (code == Referralstatus.CANCELLED)
         return "cancelled";
+      if (code == Referralstatus.ACCEPTED)
+        return "accepted";
       if (code == Referralstatus.REJECTED)
         return "rejected";
       if (code == Referralstatus.COMPLETED)
@@ -177,7 +191,7 @@ public class ReferralRequest extends DomainResource {
      * The workflow status of the referral or transfer of care request.
      */
     @Child(name ="status", type={CodeType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="draft | sent | active | cancelled | rejected | completed", formalDefinition="The workflow status of the referral or transfer of care request." )
+    @Description(shortDefinition="draft | requested | active | cancelled | accepted | rejected | completed", formalDefinition="The workflow status of the referral or transfer of care request." )
     protected Enumeration<Referralstatus> status;
 
     /**

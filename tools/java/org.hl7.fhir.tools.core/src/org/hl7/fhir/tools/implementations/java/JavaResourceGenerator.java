@@ -862,6 +862,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       return "String";
     if (n.equals("IntegerType"))
       return "int";
+    if (n.equals("UnsignedIntType"))
+      return "int";
+    if (n.equals("PositiveIntType"))
+      return "int";
     if (n.equals("BooleanType"))
       return "boolean";
     if (n.equals("DecimalType"))
@@ -1032,7 +1036,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      write(indent+"public "+getSimpleType(tn)+" get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
 	      if (e.typeCode().equals("boolean"))
           write(indent+"  return this."+getElementName(e.getName(), true)+" == null || this."+getElementName(e.getName(), true)+".isEmpty() ? false : this."+getElementName(e.getName(), true)+".getValue();\r\n");
-	      else if (e.typeCode().equals("integer"))
+	      else if (e.typeCode().equals("integer") || e.typeCode().equals("unsignedInt") || e.typeCode().equals("positiveInt"))
           write(indent+"  return this."+getElementName(e.getName(), true)+" == null || this."+getElementName(e.getName(), true)+".isEmpty() ? 0 : this."+getElementName(e.getName(), true)+".getValue();\r\n");
 	      else
 	        write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? null : this."+getElementName(e.getName(), true)+".getValue();\r\n");
@@ -1040,7 +1044,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      write("\r\n");
 	      jdoc(indent, "@param value "+e.getDefinition());
 	      write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+getSimpleType(tn)+" value) { \r\n");
-	      if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("BooleanType")) {
+	      if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("PositiveIntType") && !tn.equals("UnsignedIntType") && !tn.equals("BooleanType")) {
           if (isString(tn))
             write(indent+"  if (Utilities.noString(value))\r\n");
 	        else
@@ -1051,7 +1055,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      write(indent+"    if (this."+getElementName(e.getName(), true)+" == null)\r\n");
         write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
         write(indent+"    this."+getElementName(e.getName(), true)+".setValue(value);\r\n");
-        if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("BooleanType")) {
+        if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("PositiveIntType") && !tn.equals("UnsignedIntType") && !tn.equals("BooleanType")) {
           write(indent+"  }\r\n");
         }
         write(indent+"  return this;\r\n");

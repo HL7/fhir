@@ -1024,7 +1024,7 @@ public class Publisher implements URIResolver {
         ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
         rest.getResource().add(res);
         res.setType(rn);
-        res.setProfile(Factory.makeReference("http://hl7.org/fhir/" + rn));
+        res.setProfile(Factory.makeReference("http://hl7.org/fhir/StructureDefinition/" + rn));
         genConfOp(conf, res, TypeRestfulInteraction.READ);
         genConfOp(conf, res, TypeRestfulInteraction.VREAD);
         genConfOp(conf, res, TypeRestfulInteraction.UPDATE);

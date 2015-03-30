@@ -1476,7 +1476,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         parse = "ParseEnum(CODES_"+tn+", path+'/"+e.getName()+"', child)";
         ttb = "CODES_"+tn+"[";
         tta = "]";
-      } else if (tn.equals("Integer")) {
+      } else if (tn.equals("Integer") || tn.equals("UnsignedInt")  || tn.equals("PositiveInt")) {
         parse = "StringToInteger32(child.text)";
         ttb = "inttostr(";
         tta = ")";
@@ -1496,7 +1496,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     String parseJ1 = null;
     if (enumNames.contains(tn)) {
       parseJ1 = "ParseEnumValue(CODES_"+tn+"')";
-    } else if (tn.equals("Integer")) {
+    } else if (tn.equals("Integer") || tn.equals("UnsignedInt")  || tn.equals("PositiveInt")) {
       parseJ1 = "ParseIntegerValue(path+'."+e.getName()+"')";
     } else if (tn.equals("Boolean") || tn.equals("TFhirBoolean")) {
       parseJ1 = "ParseBooleanValue(path+'."+e.getName()+"')";
@@ -1513,7 +1513,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     if (typeIsSimple(tn)) {
       if (enumNames.contains(tn)) {
         srls = "CODES_"+tn+"[#]";
-      } else if (tn.equals("Integer")) {
+      } else if (tn.equals("Integer") || tn.equals("UnsignedInt")  || tn.equals("PositiveInt")) {
         srls = "IntegerToString(#)";
       } else if (tn.equals("Boolean")) {
         srls = "LCBooleanToString(#)";
@@ -1929,7 +1929,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   private String primitiveParse(String name, String prefix) {
-    if (name.equals("integer")) 
+    if (name.equals("integer") || name.equals("UnsignedInt")  || name.equals("PositiveInt")) 
       return "ParseIntegerValue(path+'."+prefix+'.'+Utilities.capitalize(name)+"')";
     if (name.equals("boolean")) 
       return "ParseBooleanValue(path+'."+prefix+'.'+Utilities.capitalize(name)+"')";
@@ -1940,7 +1940,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   private boolean typeIsPrimitive(String tn) {
     return tn.equalsIgnoreCase("uri") || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("code") || tn.equalsIgnoreCase("boolean")
-        || tn.equalsIgnoreCase("integer") || tn.equalsIgnoreCase("instant") || tn.equalsIgnoreCase("time")
+        || tn.equalsIgnoreCase("integer")  || tn.equals("unsignedInt")  || tn.equals("positiveInt")|| tn.equalsIgnoreCase("instant") || tn.equalsIgnoreCase("time")
         || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("date") || tn.equalsIgnoreCase("id") || tn.equalsIgnoreCase("oid")
         || tn.equalsIgnoreCase("decimal") || tn.equalsIgnoreCase("string") || tn.equalsIgnoreCase("base64Binary");
   }
@@ -2212,7 +2212,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private boolean typeIsSimple(String tn) {
     if (tn == null)
       return false;
-    return tn.equals("String") || tn.equals("Integer") || tn.equals("Boolean") || tn.equals("TDateAndTime") || tn.equals("TFhirXHtmlNode")  || enumNames.contains(tn);
+    return tn.equals("String") || tn.equals("Integer")  || tn.equals("unsignedInt")  || tn.equals("positiveInt") || tn.equals("Boolean") || tn.equals("TDateAndTime") || tn.equals("TFhirXHtmlNode")  || enumNames.contains(tn);
   }
 
   private String getTitle(String name) {
@@ -2628,7 +2628,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         prsrImpl.append("    prop(json, name, value.value);\r\n");
       else if (!pn.equals("String"))
         prsrImpl.append("    prop(json, name, asString(value.value));\r\n");
-      else if (tn.equals("Decimal") || tn.equals("Integer"))
+      else if (tn.equals("Decimal") || tn.equals("Integer") || tn.equals("UnsignedInt")  || tn.equals("PositiveInt"))
         prsrImpl.append("    propNumber(json, name, value.value);\r\n");
       else
         prsrImpl.append("    prop(json, name, value.value);\r\n");

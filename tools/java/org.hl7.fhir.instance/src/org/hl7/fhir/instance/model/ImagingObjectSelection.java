@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -750,9 +750,9 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * The frame numbers in the frame set.
          */
-        @Child(name ="frameNumbers", type={IntegerType.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name ="frameNumbers", type={UnsignedIntType.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Frame numbers", formalDefinition="The frame numbers in the frame set." )
-        protected List<IntegerType> frameNumbers;
+        protected List<UnsignedIntType> frameNumbers;
 
         /**
          * WADO-RS URL to retrieve the DICOM frames.
@@ -761,7 +761,7 @@ public class ImagingObjectSelection extends DomainResource {
         @Description(shortDefinition="Retrieve URL", formalDefinition="WADO-RS URL to retrieve the DICOM frames." )
         protected UriType url;
 
-        private static final long serialVersionUID = 587981442L;
+        private static final long serialVersionUID = -2068206970L;
 
       public FramesComponent() {
         super();
@@ -775,16 +775,16 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #frameNumbers} (The frame numbers in the frame set.)
          */
-        public List<IntegerType> getFrameNumbers() { 
+        public List<UnsignedIntType> getFrameNumbers() { 
           if (this.frameNumbers == null)
-            this.frameNumbers = new ArrayList<IntegerType>();
+            this.frameNumbers = new ArrayList<UnsignedIntType>();
           return this.frameNumbers;
         }
 
         public boolean hasFrameNumbers() { 
           if (this.frameNumbers == null)
             return false;
-          for (IntegerType item : this.frameNumbers)
+          for (UnsignedIntType item : this.frameNumbers)
             if (!item.isEmpty())
               return true;
           return false;
@@ -794,10 +794,10 @@ public class ImagingObjectSelection extends DomainResource {
          * @return {@link #frameNumbers} (The frame numbers in the frame set.)
          */
     // syntactic sugar
-        public IntegerType addFrameNumbersElement() {//2 
-          IntegerType t = new IntegerType();
+        public UnsignedIntType addFrameNumbersElement() {//2 
+          UnsignedIntType t = new UnsignedIntType();
           if (this.frameNumbers == null)
-            this.frameNumbers = new ArrayList<IntegerType>();
+            this.frameNumbers = new ArrayList<UnsignedIntType>();
           this.frameNumbers.add(t);
           return t;
         }
@@ -806,10 +806,10 @@ public class ImagingObjectSelection extends DomainResource {
          * @param value {@link #frameNumbers} (The frame numbers in the frame set.)
          */
         public FramesComponent addFrameNumbers(int value) { //1
-          IntegerType t = new IntegerType();
+          UnsignedIntType t = new UnsignedIntType();
           t.setValue(value);
           if (this.frameNumbers == null)
-            this.frameNumbers = new ArrayList<IntegerType>();
+            this.frameNumbers = new ArrayList<UnsignedIntType>();
           this.frameNumbers.add(t);
           return this;
         }
@@ -820,8 +820,8 @@ public class ImagingObjectSelection extends DomainResource {
         public boolean hasFrameNumbers(int value) { 
           if (this.frameNumbers == null)
             return false;
-          for (IntegerType v : this.frameNumbers)
-            if (v.equals(value)) // integer
+          for (UnsignedIntType v : this.frameNumbers)
+            if (v.equals(value)) // unsignedInt
               return true;
           return false;
         }
@@ -873,7 +873,7 @@ public class ImagingObjectSelection extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("frameNumbers", "integer", "The frame numbers in the frame set.", 0, java.lang.Integer.MAX_VALUE, frameNumbers));
+          childrenList.add(new Property("frameNumbers", "unsignedInt", "The frame numbers in the frame set.", 0, java.lang.Integer.MAX_VALUE, frameNumbers));
           childrenList.add(new Property("url", "uri", "WADO-RS URL to retrieve the DICOM frames.", 0, java.lang.Integer.MAX_VALUE, url));
         }
 
@@ -881,8 +881,8 @@ public class ImagingObjectSelection extends DomainResource {
         FramesComponent dst = new FramesComponent();
         copyValues(dst);
         if (frameNumbers != null) {
-          dst.frameNumbers = new ArrayList<IntegerType>();
-          for (IntegerType i : frameNumbers)
+          dst.frameNumbers = new ArrayList<UnsignedIntType>();
+          for (UnsignedIntType i : frameNumbers)
             dst.frameNumbers.add(i.copy());
         };
         dst.url = url == null ? null : url.copy();

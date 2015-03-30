@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -886,7 +886,19 @@ public class Procedure extends DomainResource {
     @Description(shortDefinition="Device changed in procedure", formalDefinition="A device change during the procedure." )
     protected List<ProcedureDeviceComponent> device;
 
-    private static final long serialVersionUID = -2089274218L;
+    /**
+     * Identifies medications, devices and other substance used as part of the procedure.
+     */
+    @Child(name ="used", type={Device.class, Medication.class, Substance.class}, order=18, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Items used during procedure", formalDefinition="Identifies medications, devices and other substance used as part of the procedure." )
+    protected List<Reference> used;
+    /**
+     * The actual objects that are the target of the reference (Identifies medications, devices and other substance used as part of the procedure.)
+     */
+    protected List<Resource> usedTarget;
+
+
+    private static final long serialVersionUID = -1258770542L;
 
     public Procedure() {
       super();
@@ -1615,6 +1627,55 @@ public class Procedure extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #used} (Identifies medications, devices and other substance used as part of the procedure.)
+     */
+    public List<Reference> getUsed() { 
+      if (this.used == null)
+        this.used = new ArrayList<Reference>();
+      return this.used;
+    }
+
+    public boolean hasUsed() { 
+      if (this.used == null)
+        return false;
+      for (Reference item : this.used)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #used} (Identifies medications, devices and other substance used as part of the procedure.)
+     */
+    // syntactic sugar
+    public Reference addUsed() { //3
+      Reference t = new Reference();
+      if (this.used == null)
+        this.used = new ArrayList<Reference>();
+      this.used.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public Procedure addUsed(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.used == null)
+        this.used = new ArrayList<Reference>();
+      this.used.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #used} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies medications, devices and other substance used as part of the procedure.)
+     */
+    public List<Resource> getUsedTarget() { 
+      if (this.usedTarget == null)
+        this.usedTarget = new ArrayList<Resource>();
+      return this.usedTarget;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1635,6 +1696,7 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("relatedItem", "", "Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure.", 0, java.lang.Integer.MAX_VALUE, relatedItem));
         childrenList.add(new Property("notes", "string", "Any other notes about the procedure - e.g. the operative notes.", 0, java.lang.Integer.MAX_VALUE, notes));
         childrenList.add(new Property("device", "", "A device change during the procedure.", 0, java.lang.Integer.MAX_VALUE, device));
+        childrenList.add(new Property("used", "Reference(Device|Medication|Substance)", "Identifies medications, devices and other substance used as part of the procedure.", 0, java.lang.Integer.MAX_VALUE, used));
       }
 
       public Procedure copy() {
@@ -1694,6 +1756,11 @@ public class Procedure extends DomainResource {
           for (ProcedureDeviceComponent i : device)
             dst.device.add(i.copy());
         };
+        if (used != null) {
+          dst.used = new ArrayList<Reference>();
+          for (Reference i : used)
+            dst.used.add(i.copy());
+        };
         return dst;
       }
 
@@ -1714,7 +1781,7 @@ public class Procedure extends DomainResource {
            && compareDeep(encounter, o.encounter, true) && compareDeep(location, o.location, true) && compareDeep(outcome, o.outcome, true)
            && compareDeep(report, o.report, true) && compareDeep(complication, o.complication, true) && compareDeep(followUp, o.followUp, true)
            && compareDeep(relatedItem, o.relatedItem, true) && compareDeep(notes, o.notes, true) && compareDeep(device, o.device, true)
-          ;
+           && compareDeep(used, o.used, true);
       }
 
       @Override
@@ -1735,7 +1802,8 @@ public class Procedure extends DomainResource {
            && (encounter == null || encounter.isEmpty()) && (location == null || location.isEmpty())
            && (outcome == null || outcome.isEmpty()) && (report == null || report.isEmpty()) && (complication == null || complication.isEmpty())
            && (followUp == null || followUp.isEmpty()) && (relatedItem == null || relatedItem.isEmpty())
-           && (notes == null || notes.isEmpty()) && (device == null || device.isEmpty());
+           && (notes == null || notes.isEmpty()) && (device == null || device.isEmpty()) && (used == null || used.isEmpty())
+          ;
       }
 
   @Override

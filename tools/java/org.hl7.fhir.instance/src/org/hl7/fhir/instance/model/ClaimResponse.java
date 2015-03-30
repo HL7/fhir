@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -123,16 +123,16 @@ public class ClaimResponse extends DomainResource {
         /**
          * A service line number.
          */
-        @Child(name ="sequenceLinkId", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="sequenceLinkId", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
-        protected IntegerType sequenceLinkId;
+        protected PositiveIntType sequenceLinkId;
 
         /**
          * A list of note references to the notes provided below.
          */
-        @Child(name ="noteNumber", type={IntegerType.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="noteNumber", type={PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
-        protected List<IntegerType> noteNumber;
+        protected List<PositiveIntType> noteNumber;
 
         /**
          * The adjudications results.
@@ -148,13 +148,13 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Detail line items", formalDefinition="The second tier service adjudications for submitted services." )
         protected List<ItemDetailComponent> detail;
 
-        private static final long serialVersionUID = -1140851161L;
+        private static final long serialVersionUID = -1917866697L;
 
       public ItemsComponent() {
         super();
       }
 
-      public ItemsComponent(IntegerType sequenceLinkId) {
+      public ItemsComponent(PositiveIntType sequenceLinkId) {
         super();
         this.sequenceLinkId = sequenceLinkId;
       }
@@ -162,12 +162,12 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public IntegerType getSequenceLinkIdElement() { 
+        public PositiveIntType getSequenceLinkIdElement() { 
           if (this.sequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.sequenceLinkId = new IntegerType(); // bb
+              this.sequenceLinkId = new PositiveIntType(); // bb
           return this.sequenceLinkId;
         }
 
@@ -182,7 +182,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public ItemsComponent setSequenceLinkIdElement(IntegerType value) { 
+        public ItemsComponent setSequenceLinkIdElement(PositiveIntType value) { 
           this.sequenceLinkId = value;
           return this;
         }
@@ -199,7 +199,7 @@ public class ClaimResponse extends DomainResource {
          */
         public ItemsComponent setSequenceLinkId(int value) { 
             if (this.sequenceLinkId == null)
-              this.sequenceLinkId = new IntegerType();
+              this.sequenceLinkId = new PositiveIntType();
             this.sequenceLinkId.setValue(value);
           return this;
         }
@@ -207,16 +207,16 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #noteNumber} (A list of note references to the notes provided below.)
          */
-        public List<IntegerType> getNoteNumber() { 
+        public List<PositiveIntType> getNoteNumber() { 
           if (this.noteNumber == null)
-            this.noteNumber = new ArrayList<IntegerType>();
+            this.noteNumber = new ArrayList<PositiveIntType>();
           return this.noteNumber;
         }
 
         public boolean hasNoteNumber() { 
           if (this.noteNumber == null)
             return false;
-          for (IntegerType item : this.noteNumber)
+          for (PositiveIntType item : this.noteNumber)
             if (!item.isEmpty())
               return true;
           return false;
@@ -226,10 +226,10 @@ public class ClaimResponse extends DomainResource {
          * @return {@link #noteNumber} (A list of note references to the notes provided below.)
          */
     // syntactic sugar
-        public IntegerType addNoteNumberElement() {//2 
-          IntegerType t = new IntegerType();
+        public PositiveIntType addNoteNumberElement() {//2 
+          PositiveIntType t = new PositiveIntType();
           if (this.noteNumber == null)
-            this.noteNumber = new ArrayList<IntegerType>();
+            this.noteNumber = new ArrayList<PositiveIntType>();
           this.noteNumber.add(t);
           return t;
         }
@@ -238,10 +238,10 @@ public class ClaimResponse extends DomainResource {
          * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
          */
         public ItemsComponent addNoteNumber(int value) { //1
-          IntegerType t = new IntegerType();
+          PositiveIntType t = new PositiveIntType();
           t.setValue(value);
           if (this.noteNumber == null)
-            this.noteNumber = new ArrayList<IntegerType>();
+            this.noteNumber = new ArrayList<PositiveIntType>();
           this.noteNumber.add(t);
           return this;
         }
@@ -252,8 +252,8 @@ public class ClaimResponse extends DomainResource {
         public boolean hasNoteNumber(int value) { 
           if (this.noteNumber == null)
             return false;
-          for (IntegerType v : this.noteNumber)
-            if (v.equals(value)) // integer
+          for (PositiveIntType v : this.noteNumber)
+            if (v.equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -340,8 +340,8 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequenceLinkId", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
-          childrenList.add(new Property("noteNumber", "integer", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
+          childrenList.add(new Property("sequenceLinkId", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
+          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
           childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
           childrenList.add(new Property("detail", "", "The second tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
@@ -351,8 +351,8 @@ public class ClaimResponse extends DomainResource {
         copyValues(dst);
         dst.sequenceLinkId = sequenceLinkId == null ? null : sequenceLinkId.copy();
         if (noteNumber != null) {
-          dst.noteNumber = new ArrayList<IntegerType>();
-          for (IntegerType i : noteNumber)
+          dst.noteNumber = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : noteNumber)
             dst.noteNumber.add(i.copy());
         };
         if (adjudication != null) {
@@ -578,9 +578,9 @@ public class ClaimResponse extends DomainResource {
         /**
          * A service line number.
          */
-        @Child(name ="sequenceLinkId", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="sequenceLinkId", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
-        protected IntegerType sequenceLinkId;
+        protected PositiveIntType sequenceLinkId;
 
         /**
          * The adjudications results.
@@ -596,13 +596,13 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Subdetail line items", formalDefinition="The third tier service adjudications for submitted services." )
         protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = 2096682387L;
+        private static final long serialVersionUID = -1751018357L;
 
       public ItemDetailComponent() {
         super();
       }
 
-      public ItemDetailComponent(IntegerType sequenceLinkId) {
+      public ItemDetailComponent(PositiveIntType sequenceLinkId) {
         super();
         this.sequenceLinkId = sequenceLinkId;
       }
@@ -610,12 +610,12 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public IntegerType getSequenceLinkIdElement() { 
+        public PositiveIntType getSequenceLinkIdElement() { 
           if (this.sequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemDetailComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.sequenceLinkId = new IntegerType(); // bb
+              this.sequenceLinkId = new PositiveIntType(); // bb
           return this.sequenceLinkId;
         }
 
@@ -630,7 +630,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public ItemDetailComponent setSequenceLinkIdElement(IntegerType value) { 
+        public ItemDetailComponent setSequenceLinkIdElement(PositiveIntType value) { 
           this.sequenceLinkId = value;
           return this;
         }
@@ -647,7 +647,7 @@ public class ClaimResponse extends DomainResource {
          */
         public ItemDetailComponent setSequenceLinkId(int value) { 
             if (this.sequenceLinkId == null)
-              this.sequenceLinkId = new IntegerType();
+              this.sequenceLinkId = new PositiveIntType();
             this.sequenceLinkId.setValue(value);
           return this;
         }
@@ -734,7 +734,7 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequenceLinkId", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
+          childrenList.add(new Property("sequenceLinkId", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
           childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
           childrenList.add(new Property("subDetail", "", "The third tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
         }
@@ -964,9 +964,9 @@ public class ClaimResponse extends DomainResource {
         /**
          * A service line number.
          */
-        @Child(name ="sequenceLinkId", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="sequenceLinkId", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
-        protected IntegerType sequenceLinkId;
+        protected PositiveIntType sequenceLinkId;
 
         /**
          * The adjudications results.
@@ -975,13 +975,13 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Subdetail adjudication", formalDefinition="The adjudications results." )
         protected List<SubdetailAdjudicationComponent> adjudication;
 
-        private static final long serialVersionUID = -1143083130L;
+        private static final long serialVersionUID = 1780202110L;
 
       public SubDetailComponent() {
         super();
       }
 
-      public SubDetailComponent(IntegerType sequenceLinkId) {
+      public SubDetailComponent(PositiveIntType sequenceLinkId) {
         super();
         this.sequenceLinkId = sequenceLinkId;
       }
@@ -989,12 +989,12 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public IntegerType getSequenceLinkIdElement() { 
+        public PositiveIntType getSequenceLinkIdElement() { 
           if (this.sequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.sequenceLinkId = new IntegerType(); // bb
+              this.sequenceLinkId = new PositiveIntType(); // bb
           return this.sequenceLinkId;
         }
 
@@ -1009,7 +1009,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public SubDetailComponent setSequenceLinkIdElement(IntegerType value) { 
+        public SubDetailComponent setSequenceLinkIdElement(PositiveIntType value) { 
           this.sequenceLinkId = value;
           return this;
         }
@@ -1026,7 +1026,7 @@ public class ClaimResponse extends DomainResource {
          */
         public SubDetailComponent setSequenceLinkId(int value) { 
             if (this.sequenceLinkId == null)
-              this.sequenceLinkId = new IntegerType();
+              this.sequenceLinkId = new PositiveIntType();
             this.sequenceLinkId.setValue(value);
           return this;
         }
@@ -1073,7 +1073,7 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequenceLinkId", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
+          childrenList.add(new Property("sequenceLinkId", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
           childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
         }
 
@@ -1297,9 +1297,9 @@ public class ClaimResponse extends DomainResource {
         /**
          * List of input service items which this service line is intended to replace.
          */
-        @Child(name ="sequenceLinkId", type={IntegerType.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="sequenceLinkId", type={PositiveIntType.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Service instances", formalDefinition="List of input service items which this service line is intended to replace." )
-        protected List<IntegerType> sequenceLinkId;
+        protected List<PositiveIntType> sequenceLinkId;
 
         /**
          * A code to indicate the Professional Service or Product supplied.
@@ -1318,9 +1318,9 @@ public class ClaimResponse extends DomainResource {
         /**
          * A list of note references to the notes provided below.
          */
-        @Child(name ="noteNumberLinkId", type={IntegerType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="noteNumberLinkId", type={PositiveIntType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
-        protected List<IntegerType> noteNumberLinkId;
+        protected List<PositiveIntType> noteNumberLinkId;
 
         /**
          * The adjudications results.
@@ -1336,7 +1336,7 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Added items details", formalDefinition="The second tier service adjudications for payor added services." )
         protected List<AddedItemsDetailComponent> detail;
 
-        private static final long serialVersionUID = -1703432926L;
+        private static final long serialVersionUID = -1675935854L;
 
       public AddedItemComponent() {
         super();
@@ -1350,16 +1350,16 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
-        public List<IntegerType> getSequenceLinkId() { 
+        public List<PositiveIntType> getSequenceLinkId() { 
           if (this.sequenceLinkId == null)
-            this.sequenceLinkId = new ArrayList<IntegerType>();
+            this.sequenceLinkId = new ArrayList<PositiveIntType>();
           return this.sequenceLinkId;
         }
 
         public boolean hasSequenceLinkId() { 
           if (this.sequenceLinkId == null)
             return false;
-          for (IntegerType item : this.sequenceLinkId)
+          for (PositiveIntType item : this.sequenceLinkId)
             if (!item.isEmpty())
               return true;
           return false;
@@ -1369,10 +1369,10 @@ public class ClaimResponse extends DomainResource {
          * @return {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
     // syntactic sugar
-        public IntegerType addSequenceLinkIdElement() {//2 
-          IntegerType t = new IntegerType();
+        public PositiveIntType addSequenceLinkIdElement() {//2 
+          PositiveIntType t = new PositiveIntType();
           if (this.sequenceLinkId == null)
-            this.sequenceLinkId = new ArrayList<IntegerType>();
+            this.sequenceLinkId = new ArrayList<PositiveIntType>();
           this.sequenceLinkId.add(t);
           return t;
         }
@@ -1381,10 +1381,10 @@ public class ClaimResponse extends DomainResource {
          * @param value {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
         public AddedItemComponent addSequenceLinkId(int value) { //1
-          IntegerType t = new IntegerType();
+          PositiveIntType t = new PositiveIntType();
           t.setValue(value);
           if (this.sequenceLinkId == null)
-            this.sequenceLinkId = new ArrayList<IntegerType>();
+            this.sequenceLinkId = new ArrayList<PositiveIntType>();
           this.sequenceLinkId.add(t);
           return this;
         }
@@ -1395,8 +1395,8 @@ public class ClaimResponse extends DomainResource {
         public boolean hasSequenceLinkId(int value) { 
           if (this.sequenceLinkId == null)
             return false;
-          for (IntegerType v : this.sequenceLinkId)
-            if (v.equals(value)) // integer
+          for (PositiveIntType v : this.sequenceLinkId)
+            if (v.equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -1452,16 +1452,16 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
-        public List<IntegerType> getNoteNumberLinkId() { 
+        public List<PositiveIntType> getNoteNumberLinkId() { 
           if (this.noteNumberLinkId == null)
-            this.noteNumberLinkId = new ArrayList<IntegerType>();
+            this.noteNumberLinkId = new ArrayList<PositiveIntType>();
           return this.noteNumberLinkId;
         }
 
         public boolean hasNoteNumberLinkId() { 
           if (this.noteNumberLinkId == null)
             return false;
-          for (IntegerType item : this.noteNumberLinkId)
+          for (PositiveIntType item : this.noteNumberLinkId)
             if (!item.isEmpty())
               return true;
           return false;
@@ -1471,10 +1471,10 @@ public class ClaimResponse extends DomainResource {
          * @return {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
     // syntactic sugar
-        public IntegerType addNoteNumberLinkIdElement() {//2 
-          IntegerType t = new IntegerType();
+        public PositiveIntType addNoteNumberLinkIdElement() {//2 
+          PositiveIntType t = new PositiveIntType();
           if (this.noteNumberLinkId == null)
-            this.noteNumberLinkId = new ArrayList<IntegerType>();
+            this.noteNumberLinkId = new ArrayList<PositiveIntType>();
           this.noteNumberLinkId.add(t);
           return t;
         }
@@ -1483,10 +1483,10 @@ public class ClaimResponse extends DomainResource {
          * @param value {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
         public AddedItemComponent addNoteNumberLinkId(int value) { //1
-          IntegerType t = new IntegerType();
+          PositiveIntType t = new PositiveIntType();
           t.setValue(value);
           if (this.noteNumberLinkId == null)
-            this.noteNumberLinkId = new ArrayList<IntegerType>();
+            this.noteNumberLinkId = new ArrayList<PositiveIntType>();
           this.noteNumberLinkId.add(t);
           return this;
         }
@@ -1497,8 +1497,8 @@ public class ClaimResponse extends DomainResource {
         public boolean hasNoteNumberLinkId(int value) { 
           if (this.noteNumberLinkId == null)
             return false;
-          for (IntegerType v : this.noteNumberLinkId)
-            if (v.equals(value)) // integer
+          for (PositiveIntType v : this.noteNumberLinkId)
+            if (v.equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -1585,10 +1585,10 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequenceLinkId", "integer", "List of input service items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
+          childrenList.add(new Property("sequenceLinkId", "positiveInt", "List of input service items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
           childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
-          childrenList.add(new Property("noteNumberLinkId", "integer", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumberLinkId));
+          childrenList.add(new Property("noteNumberLinkId", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumberLinkId));
           childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
           childrenList.add(new Property("detail", "", "The second tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
@@ -1597,15 +1597,15 @@ public class ClaimResponse extends DomainResource {
         AddedItemComponent dst = new AddedItemComponent();
         copyValues(dst);
         if (sequenceLinkId != null) {
-          dst.sequenceLinkId = new ArrayList<IntegerType>();
-          for (IntegerType i : sequenceLinkId)
+          dst.sequenceLinkId = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : sequenceLinkId)
             dst.sequenceLinkId.add(i.copy());
         };
         dst.service = service == null ? null : service.copy();
         dst.fee = fee == null ? null : fee.copy();
         if (noteNumberLinkId != null) {
-          dst.noteNumberLinkId = new ArrayList<IntegerType>();
-          for (IntegerType i : noteNumberLinkId)
+          dst.noteNumberLinkId = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : noteNumberLinkId)
             dst.noteNumberLinkId.add(i.copy());
         };
         if (adjudication != null) {
@@ -2178,23 +2178,23 @@ public class ClaimResponse extends DomainResource {
         /**
          * The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.
          */
-        @Child(name ="sequenceLinkId", type={IntegerType.class}, order=1, min=0, max=1)
+        @Child(name ="sequenceLinkId", type={PositiveIntType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Item sequence number", formalDefinition="The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere." )
-        protected IntegerType sequenceLinkId;
+        protected PositiveIntType sequenceLinkId;
 
         /**
          * The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.
          */
-        @Child(name ="detailSequenceLinkId", type={IntegerType.class}, order=2, min=0, max=1)
+        @Child(name ="detailSequenceLinkId", type={PositiveIntType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Detail sequence number", formalDefinition="The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition." )
-        protected IntegerType detailSequenceLinkId;
+        protected PositiveIntType detailSequenceLinkId;
 
         /**
          * The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.
          */
-        @Child(name ="subdetailSequenceLinkId", type={IntegerType.class}, order=3, min=0, max=1)
+        @Child(name ="subdetailSequenceLinkId", type={PositiveIntType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Subdetail sequence number", formalDefinition="The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition." )
-        protected IntegerType subdetailSequenceLinkId;
+        protected PositiveIntType subdetailSequenceLinkId;
 
         /**
          * An error code,froma specified code system, which details why the claim could not be adjudicated.
@@ -2203,7 +2203,7 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Error code detailing processing issues", formalDefinition="An error code,froma specified code system, which details why the claim could not be adjudicated." )
         protected Coding code;
 
-        private static final long serialVersionUID = 878850209L;
+        private static final long serialVersionUID = -1893641175L;
 
       public ErrorsComponent() {
         super();
@@ -2217,12 +2217,12 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public IntegerType getSequenceLinkIdElement() { 
+        public PositiveIntType getSequenceLinkIdElement() { 
           if (this.sequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.sequenceLinkId = new IntegerType(); // bb
+              this.sequenceLinkId = new PositiveIntType(); // bb
           return this.sequenceLinkId;
         }
 
@@ -2237,7 +2237,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #sequenceLinkId} (The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public ErrorsComponent setSequenceLinkIdElement(IntegerType value) { 
+        public ErrorsComponent setSequenceLinkIdElement(PositiveIntType value) { 
           this.sequenceLinkId = value;
           return this;
         }
@@ -2254,7 +2254,7 @@ public class ClaimResponse extends DomainResource {
          */
         public ErrorsComponent setSequenceLinkId(int value) { 
             if (this.sequenceLinkId == null)
-              this.sequenceLinkId = new IntegerType();
+              this.sequenceLinkId = new PositiveIntType();
             this.sequenceLinkId.setValue(value);
           return this;
         }
@@ -2262,12 +2262,12 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #detailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.). This is the underlying object with id, value and extensions. The accessor "getDetailSequenceLinkId" gives direct access to the value
          */
-        public IntegerType getDetailSequenceLinkIdElement() { 
+        public PositiveIntType getDetailSequenceLinkIdElement() { 
           if (this.detailSequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.detailSequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.detailSequenceLinkId = new IntegerType(); // bb
+              this.detailSequenceLinkId = new PositiveIntType(); // bb
           return this.detailSequenceLinkId;
         }
 
@@ -2282,7 +2282,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #detailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.). This is the underlying object with id, value and extensions. The accessor "getDetailSequenceLinkId" gives direct access to the value
          */
-        public ErrorsComponent setDetailSequenceLinkIdElement(IntegerType value) { 
+        public ErrorsComponent setDetailSequenceLinkIdElement(PositiveIntType value) { 
           this.detailSequenceLinkId = value;
           return this;
         }
@@ -2299,7 +2299,7 @@ public class ClaimResponse extends DomainResource {
          */
         public ErrorsComponent setDetailSequenceLinkId(int value) { 
             if (this.detailSequenceLinkId == null)
-              this.detailSequenceLinkId = new IntegerType();
+              this.detailSequenceLinkId = new PositiveIntType();
             this.detailSequenceLinkId.setValue(value);
           return this;
         }
@@ -2307,12 +2307,12 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #subdetailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.). This is the underlying object with id, value and extensions. The accessor "getSubdetailSequenceLinkId" gives direct access to the value
          */
-        public IntegerType getSubdetailSequenceLinkIdElement() { 
+        public PositiveIntType getSubdetailSequenceLinkIdElement() { 
           if (this.subdetailSequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.subdetailSequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.subdetailSequenceLinkId = new IntegerType(); // bb
+              this.subdetailSequenceLinkId = new PositiveIntType(); // bb
           return this.subdetailSequenceLinkId;
         }
 
@@ -2327,7 +2327,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #subdetailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.). This is the underlying object with id, value and extensions. The accessor "getSubdetailSequenceLinkId" gives direct access to the value
          */
-        public ErrorsComponent setSubdetailSequenceLinkIdElement(IntegerType value) { 
+        public ErrorsComponent setSubdetailSequenceLinkIdElement(PositiveIntType value) { 
           this.subdetailSequenceLinkId = value;
           return this;
         }
@@ -2344,7 +2344,7 @@ public class ClaimResponse extends DomainResource {
          */
         public ErrorsComponent setSubdetailSequenceLinkId(int value) { 
             if (this.subdetailSequenceLinkId == null)
-              this.subdetailSequenceLinkId = new IntegerType();
+              this.subdetailSequenceLinkId = new PositiveIntType();
             this.subdetailSequenceLinkId.setValue(value);
           return this;
         }
@@ -2375,9 +2375,9 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequenceLinkId", "integer", "The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
-          childrenList.add(new Property("detailSequenceLinkId", "integer", "The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.", 0, java.lang.Integer.MAX_VALUE, detailSequenceLinkId));
-          childrenList.add(new Property("subdetailSequenceLinkId", "integer", "The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.", 0, java.lang.Integer.MAX_VALUE, subdetailSequenceLinkId));
+          childrenList.add(new Property("sequenceLinkId", "positiveInt", "The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
+          childrenList.add(new Property("detailSequenceLinkId", "positiveInt", "The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.", 0, java.lang.Integer.MAX_VALUE, detailSequenceLinkId));
+          childrenList.add(new Property("subdetailSequenceLinkId", "positiveInt", "The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.", 0, java.lang.Integer.MAX_VALUE, subdetailSequenceLinkId));
           childrenList.add(new Property("code", "Coding", "An error code,froma specified code system, which details why the claim could not be adjudicated.", 0, java.lang.Integer.MAX_VALUE, code));
         }
 
@@ -2427,9 +2427,9 @@ public class ClaimResponse extends DomainResource {
         /**
          * An integer associated with each note which may be referred to from each service line item.
          */
-        @Child(name ="number", type={IntegerType.class}, order=1, min=0, max=1)
+        @Child(name ="number", type={PositiveIntType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Note Number for this note", formalDefinition="An integer associated with each note which may be referred to from each service line item." )
-        protected IntegerType number;
+        protected PositiveIntType number;
 
         /**
          * The note purpose: Print/Display.
@@ -2445,7 +2445,7 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Note explanitory text", formalDefinition="The note text." )
         protected StringType text;
 
-        private static final long serialVersionUID = -1837694409L;
+        private static final long serialVersionUID = 1768923951L;
 
       public NotesComponent() {
         super();
@@ -2454,12 +2454,12 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #number} (An integer associated with each note which may be referred to from each service line item.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public IntegerType getNumberElement() { 
+        public PositiveIntType getNumberElement() { 
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.number");
             else if (Configuration.doAutoCreate())
-              this.number = new IntegerType(); // bb
+              this.number = new PositiveIntType(); // bb
           return this.number;
         }
 
@@ -2474,7 +2474,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #number} (An integer associated with each note which may be referred to from each service line item.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public NotesComponent setNumberElement(IntegerType value) { 
+        public NotesComponent setNumberElement(PositiveIntType value) { 
           this.number = value;
           return this;
         }
@@ -2491,7 +2491,7 @@ public class ClaimResponse extends DomainResource {
          */
         public NotesComponent setNumber(int value) { 
             if (this.number == null)
-              this.number = new IntegerType();
+              this.number = new PositiveIntType();
             this.number.setValue(value);
           return this;
         }
@@ -2571,7 +2571,7 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("number", "integer", "An integer associated with each note which may be referred to from each service line item.", 0, java.lang.Integer.MAX_VALUE, number));
+          childrenList.add(new Property("number", "positiveInt", "An integer associated with each note which may be referred to from each service line item.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("type", "Coding", "The note purpose: Print/Display.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("text", "string", "The note text.", 0, java.lang.Integer.MAX_VALUE, text));
         }
@@ -2618,9 +2618,9 @@ public class ClaimResponse extends DomainResource {
         /**
          * A service line item.
          */
-        @Child(name ="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="sequence", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Service instance identifier", formalDefinition="A service line item." )
-        protected IntegerType sequence;
+        protected PositiveIntType sequence;
 
         /**
          * The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
@@ -2681,13 +2681,13 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
         protected Coding originalRuleset;
 
-        private static final long serialVersionUID = -2053473948L;
+        private static final long serialVersionUID = 621250924L;
 
       public CoverageComponent() {
         super();
       }
 
-      public CoverageComponent(IntegerType sequence, BooleanType focal, Reference coverage, Coding relationship) {
+      public CoverageComponent(PositiveIntType sequence, BooleanType focal, Reference coverage, Coding relationship) {
         super();
         this.sequence = sequence;
         this.focal = focal;
@@ -2698,12 +2698,12 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public IntegerType getSequenceElement() { 
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType(); // bb
+              this.sequence = new PositiveIntType(); // bb
           return this.sequence;
         }
 
@@ -2718,7 +2718,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public CoverageComponent setSequenceElement(IntegerType value) { 
+        public CoverageComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -2735,7 +2735,7 @@ public class ClaimResponse extends DomainResource {
          */
         public CoverageComponent setSequence(int value) { 
             if (this.sequence == null)
-              this.sequence = new IntegerType();
+              this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
           return this;
         }
@@ -3026,7 +3026,7 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequence", "integer", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
+          childrenList.add(new Property("sequence", "positiveInt", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("focal", "boolean", "The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.", 0, java.lang.Integer.MAX_VALUE, focal));
           childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
           childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));

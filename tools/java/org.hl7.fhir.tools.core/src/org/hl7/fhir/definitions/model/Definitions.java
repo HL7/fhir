@@ -495,18 +495,11 @@ public class Definitions {
   }
 
   public boolean noPublish(String category)  {
-    ImplementationGuide ig = igs.get(category);
-    if (ig == null)
-      throw new Error("No known IG for "+category);
-    if (publishAll)
-      return false;
-    return !ig.isBallot();
+    return !doPublish(category);
   }
 
   public boolean noPublish(ImplementationGuide ig)  {
-    if (publishAll)
-      return false;
-    return !ig.isBallot();
+    return !doPublish(ig);
   }
 
   public boolean isPublishAll() {
@@ -518,12 +511,18 @@ public class Definitions {
   }
 
   public boolean doPublish(String category) {
-    return !noPublish(category);
+    ImplementationGuide ig = igs.get(category);
+    if (ig == null)
+      throw new Error("No known IG for "+category);
+    if (publishAll)
+      return true;
+    return ig.isBallot();
   }
 
   public boolean doPublish(ImplementationGuide ig) {
-    return !noPublish(ig);
+    if (publishAll)
+      return true;
+    return ig.isBallot();
   }
-
 
 }

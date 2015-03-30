@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 public enum ResourceType {
     Condition,
@@ -24,15 +24,14 @@ public enum ResourceType {
     AppointmentResponse,
     MedicationStatement,
     EpisodeOfCare,
-    Questionnaire,
     Composition,
+    Questionnaire,
     OperationOutcome,
     Conformance,
     FamilyMemberHistory,
     NamingSystem,
     Media,
     Binary,
-    Other,
     HealthcareService,
     VisionPrescription,
     DocumentReference,
@@ -141,10 +140,10 @@ public enum ResourceType {
       return "medicationstatement";
     case EpisodeOfCare:
       return "episodeofcare";
-    case Questionnaire:
-      return "questionnaire";
     case Composition:
       return "composition";
+    case Questionnaire:
+      return "questionnaire";
     case OperationOutcome:
       return "operationoutcome";
     case Conformance:
@@ -157,8 +156,6 @@ public enum ResourceType {
       return "media";
     case Binary:
       return "binary";
-    case Other:
-      return "other";
     case HealthcareService:
       return "healthcareservice";
     case VisionPrescription:

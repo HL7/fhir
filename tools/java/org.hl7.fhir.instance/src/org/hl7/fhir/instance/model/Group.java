@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -415,9 +415,9 @@ public class Group extends DomainResource {
     /**
      * A count of the number of resource instances that are part of the group.
      */
-    @Child(name ="quantity", type={IntegerType.class}, order=5, min=0, max=1)
+    @Child(name ="quantity", type={UnsignedIntType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Number of members", formalDefinition="A count of the number of resource instances that are part of the group." )
-    protected IntegerType quantity;
+    protected UnsignedIntType quantity;
 
     /**
      * Identifies the traits shared by members of the group.
@@ -438,7 +438,7 @@ public class Group extends DomainResource {
     protected List<Resource> memberTarget;
 
 
-    private static final long serialVersionUID = 45096653L;
+    private static final long serialVersionUID = -1024529199L;
 
     public Group() {
       super();
@@ -640,12 +640,12 @@ public class Group extends DomainResource {
     /**
      * @return {@link #quantity} (A count of the number of resource instances that are part of the group.). This is the underlying object with id, value and extensions. The accessor "getQuantity" gives direct access to the value
      */
-    public IntegerType getQuantityElement() { 
+    public UnsignedIntType getQuantityElement() { 
       if (this.quantity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.quantity");
         else if (Configuration.doAutoCreate())
-          this.quantity = new IntegerType(); // bb
+          this.quantity = new UnsignedIntType(); // bb
       return this.quantity;
     }
 
@@ -660,7 +660,7 @@ public class Group extends DomainResource {
     /**
      * @param value {@link #quantity} (A count of the number of resource instances that are part of the group.). This is the underlying object with id, value and extensions. The accessor "getQuantity" gives direct access to the value
      */
-    public Group setQuantityElement(IntegerType value) { 
+    public Group setQuantityElement(UnsignedIntType value) { 
       this.quantity = value;
       return this;
     }
@@ -677,7 +677,7 @@ public class Group extends DomainResource {
      */
     public Group setQuantity(int value) { 
         if (this.quantity == null)
-          this.quantity = new IntegerType();
+          this.quantity = new UnsignedIntType();
         this.quantity.setValue(value);
       return this;
     }
@@ -778,7 +778,7 @@ public class Group extends DomainResource {
         childrenList.add(new Property("actual", "boolean", "If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.", 0, java.lang.Integer.MAX_VALUE, actual));
         childrenList.add(new Property("code", "CodeableConcept", "Provides a specific type of resource the group includes.  E.g. 'cow', 'syringe', etc.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("name", "string", "A label assigned to the group for human identification and communication.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("quantity", "integer", "A count of the number of resource instances that are part of the group.", 0, java.lang.Integer.MAX_VALUE, quantity));
+        childrenList.add(new Property("quantity", "unsignedInt", "A count of the number of resource instances that are part of the group.", 0, java.lang.Integer.MAX_VALUE, quantity));
         childrenList.add(new Property("characteristic", "", "Identifies the traits shared by members of the group.", 0, java.lang.Integer.MAX_VALUE, characteristic));
         childrenList.add(new Property("member", "Reference(Patient|Practitioner|Device|Medication|Substance)", "Identifies the resource instances that are members of the group.", 0, java.lang.Integer.MAX_VALUE, member));
       }

@@ -646,7 +646,7 @@ public class QuestionnaireBuilder {
 
   private boolean isPrimitive(TypeRefComponent t) {
     return (t != null) && 
-          (t.getCode().equals("string") || t.getCode().equals("code") || t.getCode().equals("boolean") || t.getCode().equals("integer") || 
+          (t.getCode().equals("string") || t.getCode().equals("code") || t.getCode().equals("boolean") || t.getCode().equals("integer") || t.getCode().equals("unsignedInt") || t.getCode().equals("positiveInt") ||
               t.getCode().equals("decimal") || t.getCode().equals("date") || t.getCode().equals("dateTime") || 
               t.getCode().equals("instant") || t.getCode().equals("time") || t.getCode().equals("Reference"));
   }
@@ -682,7 +682,7 @@ public class QuestionnaireBuilder {
       addContactPointQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Identifier"))
       addIdentifierQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("integer"))
+    else if (t.getCode().equals("integer") || t.getCode().equals("positiveInt") || t.getCode().equals("unsignedInt") )
       addIntegerQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Coding"))
       addCodingQuestions(group, element, path, answerGroups);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -82,9 +82,9 @@ public class SampledData extends Type {
     /**
      * The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
      */
-    @Child(name ="dimensions", type={IntegerType.class}, order=5, min=1, max=1)
+    @Child(name ="dimensions", type={PositiveIntType.class}, order=5, min=1, max=1)
     @Description(shortDefinition="Number of sample points at each time point", formalDefinition="The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once." )
-    protected IntegerType dimensions;
+    protected PositiveIntType dimensions;
 
     /**
      * A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
@@ -93,13 +93,13 @@ public class SampledData extends Type {
     @Description(shortDefinition="Decimal values with spaces, or 'E' | 'U' | 'L'", formalDefinition="A series of data points which are decimal values separated by a single space (character u20). The special values 'E' (error), 'L' (below detection limit) and 'U' (above detection limit) can also be used in place of a decimal value." )
     protected StringType data;
 
-    private static final long serialVersionUID = 173820410L;
+    private static final long serialVersionUID = -1984181262L;
 
     public SampledData() {
       super();
     }
 
-    public SampledData(Quantity origin, DecimalType period, IntegerType dimensions, StringType data) {
+    public SampledData(Quantity origin, DecimalType period, PositiveIntType dimensions, StringType data) {
       super();
       this.origin = origin;
       this.period = period;
@@ -326,12 +326,12 @@ public class SampledData extends Type {
     /**
      * @return {@link #dimensions} (The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.). This is the underlying object with id, value and extensions. The accessor "getDimensions" gives direct access to the value
      */
-    public IntegerType getDimensionsElement() { 
+    public PositiveIntType getDimensionsElement() { 
       if (this.dimensions == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.dimensions");
         else if (Configuration.doAutoCreate())
-          this.dimensions = new IntegerType(); // bb
+          this.dimensions = new PositiveIntType(); // bb
       return this.dimensions;
     }
 
@@ -346,7 +346,7 @@ public class SampledData extends Type {
     /**
      * @param value {@link #dimensions} (The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.). This is the underlying object with id, value and extensions. The accessor "getDimensions" gives direct access to the value
      */
-    public SampledData setDimensionsElement(IntegerType value) { 
+    public SampledData setDimensionsElement(PositiveIntType value) { 
       this.dimensions = value;
       return this;
     }
@@ -363,7 +363,7 @@ public class SampledData extends Type {
      */
     public SampledData setDimensions(int value) { 
         if (this.dimensions == null)
-          this.dimensions = new IntegerType();
+          this.dimensions = new PositiveIntType();
         this.dimensions.setValue(value);
       return this;
     }
@@ -420,7 +420,7 @@ public class SampledData extends Type {
         childrenList.add(new Property("factor", "decimal", "A correction factor that is applied to the sampled data points before they are added to the origin.", 0, java.lang.Integer.MAX_VALUE, factor));
         childrenList.add(new Property("lowerLimit", "decimal", "The lower limit of detection of the measured points. This is needed if any of the data points have the value 'L' (lower than detection limit).", 0, java.lang.Integer.MAX_VALUE, lowerLimit));
         childrenList.add(new Property("upperLimit", "decimal", "The upper limit of detection of the measured points. This is needed if any of the data points have the value 'U' (higher than detection limit).", 0, java.lang.Integer.MAX_VALUE, upperLimit));
-        childrenList.add(new Property("dimensions", "integer", "The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.", 0, java.lang.Integer.MAX_VALUE, dimensions));
+        childrenList.add(new Property("dimensions", "positiveInt", "The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.", 0, java.lang.Integer.MAX_VALUE, dimensions));
         childrenList.add(new Property("data", "string", "A series of data points which are decimal values separated by a single space (character u20). The special values 'E' (error), 'L' (below detection limit) and 'U' (above detection limit) can also be used in place of a decimal value.", 0, java.lang.Integer.MAX_VALUE, data));
       }
 

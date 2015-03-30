@@ -98,4 +98,9 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 		return supportsSystem(system);
   }
 
+  @Override
+  public ValueSet expandVS(ValueSet vs) throws Exception {
+    throw new Error("Not done yet");
+  }
+
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -3894,9 +3894,9 @@ public class Conformance extends DomainResource {
         /**
          * Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
-        @Child(name ="reliableCache", type={IntegerType.class}, order=2, min=0, max=1)
+        @Child(name ="reliableCache", type={UnsignedIntType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Reliable Message Cache Length (min)", formalDefinition="Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)." )
-        protected IntegerType reliableCache;
+        protected UnsignedIntType reliableCache;
 
         /**
          * Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
@@ -3912,7 +3912,7 @@ public class Conformance extends DomainResource {
         @Description(shortDefinition="Declare support for this event", formalDefinition="A description of the solution's support for an event at this end point." )
         protected List<ConformanceMessagingEventComponent> event;
 
-        private static final long serialVersionUID = -217151442L;
+        private static final long serialVersionUID = -1356115534L;
 
       public ConformanceMessagingComponent() {
         super();
@@ -3970,12 +3970,12 @@ public class Conformance extends DomainResource {
         /**
          * @return {@link #reliableCache} (Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
          */
-        public IntegerType getReliableCacheElement() { 
+        public UnsignedIntType getReliableCacheElement() { 
           if (this.reliableCache == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingComponent.reliableCache");
             else if (Configuration.doAutoCreate())
-              this.reliableCache = new IntegerType(); // bb
+              this.reliableCache = new UnsignedIntType(); // bb
           return this.reliableCache;
         }
 
@@ -3990,7 +3990,7 @@ public class Conformance extends DomainResource {
         /**
          * @param value {@link #reliableCache} (Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
          */
-        public ConformanceMessagingComponent setReliableCacheElement(IntegerType value) { 
+        public ConformanceMessagingComponent setReliableCacheElement(UnsignedIntType value) { 
           this.reliableCache = value;
           return this;
         }
@@ -4007,7 +4007,7 @@ public class Conformance extends DomainResource {
          */
         public ConformanceMessagingComponent setReliableCache(int value) { 
             if (this.reliableCache == null)
-              this.reliableCache = new IntegerType();
+              this.reliableCache = new UnsignedIntType();
             this.reliableCache.setValue(value);
           return this;
         }
@@ -4104,7 +4104,7 @@ public class Conformance extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("endpoint", "uri", "An address to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint));
-          childrenList.add(new Property("reliableCache", "integer", "Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).", 0, java.lang.Integer.MAX_VALUE, reliableCache));
+          childrenList.add(new Property("reliableCache", "unsignedInt", "Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).", 0, java.lang.Integer.MAX_VALUE, reliableCache));
           childrenList.add(new Property("documentation", "string", "Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("event", "", "A description of the solution's support for an event at this end point.", 0, java.lang.Integer.MAX_VALUE, event));
         }

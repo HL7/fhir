@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -185,7 +185,7 @@ public class Condition extends DomainResource {
         /**
          * Reference to a formal record of the evidence on which the staging assessment is based.
          */
-        @Child(name ="assessment", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="assessment", type={ClinicalImpression.class, DiagnosticReport.class, Observation.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Formal record of assessment", formalDefinition="Reference to a formal record of the evidence on which the staging assessment is based." )
         protected List<Reference> assessment;
         /**
@@ -276,7 +276,7 @@ public class Condition extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("summary", "CodeableConcept", "A simple summary of the stage such as 'Stage 3'. The determination of the stage is disease-specific.", 0, java.lang.Integer.MAX_VALUE, summary));
-          childrenList.add(new Property("assessment", "Reference(Any)", "Reference to a formal record of the evidence on which the staging assessment is based.", 0, java.lang.Integer.MAX_VALUE, assessment));
+          childrenList.add(new Property("assessment", "Reference(ClinicalImpression|DiagnosticReport|Observation)", "Reference to a formal record of the evidence on which the staging assessment is based.", 0, java.lang.Integer.MAX_VALUE, assessment));
         }
 
       public ConditionStageComponent copy() {
@@ -468,107 +468,62 @@ public class Condition extends DomainResource {
         /**
          * Code that identifies the structural location.
          */
-        @Child(name ="code", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name ="site", type={CodeableConcept.class, BodySite.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Location - may include laterality", formalDefinition="Code that identifies the structural location." )
-        protected CodeableConcept code;
+        protected Type site;
 
-        /**
-         * Detailed anatomical location information.
-         */
-        @Child(name ="detail", type={StringType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Precise location details", formalDefinition="Detailed anatomical location information." )
-        protected StringType detail;
-
-        private static final long serialVersionUID = -406205954L;
+        private static final long serialVersionUID = 1429072605L;
 
       public ConditionLocationComponent() {
         super();
       }
 
         /**
-         * @return {@link #code} (Code that identifies the structural location.)
+         * @return {@link #site} (Code that identifies the structural location.)
          */
-        public CodeableConcept getCode() { 
-          if (this.code == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConditionLocationComponent.code");
-            else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept(); // cc
-          return this.code;
-        }
-
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+        public Type getSite() { 
+          return this.site;
         }
 
         /**
-         * @param value {@link #code} (Code that identifies the structural location.)
+         * @return {@link #site} (Code that identifies the structural location.)
          */
-        public ConditionLocationComponent setCode(CodeableConcept value) { 
-          this.code = value;
-          return this;
+        public CodeableConcept getSiteCodeableConcept() throws Exception { 
+          if (!(this.site instanceof CodeableConcept))
+            throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.site.getClass().getName()+" was encountered");
+          return (CodeableConcept) this.site;
         }
 
         /**
-         * @return {@link #detail} (Detailed anatomical location information.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
+         * @return {@link #site} (Code that identifies the structural location.)
          */
-        public StringType getDetailElement() { 
-          if (this.detail == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConditionLocationComponent.detail");
-            else if (Configuration.doAutoCreate())
-              this.detail = new StringType(); // bb
-          return this.detail;
+        public Reference getSiteReference() throws Exception { 
+          if (!(this.site instanceof Reference))
+            throw new Exception("Type mismatch: the type Reference was expected, but "+this.site.getClass().getName()+" was encountered");
+          return (Reference) this.site;
         }
 
-        public boolean hasDetailElement() { 
-          return this.detail != null && !this.detail.isEmpty();
-        }
-
-        public boolean hasDetail() { 
-          return this.detail != null && !this.detail.isEmpty();
+        public boolean hasSite() { 
+          return this.site != null && !this.site.isEmpty();
         }
 
         /**
-         * @param value {@link #detail} (Detailed anatomical location information.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
+         * @param value {@link #site} (Code that identifies the structural location.)
          */
-        public ConditionLocationComponent setDetailElement(StringType value) { 
-          this.detail = value;
-          return this;
-        }
-
-        /**
-         * @return Detailed anatomical location information.
-         */
-        public String getDetail() { 
-          return this.detail == null ? null : this.detail.getValue();
-        }
-
-        /**
-         * @param value Detailed anatomical location information.
-         */
-        public ConditionLocationComponent setDetail(String value) { 
-          if (Utilities.noString(value))
-            this.detail = null;
-          else {
-            if (this.detail == null)
-              this.detail = new StringType();
-            this.detail.setValue(value);
-          }
+        public ConditionLocationComponent setSite(Type value) { 
+          this.site = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the structural location.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("detail", "string", "Detailed anatomical location information.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("site[x]", "CodeableConcept|Reference(BodySite)", "Code that identifies the structural location.", 0, java.lang.Integer.MAX_VALUE, site));
         }
 
       public ConditionLocationComponent copy() {
         ConditionLocationComponent dst = new ConditionLocationComponent();
         copyValues(dst);
-        dst.code = code == null ? null : code.copy();
-        dst.detail = detail == null ? null : detail.copy();
+        dst.site = site == null ? null : site.copy();
         return dst;
       }
 
@@ -579,7 +534,7 @@ public class Condition extends DomainResource {
         if (!(other instanceof ConditionLocationComponent))
           return false;
         ConditionLocationComponent o = (ConditionLocationComponent) other;
-        return compareDeep(code, o.code, true) && compareDeep(detail, o.detail, true);
+        return compareDeep(site, o.site, true);
       }
 
       @Override
@@ -589,12 +544,11 @@ public class Condition extends DomainResource {
         if (!(other instanceof ConditionLocationComponent))
           return false;
         ConditionLocationComponent o = (ConditionLocationComponent) other;
-        return compareValues(detail, o.detail, true);
+        return true;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (detail == null || detail.isEmpty())
-          ;
+        return super.isEmpty() && (site == null || site.isEmpty());
       }
 
   }
@@ -1828,7 +1782,7 @@ public class Condition extends DomainResource {
   public static final String SP_FOLLOWINGCODE = "following-code";
   @SearchParamDefinition(name="dueto-code", path="Condition.dueTo.code", description="Relationship target by means of a predefined code", type="token" )
   public static final String SP_DUETOCODE = "dueto-code";
-  @SearchParamDefinition(name="location", path="Condition.location.code", description="Location - may include laterality", type="token" )
+  @SearchParamDefinition(name="location", path="Condition.location.site[x]", description="Location - may include laterality", type="token" )
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="subject", path="Condition.patient", description="Who has the condition?", type="reference" )
   public static final String SP_SUBJECT = "subject";

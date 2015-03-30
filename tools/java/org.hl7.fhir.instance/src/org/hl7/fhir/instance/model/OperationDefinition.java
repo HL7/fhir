@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -860,9 +860,9 @@ public class OperationDefinition extends DomainResource {
         /**
          * The minimum number of times this parameter SHALL appear in the request or response.
          */
-        @Child(name ="min", type={IntegerType.class}, order=2, min=1, max=1)
+        @Child(name ="min", type={UnsignedIntType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Minimum Cardinality", formalDefinition="The minimum number of times this parameter SHALL appear in the request or response." )
-        protected IntegerType min;
+        protected UnsignedIntType min;
 
         /**
          * The maximum number of times this element is permitted to appear in the request or response.
@@ -897,13 +897,13 @@ public class OperationDefinition extends DomainResource {
          */
         protected StructureDefinition profileTarget;
 
-        private static final long serialVersionUID = -1434994425L;
+        private static final long serialVersionUID = -856151797L;
 
       public OperationDefinitionParameterPartComponent() {
         super();
       }
 
-      public OperationDefinitionParameterPartComponent(CodeType name, IntegerType min, StringType max, CodeType type) {
+      public OperationDefinitionParameterPartComponent(CodeType name, UnsignedIntType min, StringType max, CodeType type) {
         super();
         this.name = name;
         this.min = min;
@@ -959,12 +959,12 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public IntegerType getMinElement() { 
+        public UnsignedIntType getMinElement() { 
           if (this.min == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.min");
             else if (Configuration.doAutoCreate())
-              this.min = new IntegerType(); // bb
+              this.min = new UnsignedIntType(); // bb
           return this.min;
         }
 
@@ -979,7 +979,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @param value {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public OperationDefinitionParameterPartComponent setMinElement(IntegerType value) { 
+        public OperationDefinitionParameterPartComponent setMinElement(UnsignedIntType value) { 
           this.min = value;
           return this;
         }
@@ -996,7 +996,7 @@ public class OperationDefinition extends DomainResource {
          */
         public OperationDefinitionParameterPartComponent setMin(int value) { 
             if (this.min == null)
-              this.min = new IntegerType();
+              this.min = new UnsignedIntType();
             this.min.setValue(value);
           return this;
         }
@@ -1187,7 +1187,7 @@ public class OperationDefinition extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "code", "The name of used to identify the parameter.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("min", "integer", "The minimum number of times this parameter SHALL appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, min));
+          childrenList.add(new Property("min", "unsignedInt", "The minimum number of times this parameter SHALL appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, min));
           childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("type", "code", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));

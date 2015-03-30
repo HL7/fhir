@@ -78,6 +78,7 @@ import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DecimalType;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.instance.model.PositiveIntType;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.SearchParameter.SearchParamType;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -91,6 +92,7 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.TimeType;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.UnsignedIntType;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.UuidType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -1320,6 +1322,10 @@ public class SpreadsheetParser {
         return new BooleanType(Boolean.valueOf(source)); 
       if (type.equals("integer"))
         return new IntegerType(Integer.valueOf(source)); 
+      if (type.equals("unsignedInt"))
+        return new UnsignedIntType(Integer.valueOf(source)); 
+      if (type.equals("positiveInt"))
+        return new PositiveIntType(Integer.valueOf(source)); 
       if (type.equals("decimal"))
         return new DecimalType(new BigDecimal(source)); 
       if (type.equals("base64Binary"))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -519,9 +519,9 @@ public class Claim extends DomainResource {
         /**
          * Sequence of diagnosis which serves to order and provide a link.
          */
-        @Child(name ="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="sequence", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Sequence of diagnosis", formalDefinition="Sequence of diagnosis which serves to order and provide a link." )
-        protected IntegerType sequence;
+        protected PositiveIntType sequence;
 
         /**
          * The diagnosis.
@@ -530,13 +530,13 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Patient's list of diagnosis", formalDefinition="The diagnosis." )
         protected Coding diagnosis;
 
-        private static final long serialVersionUID = -935927954L;
+        private static final long serialVersionUID = -795010186L;
 
       public DiagnosisComponent() {
         super();
       }
 
-      public DiagnosisComponent(IntegerType sequence, Coding diagnosis) {
+      public DiagnosisComponent(PositiveIntType sequence, Coding diagnosis) {
         super();
         this.sequence = sequence;
         this.diagnosis = diagnosis;
@@ -545,12 +545,12 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (Sequence of diagnosis which serves to order and provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public IntegerType getSequenceElement() { 
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosisComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType(); // bb
+              this.sequence = new PositiveIntType(); // bb
           return this.sequence;
         }
 
@@ -565,7 +565,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #sequence} (Sequence of diagnosis which serves to order and provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public DiagnosisComponent setSequenceElement(IntegerType value) { 
+        public DiagnosisComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -582,7 +582,7 @@ public class Claim extends DomainResource {
          */
         public DiagnosisComponent setSequence(int value) { 
             if (this.sequence == null)
-              this.sequence = new IntegerType();
+              this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
           return this;
         }
@@ -613,7 +613,7 @@ public class Claim extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequence", "integer", "Sequence of diagnosis which serves to order and provide a link.", 0, java.lang.Integer.MAX_VALUE, sequence));
+          childrenList.add(new Property("sequence", "positiveInt", "Sequence of diagnosis which serves to order and provide a link.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("diagnosis", "Coding", "The diagnosis.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
         }
 
@@ -657,9 +657,9 @@ public class Claim extends DomainResource {
         /**
          * A service line item.
          */
-        @Child(name ="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="sequence", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Service instance identifier", formalDefinition="A service line item." )
-        protected IntegerType sequence;
+        protected PositiveIntType sequence;
 
         /**
          * The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
@@ -720,13 +720,13 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
         protected Coding originalRuleset;
 
-        private static final long serialVersionUID = -2053473948L;
+        private static final long serialVersionUID = 621250924L;
 
       public CoverageComponent() {
         super();
       }
 
-      public CoverageComponent(IntegerType sequence, BooleanType focal, Reference coverage, Coding relationship) {
+      public CoverageComponent(PositiveIntType sequence, BooleanType focal, Reference coverage, Coding relationship) {
         super();
         this.sequence = sequence;
         this.focal = focal;
@@ -737,12 +737,12 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public IntegerType getSequenceElement() { 
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType(); // bb
+              this.sequence = new PositiveIntType(); // bb
           return this.sequence;
         }
 
@@ -757,7 +757,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public CoverageComponent setSequenceElement(IntegerType value) { 
+        public CoverageComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -774,7 +774,7 @@ public class Claim extends DomainResource {
          */
         public CoverageComponent setSequence(int value) { 
             if (this.sequence == null)
-              this.sequence = new IntegerType();
+              this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
           return this;
         }
@@ -1065,7 +1065,7 @@ public class Claim extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequence", "integer", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
+          childrenList.add(new Property("sequence", "positiveInt", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("focal", "boolean", "The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.", 0, java.lang.Integer.MAX_VALUE, focal));
           childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
           childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
@@ -1132,9 +1132,9 @@ public class Claim extends DomainResource {
         /**
          * A service line number.
          */
-        @Child(name ="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="sequence", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
-        protected IntegerType sequence;
+        protected PositiveIntType sequence;
 
         /**
          * The type of product or service.
@@ -1158,9 +1158,9 @@ public class Claim extends DomainResource {
         /**
          * Diagnosis applicable for this service or product line.
          */
-        @Child(name ="diagnosisLinkId", type={IntegerType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name ="diagnosisLinkId", type={PositiveIntType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Diagnosis Link", formalDefinition="Diagnosis applicable for this service or product line." )
-        protected List<IntegerType> diagnosisLinkId;
+        protected List<PositiveIntType> diagnosisLinkId;
 
         /**
          * If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
@@ -1253,13 +1253,13 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Prosthetic details", formalDefinition="The materials and placement date of prior fixed prosthesis." )
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = -360690266L;
+        private static final long serialVersionUID = -311028698L;
 
       public ItemsComponent() {
         super();
       }
 
-      public ItemsComponent(IntegerType sequence, Coding type, Coding service) {
+      public ItemsComponent(PositiveIntType sequence, Coding type, Coding service) {
         super();
         this.sequence = sequence;
         this.type = type;
@@ -1269,12 +1269,12 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public IntegerType getSequenceElement() { 
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType(); // bb
+              this.sequence = new PositiveIntType(); // bb
           return this.sequence;
         }
 
@@ -1289,7 +1289,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public ItemsComponent setSequenceElement(IntegerType value) { 
+        public ItemsComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -1306,7 +1306,7 @@ public class Claim extends DomainResource {
          */
         public ItemsComponent setSequence(int value) { 
             if (this.sequence == null)
-              this.sequence = new IntegerType();
+              this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
           return this;
         }
@@ -1382,16 +1382,16 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
-        public List<IntegerType> getDiagnosisLinkId() { 
+        public List<PositiveIntType> getDiagnosisLinkId() { 
           if (this.diagnosisLinkId == null)
-            this.diagnosisLinkId = new ArrayList<IntegerType>();
+            this.diagnosisLinkId = new ArrayList<PositiveIntType>();
           return this.diagnosisLinkId;
         }
 
         public boolean hasDiagnosisLinkId() { 
           if (this.diagnosisLinkId == null)
             return false;
-          for (IntegerType item : this.diagnosisLinkId)
+          for (PositiveIntType item : this.diagnosisLinkId)
             if (!item.isEmpty())
               return true;
           return false;
@@ -1401,10 +1401,10 @@ public class Claim extends DomainResource {
          * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
     // syntactic sugar
-        public IntegerType addDiagnosisLinkIdElement() {//2 
-          IntegerType t = new IntegerType();
+        public PositiveIntType addDiagnosisLinkIdElement() {//2 
+          PositiveIntType t = new PositiveIntType();
           if (this.diagnosisLinkId == null)
-            this.diagnosisLinkId = new ArrayList<IntegerType>();
+            this.diagnosisLinkId = new ArrayList<PositiveIntType>();
           this.diagnosisLinkId.add(t);
           return t;
         }
@@ -1413,10 +1413,10 @@ public class Claim extends DomainResource {
          * @param value {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
         public ItemsComponent addDiagnosisLinkId(int value) { //1
-          IntegerType t = new IntegerType();
+          PositiveIntType t = new PositiveIntType();
           t.setValue(value);
           if (this.diagnosisLinkId == null)
-            this.diagnosisLinkId = new ArrayList<IntegerType>();
+            this.diagnosisLinkId = new ArrayList<PositiveIntType>();
           this.diagnosisLinkId.add(t);
           return this;
         }
@@ -1427,8 +1427,8 @@ public class Claim extends DomainResource {
         public boolean hasDiagnosisLinkId(int value) { 
           if (this.diagnosisLinkId == null)
             return false;
-          for (IntegerType v : this.diagnosisLinkId)
-            if (v.equals(value)) // integer
+          for (PositiveIntType v : this.diagnosisLinkId)
+            if (v.equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -1870,10 +1870,10 @@ public class Claim extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
+          childrenList.add(new Property("sequence", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
-          childrenList.add(new Property("diagnosisLinkId", "integer", "Diagnosis applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, diagnosisLinkId));
+          childrenList.add(new Property("diagnosisLinkId", "positiveInt", "Diagnosis applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, diagnosisLinkId));
           childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("serviceDate", "date", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviceDate));
           childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
@@ -1896,8 +1896,8 @@ public class Claim extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.provider = provider == null ? null : provider.copy();
         if (diagnosisLinkId != null) {
-          dst.diagnosisLinkId = new ArrayList<IntegerType>();
-          for (IntegerType i : diagnosisLinkId)
+          dst.diagnosisLinkId = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : diagnosisLinkId)
             dst.diagnosisLinkId.add(i.copy());
         };
         dst.service = service == null ? null : service.copy();
@@ -1974,9 +1974,9 @@ public class Claim extends DomainResource {
         /**
          * A service line number.
          */
-        @Child(name ="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="sequence", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
-        protected IntegerType sequence;
+        protected PositiveIntType sequence;
 
         /**
          * The type of product or service.
@@ -2041,13 +2041,13 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Additional items", formalDefinition="Third tier of goods and services." )
         protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = -342502025L;
+        private static final long serialVersionUID = -1641314433L;
 
       public DetailComponent() {
         super();
       }
 
-      public DetailComponent(IntegerType sequence, Coding type, Coding service) {
+      public DetailComponent(PositiveIntType sequence, Coding type, Coding service) {
         super();
         this.sequence = sequence;
         this.type = type;
@@ -2057,12 +2057,12 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public IntegerType getSequenceElement() { 
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType(); // bb
+              this.sequence = new PositiveIntType(); // bb
           return this.sequence;
         }
 
@@ -2077,7 +2077,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public DetailComponent setSequenceElement(IntegerType value) { 
+        public DetailComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -2094,7 +2094,7 @@ public class Claim extends DomainResource {
          */
         public DetailComponent setSequence(int value) { 
             if (this.sequence == null)
-              this.sequence = new IntegerType();
+              this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
           return this;
         }
@@ -2383,7 +2383,7 @@ public class Claim extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
+          childrenList.add(new Property("sequence", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
@@ -2453,9 +2453,9 @@ public class Claim extends DomainResource {
         /**
          * A service line number.
          */
-        @Child(name ="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="sequence", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
-        protected IntegerType sequence;
+        protected PositiveIntType sequence;
 
         /**
          * The type of product or service.
@@ -2513,13 +2513,13 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected Coding udi;
 
-        private static final long serialVersionUID = 122809194L;
+        private static final long serialVersionUID = -947666334L;
 
       public SubDetailComponent() {
         super();
       }
 
-      public SubDetailComponent(IntegerType sequence, Coding type, Coding service) {
+      public SubDetailComponent(PositiveIntType sequence, Coding type, Coding service) {
         super();
         this.sequence = sequence;
         this.type = type;
@@ -2529,12 +2529,12 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public IntegerType getSequenceElement() { 
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType(); // bb
+              this.sequence = new PositiveIntType(); // bb
           return this.sequence;
         }
 
@@ -2549,7 +2549,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public SubDetailComponent setSequenceElement(IntegerType value) { 
+        public SubDetailComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -2566,7 +2566,7 @@ public class Claim extends DomainResource {
          */
         public SubDetailComponent setSequence(int value) { 
             if (this.sequence == null)
-              this.sequence = new IntegerType();
+              this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
           return this;
         }
@@ -2815,7 +2815,7 @@ public class Claim extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
+          childrenList.add(new Property("sequence", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("service", "Coding", "The fee for an addittional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));

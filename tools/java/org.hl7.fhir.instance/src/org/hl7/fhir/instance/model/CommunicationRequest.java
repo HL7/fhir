@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -341,28 +341,28 @@ public class CommunicationRequest extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * The type of message such as alert, notification, reminder, instruction, etc.
+     * The type of message to be sent such as alert, notification, reminder, instruction, etc.
      */
     @Child(name ="category", type={CodeableConcept.class}, order=1, min=0, max=1)
-    @Description(shortDefinition="Message category", formalDefinition="The type of message such as alert, notification, reminder, instruction, etc." )
+    @Description(shortDefinition="Message category", formalDefinition="The type of message to be sent such as alert, notification, reminder, instruction, etc." )
     protected CodeableConcept category;
 
     /**
-     * The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.
+     * The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication.
      */
-    @Child(name ="sender", type={Patient.class, Practitioner.class, Device.class, RelatedPerson.class, Organization.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="Message sender", formalDefinition="The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication." )
+    @Child(name ="sender", type={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Message sender", formalDefinition="The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication." )
     protected Reference sender;
 
     /**
-     * The actual object that is the target of the reference (The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.)
+     * The actual object that is the target of the reference (The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
     protected Resource senderTarget;
 
     /**
      * The entity (e.g., person, organization, clinical information system, or device) which is the intended target of the communication.
      */
-    @Child(name ="recipient", type={Patient.class, Device.class, RelatedPerson.class, Practitioner.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="recipient", type={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Message recipient", formalDefinition="The entity (e.g., person, organization, clinical information system, or device) which is the intended target of the communication." )
     protected List<Reference> recipient;
     /**
@@ -379,10 +379,10 @@ public class CommunicationRequest extends DomainResource {
     protected List<CommunicationRequestPayloadComponent> payload;
 
     /**
-     * The communication medium, e.g., email, fax.
+     * The communication medium to be used, e.g., email, fax.
      */
     @Child(name ="medium", type={CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Communication medium", formalDefinition="The communication medium, e.g., email, fax." )
+    @Description(shortDefinition="Communication medium", formalDefinition="The communication medium to be used, e.g., email, fax." )
     protected List<CodeableConcept> medium;
 
     /**
@@ -503,7 +503,7 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #category} (The type of message such as alert, notification, reminder, instruction, etc.)
+     * @return {@link #category} (The type of message to be sent such as alert, notification, reminder, instruction, etc.)
      */
     public CodeableConcept getCategory() { 
       if (this.category == null)
@@ -519,7 +519,7 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #category} (The type of message such as alert, notification, reminder, instruction, etc.)
+     * @param value {@link #category} (The type of message to be sent such as alert, notification, reminder, instruction, etc.)
      */
     public CommunicationRequest setCategory(CodeableConcept value) { 
       this.category = value;
@@ -527,7 +527,7 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #sender} (The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.)
+     * @return {@link #sender} (The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
     public Reference getSender() { 
       if (this.sender == null)
@@ -543,7 +543,7 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #sender} (The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.)
+     * @param value {@link #sender} (The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
     public CommunicationRequest setSender(Reference value) { 
       this.sender = value;
@@ -551,14 +551,14 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #sender} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.)
+     * @return {@link #sender} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
     public Resource getSenderTarget() { 
       return this.senderTarget;
     }
 
     /**
-     * @param value {@link #sender} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.)
+     * @param value {@link #sender} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
     public CommunicationRequest setSenderTarget(Resource value) { 
       this.senderTarget = value;
@@ -655,7 +655,7 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #medium} (The communication medium, e.g., email, fax.)
+     * @return {@link #medium} (The communication medium to be used, e.g., email, fax.)
      */
     public List<CodeableConcept> getMedium() { 
       if (this.medium == null)
@@ -673,7 +673,7 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #medium} (The communication medium, e.g., email, fax.)
+     * @return {@link #medium} (The communication medium to be used, e.g., email, fax.)
      */
     // syntactic sugar
     public CodeableConcept addMedium() { //3
@@ -1035,11 +1035,11 @@ public class CommunicationRequest extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A unique ID of this request for reference purposes. It must be provided if user wants it returned as part of any output, otherwise it will be auto-generated, if needed, by CDS system. Does not need to be the actual ID of the source system.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("category", "CodeableConcept", "The type of message such as alert, notification, reminder, instruction, etc.", 0, java.lang.Integer.MAX_VALUE, category));
-        childrenList.add(new Property("sender", "Reference(Patient|Practitioner|Device|RelatedPerson|Organization)", "The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.", 0, java.lang.Integer.MAX_VALUE, sender));
-        childrenList.add(new Property("recipient", "Reference(Patient|Device|RelatedPerson|Practitioner)", "The entity (e.g., person, organization, clinical information system, or device) which is the intended target of the communication.", 0, java.lang.Integer.MAX_VALUE, recipient));
+        childrenList.add(new Property("category", "CodeableConcept", "The type of message to be sent such as alert, notification, reminder, instruction, etc.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("sender", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication.", 0, java.lang.Integer.MAX_VALUE, sender));
+        childrenList.add(new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The entity (e.g., person, organization, clinical information system, or device) which is the intended target of the communication.", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("payload", "", "Text, attachment(s), or resource(s) to be communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, payload));
-        childrenList.add(new Property("medium", "CodeableConcept", "The communication medium, e.g., email, fax.", 0, java.lang.Integer.MAX_VALUE, medium));
+        childrenList.add(new Property("medium", "CodeableConcept", "The communication medium to be used, e.g., email, fax.", 0, java.lang.Integer.MAX_VALUE, medium));
         childrenList.add(new Property("requester", "Reference(Practitioner|Patient|RelatedPerson)", "The responsible person who authorizes this order, e.g., physician. This may be different than the author of the order statement, e.g., clerk, who may have entered the statement into the order entry application.", 0, java.lang.Integer.MAX_VALUE, requester));
         childrenList.add(new Property("status", "code", "The status of the proposal or order.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter within which the communication request was created.", 0, java.lang.Integer.MAX_VALUE, encounter));

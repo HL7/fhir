@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -47,31 +47,31 @@ public class HealthcareService extends DomainResource {
 
     public enum DaysOfWeek {
         /**
-         * 
+         * Monday.
          */
         MON, 
         /**
-         * 
+         * Tuesday.
          */
         TUE, 
         /**
-         * 
+         * Wednesday.
          */
         WED, 
         /**
-         * 
+         * Thursday.
          */
         THU, 
         /**
-         * 
+         * Friday.
          */
         FRI, 
         /**
-         * 
+         * Saturday.
          */
         SAT, 
         /**
-         * 
+         * Sunday.
          */
         SUN, 
         /**
@@ -123,13 +123,13 @@ public class HealthcareService extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case MON: return "";
-            case TUE: return "";
-            case WED: return "";
-            case THU: return "";
-            case FRI: return "";
-            case SAT: return "";
-            case SUN: return "";
+            case MON: return "Monday.";
+            case TUE: return "Tuesday.";
+            case WED: return "Wednesday.";
+            case THU: return "Thursday.";
+            case FRI: return "Friday.";
+            case SAT: return "Saturday.";
+            case SUN: return "Sunday.";
             default: return "?";
           }
         }
@@ -798,10 +798,10 @@ public class HealthcareService extends DomainResource {
     protected StringType serviceName;
 
     /**
-     * Additional description of the  or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
+     * Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
      */
     @Child(name ="comment", type={StringType.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="Additional description of the  or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName", formalDefinition="Additional description of the  or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName." )
+    @Description(shortDefinition="Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName", formalDefinition="Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName." )
     protected StringType comment;
 
     /**
@@ -1167,7 +1167,7 @@ public class HealthcareService extends DomainResource {
     }
 
     /**
-     * @return {@link #comment} (Additional description of the  or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+     * @return {@link #comment} (Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
     public StringType getCommentElement() { 
       if (this.comment == null)
@@ -1187,7 +1187,7 @@ public class HealthcareService extends DomainResource {
     }
 
     /**
-     * @param value {@link #comment} (Additional description of the  or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+     * @param value {@link #comment} (Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
     public HealthcareService setCommentElement(StringType value) { 
       this.comment = value;
@@ -1195,14 +1195,14 @@ public class HealthcareService extends DomainResource {
     }
 
     /**
-     * @return Additional description of the  or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
+     * @return Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
      */
     public String getComment() { 
       return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
-     * @param value Additional description of the  or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
+     * @param value Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
      */
     public HealthcareService setComment(String value) { 
       if (Utilities.noString(value))
@@ -1867,7 +1867,7 @@ public class HealthcareService extends DomainResource {
         childrenList.add(new Property("serviceCategory", "CodeableConcept", "Identifies the broad category of service being performed or delivered. Selecting a Service Category then determines the list of relevant service types that can be selected in the Primary Service Type.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
         childrenList.add(new Property("serviceType", "", "A specific type of service that may be delivered or performed.", 0, java.lang.Integer.MAX_VALUE, serviceType));
         childrenList.add(new Property("serviceName", "string", "Further description of the service as it would be presented to a consumer while searching.", 0, java.lang.Integer.MAX_VALUE, serviceName));
-        childrenList.add(new Property("comment", "string", "Additional description of the  or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.", 0, java.lang.Integer.MAX_VALUE, comment));
+        childrenList.add(new Property("comment", "string", "Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("extraDetails", "string", "Extra details about the service that can't be placed in the other fields.", 0, java.lang.Integer.MAX_VALUE, extraDetails));
         childrenList.add(new Property("photo", "Attachment", "If there is a photo/symbol associated with this HealthcareService, it may be included here to facilitate quick identification of the service in a list.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("telecom", "ContactPoint", "List of contacts related to this specific healthcare service. If this is empty, then refer to the location's contacts.", 0, java.lang.Integer.MAX_VALUE, telecom));

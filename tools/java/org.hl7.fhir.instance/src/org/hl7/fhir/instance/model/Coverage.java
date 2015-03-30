@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -116,16 +116,16 @@ public class Coverage extends DomainResource {
     /**
      * A unique identifier for a dependent under the coverage.
      */
-    @Child(name ="dependent", type={IntegerType.class}, order=9, min=0, max=1)
+    @Child(name ="dependent", type={PositiveIntType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="The dependent number", formalDefinition="A unique identifier for a dependent under the coverage." )
-    protected IntegerType dependent;
+    protected PositiveIntType dependent;
 
     /**
      * An optional counter for a particular instance of the identified coverage which increments upon each renewal.
      */
-    @Child(name ="sequence", type={IntegerType.class}, order=10, min=0, max=1)
+    @Child(name ="sequence", type={PositiveIntType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="The plan instance or sequence counter", formalDefinition="An optional counter for a particular instance of the identified coverage which increments upon each renewal." )
-    protected IntegerType sequence;
+    protected PositiveIntType sequence;
 
     /**
      * The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.
@@ -158,7 +158,7 @@ public class Coverage extends DomainResource {
     protected List<Contract> contractTarget;
 
 
-    private static final long serialVersionUID = -1026301059L;
+    private static final long serialVersionUID = -1312031251L;
 
     public Coverage() {
       super();
@@ -494,12 +494,12 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #dependent} (A unique identifier for a dependent under the coverage.). This is the underlying object with id, value and extensions. The accessor "getDependent" gives direct access to the value
      */
-    public IntegerType getDependentElement() { 
+    public PositiveIntType getDependentElement() { 
       if (this.dependent == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.dependent");
         else if (Configuration.doAutoCreate())
-          this.dependent = new IntegerType(); // bb
+          this.dependent = new PositiveIntType(); // bb
       return this.dependent;
     }
 
@@ -514,7 +514,7 @@ public class Coverage extends DomainResource {
     /**
      * @param value {@link #dependent} (A unique identifier for a dependent under the coverage.). This is the underlying object with id, value and extensions. The accessor "getDependent" gives direct access to the value
      */
-    public Coverage setDependentElement(IntegerType value) { 
+    public Coverage setDependentElement(PositiveIntType value) { 
       this.dependent = value;
       return this;
     }
@@ -531,7 +531,7 @@ public class Coverage extends DomainResource {
      */
     public Coverage setDependent(int value) { 
         if (this.dependent == null)
-          this.dependent = new IntegerType();
+          this.dependent = new PositiveIntType();
         this.dependent.setValue(value);
       return this;
     }
@@ -539,12 +539,12 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #sequence} (An optional counter for a particular instance of the identified coverage which increments upon each renewal.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
      */
-    public IntegerType getSequenceElement() { 
+    public PositiveIntType getSequenceElement() { 
       if (this.sequence == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.sequence");
         else if (Configuration.doAutoCreate())
-          this.sequence = new IntegerType(); // bb
+          this.sequence = new PositiveIntType(); // bb
       return this.sequence;
     }
 
@@ -559,7 +559,7 @@ public class Coverage extends DomainResource {
     /**
      * @param value {@link #sequence} (An optional counter for a particular instance of the identified coverage which increments upon each renewal.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
      */
-    public Coverage setSequenceElement(IntegerType value) { 
+    public Coverage setSequenceElement(PositiveIntType value) { 
       this.sequence = value;
       return this;
     }
@@ -576,7 +576,7 @@ public class Coverage extends DomainResource {
      */
     public Coverage setSequence(int value) { 
         if (this.sequence == null)
-          this.sequence = new IntegerType();
+          this.sequence = new PositiveIntType();
         this.sequence.setValue(value);
       return this;
     }
@@ -721,8 +721,8 @@ public class Coverage extends DomainResource {
         childrenList.add(new Property("group", "string", "Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.", 0, java.lang.Integer.MAX_VALUE, group));
         childrenList.add(new Property("plan", "string", "Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.", 0, java.lang.Integer.MAX_VALUE, plan));
         childrenList.add(new Property("subPlan", "string", "Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.", 0, java.lang.Integer.MAX_VALUE, subPlan));
-        childrenList.add(new Property("dependent", "integer", "A unique identifier for a dependent under the coverage.", 0, java.lang.Integer.MAX_VALUE, dependent));
-        childrenList.add(new Property("sequence", "integer", "An optional counter for a particular instance of the identified coverage which increments upon each renewal.", 0, java.lang.Integer.MAX_VALUE, sequence));
+        childrenList.add(new Property("dependent", "positiveInt", "A unique identifier for a dependent under the coverage.", 0, java.lang.Integer.MAX_VALUE, dependent));
+        childrenList.add(new Property("sequence", "positiveInt", "An optional counter for a particular instance of the identified coverage which increments upon each renewal.", 0, java.lang.Integer.MAX_VALUE, sequence));
         childrenList.add(new Property("subscriber", "Reference(Patient)", "The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.", 0, java.lang.Integer.MAX_VALUE, subscriber));
         childrenList.add(new Property("network", "Identifier", "The identifier for a community of providers.", 0, java.lang.Integer.MAX_VALUE, network));
         childrenList.add(new Property("contract", "Reference(Contract)", "The policy(s) which constitute this insurance coverage.", 0, java.lang.Integer.MAX_VALUE, contract));

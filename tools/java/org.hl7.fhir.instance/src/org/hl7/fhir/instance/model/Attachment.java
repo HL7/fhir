@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -74,9 +74,9 @@ public class Attachment extends Type {
     /**
      * The number of bytes of data that make up this attachment.
      */
-    @Child(name ="size", type={IntegerType.class}, order=4, min=0, max=1)
+    @Child(name ="size", type={UnsignedIntType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Number of bytes of content (if url provided)", formalDefinition="The number of bytes of data that make up this attachment." )
-    protected IntegerType size;
+    protected UnsignedIntType size;
 
     /**
      * The calculated hash of the data using SHA-1. Represented using base64.
@@ -99,7 +99,7 @@ public class Attachment extends Type {
     @Description(shortDefinition="Date attachment was first created", formalDefinition="The date that the attachment was first created." )
     protected DateTimeType creation;
 
-    private static final long serialVersionUID = 992912868L;
+    private static final long serialVersionUID = 581007080L;
 
     public Attachment() {
       super();
@@ -304,12 +304,12 @@ public class Attachment extends Type {
     /**
      * @return {@link #size} (The number of bytes of data that make up this attachment.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
      */
-    public IntegerType getSizeElement() { 
+    public UnsignedIntType getSizeElement() { 
       if (this.size == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.size");
         else if (Configuration.doAutoCreate())
-          this.size = new IntegerType(); // bb
+          this.size = new UnsignedIntType(); // bb
       return this.size;
     }
 
@@ -324,7 +324,7 @@ public class Attachment extends Type {
     /**
      * @param value {@link #size} (The number of bytes of data that make up this attachment.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
      */
-    public Attachment setSizeElement(IntegerType value) { 
+    public Attachment setSizeElement(UnsignedIntType value) { 
       this.size = value;
       return this;
     }
@@ -341,7 +341,7 @@ public class Attachment extends Type {
      */
     public Attachment setSize(int value) { 
         if (this.size == null)
-          this.size = new IntegerType();
+          this.size = new UnsignedIntType();
         this.size.setValue(value);
       return this;
     }
@@ -499,7 +499,7 @@ public class Attachment extends Type {
         childrenList.add(new Property("language", "code", "The human language of the content. The value can be any valid value according to BCP 47.", 0, java.lang.Integer.MAX_VALUE, language));
         childrenList.add(new Property("data", "base64Binary", "The actual data of the attachment - a sequence of bytes. In XML, represented using base64.", 0, java.lang.Integer.MAX_VALUE, data));
         childrenList.add(new Property("url", "uri", "An alternative location where the data can be accessed.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("size", "integer", "The number of bytes of data that make up this attachment.", 0, java.lang.Integer.MAX_VALUE, size));
+        childrenList.add(new Property("size", "unsignedInt", "The number of bytes of data that make up this attachment.", 0, java.lang.Integer.MAX_VALUE, size));
         childrenList.add(new Property("hash", "base64Binary", "The calculated hash of the data using SHA-1. Represented using base64.", 0, java.lang.Integer.MAX_VALUE, hash));
         childrenList.add(new Property("title", "string", "A label or set of text to display in place of the data.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("creation", "dateTime", "The date that the attachment was first created.", 0, java.lang.Integer.MAX_VALUE, creation));

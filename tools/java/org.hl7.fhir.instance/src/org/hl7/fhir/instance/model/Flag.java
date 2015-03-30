@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Mar 28, 2015 18:30+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -153,9 +153,16 @@ public class Flag extends DomainResource {
     protected Enumeration<FlagStatus> status;
 
     /**
+     * The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.
+     */
+    @Child(name ="period", type={Period.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Time period when flag is active", formalDefinition="The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified." )
+    protected Period period;
+
+    /**
      * The patient record this flag is associated with.
      */
-    @Child(name ="patient", type={Patient.class}, order=3, min=1, max=1)
+    @Child(name ="patient", type={Patient.class}, order=4, min=1, max=1)
     @Description(shortDefinition="Who is flag about?", formalDefinition="The patient record this flag is associated with." )
     protected Reference patient;
 
@@ -167,7 +174,7 @@ public class Flag extends DomainResource {
     /**
      * The person or device that created the flag.
      */
-    @Child(name ="author", type={Practitioner.class, Patient.class, Device.class}, order=4, min=0, max=1)
+    @Child(name ="author", type={Practitioner.class, Patient.class, Device.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Flag creator", formalDefinition="The person or device that created the flag." )
     protected Reference author;
 
@@ -179,11 +186,11 @@ public class Flag extends DomainResource {
     /**
      * The coded value or textual component of the flag to display to the user.
      */
-    @Child(name ="code", type={CodeableConcept.class}, order=5, min=1, max=1)
+    @Child(name ="code", type={CodeableConcept.class}, order=6, min=1, max=1)
     @Description(shortDefinition="Partially deaf, Requires easy open caps, No permanent address, etc.", formalDefinition="The coded value or textual component of the flag to display to the user." )
     protected CodeableConcept code;
 
-    private static final long serialVersionUID = -348664785L;
+    private static final long serialVersionUID = 1117780761L;
 
     public Flag() {
       super();
@@ -306,6 +313,30 @@ public class Flag extends DomainResource {
     }
 
     /**
+     * @return {@link #period} (The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.)
+     */
+    public Period getPeriod() { 
+      if (this.period == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Flag.period");
+        else if (Configuration.doAutoCreate())
+          this.period = new Period(); // cc
+      return this.period;
+    }
+
+    public boolean hasPeriod() { 
+      return this.period != null && !this.period.isEmpty();
+    }
+
+    /**
+     * @param value {@link #period} (The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.)
+     */
+    public Flag setPeriod(Period value) { 
+      this.period = value;
+      return this;
+    }
+
+    /**
      * @return {@link #patient} (The patient record this flag is associated with.)
      */
     public Reference getPatient() { 
@@ -417,6 +448,7 @@ public class Flag extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the flag for external use (outside the FHIR environment).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("category", "CodeableConcept", "Allows an flag to be divided into different categories like clinical, administrative etc.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("status", "code", "Supports basic workflow.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("period", "Period", "The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient record this flag is associated with.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("author", "Reference(Practitioner|Patient|Device)", "The person or device that created the flag.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("code", "CodeableConcept", "The coded value or textual component of the flag to display to the user.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -432,6 +464,7 @@ public class Flag extends DomainResource {
         };
         dst.category = category == null ? null : category.copy();
         dst.status = status == null ? null : status.copy();
+        dst.period = period == null ? null : period.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.author = author == null ? null : author.copy();
         dst.code = code == null ? null : code.copy();
@@ -450,8 +483,8 @@ public class Flag extends DomainResource {
           return false;
         Flag o = (Flag) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(category, o.category, true) && compareDeep(status, o.status, true)
-           && compareDeep(patient, o.patient, true) && compareDeep(author, o.author, true) && compareDeep(code, o.code, true)
-          ;
+           && compareDeep(period, o.period, true) && compareDeep(patient, o.patient, true) && compareDeep(author, o.author, true)
+           && compareDeep(code, o.code, true);
       }
 
       @Override
@@ -466,8 +499,8 @@ public class Flag extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (category == null || category.isEmpty())
-           && (status == null || status.isEmpty()) && (patient == null || patient.isEmpty()) && (author == null || author.isEmpty())
-           && (code == null || code.isEmpty());
+           && (status == null || status.isEmpty()) && (period == null || period.isEmpty()) && (patient == null || patient.isEmpty())
+           && (author == null || author.isEmpty()) && (code == null || code.isEmpty());
       }
 
   @Override
@@ -481,6 +514,8 @@ public class Flag extends DomainResource {
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="subject", path="Flag.patient", description="The identity of a subject to list flags for", type="reference" )
   public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="date", path="Flag.period", description="Time period when flag is active", type="date" )
+  public static final String SP_DATE = "date";
 
 }
 
