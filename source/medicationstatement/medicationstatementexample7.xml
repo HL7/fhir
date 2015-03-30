@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example where a patient reports is not taking now but will be taking in future  -->
 <MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationstatement.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationstatement.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example007"/>
   <text>
@@ -17,7 +17,7 @@
     <reference value="Patient/example" />
   </informationSource>
   <dateAsserted value="2015-02-22"/>
-  <status value="in progress" />
+  <status value="in-progress" />
   <wasNotGiven value="false"/>
 <effectiveDateTime value="2015-05-23"></effectiveDateTime>
   <medication> <!-- Linked to a RESOURCE Medication -->
