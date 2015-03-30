@@ -121,6 +121,24 @@ with the logical identity. It is not necessary to explicitly embed the patient i
 URL - implementations can associate an FHIR end-point with a particular patient or 
 provider by using an OAuth login. See <a href="extras.html#compartments">Compartments</a> for the logical underpinning.
 </p>
+<p><b>Identity</b></p>
+<p>
+Systems often need to compare two URLs to determine whether they refer to the same URL or not.
+For the purposes of this specification, the following rules apply:
+</p>
+<ul>
+ <li>The query part of the URL (anything after '?' is ignored</li>
+ <li>The comparison of the document portion of the URL (i.e. not the server/port) is case sensitive</li>
+ <li>http: and https: are exchangeable and refer to the same object</li>
+ <li>If a port is specified, then the ports must be identical or the objects are different (to the prevalence of port mapping and/or interface engines running on different ports). Ports should only be explicit when they have explicit meaning to the server</li>
+</ul>
+<p>
+For example:
+http://myserver,com/patient/1 and https://myserver.com/patient/1 are the same, while http://myserver.com:80/patient/1 is distinct from either of the above.
+</p>
+<p>
+Note: the identity comparison for protocols other than http/https is undefined.
+</p>
 
 <h3>Resource Metadata and Versioning</h3>
 <p>
