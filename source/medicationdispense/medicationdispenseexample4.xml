@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationdispense.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="meddisp004"/>
+  <status value="completed"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <dispenser>
+    <reference value="Practitioner/example"/>
+  </dispenser>
+  <authorizingPrescription>
+    <reference value="MedicationPrescription/medicationprescriptionexample3" />
+  </authorizingPrescription>
+<type>
+  <coding>
+    <system value="http:hl7.org/fhir"/>
+    <code value="FF"/>
+    <display value="First Fill"/>
+  </coding>
+</type>
+  <quantity>
+    <value value="36"/>
+    <units value="tbl" />
+    <system value="http://unitsofmeasure.org"/>
+    <code value="tbl"/>    
+  </quantity>
+<daysSupply>
+  <value value="9"/>
+  <units value="Day" />
+  <system value="http://unitsofmeasure.org"/>
+  <code value="D"/>   
+</daysSupply>
+  <medication> <!-- Linked to a RESOURCE Medication -->
+    <reference value="Medication/MedicationExample11"/>
+    <display value="prescribed medication"/>
+  </medication>
+  <!-- not sure how to reflect -->
+  <whenPrepared value="2015-03-01T16:20:00"/>
+  <whenHandedOver value="2015-03-02T17:20:00"/>
+  <dosageInstruction>
+    <additionalInstructions>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="311504000"/>
+        <display value="With or after food"/>
+      </coding>
+    </additionalInstructions>
+    <scheduleTiming>
+      <event>
+        <start value="2015-03-01"/>
+        <end value="2015-03-03"/>
+      </event>
+      <repeat>
+        <frequency value="2"/>
+        <duration value="1"/>
+        <units value="d"/>
+      </repeat>
+    </scheduleTiming>
+    <site>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="181220002"/>
+        <display value="Entire oral cavity"/>
+      </coding>
+    </site>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="26643006"/>
+        <display value="Oral Route"/>
+      </coding>
+    </route>
+    <doseQuantity>
+      <value value="1"/>
+      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+      <code value="TAB"/>
+    </doseQuantity>
+  </dosageInstruction>    
+  <dosageInstruction>
+    <additionalInstructions>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="311504000"/>
+        <display value="With or after food"/>
+      </coding>
+    </additionalInstructions>
+    <scheduleTiming>
+      <event>
+        <start value="2015-03-04"/>
+        <end value="2015-03-06"/>
+      </event>
+      <repeat>
+        <frequency value="2"/>
+        <duration value="1"/>
+        <units value="d"/>
+      </repeat>
+    </scheduleTiming>
+    <site>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="181220002"/>
+        <display value="Entire oral cavity"/>
+      </coding>
+    </site>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="26643006"/>
+        <display value="Oral Route"/>
+      </coding>
+    </route>
+    <doseQuantity>
+      <value value="2"/>
+      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+      <code value="TAB"/>
+    </doseQuantity>
+  </dosageInstruction>  
+  <dosageInstruction>
+    <additionalInstructions>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="311504000"/>
+        <display value="With or after food"/>
+      </coding>
+    </additionalInstructions>
+    <scheduleTiming>
+      <event>
+        <start value="2015-03-07"/>
+        <end value="2015-03-09"/>
+      </event>
+      <repeat>
+        <frequency value="2"/>
+        <duration value="1"/>
+        <units value="d"/>
+      </repeat>
+    </scheduleTiming>
+    <site>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="181220002"/>
+        <display value="Entire oral cavity"/>
+      </coding>
+    </site>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="26643006"/>
+        <display value="Oral Route"/>
+      </coding>
+    </route>
+    <doseQuantity>
+      <value value="3"/>
+      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+      <code value="TAB"/>
+    </doseQuantity>
+  </dosageInstruction>         
+</MedicationDispense>
