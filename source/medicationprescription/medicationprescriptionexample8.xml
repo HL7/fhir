@@ -1,6 +1,7 @@
 <MedicationPrescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationprescription.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationprescription.xsd"
  xmlns="http://hl7.org/fhir">
+  <id value="medrx008"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -8,7 +9,6 @@
       <p><b>80mg IV over one hour</b></p>
     </div>
   </text>
-  <id value="medrx008"/>
   <status value="active" />
   <medication>
     <reference value="Medication/medicationexample17"/>
@@ -18,8 +18,8 @@
     <scheduledTiming>
       <repeat>
         <frequency value="3"/>
-        <duration value="1"/>
-        <units value="d"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
       </repeat>
     </scheduledTiming>
     <route>
