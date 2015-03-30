@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This is an example of a prescription for an inhaler -->
 <MedicationPrescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationprescription.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationprescription.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="medrx004"/>
     <identifier>
@@ -37,14 +37,12 @@
     <dosageInstruction>
         <text value="Use 2 puffs twice daily as needed" />
         <scheduledTiming>
-            <event>
-                <start value="2015-03-01"/>
-                <end value="2015-03-31"/>
-            </event>
             <repeat>
+                <duration value="3"/>
+                <durationUnits value="d"/>
                 <frequency value="2"/>
-                <duration value="1"/>
-                <units value="d"/>
+                <period value="1"/>
+                <periodUnits value="d"/>
             </repeat>
         </scheduledTiming>
         <asNeededBoolean value="true"></asNeededBoolean>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="meddisp004"/>
   <status value="completed"/>
@@ -48,14 +48,13 @@
       </coding>
     </additionalInstructions>
     <scheduleTiming>
-      <event>
-        <start value="2015-03-01"/>
-        <end value="2015-03-03"/>
-      </event>
+      <event value="2015-03-01"/>
       <repeat>
+        <duration value="3"/>
+        <durationUnits value="d"/>
         <frequency value="2"/>
-        <duration value="1"/>
-        <units value="d"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
       </repeat>
     </scheduleTiming>
     <site>
@@ -87,14 +86,13 @@
       </coding>
     </additionalInstructions>
     <scheduleTiming>
-      <event>
-        <start value="2015-03-04"/>
-        <end value="2015-03-06"/>
-      </event>
+      <event value="2015-03-04"/>
       <repeat>
+        <duration value="3"/>
+        <durationUnits value="d"/>
         <frequency value="2"/>
-        <duration value="1"/>
-        <units value="d"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
       </repeat>
     </scheduleTiming>
     <site>
@@ -126,14 +124,13 @@
       </coding>
     </additionalInstructions>
     <scheduleTiming>
-      <event>
-        <start value="2015-03-07"/>
-        <end value="2015-03-09"/>
-      </event>
+      <event value="2015-03-07"/>
       <repeat>
+        <duration value="3"/>
+        <durationUnits value="d"/>
         <frequency value="2"/>
-        <duration value="1"/>
-        <units value="d"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
       </repeat>
     </scheduleTiming>
     <site>

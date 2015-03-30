@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is a fully populated prescription -->
 <MedicationPrescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationprescription.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationprescription.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="medrx001"/>
     <identifier>
@@ -44,14 +44,10 @@
             </coding>
         </additionalInstructions>
         <scheduledTiming>
-            <event>
-                <start value="2015-01-15"/>
-                <end value="2015-01-25"/>
-            </event>
             <repeat>
                 <frequency value="3"/>
-                <duration value="1"/>
-                <units value="d"/>
+                <period value="1"/>
+                <periodUnits value="d"/>
             </repeat>
         </scheduledTiming>
         <site>

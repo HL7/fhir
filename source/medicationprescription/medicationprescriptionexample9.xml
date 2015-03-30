@@ -1,6 +1,7 @@
 <MedicationPrescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationprescription.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationprescription.xsd"
  xmlns="http://hl7.org/fhir">
+  <id value="medrx009"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -13,8 +14,7 @@
       <p>Cycle length: Q21D x 4 cycles</p>
     </div>
   </text>
-  <id value="medrx009"/>
-  <status value="on hold">
+  <status value="on-hold">
     <extension url="http://localhost:3000/MedicationPrescription/mscode#original-status">
       <valueCode value='pending'/>
     </extension>
@@ -24,13 +24,6 @@
   </medication>
   <dosageInstruction>
     <text value="Cyclophosphamide 600 mg/m^2 IV over 30 minutes D1"/>
-    <scheduledTiming>
-      <repeat>
-        <frequency value="1"/>
-        <duration value="1"/>
-        <units value="d"/>
-      </repeat>
-    </scheduledTiming>
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is a prescription for a drug with a loading dose -->
 <MedicationPrescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationprescription.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationprescription.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="medrx005"/>
     <identifier>
@@ -44,14 +44,13 @@
             </coding>
         </additionalInstructions>
         <scheduledTiming>
-            <event>
-                <start value="2015-01-15"/>
-                <end value="2015-01-15"/>
-            </event>
+            <event value="2015-01-15"/>
             <repeat>
-                <frequency value="1"/>
                 <duration value="1"/>
-                <units value="d"/>
+                <durationUnits value="d"/>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnits value="d"/>
             </repeat>
         </scheduledTiming>
         <site>
@@ -84,14 +83,13 @@
             </coding>
         </additionalInstructions>
         <scheduledTiming>
-            <event>
-                <start value="2015-01-15"/>
-                <end value="2015-10-15"/>
-            </event>
+            <event value="2015-01-15"/>
             <repeat>
-                <frequency value="3"/>
-                <duration value="1"/>
-                <units value="d"/>
+                <duration value="11"/>
+                <durationUnits value="d"/>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnits value="d"/>
             </repeat>
         </scheduledTiming>
         <site>

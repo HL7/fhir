@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example is a fully populated example where a patient reports they took this in the past but are not taking it now  -->
+<MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationstatement.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="example004"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Amoxicillin 250mg capsule - one capsule three times daily</p>
+    </div>
+  </text>
+  <patient>
+    <reference value="Patient/f001"/>
+    <display value="Eve Everywoman"/>         
+  </patient>
+  <informationSource>
+    <reference value="patient/f002" />
+  </informationSource>
+  <dateAsserted value="2015-02-22"/>
+  <status value="completed" />
+  <wasNotGiven value="false"/>
+  <reasonForUseCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="65363002"/>
+      <display value="Otitis Media"/>
+    </coding>
+  </reasonForUseCodeableConcept>
+  <effectiveDateTime value="2014-01-23"></effectiveDateTime>
+  <note value="Patient indicates they miss the occasional dose" />
+  <medication> <!-- Linked to a RESOURCE Medication -->
+    <reference value="Medication/MedicationExample6"/>
+  </medication>  
+  <dosage>
+    <text value="one capsule three times daily" />
+    <schedule>
+      <repeat>
+        <frequency value="3"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
+      </repeat>
+    </schedule>
+    <asNeededBoolean value="false" />
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="260548002"/>
+        <display value="Oral"/>
+      </coding>
+    </route>
+    <quantity>
+      <value value="1" />
+    </quantity>
+    <maxDosePerPeriod>
+      <numerator>
+        <value value="3"/>
+        <units value="capsules" />
+        <system value="http://snomed.info/sct" />
+        <code value="385055001"/>
+      </numerator>
+      <denominator>
+        <value value="1"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+      </denominator>
+    </maxDosePerPeriod>
+  </dosage>
+</MedicationStatement>

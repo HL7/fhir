@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example is a fully populated example where a patient reports they are taking a certain medication and has the bottle  -->
+<MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../publish/medicationstatement.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="example001"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Tylenol No 1 tablet - Taking 1 tablet four times daily as needed for pain</p>
+    </div>
+  </text>
+  <patient>
+    <reference value="Patient/f001"/>
+    <display value="Eve Everywoman"/>         
+  </patient>
+  <informationSource>
+    <reference value="patient/f002" />
+  </informationSource>
+  <dateAsserted value="2015-02-22"/>
+  <status value="completed" />
+  <wasNotGiven value="false"/>
+<reasonForUseCodeableConcept>
+  <coding>
+    <system value="http://snomed.info/sct"/>
+    <code value="22253000"/>
+    <display value="Pain"/>
+  </coding>
+</reasonForUseCodeableConcept>
+<effectiveDateTime value="2015-01-23"></effectiveDateTime>
+  <note value="Patient indicates they miss the occasional dose" />
+  <medication> <!-- Linked to a RESOURCE Medication -->
+    <reference value="Medication/MedicationExample7"/>
+  </medication> 
+  <dosage>
+    <text value="one tablet four times daily as needed for pain" />
+    <schedule>
+      <repeat>
+        <frequency value="4"/>
+        <period value="1"/>
+        <periodUnits value="d"/>
+      </repeat>
+    </schedule>
+    <asNeededBoolean value="true" />
+    <route>
+      <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="260548002"/>
+      <display value="Oral"/>
+      </coding>
+    </route>
+    <quantity>
+      <value value="1" />
+    </quantity>
+    <maxDosePerPeriod>
+      <numerator>
+        <value value="4"/>
+        <units value="tablets" />
+        <system value="http://snomed.info/sct" />
+        <code value="385055001"/>
+      </numerator>
+      <denominator>
+      <value value="1"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="d"/>
+      </denominator>
+    </maxDosePerPeriod>
+  </dosage>
+</MedicationStatement>
