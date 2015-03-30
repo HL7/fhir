@@ -78,7 +78,15 @@ public enum SearchType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QUANTITY(4, "quantity", "quantity");
+	QUANTITY(4, "quantity", "quantity"), /**
+	 * The '<em><b>Uri</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #URI_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	URI(7, "uri", "uri");
 
 	/**
 	 * The '<em><b>Composite</b></em>' literal value.
@@ -186,6 +194,21 @@ public enum SearchType implements Enumerator {
 	public static final int QUANTITY_VALUE = 4;
 
 	/**
+	 * The '<em><b>Uri</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Uri</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #URI
+	 * @model name="uri"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int URI_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>Search Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -200,6 +223,7 @@ public enum SearchType implements Enumerator {
 			REFERENCE,
 			TOKEN,
 			QUANTITY,
+			URI,
 		};
 
 	/**
@@ -257,6 +281,7 @@ public enum SearchType implements Enumerator {
 			case REFERENCE_VALUE: return REFERENCE;
 			case TOKEN_VALUE: return TOKEN;
 			case QUANTITY_VALUE: return QUANTITY;
+			case URI_VALUE: return URI;
 		}
 		return null;
 	}

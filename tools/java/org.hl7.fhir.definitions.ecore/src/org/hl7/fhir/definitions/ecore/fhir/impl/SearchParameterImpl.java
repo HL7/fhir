@@ -245,8 +245,7 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-  public EList<String> getTarget() {
+	public EList<String> getTarget() {
 		if (target == null) {
 			target = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__TARGET);
 		}

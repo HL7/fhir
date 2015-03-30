@@ -167,14 +167,6 @@ public interface TypeDefn extends EObject {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	boolean isReference();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
 	boolean isGloballyDefined();
 
 	/**
@@ -192,5 +184,13 @@ public interface TypeDefn extends EObject {
 	 * @generated
 	 */
 	boolean isConstrained();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isReference();
 
 } // TypeDefn

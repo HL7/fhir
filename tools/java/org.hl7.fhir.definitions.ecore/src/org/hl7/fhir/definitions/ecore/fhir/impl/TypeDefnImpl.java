@@ -201,7 +201,7 @@ public abstract class TypeDefnImpl extends EObjectImpl implements TypeDefn {
 	@Override
 	public NameScope getScope() {
 		if (eContainerFeatureID() != FhirPackage.TYPE_DEFN__SCOPE) return null;
-		return (NameScope)eContainer();
+		return (NameScope)eInternalContainer();
 	}
 
 	/**

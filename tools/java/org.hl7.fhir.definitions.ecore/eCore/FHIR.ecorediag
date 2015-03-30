@@ -93,7 +93,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_EK950tGlEeGzB_yQBW_HPw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_3ZDfEGraEeKjtO8cnwScaA" type="2002">
-        <element xmi:type="ecore:EOperation" href="FHIR.ecore#//ElementDefn/containsResource"/>
+        <element xmi:type="ecore:EOperation" href="FHIR.ecore#//ElementDefn/containsReference"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_3ZDfEWraEeKjtO8cnwScaA"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_YlrlodpxEeKtJo85xct7DQ" type="2002">
@@ -553,6 +553,10 @@
         <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//SearchParameter/composite"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_j5vvkNKJEeKxd9JySb-few"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_Phr2gNb6EeSWNZJ_tYuemg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//SearchParameter/target"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Phr2gdb6EeSWNZJ_tYuemg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_CMbUfa_CEeGrAaDwyEdjfA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_CMbUfq_CEeGrAaDwyEdjfA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_CMbUf6_CEeGrAaDwyEdjfA"/>
@@ -597,6 +601,10 @@
         <element xmi:type="ecore:EEnumLiteral" href="FHIR.ecore#//SearchType/token"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Aqsn4dKJEeKxd9JySb-few"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_3cE94Nb4EeSWNZJ_tYuemg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="FHIR.ecore#//SearchType/uri"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_3cE94db4EeSWNZJ_tYuemg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_CMbUj6_CEeGrAaDwyEdjfA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_CMbUkK_CEeGrAaDwyEdjfA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_CMbUka_CEeGrAaDwyEdjfA"/>
@@ -634,7 +642,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_1DMcYcRREeG3nNAQ1_DUMA"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_0_wawMQ5EeG3nNAQ1_DUMA" type="2002">
-        <element xmi:type="ecore:EOperation" href="FHIR.ecore#//TypeDefn/isResource"/>
+        <element xmi:type="ecore:EOperation" href="FHIR.ecore#//TypeDefn/isReference"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0_wawcQ5EeG3nNAQ1_DUMA"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_l2rkgMpoEeGxmLKjAwnBEQ" type="2002">

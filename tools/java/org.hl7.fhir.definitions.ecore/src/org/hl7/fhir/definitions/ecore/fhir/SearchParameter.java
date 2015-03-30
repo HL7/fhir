@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getPath <em>Path</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getComposite <em>Composite</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *

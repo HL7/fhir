@@ -443,7 +443,7 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 */
 	public CompositeTypeDefn getParentTypeGen() {
 		if (eContainerFeatureID() != FhirPackage.ELEMENT_DEFN__PARENT_TYPE) return null;
-		return (CompositeTypeDefn)eContainer();
+		return (CompositeTypeDefn)eInternalContainer();
 	}
 	
 	@Override

@@ -57,7 +57,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public static FhirFactory init() {
 		try {
-			FhirFactory theFhirFactory = (FhirFactory)EPackage.Registry.INSTANCE.getEFactory("http://hl7.org/fhir/definitions"); 
+			FhirFactory theFhirFactory = (FhirFactory)EPackage.Registry.INSTANCE.getEFactory(FhirPackage.eNS_URI);
 			if (theFhirFactory != null) {
 				return theFhirFactory;
 			}

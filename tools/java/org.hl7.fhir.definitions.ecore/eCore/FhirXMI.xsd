@@ -27,6 +27,7 @@
       <xsd:enumeration value="reference"/>
       <xsd:enumeration value="token"/>
       <xsd:enumeration value="quantity"/>
+      <xsd:enumeration value="uri"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="BindingExtensibility">
@@ -276,6 +277,7 @@
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="path" nillable="true" type="xsd:string"/>
       <xsd:element name="composite" nillable="true" type="xsd:string"/>
+      <xsd:element name="target" nillable="true" type="xsd:string"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>

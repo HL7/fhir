@@ -458,7 +458,7 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	@Override
 	public NameScope getParent() {
 		if (eContainerFeatureID() != FhirPackage.BINDING_DEFN__PARENT) return null;
-		return (NameScope)eContainer();
+		return (NameScope)eInternalContainer();
 	}
 
 	/**

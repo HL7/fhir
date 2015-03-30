@@ -1692,8 +1692,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-  public EAttribute getSearchParameter_Target() {
+	public EAttribute getSearchParameter_Target() {
 		return (EAttribute)searchParameterEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -2042,7 +2041,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 
 		addEOperation(elementDefnEClass, ecorePackage.getEBoolean(), "isPolymorph", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(elementDefnEClass, ecorePackage.getEBoolean(), "containsResource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(elementDefnEClass, ecorePackage.getEBoolean(), "containsReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(elementDefnEClass, ecorePackage.getEBoolean(), "isPrimitiveValueElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2158,7 +2157,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 
 		addEOperation(typeDefnEClass, ecorePackage.getEBoolean(), "isConstrained", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(typeDefnEClass, ecorePackage.getEBoolean(), "isResource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(typeDefnEClass, ecorePackage.getEBoolean(), "isReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(typeDefnEClass, ecorePackage.getEBoolean(), "isGloballyDefined", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2226,6 +2225,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		addEEnumLiteral(searchTypeEEnum, SearchType.REFERENCE);
 		addEEnumLiteral(searchTypeEEnum, SearchType.TOKEN);
 		addEEnumLiteral(searchTypeEEnum, SearchType.QUANTITY);
+		addEEnumLiteral(searchTypeEEnum, SearchType.URI);
 
 		initEEnum(bindingExtensibilityEEnum, BindingExtensibility.class, "BindingExtensibility");
 		addEEnumLiteral(bindingExtensibilityEEnum, BindingExtensibility.COMPLETE);
