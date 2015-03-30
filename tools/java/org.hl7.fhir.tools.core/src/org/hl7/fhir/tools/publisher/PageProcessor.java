@@ -2459,12 +2459,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       ValueSet ae = valueSets.get(sn);
       String n = getTail(sn);
       ValueSet vs = ae;
-      String usage = usageSummary(vs);
-      if (definitions.doPublish(usage)) {
+      if (wantPublish(vs)) {
         String path = (String) ae.getUserData("path");
         s.append(" <tr><td><a href=\""+Utilities.changeFileExt(path, ".html")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
         if (hasId)
           s.append("<td>"+Utilities.oidTail(ToolingExtensions.getOID(ae))+"</td>");
+        String usage = usageSummary(vs);
         s.append("<td>"+usage+"</td>");
         s.append("</tr>\r\n");
       }
@@ -2488,6 +2488,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           b.append("<span title=\""+definitions.getIgs().get(p).getName()+"\">"+p+"</span>");
       }
       return b.toString();
+    }
+  }
+
+  private boolean wantPublish(ValueSet vs) {
+    String s = (String) vs.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE);
+    if (Utilities.noString(s))
+      return true;
+    else {
+      String[] ps = s.split("\\,");
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      for (String p : ps) {
+        if (!definitions.getIgs().containsKey(p))
+          return true;
+        else if (definitions.doPublish(p))
+          return true;
+      }
+      return false;
     }
   }
 
