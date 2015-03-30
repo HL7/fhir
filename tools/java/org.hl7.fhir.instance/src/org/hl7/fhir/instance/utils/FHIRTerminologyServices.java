@@ -83,9 +83,9 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 		return validateCodeCache.get(system+"|"+code+"|"+display);
   }
 
-	@Override
+  @Override
   public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
-		throw new Error("Not done yet");
+    throw new Error("Not done yet");
   }
 
 	@Override
@@ -96,6 +96,11 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 	@Override
   public boolean verifiesSystem(String system) {
 		return supportsSystem(system);
+  }
+
+  @Override
+  public ValueSet expandVS(ValueSet vs) throws Exception {
+    throw new Error("Not done yet");
   }
 
 }

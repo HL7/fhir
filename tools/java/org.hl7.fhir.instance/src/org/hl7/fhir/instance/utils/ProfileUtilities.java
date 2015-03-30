@@ -745,8 +745,8 @@ public class ProfileUtilities {
               CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
               for (TypeRefComponent td : base.getType()) {
                 b.append(td.getCode());
-                if (td.getCode().equals(ts.getCode()) || 
-                    td.getCode().equals("Extension") || td.getCode().equals("*") || 
+                if (td.getCode().equals(ts.getCode()) || td.getCode().equals("Extension") ||
+                    td.getCode().equals("Element") || td.getCode().equals("*") || 
                     (td.getCode().equals("Resource") && pkp.isResource(ts.getCode())))
                   ok = true;
               }

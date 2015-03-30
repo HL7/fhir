@@ -1040,7 +1040,7 @@ public class SpreadsheetParser {
 					String type = sheet.getColumn(row, "Type");
 					if (!file.exists() && !("tool".equals(type) || isSpecialType(type)))
 						throw new Exception("Example " + name + " file '" + file.getAbsolutePath() + "' not found parsing " + this.name);
-					String pn = sheet.getColumn(row, "StructureDefinition"); //todo-profile: rename this
+					String pn = sheet.getColumn(row, "Profile"); 
 					if (Utilities.noString(pn)) {
 					  defn.getExamples().add(new Example(name, id, desc, file, 
 					      parseExampleType(type, row),

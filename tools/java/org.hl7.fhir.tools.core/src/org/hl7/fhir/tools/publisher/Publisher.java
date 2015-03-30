@@ -782,9 +782,11 @@ public class Publisher implements URIResolver {
     //  create StructureDefinition structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
       StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage());
+      p.setUserData("pack", ap);
       profile.setResource(p);
       page.getProfiles().put(p.getUrl(), p);
     } else {
+      profile.getResource().setUserData("pack", ap);
       // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
       if (!profile.getResource().hasDate())
         profile.getResource().setDate(page.getGenDate().getTime());
@@ -2923,7 +2925,7 @@ public class Publisher implements URIResolver {
     StructureDefinition profile = (StructureDefinition) ResourceUtilities.getById(profileFeed, ResourceType.StructureDefinition, resource.getName());
     for (Example e : resource.getExamples()) {
       try {
-        processExample(e, resource.getName(), profile);
+        processExample(e, resource.getName(), profile, null);
       } catch (Exception ex) {
         throw new Exception("processing " + e.getFileTitle(), ex);
         // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
@@ -3197,7 +3199,7 @@ public class Publisher implements URIResolver {
     return form;
   }
 
-  private void processExample(Example e, String resourceName, StructureDefinition profile) throws Exception {
+  private void processExample(Example e, String resourceName, StructureDefinition profile, Profile pack) throws Exception {
     if (e.getType() == ExampleType.Tool)
       return;
 
@@ -3358,7 +3360,7 @@ public class Publisher implements URIResolver {
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()
         + " (id = \"" + e.getId() + "\")", 0, true, n + ".xml.html");
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processPageIncludes(n + ".xml.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, null, null, "Example");
+    html = page.processPageIncludes(n + ".xml.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example");
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
     if (e.isInBook()) {
       XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.html"), "html");
@@ -3373,7 +3375,7 @@ public class Publisher implements URIResolver {
 
     // now, we create an html page from the narrative
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative);
-    html = page.processPageIncludes(n + ".html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, null, null, "Example");
+    html = page.processPageIncludes(n + ".html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example");
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".html");
     // head =
     // "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
@@ -3516,7 +3518,19 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
 
     for (Example ex : pack.getExamples()) {
-      processExample(ex, resourceName, null);
+      StructureDefinition sd  = null;
+      boolean ambiguous = false;
+      for (ConstraintStructure sdt : pack.getProfiles()) {
+        if (sdt.getResource().getSnapshot().getElement().get(0).getPath().equals(resourceName))
+          if (sd == null)
+            sd = sdt.getResource();
+          else
+            ambiguous = true;
+      }
+      if (ambiguous)
+        processExample(ex, resourceName, null, null);
+      else
+        processExample(ex, resourceName, sd, pack);
     }
     // create examples here
 //    if (examples != null) {

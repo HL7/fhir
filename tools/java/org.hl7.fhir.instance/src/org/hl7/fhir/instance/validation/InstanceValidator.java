@@ -21,6 +21,7 @@ import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -462,7 +463,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           profile = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+resourceName);
           ok = rule(errors, "invalid", stack.getLiteralPath() + "/f:"+resourceName, profile != null, "No profile found for resource type '"+resourceName+"'");
         } else {
-          String type = profile.getSnapshot().getElement().get(0).getType().get(0).getCode();
+          String type = profile.getType() == StructureDefinitionType.RESOURCE ? profile.getSnapshot().getElement().get(0).getPath() : profile.getSnapshot().getElement().get(0).getType().get(0).getCode();
           ok = rule(errors, "invalid", stack.getLiteralPath() + "/f:"+resourceName, type.equals(resourceName), "Specified profile type was '"+profile.getType()+"', but resource type was '"+resourceName+"'");
         }
       }
@@ -1030,6 +1031,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       StructureDefinition p = resolveProfile(profile, pr);
       if (p == null)
         return null;
+      else if (p.getType() == StructureDefinitionType.RESOURCE)
+        return p.getSnapshot().getElement().get(0).getPath();
       else
         return p.getSnapshot().getElement().get(0).getType().get(0).getCode();
 //    }

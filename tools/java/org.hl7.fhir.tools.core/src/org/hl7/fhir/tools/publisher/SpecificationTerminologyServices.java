@@ -289,10 +289,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
   }
 
   @Override
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
-    ValueSet vs = new ValueSet();
-    vs.setCompose(new ValueSetComposeComponent());
-    vs.getCompose().getInclude().add(inc);
+  public ValueSet expandVS(ValueSet vs) throws Exception {
     ByteArrayOutputStream b = new  ByteArrayOutputStream();
     JsonParser parser = new JsonParser();
     parser.setOutputStyle(OutputStyle.NORMAL);
@@ -304,7 +301,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
       if (r instanceof OperationOutcome)
         throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
       else
-        return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource()).getExpansion();
+        return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource());
     }
     vs.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
         
@@ -321,7 +318,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
         ValueSet result = client.expandValueset(vs);
         serverOk = true;
         parser.compose(new FileOutputStream(fn), result);
-        return result.getExpansion();
+        return result;
       } catch (EFhirClientException e) {
         serverOk = true;
         parser.compose(new FileOutputStream(fn), e.getServerErrors().get(0));
@@ -332,6 +329,13 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
       }
     } else
       throw new Exception("Server is not available");
+  }
+  @Override
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
+    ValueSet vs = new ValueSet();
+    vs.setCompose(new ValueSetComposeComponent());
+    vs.getCompose().getInclude().add(inc);
+    return expandVS(vs).getExpansion();
   }
 
   @Override
@@ -398,4 +402,5 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
   public boolean verifiesSystem(String system) {
     return true;
   }
+
 }

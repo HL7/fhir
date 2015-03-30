@@ -108,6 +108,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.SearchParameter.SearchParamType;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -698,6 +699,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genIGProfilelist() + s3;  
       else if (com[0].equals("operationslist"))
         src = s1 + genOperationList() + s3;  
+      else if (com[0].equals("example.profile.link"))
+        src = s1 + genExampleProfileLink(resource) + s3;  
       else if (com[0].equals("id_regex"))
         src = s1 + FormatUtilities.ID_REGEX + s3;  
       else if (com[0].equals("resourcecount"))
@@ -728,10 +731,35 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           b.append(t.asStringValue());
         src = s1 + b.toString() + s3;
       }
+      else if (com[0].startsWith("!"))
+        src = s1 + s3;  
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genExampleProfileLink(Resource resource) {
+    if (resource == null || !(resource instanceof StructureDefinition))
+      return "";
+    StructureDefinition sd = (StructureDefinition) resource;
+    if (sd.getType() == StructureDefinitionType.RESOURCE)
+      return "";
+    String pack = "";
+    if (sd.hasUserData("pack")) {
+      Profile p = (Profile) sd.getUserData("pack");
+      ImplementationGuide ig = definitions.getIgs().get(p.getCategory());
+      if (Utilities.noString(ig.getPage()))  
+        pack = " ("+ig.getName()+"))";
+      else
+        pack = " (<a href=\""+ig.getPage()+"\">"+ig.getName()+"</a>)";
+      if (!p.getTitle().equals(sd.getName()))
+        pack = " in <a href=\""+p.getId()+".html\">"+p.getTitle()+"</a> "+pack;
+    }
+    if (sd.hasUserData("path"))
+      return "This example conforms to the <a href=\""+sd.getUserData("path")+"\">profile "+(sd.getName())+"</a>"+pack+".";
+    else
+      return "This example conforms to the <a href=\""+sd.getId().toLowerCase()+".html\">profile "+(sd.getName())+"</a>"+pack+".";
   }
 
   private String umlForDt(String dt) throws Exception {
@@ -2909,6 +2937,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + expandValueSetIG((ValueSet) resource) + s3;
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
+      else if (com[0].startsWith("!"))
+        src = s1 + s3;  
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -3368,6 +3398,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + definitions.getDictionaries().get(name) + s3;        
       else if (com[0].equals("dictionary.view"))
         src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-QuantitativeLab-dataelements") + s3;        
+      else if (com[0].startsWith("!"))
+        src = s1 + s3;  
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -3589,6 +3621,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genOperations(resource) + s3;  
       else if (com[0].equals("opcount"))
         src = s1 + genOpCount(resource) + s3;  
+      else if (com[0].startsWith("!"))
+        src = s1 + s3;  
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -3982,27 +4016,32 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return produceStructureDefinitionExamples();
     } else {
       StringBuilder s = new StringBuilder();
-      boolean started = false;
+      s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
       for (Example e: resource.getExamples()) {
-        //   if (!e.isInBook()) {
-        if (!started)
-          s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
-        started = true;
-        if (e.getFileTitle().equals("conformance-base") || e.getFileTitle().equals("conformance-base2") || e.getFileTitle().equals("profiles-resources"))
-          s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
-        else
-          s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
-        s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
-        s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
-        s.append("</tr>");
-
+        produceExampleListEntry(s, e, null);
       }
-
-      //  }
-      if (started)
-        s.append("</table>\r\n");
+      for (Profile p : resource.getConformancePackages()) {
+        for (Example e: p.getExamples()) {
+          produceExampleListEntry(s, e, p);
+        }        
+      }
+      s.append("<tr><td colspan=\"4\">&nbsp;</td></tr></table>\r\n");
       return s.toString();
     }
+  }
+
+  private void produceExampleListEntry(StringBuilder s, Example e, Profile pack) {
+    if (e.getFileTitle().equals("conformance-base") || e.getFileTitle().equals("conformance-base2") || e.getFileTitle().equals("profiles-resources"))
+      s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
+    else
+      s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
+    s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
+    s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
+    if (pack == null)
+      s.append("<td></td>");
+    else
+      s.append("<td>for Profile <a href=\""+pack.getId()+".html\">"+Utilities.escapeXml(pack.getTitle())+"</a></td>");
+    s.append("</tr>");
   }
 
   
@@ -4456,6 +4495,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + s3;
       else if (com[0].equals("profile.notes"))
         src = s1 + s3;
+      else if (com[0].startsWith("!"))
+        src = s1 + s3;  
       else if (com[0].equals("resurl")) {
          if (Utilities.noString(pack.metadata("id")))
            src = s1+s3;
@@ -4733,6 +4774,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+generateExtensionTable(ed, filename)+s3;
       else if (com[0].equals("context-info"))
         src = s1+describeExtensionContext(ed)+s3;
+      else if (com[0].startsWith("!"))
+        src = s1 + s3;  
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
@@ -5479,6 +5522,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + getPackageContent(pack) + s3;  
       else if (com[0].equals("package.search"))
         src = s1+getSearch(pack)+s3;
+      else if (com[0].startsWith("!"))
+        src = s1 + s3;  
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing profile "+pack.getId());
     }
@@ -5499,6 +5544,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (StructureDefinition ed : pack.getExtensions())
         s.append("<tr><td><a name=\"extension-").append(ed.getId()).append("\"/><a href=\"extension-").append(ed.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ed.getId()))
                 .append("</a></td><td><b>").append(Utilities.escapeXml(ed.getName())).append("</b> : ").append(processMarkdown(ed.getDescription())).append("</td></tr>");
+    }
+    if (pack.getExamples().size() > 0) {
+      s.append("<tr><td colspan=\"2\"><b>Examples</b>: </td></tr>");
+      for (Example ex : pack.getExamples())
+        s.append("<tr><td><a href=\"").append(ex.getFileTitle()).append(".html\">").append(Utilities.escapeXml(Utilities.changeFileExt(ex.getName(), "")))
+                .append("</a></td><td>").append(processMarkdown(ex.getDescription())).append("</td></tr>");
     }
     s.append("</table>");
     

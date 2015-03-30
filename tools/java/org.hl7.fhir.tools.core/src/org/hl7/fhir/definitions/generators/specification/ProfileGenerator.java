@@ -308,7 +308,7 @@ public class ProfileGenerator {
     p.getDifferential().getElement().get(0).getType().clear();
     p.getDifferential().getElement().get(0).addType().setCode("Element");
     p.getSnapshot().getElement().get(0).getType().clear();
-    p.getSnapshot().getElement().get(0).addType().setCode(t.getName());
+    p.getSnapshot().getElement().get(0).addType().setCode("Element");
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
@@ -438,7 +438,7 @@ public class ProfileGenerator {
       p.getDifferential().getElement().get(0).getType().clear();
       p.getDifferential().getElement().get(0).addType().setCode(r.getRoot().typeCode());
       p.getSnapshot().getElement().get(0).getType().clear();
-      p.getSnapshot().getElement().get(0).addType().setCode(r.getRoot().getName());
+      p.getSnapshot().getElement().get(0).addType().setCode(r.getRoot().typeCode());
     }
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
@@ -537,7 +537,9 @@ public class ProfileGenerator {
     reset();
 
     p.getDifferential().getElement().get(0).getType().clear();
-    p.getDifferential().getElement().get(0).addType().setCode(p.getSnapshot().getElement().get(0).getType().get(0).getCode());
+    p.getDifferential().getElement().get(0).addType().setCode(p.getSnapshot().getElement().get(0).getPath());
+    p.getSnapshot().getElement().get(0).getType().clear();
+    p.getSnapshot().getElement().get(0).addType().setCode(p.getSnapshot().getElement().get(0).getPath());
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
