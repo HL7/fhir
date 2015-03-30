@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadminexample01"/>
+  <status value="completed"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <practitioner>
+    <reference value="Practitioner/example"/>
+  </practitioner>
+  <prescription>
+    <reference value="MedicationPrescriptionexample5"/>
+  </prescription>
+  <effectiveTimePeriod>
+  <start value="2015-01-15T14:30:00+01:00"/>
+  <end value="2015-01-15T14:30:00+01:00"/>
+</effectiveTimePeriod>
+  <medication>
+    <reference value="Medication/medicationexample6"/> 
+  </medication>
+  <dosage>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="394899003"/>
+        <display value="oral administration of treatment"/>
+      </coding>  
+    </route>
+    <quantity>
+      <value value="1"/>
+      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+      <code value="CAP"/>
+    </quantity>
+  </dosage>
+</MedicationAdministration>

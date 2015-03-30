@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="medadminexample02"/>
+  <status value="completed"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <practitioner>
+    <reference value="Practitioner/example"/>
+  </practitioner>
+  <prescription>
+    <reference value="MedicationPrescriptionexample8"/>
+  </prescription>
+  <effectiveTimePeriod>
+  <start value="2015-01-15T14:30:00+01:00"/>
+  <end value="2015-01-15T14:30:00+01:00"/>
+</effectiveTimePeriod>
+  <medication>
+    <!-- references medication 6 -->
+    <reference value="Medication/medicationexample17"/> 
+  </medication>
+  <dosage>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="47625008"/>
+        <display value="Intravenous route"/>
+      </coding>
+    </route>
+    <quantity>
+      <value value="80"/>
+      <units value="mg"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg"/>
+    </quantity>
+    <rate>
+      <numerator>
+        <value value="80"/>
+        <units value="mg"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mg"/>
+      </numerator>
+      <denominator>
+        <value value="60"/>
+        <units value="minutes"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258702006"/>
+      </denominator>
+    </rate>
+  </dosage>
+  
+</MedicationAdministration>
