@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medication.xsd">
+  <id value="medexample010"/>
+
+  <!-- this example includes a compounded product - manufactured using chemicals -->
+  
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Hydrocortisone 1%, Salicylic Acid 5% in Glaxal Base</div>
+  </text>
+   
+  <name value="Hydrocortisone 1%, Salicylic Acid 5% in Glaxal Base/>
+  <isBrand value="false"/>
+  <kind value="product"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="255621006"/>
+        <display value="Cream"/>
+      </coding>
+    </form>
+    <ingredient>
+        <item> value="Hydrocortisone Powder" </item>
+          <amount> value=
+          </amount>
+        </item>
+    </ingredient>
+    <ingredient> 
+      <item>value="Salicyclic Acid Crystals</item>
+      <amount>5%</amount>
+    </ingredient>
+    <ingredient> 
+      <item>value="Glaxal Base</item>
+    </ingredient> 
+  </product>
+</Medication>

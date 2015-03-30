@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medication.xsd">
+  <id value="medexample009"/>
+
+  <!-- this example includes the <name> element only -->
+  
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Amoxicillin 250mg/5ml Suspension</div>
+  </text>
+   
+  <name value="Amoxicillin 250mg/5ml Suspension"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="323733007"/>
+      <display value="Amoxcycillin 250mg/5ml oral suspension (product)"/>
+    </coding>
+    <coding>
+      <system value="http://hc-sc.gc.ca"/>
+      <code value="0131314003"/>
+      <display value="Amoxicillin (Amoxcillin Trihydrate) 250mg/5mL"/>
+    </coding>
+  </code>  
+  <isBrand value="false"/>
+  <kind value="product"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="385024007"/>
+        <display value="Oral Suspension"/>
+      </coding>
+    </form>
+  </product>
+</Medication>

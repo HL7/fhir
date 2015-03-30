@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+  <id value="medexample008"/>
+
+  <!-- this example includes a compounded medication -->
+  
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Hydrocortisone 1%, Salicyclic Acid 5% in Glaxal Base</div>
+  </text>
+   
+  <name value="Hydrocortisone 1%, Salicyclic Acid 5% in Glaxal Base"/>
+  <isBrand value="false"/>
+  <kind value="product"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="255621006"/>
+        <display value="Cream"/>
+      </coding>
+    </form>
+    <ingredient>
+      <item>
+        <display value="Hydrocortisone Powder"/>
+      </item>
+      <amount>
+        <numerator>
+          <value value="1"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g"/>
+        </numerator>
+        <denominator>
+          <value value="100"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g"/>
+        </denominator>
+      </amount>
+    </ingredient>
+    <ingredient>
+      <item>
+        <display value="Salicyclic Acid"/>
+      </item>
+      <amount>
+        <numerator>
+          <value value="5"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g"/>
+        </numerator>
+        <denominator>
+          <value value="100"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g"/>
+        </denominator>
+      </amount>
+    </ingredient>
+    <ingredient>
+      <item>
+        <display value="Glaxal Base"/>
+      </item>
+      <amount>
+        <numerator>
+          <value value="94"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g"/>
+        </numerator>
+        <denominator>
+          <value value="100"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g"/>
+        </denominator>
+      </amount>
+    </ingredient>
+  </product>
+</Medication>

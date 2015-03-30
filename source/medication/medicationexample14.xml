@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+  <id value="medexample014"/>
+
+  <!-- this example includes a medication for content -->
+  
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Amoxicillin 250mg/5ml Suspension</div>
+  </text>
+   
+  <name value="Amoxicillin trihydrate"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="96068000"/>
+      <display value="Amoxicillin trihydrate"/>
+    </coding>
+  </code>
+  <isBrand value="false"/>
+  <kind value="product"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="85581007"/>
+        <display value="Drug Powder"/>
+      </coding>
+    </form>
+  </product>
+</Medication>

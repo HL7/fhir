@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+  <id value="medexample003"/>
+
+  <!-- this example includes a coded Manufactured Medication -->
+  
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Amox S 250 Sus 250mg/5ml</div>
+  </text>
+   
+  <name value="Amox S 250 Sus 250mg/5ml"/>
+  <code>
+    <coding>
+      <system value="http://hc-sc.gc.ca"/>
+      <code value="00885916"/>
+      <display value="Amox S 250 Sus 250mg/5ml"/>
+    </coding>
+  </code>  
+  <isBrand value="true"/>
+  <kind value="product"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="385024007"/>
+        <display value="Oral Suspension"/>
+      </coding>
+    </form>
+  </product>
+</Medication>

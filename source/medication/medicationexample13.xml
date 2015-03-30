@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medication.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="medexample013"/>
+
+  <!-- this example is an example of Insulin -->
+  
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">3 ML Insulin, Aspart, Human 100 UNT/ML Prefilled Syringe [NovoLog]</div>
+  </text>
+   
+  <name value="3 ML Insulin, Aspart, Human 100 UNT/ML Prefilled Syringe [NovoLog]"/>
+  <code>
+    <coding>
+      <system value="http://purl.bioontology.org/ontology/RXNORM/847265"/>
+      <code value="847265"/>
+      <display value="3 ML Insulin, Aspart, Human 100 UNT/ML Prefilled Syringe [NovoLog]"/>
+    </coding>
+  </code>  
+  <isBrand value="true"/>
+  <manufacturer>
+    <reference value="http://www.novonordisk-us.com/fhirresource/1" />
+  </manufacturer>
+  <kind value="product"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="385219001"/>
+        <display value="Injection Solution"/>
+      </coding>
+    </form>
+    <ingredient>
+      <item>
+        <display value="Insulin Aspart"/>
+      </item>
+      <amount>
+        <numerator>
+          <value value="100"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="U"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mL"/>
+        </denominator>
+      </amount>
+    </ingredient>
+    <batch>
+      <lotNumber value="12345"/>
+      <expirationDate value="2018-12-22"/>
+    </batch>
+  </product>
+</Medication>

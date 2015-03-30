@@ -1,0 +1,22 @@
+<Medication xmlns="http://hl7.org/fhir">
+  <id value="medexample015"/>
+  <name value="Capecitabine Zentiva 150mg film-coated tablets "/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="134623009"/>
+      <display value="Capecitabine 150mg tablet (product)"/>
+    </coding>
+  </code>
+  <isBrand value="false"/>
+  <kind value="product"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="440131009"/>
+        <display value="Oral dosage form product"/>
+      </coding>
+    </form>
+  </product>
+</Medication>

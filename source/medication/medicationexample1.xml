@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+  <id value="medexample001"/>
+
+  <!-- this example includes the <name> element only -->
+  
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Amoxicillin 250mg/5ml Suspension</div>
+  </text>
+   
+  <name value="Amoxicillin 250mg/5ml Suspension"/>
+</Medication>
