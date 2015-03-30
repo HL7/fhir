@@ -3,7 +3,7 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationadministration.xsd"
  xmlns="http://hl7.org/fhir"> 
   <id value="medadminexample03"/>
-  <status value="on hold" />
+  <status value="on-hold" />
   <patient>
     <reference value="Patient/example"/>
   </patient>
