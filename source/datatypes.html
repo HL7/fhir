@@ -208,6 +208,8 @@ In addition to the base primitive types, a few additional primitive types are de
 <a name="oid"> </a>
 <a name="uuid"> </a>
 <a name="id"> </a>
+<a name="unsignedInt"> </a>
+<a name="positiveInt"> </a>
 
 <table class="list">
  <tr>
@@ -222,6 +224,9 @@ In addition to the base primitive types, a few additional primitive types are de
 -->
  <tr><td>id</td><td>string</td><td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)  
    <br/>regex: [%id_regex%]</td></tr>
+
+ <tr><td>unsignedInt</td><td>int</td><td>Any non-negative integer (e.g. >= 0)<br/>regex: [0-9]+</td></tr>
+ <tr><td>positiveInt</td><td>int</td><td>Any positive integer (e.g. > 0)<br/>regex: [1-9][0-9]+</td></tr>
 </table>
 
 <p>

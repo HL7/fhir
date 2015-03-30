@@ -607,7 +607,7 @@ public class SourceParser {
 		for (int row = 0; row < sheet.rows.size(); row++) {
 			processImport(sheet, row);
 		}
-		sheet = xls.getSheets().get("String Patterns");
+		sheet = xls.getSheets().get("Patterns");
 		for (int row = 0; row < sheet.rows.size(); row++) {
 			processStringPattern(sheet, row);
 		}

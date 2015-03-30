@@ -285,8 +285,12 @@ public class GeneratorUtils {
 	{
 		if (name.equals("boolean"))
 			return "bool?";
-		else if (name.equals("integer"))
-			return "int?";
+    else if (name.equals("integer"))
+      return "int?";
+    else if (name.equals("positiveInt"))
+      return "int?";
+    else if (name.equals("unsignedInt"))
+      return "int?";
 		else if (name.equals("decimal"))
 			return "decimal?";
 		else if (name.equals("base64Binary"))
@@ -323,8 +327,12 @@ public class GeneratorUtils {
 	{
 		if (name.equals("boolean"))
 			return "FhirBoolean";
-		else if (name.equals("integer"))
-			return "Integer";
+    else if (name.equals("integer"))
+      return "Integer";
+    else if (name.equals("positiveInt"))
+      return "Integer";
+    else if (name.equals("unsignedInt"))
+      return "Integer";
 		else if (name.equals("decimal"))
 			return "FhirDecimal";
 		else if (name.equals("base64Binary"))

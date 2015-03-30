@@ -26,6 +26,7 @@ signatures.html
   			<page title="Definitions" filename="resource-definitions.html"/>
       </page>
 			<page title="Conformance" filename="conformance-rules.html"/>
+			<page title="Life Cycle" filename="lifecycle.html"/>
 			<page title="References" filename="references.html">
 				<page title="Definitions" filename="references-definitions.html"/>
 			</page>

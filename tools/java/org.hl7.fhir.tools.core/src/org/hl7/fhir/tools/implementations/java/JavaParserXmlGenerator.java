@@ -805,12 +805,12 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     String tn = getPrimitiveTypeModelName(dc.getCode());
 
     write("  protected void compose"+upFirst(dc.getCode())+"(String name, "+tn+" value) throws Exception {\r\n");
-    if (dc.getCode().equals("integer")  || dc.getCode().equals("boolean"))
-      write("    if (value != null) {\r\n");
+    if (dc.getCode().equals("integer")  || dc.getCode().equals("unsignedInt") || dc.getCode().equals("positiveInt") || dc.getCode().equals("boolean"))
+      write("    if (value != null) { // "+dc.getCode()+"\r\n");
     else if (dc.getCode().equals("decimal") || dc.getCode().equals("uri") || dc.getCode().equals("base64Binary") || dc.getCode().equals("instant") || dc.getCode().equals("date") || dc.getCode().equals("dateTime"))
-      write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {\r\n");
+      write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {// "+dc.getCode()+"\r\n");
     else
-      write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {\r\n");
+      write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {// "+dc.getCode()+"\r\n");
     write("      composeElementAttributes(value);\r\n");
     write("      if (value.asStringValue() != null) \r\n");
     write("        xml.attribute(\"value\", value.asStringValue());\r\n");

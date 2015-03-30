@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-21T19:16:26Z</Created>
-  <LastSaved>2014-11-12T03:16:15Z</LastSaved>
+  <LastSaved>2015-03-30T11:54:36Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>15270</WindowWidth>
   <WindowTopX>630</WindowTopX>
   <WindowTopY>780</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <DoNotCalculateBeforeSave/>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -159,28 +160,26 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>11</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="String Patterns">
+ <Worksheet ss:Name="Patterns">
   <Names>
-   <NamedRange ss:Name="code" ss:RefersTo="='String Patterns'!R2C1"/>
+   <NamedRange ss:Name="code" ss:RefersTo="=Patterns!R2C1"/>
    <NamedRange ss:Name="date" ss:RefersTo="=Imports!R9C1"/>
    <NamedRange ss:Name="dateTime" ss:RefersTo="=Imports!R10C1"/>
-   <NamedRange ss:Name="id" ss:RefersTo="='String Patterns'!R5C1"/>
-   <NamedRange ss:Name="oid" ss:RefersTo="='String Patterns'!R3C1"/>
-   <NamedRange ss:Name="uuid" ss:RefersTo="='String Patterns'!R4C1"/>
+   <NamedRange ss:Name="id" ss:RefersTo="=Patterns!R5C1"/>
+   <NamedRange ss:Name="oid" ss:RefersTo="=Patterns!R3C1"/>
+   <NamedRange ss:Name="uuid" ss:RefersTo="=Patterns!R4C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="233.25"/>
@@ -227,6 +226,20 @@
     <Cell><Data ss:Type="String">xs:string+</Data></Cell>
     <Cell><Data ss:Type="String">[A-Za-z0-9\-\.]{1,64}</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">unsignedInt</Data></Cell>
+    <Cell><Data ss:Type="String">An integer with a value that is not negative (e.g. &gt;= 0)</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">integer</Data></Cell>
+    <Cell><Data ss:Type="String">nonNegativeInteger </Data></Cell>
+    <Cell><Data ss:Type="String">[0-9]+</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">positiveInt</Data></Cell>
+    <Cell><Data ss:Type="String">An integer with a value that is positive (e.g. &gt;0)</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">integer</Data></Cell>
+    <Cell><Data ss:Type="String">positiveInteger</Data></Cell>
+    <Cell><Data ss:Type="String">[1-9][0-9]+</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -241,11 +254,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
