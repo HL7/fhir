@@ -36,8 +36,8 @@
     <reference value="Medication/MedicationExample12"/>
     <display value="prescribed medication"/>
   </medication>
-  <whenPrepared value="2015-03-01T10:48:00"/>
-  <whenHandedOver value="2015-03-01T10:59:00"/>
+  <whenPrepared value="2015-03-01T10:48:00Z"/>
+  <whenHandedOver value="2015-03-01T10:59:00Z"/>
   <dosageInstruction>
     <scheduleTiming>
       <event value="2015-03-01"/>

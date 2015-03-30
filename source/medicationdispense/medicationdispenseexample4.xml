@@ -37,8 +37,8 @@
     <display value="prescribed medication"/>
   </medication>
   <!-- not sure how to reflect -->
-  <whenPrepared value="2015-03-01T16:20:00"/>
-  <whenHandedOver value="2015-03-02T17:20:00"/>
+  <whenPrepared value="2015-03-01T16:20:00Z"/>
+  <whenHandedOver value="2015-03-02T17:20:00Z"/>
   <dosageInstruction>
     <additionalInstructions>
       <coding>
