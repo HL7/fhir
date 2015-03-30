@@ -1,0 +1,53 @@
+<MedicationPrescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl8.org/fhir ../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationprescription.xsd"
+ xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p><big>AC followed by Paclitaxel + Trastuzumab Course 2</big></p>
+      <p>Name: Paclitaxel in Dose-dense Paclitaxel (Q14D) + Trastuzumab (Q7D)</p>
+      <p>Course: 2</p>
+      <p>Agent Protocols Options:</p>
+      <p><b>Paclitaxel 175 mg/m^2 IV over 3 hours D1 in cycles 1-4</b></p>
+      <p>Offset: None</p>
+      <p>Cycle length: Q14D x 4 cycles</p>
+    </div>
+  </text>
+  <id value="medrx007"/>
+  <status value="on hold">
+  </status>
+  <medication>
+    <reference value="Medication/medicationexample16"/>
+  </medication>
+  <dosageInstruction>
+    <text value="Paclitaxel 175 mg/m^2 IV over 3 hours D1"/>
+    <scheduledTiming>
+      <repeat>
+        <frequency value="1"/>
+        <duration value="1"/>
+        <units value="d"/>
+      </repeat>
+    </scheduledTiming>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="47625008"/>
+        <display value="Intravenous route"/>
+      </coding>
+    </route>
+    <rate><!--   175 mg/m^2 over 3 hours  -->
+      <numerator>
+        <value value="175"/>
+        <units value="mg/m^2"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258682000"/>
+      </numerator>
+      <denominator>
+        <value value="3"/>
+        <units value="hours"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258702006"/>
+      </denominator>
+    </rate>
+  </dosageInstruction>
+</MedicationPrescription>

@@ -1,0 +1,56 @@
+<MedicationPrescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationprescription.xsd"
+ xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p><big>AC followed by Paclitaxel + Trastuzumab Course 1</big></p>
+      <p>Name: Cyclophosphamide in AC (Doxorubicin + Cyclophosphamide)</p>
+      <p>Course: 1</p>
+      <p>Agent Protocols Options:</p>
+      <p><b>Cyclophosphamide 600 mg/m^2 IV over 30 minutes D1 </b></p>
+      <p>Offset: None</p>
+      <p>Cycle length: Q21D x 4 cycles</p>
+    </div>
+  </text>
+  <id value="medrx009"/>
+  <status value="on hold">
+    <extension url="http://localhost:3000/MedicationPrescription/mscode#original-status">
+      <valueCode value='pending'/>
+    </extension>
+  </status>
+  <medication>
+    <reference value="Medication/Cyclophosphamide"/>
+  </medication>
+  <dosageInstruction>
+    <text value="Cyclophosphamide 600 mg/m^2 IV over 30 minutes D1"/>
+    <scheduledTiming>
+      <repeat>
+        <frequency value="1"/>
+        <duration value="1"/>
+        <units value="d"/>
+      </repeat>
+    </scheduledTiming>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="47625008"/>
+        <display value="Intravenous route"/>
+      </coding>
+    </route>
+    <rate><!--   600 mg/m^2 over 30 minutes   -->
+      <numerator>
+        <value value="600"/>
+        <units value="mg/m^2"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258682000"/>
+      </numerator>
+      <denominator>
+        <value value="30"/>
+        <units value="minutes"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258702006"/>
+      </denominator>
+    </rate>
+  </dosageInstruction>
+</MedicationPrescription>

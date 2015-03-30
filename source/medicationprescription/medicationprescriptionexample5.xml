@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example is a prescription for a drug with a loading dose -->
+<MedicationPrescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationprescription.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="medrx005"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345"/>
+    </identifier>
+    <dateWritten value="2015-01-15"/>
+    <status value="active"/>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/f001"/>
+        <display value="Eve Everywoman"/>         
+    </patient>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f002"/>
+        <display value="encounter who leads to this priscription"/>
+    </encounter>
+    <reasonCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="65363002"/>
+            <display value="Otitis Media"/>
+        </coding>
+    </reasonCodeableConcept>
+    <medication> <!-- Linked to a RESOURCE Medication -->
+        <reference value="Medication/MedicationExample6"/>
+        <display value="prescribed medication"/>
+    </medication>
+    <dosageInstruction>
+        <text value="Take two capsules to start" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after food"/>
+            </coding>
+        </additionalInstructions>
+        <scheduledTiming>
+            <event>
+                <start value="2015-01-15"/>
+                <end value="2015-01-15"/>
+            </event>
+            <repeat>
+                <frequency value="1"/>
+                <duration value="1"/>
+                <units value="d"/>
+            </repeat>
+        </scheduledTiming>
+        <site>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="181220002"/>
+                <display value="Entire oral cavity"/>
+            </coding>
+        </site>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="2"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="CAP"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dosageInstruction>
+        <text value="Take one capsule three times daily" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="311504000"/>
+                <display value="With or after food"/>
+            </coding>
+        </additionalInstructions>
+        <scheduledTiming>
+            <event>
+                <start value="2015-01-15"/>
+                <end value="2015-10-15"/>
+            </event>
+            <repeat>
+                <frequency value="3"/>
+                <duration value="1"/>
+                <units value="d"/>
+            </repeat>
+        </scheduledTiming>
+        <site>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="181220002"/>
+                <display value="Entire oral cavity"/>
+            </coding>
+        </site>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="1"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <code value="CAP"/>
+        </doseQuantity>
+    </dosageInstruction>         
+</MedicationPrescription>

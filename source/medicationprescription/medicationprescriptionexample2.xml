@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example is an example of text only dosage instruction  -->
+<MedicationPrescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../../Documents/Gevity/Client%20Work/Pharmacy%20FHIR/New%20Pharmacy%20FHIR%20Examples/schema/medicationprescription.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx002"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345"/>
+    </identifier>
+    <dateWritten value="2015-03-01"/>
+    <status value="active"/>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/f001"/>
+        <display value="Eve Everywoman"/>         
+    </patient>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f008"/>
+        <display value="Patricia Primary"/>
+    </prescriber>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f002"/>
+        <display value="encounter who leads to this prescription"/>
+    </encounter>
+    <reasonCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="64859006"/>
+            <display value="Osteoporosis"/>
+        </coding>
+    </reasonCodeableConcept>
+    <medication> <!-- Linked to a RESOURCE Medication -->
+        <reference value="Medication/MedicationExample5"/>
+        <display value="prescribed medication"/>
+    </medication> 
+    <dosageInstruction>
+        <text value="Take one tablet daily as directed" />
+    </dosageInstruction>
+</MedicationPrescription>
