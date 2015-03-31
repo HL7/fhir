@@ -25,7 +25,7 @@ Authored by: Eric M Haas  Health eData Inc.
 	</text>
 	<identifier>
 		<use value="official"/>
-		<label value="CLIA"/>
+		<type><text value="CLIA"/></type>
 		<value value="01D1111111"/>
 		<assigner>
 			<reference value="http://www.cms.gov/Regulations-and-Guidance/Legislation/CLIA/index.html"/>

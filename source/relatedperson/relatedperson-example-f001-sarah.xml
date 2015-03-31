@@ -12,7 +12,7 @@
 
   <identifier>
     <use value="official"/>
-    <label value="BSN"/>
+    <type><text value="BSN"/></type>
     <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
     <!-- Dutch BSN identification system -->
   </identifier>

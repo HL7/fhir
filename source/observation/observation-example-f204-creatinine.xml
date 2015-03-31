@@ -36,7 +36,6 @@
     </coding>
  </method>
  <identifier>
-    <label value="Creatinine value of Roel on April 2013 - 03720"/>
     <system value="https://intranet.aumc.nl/labvalues"/><!--Does not exist-->
     <value value="1304-03720-Creatinine"/>
  </identifier>

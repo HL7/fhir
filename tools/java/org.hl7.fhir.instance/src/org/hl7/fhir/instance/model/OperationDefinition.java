@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 07:43+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1315,23 +1315,30 @@ public class OperationDefinition extends DomainResource {
     protected Enumeration<OperationKind> kind;
 
     /**
+     * Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
+     */
+    @Child(name ="idempotent", type={BooleanType.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="Whether operation causes changes to content", formalDefinition="Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST." )
+    protected BooleanType idempotent;
+
+    /**
      * The name used to invoke the operation.
      */
-    @Child(name ="code", type={CodeType.class}, order=11, min=1, max=1)
+    @Child(name ="code", type={CodeType.class}, order=12, min=1, max=1)
     @Description(shortDefinition="Name used to invoke the operation", formalDefinition="The name used to invoke the operation." )
     protected CodeType code;
 
     /**
      * Additional information about how to use this operation or named query.
      */
-    @Child(name ="notes", type={StringType.class}, order=12, min=0, max=1)
+    @Child(name ="notes", type={StringType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Additional information about use", formalDefinition="Additional information about how to use this operation or named query." )
     protected StringType notes;
 
     /**
      * Indicates that this operation definition is a constraining profile on the base.
      */
-    @Child(name ="base", type={OperationDefinition.class}, order=13, min=0, max=1)
+    @Child(name ="base", type={OperationDefinition.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Marks this as a profile of the base", formalDefinition="Indicates that this operation definition is a constraining profile on the base." )
     protected Reference base;
 
@@ -1343,32 +1350,32 @@ public class OperationDefinition extends DomainResource {
     /**
      * Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
-    @Child(name ="system", type={BooleanType.class}, order=14, min=1, max=1)
+    @Child(name ="system", type={BooleanType.class}, order=15, min=1, max=1)
     @Description(shortDefinition="Invoke at the system level?", formalDefinition="Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)." )
     protected BooleanType system;
 
     /**
      * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).
      */
-    @Child(name ="type", type={CodeType.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="type", type={CodeType.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Invoke at resource level for these type", formalDefinition="Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context)." )
     protected List<CodeType> type;
 
     /**
      * Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
-    @Child(name ="instance", type={BooleanType.class}, order=16, min=1, max=1)
+    @Child(name ="instance", type={BooleanType.class}, order=17, min=1, max=1)
     @Description(shortDefinition="Invoke on an instance?", formalDefinition="Indicates whether this operation can be invoked on a particular instance of one of the given types." )
     protected BooleanType instance;
 
     /**
      * The parameters for the operation/query.
      */
-    @Child(name ="parameter", type={}, order=17, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name ="parameter", type={}, order=18, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
-    private static final long serialVersionUID = -1969411481L;
+    private static final long serialVersionUID = 1747303098L;
 
     public OperationDefinition() {
       super();
@@ -1899,6 +1906,51 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
+     * @return {@link #idempotent} (Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.). This is the underlying object with id, value and extensions. The accessor "getIdempotent" gives direct access to the value
+     */
+    public BooleanType getIdempotentElement() { 
+      if (this.idempotent == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.idempotent");
+        else if (Configuration.doAutoCreate())
+          this.idempotent = new BooleanType(); // bb
+      return this.idempotent;
+    }
+
+    public boolean hasIdempotentElement() { 
+      return this.idempotent != null && !this.idempotent.isEmpty();
+    }
+
+    public boolean hasIdempotent() { 
+      return this.idempotent != null && !this.idempotent.isEmpty();
+    }
+
+    /**
+     * @param value {@link #idempotent} (Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.). This is the underlying object with id, value and extensions. The accessor "getIdempotent" gives direct access to the value
+     */
+    public OperationDefinition setIdempotentElement(BooleanType value) { 
+      this.idempotent = value;
+      return this;
+    }
+
+    /**
+     * @return Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
+     */
+    public boolean getIdempotent() { 
+      return this.idempotent == null || this.idempotent.isEmpty() ? false : this.idempotent.getValue();
+    }
+
+    /**
+     * @param value Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
+     */
+    public OperationDefinition setIdempotent(boolean value) { 
+        if (this.idempotent == null)
+          this.idempotent = new BooleanType();
+        this.idempotent.setValue(value);
+      return this;
+    }
+
+    /**
      * @return {@link #code} (The name used to invoke the operation.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
     public CodeType getCodeElement() { 
@@ -2233,6 +2285,7 @@ public class OperationDefinition extends DomainResource {
         childrenList.add(new Property("experimental", "boolean", "This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date that this version of the profile was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("kind", "code", "Whether this is operation or named query.", 0, java.lang.Integer.MAX_VALUE, kind));
+        childrenList.add(new Property("idempotent", "boolean", "Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.", 0, java.lang.Integer.MAX_VALUE, idempotent));
         childrenList.add(new Property("code", "code", "The name used to invoke the operation.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("notes", "string", "Additional information about how to use this operation or named query.", 0, java.lang.Integer.MAX_VALUE, notes));
         childrenList.add(new Property("base", "Reference(OperationDefinition)", "Indicates that this operation definition is a constraining profile on the base.", 0, java.lang.Integer.MAX_VALUE, base));
@@ -2260,6 +2313,7 @@ public class OperationDefinition extends DomainResource {
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
         dst.kind = kind == null ? null : kind.copy();
+        dst.idempotent = idempotent == null ? null : idempotent.copy();
         dst.code = code == null ? null : code.copy();
         dst.notes = notes == null ? null : notes.copy();
         dst.base = base == null ? null : base.copy();
@@ -2292,10 +2346,10 @@ public class OperationDefinition extends DomainResource {
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
            && compareDeep(requirements, o.requirements, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(date, o.date, true) && compareDeep(kind, o.kind, true) && compareDeep(code, o.code, true)
-           && compareDeep(notes, o.notes, true) && compareDeep(base, o.base, true) && compareDeep(system, o.system, true)
-           && compareDeep(type, o.type, true) && compareDeep(instance, o.instance, true) && compareDeep(parameter, o.parameter, true)
-          ;
+           && compareDeep(date, o.date, true) && compareDeep(kind, o.kind, true) && compareDeep(idempotent, o.idempotent, true)
+           && compareDeep(code, o.code, true) && compareDeep(notes, o.notes, true) && compareDeep(base, o.base, true)
+           && compareDeep(system, o.system, true) && compareDeep(type, o.type, true) && compareDeep(instance, o.instance, true)
+           && compareDeep(parameter, o.parameter, true);
       }
 
       @Override
@@ -2308,9 +2362,9 @@ public class OperationDefinition extends DomainResource {
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
            && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
            && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
-           && compareValues(kind, o.kind, true) && compareValues(code, o.code, true) && compareValues(notes, o.notes, true)
-           && compareValues(system, o.system, true) && compareValues(type, o.type, true) && compareValues(instance, o.instance, true)
-          ;
+           && compareValues(kind, o.kind, true) && compareValues(idempotent, o.idempotent, true) && compareValues(code, o.code, true)
+           && compareValues(notes, o.notes, true) && compareValues(system, o.system, true) && compareValues(type, o.type, true)
+           && compareValues(instance, o.instance, true);
       }
 
       public boolean isEmpty() {
@@ -2318,10 +2372,10 @@ public class OperationDefinition extends DomainResource {
            && (name == null || name.isEmpty()) && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty())
            && (description == null || description.isEmpty()) && (requirements == null || requirements.isEmpty())
            && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
-           && (date == null || date.isEmpty()) && (kind == null || kind.isEmpty()) && (code == null || code.isEmpty())
-           && (notes == null || notes.isEmpty()) && (base == null || base.isEmpty()) && (system == null || system.isEmpty())
-           && (type == null || type.isEmpty()) && (instance == null || instance.isEmpty()) && (parameter == null || parameter.isEmpty())
-          ;
+           && (date == null || date.isEmpty()) && (kind == null || kind.isEmpty()) && (idempotent == null || idempotent.isEmpty())
+           && (code == null || code.isEmpty()) && (notes == null || notes.isEmpty()) && (base == null || base.isEmpty())
+           && (system == null || system.isEmpty()) && (type == null || type.isEmpty()) && (instance == null || instance.isEmpty())
+           && (parameter == null || parameter.isEmpty());
       }
 
   @Override

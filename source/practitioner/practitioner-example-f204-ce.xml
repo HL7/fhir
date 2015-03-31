@@ -6,7 +6,7 @@
         <identifier>
             <!--The (fictive) identifier for this individual-->
             <use value="official"/>
-            <label value="UZI-nummer"/>
+            <type><text value="UZI-nummer"/></type>
             <system value="urn:oid:2.16.528.1.1007.3.1"/>
             <value value="12345678904"/>
         </identifier>

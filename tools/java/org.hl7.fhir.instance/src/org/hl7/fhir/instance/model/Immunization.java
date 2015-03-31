@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 07:43+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -418,9 +418,9 @@ public class Immunization extends DomainResource {
         /**
          * Nominal position in a series.
          */
-        @Child(name ="doseSequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Child(name ="doseSequence", type={PositiveIntType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="What dose number within series?", formalDefinition="Nominal position in a series." )
-        protected IntegerType doseSequence;
+        protected PositiveIntType doseSequence;
 
         /**
          * Contains the description about the protocol under which the vaccine was administered.
@@ -451,9 +451,9 @@ public class Immunization extends DomainResource {
         /**
          * The recommended number of doses to achieve immunity.
          */
-        @Child(name ="seriesDoses", type={IntegerType.class}, order=5, min=0, max=1)
+        @Child(name ="seriesDoses", type={PositiveIntType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Recommended number of doses for immunity", formalDefinition="The recommended number of doses to achieve immunity." )
-        protected IntegerType seriesDoses;
+        protected PositiveIntType seriesDoses;
 
         /**
          * The targeted disease.
@@ -476,13 +476,13 @@ public class Immunization extends DomainResource {
         @Description(shortDefinition="Why does does count/not count?", formalDefinition="Provides an explanation as to why a immunization event should or should not count against the protocol." )
         protected CodeableConcept doseStatusReason;
 
-        private static final long serialVersionUID = 747305824L;
+        private static final long serialVersionUID = -783437472L;
 
       public ImmunizationVaccinationProtocolComponent() {
         super();
       }
 
-      public ImmunizationVaccinationProtocolComponent(IntegerType doseSequence, CodeableConcept doseTarget, CodeableConcept doseStatus) {
+      public ImmunizationVaccinationProtocolComponent(PositiveIntType doseSequence, CodeableConcept doseTarget, CodeableConcept doseStatus) {
         super();
         this.doseSequence = doseSequence;
         this.doseTarget = doseTarget;
@@ -492,12 +492,12 @@ public class Immunization extends DomainResource {
         /**
          * @return {@link #doseSequence} (Nominal position in a series.). This is the underlying object with id, value and extensions. The accessor "getDoseSequence" gives direct access to the value
          */
-        public IntegerType getDoseSequenceElement() { 
+        public PositiveIntType getDoseSequenceElement() { 
           if (this.doseSequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.doseSequence");
             else if (Configuration.doAutoCreate())
-              this.doseSequence = new IntegerType(); // bb
+              this.doseSequence = new PositiveIntType(); // bb
           return this.doseSequence;
         }
 
@@ -512,7 +512,7 @@ public class Immunization extends DomainResource {
         /**
          * @param value {@link #doseSequence} (Nominal position in a series.). This is the underlying object with id, value and extensions. The accessor "getDoseSequence" gives direct access to the value
          */
-        public ImmunizationVaccinationProtocolComponent setDoseSequenceElement(IntegerType value) { 
+        public ImmunizationVaccinationProtocolComponent setDoseSequenceElement(PositiveIntType value) { 
           this.doseSequence = value;
           return this;
         }
@@ -529,7 +529,7 @@ public class Immunization extends DomainResource {
          */
         public ImmunizationVaccinationProtocolComponent setDoseSequence(int value) { 
             if (this.doseSequence == null)
-              this.doseSequence = new IntegerType();
+              this.doseSequence = new PositiveIntType();
             this.doseSequence.setValue(value);
           return this;
         }
@@ -679,12 +679,12 @@ public class Immunization extends DomainResource {
         /**
          * @return {@link #seriesDoses} (The recommended number of doses to achieve immunity.). This is the underlying object with id, value and extensions. The accessor "getSeriesDoses" gives direct access to the value
          */
-        public IntegerType getSeriesDosesElement() { 
+        public PositiveIntType getSeriesDosesElement() { 
           if (this.seriesDoses == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.seriesDoses");
             else if (Configuration.doAutoCreate())
-              this.seriesDoses = new IntegerType(); // bb
+              this.seriesDoses = new PositiveIntType(); // bb
           return this.seriesDoses;
         }
 
@@ -699,7 +699,7 @@ public class Immunization extends DomainResource {
         /**
          * @param value {@link #seriesDoses} (The recommended number of doses to achieve immunity.). This is the underlying object with id, value and extensions. The accessor "getSeriesDoses" gives direct access to the value
          */
-        public ImmunizationVaccinationProtocolComponent setSeriesDosesElement(IntegerType value) { 
+        public ImmunizationVaccinationProtocolComponent setSeriesDosesElement(PositiveIntType value) { 
           this.seriesDoses = value;
           return this;
         }
@@ -716,7 +716,7 @@ public class Immunization extends DomainResource {
          */
         public ImmunizationVaccinationProtocolComponent setSeriesDoses(int value) { 
             if (this.seriesDoses == null)
-              this.seriesDoses = new IntegerType();
+              this.seriesDoses = new PositiveIntType();
             this.seriesDoses.setValue(value);
           return this;
         }
@@ -795,11 +795,11 @@ public class Immunization extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("doseSequence", "integer", "Nominal position in a series.", 0, java.lang.Integer.MAX_VALUE, doseSequence));
+          childrenList.add(new Property("doseSequence", "positiveInt", "Nominal position in a series.", 0, java.lang.Integer.MAX_VALUE, doseSequence));
           childrenList.add(new Property("description", "string", "Contains the description about the protocol under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("authority", "Reference(Organization)", "Indicates the authority who published the protocol?  E.g. ACIP.", 0, java.lang.Integer.MAX_VALUE, authority));
           childrenList.add(new Property("series", "string", "One possible path to achieve presumed immunity against a disease - within the context of an authority.", 0, java.lang.Integer.MAX_VALUE, series));
-          childrenList.add(new Property("seriesDoses", "integer", "The recommended number of doses to achieve immunity.", 0, java.lang.Integer.MAX_VALUE, seriesDoses));
+          childrenList.add(new Property("seriesDoses", "positiveInt", "The recommended number of doses to achieve immunity.", 0, java.lang.Integer.MAX_VALUE, seriesDoses));
           childrenList.add(new Property("doseTarget", "CodeableConcept", "The targeted disease.", 0, java.lang.Integer.MAX_VALUE, doseTarget));
           childrenList.add(new Property("doseStatus", "CodeableConcept", "Indicates if the immunization event should 'count' against  the protocol.", 0, java.lang.Integer.MAX_VALUE, doseStatus));
           childrenList.add(new Property("doseStatusReason", "CodeableConcept", "Provides an explanation as to why a immunization event should or should not count against the protocol.", 0, java.lang.Integer.MAX_VALUE, doseStatusReason));

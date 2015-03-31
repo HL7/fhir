@@ -22,7 +22,12 @@
   </text>
   <identifier>
     <use value="official"/>
-    <label value="SSN"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0203"/>
+        <code value="SS"/>
+      </coding>
+    </type>
     <system value="http://hl7.org/fhir/sid/us-ssn"/>
     <value value="444444444"/>
   </identifier>

@@ -8,7 +8,13 @@
     </div>
   </text>
   <identifier>
-    <label value="serialNumber"/>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0203"/>
+          <code value="SNO"/>
+        </coding>
+        <text value="Serial Number"/>
+      </type>
     <value value="AMID-123-456"/>
   </identifier>
   <type>

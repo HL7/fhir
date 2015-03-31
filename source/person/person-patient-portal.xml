@@ -20,7 +20,13 @@
   </text>
   <identifier>
     <use value="official"/>
-    <label value="Ohio driver license"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0203"/>
+        <code value="DL"/>
+      </coding>
+      <text value="Ohio driver license"/>
+    </type>
     <system value="urn:oid:2.16.840.1.113883.4.3.39"/>
     <value value="TL545786"/>
     <period>

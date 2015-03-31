@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 07:43+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -193,30 +193,30 @@ public class Media extends DomainResource {
     /**
      * Height of the image in pixels(photo/video).
      */
-    @Child(name ="height", type={IntegerType.class}, order=7, min=0, max=1)
+    @Child(name ="height", type={PositiveIntType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Height of the image in pixels(photo/video)", formalDefinition="Height of the image in pixels(photo/video)." )
-    protected IntegerType height;
+    protected PositiveIntType height;
 
     /**
      * Width of the image in pixels (photo/video).
      */
-    @Child(name ="width", type={IntegerType.class}, order=8, min=0, max=1)
+    @Child(name ="width", type={PositiveIntType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Width of the image in pixels (photo/video)", formalDefinition="Width of the image in pixels (photo/video)." )
-    protected IntegerType width;
+    protected PositiveIntType width;
 
     /**
      * The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
-    @Child(name ="frames", type={IntegerType.class}, order=9, min=0, max=1)
+    @Child(name ="frames", type={PositiveIntType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Number of frames if > 1 (photo)", formalDefinition="The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required." )
-    protected IntegerType frames;
+    protected PositiveIntType frames;
 
     /**
      * The duration of the recording in seconds - for audio and video.
      */
-    @Child(name ="duration", type={IntegerType.class}, order=10, min=0, max=1)
+    @Child(name ="duration", type={UnsignedIntType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Length in seconds (audio / video)", formalDefinition="The duration of the recording in seconds - for audio and video." )
-    protected IntegerType duration;
+    protected UnsignedIntType duration;
 
     /**
      * The actual content of the media - inline or by direct reference to the media source file.
@@ -225,7 +225,7 @@ public class Media extends DomainResource {
     @Description(shortDefinition="Actual Media - reference or data", formalDefinition="The actual content of the media - inline or by direct reference to the media source file." )
     protected Attachment content;
 
-    private static final long serialVersionUID = -2093427647L;
+    private static final long serialVersionUID = -280764739L;
 
     public Media() {
       super();
@@ -505,12 +505,12 @@ public class Media extends DomainResource {
     /**
      * @return {@link #height} (Height of the image in pixels(photo/video).). This is the underlying object with id, value and extensions. The accessor "getHeight" gives direct access to the value
      */
-    public IntegerType getHeightElement() { 
+    public PositiveIntType getHeightElement() { 
       if (this.height == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.height");
         else if (Configuration.doAutoCreate())
-          this.height = new IntegerType(); // bb
+          this.height = new PositiveIntType(); // bb
       return this.height;
     }
 
@@ -525,7 +525,7 @@ public class Media extends DomainResource {
     /**
      * @param value {@link #height} (Height of the image in pixels(photo/video).). This is the underlying object with id, value and extensions. The accessor "getHeight" gives direct access to the value
      */
-    public Media setHeightElement(IntegerType value) { 
+    public Media setHeightElement(PositiveIntType value) { 
       this.height = value;
       return this;
     }
@@ -542,7 +542,7 @@ public class Media extends DomainResource {
      */
     public Media setHeight(int value) { 
         if (this.height == null)
-          this.height = new IntegerType();
+          this.height = new PositiveIntType();
         this.height.setValue(value);
       return this;
     }
@@ -550,12 +550,12 @@ public class Media extends DomainResource {
     /**
      * @return {@link #width} (Width of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getWidth" gives direct access to the value
      */
-    public IntegerType getWidthElement() { 
+    public PositiveIntType getWidthElement() { 
       if (this.width == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.width");
         else if (Configuration.doAutoCreate())
-          this.width = new IntegerType(); // bb
+          this.width = new PositiveIntType(); // bb
       return this.width;
     }
 
@@ -570,7 +570,7 @@ public class Media extends DomainResource {
     /**
      * @param value {@link #width} (Width of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getWidth" gives direct access to the value
      */
-    public Media setWidthElement(IntegerType value) { 
+    public Media setWidthElement(PositiveIntType value) { 
       this.width = value;
       return this;
     }
@@ -587,7 +587,7 @@ public class Media extends DomainResource {
      */
     public Media setWidth(int value) { 
         if (this.width == null)
-          this.width = new IntegerType();
+          this.width = new PositiveIntType();
         this.width.setValue(value);
       return this;
     }
@@ -595,12 +595,12 @@ public class Media extends DomainResource {
     /**
      * @return {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.). This is the underlying object with id, value and extensions. The accessor "getFrames" gives direct access to the value
      */
-    public IntegerType getFramesElement() { 
+    public PositiveIntType getFramesElement() { 
       if (this.frames == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.frames");
         else if (Configuration.doAutoCreate())
-          this.frames = new IntegerType(); // bb
+          this.frames = new PositiveIntType(); // bb
       return this.frames;
     }
 
@@ -615,7 +615,7 @@ public class Media extends DomainResource {
     /**
      * @param value {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.). This is the underlying object with id, value and extensions. The accessor "getFrames" gives direct access to the value
      */
-    public Media setFramesElement(IntegerType value) { 
+    public Media setFramesElement(PositiveIntType value) { 
       this.frames = value;
       return this;
     }
@@ -632,7 +632,7 @@ public class Media extends DomainResource {
      */
     public Media setFrames(int value) { 
         if (this.frames == null)
-          this.frames = new IntegerType();
+          this.frames = new PositiveIntType();
         this.frames.setValue(value);
       return this;
     }
@@ -640,12 +640,12 @@ public class Media extends DomainResource {
     /**
      * @return {@link #duration} (The duration of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
      */
-    public IntegerType getDurationElement() { 
+    public UnsignedIntType getDurationElement() { 
       if (this.duration == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.duration");
         else if (Configuration.doAutoCreate())
-          this.duration = new IntegerType(); // bb
+          this.duration = new UnsignedIntType(); // bb
       return this.duration;
     }
 
@@ -660,7 +660,7 @@ public class Media extends DomainResource {
     /**
      * @param value {@link #duration} (The duration of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
      */
-    public Media setDurationElement(IntegerType value) { 
+    public Media setDurationElement(UnsignedIntType value) { 
       this.duration = value;
       return this;
     }
@@ -677,7 +677,7 @@ public class Media extends DomainResource {
      */
     public Media setDuration(int value) { 
         if (this.duration == null)
-          this.duration = new IntegerType();
+          this.duration = new UnsignedIntType();
         this.duration.setValue(value);
       return this;
     }
@@ -715,10 +715,10 @@ public class Media extends DomainResource {
         childrenList.add(new Property("operator", "Reference(Practitioner)", "The person who administered the collection of the image.", 0, java.lang.Integer.MAX_VALUE, operator));
         childrenList.add(new Property("view", "CodeableConcept", "The name of the imaging view e.g Lateral or Antero-posterior (AP).", 0, java.lang.Integer.MAX_VALUE, view));
         childrenList.add(new Property("deviceName", "string", "The name of the device / manufacturer of the device  that was used to make the recording.", 0, java.lang.Integer.MAX_VALUE, deviceName));
-        childrenList.add(new Property("height", "integer", "Height of the image in pixels(photo/video).", 0, java.lang.Integer.MAX_VALUE, height));
-        childrenList.add(new Property("width", "integer", "Width of the image in pixels (photo/video).", 0, java.lang.Integer.MAX_VALUE, width));
-        childrenList.add(new Property("frames", "integer", "The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.", 0, java.lang.Integer.MAX_VALUE, frames));
-        childrenList.add(new Property("duration", "integer", "The duration of the recording in seconds - for audio and video.", 0, java.lang.Integer.MAX_VALUE, duration));
+        childrenList.add(new Property("height", "positiveInt", "Height of the image in pixels(photo/video).", 0, java.lang.Integer.MAX_VALUE, height));
+        childrenList.add(new Property("width", "positiveInt", "Width of the image in pixels (photo/video).", 0, java.lang.Integer.MAX_VALUE, width));
+        childrenList.add(new Property("frames", "positiveInt", "The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.", 0, java.lang.Integer.MAX_VALUE, frames));
+        childrenList.add(new Property("duration", "unsignedInt", "The duration of the recording in seconds - for audio and video.", 0, java.lang.Integer.MAX_VALUE, duration));
         childrenList.add(new Property("content", "Attachment", "The actual content of the media - inline or by direct reference to the media source file.", 0, java.lang.Integer.MAX_VALUE, content));
       }
 

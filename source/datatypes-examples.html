@@ -167,7 +167,12 @@ to some organization to further sub-allocate):</p>
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;use value="usual" /&gt;
-    &lt;label value="SSN" /&gt;
+    &lt;type&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://hl7.org/fhir/v2/0203&quot;/&gt;
+        &lt;code value=&quot;SSN&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/type&gt;
     &lt;system value="http://hl7.org/fhir/sid/us-ssn" /&gt;
     &lt;value value="000111111" /&gt;
   &lt;/identifier&gt;
@@ -182,7 +187,12 @@ to some organization to further sub-allocate):</p>
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;use value="usual" /&gt;
-    &lt;label value="MRN" /&gt;
+    &lt;type&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://hl7.org/fhir/v2/0203&quot;/&gt;
+        &lt;code value=&quot;MRN&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/type&gt;
     &lt;system value="urn:oid:0.1.2.3.4.5.6.7" /&gt;
     &lt;value value="2356" /&gt;
     &lt;period&gt;

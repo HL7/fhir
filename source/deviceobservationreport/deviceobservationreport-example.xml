@@ -254,7 +254,13 @@ contained ones (even though this is easier for the sender)
         <value value="04012313012313"/>
       </identifier>
       <identifier>
-        <label value="serial number"/>
+        <type>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="SNO"/>
+          </coding>
+          <text value="Serial Number"/>
+        </type>
         <system value="http://acme.org/au"/>
         <value value="080019FFFF4F6AFE20081211144657"/>
       </identifier>

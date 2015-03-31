@@ -10,7 +10,7 @@
 
   <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
   <identifier>
-    <label value="Internal Identifier"/>
+    <type><text value="Internal Identifier"/></type>
     <value value="AB60001"/>
   </identifier>
 

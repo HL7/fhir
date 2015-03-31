@@ -932,14 +932,14 @@ See also <a href="datatypes-examples.html#Timing">Examples</a>, <a href="datatyp
 </p>
 <p>
 Specifies an event that may occur multiple times. Timing schedules are not used for recording when things did happen, but when they are expected or requested to occur.
-A Timing schedule can be either a list of events, or criteria for when the event happens. In addition, both can be proposed. When both event and a repeating specification 
-are provided, the list of events should be understood as an interpretation of the information in the repeat structure
+A Timing schedule can be a list of events and/or criteria for when the event is to happen, which can be expressed in a structured form and/or as a code. 
+When both event and a repeating specification are provided, the list of events should be understood as an interpretation of the information in the repeat structure.
 </p>
 <p>
 Many systems avoid the complexity of the Timing structure by using a text field for these things (e.g. "Dosage Text"). 
 Those systems do not use the Timing data type. Other systems use a set of 'common' codes - including, but usually
-not limited to, widely understood acronyms such as "BID". The timing data uses a fully structured representation 
-of the meaning of the codes for most general interoperability. 
+not limited to, widely understood acronyms such as "BID". A structured timing specification SHOULD be provided whenever 
+possible, unless the code is BID, TID, QID, AM or PM, which have a ubiquitous meaning. 
 </p>
 [%dt Timing%]
 <p>

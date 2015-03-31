@@ -1010,8 +1010,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String displayIdentifier(Identifier ii) {
     String s = Utilities.noString(ii.getValue()) ? "??" : ii.getValue();
     
-    if (!Utilities.noString(ii.getLabel()))
-      s = ii.getLabel()+" = "+s;
+    if (ii.hasType()) {
+    	if (ii.getType().hasText())
+    		s = ii.getType().getText()+" = "+s;
+    	else if (ii.getType().hasCoding() && ii.getType().getCoding().get(0).hasDisplay())
+    		s = ii.getType().getCoding().get(0).getDisplay()+" = "+s;
+    	else if (ii.getType().hasCoding() && ii.getType().getCoding().get(0).hasCode())
+    		s = ii.getType().getCoding().get(0).getCode()+" = "+s;
+    }
 
     if (ii.hasUse())
       s = s + " ("+ii.getUse().toString()+")";

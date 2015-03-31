@@ -115,9 +115,6 @@
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Author Gerald Smitty @ Cleveland Clinic</div>
         </text>
-        <identifier>
-          <label value="usual"/>
-        </identifier>
         <name>
           <use value="usual"/>
           <family value="Smitty"/>

@@ -27,7 +27,7 @@
         <value value="A34442332"/>
       </identifier>
       <identifier>
-        <label value="Dutch BSN"/>
+        <type><text value="Dutch BSN"/></type>
         <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
         <value value="188912345"/>
       </identifier>
@@ -40,7 +40,7 @@
     <Practitioner>
       <id value="questauth"/>
       <identifier>
-        <label value="AUMC, Den Helder"/>
+        <type><text value="AUMC, Den Helder"/></type>
         <system value="http://cancer.questionnaire.org/systems/id/org"/>
         <value value="AUMC"/>
       </identifier>

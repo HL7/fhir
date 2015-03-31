@@ -3,13 +3,13 @@
   <id value="f203"/>
  <identifier><!--The identifier for the person as this practitioner (fictive)-->
     <use value="official"/>
-        <label value="UZI-nummer"/>
+        <type><text value="UZI-nummer"/></type>
         <system value="urn:oid:2.16.528.1.1007.3.1"/>
     <value value="12345678903"/>
  </identifier>
     <identifier><!--The identifier for this individual-->
         <use value="official"/>
-        <label value="BIG-nummer"/>
+        <type><text value="BIG-nummer"/></type>
         <system value="https://www.bigregister.nl/"/>
         <value value="12345678903"/>
     </identifier> 

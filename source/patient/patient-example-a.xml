@@ -12,7 +12,12 @@
 
   <identifier>
     <use value="usual"/>
-    <label value="MRN"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0203"/>
+        <code value="MRN"/>
+      </coding>
+    </type>
     <system value="urn:oid:0.1.2.3.4.5.6.7"/>
     <value value="654321"/>
   </identifier>

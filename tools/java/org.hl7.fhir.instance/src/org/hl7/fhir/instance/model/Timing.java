@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 07:43+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1036,7 +1036,14 @@ public class Timing extends Type {
     @Description(shortDefinition="When the event is to occur", formalDefinition="A set of rules that describe when the event should occur." )
     protected TimingRepeatComponent repeat;
 
-    private static final long serialVersionUID = 2073164802L;
+    /**
+     * A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes.
+     */
+    @Child(name ="code", type={CodeableConcept.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="BID | TID | QID | AM | PM +", formalDefinition="A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes." )
+    protected CodeableConcept code;
+
+    private static final long serialVersionUID = 791565112L;
 
     public Timing() {
       super();
@@ -1120,10 +1127,35 @@ public class Timing extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #code} (A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes.)
+     */
+    public CodeableConcept getCode() { 
+      if (this.code == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Timing.code");
+        else if (Configuration.doAutoCreate())
+          this.code = new CodeableConcept(); // cc
+      return this.code;
+    }
+
+    public boolean hasCode() { 
+      return this.code != null && !this.code.isEmpty();
+    }
+
+    /**
+     * @param value {@link #code} (A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes.)
+     */
+    public Timing setCode(CodeableConcept value) { 
+      this.code = value;
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("event", "dateTime", "Identifies specific times when the event occurs.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("repeat", "", "A set of rules that describe when the event should occur.", 0, java.lang.Integer.MAX_VALUE, repeat));
+        childrenList.add(new Property("code", "CodeableConcept", "A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes.", 0, java.lang.Integer.MAX_VALUE, code));
       }
 
       public Timing copy() {
@@ -1135,6 +1167,7 @@ public class Timing extends Type {
             dst.event.add(i.copy());
         };
         dst.repeat = repeat == null ? null : repeat.copy();
+        dst.code = code == null ? null : code.copy();
         return dst;
       }
 
@@ -1149,7 +1182,8 @@ public class Timing extends Type {
         if (!(other instanceof Timing))
           return false;
         Timing o = (Timing) other;
-        return compareDeep(event, o.event, true) && compareDeep(repeat, o.repeat, true);
+        return compareDeep(event, o.event, true) && compareDeep(repeat, o.repeat, true) && compareDeep(code, o.code, true)
+          ;
       }
 
       @Override
@@ -1164,7 +1198,7 @@ public class Timing extends Type {
 
       public boolean isEmpty() {
         return super.isEmpty() && (event == null || event.isEmpty()) && (repeat == null || repeat.isEmpty())
-          ;
+           && (code == null || code.isEmpty());
       }
 
 

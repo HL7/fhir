@@ -58,14 +58,14 @@
   </source>
   <object>
     <identifier>
-      <label value="Whoms"/>
+      <type><text value="Whoms"/></type>
     </identifier>
     <type value="2"/>
     <name value="Whoms"/>
   </object> 
   <object>
     <identifier>
-      <label value="What"/>
+      <type><text value="What"/></type>
     </identifier>
   	<type value="4"/>
     <lifecycle value="11"/>

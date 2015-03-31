@@ -19,7 +19,12 @@
             444222222</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444222222"/>
         </identifier>
@@ -64,7 +69,12 @@
             444333333</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444333333"/>
         </identifier>
@@ -108,7 +118,12 @@
             444555555</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444555555"/>
         </identifier>
@@ -151,7 +166,12 @@
             444114567</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444114567"/>
         </identifier>
@@ -195,7 +215,12 @@
             444111234</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444111234"/>
         </identifier>
@@ -239,7 +264,12 @@
             444113456</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444113456"/>
         </identifier>
@@ -282,7 +312,12 @@
             444112345</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444112345"/>
         </identifier>
@@ -326,7 +361,12 @@
             444666666</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444666666"/>
         </identifier>
@@ -369,7 +409,12 @@
             444777777</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444777777"/>
         </identifier>
@@ -424,7 +469,12 @@
             444888888</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444888888"/>
         </identifier>
@@ -468,7 +518,12 @@
             444999999</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444999999"/>
         </identifier>
@@ -512,7 +567,12 @@
             555222222</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="555222222"/>
         </identifier>

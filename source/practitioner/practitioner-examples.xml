@@ -19,7 +19,12 @@
             333333333</xhtml:div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="333333333"/>
         </identifier>
@@ -60,9 +65,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Assigned, Amanda. SSN:
             33344444</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="33344444"/>
         </identifier>
@@ -103,9 +114,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hippocrates, Harold. SSN:
             444444444</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444444444"/>
         </identifier>
@@ -146,9 +163,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Primary, Patricia. SSN:
             555555555</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="555555555"/>
         </identifier>
@@ -189,9 +212,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Admit, Alan. SSN:
             666666666</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="666666666"/>
         </identifier>
@@ -232,9 +261,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Attend, Aaron. SSN:
             777777777</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="777777777"/>
         </identifier>
@@ -275,9 +310,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sender, Sam. SSN:
             888888888</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="888888888"/>
         </identifier>
@@ -318,9 +359,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Intern, Irving. SSN:
             888222222</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="888222222"/>
         </identifier>
@@ -361,9 +408,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Resident, Rachel. SSN:
             888333333</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="888333333"/>
         </identifier>
@@ -405,9 +458,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Leader, Linda. SSN:
             888444444</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="888444444"/>
         </identifier>
@@ -449,9 +508,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Verify, Virgil. SSN:
             999999999</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="999999999"/>
         </identifier>
@@ -493,9 +558,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Specialize, Sara. SSN:
             222333333</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222333333"/>
         </identifier>
@@ -537,9 +608,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Reaction, Ramsey. SSN:
             222223333</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222223333"/>
         </identifier>
@@ -581,9 +658,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sleeper, Sally. SSN:
             222666666</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222666666"/>
         </identifier>
@@ -625,9 +708,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Pump, Patrick. SSN:
             222334444</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222334444"/>
         </identifier>
@@ -669,9 +758,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Valve, Vera. SSN:
             222335555</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222335555"/>
         </identifier>
@@ -712,9 +807,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Scratch, Sophie. SSN:
             222336666</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222336666"/>
         </identifier>
@@ -756,9 +857,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Emergency, Eric. SSN:
             222337777</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222337777"/>
         </identifier>
@@ -800,9 +907,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hormone, Horace. SSN:
             222338888</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222338888"/>
         </identifier>
@@ -844,9 +957,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Family, Fay. SSN:
             222339999</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222339999"/>
         </identifier>
@@ -887,9 +1006,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Tum, Tony. SSN:
             222442222</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222442222"/>
         </identifier>
@@ -930,9 +1055,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sage, Stanley. SSN:
             222443333</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222443333"/>
         </identifier>
@@ -974,9 +1105,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bleeder, Boris. SSN:
             222443344</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222443344"/>
         </identifier>
@@ -1018,9 +1155,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Pasteur, Paula. SSN:
             222445555</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222445555"/>
         </identifier>
@@ -1062,9 +1205,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Osler, Otto. SSN:
             222446666</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222446666"/>
         </identifier>
@@ -1105,9 +1254,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Renal, Rory. SSN:
             222447777</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222447777"/>
         </identifier>
@@ -1148,9 +1303,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Brain, Barry. SSN:
             222448888</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222448888"/>
         </identifier>
@@ -1191,9 +1352,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Cranium, Carol. SSN:
             222449999</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222449999"/>
         </identifier>
@@ -1235,9 +1402,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Fem, Flora. SSN:
             222552222</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222552222"/>
         </identifier>
@@ -1278,9 +1451,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Tumor, Trudy. SSN:
             222553333</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222553333"/>
         </identifier>
@@ -1321,9 +1500,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Vision, Victor. SSN:
             222554444</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222554444"/>
         </identifier>
@@ -1365,9 +1550,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Carpenter, Calvin. SSN:
             222555545</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222555545"/>
         </identifier>
@@ -1409,9 +1600,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Rhino, Rick. SSN:
             222556666</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222556666"/>
         </identifier>
@@ -1452,9 +1649,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Slide, Stan. SSN:
             222444444</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222444444"/>
         </identifier>
@@ -1495,9 +1698,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Kidder, Karen. SSN:
             222557777</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222557777"/>
         </identifier>
@@ -1539,9 +1748,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hollywood, Heddie. SSN:
             222558888</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222558888"/>
         </identifier>
@@ -1583,9 +1798,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Shrink, Serena. SSN:
             222559999</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222559999"/>
         </identifier>
@@ -1628,9 +1849,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Puffer, Penny. SSN:
             222662222</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222662222"/>
         </identifier>
@@ -1674,9 +1901,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Curie, Christine. SSN:
             222555555</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222555555"/>
         </identifier>
@@ -1718,9 +1951,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Joint, Jeffrey. SSN:
             222663333</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222663333"/>
         </identifier>
@@ -1762,9 +2001,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Cutter, Carl. SSN:
             222777777</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222777777"/>
         </identifier>
@@ -1805,9 +2050,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Plumber, Peter. SSN:
             222664444</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222664444"/>
         </identifier>
@@ -1849,9 +2100,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Helper, Horace. SSN:
             222665555</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222665555"/>
         </identifier>
@@ -1893,9 +2150,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Nightingale, Nancy. SSN:
             222888888</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222888888"/>
         </identifier>
@@ -1937,9 +2200,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Barton, Clarence. SSN:
             222999999</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222999999"/>
         </identifier>
@@ -1981,9 +2250,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bender, Bob. SSN:
             222666666</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222666666"/>
         </identifier>
@@ -2024,9 +2299,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Chopper, Charlie. SSN:
             222667777</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222667777"/>
         </identifier>
@@ -2068,9 +2349,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Brace, Ben. SSN:
             222668888</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222668888"/>
         </identifier>
@@ -2111,9 +2398,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Specs, Sylvia. SSN:
             222669999</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222669999"/>
         </identifier>
@@ -2155,9 +2448,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Script, Susan. SSN:
             333222222</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="333222222"/>
         </identifier>
@@ -2197,9 +2496,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bunion, Paul. SSN:
             222772222</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222772222"/>
         </identifier>
@@ -2240,9 +2545,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Listener, Larry. SSN:
             222773333</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222773333"/>
         </identifier>
@@ -2284,9 +2595,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Beaker, Bill. SSN:
             333444444</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="333444444"/>
         </identifier>
@@ -2327,9 +2644,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Chow, Connie. SSN:
             333555555</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="333555555"/>
         </identifier>
@@ -2368,9 +2691,15 @@
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">teHelper. SSN: 000111111</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="000111111"/>
         </identifier>
@@ -2410,9 +2739,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Player, Pamela. SSN:
             222776666</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222776666"/>
         </identifier>
@@ -2454,9 +2789,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Stretcher, Seth. SSN:
             222778888</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="222778888"/>
         </identifier>
@@ -2498,9 +2839,15 @@
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN:
             333777777</xhtml:div>
-        </text>
-        <identifier>
-          <label value="SSN"/>
+          </text>
+          <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+        </type>
+
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="333777777"/>
         </identifier>

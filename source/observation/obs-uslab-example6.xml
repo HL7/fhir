@@ -61,7 +61,7 @@
 	<status value="final"/>
 	<identifier>
 		<use value="official"/>
-		<label value="lab test result ID"/>
+		<type><text value="lab test result ID"/></type>
 		<system value="http://lis.acmelabs.org/identifiers/labtestresult"/>
 		<value value="8901"/>
 	</identifier>

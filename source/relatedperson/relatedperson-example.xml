@@ -27,7 +27,7 @@
 
   <identifier>
     <use value="usual"/>
-    <label value="INSEE"/>
+    <type><text value="INSEE"/></type>
     <system value="urn:oid:1.2.250.1.61"/>
     <value value="272117510400399"/>
   </identifier>

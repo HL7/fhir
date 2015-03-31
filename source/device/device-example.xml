@@ -12,7 +12,13 @@
     <value value="345675"/>
   </identifier>
   <identifier>
-    <label value="Serial Number"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0203"/>
+        <code value="SNO"/>
+      </coding>
+      <text value="Serial Number"/>
+    </type>
     <value value="AMID-342135-8464"/>
   </identifier>
   <type>

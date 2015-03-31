@@ -30,7 +30,7 @@
 
   <!-- Dog tag, under Maroondah City council -->
   <identifier>
-    <label value="Dog Tag"/>
+    <type><text value="Dog Tag"/></type>
     <system value="http://www.maroondah.vic.gov.au/AnimalRegFees.aspx"/>
     <value value="1234123"/>
     <period>

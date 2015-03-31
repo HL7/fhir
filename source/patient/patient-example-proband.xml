@@ -19,7 +19,7 @@
   </text>
   <identifier>
     <use value="usual"/>
-    <label value="Computer-Stored Abulatory Records (COSTAR)"/>
+    <type><text value="Computer-Stored Abulatory Records (COSTAR)"/></type>
     <!-- This OID has been used below for illustration purposes only -->
     <system value="urn:oid:2.16.840.1.113883.6.117"/>
     <value value="999999999"/>

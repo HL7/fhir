@@ -53,7 +53,7 @@ see narrative
 	</performer>
 	<identifier>
 		<use value="official"/>
-		<label value="Laboratory Report ID"/>
+		<type><text value="Laboratory Report ID"/></type>
 		<system value="http://lis.acmelabs.org/identifiers/report"/>
 		<value value="5234342"/>
 	</identifier>

@@ -67,11 +67,18 @@
 		<Device>
 			<id value="d1"/>
 			<identifier>
-				<label value="Serial Number"/>
+				<type>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0203"/>
+            <code value="SNO"/>
+          </coding>
+        </type>
 				<value value="ID 13.1"/>
 			</identifier>
 			<identifier>
-				<label value="Global Medical Device Nomenclature"/>
+				<type>
+          <text value="Global Medical Device Nomenclature"/>
+        </type>
 				<system value="urn:std:iso:11073:10101"/>
 				<value value="2000"/>
 			</identifier>
@@ -95,7 +102,7 @@
 		</coding>
 	</type>
 	<identifier>
-		<label value="Handle ID"/>
+		<type><text value="Handle ID"/></type>
 		<value value="0"/>
 	</identifier>
 	<lastSystemChange value="2014-10-07T14:45:00Z"/>

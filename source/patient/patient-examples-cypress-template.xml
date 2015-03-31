@@ -20,7 +20,12 @@
           [%patient_id%]</div>
         </text>
         <identifier>
-          <label value="SSN"/>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="[%patient_id%]"/>
         </identifier>

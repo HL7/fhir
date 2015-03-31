@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 07:43+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -64,9 +64,9 @@ public class ImmunizationRecommendation extends DomainResource {
         /**
          * This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
          */
-        @Child(name ="doseNumber", type={IntegerType.class}, order=3, min=0, max=1)
+        @Child(name ="doseNumber", type={PositiveIntType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Recommended dose number", formalDefinition="This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose)." )
-        protected IntegerType doseNumber;
+        protected PositiveIntType doseNumber;
 
         /**
          * Vaccine administration status.
@@ -113,7 +113,7 @@ public class ImmunizationRecommendation extends DomainResource {
         protected List<Resource> supportingPatientInformationTarget;
 
 
-        private static final long serialVersionUID = -1477214875L;
+        private static final long serialVersionUID = 366360557L;
 
       public ImmunizationRecommendationRecommendationComponent() {
         super();
@@ -198,12 +198,12 @@ public class ImmunizationRecommendation extends DomainResource {
         /**
          * @return {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).). This is the underlying object with id, value and extensions. The accessor "getDoseNumber" gives direct access to the value
          */
-        public IntegerType getDoseNumberElement() { 
+        public PositiveIntType getDoseNumberElement() { 
           if (this.doseNumber == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationComponent.doseNumber");
             else if (Configuration.doAutoCreate())
-              this.doseNumber = new IntegerType(); // bb
+              this.doseNumber = new PositiveIntType(); // bb
           return this.doseNumber;
         }
 
@@ -218,7 +218,7 @@ public class ImmunizationRecommendation extends DomainResource {
         /**
          * @param value {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).). This is the underlying object with id, value and extensions. The accessor "getDoseNumber" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationComponent setDoseNumberElement(IntegerType value) { 
+        public ImmunizationRecommendationRecommendationComponent setDoseNumberElement(PositiveIntType value) { 
           this.doseNumber = value;
           return this;
         }
@@ -235,7 +235,7 @@ public class ImmunizationRecommendation extends DomainResource {
          */
         public ImmunizationRecommendationRecommendationComponent setDoseNumber(int value) { 
             if (this.doseNumber == null)
-              this.doseNumber = new IntegerType();
+              this.doseNumber = new PositiveIntType();
             this.doseNumber.setValue(value);
           return this;
         }
@@ -442,7 +442,7 @@ public class ImmunizationRecommendation extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("date", "dateTime", "The date the immunization recommendation was created.", 0, java.lang.Integer.MAX_VALUE, date));
           childrenList.add(new Property("vaccineType", "CodeableConcept", "Vaccine that pertains to the recommendation.", 0, java.lang.Integer.MAX_VALUE, vaccineType));
-          childrenList.add(new Property("doseNumber", "integer", "This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).", 0, java.lang.Integer.MAX_VALUE, doseNumber));
+          childrenList.add(new Property("doseNumber", "positiveInt", "This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).", 0, java.lang.Integer.MAX_VALUE, doseNumber));
           childrenList.add(new Property("forecastStatus", "CodeableConcept", "Vaccine administration status.", 0, java.lang.Integer.MAX_VALUE, forecastStatus));
           childrenList.add(new Property("dateCriterion", "", "Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.", 0, java.lang.Integer.MAX_VALUE, dateCriterion));
           childrenList.add(new Property("protocol", "", "Contains information about the protocol under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, protocol));

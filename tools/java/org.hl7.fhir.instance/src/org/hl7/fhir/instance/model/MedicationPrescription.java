@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 07:43+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -665,9 +665,9 @@ public class MedicationPrescription extends DomainResource {
         /**
          * An integer indicating the number of repeats of the Dispense. UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
          */
-        @Child(name ="numberOfRepeatsAllowed", type={IntegerType.class}, order=3, min=0, max=1)
+        @Child(name ="numberOfRepeatsAllowed", type={PositiveIntType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="# of refills authorized", formalDefinition="An integer indicating the number of repeats of the Dispense. \rUsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill." )
-        protected IntegerType numberOfRepeatsAllowed;
+        protected PositiveIntType numberOfRepeatsAllowed;
 
         /**
          * The amount that is to be dispensed for one fill.
@@ -683,7 +683,7 @@ public class MedicationPrescription extends DomainResource {
         @Description(shortDefinition="Days supply per dispense", formalDefinition="Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. \rIn some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors." )
         protected Duration expectedSupplyDuration;
 
-        private static final long serialVersionUID = -492174040L;
+        private static final long serialVersionUID = -44233312L;
 
       public MedicationPrescriptionDispenseComponent() {
         super();
@@ -760,12 +760,12 @@ public class MedicationPrescription extends DomainResource {
         /**
          * @return {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
          */
-        public IntegerType getNumberOfRepeatsAllowedElement() { 
+        public PositiveIntType getNumberOfRepeatsAllowedElement() { 
           if (this.numberOfRepeatsAllowed == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDispenseComponent.numberOfRepeatsAllowed");
             else if (Configuration.doAutoCreate())
-              this.numberOfRepeatsAllowed = new IntegerType(); // bb
+              this.numberOfRepeatsAllowed = new PositiveIntType(); // bb
           return this.numberOfRepeatsAllowed;
         }
 
@@ -780,7 +780,7 @@ public class MedicationPrescription extends DomainResource {
         /**
          * @param value {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
          */
-        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowedElement(IntegerType value) { 
+        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowedElement(PositiveIntType value) { 
           this.numberOfRepeatsAllowed = value;
           return this;
         }
@@ -797,7 +797,7 @@ public class MedicationPrescription extends DomainResource {
          */
         public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowed(int value) { 
             if (this.numberOfRepeatsAllowed == null)
-              this.numberOfRepeatsAllowed = new IntegerType();
+              this.numberOfRepeatsAllowed = new PositiveIntType();
             this.numberOfRepeatsAllowed.setValue(value);
           return this;
         }
@@ -854,7 +854,7 @@ public class MedicationPrescription extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("medication", "Reference(Medication)", "Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
           childrenList.add(new Property("validityPeriod", "Period", "Design Comments: This indicates the validity period of a prescription (stale dating the Prescription) \rIt reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. \rRationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.", 0, java.lang.Integer.MAX_VALUE, validityPeriod));
-          childrenList.add(new Property("numberOfRepeatsAllowed", "integer", "An integer indicating the number of repeats of the Dispense. \rUsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.", 0, java.lang.Integer.MAX_VALUE, numberOfRepeatsAllowed));
+          childrenList.add(new Property("numberOfRepeatsAllowed", "positiveInt", "An integer indicating the number of repeats of the Dispense. \rUsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.", 0, java.lang.Integer.MAX_VALUE, numberOfRepeatsAllowed));
           childrenList.add(new Property("quantity", "Quantity", "The amount that is to be dispensed for one fill.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("expectedSupplyDuration", "Duration", "Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. \rIn some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.", 0, java.lang.Integer.MAX_VALUE, expectedSupplyDuration));
         }

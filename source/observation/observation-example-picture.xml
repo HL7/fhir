@@ -42,7 +42,7 @@
   <reliability value="ok"/>
 
   <identifier>
-    <label value="InstanceUID"/>
+    <type><text value="InstanceUID"/></type>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
   </identifier>

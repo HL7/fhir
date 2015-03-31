@@ -1797,7 +1797,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 	private void checkIdentifier(List<ValidationMessage> errors, String path, WrapperElement focus, Identifier fixed) {
 	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUseElement(), "use");
-	  checkFixedValue(errors, path+".label", focus.getNamedChild("label"), fixed.getLabelElement(), "label");
+	  checkFixedValue(errors, path+".label", focus.getNamedChild("type"), fixed.getType(), "type");
 	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystemElement(), "system");
 	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValueElement(), "value");
 	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriod(), "period");

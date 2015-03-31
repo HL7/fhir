@@ -27,7 +27,7 @@ Authored by: Eric M Haas  Health eData Inc.
 	<!--Placer ID-->
 	<identifier>
 		<use value="official"/>
-		<label value="Placer Specimen ID"/>
+		<type><text value="Placer Specimen ID"/></type>
 		<system value="http://ehr.goodhealthclinic.org/identifiers/specimen"/>
 		<value value="SID123"/>
 	</identifier>

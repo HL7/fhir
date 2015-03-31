@@ -25,7 +25,7 @@ Authored by: Eric M Haas  Health eData Inc.
 	</text>
 	<identifier>
 		<use value="official"/>
-		<label value="NPI"/>
+		<type><text value="NPI"/></type>
 		<value value="8235849085"/>
 		<assigner>
 			<reference value="https://nppes.cms.hhs.gov/NPPES/"/>

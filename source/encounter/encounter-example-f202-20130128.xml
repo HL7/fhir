@@ -3,7 +3,6 @@
   <id value="f202"/>
  <identifier>
     <use value="temp"/><!-- 0..1 The use of this identifier -->
-    <label value="Roel's encounter on January 28th, 2013"/>
     <value value="Encounter_Roel_20130128"/>
  </identifier>
  <status value="finished"/><!--Encounter has finished-->

@@ -41,7 +41,7 @@ Authored by: Eric M Haas  Health eData Inc.
 	</orderer>
 	<identifier>
 		<use value="official"/>
-		<label value="Placer Order Number"/>
+		<type><text value="Placer Order Number"/></type>
 		<!-- EH Using an OID here but could any URI  eg  http://aceclinic.com -->
 		<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
 		<value value="ORD000123A"/>

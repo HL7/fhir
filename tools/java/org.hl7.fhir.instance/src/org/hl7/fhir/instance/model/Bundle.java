@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 07:43+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1660,9 +1660,9 @@ public class Bundle extends Resource {
     /**
      * If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).
      */
-    @Child(name ="total", type={IntegerType.class}, order=2, min=0, max=1)
+    @Child(name ="total", type={UnsignedIntType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="If search, the total number of matches", formalDefinition="If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle)." )
-    protected IntegerType total;
+    protected UnsignedIntType total;
 
     /**
      * A series of links that provide context to this bundle.
@@ -1685,7 +1685,7 @@ public class Bundle extends Resource {
     @Description(shortDefinition="XML Digital Signature (base64 encoded)", formalDefinition="XML Digital Signature - base64 encoded." )
     protected Base64BinaryType signature;
 
-    private static final long serialVersionUID = -1332054150L;
+    private static final long serialVersionUID = -1380125450L;
 
     public Bundle() {
       super();
@@ -1793,12 +1793,12 @@ public class Bundle extends Resource {
     /**
      * @return {@link #total} (If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
      */
-    public IntegerType getTotalElement() { 
+    public UnsignedIntType getTotalElement() { 
       if (this.total == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Bundle.total");
         else if (Configuration.doAutoCreate())
-          this.total = new IntegerType(); // bb
+          this.total = new UnsignedIntType(); // bb
       return this.total;
     }
 
@@ -1813,7 +1813,7 @@ public class Bundle extends Resource {
     /**
      * @param value {@link #total} (If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
      */
-    public Bundle setTotalElement(IntegerType value) { 
+    public Bundle setTotalElement(UnsignedIntType value) { 
       this.total = value;
       return this;
     }
@@ -1830,7 +1830,7 @@ public class Bundle extends Resource {
      */
     public Bundle setTotal(int value) { 
         if (this.total == null)
-          this.total = new IntegerType();
+          this.total = new UnsignedIntType();
         this.total.setValue(value);
       return this;
     }
@@ -1968,7 +1968,7 @@ public class Bundle extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "code", "Indicates the purpose of this bundle- how it was intended to be used.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("base", "uri", "The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).", 0, java.lang.Integer.MAX_VALUE, base));
-        childrenList.add(new Property("total", "integer", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, java.lang.Integer.MAX_VALUE, total));
+        childrenList.add(new Property("total", "unsignedInt", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, java.lang.Integer.MAX_VALUE, total));
         childrenList.add(new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link));
         childrenList.add(new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).", 0, java.lang.Integer.MAX_VALUE, entry));
         childrenList.add(new Property("signature", "base64Binary", "XML Digital Signature - base64 encoded.", 0, java.lang.Integer.MAX_VALUE, signature));

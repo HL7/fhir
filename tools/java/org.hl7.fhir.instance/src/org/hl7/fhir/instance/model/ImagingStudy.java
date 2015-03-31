@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 31, 2015 05:07+1100 for FHIR v0.4.0
+// Generated on Tue, Mar 31, 2015 07:43+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1484,9 +1484,9 @@ public class ImagingStudy extends DomainResource {
         /**
          * The Numeric identifier of this series in the study.
          */
-        @Child(name ="number", type={IntegerType.class}, order=1, min=0, max=1)
+        @Child(name ="number", type={UnsignedIntType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Numeric identifier of this series (0020,0011)", formalDefinition="The Numeric identifier of this series in the study." )
-        protected IntegerType number;
+        protected UnsignedIntType number;
 
         /**
          * The modality of this series sequence.
@@ -1512,9 +1512,9 @@ public class ImagingStudy extends DomainResource {
         /**
          * Number of SOP Instances in Series.
          */
-        @Child(name ="numberOfInstances", type={IntegerType.class}, order=5, min=1, max=1)
+        @Child(name ="numberOfInstances", type={UnsignedIntType.class}, order=5, min=1, max=1)
         @Description(shortDefinition="Number of Series Related Instances (0020,1209)", formalDefinition="Number of SOP Instances in Series." )
-        protected IntegerType numberOfInstances;
+        protected UnsignedIntType numberOfInstances;
 
         /**
          * Availability of series (online, offline or nearline).
@@ -1558,13 +1558,13 @@ public class ImagingStudy extends DomainResource {
         @Description(shortDefinition="A single instance taken from a patient (image or other)", formalDefinition="A single SOP Instance within the series, e.g., an image, or presentation state." )
         protected List<ImagingStudySeriesInstanceComponent> instance;
 
-        private static final long serialVersionUID = -1143115731L;
+        private static final long serialVersionUID = 1186612269L;
 
       public ImagingStudySeriesComponent() {
         super();
       }
 
-      public ImagingStudySeriesComponent(Enumeration<Modality> modality, OidType uid, IntegerType numberOfInstances) {
+      public ImagingStudySeriesComponent(Enumeration<Modality> modality, OidType uid, UnsignedIntType numberOfInstances) {
         super();
         this.modality = modality;
         this.uid = uid;
@@ -1574,12 +1574,12 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #number} (The Numeric identifier of this series in the study.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public IntegerType getNumberElement() { 
+        public UnsignedIntType getNumberElement() { 
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.number");
             else if (Configuration.doAutoCreate())
-              this.number = new IntegerType(); // bb
+              this.number = new UnsignedIntType(); // bb
           return this.number;
         }
 
@@ -1594,7 +1594,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @param value {@link #number} (The Numeric identifier of this series in the study.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setNumberElement(IntegerType value) { 
+        public ImagingStudySeriesComponent setNumberElement(UnsignedIntType value) { 
           this.number = value;
           return this;
         }
@@ -1611,7 +1611,7 @@ public class ImagingStudy extends DomainResource {
          */
         public ImagingStudySeriesComponent setNumber(int value) { 
             if (this.number == null)
-              this.number = new IntegerType();
+              this.number = new UnsignedIntType();
             this.number.setValue(value);
           return this;
         }
@@ -1758,12 +1758,12 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #numberOfInstances} (Number of SOP Instances in Series.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
          */
-        public IntegerType getNumberOfInstancesElement() { 
+        public UnsignedIntType getNumberOfInstancesElement() { 
           if (this.numberOfInstances == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.numberOfInstances");
             else if (Configuration.doAutoCreate())
-              this.numberOfInstances = new IntegerType(); // bb
+              this.numberOfInstances = new UnsignedIntType(); // bb
           return this.numberOfInstances;
         }
 
@@ -1778,7 +1778,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @param value {@link #numberOfInstances} (Number of SOP Instances in Series.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setNumberOfInstancesElement(IntegerType value) { 
+        public ImagingStudySeriesComponent setNumberOfInstancesElement(UnsignedIntType value) { 
           this.numberOfInstances = value;
           return this;
         }
@@ -1795,7 +1795,7 @@ public class ImagingStudy extends DomainResource {
          */
         public ImagingStudySeriesComponent setNumberOfInstances(int value) { 
             if (this.numberOfInstances == null)
-              this.numberOfInstances = new IntegerType();
+              this.numberOfInstances = new UnsignedIntType();
             this.numberOfInstances.setValue(value);
           return this;
         }
@@ -2037,11 +2037,11 @@ public class ImagingStudy extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("number", "integer", "The Numeric identifier of this series in the study.", 0, java.lang.Integer.MAX_VALUE, number));
+          childrenList.add(new Property("number", "unsignedInt", "The Numeric identifier of this series in the study.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("modality", "code", "The modality of this series sequence.", 0, java.lang.Integer.MAX_VALUE, modality));
           childrenList.add(new Property("uid", "oid", "Formal identifier for this series.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("description", "string", "A description of the series.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("numberOfInstances", "integer", "Number of SOP Instances in Series.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
+          childrenList.add(new Property("numberOfInstances", "unsignedInt", "Number of SOP Instances in Series.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
           childrenList.add(new Property("availability", "code", "Availability of series (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
           childrenList.add(new Property("url", "uri", "WADO-RS resource where the Series is available.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("bodySite", "Coding", "Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
@@ -2113,9 +2113,9 @@ public class ImagingStudy extends DomainResource {
         /**
          * The number of this image in the series.
          */
-        @Child(name ="number", type={IntegerType.class}, order=1, min=0, max=1)
+        @Child(name ="number", type={UnsignedIntType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="The number of this instance in the series (0020,0013)", formalDefinition="The number of this image in the series." )
-        protected IntegerType number;
+        protected UnsignedIntType number;
 
         /**
          * Formal identifier for this image.
@@ -2152,7 +2152,7 @@ public class ImagingStudy extends DomainResource {
         @Description(shortDefinition="Content of the instance", formalDefinition="Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented by inline encoding, or by a URL reference to a WADO-RS service that makes the instance available. Multiple content attachments may be used for alternate representations of the instance." )
         protected List<Attachment> content;
 
-        private static final long serialVersionUID = -1296330397L;
+        private static final long serialVersionUID = 264997991L;
 
       public ImagingStudySeriesInstanceComponent() {
         super();
@@ -2167,12 +2167,12 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #number} (The number of this image in the series.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public IntegerType getNumberElement() { 
+        public UnsignedIntType getNumberElement() { 
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.number");
             else if (Configuration.doAutoCreate())
-              this.number = new IntegerType(); // bb
+              this.number = new UnsignedIntType(); // bb
           return this.number;
         }
 
@@ -2187,7 +2187,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @param value {@link #number} (The number of this image in the series.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setNumberElement(IntegerType value) { 
+        public ImagingStudySeriesInstanceComponent setNumberElement(UnsignedIntType value) { 
           this.number = value;
           return this;
         }
@@ -2204,7 +2204,7 @@ public class ImagingStudy extends DomainResource {
          */
         public ImagingStudySeriesInstanceComponent setNumber(int value) { 
             if (this.number == null)
-              this.number = new IntegerType();
+              this.number = new UnsignedIntType();
             this.number.setValue(value);
           return this;
         }
@@ -2439,7 +2439,7 @@ public class ImagingStudy extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("number", "integer", "The number of this image in the series.", 0, java.lang.Integer.MAX_VALUE, number));
+          childrenList.add(new Property("number", "unsignedInt", "The number of this image in the series.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("uid", "oid", "Formal identifier for this image.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("sopclass", "oid", "DICOM Image type.", 0, java.lang.Integer.MAX_VALUE, sopclass));
           childrenList.add(new Property("type", "string", "A human-friendly SOP Class name.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -2582,16 +2582,16 @@ public class ImagingStudy extends DomainResource {
     /**
      * Number of Series in Study.
      */
-    @Child(name ="numberOfSeries", type={IntegerType.class}, order=10, min=1, max=1)
+    @Child(name ="numberOfSeries", type={UnsignedIntType.class}, order=10, min=1, max=1)
     @Description(shortDefinition="Number of Study Related Series (0020,1206)", formalDefinition="Number of Series in Study." )
-    protected IntegerType numberOfSeries;
+    protected UnsignedIntType numberOfSeries;
 
     /**
      * Number of SOP Instances in Study.
      */
-    @Child(name ="numberOfInstances", type={IntegerType.class}, order=11, min=1, max=1)
+    @Child(name ="numberOfInstances", type={UnsignedIntType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="Number of Study Related Instances (0020,1208)", formalDefinition="Number of SOP Instances in Study." )
-    protected IntegerType numberOfInstances;
+    protected UnsignedIntType numberOfInstances;
 
     /**
      * Diagnoses etc provided with request.
@@ -2633,13 +2633,13 @@ public class ImagingStudy extends DomainResource {
     @Description(shortDefinition="Each study has one or more series of instances", formalDefinition="Each study has one or more series of image instances." )
     protected List<ImagingStudySeriesComponent> series;
 
-    private static final long serialVersionUID = 712301092L;
+    private static final long serialVersionUID = 206272292L;
 
     public ImagingStudy() {
       super();
     }
 
-    public ImagingStudy(Reference patient, OidType uid, IntegerType numberOfSeries, IntegerType numberOfInstances) {
+    public ImagingStudy(Reference patient, OidType uid, UnsignedIntType numberOfSeries, UnsignedIntType numberOfInstances) {
       super();
       this.patient = patient;
       this.uid = uid;
@@ -3109,12 +3109,12 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #numberOfSeries} (Number of Series in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfSeries" gives direct access to the value
      */
-    public IntegerType getNumberOfSeriesElement() { 
+    public UnsignedIntType getNumberOfSeriesElement() { 
       if (this.numberOfSeries == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.numberOfSeries");
         else if (Configuration.doAutoCreate())
-          this.numberOfSeries = new IntegerType(); // bb
+          this.numberOfSeries = new UnsignedIntType(); // bb
       return this.numberOfSeries;
     }
 
@@ -3129,7 +3129,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @param value {@link #numberOfSeries} (Number of Series in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfSeries" gives direct access to the value
      */
-    public ImagingStudy setNumberOfSeriesElement(IntegerType value) { 
+    public ImagingStudy setNumberOfSeriesElement(UnsignedIntType value) { 
       this.numberOfSeries = value;
       return this;
     }
@@ -3146,7 +3146,7 @@ public class ImagingStudy extends DomainResource {
      */
     public ImagingStudy setNumberOfSeries(int value) { 
         if (this.numberOfSeries == null)
-          this.numberOfSeries = new IntegerType();
+          this.numberOfSeries = new UnsignedIntType();
         this.numberOfSeries.setValue(value);
       return this;
     }
@@ -3154,12 +3154,12 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #numberOfInstances} (Number of SOP Instances in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
      */
-    public IntegerType getNumberOfInstancesElement() { 
+    public UnsignedIntType getNumberOfInstancesElement() { 
       if (this.numberOfInstances == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.numberOfInstances");
         else if (Configuration.doAutoCreate())
-          this.numberOfInstances = new IntegerType(); // bb
+          this.numberOfInstances = new UnsignedIntType(); // bb
       return this.numberOfInstances;
     }
 
@@ -3174,7 +3174,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @param value {@link #numberOfInstances} (Number of SOP Instances in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
      */
-    public ImagingStudy setNumberOfInstancesElement(IntegerType value) { 
+    public ImagingStudy setNumberOfInstancesElement(UnsignedIntType value) { 
       this.numberOfInstances = value;
       return this;
     }
@@ -3191,7 +3191,7 @@ public class ImagingStudy extends DomainResource {
      */
     public ImagingStudy setNumberOfInstances(int value) { 
         if (this.numberOfInstances == null)
-          this.numberOfInstances = new IntegerType();
+          this.numberOfInstances = new UnsignedIntType();
         this.numberOfInstances.setValue(value);
       return this;
     }
@@ -3430,8 +3430,8 @@ public class ImagingStudy extends DomainResource {
         childrenList.add(new Property("referrer", "Reference(Practitioner)", "The requesting/referring physician.", 0, java.lang.Integer.MAX_VALUE, referrer));
         childrenList.add(new Property("availability", "code", "Availability of study (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
         childrenList.add(new Property("url", "uri", "WADO-RS resource where Study is available.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("numberOfSeries", "integer", "Number of Series in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfSeries));
-        childrenList.add(new Property("numberOfInstances", "integer", "Number of SOP Instances in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
+        childrenList.add(new Property("numberOfSeries", "unsignedInt", "Number of Series in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfSeries));
+        childrenList.add(new Property("numberOfInstances", "unsignedInt", "Number of SOP Instances in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
         childrenList.add(new Property("clinicalInformation", "string", "Diagnoses etc provided with request.", 0, java.lang.Integer.MAX_VALUE, clinicalInformation));
         childrenList.add(new Property("procedure", "Coding", "Type of procedure performed.", 0, java.lang.Integer.MAX_VALUE, procedure));
         childrenList.add(new Property("interpreter", "Reference(Practitioner)", "Who read study and interpreted the images.", 0, java.lang.Integer.MAX_VALUE, interpreter));
