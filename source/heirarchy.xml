@@ -167,7 +167,9 @@ signatures.html
 		  <page title="Profile List" filename="profilelist.html"/>
 			<page title="Using Resources" filename="use.html"/>
 		</page>
-		<page title="Resources" filename="resourcelist.html"/>
+		<page title="Resources" filename="resourcelist.html">
+  		<page title="Resource Guide" filename="resourceguide.html"/>
+    </page>
 		<!--    Every Resource below has structure:
       resource
       definitions
