@@ -3,20 +3,66 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-The Flag resource provides a single interface for managing clinical and administrative facts that need to be brought to the attention of
-users of clinical systems.  Examples can include many things.  Patient's posing particular risks (falls, physical violence), patient's needing special accomodations (hard of hearing, use easy-open caps), 
-administrative concerns (verify postal address, pre-payment required) or any other situation that
-needs to be brought to attention within the context of a particular workflow.  (The workflow relevant to the issue can be identified by the <i>category</i> element.)
+A flag is typically presented as a label in a prominent location in a patient chart to notify the clinician of potential issues, 
+though it may also appear in other contexts.  E.g. instructions to a radiology technician. The information in the flag will 
+usually be derived from the record, and therefore, for a thorough and careful clinician, will be redundant.  However, given the volume 
+of information frequently found in patients' records and the potentially serious consequences of losing sight of some facts, this 
+redundancy is deemed appropriate.  As well, some flags may reflect information not captured by any other resource in the record.  
+(E.g. "Patient has large dog at home")
 </p>
 <p>
-Usually, resources specific to particular types of issues (health <a href="condition.html">conditions</a>, <a href="allergyintolerance.html">allergies</a>, 
-<a href="medicationstatement.html">active medications</a> will be used to communicate those issues.  However,
-in some cases, particularly important information (a latex or severe food allergy) migt be highlighted as an <b>Flag</b> as well as the more typical
-resource.
+In line with its purpose, a flag is concise, highlighting a small set of high-priority issues among the much larger set of 
+data in the chart. Readers who want more detail should consult the chart.  Caution should be exercised in creating Flag instances.
+If entries are created for information that could be gleaned in a sufficiently timely fashion by reviewing the patient record, 
+the flag list will itself become overwhelming and will cease to serve its intended purpose.
 </p>
 <p>
-The Flag resource should not be used for Allergies / Adverse Reactions (use <a href="allergyintolerance.html">AllergyIntolerance</a>, or to record Alarms 
-raised by devices attached to the patient (yet to be added to the specification).
+Flags are expected to persist in a record for some period of time and are, at most, targeted to particular types of practitioners
+or to practitioners in particular system.  
+</p>
+<p>Examples of issues that might appear in flags:</p>
+<ul>
+<li>Risks to the patient (functional risk of falls, spousal restraining order, latex allergy)</li>
+<li>Patient's needs for special accommodations (hard of hearing, need for easy-open caps)</li>
+<li>Risks to providers (dog in house, patient may bite, infection control precautions)</li>
+<li>Administrative concerns (incomplete information, pre-payment required due to credit risk)</li>
+</ul> 
+<p>
+Examples of issues that should not appear in flags:
+</p>
+<ul>
+<li>Potential allergy or drug interaction to planned therapy (use <a href="contraindication.html">Contraindication</a>)</li>
+<li>Known adverse reaction to a substance (use <a href="allergyintolerance.html">AllergyIntolerance</a>)</li>
+</ul>    
+<p>
+Note that we include "latex allergy" in the "in scope" list, and "allergy" in the "not in scope" list. The Flag resource is not 
+designed to replace the normal order checking process, and one should not expect to see all allergies in Flags. However, if there 
+is an activity that might occur prior to careful evaluation of the record (e.g., donning of latex gloves) and that activity might 
+pose a risk to the patient, that is the sort of eventuality the Flag is intended to support.
+</p>
+<p>
+Specific guidelines about what type of information is appropriate to expose using Flag, as well as what categories of individuals 
+should see particular flags, will vary by interoperability community.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Flags may highlight a highly condensed view of information found in the <a href="allergyintolerance.html">AllergyIntolerance</a>, 
+<a href="condition.html">Condition</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a> and possibly 
+other resources.  A <a href="extension-flag-detail.html">common extension</a> allows the linkage of a Flag to the supporting detail resource.
+The purpose of these other resources is to provide detailed clinical information.  The purpose of a Flag is to alert practitioners to 
+information that is important to influence their interaction with a Patient prior to detailed review of the record.
+</p>
+<p>
+Flags are not used to convey information to a specific individual or organization (e.g. an abnormal lab result reported to the ordering 
+clinician, reporting of an adverse reaction to a regulatory authority).  These are handled using the 
+<a href="communicationrequest.html">CommunicationRequest</a> and the <a href="communication.html">Communication</a> resources.
+</p>
+<p>
+Flags are not raised as a result of a reported or proposed action (e.g. drug-drug interactions, duplicate therapy warnings).  
+These would be handled using <a href="contraindication.html">Contraindication</a>.
 </p>
 </div>
 
