@@ -101,7 +101,10 @@ import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Reference;
@@ -4554,77 +4557,142 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String generateHumanSummary(Profile pack, StructureDefinition profile) {
     try {
-//      if ("true".equalsIgnoreCase(pack.metadata("no-summary")))
-//          return "";
       if (profile.getDifferential() == null)
         return "<p>No Summary, as this profile has no differential</p>";
 
-      StringBuilder tx = new StringBuilder(); // Terminology Bindings
-      StringBuilder card = new StringBuilder(); // mandatory or Excluded fields
-      StringBuilder fixed = new StringBuilder(); // Fixed Values 
-      StringBuilder ext = new StringBuilder(); // extensions
-      //StringBuilder slices = new StringBuilder(); // slices
+      // references
+      List<String> refs = new ArrayList<String>(); // profile references
+      // extensions (modifier extensions)
+      List<String> ext = new ArrayList<String>(); // extensions
+      // slices
+      List<String> slices = new ArrayList<String>(); // Fixed Values 
+      // numbers - must support, required, prohibited, fixed
+      int supports = 0;
+      int requireds = 0;
+      int fixeds = 0;
+      int prohibits = 0;
+  
       for (ElementDefinition ed : profile.getDifferential().getElement()) {
         if (ed.getPath().contains(".")) {
-          if (ed.hasBinding()) {
-            String s = summariseBinding(ed.getBinding(), ed.getPath(), hasType(ed, "CodeableConcept"));
-            if (s != null)
-              tx.append(s);
-          }
           if (ed.getMin() == 1)
-            card.append("<li>The element <i>").append(ed.getPath()).append("</i> is <span color=\"navy\">required</span></li>\r\n");
-          else if ("0".equals(ed.getMax()))
-            card.append("<li>The element <i>").append(ed.getPath()).append("</i> is <span color=\"red\">prohibited</span></li>\r\n");
-
+            requireds++;
+          if ("0".equals(ed.getMax()))
+            prohibits++;
+          if (ed.getMustSupport())
+            supports++;
           if (ed.hasFixed())
-            fixed.append("<li>The element <i>").append(ed.getPath()).append("</i> value has been fixed to <span color=\"maroon\">").append(summariseValue(ed.getFixed())).append("</span></li>\r\n");
-          else if (ed.hasPattern())
-            fixed.append("<li>The element <i>").append(ed.getPath()).append("</i> value must match <span color=\"maroon\">").append(summariseValue(ed.getPattern())).append("</span></li>\r\n");
+            fixeds++;
+          
+          for (TypeRefComponent t : ed.getType()) {
+            if (t.hasProfile() && !definitions.hasType(t.getProfile().substring(40))) {
+              if (ed.getPath().endsWith(".extension"))
+                tryAdd(ext, summariseExtension(t.getProfile(), false));
+              else if (ed.getPath().endsWith(".modifierExtension"))
+                tryAdd(ext, summariseExtension(t.getProfile(), true));
+              else
+                tryAdd(refs, describeProfile(t.getProfile()));
+            }
+          }
 
-          if (ed.getPath().endsWith(".extension"))
-            ext.append(summariseExtension(ed.getType(), false, ed.getPath()));
-          else if (ed.getPath().endsWith(".modifierExtension"))
-            ext.append(summariseExtension(ed.getType(), true, ed.getPath()));
+          if (ed.hasSlicing() && !ed.getPath().endsWith(".extension") && !ed.getPath().endsWith(".modifierExtension"))
+            tryAdd(slices, describeSlice(ed.getPath(), ed.getSlicing()));
         }
       }
       StringBuilder res = new StringBuilder("<a name=\"summary\"> </a>\r\n<h2>\r\nSummary\r\n</h2>\r\n");
-      if (tx.length() > 0)
-        res.append("<p><b>Terminology Bindings</b></p>\r\n<ul>\r\n").append(tx.toString()).append("\r\n</ul>\r\n\r\n");
-      if (card.length() > 0)
-        res.append("<p><b>Required/Prohibited Elements</b></p>\r\n<ul>\r\n").append(card.toString()).append("\r\n</ul>\r\n\r\n");
-      if (fixed.length() > 0)
-        res.append("<p><b>Fixed Values</b></p>\r\n<ul>\r\n").append(fixed.toString()).append("\r\n</ul>\r\n\r\n");
-      if (ext.length() > 0)
-        res.append("<p><b>Extensions</b></p>\r\n<ul>\r\n").append(ext.toString()).append("\r\n</ul>\r\n\r\n");
+      if (supports + requireds + fixeds + prohibits > 0) {
+        boolean started = false;
+        res.append("<p>");
+        if (requireds > 0) {
+          started = true;
+          res.append("Mandatory: "+Integer.toString(requireds)+" "+(requireds > 1 ? Utilities.pluralizeMe("element") : "element")); 
+        }
+        if (supports > 0) {
+          if (started)
+            res.append(", ");
+          started = true;
+          res.append("Must-Support: "+Integer.toString(supports)+" "+(supports > 1 ? Utilities.pluralizeMe("element") : "element")); 
+        }
+        if (fixeds > 0) {
+          if (started)
+            res.append(", ");
+          started = true;
+          res.append("Fixed Value: "+Integer.toString(fixeds)+" "+(fixeds > 1 ? Utilities.pluralizeMe("element") : "element")); 
+        }
+        if (prohibits > 0) {
+          if (started)
+            res.append(", ");
+          started = true;
+          res.append("Prohibited: "+Integer.toString(prohibits)+" "+(prohibits > 1 ? Utilities.pluralizeMe("element") : "element")); 
+        }
+        res.append("</p>");        
+      }
+      if (!refs.isEmpty()) {
+        res.append("<p><b>Structures</b></p>\r\n<p>This structure refers to these other structures:</p>\r\n<ul>\r\n");
+        for (String s : refs)
+          res.append(s);
+        res.append("\r\n</ul>\r\n\r\n");
+      }
+      if (!ext.isEmpty()) {
+        res.append("<p><b>Extensions</b></p>\r\n<p>This structure refers to these other extensions:</p>\r\n<ul>\r\n");
+        for (String s : ext)
+          res.append(s);
+        res.append("\r\n</ul>\r\n\r\n");
+      }
+      if (!slices.isEmpty()) {
+        res.append("<p><b>Slices</b></p>\r\n<p>This structure defines the following <a href=\"profiling.html#slices\">Slices</a>:</p>\r\n<ul>\r\n");
+        for (String s : slices)
+          res.append(s);
+        res.append("\r\n</ul>\r\n\r\n");
+      }
       return res.toString();
     } catch (Exception e) {
       return "<p><i>"+Utilities.escapeXml(e.getMessage())+"</i></p>";
     }
   }
 
-  private Object summariseExtension(List<TypeRefComponent> types, boolean modifier, String path) throws Exception {
-    if (types.size() != 1)
-      throw new Exception("unable to summarise extension (wrong count)");
-    String url = types.get(0).getProfile();
+  private String describeSlice(String path, ElementDefinitionSlicingComponent slicing) {
+    if (!slicing.hasDiscriminator())
+      return "<li>There is a slice with no discriminator at "+path+"</li>\r\n";
+    String s = "";
+    if (slicing.getOrdered())
+      s = "ordered";
+    if (slicing.getRules() != ResourceSlicingRules.OPEN)
+      s = Utilities.noString(s) ? slicing.getRules().getDisplay() : s+", "+ slicing.getRules().getDisplay();
+    if (!Utilities.noString(s))
+      s = " ("+s+")";
+    if (slicing.getDiscriminator().size() == 1)
+      return "<li>The element "+path+" is sliced based on the value of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (StringType d : slicing.getDiscriminator()) 
+      b.append(d.asStringValue());
+    return "<li>The element "+path+" is sliced based on the values of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
+  }
+
+  private void tryAdd(List<String> ext, String s) {
+    if (!ext.contains(s))
+      ext.add(s);
+  }
+
+  private String summariseExtension(String url, boolean modifier) throws Exception {
     StructureDefinition ed = workerContext.getExtensionStructure(null, url);
     if (ed == null)
-      throw new Exception("unable to summarise extension (no extension found)");
-    return "<li>Use the "+(modifier ? "<b>modifier</b> " : "")+"extension <a href=\""+ed.getUserData("filename")+".html\"><i>"+url+"</i></a> on element <i>"+root(path)+"</i></li>\r\n";    // TODO Auto-generated method stub
+      return "<li>unable to summarise extension "+url+" (no extension found)</li>";
+    return "<li><a href=\""+ed.getUserData("filename")+".html\">"+url+"</a>"+(modifier ? " (<b>Modifier</b>) " : "")+"</li>\r\n";    
   }
 
-  private boolean hasType(ElementDefinition ed, String tn) {
-    for (TypeRefComponent t : ed.getType()) {
-      if (t.getCode().equals(tn))
-        return true;
+  private String describeProfile(String url) throws Exception {
+    StructureDefinition ed = workerContext.getProfiles().get(url);
+    if (ed == null) {
+      // work around for case consistency problems in ballot package
+      
+      for (String s : workerContext.getProfiles().keySet())
+        if (s.equalsIgnoreCase(url)) {
+          ed = workerContext.getProfiles().get(s);
+        }
     }
-    return false;
-  }
-
-  private String summariseBinding(ElementDefinitionBindingComponent binding, String path, boolean canDotext) {
-    if (binding.getStrength() == null || binding.getStrength() == BindingStrength.EXAMPLE || binding.getStrength() == BindingStrength.NULL)
-      return null;
-    String desc = binding.getDescription() == null ? describeReference(binding) : binding.getDescription();
-    return "<li><i>"+path+"</i> "+(binding.getStrength() == BindingStrength.PREFERRED ? "SHOULD" : "SHALL")+" come from "+desc+(binding.getStrength() == BindingStrength.EXTENSIBLE ? " (Extensible)" : "")+"</li>";
+    if (ed == null)
+      return "<li>unable to summarise profile "+url+" (no profile found)</li>";
+    return "<li><a href=\""+ed.getUserData("filename")+"\">"+url+"</a></li>\r\n";    
   }
 
   private String describeReference(ElementDefinitionBindingComponent binding) {
