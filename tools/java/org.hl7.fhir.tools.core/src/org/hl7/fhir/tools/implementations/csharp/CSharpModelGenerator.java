@@ -390,7 +390,7 @@ public class CSharpModelGenerator extends GenBlock
 	
 	private void generateMemberProperty(CompositeTypeDefn context, ElementDefn member, int order)
 			throws Exception {
-  
+ 
     // Determine the most appropriate FHIR type to use for this
     // (possibly polymorphic) element.
     TypeRef tref = GeneratorUtils.getMemberTypeForElement(getDefinitions(),member);
@@ -400,8 +400,26 @@ public class CSharpModelGenerator extends GenBlock
     boolean hasBothPrimitiveAndElementProperty = isFhirPrimitive && !needsNativeProperty;
     
     String choiceType = null;
-    String choices = "";
-        
+    String choices = "";       
+    String memberCsType;
+    
+    if( GeneratorUtils.isCodeWithCodeList( getDefinitions(), tref ) )
+      // Strongly typed enums use a special Code<T> type
+      memberCsType = "Code<" + GeneratorUtils.buildFullyScopedTypeName(tref.getFullBindingRef()) + ">"; 
+    else if( needsNativeProperty )
+      // Primitive elements' value property maps directly to a C# type
+      memberCsType = GeneratorUtils.mapPrimitiveToCSharpType(tref.getName());
+    else 
+      memberCsType = GeneratorUtils.buildFullyScopedTypeName(tref);
+
+    String singleElementCsType = memberCsType;
+    
+    // Surround with List<T> if it is a repeating element
+    if( member.getMaxCardinality() == -1 )
+      memberCsType = "List<" + memberCsType + ">";
+    
+    member.getGeneratorAnnotations().put(CLASSGEN_MEMBER_CSTYPE, memberCsType);
+       
     if(member.isPolymorph())
     {     
       for(TypeRef choiceTRef : member.getType())
@@ -480,24 +498,7 @@ public class CSharpModelGenerator extends GenBlock
 
 		ln("[DataMember]");
 		ln("public ");
-			
-		String memberCsType;
-		
-		if( GeneratorUtils.isCodeWithCodeList( getDefinitions(), tref ) )
-		  // Strongly typed enums use a special Code<T> type
-		  memberCsType = "Code<" + GeneratorUtils.buildFullyScopedTypeName(tref.getFullBindingRef()) + ">";	
-		else if( needsNativeProperty )
-	    // Primitive elements' value property maps directly to a C# type
-		  memberCsType = GeneratorUtils.mapPrimitiveToCSharpType(tref.getName());
-		else 
-			memberCsType = GeneratorUtils.buildFullyScopedTypeName(tref);
-
-		String singleElementCsType = memberCsType;
-		
-		// Surround with List<T> if it is a repeating element
-		if( member.getMaxCardinality() == -1 )
-		  memberCsType = "List<" + memberCsType + ">";
-	
+				
 		String memberName = GeneratorUtils.generateCSharpMemberName(member);
 		
 		if(hasBothPrimitiveAndElementProperty)
@@ -506,29 +507,38 @@ public class CSharpModelGenerator extends GenBlock
 		}
 		
 		member.getGeneratorAnnotations().put(CLASSGEN_MEMBER_NAME, memberName);
-		member.getGeneratorAnnotations().put(CLASSGEN_MEMBER_CSTYPE, memberCsType);
 	
 		nl( memberCsType + " " + memberName  );
 		
 		bs("{");
+
+		String memberField = null;
+		if(!member.isPrimitiveValueElement()) 
+		  memberField = "_" + memberName;
+		else
+		  memberField = "ObjectValue";
 		
 		if(member.getMaxCardinality() == -1)
 		{
-		  ln("get { if(_" + memberName + "==null) _" + memberName + " = new " + memberCsType + "();");
-		  nl(" return _"+memberName+"; }");		  
-		  //get { if (_Relationship == null) _Relationship = new List<Hl7.Fhir.Model.CodeableConcept>(); return _Relationship; }
+		  ln("get { if(" + memberField + "==null) " + memberField + " = new " + memberCsType + "();");
+		  nl(" return "+memberField+"; }");		  
 		}
 		else
-		  ln("get { return _"+memberName+"; }");
+		{
+		  if(!member.isPrimitiveValueElement())
+		    ln("get { return "+memberField+"; }");
+		  else
+		    ln("get { return ("+memberCsType+")"+ memberField+"; }");
+		}
 		
-		ln("set { _"+memberName+" = value; OnPropertyChanged(\""+memberName+"\"); }");
+		ln("set { "+memberField+" = value; OnPropertyChanged(\""+memberName+"\"); }");
 		es("}");
 		ln();
 		
 		if(!member.isPrimitiveValueElement())
 		{
 		  // Primitives have this value as a protected member in their base, Primitive<T>
-  		ln( "private " + memberCsType + " _" + memberName + ";" );
+  		ln( "private " + memberCsType + " " + memberField + ";" );
   		ln();
 		}
 		

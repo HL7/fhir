@@ -330,9 +330,9 @@ public class GeneratorUtils {
     else if (name.equals("integer"))
       return "Integer";
     else if (name.equals("positiveInt"))
-      return "Integer";
+      return "PositiveInt";
     else if (name.equals("unsignedInt"))
-      return "Integer";
+      return "UnsignedInt";
 		else if (name.equals("decimal"))
 			return "FhirDecimal";
 		else if (name.equals("base64Binary"))
@@ -354,7 +354,7 @@ public class GeneratorUtils {
 		else if (name.equals("id"))
 			return "Id";
 		else if (name.equals("xhtml"))
-			return "XHtml";
+			return "FhirString";
 		else if (name.equals("xml:lang"))
 			return "FhirString";
     else if (name.equals("date"))
