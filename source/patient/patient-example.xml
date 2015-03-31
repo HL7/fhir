@@ -2,35 +2,28 @@
 <Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
   <id value="example"/>
+  <meta>
+    <lastUpdated value="2013-03-17T16:18:45.001" />
+    <profile value="http://example.org/fhir/StructureDefinition/patient-nl" />
+    <profile value="http://example.org/fhir/StructureDefinition/out-patient-nl" />
+    <security>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="CEL"/>
+        <display value="Celebrity"/>        
+    </security>
+    <tag>
+      <system value="http://example.org/fhir/vs/ProductionState"/>
+      <code value="TEST" />
+      <display value="Testdata - do not use" />
+    </tag>
+  </meta>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <table>
-        <tbody>
-          <tr>
-            <td>Name</td>
-            <td>Peter James <b>Chalmers</b> ("Jim")</td>
-          </tr>
-          <tr>
-            <td>Address</td>
-            <td>534 Erewhon, Pleasantville, Vic, 3999</td>
-          </tr>
-          <tr>
-            <td>Contacts</td>
-            <td>Home: unknown. Work: (03) 5555 6473</td>
-          </tr>
-          <tr>
-            <td>Id</td>
-            <td>MRN: 12345 (Acme Healthcare)</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div xmlns="http://www.w3.org/1999/xhtml"><!-- snip --></div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
     <valueDateTime value="2001-05-06T14:35:45-05:00"/>
   </extension>
-
   <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
   <identifier>
     <use value="usual"/>
