@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 
 <div>
@@ -22,12 +22,38 @@ with containing context. In FHIR this is referred to as "bundling" the resources
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-There are two ways to collect resources together - <a href="references.html#contained">contained resources</a>, and
+There are two ways to collect resources together for transport and persistance purposes - <a href="references.html#contained">contained resources</a>, and
 bundles. There is an important difference between the two: 
 </p>
 <ul>
  <li>Contained resources are "in" the container resource - they can only ever be interpreted and/or changed in the context of the container</li>
  <li>A bundle is a collection of resources that have an independent existence - the source of the resource can be determined by the base (see below) and the logical id</li>
+</ul>
+
+<p>
+In addition to these two technical mechanism, there are three administrative and infrastructure resources which also support grouping of content:
+</p>
+<ul>
+<li>
+The <a href="list.html">List</a> resource - enumerates a flat collection of resources and provides features for managing the collection.  
+While a particular List instance may represent a "snapshot", from a business process perspective the notion of "List" 
+is dynamic – items are added and removed over time.  The list resource references other resources.  Lists are may be 
+curated and have specific business meaning.
+</li>
+<li>
+The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
+or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
+Groups are intended to be acted upon or observed as a whole.  E.g. performing therapy on a group, calculating risk for a group, 
+etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
+defining a test subject pool) and similar purposes.
+</li>
+<li>
+The <a href="composition.html">Composition</a> resource – defines a set of healthcare-related information that is assembled 
+together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
+that has clinical attestation with regard to who is making the statement. The composition resource provides the basic structure 
+of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a bundle.  Compositions will 
+often reference Lists as the focus of particular sections.
+</li>
 </ul>
 
 </div>

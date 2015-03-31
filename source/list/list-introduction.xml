@@ -3,19 +3,64 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-List resources are used in many places, including allergies, medications, alerts, medical history, etc. 
+The List resource is a flat, possibly ordered, collection of records. List resources are used in many places, 
+including allergies, medications, alerts, family history, medical history, etc. List resources can be used to 
+support patient-specific clinical lists as well as lists that manage workflows such as tracking patients, managing 
+teaching cases, etc. Resources supported by the List resource can be homogenous – consisting of only one type of 
+resource (e.g. allergy list) as well as heterogeneous – containing a variety of resources (e.g. a problem list 
+including <a href="condition.html">Conditions</a>, <a href="allergyintolerance.html">AllergyIntolerances</a>, 
+recent <a href="procedure.html">Procedures</a>, etc.).
+</p>
+<p>
+Lists will typically include references to the resources that make up the list, however in some cases the details 
+of the content of the List might be expressed in narrative only.  E.g. A text record of a family history.  The List 
+resource is only needed if there is a need to filter the set of resources by a mechanism that cannot be accomplished 
+via a simple query.  I.e. There is no need to have a List for all <a href="allergyintolerance.html">AllergyIntolerances</a>
+that exist on a server for a given Patient.  However, List is an appropriate mechanism to provide a filtered list of the 
+subset of AllergyIntolerances that are deemed to be "current".
 </p>
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-There are 2 resources that provide for constructing collections of other resources:
+There are five mechanisms in FHIR for communicating collections of resources:
 </p>
 <ul>
- <li>This List resource - enumerates a collection of resources that are in some list, and provides features for managing the list. The list resource references other resources</li>
- <li>The <a href="group.html">Group resource</a> - defines a group of specific people, animals, devices, etc. by enumerating them, or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly</li>
+<li>
+This List resource - enumerates a flat collection of resources and provides features for managing the collection.  
+While a particular List instance may represent a "snapshot", from a business process perspective the notion of "List" 
+is dynamic – items are added and removed over time.  The list resource references other resources.  Lists are may be 
+curated and have specific business meaning.
+</li>
+<li>
+The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
+or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
+Groups are intended to be acted upon or observed as a whole.  E.g. performing therapy on a group, calculating risk for a group, 
+etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
+defining a test subject pool) and similar purposes.
+</li>
+<li>
+The <a href="composition.html">Composition</a> resource – defines a set of healthcare-related information that is assembled 
+together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
+that has clinical attestation with regard to who is making the statement. The composition resource provides the basic structure 
+of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a bundle.  Compositions will 
+often reference Lists as the focus of particular sections.
+</li>
+<li>
+The <a href="bundle.html">Bundle</a> resource is an infrastructure container for a group of resources.  It does not have narrative 
+and is used to group collections of resources for transmission, persistence or processing (e.g. messages, documents, transactions, 
+query responses, etc.)  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
+</li>
+<li>
+The <a href="domainresource.html">DomainResource</a>.<code>contained</code> element allows multiple resources to be nested
+inside any DomainResource.  This is a special type of grouping where the grouped resources lose independent existence - they
+no longer have their own identifiers, can't easily be queried independently, etc.  Use of this grouping is a technical 
+mechanism for managing the independence of resources and has no impact on meaning.  Contained, bundles and remotely referenced
+resources convey the same meaning.
+</li>
 </ul>
+
 </div>
 
 

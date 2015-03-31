@@ -20,6 +20,48 @@ a single commit.
 </div>
 
 <div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Composition is a structure for grouping information for purposes of persistance and attestability.  There
+are several other grouping structures in FHIR with distinct purposes:
+</p>
+<ul>
+<li>
+The <a href="list.html">List</a> resource - enumerates a flat collection of resources and provides features for managing the collection.  
+While a particular List instance may represent a "snapshot", from a business process perspective the notion of "List" 
+is dynamic – items are added and removed over time.  The list resource references other resources.  Lists are may be 
+curated and have specific business meaning.
+</li>
+<li>
+The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
+or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
+Groups are intended to be acted upon or observed as a whole.  E.g. performing therapy on a group, calculating risk for a group, 
+etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
+defining a test subject pool) and similar purposes.
+</li>
+<li>
+The <a href="bundle.html">Bundle</a> resource is an infrastructure container for a group of resources.  It does not have narrative 
+and is used to group collections of resources for transmission, persistence or processing (e.g. messages, documents, transactions, 
+query responses, etc.)  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
+</li>
+<li>
+The <a href="composition.html">Composition</a> resource – defines a set of healthcare-related information that is assembled 
+together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
+that has clinical attestation with regard to who is making the statement. The composition resource provides the basic structure 
+of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a bundle.  Compositions will 
+often reference Lists as the focus of particular sections.
+</li>
+</ul>
+
+<p>
+While a Composition organizes clinical and administrative content, it doesn't directly contain any of this information.  The
+content of the various sections defined by a Composition are satisfied by the resources pointed to by those sections.  The 
+complete set of content to make up a document includes the Composition resource together with various resources pointed to or indirectly
+connected to the Composition all gathered together into a <a href="bundle.html">Bundle</a> for transport and persistence.
+</p>
+</div>
+
+<div>
 <h2>Background and Context</h2>
 <a name="status"> </a>
 <h3>Composition Status Codes</h3>
