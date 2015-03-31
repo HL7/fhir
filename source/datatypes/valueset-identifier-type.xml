@@ -1,0 +1,69 @@
+<ValueSet xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  
+  <name value="Identifier Type Codes"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <status value="draft"/>
+  <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose"/>
+  <status value="draft"/>
+  <compose>
+    
+    <include>
+      <system value="http://hl7.org/fhir/v2/0203"/>
+      <concept>
+        <code value="DL"/>
+      </concept>
+      <concept>
+        <code value="PPN"/>
+      </concept>
+      <concept>
+        <code value="BRN"/>
+      </concept>
+      <concept>
+        <code value="MR"/>
+      </concept>
+      <concept>
+        <code value="MCN"/>
+      </concept>
+      <concept>
+        <code value="EN"/>
+      </concept>
+      <concept>
+        <code value="SS"/>
+      </concept>
+      <concept>
+        <code value="TAX"/>
+      </concept>
+      <concept>
+        <code value="NIIP"/>
+      </concept>
+      <concept>
+        <code value="PRN"/>
+      </concept>
+      <concept>
+        <code value="MD"/>
+      </concept>
+      <concept>
+        <code value="UDI"/>
+        <display value="Universal Device Identifier"/>
+      </concept>
+      <concept>
+        <code value="SNO"/>
+        <display value="Serial Number"/>
+      </concept>
+      <concept>
+        <code value="DR"/>
+      </concept>
+    </include>
+  </compose>
+  
+
+</ValueSet>
+
