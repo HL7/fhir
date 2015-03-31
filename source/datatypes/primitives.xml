@@ -230,14 +230,14 @@
     <Cell><Data ss:Type="String">unsignedInt</Data></Cell>
     <Cell><Data ss:Type="String">An integer with a value that is not negative (e.g. &gt;= 0)</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">integer</Data></Cell>
-    <Cell><Data ss:Type="String">nonNegativeInteger </Data></Cell>
+    <Cell><Data ss:Type="String">xs:nonNegativeInteger </Data></Cell>
     <Cell><Data ss:Type="String">[0-9]+</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">positiveInt</Data></Cell>
     <Cell><Data ss:Type="String">An integer with a value that is positive (e.g. &gt;0)</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">integer</Data></Cell>
-    <Cell><Data ss:Type="String">positiveInteger</Data></Cell>
+    <Cell><Data ss:Type="String">xs:positiveInteger</Data></Cell>
     <Cell><Data ss:Type="String">[1-9][0-9]+</Data></Cell>
    </Row>
   </Table>
@@ -259,7 +259,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>7</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
