@@ -3,111 +3,107 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This profile sets expectations for use of the <a href="list.html">List</a> resource to return results for DAF queries within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements,extensions,vocabularies and value sets must be supported by DAF actors.
-</p>
-<p>
-For the purposes of this profile, <i>Supported</i> means the following:
-<ul>
-  <p><b>Query Results:</b></p>
-  <li>Query Responders responding to queries SHALL use the DAF List profile to return results which contain more than one resource in the result set. This includes problem list, medication lists, allergies list.</li>
-  <li>Query Results returned by DAF Query Responder SHOULD contain the data elements identified as MUST SUPPORT in the profile.</li>
-  <li>Query Results returned MAY contain data elements not tagged as MUST SUPPORT by the this profile.</li>
-  <li>Query Requestor SHALL process the Query Results containing additional data elements without indicating that the response is an erroneous response.</li>
-  <p/>
-  
-  <p><b>Missing Information:</b></p>
-  <li>Query Responders SHALL use the DAF List profile to return a List with no entries and an appropriate emptyReason when queries for a Patient's problem list, allergies list and medication list result in no entries to be returned. </li>
-  <li>When Query Results do not contain a particular data element identified as MUST SUPPORT, Query Requestors SHALL interpret the results to mean that the Query Responder did not have information and there is no further qualifying information as to why the information is missing.</li>
-  <li>In cases, where the Query Responder knows precisely the reason why the data is missing (e.g notasked in the data-absent-reason value set), then Query Responders MAY provide this additional information using the extension element as part of the data element. Query Requestors SHALL correctly process the data-absent-reason extension without rejecting the response as an erroneous response.</li>
-  
-  <p><b>SearchParameters:</b></p>
-  <li>DAF Query Requestor (client) SHALL be capable of querying the List resource using one or more of the search parameters for data elements tagged as MUST SUPPORT in this profile.</li>
-  <li>DAF Query Responder (server) SHALL be capable of receiving the queries submitted by the DAF Query Requestor and provide Query Results or error responses per the FHIR specifications.</li>
-  <li>DAF Query Responder MAY provide valid or error responses when the query parameters submitted contain data elements which are not tagged as MUST SUPPORT by this profile.</li>
-  <p/>
-</ul>
+This profile sets expectations for use of the <a href="list.html">List</a> resource within the 
+<a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core data elements,extensions,vocabularies and value sets must be <i>Supported</i> by DAF actors.
+For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases. 
+The mappings between the ONC 2014 Edition S&amp;CC data elements and DAF data elements are captured in the table below, where the first column identifies the ONC 2014 Edition S&amp;CC data element name, 
+the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data elements which are derived from ONC 2014 Edition S&amp;CC standards and DAF use cases and lastly the third column identifies the mapping to FHIR resources and attributes.
 </p>
 </div>
 
 <div>
-<h2>Relationship to Meaningful Use</h2>
+<h2>Meaningful Use Data Element Mapping</h2>
 <p>
-The DAF Medication profile provides a mapping for the following Meaningful Use data elements to FHIR data elements.
+The DAF List profile mapping to Meaningful Use data elements and FHIR Resources are as shown below.
 </p>
 <br/>
 	<table class="grid">
         <thead>
           <tr>
             <th>Meaningful Use Data Element Name</th>
+			<th>Mapping to Priority DAF Data Elements</th>
             <th>FHIR Resource Mapping</th>
           </tr>
         </thead>
         <tbody>
           <tr>
 			<td>Problem List</td>
-			<td>List with item referring to DAFCondition</td>
+			<td>Active Problem List</td>
+			<td>List using DAFProblemList profile</td>
 		  </tr>
 		  <tr>
+		    <td>Problems</td>
 			<td>No known Problems</td>
-			<td>List with no entries and a valid emptyReason</td>
+			<td>List (Empty DAFProblemList with coded List.emptyReason)</td>
 		  </tr>
 		  <tr>
-			<td>Allergies List</td>
-			<td>List with item referring to DAFAllergyIntolerance</td>
+			<td>Medication allergies</td>
+			<td>List of documented allergies</td>
+			<td>List using DAFAllergyIntoleranceList profile</td>
 		  </tr>
 		  <tr>
+			<td>Medication Allergies</td>
 			<td>No known Allergies</td>
-			<td>List with no entries and a valid emptyReason</td>
+			<td>List (Empty DAFAllergyIntoleranceList with coded List.emptyReason)</td>
 		  </tr>
 		  <tr>
-			<td>Medication List</td>
-			<td>List with item referring to DAFMedicationStatement</td>
+			<td>Medications List*</td>
+			<td>List of active Medications*</td>
+			<td>List using DAFMedicationList profile</td>
 		  </tr>
 		  <tr>
+		    <td>Medications</td>
 			<td>No known Medications</td>
-			<td>List with no entries and a valid emptyReason</td>
+			<td>List (Empty DAFMedicationList with coded List.emptyReason)</td>
 		  </tr>
 		  <tr>
 			<td>Immunization List</td>
-			<td>List with item referring to DAFImmunization</td>
+			<td>List of Immunizations</td>
+			<td>List using DAFImmunizationList profile</td>
 		  </tr>
 		  <tr>
+		    <td>Immunizations</td>
 			<td>No known Immunizations</td>
-			<td>List with no entries and a valid emptyReason</td>
+			<td>List (Empty DAFImmunizationList with coded List.emptyReason)</td>
 		  </tr>
 		  <tr>
-			<td>Lab Results List</td>
-			<td>List with item referring to DAFResults</td>
+			<td>Laboratory Result Values</td>
+			<td>List of lab results</td>
+			<td>List using DAFResultsList profile</td>
 		  </tr>
 		  <tr>
-			<td>No known Results</td>
-			<td>List with no entries and a valid emptyReason</td>
+		    <td>Laboratory Result Values</td>
+			<td>No known Laboratory Results</td>
+			<td>List (Empty DAFResultsList with coded List.emptyReason)</td>
 		  </tr>
 		  <tr>
-			<td>Patient List</td>
-			<td>List with item referring to DAFPatient</td>
-		  </tr>
-		  <tr>
-			<td>Encounter List</td>
-			<td>List with item referring to DAFEncounter</td>
-		  </tr>
-		  <tr>
-			<td>DiagnosticReport List</td>
-			<td>List with item referring to DAFDiagnosticReport</td>
+		    <td>Encounter Diagnoses</td>
+			<td>List of encounters for a patient</td>
+			<td>List using DAFEncounterList profile</td>
 		  </tr>
 		</tbody>
 	</table>
+	<p><b>*</b>: The DAFMedicationList summarizes information from other DAF medication profiles. This profile supports three types of medication lists:</p>
+	<ul>
+	<li>Admission Medications - Contains the medications taken by the patient prior to and at the time of admission to the facility (LOINC: 42346-7). This list will contain instances of DAFMedicationStatement and DAFMedicationPrescription.</li>
 
+	<li>Medications - The DAFMedicationsList contains a patient's current medications and pertinent medication history (LOINC: 10160-0).  At a minimum, the currently active medications are listed. An entire medication history is an option. Typically a DAF Responder system is expected to maintain only one current medication list per patient outside of an individual episode or encounter. This list will contain instances of DAFMedicationStatement, DAFMedicationPrescription, and may include instances of  DAFMedicationDispense and DAFMedicationAdministration.</li>
+
+	<li>Discharge Medications - Contains the medications the patient is intended to take after discharge (LOINC: 75311-1). Current, active medications must be listed. This list will contain instances of DAFMedicationPrescription.</li>
+
+	</ul>
 </div>
 
 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This profile relies on the use of other profiles, some required, others available for use "when necessary":
+This profile relies on the following other profiles:
 </p>
 <ul>
-  <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension is used to code data elements with missing information when appropriate.</li>
+  <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. 
+  Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
+  See <a href="daf.html">DAF FHIR IG</a> for additional guidance.</li>
 </ul>
 </div>
 

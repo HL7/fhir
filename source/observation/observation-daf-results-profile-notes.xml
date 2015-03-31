@@ -26,7 +26,7 @@ Implementers need to be mindful of the following during their implementation
 	<p><b>Using Right DAF Result profile:</b> Implementers are advised to use the right DAFResult profile based on the value to be represented. 
 	For example, in case the value element is a codeableConcept implementers should use DAFResultObservationCode profile. Similarly for representing Quantity, Ratio and Other types of results the appropriate DAFResult profile listed above should be used.</p>
 	
-	<p><b>Representing No Known Lab Results:</b> No Known Lab Results will be represented using the DAFResultsList profile with no entries.</p>
+	<p><b>Representing No Known Lab Results:</b> No Known Lab Results will be represented using the <a href="http://hl7.org/fhir/StructureDefinition/list-daf-dafresultlist">DAFResultsList</a> profile with no entries.</p>
 	
 	<p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 </ul>

@@ -1,5 +1,10 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<h2>Search Parameters</h2>
+<p>
+The supported search parameters on the DAF List profiles are can be accessed at <a href="conformance-daf-query-requestor.html">DAF Requestor conformance expectations</a> and <a href="conformance-daf-query-responder.html">DAF Responder conformance expectations</a>.
+</p>
+
 <h2>Example Usage Scenarios</h2>
 
 <p>
@@ -7,17 +12,26 @@ The following are example usage scenarios for the DAF List profile:
 </p>
 <ul>
 	<li>Query for current problem list, medication list or allergy list for a patient</li>
-	<li>DAF Queries already specified as part of each resource profile may also return a list</li>
 </ul>
 
-<h2>Additional Implementation Guidance</h2>
+<h2>Profile specific implementation guidance</h2>
 
 <p>
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<p><b>No additional guidance.</b></p>
-	
+	<p><b>Querying Lists vs Clinical Resources:</b> DAF profiles of the List resource should be used by DAF Requestors to query for data that is curated as a list by the DAF Responder.
+	 The following are the curated lists that will be used in the context of DAF:</p>
+	 <ul>
+	    <li>Active Medications List</li>
+		<li>Active Problems List</li>
+		<li>Active Allergies List</li>
+		<li>List of relevant Laboratory Result values</li>
+		<li>List of Immunizations</li>
+	 </ul>
+	 <p>DAF Requestors are expected to query the actual Clinical Resources such as Condition, Medication, AllergyIntolerance when they would like to get back a set of resources meeting a specific search criteria.(For example, query for all problems documented for a patient). In contrast, queries on List resources are supposed to be used only when the DAF Requestor expects a curated list to be returned by the DAF Responder.</p>
+	 
+	 <p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 </ul>
 
 </div>

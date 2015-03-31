@@ -13,7 +13,7 @@
 <a name="general"/>
 <h3>General Security Considerations</h3>
 <p>
-Most of the DAF transactions make use of patient-specific information which could be exploited by malicious actors  resulting in potential  exposure of patient data.  For this reason, all DAF transactions must be appropriately secured with access to limited authorized individuals, data protected while in transit and appropriate audit measures taken.
+DAF transactions often make use of patient-specific information which could be exploited by malicious actors  resulting in potential  exposure of patient data.  For this reason, all DAF transactions must be appropriately secured with access to limited authorized individuals, data protected while in transit and appropriate audit measures taken.
 </p>
 <p>
 Implementers should be aware of the <a href="security.html">security considerations</a> associated with FHIR transactions,
@@ -30,22 +30,17 @@ particularly those related to:
 For the purposes of DAF, security conformance rules are as follows:
 </p>
 <ul>
-  <li>Systems SHALL use TLS version 1.0 or higher for all transmissions not taking place over a secure network connection.<br/>
-  (Using TLS even within a secured network environment is still encouraged to provide defense in depth.)</li>
-  <li>Systems SHALL use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).<br/>
-  The existing <a href="http://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_IUA.pdf">IHE IUA</a> profile specifies how to use OAuth tokens when accessing RESTful resources. Note: OAuth standards and profiles are still in flux and as such this requirement will be replaced in future with newer releases of IHE IUA or equivalent profiles.</li>
+  <li>Systems SHALL establish a risk  analysis and management regime that conforms with HIPAA security regulatory requirements. In addition US Federal systems SHOULD conform with the risk management and mitigation requirements defined in NIST 800 series documents.  This SHOULD include security category assignment in accordance with NIST 800-60 vol. 2 Appendix D.14. The coordination of risk management and the related security and privacy controls – policies, administrative practices, and technical controls – SHALL be defined in the Business Associate Agreements.</li>
+  <li>Systems SHALL reference a single time source to establish a common time base for security auditing, as well as clinical data records,  among computing systems. The selected time service SHALL be documented in the Business Associate Agreements.</li>
   <li>Systems SHALL use either IHE's ATNA standard for audit logging or an equivalent using the <a href="auditevent.html">AuditEvent</a>
   resource</li>
-  <li>Where workflow requires digital signatures on forms or on answer submissions, implementers SHALL make use of the
-  <a href="provenance.html">Provenance</a> resource to record such signatures.</li>
+  <li>Systems SHALL use TLS version 1.0 or higher for all transmissions not taking place over a secure network connection.<br/>
+  (Using TLS even within a secured network environment is still encouraged to provide defense in depth.) US Federal systems SHOULD conform with FIPS PUB 140-2.</li>
+  <li>Systems MAY protect the confidentiality of data at rest via encryption and associated access controls. The policies and methods used are outside the scope of this specification.</li>
+  <li>Systems SHALL use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).<br/>
+  The existing <a href="http://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_IUA.pdf">IHE IUA</a> profile specifies how to use OAuth tokens when accessing RESTful resources. Note: OAuth standards and profiles are still in flux and as such this requirement will be replaced in future with newer releases of IHE IUA or equivalent profiles. Authentication or authorization failures SHALL produce a negative response to the DAF Requestor and SHALL be recorded in the local system's audit logs.</li>
+  <li>Systems SHALL implement coordinated consent requirements per their state, local, and institutional policies. The Business Associate Agreements SHALL document systems mutual consent requirements. DAF actors SHALL ensure that any necessary consent records exist and are reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in the same manner as other transactions, as discussed above under <a href="#general">General Security Considerations</a>.</li>
 </ul>
-
-<h4>Consent</h4>
-<p>
-The DAF FHIR Implementation Guide does not specify how to use Patient Consent currently, however as new FHIR resources or profiles become available to express Consent, the DAF FHIR Implementation Guide will be updated as appropriate.
-It is the responsibility of the DAF actors to ensure that any necessary consent records exist and are reviewed prior to
-each exchange of patient-identifiable healthcare information.  This verification should be logged in the same manner as other transactions, as discussed above under <a href="#general">General Security Considerations.</a>
-</p>
 
 </div>
 
