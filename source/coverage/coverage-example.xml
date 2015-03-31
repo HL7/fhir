@@ -31,7 +31,7 @@
  
  <subPlan value="123"/>
  
- <dependent value="0"/>
+ <dependent value="1"/>
  
  <sequence value="1"/>
  
