@@ -4,26 +4,38 @@
 <h2>Scope and Usage</h2>
 <p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-    <p>
-        Goal represents desired targets and/or expectation for the progression, mitigation, enhancement or prevention of particular 
-        health-related concerns whose course can be impacted by a number of health-related activities. These targets are the motivation 
-        towards which diagnostic, therapeutic, and other activities are directed.  
-    </p>
-    
-    <p>
-    Goals may address for instance the prevention of illness, cure or mitigation of a condition, prolongation of life, or mitigation of pain and discomfort.
-    </p>
+A Goal in health care services delivery is an expressed desired health state to be achieved by a subject of care (or family/group) 
+over a period or at a specific point of time.  This desired target health state may be achieved as a result of health care 
+intervention(s) or resulting from natural recovery over time.  For example:
+</p>
+<ul>
+<li>
+A goal of a plan for a condition such as a diabetes might specify desired outcome(s) (e.g. HgbA1c level =&lt;5.6% in 3 months) as a 
+result of interventions such as medication therapy, nutritional management and/or increase physical activity.  
+</li>
+<li>
+A goal of a procedure might be to meet the intended objective of the procedure (e.g. wet-dry-dressing changes twice a day; goal: 
+wound healed completely in 2 weeks) or to prevent an unintended complication (e.g. repositioning a patient every two hours:
+goal to maintain skin integrity) 
+</li>
+</ul>
+
+<p>
+Goals may address the prevention of illness, cure or mitigation of a condition, prolongation of life, or mitigation of pain and discomfort.
 </p>
 </div>
 
-<!-- (recommended): 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+Goals are typically established in the context of a <a href="careplan.html">CarePlan</a>.  However, goals may also be directly
+referenced by request-type resources (e.g. <a href="medicationprescription.html">MedicationPrescription</a> or <a href="referralrequest.html">ReferralRequest</a>)
+by using an extension.
+</p>
+<p>
+Goals are often evaluated using <a href="observation.html">Observations</a>.
 </p>
 </div>
--->
 
 <!-- (optional):
 <div>
