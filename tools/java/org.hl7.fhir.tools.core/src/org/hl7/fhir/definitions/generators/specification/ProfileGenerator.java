@@ -1066,7 +1066,10 @@ public class ProfileGenerator {
         for (String tp : t.getParams()) {
           ElementDefinition.TypeRefComponent type = new ElementDefinition.TypeRefComponent();
           type.setCode(t.getName());
-          type.setProfile("http://hl7.org/fhir/StructureDefinition/"+(tp.equals("Any") ? "Resource" : tp));
+          if (t.hasProfile())
+            type.setProfile(t.getProfile()); // this should only happen if t.getParams().size() == 1
+          else
+            type.setProfile("http://hl7.org/fhir/StructureDefinition/"+(tp.equals("Any") ? "Resource" : tp));
           dst.getType().add(type);
         }
       } else {

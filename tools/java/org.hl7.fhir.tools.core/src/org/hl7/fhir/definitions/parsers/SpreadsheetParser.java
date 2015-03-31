@@ -1426,7 +1426,7 @@ public class SpreadsheetParser {
    
     row++;
     if (!ex.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/"))
-      System.out.println("extension "+ex.getUrl());
+      throw new Exception("extension "+ex.getUrl()+" is not valid in the publication tooling");
     
     while (row < sheet.getRows().size() && sheet.getColumn(row, "Code").startsWith(name+".")) {
       String n = sheet.getColumn(row, "Code");
