@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>Medication</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../jquery/jquery-ui.css' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+
+    <script type='text/javascript' src='../jquery/jquery-1.11.2.min.js' ></script>
+    <script type='text/javascript' src='../jquery/jquery-ui.min.js' ></script>
+    <script type='text/javascript'>
+  //<![CDATA[
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  //]]>
+  </script>
+  
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a target="_top" href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a target="_top" href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/Medication.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='Medication.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class Medication' class='title'>Medication</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>FHIR Implementation:
+          <a target="_top" href='../../medication-qicore-qicore-medication.html'>medication-qicore-qicore-medication</a>
+          <br />
+        </li>
+        <li>FHIR Parent resource:
+          <a target="_top" href='../../medication.html'>Medication</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList' style='font-size:115%;'>Definition of a Medication
+            <p />Profile of Medication for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+                <div id='tabs'>
+                  <ul>
+                    <li>
+                      <a href='#tabs-1'>Must Support Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-2'>Other Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-3'>All Fields</a>
+                    </li>
+                  </ul>
+                  <div id='tabs-1'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='code'>code</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED CT code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.
+<p>Binding: <a href="../../valueset-qicore-medication-codes.html">QICoreMedicationCodes</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-2'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='isBrand'>isBrand</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a></code>
+                        <blockquote>
+                          <div class='block'>Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='kind'>kind</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>Medications are either a single administrable product or a package that contains one or more products.
+<p>Binding: <a href="../../medication-kind.html">MedicationKind</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='manufacturer'>manufacturer</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Organization.html'>Organization</a></code>
+                        <blockquote>
+                          <div class='block'>Describes the details of the manufacturer.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='name'>name</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='package'>package</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Information that only applies to packages (not products).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='package.container'>package.container</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The kind of container that this package comes as.
+<p>Binding: <a href="../../valueset-medication-package-form-codes.html">MedicationContainer</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='package.content'>package.content</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>A set of components that go to make up the described item.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='package.content.amount'>package.content.amount</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The amount of the product that is in the package.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='package.content.item'>package.content.item</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Medication.html'>Medication</a></code>
+                        <blockquote>
+                          <div class='block'>Identifies one of the items in the package.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product'>product</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Information that only applies to products (not packages).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product.batch'>product.batch</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Information about a group of medication produced or packaged from one production run.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product.batch.expirationDate'>product.batch.expirationDate</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a></code>
+                        <blockquote>
+                          <div class='block'>When this specific batch of product will expire.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product.batch.lotNumber'>product.batch.lotNumber</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>The assigned lot number of a batch of the specified product.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product.form'>product.form</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Describes the form of the item.  Powder; tables; carton.
+<p>Binding: <a href="../../valueset-medication-form-codes.html">MedicationForm</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product.ingredient'>product.ingredient</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Identifies a particular constituent of interest in the product.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product.ingredient.amount'>product.ingredient.amount</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product.ingredient.isActiveIngredient'>product.ingredient.isActiveIngredient</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a></code>
+                        <blockquote>
+                          <div class='block'>Flag indicating whether the ingredient is active or inactive.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product.ingredient.item'>product.ingredient.item</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Substance.html'>Substance</a> | <a href='Medication.html'>Medication</a></code>
+                        <blockquote>
+                          <div class='block'>The actual ingredient - either a substance (simple ingredient) or another medication.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='product.usualRoute'>product.usualRoute</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The typical route into the body for this medication.
+<p>Binding: <a href="../../valueset-route-codes.html">RouteOfAdministration</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-3'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>code</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED CT code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.
+<p>Binding: <a href="../../valueset-qicore-medication-codes.html">QICoreMedicationCodes</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>isBrand</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a></code>
+                        <blockquote>
+                          <div class='block'>Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>kind</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>Medications are either a single administrable product or a package that contains one or more products.
+<p>Binding: <a href="../../medication-kind.html">MedicationKind</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>manufacturer</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Organization.html'>Organization</a></code>
+                        <blockquote>
+                          <div class='block'>Describes the details of the manufacturer.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>name</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>package</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Information that only applies to packages (not products).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>package.container</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The kind of container that this package comes as.
+<p>Binding: <a href="../../valueset-medication-package-form-codes.html">MedicationContainer</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>package.content</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>A set of components that go to make up the described item.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>package.content.amount</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The amount of the product that is in the package.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>package.content.item</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Medication.html'>Medication</a></code>
+                        <blockquote>
+                          <div class='block'>Identifies one of the items in the package.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Information that only applies to products (not packages).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product.batch</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Information about a group of medication produced or packaged from one production run.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product.batch.expirationDate</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a></code>
+                        <blockquote>
+                          <div class='block'>When this specific batch of product will expire.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product.batch.lotNumber</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>The assigned lot number of a batch of the specified product.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product.form</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Describes the form of the item.  Powder; tables; carton.
+<p>Binding: <a href="../../valueset-medication-form-codes.html">MedicationForm</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product.ingredient</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Identifies a particular constituent of interest in the product.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product.ingredient.amount</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product.ingredient.isActiveIngredient</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a></code>
+                        <blockquote>
+                          <div class='block'>Flag indicating whether the ingredient is active or inactive.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product.ingredient.item</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Substance.html'>Substance</a> | <a href='Medication.html'>Medication</a></code>
+                        <blockquote>
+                          <div class='block'>The actual ingredient - either a substance (simple ingredient) or another medication.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>product.usualRoute</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The typical route into the body for this medication.
+<p>Binding: <a href="../../valueset-route-codes.html">RouteOfAdministration</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                </div>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Mar 31, 2015 1:30PM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>

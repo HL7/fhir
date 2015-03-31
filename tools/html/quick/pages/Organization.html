@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>Organization</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../jquery/jquery-ui.css' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+
+    <script type='text/javascript' src='../jquery/jquery-1.11.2.min.js' ></script>
+    <script type='text/javascript' src='../jquery/jquery-ui.min.js' ></script>
+    <script type='text/javascript'>
+  //<![CDATA[
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  //]]>
+  </script>
+  
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a target="_top" href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a target="_top" href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/Organization.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='Organization.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class Organization' class='title'>Organization</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>FHIR Implementation:
+          <a target="_top" href='../../organization-qicore-qicore-organization.html'>organization-qicore-qicore-organization</a>
+          <br />
+        </li>
+        <li>FHIR Parent resource:
+          <a target="_top" href='../../organization.html'>Organization</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList' style='font-size:115%;'>A grouping of people or organizations with a common purpose
+            <p />Profile of Organization for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+                <div id='tabs'>
+                  <ul>
+                    <li>
+                      <a href='#tabs-1'>Must Support Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-2'>Other Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-3'>All Fields</a>
+                    </li>
+                  </ul>
+                  <div id='tabs-1'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>
+                          <a name='active'>active</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a></code>
+                        <blockquote>
+                          <div class='block'>Whether the organization's record is still in active use.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='type'>type</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The kind of organization that this is.
+<p>Binding: <a href="../../valueset-organization-type.html">OrganizationType</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-2'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='address'>address</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Address'>Address</a></code>
+                        <blockquote>
+                          <div class='block'>An address for the organization.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='address.city'>address.city</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>The name of the city, town, village or other community or delivery center.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='address.country'>address.country</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Country - a nation as commonly understood or generally accepted.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='address.line'>address.line</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='address.period'>address.period</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Period'>Period</a></code>
+                        <blockquote>
+                          <div class='block'>Time period when address was/is in use.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='address.postalCode'>address.postalCode</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>A postal code designating a region defined by the postal service.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='address.state'>address.state</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
+<p>Binding: <a href="../../valueset-usps-state.html">QICoreUSPSState</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='address.text'>address.text</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>A full text representation of the address.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>
+                          <a name='address.use'>address.use</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>The purpose of this address.
+<p>Binding: <a href="../../address-use.html">AddressUse</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='contact'>contact</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Contact for the organization for a certain purpose.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='contact.address'>contact.address</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Address'>Address</a></code>
+                        <blockquote>
+                          <div class='block'>Visiting or postal addresses for the contact.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='contact.name'>contact.name</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#HumanName'>HumanName</a></code>
+                        <blockquote>
+                          <div class='block'>A name associated with the contact.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='contact.purpose'>contact.purpose</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates a purpose for which the contact can be reached.
+<p>Binding: <a href="../../valueset-contactentity-type.html">ContactPartyType</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='contact.telecom'>contact.telecom</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#ContactPoint'>ContactPoint</a></code>
+                        <blockquote>
+                          <div class='block'>A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='identifier'>identifier</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Identifier'>Identifier</a></code>
+                        <blockquote>
+                          <div class='block'>Identifier for the organization that is used to identify the organization across multiple disparate systems.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='name'>name</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>A name associated with the organization.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='partOf'>partOf</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Organization.html'>Organization</a></code>
+                        <blockquote>
+                          <div class='block'>The organization of which this organization forms a part.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='telecom'>telecom</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#ContactPoint'>ContactPoint</a></code>
+                        <blockquote>
+                          <div class='block'>A contact detail for the organization.</div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-3'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>active</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a></code>
+                        <blockquote>
+                          <div class='block'>Whether the organization's record is still in active use.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>address</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Address'>Address</a></code>
+                        <blockquote>
+                          <div class='block'>An address for the organization.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>address.city</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>The name of the city, town, village or other community or delivery center.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>address.country</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Country - a nation as commonly understood or generally accepted.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>address.line</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>address.period</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Period'>Period</a></code>
+                        <blockquote>
+                          <div class='block'>Time period when address was/is in use.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>address.postalCode</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>A postal code designating a region defined by the postal service.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>address.state</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
+<p>Binding: <a href="../../valueset-usps-state.html">QICoreUSPSState</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>address.text</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>A full text representation of the address.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>address.use</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>The purpose of this address.
+<p>Binding: <a href="../../address-use.html">AddressUse</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>contact</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Contact for the organization for a certain purpose.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>contact.address</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Address'>Address</a></code>
+                        <blockquote>
+                          <div class='block'>Visiting or postal addresses for the contact.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>contact.name</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#HumanName'>HumanName</a></code>
+                        <blockquote>
+                          <div class='block'>A name associated with the contact.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>contact.purpose</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates a purpose for which the contact can be reached.
+<p>Binding: <a href="../../valueset-contactentity-type.html">ContactPartyType</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>contact.telecom</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#ContactPoint'>ContactPoint</a></code>
+                        <blockquote>
+                          <div class='block'>A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>identifier</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Identifier'>Identifier</a></code>
+                        <blockquote>
+                          <div class='block'>Identifier for the organization that is used to identify the organization across multiple disparate systems.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>name</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>A name associated with the organization.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>partOf</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Organization.html'>Organization</a></code>
+                        <blockquote>
+                          <div class='block'>The organization of which this organization forms a part.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>telecom</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#ContactPoint'>ContactPoint</a></code>
+                        <blockquote>
+                          <div class='block'>A contact detail for the organization.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>type</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The kind of organization that this is.
+<p>Binding: <a href="../../valueset-organization-type.html">OrganizationType</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                </div>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Mar 31, 2015 1:30PM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>

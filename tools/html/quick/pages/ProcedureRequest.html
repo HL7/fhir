@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>ProcedureRequest</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../jquery/jquery-ui.css' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+
+    <script type='text/javascript' src='../jquery/jquery-1.11.2.min.js' ></script>
+    <script type='text/javascript' src='../jquery/jquery-ui.min.js' ></script>
+    <script type='text/javascript'>
+  //<![CDATA[
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  //]]>
+  </script>
+  
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a target="_top" href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a target="_top" href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/ProcedureRequest.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='ProcedureRequest.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class ProcedureRequest' class='title'>ProcedureRequest</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>FHIR Implementation:
+          <a target="_top" href='../../procedurerequest-qicore-qicore-procedurerequest.html'>procedurerequest-qicore-qicore-procedurerequest</a>
+          <br />
+        </li>
+        <li>FHIR Parent resource:
+          <a target="_top" href='../../procedurerequest.html'>ProcedureRequest</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList' style='font-size:115%;'>A request for a procedure to be performed
+            <p />Profile of ProcedureRequest for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+                <div id='tabs'>
+                  <ul>
+                    <li>
+                      <a href='#tabs-1'>Must Support Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-2'>Other Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-3'>All Fields</a>
+                    </li>
+                  </ul>
+                  <div id='tabs-1'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='asNeeded_x_'>asNeeded[x]</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a> | <a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='bodySite'>bodySite</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='encounter'>encounter</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Encounter.html'>Encounter</a></code>
+                        <blockquote>
+                          <div class='block'>The encounter within which the procedure proposal or request was created.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='indication'>indication</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='orderedOn'>orderedOn</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a></code>
+                        <blockquote>
+                          <div class='block'>The time when the request was made.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>
+                          <a name='status'>status</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>The status of the order.
+<p>Binding: <a href="../../procedure-request-status.html">ProcedureRequestStatus</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='subject'>subject</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Patient.html'>Patient</a></code>
+                        <blockquote>
+                          <div class='block'>The patient who will receive the procedure.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='timing_x_'>timing[x]</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a> | <a target="_top" href='../../datatypes.html#Period'>Period</a> | <a target="_top" href='../../datatypes.html#Timing'>Timing</a></code>
+                        <blockquote>
+                          <div class='block'>The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='type'>type</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The specific procedure that is ordered. Use text if the exact nature of the procedure can't be coded.</div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-2'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='approachBodySite'>approachBodySite</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='BodySite.html'>BodySite</a></code>
+                        <blockquote>
+                          <div class='block'>The requested approach body site used for this procedure. Multiple locations are allowed.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='authorizedBy'>authorizedBy</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a></code>
+                        <blockquote>
+                          <div class='block'>The practitioner who authorized the procedure request, usually the same as the orderer when the orderer is a practitioner.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='bodySite.site_x_'>bodySite.site[x]</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a> | <a href='BodySite.html'>BodySite</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites).
+<p>Binding: <a href="../../valueset-qicore-bodysite-precoordinated.html">QICorePrecoordinatedBodySite</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='identifier'>identifier</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Identifier'>Identifier</a></code>
+                        <blockquote>
+                          <div class='block'>Identifiers assigned to this order by the order or by the receiver.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='notes'>notes</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Any other notes associated with this proposal or order - e.g., provider instructions.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='orderer'>orderer</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Device.html'>Device</a></code>
+                        <blockquote>
+                          <div class='block'>The healthcare professional responsible for proposing or ordering the procedure.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='performer'>performer</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
+                        <blockquote>
+                          <div class='block'>E.g. surgeon, anaethetist, endoscopist.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='priority'>priority</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>The clinical priority associated with this order.
+<p>Binding: <a href="../../procedure-request-priority.html">ProcedureRequestPriority</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='reasonRefused'>reasonRefused</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The reason the request was refused. Applies only if the status is refused.
+<p>Binding: <a href="../../v3/ActReason/index.html">QICoreActReason</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-3'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>approachBodySite</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='BodySite.html'>BodySite</a></code>
+                        <blockquote>
+                          <div class='block'>The requested approach body site used for this procedure. Multiple locations are allowed.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>asNeeded[x]</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a> | <a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>authorizedBy</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a></code>
+                        <blockquote>
+                          <div class='block'>The practitioner who authorized the procedure request, usually the same as the orderer when the orderer is a practitioner.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>bodySite</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>bodySite.site[x]</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a> | <a href='BodySite.html'>BodySite</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites).
+<p>Binding: <a href="../../valueset-qicore-bodysite-precoordinated.html">QICorePrecoordinatedBodySite</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>encounter</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Encounter.html'>Encounter</a></code>
+                        <blockquote>
+                          <div class='block'>The encounter within which the procedure proposal or request was created.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>identifier</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Identifier'>Identifier</a></code>
+                        <blockquote>
+                          <div class='block'>Identifiers assigned to this order by the order or by the receiver.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>indication</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>notes</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Any other notes associated with this proposal or order - e.g., provider instructions.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>orderedOn</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a></code>
+                        <blockquote>
+                          <div class='block'>The time when the request was made.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>orderer</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Device.html'>Device</a></code>
+                        <blockquote>
+                          <div class='block'>The healthcare professional responsible for proposing or ordering the procedure.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>performer</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
+                        <blockquote>
+                          <div class='block'>E.g. surgeon, anaethetist, endoscopist.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>priority</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>The clinical priority associated with this order.
+<p>Binding: <a href="../../procedure-request-priority.html">ProcedureRequestPriority</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>reasonRefused</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The reason the request was refused. Applies only if the status is refused.
+<p>Binding: <a href="../../v3/ActReason/index.html">QICoreActReason</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>status</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>The status of the order.
+<p>Binding: <a href="../../procedure-request-status.html">ProcedureRequestStatus</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>subject</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Patient.html'>Patient</a></code>
+                        <blockquote>
+                          <div class='block'>The patient who will receive the procedure.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>timing[x]</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a> | <a target="_top" href='../../datatypes.html#Period'>Period</a> | <a target="_top" href='../../datatypes.html#Timing'>Timing</a></code>
+                        <blockquote>
+                          <div class='block'>The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>type</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The specific procedure that is ordered. Use text if the exact nature of the procedure can't be coded.</div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                </div>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Mar 31, 2015 1:30PM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>

@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>MedicationDispense</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../jquery/jquery-ui.css' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+
+    <script type='text/javascript' src='../jquery/jquery-1.11.2.min.js' ></script>
+    <script type='text/javascript' src='../jquery/jquery-ui.min.js' ></script>
+    <script type='text/javascript'>
+  //<![CDATA[
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  //]]>
+  </script>
+  
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a target="_top" href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a target="_top" href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/MedicationDispense.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='MedicationDispense.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class MedicationDispense' class='title'>MedicationDispense</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>FHIR Implementation:
+          <a target="_top" href='../../medicationdispense-qicore-qicore-medicationdispense.html'>medicationdispense-qicore-qicore-medicationdispense</a>
+          <br />
+        </li>
+        <li>FHIR Parent resource:
+          <a target="_top" href='../../medicationdispense.html'>MedicationDispense</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList' style='font-size:115%;'>Dispensing a medication to a named patient
+            <p />Profile of MedicationDispense for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+                <div id='tabs'>
+                  <ul>
+                    <li>
+                      <a href='#tabs-1'>Must Support Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-2'>Other Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-3'>All Fields</a>
+                    </li>
+                  </ul>
+                  <div id='tabs-1'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='daysSupply'>daysSupply</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The amount of medication expressed as a timing amount.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.dose_x_'>dosageInstruction.dose[x]</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Range'>Range</a> | <a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The amount of therapeutic or other substance given at one administration event.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.route'>dosageInstruction.route</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
+<p>Binding: <a href="../../valueset-route-codes.html">RouteOfAdministration</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.schedule_x_'>dosageInstruction.schedule[x]</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a> | <a target="_top" href='../../datatypes.html#Period'>Period</a> | <a target="_top" href='../../datatypes.html#Timing'>Timing</a></code>
+                        <blockquote>
+                          <div class='block'>The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='medication'>medication</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Medication.html'>Medication</a></code>
+                        <blockquote>
+                          <div class='block'>Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='patient'>patient</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Patient.html'>Patient</a></code>
+                        <blockquote>
+                          <div class='block'>A link to a resource representing the person to whom the medication will be given.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='quantity'>quantity</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The amount of medication that has been dispensed. Includes unit of measure.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>
+                          <a name='status'>status</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>A code specifying the state of the set of dispense events.
+<p>Binding: <a href="../../medication-dispense-status.html">MedicationDispenseStatus</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='whenHandedOver'>whenHandedOver</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a></code>
+                        <blockquote>
+                          <div class='block'>The time the dispensed product was provided to the patient or their representative.</div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-2'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='authorizingPrescription'>authorizingPrescription</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='MedicationPrescription.html'>MedicationPrescription</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the medication order that is being dispensed against.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='destination'>destination</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Location.html'>Location</a></code>
+                        <blockquote>
+                          <div class='block'>Identification of the facility/location where the medication was shipped to, as part of the dispense event.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dispenser'>dispenser</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a></code>
+                        <blockquote>
+                          <div class='block'>The individual responsible for dispensing the medication.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction'>dosageInstruction</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Indicates how the medication is to be used by the patient.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.additionalInstructions'>dosageInstruction.additionalInstructions</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Additional instructions such as "Swallow with plenty of water" which may or may not be coded.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.asNeeded_x_'>dosageInstruction.asNeeded[x]</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a> | <a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.
+<p>Binding: MedicationAsNeededReason(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.doseType'>dosageInstruction.doseType</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The type of dose, e.g., initial, maintenance, loading.
+<p>Binding: <a href="../../valueset-qicore-medication-dose-type.html">QICoreMedicationDoseType</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.infuseOver'>dosageInstruction.infuseOver</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Duration'>Duration</a></code>
+                        <blockquote>
+                          <div class='block'>For infused medications, the length of time the infusion process, as a duration.  Note the difference between infuseOver and duration of treatment (specified in administrationFrequency). An order may call for infusing a patient TID for an hour each time over a duration of 5 days.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.maxDeliveryRate'>dosageInstruction.maxDeliveryRate</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>The maximum rate of substance administration. For volume medications, the maximum rate is to be expressed as a volume per time period. This value may be used as a stopping condition when a deliveryRateIncrement is specified without a count.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.maxDeliveryVolume'>dosageInstruction.maxDeliveryVolume</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The maximum volume of fluid to administer to a patient.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.maxDosePerPeriod'>dosageInstruction.maxDosePerPeriod</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.method'>dosageInstruction.method</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.  Terminologies used often pre-coordinate this term with the route and or form of administration.
+<p>Binding: <a href="../../valueset-administration-method-codes.html">MedicationAdministrationMethod</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.minDosePerPeriod'>dosageInstruction.minDosePerPeriod</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>The minimum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g., 10 mg in 24 hours.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.rate'>dosageInstruction.rate</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.rateGoal'>dosageInstruction.rateGoal</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>The target rate to reach for this infusion.  Note that deliveryRateGoal is typically less than the maximum delivery rate which is the rate not to exceed. For enteral feeding orders, a target tube feeding rate of 75ml/hour may be specified.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.rateIncrement'>dosageInstruction.rateIncrement</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>Change in the dosing rate applied each rateIncrementInterval, e.g., 20 mL/hour. The rate increment is usually an increase for a patient who is initiating tube feeding. The increase is continued until the maxDeliveryRate or rateGoal is reached.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.rateIncrementInterval'>dosageInstruction.rateIncrementInterval</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Duration'>Duration</a></code>
+                        <blockquote>
+                          <div class='block'>Period of time after which the rate increment should be attempted, e.g., 4 hours.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dosageInstruction.site'>dosageInstruction.site</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A coded specification of the anatomic site where the medication first enters the body.
+<p>Binding: <a href="../../valueset-approach-site-codes.html">MedicationAdministrationSite</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='identifier'>identifier</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Identifier'>Identifier</a></code>
+                        <blockquote>
+                          <div class='block'>Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='note'>note</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Extra information about the dispense that could not be conveyed in the other attributes.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='receiver'>receiver</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a></code>
+                        <blockquote>
+                          <div class='block'>Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='refillsRemaining'>refillsRemaining</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#integer'>integer</a></code>
+                        <blockquote>
+                          <div class='block'>Number of refills allowed or remaining after a dispensing event.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='substitution'>substitution</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='substitution.reason'>substitution.reason</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
+<p>Binding: <a href="../../v3/vs/SubstanceAdminSubstitutionReason/index.html">MedicationIntendedSubstitutionReason</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='substitution.responsibleParty'>substitution.responsibleParty</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a></code>
+                        <blockquote>
+                          <div class='block'>The person or organization that has primary responsibility for the substitution.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='substitution.type'>substitution.type</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A code signifying whether a different drug was dispensed from what was prescribed.
+<p>Binding: <a href="../../v3/vs/ActSubstanceAdminSubstitutionCode/index.html">MedicationIntendedSubstitutionType</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='type'>type</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
+<p>Binding: <a href="../../v3/vs/ActPharmacySupplyType/index.html">MedicationDispenseType</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='validityPeriod'>validityPeriod</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Period'>Period</a></code>
+                        <blockquote>
+                          <div class='block'>The time interval when the medication must be administered. The start and end times must be expressed as dateTimes, not times relative to the dispensing time (e.g. use within 24 hours).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='whenPrepared'>whenPrepared</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a></code>
+                        <blockquote>
+                          <div class='block'>The time when the dispensed product was packaged and reviewed.</div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-3'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>authorizingPrescription</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='MedicationPrescription.html'>MedicationPrescription</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the medication order that is being dispensed against.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>daysSupply</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The amount of medication expressed as a timing amount.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>destination</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Location.html'>Location</a></code>
+                        <blockquote>
+                          <div class='block'>Identification of the facility/location where the medication was shipped to, as part of the dispense event.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dispenser</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a></code>
+                        <blockquote>
+                          <div class='block'>The individual responsible for dispensing the medication.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Indicates how the medication is to be used by the patient.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.additionalInstructions</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Additional instructions such as "Swallow with plenty of water" which may or may not be coded.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.asNeeded[x]</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#boolean'>boolean</a> | <a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.
+<p>Binding: MedicationAsNeededReason(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.dose[x]</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Range'>Range</a> | <a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The amount of therapeutic or other substance given at one administration event.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.doseType</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The type of dose, e.g., initial, maintenance, loading.
+<p>Binding: <a href="../../valueset-qicore-medication-dose-type.html">QICoreMedicationDoseType</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.infuseOver</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Duration'>Duration</a></code>
+                        <blockquote>
+                          <div class='block'>For infused medications, the length of time the infusion process, as a duration.  Note the difference between infuseOver and duration of treatment (specified in administrationFrequency). An order may call for infusing a patient TID for an hour each time over a duration of 5 days.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.maxDeliveryRate</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>The maximum rate of substance administration. For volume medications, the maximum rate is to be expressed as a volume per time period. This value may be used as a stopping condition when a deliveryRateIncrement is specified without a count.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.maxDeliveryVolume</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The maximum volume of fluid to administer to a patient.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.maxDosePerPeriod</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.method</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.  Terminologies used often pre-coordinate this term with the route and or form of administration.
+<p>Binding: <a href="../../valueset-administration-method-codes.html">MedicationAdministrationMethod</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.minDosePerPeriod</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>The minimum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g., 10 mg in 24 hours.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.rate</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.rateGoal</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>The target rate to reach for this infusion.  Note that deliveryRateGoal is typically less than the maximum delivery rate which is the rate not to exceed. For enteral feeding orders, a target tube feeding rate of 75ml/hour may be specified.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.rateIncrement</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Ratio'>Ratio</a></code>
+                        <blockquote>
+                          <div class='block'>Change in the dosing rate applied each rateIncrementInterval, e.g., 20 mL/hour. The rate increment is usually an increase for a patient who is initiating tube feeding. The increase is continued until the maxDeliveryRate or rateGoal is reached.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.rateIncrementInterval</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Duration'>Duration</a></code>
+                        <blockquote>
+                          <div class='block'>Period of time after which the rate increment should be attempted, e.g., 4 hours.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.route</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
+<p>Binding: <a href="../../valueset-route-codes.html">RouteOfAdministration</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.schedule[x]</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a> | <a target="_top" href='../../datatypes.html#Period'>Period</a> | <a target="_top" href='../../datatypes.html#Timing'>Timing</a></code>
+                        <blockquote>
+                          <div class='block'>The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dosageInstruction.site</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A coded specification of the anatomic site where the medication first enters the body.
+<p>Binding: <a href="../../valueset-approach-site-codes.html">MedicationAdministrationSite</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>identifier</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Identifier'>Identifier</a></code>
+                        <blockquote>
+                          <div class='block'>Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>medication</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Medication.html'>Medication</a></code>
+                        <blockquote>
+                          <div class='block'>Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>note</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Extra information about the dispense that could not be conveyed in the other attributes.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>patient</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Patient.html'>Patient</a></code>
+                        <blockquote>
+                          <div class='block'>A link to a resource representing the person to whom the medication will be given.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>quantity</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The amount of medication that has been dispensed. Includes unit of measure.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>receiver</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a></code>
+                        <blockquote>
+                          <div class='block'>Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>refillsRemaining</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#integer'>integer</a></code>
+                        <blockquote>
+                          <div class='block'>Number of refills allowed or remaining after a dispensing event.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>status</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>A code specifying the state of the set of dispense events.
+<p>Binding: <a href="../../medication-dispense-status.html">MedicationDispenseStatus</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>substitution</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>substitution.reason</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
+<p>Binding: <a href="../../v3/vs/SubstanceAdminSubstitutionReason/index.html">MedicationIntendedSubstitutionReason</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>substitution.responsibleParty</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a></code>
+                        <blockquote>
+                          <div class='block'>The person or organization that has primary responsibility for the substitution.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>substitution.type</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>A code signifying whether a different drug was dispensed from what was prescribed.
+<p>Binding: <a href="../../v3/vs/ActSubstanceAdminSubstitutionCode/index.html">MedicationIntendedSubstitutionType</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>type</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
+<p>Binding: <a href="../../v3/vs/ActPharmacySupplyType/index.html">MedicationDispenseType</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>validityPeriod</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Period'>Period</a></code>
+                        <blockquote>
+                          <div class='block'>The time interval when the medication must be administered. The start and end times must be expressed as dateTimes, not times relative to the dispensing time (e.g. use within 24 hours).</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>whenHandedOver</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a></code>
+                        <blockquote>
+                          <div class='block'>The time the dispensed product was provided to the patient or their representative.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>whenPrepared</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a></code>
+                        <blockquote>
+                          <div class='block'>The time when the dispensed product was packaged and reviewed.</div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                </div>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Mar 31, 2015 1:30PM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>

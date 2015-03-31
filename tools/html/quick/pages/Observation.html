@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>Observation</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../jquery/jquery-ui.css' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+
+    <script type='text/javascript' src='../jquery/jquery-1.11.2.min.js' ></script>
+    <script type='text/javascript' src='../jquery/jquery-ui.min.js' ></script>
+    <script type='text/javascript'>
+  //<![CDATA[
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  //]]>
+  </script>
+  
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a target="_top" href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a target="_top" href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/Observation.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='Observation.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class Observation' class='title'>Observation</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>FHIR Implementation:
+          <a target="_top" href='../../observation-qicore-qicore-observation.html'>observation-qicore-qicore-observation</a>
+          <br />
+        </li>
+        <li>FHIR Parent resource:
+          <a target="_top" href='../../observation.html'>Observation</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList' style='font-size:115%;'>Measurements and simple assertions
+            <p />Profile of Observation for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+                <div id='tabs'>
+                  <ul>
+                    <li>
+                      <a href='#tabs-1'>Must Support Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-2'>Other Fields</a>
+                    </li>
+                    <li>
+                      <a href='#tabs-3'>All Fields</a>
+                    </li>
+                  </ul>
+                  <div id='tabs-1'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='applies_x_'>applies[x]</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a> | <a target="_top" href='../../datatypes.html#Period'>Period</a></code>
+                        <blockquote>
+                          <div class='block'>The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='bodySite_x_'>bodySite[x]</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a> | <a href='BodySite.html'>BodySite</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the site on the subject's body where the observation was made ( i.e. the target site).
+<p>Binding: <a href="../../valueset-qicore-bodysite-precoordinated.html">QICorePrecoordinatedBodySite</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='code'>code</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Describes what was observed. Sometimes this is called the observation "code".
+<p>Binding: <a href="../../valueset-obs-uslab-codes.html">QICoreObservationName</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='encounter'>encounter</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Encounter.html'>Encounter</a></code>
+                        <blockquote>
+                          <div class='block'>The healthcare event  ( e.g. a patient and healthcare provider interaction ) during which this observation is made.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='interpretation'>interpretation</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The assessment made based on the result of the observation.
+<p>Binding: <a href="../../valueset-observation-interpretation.html">ObservationInterpretation</a>(<a href="../../terminologies.html#extensible">Extensible</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='issued'>issued</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#instant'>instant</a></code>
+                        <blockquote>
+                          <div class='block'>The date and time this observation was made available.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='method'>method</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the mechanism used to perform the observation.
+<p>Binding: <a href="../../valueset-observation-methods.html">ObservationMethod</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>
+                          <a name='reliability'>reliability</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>An estimate of the degree to which quality issues have impacted on the value reported.
+<p>Binding: <a href="../../observation-reliability.html">ObservationReliability</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>
+                          <a name='status'>status</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>The status of the result value.
+<p>Binding: <a href="../../observation-status.html">ObservationStatus</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='subject'>subject</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a> | <a href='Device.html'>Device</a> | <a href='Location.html'>Location</a></code>
+                        <blockquote>
+                          <div class='block'>The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, other observer (for example a relative or EMT), or any observation made about the subject.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='value_x_'>value[x]</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a> | <a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a> | <a target="_top" href='../../datatypes.html#string'>string</a> | <a target="_top" href='../../datatypes.html#Range'>Range</a> | <a target="_top" href='../../datatypes.html#Ratio'>Ratio</a> | <a target="_top" href='../../datatypes.html#SampledData'>SampledData</a> | <a target="_top" href='../../datatypes.html#Attachment'>Attachment</a> | <a target="_top" href='../../datatypes.html#time'>time</a> | <a target="_top" href='../../datatypes.html#dateTime'>dateTime</a> | <a target="_top" href='../../datatypes.html#Period'>Period</a></code>
+                        <blockquote>
+                          <div class='block'>The information determined as a result of making the observation, if the information has a simple value.
+<p>Binding: <a href="../../valueset-obs-uslab-codedresults.html">QICoreObservationCodedResult</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-2'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='bodyPosition'>bodyPosition</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The position of the body when the observation was done, e.g., standing, sitting. To be used only when the body position in not precoordinated in the observation code.
+<p>Binding: <a href="../../valueset-qicore-observation-body-position.html">QICoreObservationBodyPosition</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='comments'>comments</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='dataAbsentReason'>dataAbsentReason</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Provides a reason why the expected value in the element Observation.value[x] is missing.
+<p>Binding: <a href="../../valueset-observation-valueabsentreason.html">ObservationValueAbsentReason</a>(<a href="../../terminologies.html#extensible">Extensible</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='delta'>delta</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The qualitative change in the value relative to the previous measurement. Usually only recorded if the change is clinically significant.
+<p>Binding: <a href="../../valueset-qicore-observation-delta.html">QICoreObservationDelta</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='device'>device</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Device.html'>Device</a> | <a href='DeviceMetric.html'>DeviceMetric</a></code>
+                        <blockquote>
+                          <div class='block'>The device used to generate the observation data.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='identifier'>identifier</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Identifier'>Identifier</a></code>
+                        <blockquote>
+                          <div class='block'>A unique identifier for the simple observation.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='performer'>performer</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
+                        <blockquote>
+                          <div class='block'>Who was responsible for asserting the observed value as "true".</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='referenceRange'>referenceRange</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Guidance on how to interpret the value by comparison to a normal or recommended range.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='referenceRange.age'>referenceRange.age</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Range'>Range</a></code>
+                        <blockquote>
+                          <div class='block'>The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='referenceRange.high'>referenceRange.high</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The value of the high bound of the reference range. If this element is omitted, the high bound of the reference range is assumed to be meaningless. (e.g. reference range is &gt; 5)  If the low.comparator element is missing , it is assumed to be '&lt;'.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='referenceRange.low'>referenceRange.low</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The value of the low bound of the reference range. If this element is omitted, the low bound of the reference range is assumed to be meaningless. (e.g. reference range is &lt;2.3)  If the low.comparator element is missing, it is assumed to be '&gt;'.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='referenceRange.meaning'>referenceRange.meaning</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Code for the meaning of the reference range.
+<p>Binding: <a href="../../valueset-referencerange-meaning.html">ObservationRangeMeaning</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='referenceRange.text'>referenceRange.text</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='related'>related</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Related observations - either components, or previous observations, or statements of derivation.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='related.target'>related.target</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Observation.html'>Observation</a></code>
+                        <blockquote>
+                          <div class='block'>A reference to the observation that is related to this observation.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='related.type'>related.type</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>A code specifying the kind of relationship that exists with the target observation.
+<p>Binding: <a href="../../observation-relationshiptypes.html">ObservationRelationshipType</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>
+                          <a name='specimen'>specimen</a>
+                        </strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Specimen.html'>Specimen</a></code>
+                        <blockquote>
+                          <div class='block'>The specimen that was used when this observation was made.</div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                  <div id='tabs-3'>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>applies[x]</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#dateTime'>dateTime</a> | <a target="_top" href='../../datatypes.html#Period'>Period</a></code>
+                        <blockquote>
+                          <div class='block'>The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>bodyPosition</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The position of the body when the observation was done, e.g., standing, sitting. To be used only when the body position in not precoordinated in the observation code.
+<p>Binding: <a href="../../valueset-qicore-observation-body-position.html">QICoreObservationBodyPosition</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>bodySite[x]</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a> | <a href='BodySite.html'>BodySite</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the site on the subject's body where the observation was made ( i.e. the target site).
+<p>Binding: <a href="../../valueset-qicore-bodysite-precoordinated.html">QICorePrecoordinatedBodySite</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>code</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Describes what was observed. Sometimes this is called the observation "code".
+<p>Binding: <a href="../../valueset-obs-uslab-codes.html">QICoreObservationName</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>comments</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>dataAbsentReason</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Provides a reason why the expected value in the element Observation.value[x] is missing.
+<p>Binding: <a href="../../valueset-observation-valueabsentreason.html">ObservationValueAbsentReason</a>(<a href="../../terminologies.html#extensible">Extensible</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>delta</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The qualitative change in the value relative to the previous measurement. Usually only recorded if the change is clinically significant.
+<p>Binding: <a href="../../valueset-qicore-observation-delta.html">QICoreObservationDelta</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>device</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Device.html'>Device</a> | <a href='DeviceMetric.html'>DeviceMetric</a></code>
+                        <blockquote>
+                          <div class='block'>The device used to generate the observation data.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>encounter</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Encounter.html'>Encounter</a></code>
+                        <blockquote>
+                          <div class='block'>The healthcare event  ( e.g. a patient and healthcare provider interaction ) during which this observation is made.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>identifier</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Identifier'>Identifier</a></code>
+                        <blockquote>
+                          <div class='block'>A unique identifier for the simple observation.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>interpretation</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>The assessment made based on the result of the observation.
+<p>Binding: <a href="../../valueset-observation-interpretation.html">ObservationInterpretation</a>(<a href="../../terminologies.html#extensible">Extensible</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>issued</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#instant'>instant</a></code>
+                        <blockquote>
+                          <div class='block'>The date and time this observation was made available.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>method</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Indicates the mechanism used to perform the observation.
+<p>Binding: <a href="../../valueset-observation-methods.html">ObservationMethod</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>performer</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
+                        <blockquote>
+                          <div class='block'>Who was responsible for asserting the observed value as "true".</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>referenceRange</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Guidance on how to interpret the value by comparison to a normal or recommended range.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>referenceRange.age</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Range'>Range</a></code>
+                        <blockquote>
+                          <div class='block'>The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>referenceRange.high</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The value of the high bound of the reference range. If this element is omitted, the high bound of the reference range is assumed to be meaningless. (e.g. reference range is &gt; 5)  If the low.comparator element is missing , it is assumed to be '&lt;'.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>referenceRange.low</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a></code>
+                        <blockquote>
+                          <div class='block'>The value of the low bound of the reference range. If this element is omitted, the low bound of the reference range is assumed to be meaningless. (e.g. reference range is &lt;2.3)  If the low.comparator element is missing, it is assumed to be '&gt;'.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>referenceRange.meaning</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a></code>
+                        <blockquote>
+                          <div class='block'>Code for the meaning of the reference range.
+<p>Binding: <a href="../../valueset-referencerange-meaning.html">ObservationRangeMeaning</a>(<a href="../../terminologies.html#example">Example</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>referenceRange.text</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#string'>string</a></code>
+                        <blockquote>
+                          <div class='block'>Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>related</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..*</code>
+                      </td>
+                      <td class='colLast'><a target="_top" href='../../element.html'>Element</a>
+                        <blockquote>
+                          <div class='block'>Related observations - either components, or previous observations, or statements of derivation.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>related.target</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Observation.html'>Observation</a></code>
+                        <blockquote>
+                          <div class='block'>A reference to the observation that is related to this observation.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>related.type</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>A code specifying the kind of relationship that exists with the target observation.
+<p>Binding: <a href="../../observation-relationshiptypes.html">ObservationRelationshipType</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>reliability</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>An estimate of the degree to which quality issues have impacted on the value reported.
+<p>Binding: <a href="../../observation-reliability.html">ObservationReliability</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>specimen</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Specimen.html'>Specimen</a></code>
+                        <blockquote>
+                          <div class='block'>The specimen that was used when this observation was made.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                        <strong>status</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>1..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#code'>code</a></code>
+                        <blockquote>
+                          <div class='block'>The status of the result value.
+<p>Binding: <a href="../../observation-status.html">ObservationStatus</a>(<a href="../../terminologies.html#required">Required</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='altColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>subject</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a> | <a href='Device.html'>Device</a> | <a href='Location.html'>Location</a></code>
+                        <blockquote>
+                          <div class='block'>The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, other observer (for example a relative or EMT), or any observation made about the subject.</div>
+                        </blockquote>
+                      </td>
+                    </tr>
+                    <tr class='rowColor'>
+                      <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                        <strong>value[x]</strong>
+                      </td>
+                      <td class='colMid'>
+                        <code>0..1</code>
+                      </td>
+                      <td class='colLast'>
+                        <code><a target="_top" href='../../datatypes.html#Quantity'>Quantity</a> | <a target="_top" href='../../datatypes.html#CodeableConcept'>CodeableConcept</a> | <a target="_top" href='../../datatypes.html#string'>string</a> | <a target="_top" href='../../datatypes.html#Range'>Range</a> | <a target="_top" href='../../datatypes.html#Ratio'>Ratio</a> | <a target="_top" href='../../datatypes.html#SampledData'>SampledData</a> | <a target="_top" href='../../datatypes.html#Attachment'>Attachment</a> | <a target="_top" href='../../datatypes.html#time'>time</a> | <a target="_top" href='../../datatypes.html#dateTime'>dateTime</a> | <a target="_top" href='../../datatypes.html#Period'>Period</a></code>
+                        <blockquote>
+                          <div class='block'>The information determined as a result of making the observation, if the information has a simple value.
+<p>Binding: <a href="../../valueset-obs-uslab-codedresults.html">QICoreObservationCodedResult</a>(<a href="../../terminologies.html#preferred">Preferred</a>)</p></div>
+                        </blockquote>
+                      </td>
+                    </tr></table>
+                  </div>
+                </div>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Mar 31, 2015 1:30PM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>

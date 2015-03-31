@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Overview (QUICK Data Model)</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='stylesheet' type='text/css' href='stylesheet.css' title='Style' />
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+	<link rel="icon" type="image/ico" href="resources/favicon.ico"/>
+	<style type='text/css'>
+	th {		
+		background-color: #9eadc0;
+		color: white;
+	}
+</style>	
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+			<a href="overview-summary.html">Overview</a>
+		</li>
+        <li>Class</li>
+        <li>
+          <a href='index-files.html'>Index</a>
+        </li>
+		<li class='navBarCell1Rev'>Help</li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='index.html?help.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='help.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div><!-- ========= END OF TOP NAVBAR ========= -->
+    <div class='contentContainer'>	
+	<h1 title='Package' class='title'>QUICK Data Model</h1>
+	
+This reference documentation is a draft of the QUICK logical data model. This data model
+is auto-generated from the HL7 Quality Improvement Core (QICore) FHIR Profiles and 
+provides an alternate view of those profiles.
+ <p/>
+ 
+The QUICK logical model intentionally hides some details of FHIR's physical implementation,
+such as the difference between regular elements and extensions. By abstracting away
+some of the implementation details, and focusing on classes and attributes, the
+features of the logical data model can be seen more clearly. As such, the terms
+<tt>class</tt> and <tt>resource</tt> will be used interchangeably in this documentation.
+ <p/>
+
+Profiles are represented as classes, so for example, the QICore Procedure profile is
+simply represented as the <tt>Procedure</tt> class. Elements and extensions are normalized
+and listed as fields on the class with a given type, description, and cardinality.
+The fields are classified as <i>must support</i> and <i>is modifier</i>, as defined in
+FHIR and the <a href="../qicore.html#mustsupport">QICore Implementation Guide</a>.
+When class elements refer to other classes, the reference types are also normalized
+from their formal profile names (e.g., <tt>encounter-qicore-qicore-encounter</tt>) to
+their logical class names (e.g., <tt>Encounter</tt>).
+
+<h2>QICore-defined Extensions</h2>
+
+QICore adds a variety of extensions to core FHIR classes. These extensions derive from
+two primary sources: the Quality Improvement Domain Analysis Model (QIDAM), and the
+Quality Data Model (QDM). The logical model represents extensions like any other element,
+but annotates them to allow the reader to understand what is and is not a part of the
+core FHIR data model.
+<p/>
+
+<h2>Must Support</h2>
+
+Certain elements in the QICore profiles are annotated as <i>must support</i>.  These
+elements must be supported in Quality Improvement (QI) implementations.  QI
+implementations SHALL understand and process <i>must support</i> elements, and those
+elements SHALL be available for use in CQM and CDS artifacts. Specific applications
+may modify the profiles and annotate additional elements as <i>must support</i>, but
+may not remove existing <i>must support</i> annotations.
+<p/>
+
+If an element is <i>not</i> annotated as <i>must support</i>, there is no assurance
+that an interpreter will recognize or process a quality improvement artifact containing
+that element. Although the element may be returned in a resource when the resource is
+retrieved from an EHR, no processing involving that data element can be expected. Note
+that a <i>must support</i> annotation does not imply that the element will always have
+a value (if the lower cardinality is zero). The only assurance associated with a
+<i>must support</i> annotation is that the quality improvement application will try to
+retrieve the data and process it if the data is available.
+<p/>
+
+The <a href="../qicore.html#modifying">QICore Implementation Guide</a> provides further
+information regarding the <i>must support</i> annotation.
+
+<h2>Modifying Attributes</h2>
+
+Certain elements in QICore profiles are annotated as <i>is modifier</i>.  These elements
+may change the interpretation of the resource, depending on their value. Examples of
+modifying elements include <tt>status</tt> (in many resources), negations
+(e.g. <tt>Immunization.wasNotGiven</tt>), and certainty qualifications
+(e.g. <tt>Observation.reliability</tt>). QI implementations MUST always check the values
+of modifying elements.
+<p/>
+
+The <a href="../qicore.html#modifying">QICore Implementation Guide</a> provides further
+information regarding the <i>is modifier</i> annotation.
+
+<h2>Table View</h2>
+
+The Table View contains three different tabs, representing three different filters of a
+class's fields. The first tab lists only those fields annotated as <i>must support</i>,
+the second tab lists only those fields that are <i>not</i> annotated as <i>must support</i>,
+and the third tab lists <i>all</i> of the fields for the class.
+<p/>
+
+The table representing the logical view of the class contains three columns:
+<p/>
+
+<table class="overviewSummary" style="border:1px solid black;">
+ <tr> <th><b>Column</b></th> <th><b>Content</b></th> </tr>
+ <tr> <td>Column 1 <b>(Field)</b></td>
+ <td>The name of the element in the resource.
+ Names may have a dotted notation to refer to subcomponents of elements (e.g. dosage.method)
+ where <tt>method</tt> is a component of the <tt>dosage</tt> element.
+  Some names finish with "[x]", which is inherited from FHIR to mean that the [x]
+  is replaced with the title-cased name of the type that is actually used. See
+  <a href="../formats.html#choice">FHIR spec</a> for  details.
+ <p/>
+ 
+ In addition, this column annotates elements using icons to represent <i>must support</i>,
+ <i>QICore-defined extensions</i>, and <i>is modifier</i>.
+
+ <p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;must support, <i 
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;is modifier</p>
+ </td>
+ </tr>
+ <tr>
+ 
+ <td colspan="2">
+ <hr/>
+ </td>
+ </tr>
+ 
+ <tr> <td>Column 2<br/><b>(Card.)</b></td>
+ <td>The cardinality is the lower and upper bounds on how many times this element is
+  allowed to appear in the resource; e.g., <tt>0..1</tt> is optional and <tt>1..1</tt>
+  is required.  <tt>0..*</tt> indicates that there is no lower or upper bound to how
+  many times the element may appear.
+ <p/>
+ </td>
+ </tr>
+ 
+ <tr>
+ <td colspan="2">
+ <hr/>
+ </td>
+ </tr>
+ 
+ <tr> <td>Column 3<br/><b>(Type &amp; Description)</b></td>
+ <td>
+ <b>type</b><br/>
+ The type of the element (hyperlinked to the definition of the type).
+ If the name of the element has &quot;<tt>[x]</tt>&quot; suffix then the element can have multiple types.
+ Likewise, if the type of the element is <tt>Reference</tt> then the list of clinically 
+ relevant resources will be listed. 
+ <p/>
+ 
+ <b>description</b><br/>
+ A description of the element, and details about constraints that are applied to it.
+ Particularly, for coded elements, information about which codes can be used.  
+  <p/>
+
+ </td>
+ </tr>
+</table>
+</div>	
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Mar 31, 2015 9:27AM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->	
+</body>
+</html>
