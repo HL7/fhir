@@ -286,7 +286,9 @@ public class XSDBaseGenerator {
           write("  </xs:simpleType>\r\n");
         } else {
           write("    <xs:restriction base=\""+sp.getSchema()+"\">\r\n");
-          write("      <xs:minLength value=\"1\"/>\r\n");
+          if (!sp.getSchema().contains("Integer")) {
+             write("      <xs:minLength value=\"1\"/>\r\n");
+          }
           write("    </xs:restriction>\r\n");
           write("  </xs:simpleType>\r\n");        
         }
