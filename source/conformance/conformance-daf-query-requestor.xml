@@ -46,241 +46,241 @@
           <tr>
             <th><a href="patient-daf.html">DAFPatient</a></th>
             <td>
-              <a title="Allows discovery of DAFPatient resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFPatient resources based on different search criteria" href="#DAFPatientSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFPatients by resource id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFPatients by resource id" href="#DAFPatientSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFPatient">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFPatient" href="#DAFPatientSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFPatient over time">SHOULD</a>
+              <a title="Allows review of changes to DAFPatient over time" href="#DAFPatientSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="allergyintolerance-daf.html">DAFAllergyIntolerance</a></th>
             <td>
-              <a title="Allows discovery of DAFAllergyIntolerance resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFAllergyIntolerance resources based on different search criteria" href="#DAFAllergyIntoleranceSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFAllergyIntolerance by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFAllergyIntolerance by id" href="#DAFAllergyIntoleranceSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFAllergyIntolerance">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFAllergyIntolerance" href="#DAFAllergyIntoleranceSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFAllergyIntolerance over time">SHOULD</a>
+              <a title="Allows review of changes to DAFAllergyIntolerance over time" href="#DAFAllergyIntoleranceSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="diagnosticorder-daf.html">DAFDiagnosticOrder</a></th>
             <td>
-              <a title="Allows discovery of DAFDiagnosticOrder resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFDiagnosticOrder resources based on different search criteria" href="#DAFDiagnosticOrderSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFDiagnosticOrder by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFDiagnosticOrder by id" href="#DAFDiagnosticOrderSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFDiagnosticOrder">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFDiagnosticOrder" href="#DAFDiagnosticOrderSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFDiagnosticOrder over time">SHOULD</a>
+              <a title="Allows review of changes to DAFDiagnosticOrder over time" href="#DAFDiagnosticOrderSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="diagnosticreport-daf.html">DAFDiagnosticReport</a></th>
             <td>
-              <a title="Allows discovery of DAFDiagnosticReport resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFDiagnosticReport resources based on different search criteria" href="#DAFDiagnosticReportSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFDiagnosticReport by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFDiagnosticReport by id" href="#DAFDiagnosticReportSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFDiagnosticReport">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFDiagnosticReport" href="#DAFDiagnosticReportSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFDiagnosticReport over time">SHOULD</a>
+              <a title="Allows review of changes to DAFDiagnosticReport over time" href="#DAFDiagnosticReportSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="encounter-daf.html">DAFEncounter</a></th>
             <td>
-              <a title="Allows discovery of DAFEncounter resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFEncounter resources based on different search criteria" href="#DAFEncounterSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFEncounter by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFEncounter by id" href="#DAFEncounterSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFEncounter">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFEncounter" href="#DAFEncounterSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFEncounter over time">SHOULD</a>
+              <a title="Allows review of changes to DAFEncounter over time" href="#DAFEncounterSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="familyhistory-daf.html">DAFFamilyHistory</a></th>
             <td>
-              <a title="Allows discovery of DAFFamilyHistory resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFFamilyHistory resources based on different search criteria" href="#DAFFamilyHistorySearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFFamilyHistory by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFFamilyHistory by id" href="#DAFFamilyHistorySearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFFamilyHistory">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFFamilyHistory" href="#DAFFamilyHistorySearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFFamilyHistory over time">SHOULD</a>
+              <a title="Allows review of changes to DAFFamilyHistory over time" href="#DAFFamilyHistorySearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="immunization-daf.html">DAFImmunization</a></th>
             <td>
-              <a title="Allows discovery of DAFImmunization resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFImmunization resources based on different search criteria" href="#DAFImmunizationSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFImmunization by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFImmunization by id" href="#DAFImmunizationSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFImmunization">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFImmunization" href="#DAFImmunizationSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFImmunization over time">SHOULD</a>
+              <a title="Allows review of changes to DAFImmunization over time" href="#DAFImmunizationSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="observation-daf-results.html">DAFLabResults</a></th>
             <td>
-              <a title="Allows discovery of DAFResults resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFResults resources based on different search criteria" href="#DAFLabResultsSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFResults by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFResults by id" href="#DAFLabResultsSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFResults">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFResults" href="#DAFLabResultsSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFResults over time">SHOULD</a>
+              <a title="Allows review of changes to DAFResults over time" href="#DAFLabResultsSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="medication-daf.html">DAFMedication</a></th>
             <td>
-              <a title="Allows discovery of DAFMedication resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFMedication resources based on different search criteria" href="#DAFMedicationSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFMedication by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFMedication by id" href="#DAFMedicationSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFMedication">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFMedication" href="#DAFMedicationSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFMedication over time">SHOULD</a>
+              <a title="Allows review of changes to DAFMedication over time" href="#DAFMedicationSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="medicationstatement-daf.html">DAFMedicationStatement</a></th>
             <td>
-              <a title="Allows discovery of DAFMedicationStatement resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFMedicationStatement resources based on different search criteria" href="#DAFMedicationStatementSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFMedicationStatement by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFMedicationStatement by id" href="#DAFMedicationStatementSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFMedicationStatement">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFMedicationStatement" href="#DAFMedicationStatementSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFMedicationStatement over time">SHOULD</a>
+              <a title="Allows review of changes to DAFMedicationStatement over time" href="#DAFMedicationStatementSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="medicationadministration-daf.html">DAFMedicationAdministration</a></th>
             <td>
-              <a title="Allows discovery of DAFMedicationAdministration resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFMedicationAdministration resources based on different search criteria" href="#DAFMedicationAdministrationSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFMedicationAdministration by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFMedicationAdministration by id" href="#DAFMedicationAdministrationSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFMedicationAdministration">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFMedicationAdministration" href="#DAFMedicationAdministrationSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFMedicationAdministration over time">SHOULD</a>
+              <a title="Allows review of changes to DAFMedicationAdministration over time" href="#DAFMedicationAdministrationSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="condition-daf.html">DAFCondition</a></th>
             <td>
-              <a title="Allows discovery of DAFCondition resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFCondition resources based on different search criteria" href="#DAFConditionSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFCondition by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFCondition by id" href="#DAFConditionSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFCondition">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFCondition" href="#DAFConditionSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFCondition over time">SHOULD</a>
+              <a title="Allows review of changes to DAFCondition over time" href="#DAFConditionSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="procedure-daf.html">DAFProcedure</a></th>
             <td>
-              <a title="Allows discovery of DAFProcedure resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFProcedure resources based on different search criteria" href="#DAFProcedureSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFProcedure by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFProcedure by id" href="#DAFProcedureSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFProcedure">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFProcedure" href="#DAFProcedureSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFProcedure over time">SHOULD</a>
+              <a title="Allows review of changes to DAFProcedure over time" href="#DAFProcedureSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="observation-daf-smokingstatus.html">DAFSmokingStatus</a></th>
             <td>
-              <a title="Allows discovery of DAFSmokingStatus resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFSmokingStatus resources based on different search criteria" href="#DAFSmokingStatusSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFSmokingStatus by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFSmokingStatus by id" href="#DAFSmokingStatusSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFSmokingStatus">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFSmokingStatus" href="#DAFSmokingStatusSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFSmokingStatus over time">SHOULD</a>
+              <a title="Allows review of changes to DAFSmokingStatus over time" href="#DAFSmokingStatusSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="observation-daf-vitalsigns.html">DAFVitalSigns</a></th>
             <td>
-              <a title="Allows discovery of DAFVitalSigns resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFVitalSigns resources based on different search criteria" href="#DAFVitalSignsSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific DAFVitalSigns by id">SHOULD</a>
+              <a title="Allows retrieval of a specific DAFVitalSigns by id" href="#DAFVitalSignsSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFVitalSigns">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFVitalSigns" href="#DAFVitalSignsSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFVitalSigns over time">SHOULD</a>
+              <a title="Allows review of changes to DAFVitalSigns over time" href="#DAFVitalSignsSearch">SHOULD</a>
             </td>
           </tr>
 		  <tr>
             <th><a href="list-daf.html">DAFList</a></th>
             <td>
-              <a title="Allows discovery of DAFList resources based on different search criteria">SHOULD</a>
+              <a title="Allows discovery of DAFList resources based on different search criteria" href="#DAFListSearch">SHOULD</a>
             </td>
 			<td>
-              <a title="Allows retrieval of a specific DAFList by id">SHOULD</a>
+			  <a title="Allows retrieval of a specific DAFList by id" href="#DAFListSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a DAFList">SHOULD</a>
+              <a title="Allows retrieval of a historical version of a DAFList" href="#DAFListSearch">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to DAFList over time">SHOULD</a>
+              <a title="Allows review of changes to DAFList over time" href="#DAFListSearch">SHOULD</a>
             </td>
           </tr>
         </tbody>
@@ -319,7 +319,7 @@
         </thead>
         <tbody>
           <tr>
-			<td>DAFPatient</td>
+            <td id="DAFPatientSearch">DAFPatient</td>
 			<td>
 				<ul>
 					<li><a href="patient.html#search">name</a> - Search based on given name or family name or text name (<a href="search.html#string">string</a>)</li>
@@ -341,7 +341,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFAllergyIntolerance</td>
+		    <td id="DAFAllergyIntoleranceSearch">DAFAllergyIntolerance</td>
 			<td>
 				<ul>
 					<li><a href="allergyintolerance.html#search">identifier</a> - Search AllergyIntolerances by identifiers(<a href="search.html#token">token</a>)</li>
@@ -362,7 +362,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFDiagnosticOrder</td>
+		    <td id="DAFDiagnosticOrderSearch">DAFDiagnosticOrder</td>
 			<td>
 				<ul>
 					<li><a href="diagnosticorder.html#search">identifier</a> - Search for DiagnosticOrder by identifiers (<a href="search.html#token">token</a>)</li>
@@ -387,7 +387,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFDiagnosticReport</td>
+		    <td id="DAFDiagnosticReportSearch">DAFDiagnosticReport</td>
 			<td>
 				<ul>
 					<li><a href="diagnosticreport.html#search">identifier</a> - Search for DiagnosticReport by identifiers (<a href="search.html#token">token</a>)</li>
@@ -414,7 +414,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFEncounter</td>
+		    <td id="DAFEncounterSearch">DAFEncounter</td>
 			<td>
 				<ul>
 					<li><a href="encounter.html#search">identifier</a> - Search for Encounter by identifiers (<a href="search.html#token">token</a>)</li>
@@ -436,7 +436,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFFamilyHistory</td>
+		    <td id="DAFFamilyHistorySearch">DAFFamilyHistory</td>
 			<td>
 				<ul>
 					<li><a href="familyhistory.html#search">identifier</a> - Search for FamilyHistory by identifiers (<a href="search.html#token">token</a>)</li>
@@ -452,7 +452,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFImmunization</td>
+		    <td id="DAFImmunizationSearch">DAFImmunization</td>
 			<td>
 				<ul>
 					<li><a href="immunization.html#search">identifier</a> - Search for Immunization by identifiers (<a href="search.html#token">token</a>)</li>
@@ -477,7 +477,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFResults</td>
+		    <td id="DAFResultsSearch">DAFResults</td>
 			<td>
 				<ul>
 					<li><a href="observation.html#search">identifier</a> - Search for lab test by identifiers (<a href="search.html#token">token</a>)</li>
@@ -500,7 +500,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFMedication</td>
+		    <td id="DAFMedicationSearch">DAFMedication</td>
 			<td>
 				<ul>
 					<li><a href="medication.html#search">identifier</a> - Search for Medication by identifiers (<a href="search.html#token">token</a>)</li>
@@ -513,7 +513,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFMedicationStatement</td>
+		    <td id="DAFMedicationStatementSearch">DAFMedicationStatement</td>
 			<td>
 				<ul>
 					<li><a href="medicationstatement.html#search">identifier</a> - Search by identifiers (<a href="search.html#token">token</a>)</li>
@@ -532,7 +532,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFMedicationAdministration</td>
+		    <td id="DAFMedicationAdministrationSearch">DAFMedicationAdministration</td>
 			<td>
 				<ul>
 					<li><a href="medicationadministration.html#search">identifier</a> - Search by identifiers (<a href="search.html#token">token</a>)</li>
@@ -559,7 +559,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFCondition</td>
+		    <td id="DAFConditionSearch">DAFCondition</td>
 			<td>
 				<ul>
 					<li><a href="condition.html#search">identifier</a> - Search for Condition by identifiers (<a href="search.html#token">token</a>)</li>
@@ -582,7 +582,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFProcedure</td>
+		    <td id="DAFProcedureSearch">DAFProcedure</td>
 			<td>
 				<ul>
 					<li><a href="procedure.html#search">identifier</a> - Search for Procedure by identifiers (<a href="search.html#token">token</a>)</li>
@@ -603,7 +603,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFSmokingStatus</td>
+		    <td id="DAFSmokingStatusSearch">DAFSmokingStatus</td>
 			<td>
 				<ul>
 					<li><a href="observation.html#search">identifier</a> - Search for SmokingStatus observation by identifiers (<a href="search.html#token">token</a>)</li>
@@ -620,7 +620,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>DAFVitalSigns</td>
+		    <td id="DAFVitalSignsSearch">DAFVitalSigns</td>
 			<td>
 				<ul>
 					<li><a href="observation.html#search">identifier</a> - Search for Vital Signs by identifiers (<a href="search.html#token">token</a>)</li>
@@ -640,7 +640,7 @@
 		  </tr>
 		  
 		  <tr>
-			<td>DAFList</td>
+		    <td id="DAFListSearch">DAFList</td>
 			<td>
 				<ul>
 					<li><a href="list.html#search">identifier</a> - Search for List by identifiers (<a href="search.html#token">token</a>)</li>
