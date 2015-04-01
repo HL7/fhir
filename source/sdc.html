@@ -108,6 +108,15 @@ SHALL, at a minimum:
 as well as indirectly either by <code>identifier</code> or <code>questionnaire</code></li>
   <li>Support passing a single C-CDA document as a <a href="http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
 </ul>
+<p>
+Systems supporting the <code>populate</code> operation SHALL be able to use the <a href="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">deReference</a> 
+extension to trace the linkage from Questionniare question to DataElement to support mapping.  As well, systems MAY also choose to support the use of the
+<a href="http://hl7.org/fhir/StructureDefinition/questionnaire-deMap">deMap</a> extension to support maintaining of question &lt;-&gt; data element links outside 
+the questionnaire itself.  If using this approach, the <a href="conceptmap.html">ConceptMap</a>.<code>sourceUri</code> equal to the full resource id of the Questionnaire and
+a <code>targetUri</code> of the base URL for the DataElement end-point of the server to which data elements will be mapped.  The 
+<code>ConceptMap.element.code</code> and <code>ConceptMap.element.map.code</code> will correspond to the question linkId and the data element
+local id, respectively.
+</p>
 
 <p>
 <b>IMPORTANT:</b>
