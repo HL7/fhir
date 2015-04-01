@@ -18,6 +18,7 @@ signatures.html
 			<page title="Summary" filename="summary.html"/>
 			<page title="Introduction" filename="overview.html">
 				<page title="Developer Introduction" filename="overview-dev.html"/>
+				<page title="Clinical Introduction" filename="overview-clinical.html"/>
 			</page>
 			<page title="FHIR Timelines" filename="timelines.html"/>
 			<page title="Inter-version Compatibility" filename="compatibility.html"/>
