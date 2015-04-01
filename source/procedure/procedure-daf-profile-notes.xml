@@ -1,11 +1,13 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<h2>Search Parameters</h2>
+	<a name="search_parameters"> </a>
+	<h4>Search Parameters</h4>
 <p>
 The full list of supported search parameters are can be accessed at <a href="conformance-daf-query-requestor.html">DAF Requestor conformance expectations</a> and <a href="conformance-daf-query-responder.html">DAF Responder conformance expectations</a>.
 </p>
 
-<h2>Example Usage Scenarios</h2>
+	<a name="example_usage_scenarios"> </a>
+	<h4>Example Usage Scenarios</h4>
 
 <p>
 The following are example usage scenarios for the DAF Procedure profile:
@@ -17,9 +19,8 @@ The following are example usage scenarios for the DAF Procedure profile:
 	<li>Query for procedures performed during an encounter</li>
 	<li>Query for procedures performed at a location</li>
 </ul>
-
-<h2>Profile specific implementation guidance</h2>
-
+	<a name="profiles_specific_implementation_guidance"> </a>
+	<h4>Profile specific implementation guidance</h4>
 <p>
 Implementers need to be mindful of the following during their implementation
 </p>

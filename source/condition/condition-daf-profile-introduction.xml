@@ -1,7 +1,9 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<h2>Scope and Usage</h2>
+	<a name="scope_and_usage"> </a>
+	<h3>Scope and Usage</h3>
+	
 <p>
 This profile sets expectations for use of the <a href="condition.html">Condition</a> resource to record conditions,problems,symptoms and findings associated with a patient within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
 For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases. 
@@ -11,7 +13,8 @@ the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data e
 </div>
 
 <div>
-<h2>Meaningful Use Data Element Mapping</h2>
+	<a name="MU_data_element_mapping"> </a>
+	<h3>Meaningful Use Data Element Mapping</h3>
 <p>
 The DAF Condition profile mapping to Meaningful Use data elements and FHIR Resources are as shown below.
 </p>
@@ -67,7 +70,8 @@ The DAF Condition profile mapping to Meaningful Use data elements and FHIR Resou
 
 
 <div>
-<h2>Boundaries and Relationships</h2>
+	<a name="boundaries_and_relationships"> </a>
+	<h3>Boundaries and Relationships</h3>
 <p>
 This profile relies on the following other profiles:
 </p>
@@ -79,7 +83,8 @@ This profile relies on the following other profiles:
 </ul>
 </div>
 
-<h2><u>Profile Details</u></h2>
+	<a name="profile_details"> </a>
+	<h3><u>Profile Details</u></h3>
 
 </div>
 
