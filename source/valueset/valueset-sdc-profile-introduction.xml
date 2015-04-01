@@ -1,7 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<h2>Scope and Usage</h2>
+<a name="scope"/>
+<h3>Scope and Usage</h3>
 <p>
 This profile sets expectations for use of the <a href="valueset.html">ValueSet</a> resource within the 
 <a href="sdc.html">Structured Data Capture</a> implementation guide.  This includes
@@ -14,7 +15,8 @@ and information capture associated with the <a href="valueset.html">ValueSet</a>
 </div>
 
 <div>
-<h2>Boundaries and Relationships</h2>
+<a name="boundaries"/>
+<h3>Boundaries and Relationships</h3>
 <p>
 This profile relies on the use of the <a href="valueset-extensions.html">valueset-extensions</a> profile which defines a number of less common properties for value sets, several of which are mandated for this profile.
 It also makes use of the <a href="rendering-extensions.html">rendering-extensions</a> which defines rendering information for display names and labels of codes.

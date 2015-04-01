@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="language"/>
 <h3>Language and translations</h3>
 <p>
 In some environments, it may be necessary for a questionnaire to support multiple languages.  The rendering tool would select the appropriate

@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="language"/>
 <h3>Language and translations</h3>
 <p>
 In some environments, it may be necessary for a questionnaire to support multiple languages.  The rendering tool would select the appropriate
@@ -29,6 +30,7 @@ the translations to be maintained independently of the resource which has both p
 <b>Open Issue:</b> Should this profile define such an extension and/or a resource for managing such translations?
 </p>
 
+<a name="ihe-interop"/>
 <h3>Interoperability with the IHE SDC specification</h3>
 <p>
 This FHIR profile is partially based on the IHE <a href="http://ihe.net/uploadedFiles/Documents/QRPH/IHE_QRPH_Suppl_SDC_Rev1.0_PC_2014-06-06.pdf">Structured Data Capture</a> 
@@ -54,8 +56,3 @@ times are conveyed according to the w3c schema standard over the wire.  As well,
   <b>Open Issue:</b> Should FHIR also support an open-ended set of data types?  Why?
 </p>
 </div>
-
-
-
-
-

@@ -1,9 +1,9 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <?xml version="1.0" encoding="UTF-8"?>
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xmlns="http://www.w3.org/1999/xhtml"
      xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd">
 
+<a name="language"/>
    <h3>Language and translations</h3>
    <p>
 In some environments, it may be necessary for a questionnaire to support multiple languages.  The rendering tool would select the appropriate
@@ -28,6 +28,7 @@ The ISO 19763 specification permits declaring language on questionnaire titles, 
 capturing multiple variants of these strings with distinct languages.  These capabilities can be mirrored using the above extensions.
 </p>
 
+<a name="issues"/>
    <h3>Open Issues</h3>
    <p>
 While DataElement.specificity has been introduced, a formal set of rules defining exactly what level of "tightness" must exist for a specificity code, and
@@ -40,5 +41,4 @@ factors are known?
 Opinions on these and related questions of stringency are welcome.
 </p>
 
-</div>
 </div>
