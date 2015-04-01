@@ -36,7 +36,8 @@ Contraindications are typically identified by decision support systems.  However
 </p>
 <ol>
   <li>A clinician wishes to communicate an issue to another clinician whose responsibility it would be to resolve it (e.g. a pharmacist identifying an issue with a prescription prior to putting it on hold)</li>
-  <li>A clinician wishes to pre-emptively identify that an issue is known and being managed (to avoid red flags being raised as part of downstream workflow).  E.g. Noting that a duplicate therapy is actually intended.</li>
+  <li>A clinician wishes to pre-emptively identify that an issue is known and being managed (to avoid red flags being raised as part of downstream workflow).  E.g. Submitting a new order and including a link to 
+  a "duplicate therapy" contraindication with mitigation indicating that the therapy is not considered to be duplicate.</li>
 </ol>
 <p>
 Decision-support generated contraindications can result from calling a decision-support engine directly (e.g. via a custom <a href="operationdefinition.html">OperationDefinition</a>) or as part of an attempt to perform some other function (creating an order, submitting an insurance claim, capturing a medication list).  When the contraindications are generated as a byproduct of performing some other sort of action, they may be included in the "response" to the requested action in the same manner as an <a href="operationoutcome.html">OperationOutcome</a>.  In fact, both may be present - the <a href="operationoutcome.html">OperationOutcome</a> indicating that there was a warning or error associated with the request and a <b>Contraindication</b> providing the clinical details.  (The <a href="operationoutcome.html">OperationOutcome</a> could point to the <b>Contraindication</b> via an extension.)
