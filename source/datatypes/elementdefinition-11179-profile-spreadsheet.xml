@@ -4685,12 +4685,12 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:Height="150">
     <Cell ss:StyleID="s128"><Data ss:Type="String">permitted-value-valueset</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.element.binding.valueSetReference, DataElement.element.binding.valueSetReference, Questionnaire.group.question.binding.valueSetReference</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSetReference;StructureDefinition.differential.element.binding.valueSetReference;DataElement.element.binding.valueSetReference;Questionnaire.group.question.options</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Permitted Values</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4724,12 +4724,12 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="120">
+   <Row ss:Height="150">
     <Cell ss:StyleID="s128"><Data ss:Type="String">permitted-value-conceptmap</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.element.binding.valueSetReference, DataElement.element.binding.valueSetReference, Questionnaire.group.question.binding.valueSetReference</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSetReference;StructureDefinition.differential.element.binding.valueSetReference;DataElement.element.binding.valueSetReference;Questionnaire.group.question.options</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Permitted Values link</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
