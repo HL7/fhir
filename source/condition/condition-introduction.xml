@@ -1,18 +1,42 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <h2>Scope and Usage</h2>
-Used to record detailed information pertinent to a clinician's assessment and assertion of a particular aspect of a person's state of health. Examples of condition include problems, diagnoses, concerns, issues. There are many uses of condition which include:
+<p>
+Used to record detailed information pertinent to a clinician's assessment and assertion of a particular aspect of a person's state of health. 
+Examples of condition include problems, diagnoses, concerns, issues. There are many uses of condition which include:
+</p>
 <ul>
 <li>recording a problem, diagnosis, health concern or health issue during an encounter</li>
 <li>the use of such information to populate a problem list of a summary statement such as a discharge summary </li>
-</ul> 
-<br />This resource is used to record detailed information about a clinician's assessment and assertion of a particular aspect of a patient's state of health. It is intended for use to record information about a disease/illness identified from application of clinical reasoning over the pathologic and pathophysiologic findings (diagnosis), or identification of health issues/situations that require ongoing monitoring and/or management (health issue/concern), or identification of health issues/situations considered harmful, potentially harmful and required to be investigated and managed (problems).
-<br /><br />The condition resource may also be used to record certain health state of a patient which does not normally present negative outcome (until complications are predicted or detected), e.g. pregnancy. Examples of complications of pregnancy include: hyperemesis gravidarum, preeclampsia, eclampsia, which are captured as problems/diagnoses.
-<br /><br />The condition resource may be referenced by other resources as “reasons” for an action (e.g. prescription, procedure, DiagnosticOrder, etc)
-<br /><br />This resource is not to be used to record information about signs and symptoms that are typically captured using the “observation” resource; although in some cases a persistent symptom, e.g. fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician.
-<br /><br />The condition resource also specifically excludes “AllergyIntolerance” and “Adverse Reactions” as those are handled with their own resources.
-<br />
+</ul>
+<p>
+This resource is used to record detailed information about a clinician's assessment and assertion of a particular aspect of a patient's state of health. 
+It is intended for use to record information about a disease/illness identified from application of clinical reasoning over the pathologic and 
+pathophysiologic findings (diagnosis), or identification of health issues/situations that require ongoing monitoring and/or management (health issue/concern), 
+or identification of health issues/situations considered harmful, potentially harmful and required to be investigated and managed (problems).
+</p>
+<p>
+The condition resource may also be used to record certain health state of a patient which does not normally present negative outcome (until complications 
+are predicted or detected), e.g. pregnancy. Examples of complications of pregnancy include: hyperemesis gravidarum, preeclampsia, eclampsia, which are 
+captured as problems/diagnoses.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+The condition resource may be referenced by other resources as "reasons" for an action (e.g. <a href="medicationprescription.html">MedicationPrescription</a>,
+<a href="procedure.html">Procedure</a>, <a href="diagnosticorder.html">DiagnosticOrder</a>, etc.)
+</p>
+<p>
+This resource is not to be used to record information about subjective and objective information that might lead to the recording of a Condition.
+Such signs and symptoms that are typically captured using the <a href="observation.html">Observation</a> resource; 
+although in some cases a persistent symptom, e.g. fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician.
+</p>
+<p>
+The condition resource also specifically excludes <a href="allergyintolerance.html">AllergyIntoelrance</a> as those are handled with their own resource.
+</p>
 </div>
 
 </div>

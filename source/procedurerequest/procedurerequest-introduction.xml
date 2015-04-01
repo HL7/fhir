@@ -2,46 +2,61 @@
 
 <div>
 <h2>Scope and Usage</h2>
-<p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-    <p>
-        <b>These resources have not yet undergone proper review by PC, CQI, CDS, and OO. At this time, 
-        they are to be considered only as draft resource proposals for potential submission.</b>
-    </p>
-    
-    <p>
-        A <i>Procedure Request</i> is a record of a request for a procedure to be performed. 
-        It can be used to represent a procedure that is planned, that is proposed, or that is ordered.
-    </p>
-    <p>
-        The procedure request may represent an order that is entered by a practitioner in a CPOE 
-        system as well as a proposal made by a clinical decision support (CDS) system based 
-        on a patient's clinical record and context of care. Planned procedures may also be 
-        represented by this resource.
-    </p>
+<p>
+A <i>Procedure Request</i> is a record of a request for a procedure to be performed. 
+It can be used to represent a procedure that is planned, that is proposed, or that is ordered.
+</p>
+<p>
+A procedure is an activity 
+that is performed with or on a patient as part of the provision of care. Examples include surgical 
+procedures, diagnostic procedures, endoscopic procedures, biopsies, counselling, physiotherapy, exercise, etc.
+Procedures may be performed by a healthcare professional, a friend or relative or in some cases by the patient
+themselves.
+</p>
+<p>
+The procedure request may represent an order that is entered by a practitioner in a CPOE 
+system as well as a proposal made by a clinical decision support (CDS) system based 
+on a patient's clinical record and context of care. Planned procedures referenced by a
+<a href="careplan.html">CarePlan</a> may also be represented by this resource.
 </p>
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-    <b>Notes to reviewers:</b>
-
-    <p>
-        <i>Please note that the boundaries between a Diagnostic Order and a Procedure Request will need to be concretely
-        defined by Patient Care.</i>
-    </p>
-    <p>
-        <i>Also note that referrals should use the ReferralRequest resource rather than ProcedureRequest.</i>
-    </p>
+ProcedureRequest is closely related to other types of "request" resources, particularly <a href="diagnosticorder.html">DiagnosticOrder</a>
+and <a href="referralrequest.html">ReferralRequest</a>.  In fact, for some services, it may be appropriate to use any one of these
+resources to request that the procedure be performed.  Which one is used may be driven by organization practice and by context.  When
+it is unclear which to use, the following principles may be helpful:
 </p>
-</div>
-
-<div>
-<h2>Background and Context</h2>
+<ul>
+<li>
+ProcedureRequest or DiagnosticOrder are typically used when the requesting clinician has and wishes to exercise the authority 
+(and expertise) to decide exactly what action will be done.
+</li>
+<li>
+A ReferralRequest is used when the requesting practitioner is seeking another practitioner or organization to use their own expertise
+and/or authority to determine the specific action to take.
+</li>
+<li>
+Whether an activity is deemed to be a procedure or only a diagnostic order is typically driven by how invasive the diagnostic process
+is.  More invasive processes are typically represented as procedures, though the dividing line may vary by organization.
+</li>
+</ul>
 <p>
-The notion of a procedure request is of key importance to clinical decision support system which may recommend 
-procedures based on a number of criteria evaluated on patient and other clinical information.
+Irrespective of the guidance above, systems should be prepared for some degree of overlap between these resources and be
+prepared to execute searches against multiple resources in cases where differentiation cannot be guaranteed.  As well, in some workflows
+more than one type of resource or even all three might exist.  E.g. Upon receiving a ReferralRequest a practitioner might initiate a 
+DiagnosticOrder.  The diagnostic service might then initiate a ProcedureRequest.
+</p>
+<p>
+The notion of ProcedureRequest and <a href="communicationrequest.html">CommunicationRequest</a> are also closely related.  
+The boundary between determining whether an action is
+considered to be training or counselling (and thus a ProcedureRequest) as opposed to a CommunicationRequest is based on whether
+there's a specific intent to change the mind-set of the patient.  A request to merely disclose information would be considered
+a CommunicationRequest.  Invocation of a process that will involve verification of the patient's comprehension or an attempt to
+change the patient's mental state would be a ProcedureRequest.
 </p>
 </div>
 

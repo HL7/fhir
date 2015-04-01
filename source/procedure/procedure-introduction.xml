@@ -4,14 +4,36 @@
 <h2>Scope and Usage</h2>
 <p>
 This resource is used to record the details of procedures performed on a patient. A procedure is an activity 
-that is performed with or on a patient as part of the provision of care. Examples include  surgical 
-procedures, diagnostic procedures, endoscopic procedures, biopsies, and exclude things for which 
-there are specific resources, such as immunizations, drug administrations. 
+that is performed with or on a patient as part of the provision of care. Examples include surgical 
+procedures, diagnostic procedures, endoscopic procedures, biopsies, counselling, physiotherapy, exercise, etc.
+Procedures may be performed by a healthcare professional, a friend or relative or in some cases by the patient
+themselves.
 </p>
 <p>
-Note that many diagnostic processes are procedures that generate observations and reports. In many cases, 
-the existence of the procedure is assumed, but where there are details of interest about how the 
-diagnostic procedure was performed, the procedure resource is used to describe the activity.
+This resource provides summary information about the occurrence of the procedure and is not intended to
+provide real-time snapshots of a procedure as it unfolds, though for long-running procedures such as psychotherapy,
+it could represent summary level information about overall progres.  The creation of a resource to support detailed
+real-time procedure information awaits the identification of a specific implementation use-case to share such information.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Procedures do not include actions things for which there are specific resources, such as 
+<a href="immunization.html">immunizations</a>, <a href="medicationadministration.html">drug administrations</a>
+and <a href="communication.html">communications</a>.  The boundary between determining whether an action is
+considered to be training or counselling (and thus a procedure) as opposed to a Communication is based on whether
+there's a specific intent to change the mind-set of the patient.  Mere disclosure of information would be considered
+a Communication.  A process that involves verification of the patient's comprehension or to change the patient's
+mental state would be a Procedure.
+</p>
+<p>
+Note that many diagnostic processes are procedures that generate <a href="observation.html">Observations</a> and 
+<a href="diagnosticreport.html">DiagnosticReports</a>. In many cases, 
+such an observation does not require an explicit representation of the procedure used to create the 
+observation, but where there are details of interest about how the diagnostic procedure was performed, 
+the procedure resource is used to describe the activity.
 </p>
 </div>
 
