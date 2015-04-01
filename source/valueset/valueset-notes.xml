@@ -211,6 +211,7 @@ based on the value set definitions, and for the server to store (and reuse as ap
 returned expansion (ValueSet.expansion.identifier).
 </p>
 
+<a name="detailed-metadata"/>
 <h3>Code systems with detailed metadata</h3>
 <p>
 Sometimes code systems may be used to represent more complex information than just 

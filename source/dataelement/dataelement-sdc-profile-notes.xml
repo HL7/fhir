@@ -22,6 +22,18 @@ The ISO 19763 specification permits declaring language on questionnaire titles, 
 capturing multiple variants of these strings with distinct languages.  These capabilities can be mirrored using the above extensions.
 </p>
 
+<h3>Open Issues</h3>
+<p>
+While DataElement.specificity has been introduced, a formal set of rules defining exactly what level of "tightness" must exist for a specificity code, and
+in particular, what the rules are for data elements intended for use in auto-population/pre-population has not yet been defined.  For example, if a data element
+supports a subset of the answer codes that the question does, is that acceptable?  Must the question text be word-for-word identical?  Is it acceptable if the
+data element length is shorter than the permitted length for the question?  Is it acceptable if units of measure are not an exact match so long as conversion
+factors are known?
+</p>
+<p>
+Opinions on these and related questions of stringency are welcome.
+</p>
+
 </div>
 
 

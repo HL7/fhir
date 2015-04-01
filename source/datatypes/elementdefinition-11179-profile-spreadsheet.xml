@@ -20,7 +20,7 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4690,7 +4690,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Data Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">ElementDefinition.binding.valueSetReference</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">ElementDefinition.binding.valueSetReference, Questionnaire.group.question.binding.valueSetReference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Permitted Values</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4729,7 +4729,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Data Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">ElementDefinition.binding.valueSetReference, Questionnaire.group.question.binding.valueSetReference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Permitted Values link</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5635,6 +5635,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5654,8 +5655,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5821,14 +5822,14 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s133"><Data ss:Type="String">objectClass</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">DataElement.element.mapping.extension{http://hl7.org/fhir/StructureDefinition/11179-objectClass}</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Matches on the 11179-objectClass extension value</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s136"><Data ss:Type="String">objectClassProperty</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s107"/>
@@ -7409,7 +7410,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

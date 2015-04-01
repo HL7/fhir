@@ -436,9 +436,10 @@
             <th>
               <xsl:choose>
                 <xsl:when test="definition/@value">
-                  <a href="{definition/@value}">
+<!-- Search parameter URLs don't actually resolve right now
+                 <a href="{definition/@value}">-->
                     <xsl:value-of select="name/@value"/>
-                  </a>
+<!--                  </a>-->
                 </xsl:when>
                 <xsl:otherwise>
                   <xsl:value-of select="@name"/>
