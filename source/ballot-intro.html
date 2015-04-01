@@ -81,17 +81,46 @@ Documentation/Administration/<a href="toc.html">Table of Contents</a> may be a u
 A few notes to consider:
 </p>
 <ul>
+  <li>A few artifacts (generally resources) have been flagged as "draft".  This means that the work group authoring the content and/or
+  the FHIR Management Group feels that the content is not yet sufficient robust or complete for production use.  Implementers may
+  choose to implement these artifacts anyhow, but should proceed with caution and may find that more adaptation or extension will be
+  required than for a typical resource.  It is expected that "draft" resources will progress to DSTU as part of the next release.
+  (Implementers may also want to check the <a href="http://hl7-fhir.github.io/">Continuous Integration Build</a> for more up-to-date
+  versions of these resources.)</li>
   <li>Not all of the outstanding issues will be resolved prior to the DSTU ballot passing.  Some may be left open to allow feedback 
   from the early adopter community.</li>
   <li>This specification is complete enough to be implementable in a variety of healthcare scenarios, including supporting all content 
   from the Consolidated CDA implementation guide.  However, the set of resources is not complete.  Resources may evolve and new ones 
-  will be introduced over time.</li>
+  will be introduced over time.  Refer to <a href="timelines.html">FHIR Timelines</a> for additional guidance on expectations around
+  the evolution of the FHIR specification.</li>
 </ul>
+<h2>Balloting</h2>
+<p>
+HL7 ballot rules require that participants sign up prior to opening of the ballot.  If you did not sign up in advance, please still
+submit comments using the <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&tracker_id=677">Propose a Change</a>
+link at the bottom of each page of the specification.  Feedback from balloters will be given priority, but all suggestions will be
+considered as much as time allows.  (And be sure to <a href="http://wiki.hl7.org/index.php?title=FHIR_email_list_subscription_instructions">sign up</a> 
+to the FHIR list-server and/or follow the <a href="https://twitter.com/hashtag/fhir">#FHIR</a> hash-tag so you don't miss the chance to 
+vote in the next ballot cycle.
+</p>
+<p>
+If you are signed up to ballot, you can download the balloting spreadsheet from the <a href="http://www.hl7.org/participate/onlineballoting.cfm">Ballot Desktop</a>.
+All ballot feedback must be provided using the spreadsheet template provided.  (There's a help tab that explains the meaning of each of the columns.)
+For FHIR, you have the option of making your comments directly in the spreadsheet or submitting your comment using the FHIR
+<a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse">Change Tracker</a> tool.  If you take the latter approach, you <b>must</b> include a reference to each tracker item in your
+ballot spreadsheet along with a vote (negative-major, affirmative typo, etc.).  All spreadsheets must be submitted along with an overall vote
+by end of day Eastern time on the desigated ballot closure date for the comments to be considered as part of ballot disposition.
+</p>
+<p>
+Note: By using the tracker, you reduce some of the administrative effort of managing the ballot process.  As well, you will receive notifications
+when comments are made on your ballot comment as well as when dispositions are made.  Comments not submitted to the tracker as part of the ballot
+process will be migrated to the tracker after all ballot submissions are received.
+</p>
 <p>
 When submitting your ballot feedback, if you have a general comment on something that you see occurring multiple times, please include 
 at least a couple of specific locations where you see the issue.  As much as possible, capture each separate concern as a distinct row 
-in the ballot sheet or separate <a href="">tracker item</a>.  (If using tracker items for your submissions, you <b>MUST</b> still
-submit a ballot spreadsheet referencing the relevant tracker items.)  It makes our job of reconciling much easier.  Also, don’t forget to 
+in the ballot sheet or separate <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse">tracker item</a>.  (If using tracker items for your submissions, you <b>MUST</b> still
+submit a ballot spreadsheet referencing the relevant tracker items.)  It makes our job of reconciling much easier.  Also, don't forget to 
 fill in the section numbers (little grey numbers to the right of each heading) and URLs.
 </p>
 <p>
