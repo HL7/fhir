@@ -6,25 +6,14 @@ file: cond-uslab-example1.xml
 Description: USLab Condition Profile Canonical Example: Lead Exposure -->
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
 	<id value="uslab-example1"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>Condition/uslab-example1</p>
-			<ul>
-				<li>file: cond-uslab-example1.xml</li>
-				<li> id: uslab-example1</li>
-				<li> Name: USLab Condition Example1</li>
-				<li>Description: USLab Condition Profile Canonical Example: Lead Exposure</li>
-			</ul>
-		</div>
-	</text>
 	<patient>
 		<reference value="Patient/uslab-example1"/>
+		<display value="Todd Lerr"/>
 	</patient>
 	<!--EH note to balloters-  these examples are  to demonstrate content and structure the clinical scenario is artificial.-->
 	<code>
 		<coding>
-			
+
 			<system value="http://snomed.info/sct"/>
 			<code value="39065001"/>
 			<display value="Increased lead level"/>
