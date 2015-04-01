@@ -1722,6 +1722,11 @@ public class Publisher implements URIResolver {
       produceV2();
       produceV3();
 
+      if (buildFlags.get("all")) {
+        page.log(" ...page toc.html", LogMessageType.Process);
+        producePage("toc.html", "Table of Contents");
+      }
+
       if (processValidationOutcomes() > 0) {
         page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
         throw new Exception("Errors executing build. Details logged.");

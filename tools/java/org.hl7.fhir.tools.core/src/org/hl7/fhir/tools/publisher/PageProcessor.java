@@ -42,8 +42,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -145,6 +147,37 @@ import org.w3c.dom.Element;
 import com.github.rjeschke.txtmark.Processor;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
+
+  public class SectionSorter implements Comparator<String> {
+
+    @Override
+    public int compare(String arg0, String arg1) {
+      String[] p0 = arg0.split("\\.");
+      String[] p1 = arg1.split("\\.");
+      for (int i = 0; i < Math.min(p0.length, p1.length); i++) {
+        if (Utilities.IsInteger(p0[i]) && Utilities.IsInteger(p1[i])) {
+          int i0 = Integer.parseInt(p0[i]);
+          int i1 = Integer.parseInt(p1[i]);
+          if (i0 != i1) {
+            if (i0 < i1)
+              return -1;
+            else
+              return 1;
+          }
+        } else {
+           int c = p0[i].compareTo(p1[i]);
+           if (c != 0)
+             return c;
+        }
+      }
+      if (p0.length > p1.length)
+        return 1;
+      if (p0.length < p1.length)
+        return -1;
+      return 0;
+    }
+
+  }
 
   private static final String SIDEBAR_SPACER = "<p>&#xA0;</p>\r\n";
 
@@ -1614,7 +1647,32 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   
   private String generateToc() {
-    return breadCrumbManager.makeToc();
+    // return breadCrumbManager.makeToc();
+    StringBuilder b = new StringBuilder();
+    b.append("<ul>\r\n");
+    List<String> entries = new ArrayList<String>();
+    entries.addAll(toc.keySet());
+    Collections.sort(entries, new SectionSorter());
+    Set<String> pages = new HashSet<String>();
+    for (String s : entries) {
+      TocEntry t = toc.get(s);
+      int d = Utilities.charCount(s, '.');
+      if (d < 4 && !pages.contains(t.getLink())) {
+        b.append(" <li>");
+        for (int i = 0; i < d - 1; i++)
+          b.append("&nbsp;");
+        b.append(" <a href=\"");
+        b.append(t.getLink());
+        b.append("\">");
+        b.append(s);
+        b.append(" ");
+        b.append(Utilities.escapeXml(t.getText()));
+        b.append("</a></li>\r\n");
+        pages.add(t.getLink());    
+      }
+    }
+    b.append("</ul>\r\n");
+    return b.toString();
   }
 
   private String generateBSUsage(String name) throws Exception {

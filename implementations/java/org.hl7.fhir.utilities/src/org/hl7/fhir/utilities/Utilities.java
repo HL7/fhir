@@ -712,4 +712,13 @@ public class Utilities {
   }
 
 
+  public static int charCount(String s, char c) {
+	  int res = 0;
+	  for (char ch : s.toCharArray())
+		if (ch == c)
+		  res++;
+	  return res;
+  }
+
+
 }
