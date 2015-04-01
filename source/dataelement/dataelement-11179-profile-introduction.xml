@@ -1,7 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<h2>Scope and Usage</h2>
+<a name="scope"> </a>
+<h3>Scope and Usage</h3>
 <p>
 This profile defines extensions that may be useful in exposing data elements from <a href="http://metadata-standards.org/11179">ISO 11179</a>-conformant 
 registries.  The list of extensions is not currently complete - additional extensions would be required to support all required and optional

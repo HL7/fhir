@@ -1,6 +1,7 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<h2>Further Information on QICore</h2>
+<a name="info"> </a>
+<h3>Further Information on QICore</h3>
 
 <p><a href=qicore.html>Full implementation guide</a></p>
 <p><a href=qicore.html#mustsupport>Interpretation of Must Support elements</a></p>
