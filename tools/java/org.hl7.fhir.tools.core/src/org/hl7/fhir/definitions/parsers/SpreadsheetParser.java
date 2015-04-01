@@ -736,7 +736,7 @@ public class SpreadsheetParser {
 		  String bindingName = sheet.getColumn(row, "Binding Name"); 
 		  
 		  // Ignore bindings whose name start with "!"
-		  if (bindingName.startsWith("!")) continue;
+		  if (Utilities.noString(bindingName) || bindingName.startsWith("!")) continue;
 	      
 			BindingSpecification cd = new BindingSpecification(usageContext);
 

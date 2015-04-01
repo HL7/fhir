@@ -1618,9 +1618,7 @@ public class Publisher implements URIResolver {
 
   private void produceSpec() throws Exception {
     if (buildFlags.get("all")) {
-
       copyStaticContent();
-
     }
 
     loadValueSets2();
@@ -4840,7 +4838,9 @@ public class Publisher implements URIResolver {
         cd.getReferredValueSet().setUserData("filename", filename);
         sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "codeSystem", null, cd.getReferredValueSet(), null, "Value Set");
       }
-      sf = addSectionNumbers(filename + ".html", "template-valueset", sf, Utilities.oidTail(cd.getCsOid()));
+      if (cd.getVsOid() == null)
+        throw new Error("no oid for value set "+vs.getName()+" ("+vs.getUrl()+")");
+      sf = addSectionNumbers(filename + ".html", "template-valueset", sf, Utilities.oidTail(cd.getVsOid()));
       TextFile.stringToFile(sf, page.getFolders().dstDir + filename);
       String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx-book.html"), "codeSystem", null);
       cachePage(filename, src, "Code System " + vs.getName());
