@@ -11,6 +11,11 @@ This resource captures predicted outcomes for a patient or population on the bas
   <li>List of potential health risks based on a patient's genetic analysis</li>
   <li>A prediction of outbreak infection rates within a geography based on immunization rates</li>
 </ul>
+<p>
+This resource can be used to represent the results of formal scoring/decision support tools that evaluate
+risk.  It can also be used to capture a practitioner's subjective assessment of the patient's risk based
+on existing knowledge and previous experience.
+</p>
 </div>
 
 <div>
