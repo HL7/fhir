@@ -1698,7 +1698,7 @@ public class Publisher implements URIResolver {
       for (String n : page.getDefinitions().getConformancePackages().keySet()) {
         if (!n.startsWith("http://")) {
           page.log(" ...Profile " + n, LogMessageType.Process);
-          produceConformancePackage("", page.getDefinitions().getConformancePackages().get(n));
+          produceConformancePackage("", page.getDefinitions().getConformancePackages().get(n), null);
         }
       }
       if (page.hasIG()) {
@@ -2920,24 +2920,6 @@ public class Publisher implements URIResolver {
     SvgGenerator svg = new SvgGenerator(page);
     svg.generate(resource, page.getFolders().dstDir + n + ".svg");
 
-    for (Profile ap : resource.getConformancePackages())
-      produceConformancePackage(resource.getName(), ap);
-
-    StructureDefinition profile = (StructureDefinition) ResourceUtilities.getById(profileFeed, ResourceType.StructureDefinition, resource.getName());
-    for (Example e : resource.getExamples()) {
-      try {
-        processExample(e, resource.getName(), profile, null);
-      } catch (Exception ex) {
-        throw new Exception("processing " + e.getFileTitle(), ex);
-        // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
-      }
-    }
-    try {
-      processQuestionnaire(resource, profile);
-    } catch (Exception e) {
-      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
-    }
-
     String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(resource.getName());
     SectionTracker st = new SectionTracker(prefix);
     st.start("");
@@ -2949,13 +2931,18 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
     page.getEpub().registerFile(n + ".html", "Base Page for " + resource.getName(), EPubManager.XHTML_TYPE);
 
+    StructureDefinition profile = (StructureDefinition) ResourceUtilities.getById(profileFeed, ResourceType.StructureDefinition, resource.getName());
     String pages = page.getIni().getStringProperty("resource-pages", n);
     if (!Utilities.noString(pages)) {
       for (String p : pages.split(",")) {
         producePage(p, n);
       }
     }
-
+    try {
+      processQuestionnaire(resource, profile, st);
+    } catch (Exception e) {
+      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
+    }
 
     src = TextFile.fileToString(page.getFolders().srcDir + template+"-definitions.html");
     TextFile.stringToFile(
@@ -2968,6 +2955,14 @@ public class Publisher implements URIResolver {
           insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html"), st, n + "-examples.html"),
           page.getFolders().dstDir + n + "-examples.html");
       page.getEpub().registerFile(n + "-examples.html", "Examples for " + resource.getName(), EPubManager.XHTML_TYPE);
+      for (Example e : resource.getExamples()) {
+        try {
+          processExample(e, resource.getName(), profile, null);
+        } catch (Exception ex) {
+          throw new Exception("processing " + e.getFileTitle(), ex);
+          // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
+        }
+      }
       src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.html");
       TextFile.stringToFile(
           insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html"), st, n + "-mappings.html"),
@@ -2984,6 +2979,9 @@ public class Publisher implements URIResolver {
           page.getFolders().dstDir + n + "-profiles.html");
       page.getEpub().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), EPubManager.XHTML_TYPE);
     }
+    for (Profile ap : resource.getConformancePackages())
+      produceConformancePackage(resource.getName(), ap, st);
+
     if (!resource.getOperations().isEmpty()) {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-operations.html");
       TextFile.stringToFile(
@@ -3148,7 +3146,7 @@ public class Publisher implements URIResolver {
     page.getEpub().registerExternal(n + ".xml.html");
   }
 
-  private void processQuestionnaire(ResourceDefn resource, StructureDefinition profile) throws Exception {
+  private void processQuestionnaire(ResourceDefn resource, StructureDefinition profile, SectionTracker st) throws Exception {
     QuestionnaireBuilder qb = new QuestionnaireBuilder(page.getWorkerContext());
     qb.setProfile(profile);
     qb.build();
@@ -3185,6 +3183,7 @@ public class Publisher implements URIResolver {
     // now, generate the form
     html = TextFile.fileToString(page.getFolders().srcDir + "template-questionnaire.html").replace("<%questionnaire%>", loadHtmlForm(tmpTransform.getAbsolutePath()));
     html = page.processPageIncludes(resource.getName().toLowerCase() + ".questionnaire.html", html, "resource-questionnaire:" + resource.getName(), null, null, null, "Questionnaire");
+    html = insertSectionNumbers(html, st, resource.getName().toLowerCase() + ".questionnaire.html");
     TextFile.stringToFile(html, page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.html");
 
     page.getEpub().registerExternal(resource.getName().toLowerCase() + ".questionnaire.html");
@@ -3502,7 +3501,7 @@ public class Publisher implements URIResolver {
     dest.getEntry().add(new BundleEntryComponent().setResource(conf));
   }
 
-  private void produceConformancePackage(String resourceName, Profile pack) throws Exception {
+  private void produceConformancePackage(String resourceName, Profile pack, SectionTracker st) throws Exception {
     if (!web && page.getDefinitions().noPublish(pack.getCategory()))
       return;
           
@@ -3518,6 +3517,8 @@ public class Publisher implements URIResolver {
 
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-conformance-pack.html");
     src = page.processConformancePackageIncludes(pack, src, intro, notes, resourceName);
+    if (st != null)
+      src = insertSectionNumbers(src, st, pack.getId().toLowerCase() + ".html");
     page.getEpub().registerFile(pack.getId().toLowerCase() + ".html", "Profile " + pack.getId(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
 
