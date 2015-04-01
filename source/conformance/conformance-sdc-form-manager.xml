@@ -8,9 +8,7 @@
          <h2>SDC Form Manager</h2>
          <p>(Requirements Definition)</p>
          <p>Published: 2014-07-06 (draft)</p>
-         <p>Published by: <b>
-               <a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">U.S. Office of the National Coordinator (ONC)</a>
-            </b>
+         <p>Published by: <b/>
          </p>
          <p>This profile defines the expected capabilities of the <i>SDC Form Manager</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data.</p>
          <h2>General</h2>
@@ -53,71 +51,71 @@
                   <th>Questionnaire</th>
                   <td>
                      <a title="Allows a user to search for existing forms"
-                        href="#Questionnaire-search-type">Yes</a>
+                        href="#Questionnaire-search-type">SHALL</a>
                   </td>
                   <td>
-                     <a title="Allows retrieval of a specific known form" href="#Questionnaire-read">Yes</a>
+                     <a title="Allows retrieval of a specific known form" href="#Questionnaire-read">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a specific version of a form"
-                        href="#Questionnaire-vread">Yes</a>
+                        href="#Questionnaire-vread">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows review of changes to a form over time"
-                        href="#Questionnaire-history-instance">Yes</a>
+                        href="#Questionnaire-history-instance">SHALL</a>
                   </td>
                   <td/>
                   <td>
                      <a title="SHOULD. Allows a client to verify whether a particular new form or revision of an existing form would be accepted based on validation and other business rules.  Useful for some workflows"
-                        href="#Questionnaire-validate">Yes</a>
+                        href="#Questionnaire-validate">SHOULD</a>
                   </td>
                   <td>
                      <a title="Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'."
-                        href="#Questionnaire-create">Yes</a>
+                        href="#Questionnaire-create">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms."
-                        href="#Questionnaire-update">Yes</a>
+                        href="#Questionnaire-update">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc."
-                        href="#Questionnaire-delete">Yes</a>
+                        href="#Questionnaire-delete">MAY</a>
                   </td>
                </tr>
                <tr>
                   <th>ValueSet</th>
                   <td>
                      <a title="Allows discovery of existing value sets for use in authoring questionnaires"
-                        href="#ValueSet-search-type">Yes</a>
+                        href="#ValueSet-search-type">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a specific value set referenced within a questionnaire"
-                        href="#ValueSet-read">Yes</a>
+                        href="#ValueSet-read">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a historical version of a value set as referenced within a questionnaire"
-                        href="#ValueSet-vread">Yes</a>
+                        href="#ValueSet-vread">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows review of changes to a value set over time"
-                        href="#ValueSet-history-instance">Yes</a>
+                        href="#ValueSet-history-instance">SHALL</a>
                   </td>
                   <td/>
                   <td>
                      <a title="Allows verification that a value set is valid prior to submission - useful for some workflows."
-                        href="#ValueSet-validate">Yes</a>
+                        href="#ValueSet-validate">SHOULD</a>
                   </td>
                   <td>
                      <a title="Allows definition of a new value set used by one or more questionnaires"
-                        href="#ValueSet-create">Yes</a>
+                        href="#ValueSet-create">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows existing value sets referenced by one or more questionnaires to be maintained"
-                        href="#ValueSet-update">Yes</a>
+                        href="#ValueSet-update">SHALL</a>
                   </td>
                   <td>
                      <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."
-                        href="#ValueSet-delete">Yes</a>
+                        href="#ValueSet-delete">MAY</a>
                   </td>
                </tr>
             </tbody>
@@ -125,8 +123,7 @@
          <p>
             <b>Operations:</b>
             <a title="Populate Questionnaire"
-               href="http://hl7.org/fhir/OperationDefinition#questionnaire-populate">populate</a>
-         </p>
+               href="http://hl7.org/fhir/OperationDefinition#questionnaire-populate">populate</a>MAY</p>
          <br/>
          <br/>
          <h3>
@@ -137,6 +134,7 @@
             <thead>
                <tr>
                   <th>Name</th>
+                  <th>Conformance</th>
                   <th>Description</th>
                </tr>
             </thead>
@@ -146,6 +144,7 @@
                      <a name="Questionnaire-search-type"> </a>
                      <span>search-type</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows a user to search for existing forms</p>
                   </td>
@@ -155,6 +154,7 @@
                      <a name="Questionnaire-read"> </a>
                      <span>read</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a specific known form</p>
                   </td>
@@ -164,6 +164,7 @@
                      <a name="Questionnaire-vread"> </a>
                      <span>vread</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a specific version of a form</p>
                   </td>
@@ -173,6 +174,7 @@
                      <a name="Questionnaire-history-instance"> </a>
                      <span>history-instance</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows review of changes to a form over time</p>
                   </td>
@@ -182,6 +184,7 @@
                      <a name="Questionnaire-create"> </a>
                      <span>create</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'.</p>
                   </td>
@@ -191,6 +194,7 @@
                      <a name="Questionnaire-update"> </a>
                      <span>update</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms.</p>
                   </td>
@@ -200,6 +204,7 @@
                      <a name="Questionnaire-validate"> </a>
                      <span>validate</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>SHOULD. Allows a client to verify whether a particular new form or revision of an existing form would be accepted based on validation and other business rules.  Useful for some workflows</p>
                   </td>
@@ -209,6 +214,7 @@
                      <a name="Questionnaire-delete"> </a>
                      <span>delete</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc.</p>
                   </td>
@@ -221,64 +227,57 @@
             <thead>
                <tr>
                   <th>Parameter</th>
+                  <th>Conformance</th>
                   <th>Type</th>
                   <th>Definition &amp; Chaining</th>
                </tr>
             </thead>
             <tbody>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaire#code">code</a>
-                  </th>
+                  <th>code</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaire#date">date</a>
-                  </th>
+                  <th>date</th>
+                  <td>SHALL</td>
                   <td>date</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaire#identifier">identifier</a>
-                  </th>
+                  <th>identifier</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaire#publisher">publisher</a>
-                  </th>
+                  <th>publisher</th>
+                  <td>SHALL</td>
                   <td>string</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaire#status">status</a>
-                  </th>
+                  <th>status</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaire#title">title</a>
-                  </th>
+                  <th>title</th>
+                  <td>SHALL</td>
                   <td>string</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaire#version">version</a>
-                  </th>
+                  <th>version</th>
+                  <td>SHALL</td>
                   <td>string</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaire-deReference">deReference</a>
-                  </th>
+                  <th>deReference</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
@@ -294,6 +293,7 @@
             <thead>
                <tr>
                   <th>Name</th>
+                  <th>Conformance</th>
                   <th>Description</th>
                </tr>
             </thead>
@@ -303,6 +303,7 @@
                      <a name="ValueSet-search-type"> </a>
                      <span>search-type</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows discovery of existing value sets for use in authoring questionnaires</p>
                   </td>
@@ -312,6 +313,7 @@
                      <a name="ValueSet-read"> </a>
                      <span>read</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a specific value set referenced within a questionnaire</p>
                   </td>
@@ -321,6 +323,7 @@
                      <a name="ValueSet-vread"> </a>
                      <span>vread</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a historical version of a value set as referenced within a questionnaire</p>
                   </td>
@@ -330,6 +333,7 @@
                      <a name="ValueSet-history-instance"> </a>
                      <span>history-instance</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows review of changes to a value set over time</p>
                   </td>
@@ -339,6 +343,7 @@
                      <a name="ValueSet-create"> </a>
                      <span>create</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows definition of a new value set used by one or more questionnaires</p>
                   </td>
@@ -348,6 +353,7 @@
                      <a name="ValueSet-update"> </a>
                      <span>update</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows existing value sets referenced by one or more questionnaires to be maintained</p>
                   </td>
@@ -357,6 +363,7 @@
                      <a name="ValueSet-validate"> </a>
                      <span>validate</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
                   </td>
@@ -366,6 +373,7 @@
                      <a name="ValueSet-delete"> </a>
                      <span>delete</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
                   </td>
@@ -378,78 +386,69 @@
             <thead>
                <tr>
                   <th>Parameter</th>
+                  <th>Conformance</th>
                   <th>Type</th>
                   <th>Definition &amp; Chaining</th>
                </tr>
             </thead>
             <tbody>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#code">code</a>
-                  </th>
+                  <th>code</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#date">date</a>
-                  </th>
+                  <th>date</th>
+                  <td>SHALL</td>
                   <td>date</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#description">description</a>
-                  </th>
+                  <th>description</th>
+                  <td>SHALL</td>
                   <td>string</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#identifier">identifier</a>
-                  </th>
+                  <th>identifier</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#name">name</a>
-                  </th>
+                  <th>name</th>
+                  <td>SHALL</td>
                   <td>string</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#publisher">publisher</a>
-                  </th>
+                  <th>publisher</th>
+                  <td>SHALL</td>
                   <td>string</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#reference">reference</a>
-                  </th>
+                  <th>reference</th>
+                  <td>SHALL</td>
                   <td>string</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#status">status</a>
-                  </th>
+                  <th>status</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#system">system</a>
-                  </th>
+                  <th>system</th>
+                  <td>SHALL</td>
                   <td>string</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/valueset#version">version</a>
-                  </th>
+                  <th>version</th>
+                  <td>SHALL</td>
                   <td>string</td>
                   <td/>
                </tr>
@@ -457,15 +456,17 @@
          </table>
       </div>
    </text>
+   
+   
   
   
   <name value="SDC Form Manager"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
   <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
-  </telecom>
+      <telecom>
+         <system value="url"/>
+         <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+      </telecom>
   </contact>
   <description value="This profile defines the expected capabilities of the ''SDC Form Manager'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data."/>
   <status value="draft"/>

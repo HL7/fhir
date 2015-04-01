@@ -8,9 +8,7 @@
          <h2>SDC Form Receiver</h2>
          <p>(Requirements Definition)</p>
          <p>Published: 2014-07-06 (draft)</p>
-         <p>Published by: <b>
-               <a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">U.S. Office of the National Coordinator (ONC)</a>
-            </b>
+         <p>Published by: <b/>
          </p>
          <p>This profile defines the expected capabilities of the <i>SDC Form Receiver</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for storing and returning completed and partially-completed forms.</p>
          <h2>General</h2>
@@ -52,30 +50,30 @@
                   <th>QuestionnaireAnswers</th>
                   <td>
                      <a title="Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update."
-                        href="#QuestionnaireAnswers-search-type">Yes</a>
+                        href="#QuestionnaireAnswers-search-type">SHALL</a>
                   </td>
                   <td/>
                   <td/>
                   <td>
                      <a title="Allows review of prior versions of an answer set - allows reversion to previously recorded versions"
-                        href="#QuestionnaireAnswers-history-instance">Yes</a>
+                        href="#QuestionnaireAnswers-history-instance">SHALL</a>
                   </td>
                   <td/>
                   <td>
                      <a title="Allows checking an answer set for validity against submission rules without persisting any data"
-                        href="#QuestionnaireAnswers-validate">Yes</a>
+                        href="#QuestionnaireAnswers-validate">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows recording a completed or partially-completed form"
-                        href="#QuestionnaireAnswers-create">Yes</a>
+                        href="#QuestionnaireAnswers-create">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)"
-                        href="#QuestionnaireAnswers-update">Yes</a>
+                        href="#QuestionnaireAnswers-update">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances."
-                        href="#QuestionnaireAnswers-delete">Yes</a>
+                        href="#QuestionnaireAnswers-delete">SHALL</a>
                   </td>
                </tr>
             </tbody>
@@ -90,6 +88,7 @@
             <thead>
                <tr>
                   <th>Name</th>
+                  <th>Conformance</th>
                   <th>Description</th>
                </tr>
             </thead>
@@ -99,6 +98,7 @@
                      <a name="QuestionnaireAnswers-search-type"> </a>
                      <span>search-type</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update.</p>
                   </td>
@@ -108,6 +108,7 @@
                      <a name="QuestionnaireAnswers-create"> </a>
                      <span>create</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows recording a completed or partially-completed form</p>
                   </td>
@@ -117,6 +118,7 @@
                      <a name="QuestionnaireAnswers-update"> </a>
                      <span>update</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)</p>
                   </td>
@@ -126,6 +128,7 @@
                      <a name="QuestionnaireAnswers-delete"> </a>
                      <span>delete</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances.</p>
                   </td>
@@ -135,6 +138,7 @@
                      <a name="QuestionnaireAnswers-history-instance"> </a>
                      <span>history-instance</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows review of prior versions of an answer set - allows reversion to previously recorded versions</p>
                   </td>
@@ -144,6 +148,7 @@
                      <a name="QuestionnaireAnswers-validate"> </a>
                      <span>validate</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows checking an answer set for validity against submission rules without persisting any data</p>
                   </td>
@@ -156,50 +161,45 @@
             <thead>
                <tr>
                   <th>Parameter</th>
+                  <th>Conformance</th>
                   <th>Type</th>
                   <th>Definition &amp; Chaining</th>
                </tr>
             </thead>
             <tbody>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaireanswers#author">author</a>
-                  </th>
+                  <th>author</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaireanswers#authored">authored</a>
-                  </th>
+                  <th>authored</th>
+                  <td>SHALL</td>
                   <td>date</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaireanswers#questionnaire">questionnaire</a>
-                  </th>
+                  <th>questionnaire</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaireanswers#status">status</a>
-                  </th>
+                  <th>status</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaireanswers#subject">subject</a>
-                  </th>
+                  <th>subject</th>
+                  <td>SHALL</td>
                   <td>token</td>
                   <td/>
                </tr>
                <tr>
-                  <th>
-                     <a href="http://hl7.org/fhir/SearchParameter/questionnaireanswers#encounter">encounter</a>
-                  </th>
+                  <th>encounter</th>
+                  <td>SHOULD</td>
                   <td>token</td>
                   <td/>
                </tr>
@@ -207,15 +207,17 @@
          </table>
       </div>
    </text>
+   
+   
   
   
   <name value="SDC Form Receiver"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
   <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
-  </telecom>
+      <telecom>
+         <system value="url"/>
+         <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+      </telecom>
   </contact>
   <description value="This profile defines the expected capabilities of the ''SDC Form Receiver'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for storing and returning completed and partially-completed forms."/>
   <status value="draft"/>

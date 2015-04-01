@@ -8,9 +8,7 @@
          <h2>SDC Data Element Curator</h2>
          <p>(Requirements Definition)</p>
          <p>Published: 2014-07-06 (draft)</p>
-         <p>Published by: <b>
-               <a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">U.S. Office of the National Coordinator (ONC)</a>
-            </b>
+         <p>Published by: <b/>
          </p>
          <p>This profile defines the expected capabilities of the <i>SDC Data Element Curator</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR Data Element Exchange implementation guide</a>.  This role is responsible for defining and updating data elements stored in a repository.</p>
          <h2>General</h2>
@@ -53,72 +51,72 @@
                   <th>DataElement</th>
                   <td>
                      <a title="Allows a user to search for existing data elements"
-                        href="#DataElement-search-type">Yes</a>
+                        href="#DataElement-search-type">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a specific known data element"
-                        href="#DataElement-read">Yes</a>
+                        href="#DataElement-read">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a specific version of a data element"
-                        href="#DataElement-vread">Yes</a>
+                        href="#DataElement-vread">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows review of changes to a data element over time"
-                        href="#DataElement-history-instance">Yes</a>
+                        href="#DataElement-history-instance">SHALL</a>
                   </td>
                   <td/>
                   <td>
                      <a title="Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows"
-                        href="#DataElement-validate">Yes</a>
+                        href="#DataElement-validate">SHOULD</a>
                   </td>
                   <td>
                      <a title="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'."
-                        href="#DataElement-create">Yes</a>
+                        href="#DataElement-create">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows maintaining data elements, such as adding additional mappings, display names, etc.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements."
-                        href="#DataElement-update">Yes</a>
+                        href="#DataElement-update">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."
-                        href="#DataElement-delete">Yes</a>
+                        href="#DataElement-delete">MAY</a>
                   </td>
                </tr>
                <tr>
                   <th>ValueSet</th>
                   <td>
                      <a title="Allows discovery of existing value sets for use in authoring data elements"
-                        href="#ValueSet-search-type">Yes</a>
+                        href="#ValueSet-search-type">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a specific value set referenced within a data element"
-                        href="#ValueSet-read">Yes</a>
+                        href="#ValueSet-read">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a historical version of a value set as referenced within a data element"
-                        href="#ValueSet-vread">Yes</a>
+                        href="#ValueSet-vread">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows review of changes to a value set over time"
-                        href="#ValueSet-history-instance">Yes</a>
+                        href="#ValueSet-history-instance">SHALL</a>
                   </td>
                   <td/>
                   <td>
                      <a title="Allows verification that a value set is valid prior to submission - useful for some workflows."
-                        href="#ValueSet-validate">Yes</a>
+                        href="#ValueSet-validate">SHOULD</a>
                   </td>
                   <td>
                      <a title="Allows definition of a new value set used by one or more data elements"
-                        href="#ValueSet-create">Yes</a>
+                        href="#ValueSet-create">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows existing value sets referenced by one or more data elements to be maintained"
-                        href="#ValueSet-update">Yes</a>
+                        href="#ValueSet-update">SHALL</a>
                   </td>
                   <td>
                      <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."
-                        href="#ValueSet-delete">Yes</a>
+                        href="#ValueSet-delete">MAY</a>
                   </td>
                </tr>
             </tbody>
@@ -133,6 +131,7 @@
             <thead>
                <tr>
                   <th>Name</th>
+                  <th>Conformance</th>
                   <th>Description</th>
                </tr>
             </thead>
@@ -142,6 +141,7 @@
                      <a name="DataElement-search-type"> </a>
                      <span>search-type</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows a user to search for existing data elements</p>
                   </td>
@@ -151,6 +151,7 @@
                      <a name="DataElement-read"> </a>
                      <span>read</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a specific known data element</p>
                   </td>
@@ -160,6 +161,7 @@
                      <a name="DataElement-vread"> </a>
                      <span>vread</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a specific version of a data element</p>
                   </td>
@@ -169,6 +171,7 @@
                      <a name="DataElement-history-instance"> </a>
                      <span>history-instance</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows review of changes to a data element over time</p>
                   </td>
@@ -178,6 +181,7 @@
                      <a name="DataElement-create"> </a>
                      <span>create</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'.</p>
                   </td>
@@ -187,6 +191,7 @@
                      <a name="DataElement-update"> </a>
                      <span>update</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows maintaining data elements, such as adding additional mappings, display names, etc.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements.</p>
                   </td>
@@ -196,6 +201,7 @@
                      <a name="DataElement-validate"> </a>
                      <span>validate</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows</p>
                   </td>
@@ -205,6 +211,7 @@
                      <a name="DataElement-delete"> </a>
                      <span>delete</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc.</p>
                   </td>
@@ -221,6 +228,7 @@
             <thead>
                <tr>
                   <th>Name</th>
+                  <th>Conformance</th>
                   <th>Description</th>
                </tr>
             </thead>
@@ -230,6 +238,7 @@
                      <a name="ValueSet-search-type"> </a>
                      <span>search-type</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows discovery of existing value sets for use in authoring data elements</p>
                   </td>
@@ -239,6 +248,7 @@
                      <a name="ValueSet-read"> </a>
                      <span>read</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a specific value set referenced within a data element</p>
                   </td>
@@ -248,6 +258,7 @@
                      <a name="ValueSet-vread"> </a>
                      <span>vread</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a historical version of a value set as referenced within a data element</p>
                   </td>
@@ -257,6 +268,7 @@
                      <a name="ValueSet-history-instance"> </a>
                      <span>history-instance</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows review of changes to a value set over time</p>
                   </td>
@@ -266,6 +278,7 @@
                      <a name="ValueSet-create"> </a>
                      <span>create</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows definition of a new value set used by one or more data elements</p>
                   </td>
@@ -275,6 +288,7 @@
                      <a name="ValueSet-update"> </a>
                      <span>update</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows existing value sets referenced by one or more data elements to be maintained</p>
                   </td>
@@ -284,6 +298,7 @@
                      <a name="ValueSet-validate"> </a>
                      <span>validate</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
                   </td>
@@ -293,6 +308,7 @@
                      <a name="ValueSet-delete"> </a>
                      <span>delete</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
                   </td>
@@ -301,14 +317,16 @@
          </table>
       </div>
    </text>
+   
+   
   
   <name value="SDC Data Element Curator"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
   <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
-  </telecom>
+      <telecom>
+         <system value="url"/>
+         <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+      </telecom>
   </contact>
   <description value="This profile defines the expected capabilities of the ''SDC Data Element Curator'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR Data Element Exchange implementation guide]].  This role is responsible for defining and updating data elements stored in a repository."/>
   <status value="draft"/>

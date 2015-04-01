@@ -8,9 +8,7 @@
          <h2>SDC Form Designer</h2>
          <p>(Requirements Definition)</p>
          <p>Published: 2014-07-06 (draft)</p>
-         <p>Published by: <b>
-               <a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">U.S. Office of the National Coordinator (ONC)</a>
-            </b>
+         <p>Published by: <b/>
          </p>
          <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
          <h2>General</h2>
@@ -53,106 +51,106 @@
                   <th>Questionnaire</th>
                   <td>
                      <a title="Allows discovery of existing questionnaires for editing"
-                        href="#Questionnaire-search-type">Yes</a>
+                        href="#Questionnaire-search-type">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a specific questionnaire by id"
-                        href="#Questionnaire-read">Yes</a>
+                        href="#Questionnaire-read">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a historical version of a questionnaire"
-                        href="#Questionnaire-vread">Yes</a>
+                        href="#Questionnaire-vread">SHOULD</a>
                   </td>
                   <td>
                      <a title="Allows review of changes to questionnaire over time"
-                        href="#Questionnaire-history-instance">Yes</a>
+                        href="#Questionnaire-history-instance">SHOULD</a>
                   </td>
                   <td/>
                   <td>
                      <a title="Allows verification that form is valid prior to submission - useful for some workflows."
-                        href="#Questionnaire-validate">Yes</a>
+                        href="#Questionnaire-validate">MAY</a>
                   </td>
                   <td>
-                     <a title="Allows submission of a new form design" href="#Questionnaire-create">Yes</a>
+                     <a title="Allows submission of a new form design" href="#Questionnaire-create">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one."
-                        href="#Questionnaire-update">Yes</a>
+                        href="#Questionnaire-update">SHALL</a>
                   </td>
                   <td>
                      <a title="Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."
-                        href="#Questionnaire-delete">Yes</a>
+                        href="#Questionnaire-delete">MAY</a>
                   </td>
                </tr>
                <tr>
                   <th>ValueSet</th>
                   <td>
                      <a title="Allows discovery of existing value sets for use by questions in a form"
-                        href="#ValueSet-search-type">Yes</a>
+                        href="#ValueSet-search-type">SHALL</a>
                   </td>
                   <td>
-                     <a title="Allows retrieval of a specific value set by id" href="#ValueSet-read">Yes</a>
+                     <a title="Allows retrieval of a specific value set by id" href="#ValueSet-read">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of a historical version of a value set"
-                        href="#ValueSet-vread">Yes</a>
+                        href="#ValueSet-vread">SHOULD</a>
                   </td>
                   <td>
                      <a title="Allows review of changes to a value set over time"
-                        href="#ValueSet-history-instance">Yes</a>
+                        href="#ValueSet-history-instance">SHOULD</a>
                   </td>
                   <td/>
                   <td>
                      <a title="Allows verification that a value set is valid prior to submission - useful for some workflows."
-                        href="#ValueSet-validate">Yes</a>
+                        href="#ValueSet-validate">MAY</a>
                   </td>
                   <td>
                      <a title="Allows definition of a new value set used by one or more questions"
-                        href="#ValueSet-create">Yes</a>
+                        href="#ValueSet-create">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one."
-                        href="#ValueSet-update">Yes</a>
+                        href="#ValueSet-update">SHALL</a>
                   </td>
                   <td>
                      <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."
-                        href="#ValueSet-delete">Yes</a>
+                        href="#ValueSet-delete">MAY</a>
                   </td>
                </tr>
                <tr>
                   <th>DataElement</th>
                   <td>
                      <a title="Allows a user to search for existing data elements for re-use in a form design"
-                        href="#DataElement-search-type">Yes</a>
+                        href="#DataElement-search-type">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows retrieval of data elements referenced in an existing form design"
-                        href="#DataElement-read">Yes</a>
+                        href="#DataElement-read">SHALL</a>
                   </td>
                   <td>
                      <a title="Allows viewing of specific versions of a data element if the form references a specific version"
-                        href="#DataElement-vread">Yes</a>
+                        href="#DataElement-vread">SHOULD</a>
                   </td>
                   <td>
                      <a title="Allows review of changes to a data element over time"
-                        href="#DataElement-history-instance">Yes</a>
+                        href="#DataElement-history-instance">SHOULD</a>
                   </td>
                   <td/>
                   <td>
                      <a title="Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission"
-                        href="#DataElement-validate">Yes</a>
+                        href="#DataElement-validate">MAY</a>
                   </td>
                   <td>
                      <a title="Allows defining new data elements for subsequent re-use while creating and editing forms"
-                        href="#DataElement-create">Yes</a>
+                        href="#DataElement-create">MAY</a>
                   </td>
                   <td>
                      <a title="Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one."
-                        href="#DataElement-update">Yes</a>
+                        href="#DataElement-update">MAY</a>
                   </td>
                   <td>
                      <a title="Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements."
-                        href="#DataElement-delete">Yes</a>
+                        href="#DataElement-delete">MAY</a>
                   </td>
                </tr>
             </tbody>
@@ -167,6 +165,7 @@
             <thead>
                <tr>
                   <th>Name</th>
+                  <th>Conformance</th>
                   <th>Description</th>
                </tr>
             </thead>
@@ -176,6 +175,7 @@
                      <a name="Questionnaire-search-type"> </a>
                      <span>search-type</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows discovery of existing questionnaires for editing</p>
                   </td>
@@ -185,6 +185,7 @@
                      <a name="Questionnaire-read"> </a>
                      <span>read</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a specific questionnaire by id</p>
                   </td>
@@ -194,6 +195,7 @@
                      <a name="Questionnaire-create"> </a>
                      <span>create</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows submission of a new form design</p>
                   </td>
@@ -203,6 +205,7 @@
                      <a name="Questionnaire-update"> </a>
                      <span>update</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one.</p>
                   </td>
@@ -212,6 +215,7 @@
                      <a name="Questionnaire-history-instance"> </a>
                      <span>history-instance</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>Allows review of changes to questionnaire over time</p>
                   </td>
@@ -221,6 +225,7 @@
                      <a name="Questionnaire-vread"> </a>
                      <span>vread</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>Allows retrieval of a historical version of a questionnaire</p>
                   </td>
@@ -230,6 +235,7 @@
                      <a name="Questionnaire-delete"> </a>
                      <span>delete</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner.</p>
                   </td>
@@ -239,6 +245,7 @@
                      <a name="Questionnaire-validate"> </a>
                      <span>validate</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Allows verification that form is valid prior to submission - useful for some workflows.</p>
                   </td>
@@ -255,6 +262,7 @@
             <thead>
                <tr>
                   <th>Name</th>
+                  <th>Conformance</th>
                   <th>Description</th>
                </tr>
             </thead>
@@ -264,6 +272,7 @@
                      <a name="ValueSet-search-type"> </a>
                      <span>search-type</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows discovery of existing value sets for use by questions in a form</p>
                   </td>
@@ -273,6 +282,7 @@
                      <a name="ValueSet-read"> </a>
                      <span>read</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of a specific value set by id</p>
                   </td>
@@ -282,6 +292,7 @@
                      <a name="ValueSet-create"> </a>
                      <span>create</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows definition of a new value set used by one or more questions</p>
                   </td>
@@ -291,6 +302,7 @@
                      <a name="ValueSet-update"> </a>
                      <span>update</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one.</p>
                   </td>
@@ -300,6 +312,7 @@
                      <a name="ValueSet-history-instance"> </a>
                      <span>history-instance</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>Allows review of changes to a value set over time</p>
                   </td>
@@ -309,6 +322,7 @@
                      <a name="ValueSet-vread"> </a>
                      <span>vread</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>Allows retrieval of a historical version of a value set</p>
                   </td>
@@ -318,6 +332,7 @@
                      <a name="ValueSet-delete"> </a>
                      <span>delete</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
                   </td>
@@ -327,6 +342,7 @@
                      <a name="ValueSet-validate"> </a>
                      <span>validate</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
                   </td>
@@ -343,6 +359,7 @@
             <thead>
                <tr>
                   <th>Name</th>
+                  <th>Conformance</th>
                   <th>Description</th>
                </tr>
             </thead>
@@ -352,6 +369,7 @@
                      <a name="DataElement-search-type"> </a>
                      <span>search-type</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows a user to search for existing data elements for re-use in a form design</p>
                   </td>
@@ -361,6 +379,7 @@
                      <a name="DataElement-read"> </a>
                      <span>read</span>
                   </th>
+                  <td>SHALL</td>
                   <td>
                      <p>Allows retrieval of data elements referenced in an existing form design</p>
                   </td>
@@ -370,6 +389,7 @@
                      <a name="DataElement-vread"> </a>
                      <span>vread</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>Allows viewing of specific versions of a data element if the form references a specific version</p>
                   </td>
@@ -379,6 +399,7 @@
                      <a name="DataElement-history-instance"> </a>
                      <span>history-instance</span>
                   </th>
+                  <td>SHOULD</td>
                   <td>
                      <p>Allows review of changes to a data element over time</p>
                   </td>
@@ -388,6 +409,7 @@
                      <a name="DataElement-create"> </a>
                      <span>create</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Allows defining new data elements for subsequent re-use while creating and editing forms</p>
                   </td>
@@ -397,6 +419,7 @@
                      <a name="DataElement-update"> </a>
                      <span>update</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one.</p>
                   </td>
@@ -406,6 +429,7 @@
                      <a name="DataElement-delete"> </a>
                      <span>delete</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements.</p>
                   </td>
@@ -415,6 +439,7 @@
                      <a name="DataElement-validate"> </a>
                      <span>validate</span>
                   </th>
+                  <td>MAY</td>
                   <td>
                      <p>Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission</p>
                   </td>
@@ -423,15 +448,17 @@
          </table>
       </div>
    </text>
+   
+   
   
   
   <name value="SDC Form Designer"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
   <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
-  </telecom>
+      <telecom>
+         <system value="url"/>
+         <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+      </telecom>
   </contact>
   <description value="This profile defines the expected capabilities of the ''SDC Form Designer'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining forms ([[Questionnaire]] resource instances) that include references to [[DataElement]] resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms."/>
   <status value="draft"/>
