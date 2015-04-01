@@ -3571,6 +3571,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+Utilities.escapeXml(resource.getName())+s3;
       else if (com[0].equals("status"))
         src = s1+resource.getStatus()+s3;
+      else if (com[0].equals("draft-note"))
+        src = s1+getDraftNote(resource)+s3;
       else if (com[0].equals("introduction")) 
         src = s1+loadXmlNotes(name, "introduction", true, resource.getRoot().getDefinition(), resource, tabs)+s3;
       else if (com[0].equals("notes")) 
@@ -3661,6 +3663,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
     }
     return src;
+  }
+
+  private String getDraftNote(ResourceDefn resource) {
+    if ("draft".equals(resource.getStatus()))
+      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This resource is <a href=\"ballot-intro.html#draft\">marked as a draft</a>.</p>";
+    else
+      return "";
   }
 
   private String abstractResourceTitle(ResourceDefn resource) {
@@ -5389,6 +5398,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String[] parts = linkText.split("\\#");
       if (parts[0].contains("/StructureDefinition/")) {
         StructureDefinition ed = workerContext.getExtensionStructure(null, parts[0]);
+        if (ed == null)
+          throw new Error("Unable to find extension "+parts[0]);
         url = ed.getUserData("filename")+".html";
       } 
       if (Utilities.noString(url)) {

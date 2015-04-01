@@ -728,6 +728,8 @@ public class SourceParser {
 		  definitions.getKnownResources().put(root.getName(), new DefinedCode(root.getName(), root.getRoot().getDefinition(), n));
 		}
 		root.setStatus(ini.getStringProperty("status", n));
+		if (Utilities.noString(root.getStatus()) && ini.getBooleanProperty("draft-resources", root.getName()))
+		  root.setStatus("draft");
 		return root;
 	}
 
