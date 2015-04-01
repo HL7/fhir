@@ -4598,7 +4598,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             tryAdd(slices, describeSlice(ed.getPath(), ed.getSlicing()));
         }
       }
-      StringBuilder res = new StringBuilder("<a name=\"summary\"> </a>\r\n<h2>\r\nSummary\r\n</h2>\r\n");
+      StringBuilder res = new StringBuilder("<a name=\"summary\"> </a>\r\n<p><b>\r\nSummary\r\n</b></p>\r\n");
       if (supports + requireds + fixeds + prohibits > 0) {
         boolean started = false;
         res.append("<p>");
@@ -4906,7 +4906,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "";
     else {
       StringBuilder b = new StringBuilder();
-      b.append("<h2>Terminology Bindings</h2>\r\n");       
+      b.append("<h4>Terminology Bindings</h4>\r\n");       
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Path</b></td><td><b>Name</b></td><td><b>Conformance</b></td><td><b>ValueSet</b></td></tr>\r\n");
       for (String path : txlist)  {
@@ -4945,7 +4945,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "";
     else {
       StringBuilder b = new StringBuilder();
-      b.append("<h2>Constraints</h2>\r\n");       
+      b.append("<h4>Constraints</h4>\r\n");       
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td width=\"60\"><b>Id</b></td><td><b>Path</b></td><td><b>Name</b></td><td><b>Details</b></td></tr>\r\n");
       for (String path : txlist)  {
