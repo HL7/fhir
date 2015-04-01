@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
 file: spec-uslab-example1.xml
  id: uslab-example2
  Name: USLab Specimen Example2
@@ -8,32 +8,19 @@ Description: USLab Specimen Profile  Example: Urine- first catch
 Published by HL7 Orders and Observation Work Group
 Authored by: Eric M Haas  Health eData Inc.
 
-  
+
 -->
 <Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/specimen.xsd">
 	<id value="uslab-example2"/>
-	<!-- EH; Let FHIR build generate the narrative text
-<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<ul>
-				<li>file: spec-uslab-example1.xml</li>
-				<li> id: uslab-example1</li>
-				<li> Name: USLab Specimen Example1</li>
-				<li>Description: USLab Specimen Profile Canonical Example: Whole Blood</li>
-			</ul>
-		</div>
-	</text>
--->
+
 	<!-- a specimen identifier - e.g. assigned when the specimen was taken by the orderer/placer  use the accession number for the filling lab -->
 	<!--Placer ID-->
 	<identifier>
 		<use value="official"/>
-		<type><text value="Placer Specimen ID"/></type>
 		<system value="http://ehr.goodhealthclinic.org/identifiers/specimen"/>
 		<value value="SID456"/>
 	</identifier>
-	<!--Filler ID moved to accsession number 
+	<!--Filler ID moved to accsession number
 	<identifier>
 		<use value="official"></use>
 		<label  value="Filler Specimen ID"></label>
@@ -43,10 +30,10 @@ Authored by: Eric M Haas  Health eData Inc.
 -->
 	<!--
    Type is a loosely defined field because there is such a lot of variation in how it is used.
-   The principal variation is how much information that could be represented elsewhere is also 
+   The principal variation is how much information that could be represented elsewhere is also
    represented here. For instance, here's some possible types:
      lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)
-     transfusion bag of blood (+ container.type) 
+     transfusion bag of blood (+ container.type)
      Peritoneal lavage        (+ collection.bodySite)
    If the type includes other fields, it would be normal not to populate the other fields
 
@@ -80,7 +67,7 @@ Authored by: Eric M Haas  Health eData Inc.
 		<value value="21041205000001"/>
 	</accessionIdentifier>
 	<collection>
-		<!-- the time of collection is required. Usually a point in time, but can be a period 
+		<!-- the time of collection is required. Usually a point in time, but can be a period
       (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine) -->
 		<collectedDateTime value="2014-12-05"/>
 	</collection>
