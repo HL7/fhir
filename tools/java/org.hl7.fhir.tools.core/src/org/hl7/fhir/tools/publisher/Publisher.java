@@ -346,8 +346,11 @@ public class Publisher implements URIResolver {
 //    if (hasParam(args, "-langfolder"))
 //      pub.setAlternativeLangFolder(getNamedParam(args, "-langfolder"));
     if (pub.web) {
-      pub.page.setPublicationType("Development Version");
-      pub.page.setPublicationNotice(PageProcessor.PUB_NOTICE);
+      pub.page.setPublicationType(PageProcessor.WEB_PUB_NAME);
+      pub.page.setPublicationNotice(PageProcessor.WEB_PUB_NOTICE);
+    } else {
+      pub.page.setPublicationType(PageProcessor.CI_PUB_NAME);
+      pub.page.setPublicationNotice(PageProcessor.CI_PUB_NOTICE);      
     }
     try {
       String dir = hasParam(args, "-folder") ? getNamedParam(args, "-folder") : System.getProperty("user.dir");
@@ -3932,7 +3935,14 @@ public class Publisher implements URIResolver {
       span.addText(v);
       XhtmlNode a = span.addTag("a");
       a.setAttribute("name", v);
-      a.addText(" "); // bug in some browsers?
+        a.addText(" "); // bug in some browsers?
+        node.addText(" ");
+        a = node.addTag("a");
+        a.setAttribute("href", link+"#"+v);
+        a.setAttribute("title", "link to here");
+        XhtmlNode img = a.addTag("img");
+        img.attribute("src", "target.png");
+
     }
     if (node.getNodeType() == NodeType.Document
         || (node.getNodeType() == NodeType.Element && !(node.getName().equals("div") && "sidebar".equals(node.getAttribute("class"))))) {

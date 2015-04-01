@@ -350,8 +350,12 @@ public class Utilities {
 
 
   public static String appendSlash(String definitions) {
-    return definitions.endsWith(File.separator) ? definitions : definitions+File.separator;
-  }
+	    return definitions.endsWith(File.separator) ? definitions : definitions+File.separator;
+	  }
+
+  public static String appendForwardSlash(String definitions) {
+	    return definitions.endsWith("/") ? definitions : definitions+"/";
+	  }
 
 
   public static String fileTitle(String file) {

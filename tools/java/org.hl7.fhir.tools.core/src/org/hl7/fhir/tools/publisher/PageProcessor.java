@@ -201,11 +201,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
   public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:980/open";
   
-  public final static String PUB_NOTICE =
+  public final static String WEB_PUB_NAME = "DSTU2 Ballot Source";
+  public final static String CI_PUB_NAME = "Current Build";
+  
+  public final static String WEB_PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
-          "This is the stable development version of FHIR. There's also a <a href=\"http://hl7.org/fhir\">Current DSTU</a>, and a <a href=\"http://latest.fhir.me/\">Continuous Integration Build</a> (will be incorrect/inconsistent at times).\r\n"+
+          "This is the DSTU2 <b>ballot</b> version of FHIR, and not intended for implementation. See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
           "</p>\r\n";
   
+  public final static String CI_PUB_NOTICE = 
+      "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
+          "This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
+          "</p>\r\n";
+      
 //  private boolean notime;
   
   private String dictForDt(String dt) throws Exception {
