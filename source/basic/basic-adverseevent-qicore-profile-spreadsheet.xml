@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9780</WindowHeight>
-  <WindowWidth>20352</WindowWidth>
+  <WindowHeight>9348</WindowHeight>
+  <WindowWidth>23016</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>669</TabRatio>
@@ -3983,7 +3983,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3997,9 +3997,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5241,7 +5244,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference(Medication){http://hl7.org/fhir/StructureDefinition/medication-qicore-qicore-medication} | Reference(MedicationAdministration) {http://hl7.org/fhir/StructureDefinition/medicationadministration-qicore-qicore-medicationadministration} | Reference(Device){http://hl7.org/fhir/StructureDefinition/device-qicore-qicore-device} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/procedure-qicore- qicore-procedure} | Reference(ImagingStudy){http://hl7.org/fhir/StructureDefinition/imagingstudy-qicore-qicore-imagingstudy}  | Reference (Communication){http://hl7.org/fhir/StructureDefinition/communication-qicore-qicore-communication}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference(Medication){http://hl7.org/fhir/StructureDefinition/medication-qicore-qicore-medication} | Reference(MedicationAdministration) {http://hl7.org/fhir/StructureDefinition/medicationadministration-qicore-qicore-medicationadministration} | Reference(Device){http://hl7.org/fhir/StructureDefinition/device-qicore-qicore-device} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/procedure-qicore-qicore-procedure} | Reference(ImagingStudy){http://hl7.org/fhir/StructureDefinition/imagingstudy-qicore-qicore-imagingstudy}  | Reference (Communication){http://hl7.org/fhir/StructureDefinition/communication-qicore-qicore-communication}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5880,8 +5883,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
