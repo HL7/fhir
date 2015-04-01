@@ -25,6 +25,10 @@
  the specified focal resource may not be required or may be employed as one of the Operation parameters.
  </p>
  
+ <p><b>Note:</b> The SupportingDocumentation resource has been deprecated in favour of DocumentManifest for the excahnge of attachments
+ and supporting materials, PDF, Images, XRays, etc.
+ </p>
+ 
 <table class="grid">
  <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
  <tr><td>Eligibility Check</td><td>EligibilityRequest</td><td>EligibilityResponse</td></tr>
@@ -39,7 +43,7 @@
  <tr><td>Pended Check (Polling)</td><td>ProcessRequest (action=poll)</td><td>{Resource} or ProcessResponse</td></tr>
  <tr><td>Payment Notice</td><td>PaymentNotice</td><td>ProcessResponse</td></tr>
  <tr><td>Payment Reconciliation</td><td>ProcessRequest (action=poll, include=PaymentReconciliation)</td><td>PaymentReconciliation</td></tr>
- <tr><td>Send Attachments</td><td>SupportingDocumentation</td><td>ProcessResponse</td></tr>
+ <tr><td>Send Attachments</td><td>DocumentManifest</td><td>ProcessResponse</td></tr>
  <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td>ProcessRequest (action=poll, include=ExplanationOfBenefit)</td><td>ExplanationOfBenefit</td></tr>
 </table>
  <p>
@@ -60,7 +64,7 @@
 [%res-item EnrollmentResponse%]
 [%res-item ProcessRequest%]
 [%res-item ProcessResponse%]
-[%res-item SupportingDocumentation%]
+[%res-item DocumentManifest%]
 
 [%res-category Billing|Claims, processing and responses %]
 <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
