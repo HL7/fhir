@@ -221,7 +221,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private BindingNameRegistry registry;
   private String oid; // technical identifier associated with the page being built
   private EPubManager epub;
-  private String baseURL = "http://hl7.org/implement/standards/FHIR-Develop/";
+  private String baseURL = "http://hl7.org/fhir/DSTU1/";
   private SpecificationTerminologyServices terminologyServices;
   private final String tsServer; // terminology to use
   private final WorkerContext workerContext;
@@ -239,7 +239,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
-  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:980/open";
+  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960/open";
   
   public final static String WEB_PUB_NAME = "DSTU2 Ballot Source";
   public final static String CI_PUB_NAME = "Current Build";
@@ -4332,6 +4332,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("         activate: function( event, ui ) {\r\n");
     s.append("             var active = $('.selector').tabs('option', 'active');\r\n");
     s.append("             currentTabIndex = ui.newTab.index();\r\n");
+    s.append("             document.activeElement.blur();\r\n");
     s.append("             try {\r\n");
     s.append("               sessionStorage.setItem('fhir-sdelist-tab-index', currentTabIndex);\r\n");
     s.append("             }\r\n");

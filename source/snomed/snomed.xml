@@ -799,6 +799,11 @@
     <display value="Medical laboratory technician"/>
     <display value="Medical laboratory technician (occupation)"/>
   </concept>
+  <concept id="160237006" display="History/symptoms (navigational concept)">
+    <display value="History/symptoms"/>
+    <display value="History/symptoms (navigational concept)"/>
+    <display value="History/symptoms (context-dependent category)"/>
+  </concept>
   <concept id="160670007" display="Diabetic diet (finding)">
     <display value="DD - Diabetic diet"/>
     <display value="Diabetic diet"/>
@@ -2929,6 +2934,13 @@
     <display value="Serum bicarbonate level"/>
     <display value="Serum bicarbonate measurement"/>
     <display value="Serum bicarbonate measurement (procedure)"/>
+  </concept>
+  <concept id="271336007" display="Examination / signs (situation)">
+    <display value="Examination / signs (context-dependent category)"/>
+    <display value="Examination / signs"/>
+    <display value="Examination / signs (situation)"/>
+    <display value="Examination / Signs"/>
+    <display value="Examination / Signs (context-dependent category)"/>
   </concept>
   <concept id="27138006" display="Saccharin (substance)">
     <display value="Benzosulphimide"/>
@@ -5846,6 +5858,21 @@
     <display value="Liquids included in the diet are provided at a viscosity of 51--350 centipoise (cP). (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
     <display value="Dietary liquid consistency - nectar thick liquid (regime/therapy)"/>
     <display value="Dietary liquid consistency - nectar thick liquid"/>
+  </concept>
+  <concept id="439031000124108" display="Dietary liquid consistency - honey thick liquid (regime/therapy)">
+    <display value="Liquids included in the diet are provided at a viscosity of 351-1750 centipoise (cP). (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
+    <display value="Dietary liquid consistency - honey thick liquid (regime/therapy)"/>
+    <display value="Dietary liquid consistency - honey thick liquid"/>
+  </concept>
+  <concept id="439041000124103" display="Dietary liquid consistency - spoon thick liquid (regime/therapy)">
+    <display value="Liquids included in the diet are provided at a viscosity of &gt; 1750 centipoise (cP). (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
+    <display value="Dietary liquid consistency - spoon thick liquid (regime/therapy)"/>
+    <display value="Dietary liquid consistency - spoon thick liquid"/>
+  </concept>
+  <concept id="439081000124109" display="Liquids included in the diet are provided at a viscosity of 1-50 centipoise (cP). (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013).">
+    <display value="Liquids included in the diet are provided at a viscosity of 1-50 centipoise (cP). (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
+    <display value="Dietary liquid consistency - thin liquid (regime/therapy)"/>
+    <display value="Dietary liquid consistency - thin liquid"/>
   </concept>
   <concept id="439091000124107" display="Easy to chew food (substance)">
     <display value="Easy to chew food (substance)"/>

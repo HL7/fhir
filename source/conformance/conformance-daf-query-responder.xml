@@ -28,7 +28,7 @@
 	  
       <h2>REST  behavior</h2>
       <p>The DAF Responder SHALL support the <a href="patient-daf.html">DAFPatient</a> resource profile. In addition to the DAFPatient, the DAF Responder SHALL support at least one additional resource profile from the list of <a href="daf.html">DAF profiles</a>. 
-	  The DAF Responder SHALL implement REST behavior according to the <a href="http://hl7.org/implement/standards/fhir/http.html">FHIR</a> specification.
+	  The DAF Responder SHALL implement REST behavior according to the <a href="http.html">FHIR</a> specification.
 	  The DAF Responder SHALL support both json and xml resource formats for all DAF interactions. The DAF Responder SHALL identify the DAF profile(s) supported as part of the FHIR BaseResource.Meta.profile attribute for each instance.</p>
       <p>
         <b>Security:</b>

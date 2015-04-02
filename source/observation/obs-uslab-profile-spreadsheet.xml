@@ -28493,7 +28493,7 @@
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">http://hl7.org/implement/standards/fhir/v2/0078/index.html</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">http://hl7.org/fhir/v2/0078/index.html</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s142"/>
    </Row>
@@ -28525,7 +28525,7 @@
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">http://hl7.org/implement/standards/fhir/v2/0490/index.html</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">http://hl7.org/fhir/v2/0490/index.html</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s145"/>
    </Row>
