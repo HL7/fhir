@@ -1,108 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This DataElement is an example reflecting the content of row 15 of the Google document:
-     https://docs.google.com/a/lmckenzie.com/spreadsheets/d/1YJ1Q10Hn_B-Yu-iIxzo28f6PsIfs4_b_-hhXsB64Vl4/edit#gid=1476288095 -->
+<!-- This DataElement is an example reflecting the CCDA patient gender element -->
 <DataElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/dataelement.xsd" xmlns="http://hl7.org/fhir">
   <id value="sdc-gender"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
   </text>
-  <contained>
-    <ValueSet>
-      <id value="de42"/>
-      <!--
-         Side notes:
-          - "1" is not a valid code system version for AdministrativeGender
-          - The definition and display name for code "UN" is not valid
-        -->
-      <name value="Administrative Gender (HL7 V3)"/>
-      <description value="TODO - remove"/>
-      <status value="draft"/>
-      <compose>
-        <include>
-          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-          <version value="1"/>
-          <concept>
-            <code value="M"/>
-            <display value="Male"/>
-          </concept>
-          <concept>
-            <code value="F"/>
-            <display value="Female"/>
-          </concept>
-        </include>
-      </compose>
-    </ValueSet>
-  </contained>
   <identifier>
     <system value="http://nlm.nih.gov/some_other_text/data_element_identifier"/>
     <value value="DE42AHRQ"/>
   </identifier>
-  <version value="1.2"/>
   <name value="Patient Gender"/>
-  <useContext>
-    <coding>
-      <code value="Healthcare Event Reporting Form"/>
-      <!-- Wasn't clear if the above was a code -->
-      <display value="Patient safety event report - hospital: healthcare event reporting form"/>
-    </coding>
-  </useContext>
   <status value="draft"/>
-  <date value="2012-10-21"/>
-  <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
+  <date value="2015-02-04"/>
+  <publisher value="Health Level Seven, International"/>
   <contact>
     <telecom>
-      <system value="email"/>
-      <value value="william.munier@ahrq.hhs.gov"/>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
     </telecom>
   </contact>
   <mapping>
-    <identity value="objclass"/>
-    <uri value="http://healthit.gov/sdc/objectclassproperty"/>
-    <name value="Structured Data Capture ObjectClass/Property"/>
+    <identity value="ccda"/>
+    <uri value="http://hl7.org/CCDA-not-a-real-url"/>
+    <name value="Consolidated CDA R2"/>
   </mapping>
   <element>
-    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
-      <valueString value="Patient's Gender"/>
-    </extension>
-    <path value="gender"/>
-    <code>
-      <system value="http://loinc.org"/>
-      <code value="72143-1"/>
-      <primary value="true"/>
-    </code>
-    <definition value="The patient's documented gender on arrival at the hospital. "/>
-    <requirements value="AHRQ Healthcare Event Reporting Form
-Patient safety event report - hospital: healthcare event reporting form
-(HERF) - version 1.2 [AHRQ]
-https://www.psoppc.org/c/document_library/get_file?uuid=6034c5aa-ad07-4dbe-ab19-0b45fb160683&amp;groupId=10218"/>
+    <path value="administrativeGender"/>
+    <definition value="The gender (i.e., the behavioral, cultural, or psychological traits typically associated with one sex) of a living subject as defined for administrative purposes."/>
     <type>
       <code value="CodeableConcept"/>
     </type>
     <binding>
-      <name value="Gender"/>
+      <name value="AdministrativeGender"/>
       <strength value="required"/>
       <valueSetReference>
-        <reference value="#de42"/>
+        <reference value="http://hl7.org/fhir/vs/AdministrativeGender"/>
       </valueSetReference>
     </binding>
     <mapping>
-      <extension url="http://hl7.org/fhir/StructureDefinition/11179-objectClass">
-        <valueCoding>
-          <system value="http://snomed.info/sct"/>
-          <code value="116154003"/>
-          <display value="Patient"/>
-        </valueCoding>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/11179-objectClassProperty">
-        <valueCoding>
-          <system value="http://snomed.info/sct"/>
-          <code value="263495000"/>
-          <display value="Gender"/>
-        </valueCoding>
-      </extension>
-      <identity value="objclass"/>
-      <map value="http://snomed.info/sct#116154003 | http://snomed.info/sct | 263495000"/>
+      <identity value="ccda"/>
+      <language value="xpath"/>
+      <map value="/ClinicalDocument/recordTarget/patientRole/patient/administrativeGender"/>
     </mapping>
   </element>
 </DataElement>
