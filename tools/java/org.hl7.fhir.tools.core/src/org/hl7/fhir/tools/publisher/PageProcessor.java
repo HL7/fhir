@@ -4169,7 +4169,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       StringBuilder s = new StringBuilder();
       s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
       for (Example e: resource.getExamples()) {
-        produceExampleListEntry(s, e, null);
+        if (e.isRegistered())
+          produceExampleListEntry(s, e, null);
       }
       for (Profile p : resource.getConformancePackages()) {
         if (definitions.doPublish(p.getCategory())) {
@@ -4366,13 +4367,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String produceBookExamples(ResourceDefn resource) {
     StringBuilder s = new StringBuilder();
     for (Example e: resource.getExamples()) {
-     if (e.isInBook()) {
-        s.append("<h3>").append(Utilities.escapeXml(e.getName())).append("</h3>\r\n");
-        s.append("<p>XML</p>\r\n");
-        s.append(e.getXhtm());
-        s.append("<p>JSON</p>\r\n");
-        s.append(e.getJson());
-      }
+      s.append("<h3>").append(Utilities.escapeXml(e.getName())).append("</h3>\r\n");
+      s.append("<p>XML</p>\r\n");
+      s.append(e.getXhtm());
+      s.append("<p>JSON</p>\r\n");
+      s.append(e.getJson());
     }
     return s.toString();
   }
@@ -4750,7 +4749,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         res.append("\r\n</ul>\r\n\r\n");
       }
       if (!ext.isEmpty()) {
-        res.append("<p><b>Extensions</b></p>\r\n<p>This structure refers to these other extensions:</p>\r\n<ul>\r\n");
+        res.append("<p><b>Extensions</b></p>\r\n<p>This structure refers to these extensions:</p>\r\n<ul>\r\n");
         for (String s : ext)
           res.append(s);
         res.append("\r\n</ul>\r\n\r\n");
@@ -4786,7 +4785,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private void tryAdd(List<String> ext, String s) {
-    if (!ext.contains(s))
+    if (!Utilities.noString(s) && !ext.contains(s))
       ext.add(s);
   }
 
@@ -4794,10 +4793,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StructureDefinition ed = workerContext.getExtensionStructure(null, url);
     if (ed == null)
       return "<li>unable to summarise extension "+url+" (no extension found)</li>";
-    return "<li><a href=\""+ed.getUserData("filename")+".html\">"+url+"</a>"+(modifier ? " (<b>Modifier</b>) " : "")+"</li>\r\n";    
+    if (ed.getUserData("filename") == null)
+      return "<li><a href=\"extension-"+ed.getId().toLowerCase()+".html\">"+url+"</a>"+(modifier ? " (<b>Modifier</b>) " : "")+"</li>\r\n";    
+    else
+      return "<li><a href=\""+ed.getUserData("filename")+".html\">"+url+"</a>"+(modifier ? " (<b>Modifier</b>) " : "")+"</li>\r\n";    
   }
 
   private String describeProfile(String url) throws Exception {
+    if (url.startsWith("http://hl7.org/fhir/StructureDefinition/") && (definitions.hasType(url.substring(40)) || definitions.hasResource(url.substring(40)) || "Resource".equals(url.substring(40))))
+      return null;
+    
     StructureDefinition ed = workerContext.getProfiles().get(url);
     if (ed == null) {
       // work around for case consistency problems in ballot package

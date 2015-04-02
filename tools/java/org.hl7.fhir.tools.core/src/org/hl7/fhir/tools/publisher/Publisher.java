@@ -513,8 +513,6 @@ public class Publisher implements URIResolver {
         Utilities.clearDirectory(page.getFolders().dstDir);
       Utilities.createDirectory(page.getFolders().dstDir + "html");
       Utilities.createDirectory(page.getFolders().dstDir + "examples");
-      Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "web");
-      Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "dload");
 
       String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
       generateECore(prsr.getECoreParseResults(), eCorePath);
@@ -2953,11 +2951,6 @@ public class Publisher implements URIResolver {
 //      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
 //    }
 
-    src = TextFile.fileToString(page.getFolders().srcDir + template+"-definitions.html");
-    TextFile.stringToFile(
-        insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html"), st, n
-            + "-definitions.html"), page.getFolders().dstDir + n + "-definitions.html");
-    page.getEpub().registerFile(n + "-definitions.html", "Detailed Descriptions for " + resource.getName(), EPubManager.XHTML_TYPE);
     if (!isAbstract || !resource.getExamples().isEmpty()) {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-examples.html");
       TextFile.stringToFile(
@@ -2972,6 +2965,14 @@ public class Publisher implements URIResolver {
           // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
         }
       }
+    }
+    src = TextFile.fileToString(page.getFolders().srcDir + template+"-definitions.html");
+    TextFile.stringToFile(
+        insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html"), st, n
+            + "-definitions.html"), page.getFolders().dstDir + n + "-definitions.html");
+    page.getEpub().registerFile(n + "-definitions.html", "Detailed Descriptions for " + resource.getName(), EPubManager.XHTML_TYPE);
+
+    if (!isAbstract) {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.html");
       TextFile.stringToFile(
           insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html"), st, n + "-mappings.html"),
@@ -3371,11 +3372,9 @@ public class Publisher implements URIResolver {
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
     html = page.processPageIncludes(n + ".xml.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example");
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
-    if (e.isInBook()) {
-      XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.html"), "html");
-      XhtmlNode pre = d.getElement("html").getElement("body").getElement("div");
-      e.setXhtm(b.toString());
-    }
+    XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.html"), "html");
+    XhtmlNode pre = d.getElement("html").getElement("body").getElement("div");
+    e.setXhtm(b.toString());
     if (!Utilities.noString(e.getId()))
       Utilities.copyFile(new CSFile(page.getFolders().dstDir + n + ".xml"),
           new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + "(" + e.getId() + ").xml"));
@@ -3946,6 +3945,7 @@ public class Publisher implements URIResolver {
         a = node.addTag("a");
         a.setAttribute("href", link+"#"+v);
         a.setAttribute("title", "link to here");
+        a.setAttribute("class", "self-link");
         XhtmlNode img = a.addTag("img");
         img.attribute("src", "target.png");
 

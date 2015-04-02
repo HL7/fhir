@@ -450,7 +450,7 @@ public class SpreadsheetParser {
             throw new Exception("Unknown source type: "+type+" at "+getLocation(row));
           String example = checkFile(sheet, row, "Example", true, null); // todo-profile
           if (example != null)
-            pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getSource(), new File(example), ExampleType.XmlFile, false, isAbstract));
+            pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getSource(), new File(example), true, ExampleType.XmlFile, isAbstract));
           defn.getConformancePackages().add(pack);
         }
       }
@@ -1045,8 +1045,9 @@ public class SpreadsheetParser {
 					String pn = sheet.getColumn(row, "Profile"); 
 					if (Utilities.noString(pn)) {
 					  defn.getExamples().add(new Example(name, id, desc, file, 
+					      parseBoolean(sheet.getColumn(row, "Registered"), row, true), 
 					      parseExampleType(type, row),
-					      parseBoolean(sheet.getColumn(row, "In Book"), row, false), isAbstract));
+					      isAbstract));
 					} else {
 					  Profile ap = null;
 					  for (Profile r : defn.getConformancePackages()) {
@@ -1055,7 +1056,7 @@ public class SpreadsheetParser {
 					  }
 					  if (ap == null)
 					    throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
-					  ap.getExamples().add(new Example(filename, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false), isAbstract));
+					  ap.getExamples().add(new Example(filename, id, desc, file, parseBoolean(sheet.getColumn(row, "Registered"), row, true), parseExampleType(type, row), isAbstract));
 					}
 				}
 			}
@@ -1066,7 +1067,7 @@ public class SpreadsheetParser {
 				throw new Exception("Example (file '" + file.getAbsolutePath() + "') not found parsing " + this.name);
 			if (file.exists())
 			  defn.getExamples().add(
-			      new Example("General", "example", "Example of " + title, file, ExampleType.XmlFile, true, isAbstract));
+			      new Example("General", "example", "Example of " + title, file, true, ExampleType.XmlFile, isAbstract));
 		}		
 	}
 

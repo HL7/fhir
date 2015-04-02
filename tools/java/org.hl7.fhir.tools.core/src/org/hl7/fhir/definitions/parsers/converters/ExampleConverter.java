@@ -63,7 +63,6 @@ public class ExampleConverter
 		result.setType( ExampleType.get( example.getType().ordinal() ) );
 		result.setDescription( Utilities.cleanupTextString(example.getDescription()) );
 		result.setPath( example.getPath().getName() );
-		result.setInBook( example.isInBook() );
 		
 		return result;
 	}

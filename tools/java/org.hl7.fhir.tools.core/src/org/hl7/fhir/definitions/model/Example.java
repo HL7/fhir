@@ -47,7 +47,7 @@ public class Example {
   private String xhtm;
   private String json;
   private ExampleType type;
-  private boolean inBook;
+  private boolean registered;
   private Document xml;
   
   public enum ExampleType {
@@ -57,14 +57,14 @@ public class Example {
 	  }
   
   
-  public Example(String name, String id, String description, File path, ExampleType type, boolean inBook, boolean noId) throws Exception {
+  public Example(String name, String id, String description, File path, boolean registered, ExampleType type, boolean noId) throws Exception {
     super();
     this.name = name;
     this.id = id;
     this.description = description;
     this.path = path;
     this.type = type;
-    this.inBook = inBook;
+    this.registered = registered;
     
     if( type == ExampleType.CsvFile ) {
       CSVProcessor csv = new CSVProcessor();
@@ -133,12 +133,6 @@ public class Example {
   public void setType(ExampleType type) {
     this.type = type;
   }
-  public boolean isInBook() {
-    return inBook;
-  }
-  public void setInBook(boolean inBook) {
-    this.inBook = inBook;
-  }
   public String getId() {
     return id;
   }
@@ -150,6 +144,14 @@ public class Example {
   }
   public void setJson(String json) {
     this.json = json;
+  }
+
+  public boolean isRegistered() {
+    return registered;
+  }
+
+  public void setRegistered(boolean registered) {
+    this.registered = registered;
   }
   
   
