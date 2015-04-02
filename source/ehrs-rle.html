@@ -10,15 +10,10 @@
 
 <div class="col-9">
 
-<a name="SDC"> </a> 
-<h2>EHRS Functional Model - Record Lifecycle Events Implementation Guide</h2>
+<a name="RLE"> </a> 
+<h3>EHRS Functional Model - Record Lifecycle Events Implementation Guide</h3>
 <p>
-This documentation should be considered "placeholder" content.  It is not complete and has not yet undergone full review by
-the sponsoring work group.  While feedback is welcome, formal reconciliation will not be undertaken on ballot comments submitted
-against this guide, given its extremely draft nature.
-</p>
-<p>
-This implementation guide describes the expected capabilities for an Electronic Health Record System (EHRS) that  intends to adhere
+This implementation guide describes the expected capabilities for an Electronic Health Record System (EHRS) that intends to adhere
 to HL7's EHRS functional model covering the logging of record life cycle events.  This implementation guide consists of three parts:
 </p>
 <ul>
@@ -31,7 +26,2202 @@ to HL7's EHRS functional model covering the logging of record life cycle events.
 </ul>
 <p>
 For the purposes of this implementation guide, "must support" means that the system must be capable of capturing and recording
-those data elements which are so-marked.</p>
+those data elements which are so-marked.
+</p>
+
+<div>
+   <a name="intro"/>
+   <h3>Introduction</h3>
+   <p>This Implementation Guide offers a methodology to support trusted electronic health record (EHR) management using HL7 Fast Health Interoperable Resources (FHIR). This approach is based on the Record Infrastructure Section of ISO/HL7 10781 Electronic Health Record System Functional Model (EHR-S FM) Release 2. (This is also intended applicable to upcoming ISO/HL7 16527 Personal Health Record System Functional Model (PHR-S FM) Release 2, which will incorporate the Record Infrastructure Section.)</p>
+   <a name="actions-and-entries"/>
+   <h3>Actions and Record Entries</h3>
+   <p>From EHR-S FM, Record Infrastructure, Section RI.1, Record Lifecycle and Lifespan:</p>
+   <p style="margin-left:13.5pt;">"Actions are taken to support patient health. Actions are taken in provision of healthcare to individuals. Actions are taken as the result of rules-based EHR System algorithms. Actors (i.e., patients, providers, users, systems) take Actions. (Actions broadly encompass tasks, acts, procedures or services performed or provided.)</p>
+   <p style="margin-left:13.5pt;">"The EHR System captures Actions taken and creates corresponding Record Entries. Record Entries provide persistent evidence of Action occurrence, context, disposition, facts, findings and observations. From the point of Record Entry origination to the end of its lifespan, the EHR System manages each Entry consistent with and according to scope of practice, organizational policy, and jurisdictional law. In support of individual health and in provision of healthcare to individuals, Actors perform Actions and Actions have corresponding Entries in the EHR Record, (i.e., Action instances are documented by Record Entry instances). Record Entries may be captured during the course of the Action or sometime thereafter. The Actor (author/source) of the Record Entry may be the same as an Actor performing the Action or not...</p>
+   <p style="margin-left:13.5pt;">"Actions have associated metadata (e.g., who, what, when, where, why, how, under what conditions, in what context). The corresponding Record Entry captures this metadata along with other Action and Record Entry related information.</p>
+   <p style="margin-left:13.5pt;">"Each Record Entry also includes its own provenance metadata such as who (authoring Actor) and when (documented). Record Entries may be encapsulated to bind Actor (individual, organization, and/or system) signatures to data and metadata content and data/time of occurrence. Actions and related Record Entries capture a chronology of patient health and healthcare and also a chronology of operations and services provided in/by a healthcare enterprise. Record Entries reflect changes in health information from the time it was created, to the time it was amended, sent, received, etc. In this manner, each Record Entry serves as persistent evidence of an Action taken, enabling providers to maintain comprehensive information that may be needed for legal, [clinical,] business, and disclosure purposes. To satisfy these purposes, Record Entries must also be retained and persisted without alteration. Record Entries have both a lifecycle and a lifespan. Lifecycle Events include originate, retain, amend, verify, attest, access/view, de-identify, transmit/receive, and more. Lifecycle Events occur at various points in a Record Entry lifespan, always starting with a point of origination and retention (i.e., when the Entry is first created and stored).</p>
+   <p style="margin-left:13.5pt;">"A Record Entry may have a pre and post Event state if content is modified. In this case, the original Record Entry is preserved (with signature binding) and a new Entry is created (with new signature binding). A Record Entry contains data and metadata, in multiple formats, following various conventions and standards. Included data may be tagged, and/or delimited, structured (concise, encoded, computable), or unstructured (free form, non-computable). Data may be encoded as text, document, images, audio, waveforms, in ASCII, binary or other encoding."</p>
+   <p style="margin-left:13.5pt;">EHR, PHR and other Systems, designed to follow ISO/HL7 10781 record management methodology and incorporate FHIR resources natively, will create Record Entries with one or more FHIR resource instances. These FHIR resources will be bound to an<a href="auditevent.html" shape="rect">AuditEvent</a>resource instance and, in the case where content is new or updated, a<a href="provenance.html" shape="rect">Provenance</a>resource instance in the Record Entry.</p>
+   <a name="rles"/>
+   <h3>Record Lifecycle Events (RLEs)</h3>
+   <p>As described above, Record Entries have a lifespan and lifecycle events (RLEs) occurring during that lifespan. The list of RLEs is offered below, along with FHIR resources pertinent to each RLE. RLE metadata is captured in the<a href="auditevent.html" shape="rect">AuditEvent</a>resource (for all RLEs) and also a<a href="provenance.html" shape="rect">Provenance</a>resource (for each RLEs where Record Entry content is new or updated). CRUDE = Create, Read, Update, Delete, Execute</p>
+   <table border="1" cellspacing="0" cellpadding="0" width="679"
+          style="border-collapse:collapse;border:none">
+      <tr>
+         <td width="32" rowspan="2" valign="bottom"
+             style="width:23.65pt;border:solid; border-right:solid ;;height:22.0pt"
+             colspan="1">
+            <p style="">
+               <b>Sec RI.1.1.x</b>
+            </p>
+         </td>
+         <td width="105" rowspan="2"
+             style="width:78.5pt;border-top:solid; border-left:none;border-bottom:solid;border-right:solid ;height:22.0pt"
+             colspan="1">
+            <p>
+               <b>Record Entry Lifecycle Event</b>
+            </p>
+         </td>
+         <td width="386" rowspan="2"
+             style="width:289.65pt;border-top:solid; border-left:none;border-bottom:solid;border-right:solid ;height:22.0pt"
+             colspan="1">
+            <p>
+               <b>From ISO/HL7 10781 EHR-S Functional Model R2</b>
+            </p>
+            <ul>
+               <li>RI - Record Infrastructure</li>
+               <li>RI.1 - Record Lifecycle and Lifespan</li>
+            </ul>
+            <p>
+               <b>Occurs when Record Entry(ies)...</b>
+            </p>
+         </td>
+         <td width="30" rowspan="2"
+             style="width:22.6pt;border-top:solid; border-left:none;border-bottom:solid;border-right:solid ;height:22.0pt"
+             colspan="1">
+            <p style="">
+               <b>CRUDE</b>
+            </p>
+         </td>
+         <td width="127" colspan="3" valign="top"
+             style="width:95.0pt;border-top:solid; border-left:none;border-bottom:solid ;border-right:solid;height:22.0pt"
+             rowspan="1">
+            <p align="center" style="text-align:center">
+               <b>FHIR Resources</b>
+            </p>
+            <p align="center" style="text-align:center">
+               <b>in Record Entry</b>
+            </p>
+         </td>
+      </tr>
+      <tr>
+         <td width="42" valign="bottom"
+             style="width:31.65pt;border-top:none;border-left: none;border-bottom:solid;border-right:solid ;height:44.05pt"
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">
+               <b>Audit</b>
+            </p>
+            <p align="center" style="text-align:center">
+               <b>Event</b>
+            </p>
+         </td>
+         <td width="42" valign="bottom"
+             style="width:31.65pt;border-top:none;border-left: none;border-bottom:solid;border-right:solid ;height:44.05pt"
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">
+               <b>Prove-nance</b>
+            </p>
+         </td>
+         <td width="42" valign="top"
+             style="width:31.65pt;border-top:none;border-left: none;border-bottom:solid;border-right:solid;height:44.05pt"
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">
+               <b>Action Related</b>
+            </p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>1</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Originate/ Retain</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is originated and retained - often during the course of an Action itself - to document the Action and its context</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">C</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>2</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Amend/</p>
+            <p style="">Update</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="text-autospace:none">Content is modified (from its original or previously retained state) - typically upon conclusion of an Action - to correct, update or complete content</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>3</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Translate/ Transform</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="text-autospace:none">Content is amended to include translation of content - typically to transform coded data from one coding/classification scheme to another, also from one human language to another</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>4</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Attest</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="text-autospace:none">Content is attested for accuracy and completeness - typically during/after conclusion of an Action</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>5</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Access/View</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is viewed or accessed</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">R</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">0</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>6</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Output/Report</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is output or reported</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">E</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>7</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Disclose</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is disclosed according to organizational policy and/or jurisdictional law</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">E</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>8</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Transmit</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is transmitted - typically to an external entity or system</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">E</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>9</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Receive/ Retain</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is received and retained - typically from an external entity or system</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">C</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>10</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">De-Identify</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is transformed into de-identified version</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>11</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Pseudonymize</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is transformed into an pseudomynized version</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>12</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Re-Identify</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is re-identified from a previously pseudonmynized version</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>13</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Extract</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is extracted to render subsets, derivations, summaries or aggregations</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>14</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Archive</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are archived - typically to off-line (less readily available) storage media</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">0</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>15</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Restore</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are restored from archive</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>16</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Destroy/Delete</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are destroyed or identified as missing</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">D</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>17</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Deprecate</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are deprecated (e.g., improperly identified or otherwise invalid)</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>18</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Re-Activate</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are made active again after being previously Destroyed/Deleted or Deprecated</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">0</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>19</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Merge</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are merged together</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>20</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Unmerge</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are unmerged from previous merge</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>21</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Link</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are linked together</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>22</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Unlink</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are unlinked from previous linkage</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>23</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Add Legal Hold</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are marked (and held in an unaltered state) for purposes of a legal hold (typically as the result of court or legal action)</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>24</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Remove Legal Hold</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Are released from legal hold (previously marked and held in unaltered state)</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>25</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Verify</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is verified for accuracy, completeness</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>26</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Encrypt</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is encoded in a cipher</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">0</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="32" style="width:23.65pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>27</p>
+         </td>
+         <td width="105"
+             style="width:78.5pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style="">Decrypt</p>
+         </td>
+         <td width="386"
+             style="width:289.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Content is decoded from a cipher</p>
+         </td>
+         <td width="30"
+             style="width:22.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">U</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">0</p>
+         </td>
+         <td width="42"
+             style="width:31.65pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p align="center" style="text-align:center">1..*</p>
+         </td>
+      </tr>
+   </table>
+   <b/>
+   <a name="metadata"/>
+   <h3>Record Lifecycle Event Metadata Captured in FHIR Resources</h3>
+   <p>The following table shows the FHIR Resources and applicable Attributes captured - event, provenance and evidentiary metadata - at each occurrence of a Record Lifecycle Event.</p>
+   <table border="1" cellspacing="0" cellpadding="0"
+          style="border-collapse:collapse;border:none">
+      <thead>
+         <tr>
+            <td width="146"
+                style="width:109.75pt;border:solid windowtext 1.5pt; border-right:solid ;"
+                rowspan="1"
+                colspan="1">
+               <p>Record Lifecycle Event Metadata</p>
+            </td>
+            <td width="208"
+                style="width:155.75pt;border-top:solid windowtext 1.5pt; border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid "
+                rowspan="1"
+                colspan="1">
+               <p>FHIR Resource</p>
+            </td>
+            <td width="316"
+                style="width:236.7pt;border:solid windowtext 1.5pt;border-left: none;"
+                rowspan="1"
+                colspan="1">
+               <p>Resource Attribute(s)</p>
+            </td>
+         </tr>
+      </thead>
+      <tr>
+         <td width="670" colspan="3"
+             style="width:502.2pt;border:solid ; border-top:none;background:#C6D9F1;"
+             rowspan="1">
+            <p>WHO</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" rowspan="2" style="width:109.75pt;border:solid ; border-top:none;"
+             colspan="1">
+            <p>Organization</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>signature : string 0..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance.Agent : 0..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>role : Coding 1..1 « ProvenanceAgentRole+ »<br clear="none"/>type : Coding 1..1 « ProvenanceAgentType+ »<br clear="none"/>reference : uri 1..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" rowspan="3" style="width:109.75pt;border:solid ; border-top:none;"
+             colspan="1">
+            <p>Patient</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>signature : string 0..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance.Agent : 0..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>role : code 1..1 « ProvenanceEntityRole »<br clear="none"/>type : Coding 1..1 « ProvenanceEntityType+ »<br clear="none"/>reference : uri 1..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Participant : 1..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style=";vertical-align:middle">role : CodeableConcept 0..* « DICOMRoleId+ »<br clear="none"/>reference : Resource(Organization|Practitioner|Patient|Device) 0..1</p>
+            <p>requester : Boolean 1..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Action - Performer</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>TBD</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1"/>
+      </tr>
+      <tr>
+         <td width="146" rowspan="3" style="width:109.75pt;border:solid ; border-top:none;"
+             colspan="1">
+            <p>Record - Author/User</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>signature : string 0..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance.Agent : 0..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>role : Coding 1..1 « ProvenanceAgentRole+ »<br clear="none"/>type : Coding 1..1 « ProvenanceAgentType+ »<br clear="none"/>reference : uri 1..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Participant : 1..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style=";vertical-align:middle">role : CodeableConcept 0..* « DICOMRoleId+ »<br clear="none"/>reference : Resource(Practitioner|Patient|Device) 0..1<br clear="none"/>userId : string 0..1</p>
+            <p>requester : Boolean 1..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" rowspan="3" style="width:109.75pt;border:solid ; border-top:none;"
+             colspan="1">
+            <p>Record - System/Device</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>signature : string 0..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance.Agent : 0..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>role : Coding 1..1 « ProvenanceAgentRole+ »<br clear="none"/>type : Coding 1..1 « ProvenanceAgentType+ »<br clear="none"/>reference : uri 1..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Participant : 1..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style=";vertical-align:middle">role : CodeableConcept 0..* « DICOMRoleId+ »<br clear="none"/>reference : Resource(Practitioner|Patient|Device) 0..1<br clear="none"/>userId : string 0..1</p>
+            <p>requester : Boolean 1..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="670" colspan="3" valign="top"
+             style="width:502.2pt;border:solid ; border-top:none;background:#C6D9F1;"
+             rowspan="1">
+            <p>WHAT</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Action - Taken</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>TBD</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1"/>
+      </tr>
+      <tr>
+         <td width="146" rowspan="2" style="width:109.75pt;border:solid ; border-top:none;"
+             colspan="1">
+            <p>Record - Lifecyle Event</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Event : 1..1</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style=";vertical-align:middle">type : CodeableConcept 1..1 « AuditEventType+ »<br clear="none"/>subtype : CodeableConcept 0..* « AuditEventSubType+ »<br clear="none"/>action : code 0..1 « AuditEventAction »</p>
+            <p>
+               <i>policy</i>: uri 0..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>identifier : Identifier 0..1<br clear="none"/>reference : Resource(Any) 0..1<br clear="none"/>type : code 0..1 « AuditEventObjectType »<br clear="none"/>role : code 0..1 « AuditEventObjectRole »<br clear="none"/>lifecycle : code 0..1 « AuditEventObjectLifecycle »</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="670" colspan="3" valign="top"
+             style="width:502.2pt;border:solid ; border-top:none;background:#C6D9F1;"
+             rowspan="1">
+            <p>WHEN</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Action - Date/Time</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>TBD</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1"/>
+      </tr>
+      <tr>
+         <td width="146" rowspan="2" style="width:109.75pt;border:solid ; border-top:none;"
+             colspan="1">
+            <p>Record - Date/Time</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>recorded : instant 1..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Event : 1..1</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>dateTime : instant 1..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Action - Duration/ Elapsed Time</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>TBD</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1"/>
+      </tr>
+      <tr>
+         <td width="670" colspan="3" valign="top"
+             style="width:502.2pt;border:solid ; border-top:none;background:#C6D9F1;"
+             rowspan="1">
+            <p>WHERE</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Action - Physical Location</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>TBD</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1"/>
+      </tr>
+      <tr>
+         <td width="146" rowspan="2" style="width:109.75pt;border:solid ; border-top:none;"
+             colspan="1">
+            <p>Record - Network Address</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>location : Resource(Location) 0..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Participant.Network</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>identifier : string 0..1<br clear="none"/>type : code 0..1 « AuditEventParticipantNetworkType »</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="670" colspan="3" valign="top"
+             style="width:502.2pt;border:solid ; border-top:none;background:#C6D9F1;"
+             rowspan="1">
+            <p>WHY</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Action - Reason, Rationale, Purpose</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>TBD</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1"/>
+      </tr>
+      <tr>
+         <td width="146" rowspan="3" style="width:109.75pt;border:solid ; border-top:none;"
+             colspan="1">
+            <p>Record - Reason, Rationale, Purpose</p>
+         </td>
+         <td width="208" rowspan="2"
+             style="width:155.75pt;border-top:none;border-left: none;border-bottom:solid ;border-right:solid "
+             colspan="1">
+            <p>Provenance</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>reason : CodeableConcept 0..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>policy : uri 0..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Event : 1..1</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>
+               <i>reason : CodeableConcept 0..1</i>
+            </p>
+         </td>
+      </tr>
+      <tr>
+         <td width="670" colspan="3" valign="top"
+             style="width:502.2pt;border:solid ; border-top:none;background:#C6D9F1;"
+             rowspan="1">
+            <p>Additional Evidentiary Metadata</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Digital Signature(s)</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>Provenance</p>
+            <p>« Signature Resource - TBD»</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>signature : string 0..*</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Record Entry ID</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>identifier : Identifier 0..1<br clear="none"/>reference : Resource(Any) 0..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Record Entry Content ID(s): data, docs, artifacts</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+            <p>
+               <span style=";color:blue">one for each Content item</span>
+            </p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>identifier : Identifier 0..1<br clear="none"/>reference : Resource(Any) 0..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Corresponding/linked Record Entry(ies)</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+            <p>
+               <span style=";color:blue">one for each linked Record Entry</span>
+            </p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>identifier : Identifier 0..1<br clear="none"/>reference : Resource(Any) 0..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Amendment/Translation Sequence</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>lifecycle : code 0..1 « AuditEventObjectLifecycle »</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Pointer to Pre Event Entry, if chained</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+            <p>
+               <span style=";color:blue">one to previous instance</span>
+            </p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>identifier : Identifier 0..1<br clear="none"/>reference : Resource(Any) 0..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Source of Copied Content (e.g., copy/paste template)</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+            <p>
+               <span style=";color:blue">one for each source</span>
+            </p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>identifier : Identifier 0..1<br clear="none"/>reference : Resource(Any) 0..1<br clear="none"/>type : code 0..1 « AuditEventObjectType »<br clear="none"/>role : code 0..1 « AuditEventObjectRole »</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Event is known Disclosure</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>lifecycle : code 0..1 « AuditEventObjectLifecycle », where lifecycle = "disclosure"</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" rowspan="2" style="width:109.75pt;border:solid ; border-top:none;"
+             colspan="1">
+            <p>Record Entry Permissions</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Participant : 1..*</p>
+            <p>
+               <span style=";color:blue">one for each participant</span>
+            </p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style=";vertical-align:middle">[for role-based permissions]</p>
+            <p style=";vertical-align:middle">role : CodeableConcept 0..* « DICOMRoleId+ »</p>
+            <p>[for user-based permissions]</p>
+            <p>reference : Resource(<u>Practitioner</u>|Patient|Device) 0..1<br clear="none"/>userId : string 0..1</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>sensitivity : code 0..1 «AuditEvent.object.sensitivity »</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Event Transaction Entries</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Object : 0..*</p>
+            <p>
+               <span style=";color:blue">one for each Record Entry</span>
+            </p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>identifier : Identifier 0..1<br clear="none"/>reference : Resource(Any) 0..1<br clear="none"/>type : code 0..1 « AuditEventObjectType »</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="146" style="width:109.75pt;border:solid ;border-top: none;" rowspan="1"
+             colspan="1">
+            <p>Identifier/Version of Translation Tools</p>
+         </td>
+         <td width="208"
+             style="width:155.75pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p>AuditEvent.Participant : 1..*</p>
+            <p>
+               <span style=";color:blue">one for each tool</span>
+            </p>
+         </td>
+         <td width="316"
+             style="width:236.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid "
+             rowspan="1"
+             colspan="1">
+            <p style=";vertical-align:middle">role : CodeableConcept 0..* « DICOMRoleId+ »</p>
+            <p>reference : Resource(Practitioner|Patient|<u>Device</u>) 0..1<br clear="none"/>userId : string 0..1</p>
+         </td>
+      </tr>
+   </table>
+   <p>
+      <b>EXAMPLE - Lifecycle Events for a Record Entry</b>
+   </p>
+   <p>Action = Medication Order</p>
+   <p>Record Lifecycle Event (RLEs), in sequence: 1) originate/retain, 2) update/amend, 3) attest, 4) access/view...</p>
+   <p>Note that Record Entries have a pre-lifecycle event state (except for the genesis originate/retain event). Record Entries also have a post-lifecycle event state (except for the terminus destroy/delete event).</p>
+   <table border="1" cellspacing="0" cellpadding="0" width="660"
+          style="width:495.0pt;border-collapse:collapse;border:none">
+      <tr>
+         <td width="80"
+             style="width:60.35pt;border:solid;border-right: solid ;;height:27.45pt"
+             rowspan="1"
+             colspan="1">
+            <p>Event Sequence</p>
+         </td>
+         <td width="166"
+             style="width:124.15pt;border-top:solid; border-left:none;border-bottom:solid;border-right:solid ;height:27.45pt"
+             rowspan="1"
+             colspan="1">
+            <p>Record Lifecycle Event</p>
+         </td>
+         <td width="262"
+             style="width:196.7pt;border-top:solid; border-left:none;border-bottom:solid;border-right:solid ;height:27.45pt"
+             rowspan="1"
+             colspan="1">
+            <p>Record Entry Content - including bound FHIR Resource Instances</p>
+         </td>
+         <td width="152"
+             style="width:113.8pt;border:solid;border-left: none;;height:27.45pt"
+             rowspan="1"
+             colspan="1">
+            <p>Retaining</p>
+            <p>without Alteration</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="80"
+             style="width:60.35pt;border-top:none;border-left:solid; border-bottom:solid ;border-right:solid ;height:13.5pt"
+             rowspan="1"
+             colspan="1">
+            <p>1 - Pre</p>
+         </td>
+         <td width="166" rowspan="2"
+             style="width:124.15pt;border-top:none;border-left: none;border-bottom:solid;border-right:solid ;height:13.5pt"
+             colspan="1">
+            <p>Originate/Retain Order</p>
+         </td>
+         <td width="262"
+             style="width:196.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid ;height:13.5pt"
+             rowspan="1"
+             colspan="1">
+            <p>N/A</p>
+         </td>
+         <td width="152"
+             style="width:113.8pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid;height:13.5pt"
+             rowspan="1"
+             colspan="1">
+            <p>N/A</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="80"
+             style="width:60.35pt;border-top:none;border-left:solid; border-bottom:solid;border-right:solid ;height:26.05pt"
+             rowspan="1"
+             colspan="1">
+            <p>1 - Post</p>
+         </td>
+         <td width="262"
+             style="width:196.7pt;border-top:none;border-left:none; border-bottom:solid;border-right:solid ;height:26.05pt"
+             rowspan="1"
+             colspan="1">
+            <p>Medication v1</p>
+            <p>MedicationPrescription v1</p>
+            <p>AuditEvent v1</p>
+            <p>Provenance v1</p>
+         </td>
+         <td width="152"
+             style="width:113.8pt;border-top:none;border-left:none; border-bottom:solid;border-right:solid;height:26.05pt"
+             rowspan="1"
+             colspan="1">
+            <p>N/A</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="80"
+             style="width:60.35pt;border-top:none;border-left:solid; border-bottom:solid ;border-right:solid ;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>2 - Pre</p>
+         </td>
+         <td width="166" rowspan="2"
+             style="width:124.15pt;border-top:none;border-left: none;border-bottom:solid;border-right:solid ;height:43.55pt"
+             colspan="1">
+            <p>Update/Amend Order</p>
+         </td>
+         <td width="262"
+             style="width:196.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid ;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>Medication v1</p>
+            <p>MedicationPrescription v1</p>
+            <p>AuditEvent v1</p>
+            <p>Provenance v1</p>
+         </td>
+         <td width="152"
+             style="width:113.8pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>N/A</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="80"
+             style="width:60.35pt;border-top:none;border-left:solid; border-bottom:solid;border-right:solid ;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>2 - Post</p>
+         </td>
+         <td width="262"
+             style="width:196.7pt;border-top:none;border-left:none; border-bottom:solid;border-right:solid ;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>Medication v2</p>
+            <p>MedicationPrescription v2</p>
+            <p>AuditEvent v2</p>
+            <p>Provenance v2</p>
+         </td>
+         <td width="152"
+             style="width:113.8pt;border-top:none;border-left:none; border-bottom:solid;border-right:solid;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>All v1</p>
+            <p>Instances</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="80"
+             style="width:60.35pt;border-top:none;border-left:solid; border-bottom:solid ;border-right:solid ;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>3 - Pre</p>
+         </td>
+         <td width="166" rowspan="2"
+             style="width:124.15pt;border-top:none;border-left: none;border-bottom:solid;border-right:solid ;height:43.55pt"
+             colspan="1">
+            <p>Attest Order</p>
+         </td>
+         <td width="262"
+             style="width:196.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid ;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>Medication v2</p>
+            <p>MedicationPrescription v2</p>
+            <p>AuditEvent v2</p>
+            <p>Provenance v2</p>
+         </td>
+         <td width="152"
+             style="width:113.8pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>N/A</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="80"
+             style="width:60.35pt;border-top:none;border-left:solid; border-bottom:solid;border-right:solid ;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>3 - Post</p>
+         </td>
+         <td width="262"
+             style="width:196.7pt;border-top:none;border-left:none; border-bottom:solid;border-right:solid ;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>Medication v3</p>
+            <p>MedicationPrescription v3</p>
+            <p>AuditEvent v3</p>
+            <p>Provenance v3 (with signature)</p>
+         </td>
+         <td width="152"
+             style="width:113.8pt;border-top:none;border-left:none; border-bottom:solid;border-right:solid;height:43.55pt"
+             rowspan="1"
+             colspan="1">
+            <p>All v1-2</p>
+            <p>Instances</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="80"
+             style="width:60.35pt;border-top:none;border-left:solid; border-bottom:solid ;border-right:solid ;height:10.75pt"
+             rowspan="1"
+             colspan="1">
+            <p>4 - Pre</p>
+         </td>
+         <td width="166" rowspan="2"
+             style="width:124.15pt;border-top:none;border-left: none;border-bottom:solid;border-right:solid ;height:10.75pt"
+             colspan="1">
+            <p>Access/View Order</p>
+         </td>
+         <td width="262"
+             style="width:196.7pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid ;height:10.75pt"
+             rowspan="1"
+             colspan="1">
+            <p>Medication v3</p>
+            <p>MedicationPrescription v3</p>
+            <p>AuditEvent v3</p>
+            <p>Provenance v3</p>
+         </td>
+         <td width="152"
+             style="width:113.8pt;border-top:none;border-left:none; border-bottom:solid ;border-right:solid;height:10.75pt"
+             rowspan="1"
+             colspan="1">
+            <p>N/A</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="80"
+             style="width:60.35pt;border-top:none;border-left:solid; border-bottom:solid;border-right:solid ;height:16.6pt"
+             rowspan="1"
+             colspan="1">
+            <p>4 - Post</p>
+         </td>
+         <td width="262"
+             style="width:196.7pt;border-top:none;border-left:none; border-bottom:solid;border-right:solid ;height:16.6pt"
+             rowspan="1"
+             colspan="1">
+            <p>
+               <span style=";color:blue">AuditEvent v4</span>
+            </p>
+         </td>
+         <td width="152"
+             style="width:113.8pt;border-top:none;border-left:none; border-bottom:solid;border-right:solid;height:16.6pt"
+             rowspan="1"
+             colspan="1">
+            <p>All v1-3 Instances</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="660" colspan="4"
+             style="width:495.0pt;border:solid; border-top:none;;height:18.9pt"
+             rowspan="1">
+            <p>And on...</p>
+         </td>
+      </tr>
+   </table>
+</div>
 
 </div>
 
