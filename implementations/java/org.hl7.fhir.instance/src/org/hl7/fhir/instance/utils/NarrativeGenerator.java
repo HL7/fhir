@@ -735,8 +735,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return "LOINC";
     if (system.startsWith("http://snomed.info"))
       return "SNOMED CT";
-    if (system.startsWith("http://www.nlm.nih.gov/research/umls/rxnorm"))
+    if (system.equals("http://www.nlm.nih.gov/research/umls/rxnorm"))
       return "RxNorm";     
+    if (system.equals("http://hl7.org/fhir/sid/icd-9"))
+      return "ICD-9";
+    
     return system;
   }
 

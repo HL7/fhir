@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Apr 2, 2015 17:35+1100 for FHIR v0.5.0
+// Generated on Thu, Apr 2, 2015 22:35+1100 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -10756,7 +10756,7 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeUnsignedIntCore(String name, UnsignedIntType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
-        prop(name, toString(value.getValue()));
+        prop(name, Integer.valueOf(value.getValue()));
     }    
     else if (inArray) 
       writeNull(name); 
@@ -10918,7 +10918,7 @@ public class JsonParser extends JsonParserBase {
 
   protected void composePositiveIntCore(String name, PositiveIntType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
-        prop(name, toString(value.getValue()));
+        prop(name, Integer.valueOf(value.getValue()));
     }    
     else if (inArray) 
       writeNull(name); 

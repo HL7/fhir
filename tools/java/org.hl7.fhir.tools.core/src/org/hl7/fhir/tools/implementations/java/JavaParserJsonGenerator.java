@@ -728,7 +728,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
     write("  protected void compose"+upFirst(dc.getCode())+"Core(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
     write("    if (value != null && value.hasValue()) {\r\n");
-    if (dc.getCode().equals("integer"))
+    if (dc.getCode().equals("integer") || dc.getCode().equals("positiveInt") || dc.getCode().equals("unsignedInt"))
       write("        prop(name, Integer.valueOf(value.getValue()));\r\n");
     else  if (dc.getCode().equals("boolean")) 
       write("        prop(name, value.getValue());\r\n");

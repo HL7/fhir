@@ -332,8 +332,6 @@ about the information in the resource. For further information, see
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
  } catch(exception){ 
-  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
-    alert(exception);
  }
  if (!currentTabIndex)
    currentTabIndex = '0';
@@ -345,8 +343,6 @@ function store(currentTab) {
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
   } catch(exception){ 
-  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
-    alert(exception);
   }
   $( '#tabs-Meta' ).tabs('option', 'active', currentTab);
 }     
