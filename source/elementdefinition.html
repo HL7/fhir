@@ -143,6 +143,7 @@ $( '#tabs-ElementDefinition' ).tabs({ active: currentTabIndex, activate: functio
      
      
 function store(currentTab) {
+  document.activeElement.blur();
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
   } catch(exception){ 

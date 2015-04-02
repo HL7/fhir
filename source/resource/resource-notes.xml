@@ -340,6 +340,7 @@ $( '#tabs-Meta' ).tabs({ active: currentTabIndex, activate: function( event, ui 
     
      
 function store(currentTab) {
+  document.activeElement.blur();
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
   } catch(exception){ 

@@ -128,6 +128,7 @@ $( '#tabs' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { s
 <%othertabs setup%>     
      
 function store(currentTab) {
+  document.activeElement.blur();
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
   } catch(exception){ 

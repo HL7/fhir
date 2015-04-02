@@ -1135,6 +1135,7 @@ function store(currentTab) {
   $( '#tabs-ContactPoint' ).tabs('option', 'active', currentTab);
   $( '#tabs-Timing' ).tabs('option', 'active', currentTab);
   $( '#tabs-Signature' ).tabs('option', 'active', currentTab);
+  document.activeElement.blur();
 }     
 </script>
 

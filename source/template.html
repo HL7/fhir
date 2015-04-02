@@ -160,6 +160,7 @@ $( '#tabs' ).tabs({
          activate: function( event, ui ) {
              var active = $('.selector').tabs('option', 'active');
              currentTabIndex = ui.newTab.index();
+             document.activeElement.blur();
              try {
                sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
              }
