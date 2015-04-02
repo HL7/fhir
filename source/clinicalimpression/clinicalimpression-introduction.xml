@@ -23,6 +23,7 @@ Unlike many other resources, there is little prior art with regard to exchanging
 clinical assessments. For this reason, this resource should be regarded as particularly 
 prone to ongoing revision. In terms of scope and usage, the Patient Care workgroup wishes to
 draw the attention of reviewers and implementers to the following issues: 
+<a name="dstu"> </a>
 </p>
 <ul>
  <li>When is an existing clinical impression revised, rather than a new one created (that references the existing one)? How does that affect the status? what's the interplay between the status of the diagnosis and the status of the impression? (e.g. for a 'provisional' impression, which bit is provisional?)</li>

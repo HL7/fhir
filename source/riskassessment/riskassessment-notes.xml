@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <h2>Open Issues</h2>
+  <a name="dstu"> </a>
   <ul>
     <li>Is there an existing code system we can use as a recommended value set for risk probabilties?</li>
     <li>Should risk assessments apply to devices, locations or any other resources (as part of the 80%)?</li>

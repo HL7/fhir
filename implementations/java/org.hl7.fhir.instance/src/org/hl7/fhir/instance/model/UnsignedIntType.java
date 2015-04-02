@@ -78,7 +78,7 @@ public class UnsignedIntType extends IntegerType {
 	 * @throws IllegalArgumentException If the value is too large to fit in a signed integer
 	 */
 	public UnsignedIntType(Long theValue) {
-	    if (theValue < java.lang.Integer.MIN_VALUE || theValue > java.lang.Integer.MAX_VALUE) {
+	    if (theValue < 0 || theValue > java.lang.Integer.MAX_VALUE) {
 	        throw new IllegalArgumentException
 	            (theValue + " cannot be cast to int without changing its value.");
 	    }

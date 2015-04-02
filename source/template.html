@@ -122,8 +122,8 @@ Resource Content
   
 <p>&nbsp;</p>  
 <p>Alternate definitions: <a href="<%name%>.xsd">Schema</a>/<a href="<%name%>.sch">Schematron</a>, 
-Resource Profile (<a href="<%name%>.profile.xml.html">XML</a>, <a href="<%name%>.profile.json.html">JSON</a>), 
-<a href="<%name%>.questionnaire.html">Questionnaire</a></p>
+Resource Profile (<a href="<%name%>.profile.xml.html">XML</a>, <a href="<%name%>.profile.json.html">JSON</a>)<!--, 
+<a href="<%name%>.questionnaire.html">Questionnaire</a>--></p>
 
 
 <a name="tx"> </a>
@@ -150,8 +150,6 @@ try {
   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
 }
 catch(exception){ 
-  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
-    alert(exception);
 }
 
 if (!currentTabIndex)
@@ -166,8 +164,6 @@ $( '#tabs' ).tabs({
                sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
              }
              catch(exception){ 
-              if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
-                alert(exception);
              }
          }
      });

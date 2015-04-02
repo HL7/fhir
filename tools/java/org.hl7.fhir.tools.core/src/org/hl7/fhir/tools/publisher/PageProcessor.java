@@ -35,17 +35,20 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -135,10 +138,14 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Title;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.w3c.dom.Document;
@@ -1646,7 +1653,20 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
   
-  private String generateToc() {
+  public class TocItem {
+    TocEntry entry;
+    Row row;
+    int depth;
+    public TocItem(TocEntry entry, Row row, int depth) {
+      super();
+      this.entry = entry;
+      this.row = row;
+      this.depth = depth;
+    }
+  }
+
+
+  private String generateToc() throws Exception {
     // return breadCrumbManager.makeToc();
     StringBuilder b = new StringBuilder();
     b.append("<ul>\r\n");
@@ -1654,25 +1674,51 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     entries.addAll(toc.keySet());
     Collections.sort(entries, new SectionSorter());
     Set<String> pages = new HashSet<String>();
+    HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(folders.dstDir, false);
+    TableModel model = gen.new TableModel();
+    model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table of Contents", "Specification Map", null, 0));
+    Deque<TocItem> stack = new ArrayDeque<TocItem>();
+    
     for (String s : entries) {
       TocEntry t = toc.get(s);
-      int d = Utilities.charCount(s, '.');
+      String nd = s;
+      while (nd.endsWith(".0"))
+        nd = nd.substring(0, nd.length()-2);
+      int d = Utilities.charCount(nd, '.');
       if (d < 4 && !pages.contains(t.getLink())) {
         b.append(" <li>");
-        for (int i = 0; i < d - 1; i++)
+        for (int i = 0; i < d; i++)
           b.append("&nbsp;");
         b.append(" <a href=\"");
         b.append(t.getLink());
         b.append("\">");
-        b.append(s);
+        b.append(nd);
         b.append(" ");
         b.append(Utilities.escapeXml(t.getText()));
         b.append("</a></li>\r\n");
         pages.add(t.getLink());    
+        while (!stack.isEmpty() && stack.getFirst().depth >= d)
+          stack.pop();
+        Row row = gen.new Row();
+        row.setIcon("icon_page.gif", null);
+        String td = t.getText();
+        if (!stack.isEmpty()) {
+          if (td.startsWith(stack.getFirst().entry.getText()+" - "))
+            td = td.substring(stack.getFirst().entry.getText().length()+3);
+          else if (td.startsWith(stack.getFirst().entry.getText()))
+            td = td.substring(stack.getFirst().entry.getText().length());
+        }
+        row.getCells().add(gen.new Cell(null, t.getLink(), nd+" "+td, t.getText(), null));
+        if (stack.isEmpty())
+          model.getRows().add(row);
+        else
+          stack.getFirst().row.getSubRows().add(row);
+        stack.push(new TocItem(t,  row, d));
       }
     }
     b.append("</ul>\r\n");
-    return b.toString();
+   
+    return /*b.toString()+*/new XhtmlComposer().compose(gen.generate(model));
   }
 
   private String generateBSUsage(String name) throws Exception {
@@ -4275,8 +4321,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("  var currentTabIndex = sessionStorage.getItem('fhir-sdelist-tab-index');\r\n");
     s.append("}\r\n");
     s.append("catch(exception){\r\n");
-    s.append("  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)\r\n");
-    s.append("    alert(exception);\r\n");
     s.append("}\r\n");
     s.append("\r\n");
     s.append("if (!currentTabIndex)\r\n");
@@ -4291,8 +4335,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("               sessionStorage.setItem('fhir-sdelist-tab-index', currentTabIndex);\r\n");
     s.append("             }\r\n");
     s.append("             catch(exception){\r\n");
-    s.append("              if (navigator.userAgent.toLowerCase().indexof('msie') == -1)\r\n");
-    s.append("                alert(exception);\r\n");
     s.append("             }\r\n");
     s.append("         }\r\n");
     s.append("     });\r\n");

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Mar 31, 2015 07:43+1100 for FHIR v0.4.0
+// Generated on Thu, Apr 2, 2015 17:35+1100 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1828,17 +1828,17 @@ public class ElementDefinition extends Type {
     protected StringType definition;
 
     /**
-     * Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
+     * Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
     @Child(name ="comments", type={StringType.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="Comments about the use of this element", formalDefinition="Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc." )
+    @Description(shortDefinition="Comments about the use of this element", formalDefinition="Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc." )
     protected StringType comments;
 
     /**
-     * Explains why this element is needed and why it's been constrained as it has.
+     * This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.
      */
     @Child(name ="requirements", type={StringType.class}, order=9, min=0, max=1)
-    @Description(shortDefinition="Why is this needed?", formalDefinition="Explains why this element is needed and why it's been constrained as it has." )
+    @Description(shortDefinition="Why is this needed?", formalDefinition="This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element." )
     protected StringType requirements;
 
     /**
@@ -2338,7 +2338,7 @@ public class ElementDefinition extends Type {
     }
 
     /**
-     * @return {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
+     * @return {@link #comments} (Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
      */
     public StringType getCommentsElement() { 
       if (this.comments == null)
@@ -2358,7 +2358,7 @@ public class ElementDefinition extends Type {
     }
 
     /**
-     * @param value {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
+     * @param value {@link #comments} (Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
      */
     public ElementDefinition setCommentsElement(StringType value) { 
       this.comments = value;
@@ -2366,14 +2366,14 @@ public class ElementDefinition extends Type {
     }
 
     /**
-     * @return Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
+     * @return Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
     public String getComments() { 
       return this.comments == null ? null : this.comments.getValue();
     }
 
     /**
-     * @param value Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
+     * @param value Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
     public ElementDefinition setComments(String value) { 
       if (Utilities.noString(value))
@@ -2387,7 +2387,7 @@ public class ElementDefinition extends Type {
     }
 
     /**
-     * @return {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @return {@link #requirements} (This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
     public StringType getRequirementsElement() { 
       if (this.requirements == null)
@@ -2407,7 +2407,7 @@ public class ElementDefinition extends Type {
     }
 
     /**
-     * @param value {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @param value {@link #requirements} (This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
     public ElementDefinition setRequirementsElement(StringType value) { 
       this.requirements = value;
@@ -2415,14 +2415,14 @@ public class ElementDefinition extends Type {
     }
 
     /**
-     * @return Explains why this element is needed and why it's been constrained as it has.
+     * @return This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.
      */
     public String getRequirements() { 
       return this.requirements == null ? null : this.requirements.getValue();
     }
 
     /**
-     * @param value Explains why this element is needed and why it's been constrained as it has.
+     * @param value This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.
      */
     public ElementDefinition setRequirements(String value) { 
       if (Utilities.noString(value))
@@ -3145,8 +3145,8 @@ public class ElementDefinition extends Type {
         childrenList.add(new Property("slicing", "", "Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).", 0, java.lang.Integer.MAX_VALUE, slicing));
         childrenList.add(new Property("short", "string", "A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).", 0, java.lang.Integer.MAX_VALUE, short_));
         childrenList.add(new Property("definition", "string", "Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.", 0, java.lang.Integer.MAX_VALUE, definition));
-        childrenList.add(new Property("comments", "string", "Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comments));
-        childrenList.add(new Property("requirements", "string", "Explains why this element is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("comments", "string", "Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comments));
+        childrenList.add(new Property("requirements", "string", "This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("alias", "string", "Identifies additional names by which this element might also be known.", 0, java.lang.Integer.MAX_VALUE, alias));
         childrenList.add(new Property("min", "integer", "The minimum number of times this element SHALL appear in the instance.", 0, java.lang.Integer.MAX_VALUE, min));
         childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, java.lang.Integer.MAX_VALUE, max));

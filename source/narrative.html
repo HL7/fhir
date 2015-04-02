@@ -330,8 +330,6 @@ difficult, and implementations SHOULD avoid these</li>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
  } catch(exception){
-  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
-    alert(exception);
  }
  if (!currentTabIndex)
    currentTabIndex = '0';
@@ -343,8 +341,6 @@ function store(currentTab) {
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
   } catch(exception){
-  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
-    alert(exception);
   }
   $( '#tabs-Narrative' ).tabs('option', 'active', currentTab);
 }

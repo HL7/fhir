@@ -343,8 +343,6 @@ try {
   var currentTabIndex = sessionStorage.getItem('fhir-resourcelist-tab-index');
 }
 catch(exception){
-  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
-    alert(exception);
 }
 
 if (!currentTabIndex)
@@ -359,8 +357,6 @@ $( '#tabs' ).tabs({
                sessionStorage.setItem('fhir-resourcelist-tab-index', currentTabIndex);
              }
              catch(exception){
-              if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
-                alert(exception);
              }
          }
      });

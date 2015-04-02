@@ -1,12 +1,6 @@
 <!DOCTYPE HTML>
 
-    
-      <!--
-       DSTU issues list, from ballot reoonciliation
-       
-       Post DSTU concerns:
-       -->
-      
+     
 [%settitle Outstanding Issues%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -17,45 +11,52 @@
 
 <div class="col-9">
 
-<a name="todo"> </a>
 
-<h2>Open Issues</h2>
+<h2>Outstanding Issues</h2>
 
 <p>
-There are a number of issues in which input based on implementation experience is specifically
-sought during the trial use phase:
+There are a number of issues in which input based on implementation experience is specifically sought during the trial use phase:
 </p>
+<a name="todo"> </a>
+
 <ul>
- <li><a href="conformance.html#dstu">Conformance</a>: How system profiles are used</li>
- <li><a href="order.html#dstu">Order</a>: The need for additional kinds of order to be defined</li>
+ <li>Immunization : Should it be a <a href="immunization.html">separate resource</a> or a <a href="medicationadministration-immunization.html">profile on medication administration</a>?</li>
+ <li><a href="profiling.html#dstu">Conformance</a>: How system profiles are used</li>
  <li><a href="managing.html#dstu">Resource Identification</a>: Managing resource identification in distributed systems</li>
  <li><a href="search.html#dstu">Search</a>: How should text search be standardized?</li>
  <li><a href="search.html#dstu-2">Search</a>: How much should _include be standardized?</li>
  <li><a href="security-labels.html#dstu">Security Labels</a>: How much policy can be standardized, and how does this impact on this specification?</li>
  <li><a href="security.html#dstu">Security</a>: What use cases are there for digital signatures?</li>
+ <li><a href="clinicalimpression.html#dstu">ClinicalImpression</a>: Content and workflow questions</li>
+ <li><a href="careplan.html#dstu">Care Team</a>: Care Team, plus use as a template</li>
+ <li><a href="dataelement.html#dstu">Data Element</a>: question about specificity</li>
+ <li><a href="riskassessment.html#dstu">Risk Assessment </a>: </li>
  <li><a href="messaging.html#dstu">Messaging</a>: Messaging has not yet been well-exercised at connectathon, so feedback based on implementation is welcome</li>
+ <li><a href="bodysite.html#dstu">BodySite</a>: Does this need to be a resource, or can it just be a reusable type?</li>
 </ul>
+
 <p>
-In addition, there are future proposed resources:
-</p>
-<ul>
- <li>A notification resource for creating and recording notifications between parties</li>
- <li>An alarm resource to represent current issues with the patient</li>
- <li>A person resource to support person registries</li>
- <li>An appointment resource for making and tracking arrangements around the future of care</li>
- <li>Payment related resources, and specifically, an Account resource for payment tracking</li>
- <li>Possibly a way to define particular queries (finer detail than Profile provides)</li>
- <li>One or more resources for Advance Care Directive / Power of Attorney</li>
-</ul>
-<p>
-Note that other resources beyond these may be anticipated.
-</p>
-<p>
-In addition to these, further work is planned around tracking and 
-reporting clinical observations / vital signs, and supporting 
-remote consultations / telehealth. 
+More generally, there are still many outstanding questions about the Request/Fulfillment cycle (<a href="order.hhtml">Order</a>/
+<a href="orderresponse.html">OrderResponse</a> and how various statuses and workflows associated with requests, as well as how proposals 
+cascade to plans to orders to downstream/encoded orders, etc. This is a matter of ongoing investigation.
 </p>
 
+<h3>Deferred for a future version</h3>
+<p>
+Some known issues are not addressed in this version of FHIR,
+and are intended to be addressed in subsequent versions:
+</p>
+<ul>
+ <li>Adverse Event Reporting</li>
+ <li>An alarm resource to represent current issues with the patient (e.g. device created)</li>
+ <li>Concern Tracking</li>
+ <li>Clinical Studies and Protocols</li>
+ <li>Aggregated Data Reporting including Public Health Reporting</li>
+ <li>Payment related resources, and specifically, an Account resource for payment tracking</li>
+ <li>One or more resources for Advance Care Directive / Power of Attorney</li>
+ <li>Use of RDF</li>
+ <li>A full server side query framework</li>
+</ul>
 
 </div>
 

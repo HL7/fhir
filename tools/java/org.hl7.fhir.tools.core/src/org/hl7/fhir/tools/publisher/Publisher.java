@@ -1723,8 +1723,9 @@ public class Publisher implements URIResolver {
       produceV3();
 
       if (buildFlags.get("all")) {
+        page.getToc().put("1.1", new TocEntry("1.1", "Table Of Contents", "toc.html"));
         page.log(" ...page toc.html", LogMessageType.Process);
-        producePage("toc.html", "Table of Contents");
+        producePage("toc.html", null);
       }
 
       if (processValidationOutcomes() > 0) {
@@ -2946,11 +2947,11 @@ public class Publisher implements URIResolver {
         producePage(p, n);
       }
     }
-    try {
-      processQuestionnaire(resource, profile, st);
-    } catch (Exception e) {
-      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
-    }
+//    try {
+//      processQuestionnaire(resource, profile, st);
+//    } catch (Exception e) {
+//      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
+//    }
 
     src = TextFile.fileToString(page.getFolders().srcDir + template+"-definitions.html");
     TextFile.stringToFile(
@@ -3513,13 +3514,6 @@ public class Publisher implements URIResolver {
     if (!web && page.getDefinitions().noPublish(pack.getCategory()))
       return;
           
-    // first, we produce each profile
-    for (ConstraintStructure profile : pack.getProfiles())
-      produceProfile(resourceName, pack, profile, st);
-
-    for (SearchParameter sp : pack.getSearchParameters())
-      producePackSearchParameter(resourceName, pack, sp, st);
-    
     String intro = pack.getIntroduction() != null ? page.loadXmlNotesFromFile(pack.getIntroduction(), false, null, null, null) : null;
     String notes = pack.getNotes() != null ? page.loadXmlNotesFromFile(pack.getNotes(), false, null, null, null) : null;
 
@@ -3530,6 +3524,13 @@ public class Publisher implements URIResolver {
     page.getEpub().registerFile(pack.getId().toLowerCase() + ".html", "Profile " + pack.getId(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
 
+    // now, we produce each profile
+    for (ConstraintStructure profile : pack.getProfiles())
+      produceProfile(resourceName, pack, profile, st);
+
+    for (SearchParameter sp : pack.getSearchParameters())
+      producePackSearchParameter(resourceName, pack, sp, st);
+    
     for (Example ex : pack.getExamples()) {
       StructureDefinition sd  = null;
       boolean ambiguous = false;

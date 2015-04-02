@@ -58,10 +58,12 @@ might either be implicit or may be explicit through an extension.  (For implemen
 <b>Note</b>: Extensions on <b>DataElement</b> that define the characteristics of a data element will typically also be applicable to <a href="profile.html">Profile</a>'s
 ElementDefinition and <a href="questionnaire.html">Questionnaire</a>'s Question data element as both are also used to define the characteristics of a data element.
 </p>
+<blockquote>
 <p>
-<b>Ballot Issue</b>: Should a shared structure be used in <a href="profile.html">Profile</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
+<b><a name="dstu">DSTU Ballot Issue</a></b>: Should a shared structure be used in <a href="profile.html">Profile</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
 to capture constraints on data elements, or is it acceptable for them to continue to be maintained in a separate, but "similar" manner?
 </p>
+</blockquote>
 <p>
 <b>DataElement</b> differs from <a href="observation.html">Observation</a> in that it describes what kind of observations <b>can</b> occur, while 
 <a href="observation.html">Observation</a> focuses on a specific observation of a specific subject at a particular time that <b>has</b> occurred.

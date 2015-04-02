@@ -296,10 +296,6 @@ public class EPubManager implements FileNotifier {
       return true;
     if (msg.contains("cda"))
       return true;
-    if (msg.contains("history.html"))
-      return true;
-    if (msg.contains("toc.html"))
-      return true;
     if (msg.contains("'??"))
       return true;
     return false;

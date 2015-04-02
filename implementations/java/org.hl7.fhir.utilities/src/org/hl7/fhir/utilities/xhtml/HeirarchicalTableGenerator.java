@@ -298,7 +298,7 @@ public class HeirarchicalTableGenerator  {
       if (t.width != 0)
         tc.setAttribute("style", "width: "+Integer.toString(t.width)+"px");
     }
-    if (tc != null)
+    if (tc != null && model.getDocoRef() != null)
       tc.addTag("span").setAttribute("style", "float: right").addTag("a").setAttribute("title", "Legend for this format").setAttribute("href", model.getDocoRef()).addTag("img").setAttribute("alt", "doco").setAttribute("src", model.getDocoImg());
       
     for (Row r : model.getRows()) {
@@ -486,10 +486,10 @@ public class HeirarchicalTableGenerator  {
 
 
   private void genImage(List<Boolean> indents, boolean hasChildren, OutputStream stream) throws IOException {
-    BufferedImage bi = new BufferedImage(400, 2, BufferedImage.TYPE_BYTE_BINARY);
+    BufferedImage bi = new BufferedImage(800, 2, BufferedImage.TYPE_BYTE_BINARY);
     Graphics2D graphics = bi.createGraphics();
     graphics.setBackground(Color.WHITE);
-    graphics.clearRect(0, 0, 600, 2);
+    graphics.clearRect(0, 0, 800, 2);
     for (int i = 0; i < indents.size(); i++) {
       if (!indents.get(i))
         bi.setRGB(12+(i*16), 0, 0);

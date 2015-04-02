@@ -13,8 +13,8 @@
 
 <div class="col-9">
 
-<h1>FHIR Life Cycle Page</h1>
-<h2>Introduction</h2>
+<h2>FHIR Life Cycle Page</h2>
+<h3>Introduction</h3>
 
 <p>Many FHIR resources have a status element that represents the lifecycle state of the resource or the clinical process represented by the resource. Work groups can specify status values appropriate to the individual resource. Although consistency between resources is not the primary objective, it is helpful to users and developers to have well-crafted value sets that cover all possible states (since the value sets are typically required and non-extensible).</p>
 
@@ -26,7 +26,7 @@
 	<li>Clinical status pattern</li>
 </ul>
 
-<h2>Clinical Workflow Process Pattern</h2>
+<h3>Clinical Workflow Process Pattern</h3>
 <p>Describes the lifecycle states of complex activities common in healthcare. Typically, these states follow a chronological pattern that leads from initiation to the conclusion of the action. A characteristic set of states for the clinical workflow process pattern include:</p>
 <ul>
 	<li>planned – resources for the activity are being allocated but the activity has not begun</li>
@@ -46,7 +46,7 @@
 <li>Procedure.status: in-progress | aborted | completed | entered-in-error</li>
 </ul>
 
-<h2>Request/Order Pattern</h2>
+<h3>Request/Order Pattern</h3>
 
 <p>Some resources in FHIR that represent orders or requests. The request lifecycle can be generalized in terms of four stages: creating the request, sending the request, receiving acceptance or refusal of the request, and fulfillment of the request. A characteristic set of states for the clinical workflow process pattern include:</p>
 
@@ -72,7 +72,7 @@
 <li>ReferralRequest.status: draft | sent | active | cancelled | rejected | completed</li>
 </ul>
 
-<h2>Entity Availability Pattern</h2>
+<h3>Entity Availability Pattern</h3>
 
 <p>The entity availability pattern indicates if the resource, or the entity described by the resource, is ready for use, not yet ready for use, or has been retired from use. A characteristic set of states for the clinical workflow process pattern include: </p>
 
@@ -102,7 +102,7 @@
 <p>*states reflecting the administration of the medication</p>
 
 
-<h2>Clinical Status Pattern</h2>
+<h3>Clinical Status Pattern</h3>
 <p>Clinical status is somewhat different that the previous status values, since it does not deal with workflow or lifecycle. Instead, it indicates how evidence is affecting a clinical interpretation. Here are two examples:</p>
 <ul>
 	<li>AllergyIntolerance.status: unconfirmed | confirmed | resolved | refuted</li>
@@ -111,7 +111,7 @@
 </ul>
 
 
-<h2>Entered In Error Summary</h2>
+<h3>Entered In Error Summary</h3>
 
 <p>
 The entered-in-error state indicates the resource was created accidentally, and should be ignored. This state can apply to resources created by manual entry. It is usually not associated with the Clinical Workflow Process pattern, but can be associated with the Request/Order and the Entity Availability patterns.</p>
