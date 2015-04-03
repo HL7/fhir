@@ -1038,6 +1038,8 @@ public class SpreadsheetParser {
 					if (desc == null || desc.equals(""))
 						throw new Exception("Example " + name + " has no description parsing " + this.name);
 					String filename = sheet.getColumn(row, "Filename");
+					if (filename.startsWith(defn.getName().toLowerCase()+"-examples.")) 
+					  throw new Exception("Cannot name an example file "+filename);
 					File file = new CSFile(folder + filename);
 					String type = sheet.getColumn(row, "Type");
 					if (!file.exists() && !("tool".equals(type) || isSpecialType(type)))

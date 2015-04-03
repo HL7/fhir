@@ -2,6 +2,17 @@
 
 <!-- the build tool builds these from the designated snomed server, when it can -->
 <snomed>
+  <concept id=" 53120007" display="Upper limb structure (body structure)">
+    <display value="Arm"/>
+    <display value="Upper limb structure"/>
+    <display value="Upper limb structure (body structure)"/>
+    <display value="Upper extremity"/>
+    <display value="Upper extremity, NOS"/>
+    <display value="Upper limb, NOS"/>
+    <display value="Forelimb, NOS"/>
+    <display value="Upper limb"/>
+    <display value="Upper extremity, including shoulder, arm, forearm, wrist, and hand"/>
+  </concept>
   <concept id="10001005" display="Bacterial sepsis">
     <display value="Bacterial septicemia"/>
     <display value="Bacterial septicemia, NOS"/>
@@ -636,6 +647,11 @@
     <display value="Pleuropericardial chest pain"/>
     <display value="Pleuropericardial chest pain (finding)"/>
   </concept>
+  <concept id="134623009" display="Capecitabine 150mg tablet (product)">
+    <display value="Capecitabine 150mg tablet (product)"/>
+    <display value="Capecitabine 150mg tablet"/>
+    <display value="Capecitabine 150mg tablet (substance)"/>
+  </concept>
   <concept id="13543005" display="Pressure (finding)">
     <display value="Pressure"/>
     <display value="Pressure, NOS"/>
@@ -875,6 +891,10 @@
     <display value="Induced"/>
     <display value="Induced (qualifier value)"/>
   </concept>
+  <concept id="166643006" display="Liver enzymes abnormal (finding)">
+    <display value="Liver enzymes abnormal"/>
+    <display value="Liver enzymes abnormal (finding)"/>
+  </concept>
   <concept id="166698001" display="Serum bicarbonate level normal">
     <display value="Serum bicarbonate level normal"/>
     <display value="Serum bicarbonate level normal (finding)"/>
@@ -1071,6 +1091,18 @@
     <display value="Ischaemic heart disease - angina"/>
     <display value="Angina (disorder)"/>
   </concept>
+  <concept id="195967001" display="Asthma (disorder)">
+    <display value="Hyperreactive airway disease"/>
+    <display value="Airway hyperreactivity"/>
+    <display value="Asthmatic"/>
+    <display value="Bronchial asthma"/>
+    <display value="Bronchial hyperreactivity"/>
+    <display value="BHR - Bronchial hyperreactivity"/>
+    <display value="Bronchial hyperresponsiveness"/>
+    <display value="Bronchial hypersensitivity"/>
+    <display value="Asthma"/>
+    <display value="Asthma (disorder)"/>
+  </concept>
   <concept id="19602009" display="Fee-for-service private physicians&#39; group office (environment)">
     <display value="Fee-for-service private physicians&#39; group office"/>
     <display value="Fee-for-service private physicians&#39; group clinic"/>
@@ -1173,6 +1205,15 @@
     <display value="Juglans nigra"/>
     <display value="Black walnut"/>
     <display value="Juglans nigra (organism)"/>
+  </concept>
+  <concept id="22253000" display="Pain (finding)">
+    <display value="Pain observations"/>
+    <display value="Pain"/>
+    <display value="Pain, NOS"/>
+    <display value="Dolor"/>
+    <display value="Painful"/>
+    <display value="Part hurts"/>
+    <display value="Pain (finding)"/>
   </concept>
   <concept id="22298006" display="Heart attack">
     <display value="MI - Myocardial infarction"/>
@@ -2197,6 +2238,10 @@
     <display value="Foods"/>
     <display value="Foods (substance)"/>
   </concept>
+  <concept id="255621006" display="Cream (substance)">
+    <display value="Cream"/>
+    <display value="Cream (substance)"/>
+  </concept>
   <concept id="256306003" display="Orange - fruit (substance)">
     <display value="Orange - fruit"/>
     <display value="Orange - fruit (substance)"/>
@@ -2776,6 +2821,11 @@
     <display value="None"/>
     <display value="None (qualifier value)"/>
   </concept>
+  <concept id="260548002" display="Oral (qualifier value)">
+    <display value="Oral"/>
+    <display value="PO - Oral"/>
+    <display value="Oral (qualifier value)"/>
+  </concept>
   <concept id="260595003" display="Via umbilical vein (qualifier value)">
     <display value="Via umbilical vein"/>
     <display value="Via umbilical vein (qualifier value)"/>
@@ -2895,6 +2945,19 @@
   <concept id="26593000" display="Paroxysmal (qualifier value)">
     <display value="Paroxysmal"/>
     <display value="Paroxysmal (qualifier value)"/>
+  </concept>
+  <concept id="26643006" display="Oral route (qualifier value)">
+    <display value="Oral use"/>
+    <display value="Per oral route"/>
+    <display value="PO - Per os"/>
+    <display value="By mouth"/>
+    <display value="Oral"/>
+    <display value="Orally"/>
+    <display value="Oral route"/>
+    <display value="Peroral route"/>
+    <display value="Per os"/>
+    <display value="Oral route (qualifier value)"/>
+    <display value="A digestive tract route that begins in the mouth."/>
   </concept>
   <concept id="266919005" display="Never smoked tobacco (finding)">
     <display value="Never smoked tobacco (finding)"/>
@@ -3716,6 +3779,12 @@
     <display value="Popliteal fossa"/>
     <display value="Popliteal fossa structure (body structure)"/>
   </concept>
+  <concept id="323733007" display="Amoxycillin 250mg/5mL oral suspension (product)">
+    <display value="Amoxycillin 250mg/5mL oral suspension (product)"/>
+    <display value="Amoxicillin 250mg/5mL oral suspension"/>
+    <display value="Amoxycillin 250mg/5mL oral suspension"/>
+    <display value="Amoxycillin 250mg/5mL oral suspension (substance)"/>
+  </concept>
   <concept id="325267004" display="Tolbutamide 500mg tablet">
     <display value="Tolbutamide 500mg tablet (product)"/>
     <display value="Tolbutamide 500mg tablet"/>
@@ -4174,6 +4243,19 @@
     <display value="Hypertension"/>
     <display value="Raised blood pressure (disorder)"/>
   </concept>
+  <concept id="385024007" display="Oral suspension (qualifier value)">
+    <display value="Oral suspension (product)"/>
+    <display value="Oral suspension"/>
+    <display value="Oral suspension (qualifier value)"/>
+  </concept>
+  <concept id="385049006" display="Capsule dose form (qualifier value)">
+    <display value="Capsule (product)"/>
+    <display value="Capsule"/>
+    <display value="Caps"/>
+    <display value="Capsules"/>
+    <display value="Capsule dose form (product)"/>
+    <display value="Capsule dose form (qualifier value)"/>
+  </concept>
   <concept id="385055001" display="Tablet">
     <display value="Tablet (product)"/>
     <display value="Tablet"/>
@@ -4186,6 +4268,12 @@
     <display value="Injection (product)"/>
     <display value="Injection"/>
     <display value="Injection (qualifier value)"/>
+  </concept>
+  <concept id="385219001" display="Injection solution (qualifier value)">
+    <display value="Injection solution (product)"/>
+    <display value="Injection solution"/>
+    <display value="Solution for injection"/>
+    <display value="Injection solution (qualifier value)"/>
   </concept>
   <concept id="385315009" display="Sudden onset (qualifier value)">
     <display value="Sudden onset (contextual qualifier) (qualifier value)"/>
@@ -4311,6 +4399,11 @@
     <display value="Kingdom Animalia"/>
     <display value="Animal"/>
     <display value="Animals"/>
+  </concept>
+  <concept id="389245004" display="Gentamicin sulfate 80mg/100mL infusion">
+    <display value="Gentamicin sulfate 80mg/100mL infusion (product)"/>
+    <display value="Gentamicin sulphate 80mg/100mL infusion"/>
+    <display value="Gentamicin sulfate 80mg/100mL infusion"/>
   </concept>
   <concept id="39065001" display="Burn of ear">
     <display value="Burn of ear structure"/>
@@ -4783,6 +4876,13 @@
     <display value="Sodium"/>
     <display value="Sodium, NOS"/>
     <display value="Sodium (substance)"/>
+  </concept>
+  <concept id="400352007" display="Paclitaxel 6mg/mL injection solution 5mL vial (product)">
+    <display value="Paclitaxel 6mg/mL injection solution solution 5mL vial (product)"/>
+    <display value="Paclitaxel 6mg/mL injection solution solution 5mL vial"/>
+    <display value="Paclitaxel 6mg/mL injection"/>
+    <display value="Paclitaxel 6mg/mL injection solution 5mL vial (product)"/>
+    <display value="Paclitaxel 6mg/mL injection solution 5mL vial"/>
   </concept>
   <concept id="40199007" display="Supine body position (finding)">
     <display value="Lying flat on back"/>
@@ -5537,6 +5637,13 @@
     <display value="Paediatric endocrinology"/>
     <display value="Pediatric endocrinology (qualifier value)"/>
   </concept>
+  <concept id="419672006" display="Bottle - unit of product usage (qualifier value)">
+    <display value="Bottle (qualifier value)"/>
+    <display value="Bottle"/>
+    <display value="Bottles"/>
+    <display value="Bottle - unit of product usage (qualifier value)"/>
+    <display value="Bottle - unit of product usage"/>
+  </concept>
   <concept id="419772000" display="Family practice (qualifier value)">
     <display value="Family practice (qualifier value)"/>
     <display value="Family practice"/>
@@ -5628,6 +5735,10 @@
     <display value="Until gone"/>
     <display value="Until gone - dosing instruction fragment"/>
   </concept>
+  <concept id="42108003" display="Congenital fusion of kidneys (disorder)">
+    <display value="Congenital fusion of kidneys"/>
+    <display value="Congenital fusion of kidneys (disorder)"/>
+  </concept>
   <concept id="421484000" display="Then discontinue - dosing instruction fragment (qualifier value)">
     <display value="Then discontinue - dosing instruction fragment (qualifier value)"/>
     <display value="Then discontinue"/>
@@ -5665,6 +5776,11 @@
     <display value="Ophthalmic surgery"/>
     <display value="Ocular surgery"/>
     <display value="Eye surgery"/>
+  </concept>
+  <concept id="422237004" display="Inhalation - unit of product usage (qualifier value)">
+    <display value="Inhalation - unit of product usage (qualifier value)"/>
+    <display value="Inhalation"/>
+    <display value="Inhalation - unit of product usage"/>
   </concept>
   <concept id="422327006" display="Then stop - dosing instruction fragment (qualifier value)">
     <display value="Then stop - dosing instruction fragment (qualifier value)"/>
@@ -5894,6 +6010,14 @@
   <concept id="439961009" display="Implant submitted as specimen (specimen)">
     <display value="Implant submitted as specimen (specimen)"/>
     <display value="Implant submitted as specimen"/>
+  </concept>
+  <concept id="440131009" display="Oral dosage form product (product)">
+    <display value="Oral dosage form product (product)"/>
+    <display value="Oral dosage form product"/>
+  </concept>
+  <concept id="440132002" display="Parenteral dosage form product (product)">
+    <display value="Parenteral dosage form product (product)"/>
+    <display value="Parenteral dosage form product"/>
   </concept>
   <concept id="440137008" display="Specimen obtained by peritoneal lavage (specimen)">
     <display value="Specimen obtained by peritoneal lavage (specimen)"/>
@@ -6396,6 +6520,15 @@
     <display value="Not seen (qualifier value)"/>
     <display value="Not seen"/>
   </concept>
+  <concept id="47505003" display="Posttraumatic stress disorder (disorder)">
+    <display value="Traumatic neurosis"/>
+    <display value="PTSD - Post-traumatic stress disorder"/>
+    <display value="Post-traumatic stress syndrome"/>
+    <display value="Post-traumatic stress disorder"/>
+    <display value="Posttraumatic stress disorder (disorder)"/>
+    <display value="Posttraumatic stress disorder"/>
+    <display value="Posttraumatic stress disorder, NOS"/>
+  </concept>
   <concept id="47625008" display="IV use">
     <display value="Intravenous use"/>
     <display value="IV use"/>
@@ -6457,6 +6590,12 @@
     <display value="Structure of right lower quadrant of abdomen"/>
     <display value="Structure of right lower quadrant of abdomen (body structure)"/>
     <display value="Right lower quadrant of abdomen"/>
+  </concept>
+  <concept id="48582000" display="Caplet (qualifier value)">
+    <display value="Caplet (product)"/>
+    <display value="Caplet (qualifier value)"/>
+    <display value="Caplet (substance)"/>
+    <display value="Caplet"/>
   </concept>
   <concept id="49163008" display="Blood group antigen Sd^a^ (substance)">
     <display value="Blood group antigen Sd^a^ (substance)"/>
@@ -6879,6 +7018,12 @@
     <display value="Disorders"/>
     <display value="Diseases"/>
     <display value="Disease (disorder)"/>
+  </concept>
+  <concept id="64859006" display="Osteoporosis (disorder)">
+    <display value="Osteoporosis"/>
+    <display value="Osteoporosis, NOS"/>
+    <display value="OP - Osteoporosis"/>
+    <display value="Osteoporosis (disorder)"/>
   </concept>
   <concept id="64915003" display="Operation on heart">
     <display value="Operative procedure on heart"/>
@@ -7392,6 +7537,15 @@
     <display value="Cessation of smoking"/>
     <display value="Ex-smoker (life style)"/>
   </concept>
+  <concept id="85581007" display="Drug powder (qualifier value)">
+    <display value="Drug powder (product)"/>
+    <display value="Drug powder"/>
+    <display value="Drug powder, NOS"/>
+    <display value="Powdered drug preparation, NOS"/>
+    <display value="Powdered drug preparation"/>
+    <display value="Drug powder (qualifier value)"/>
+    <display value="Drug powder (substance)"/>
+  </concept>
   <concept id="85988008" display="Blood group antibody Jk^a^ (substance)">
     <display value="Anti Jka"/>
     <display value="Blood group antibody Jk^a^"/>
@@ -7544,6 +7698,16 @@
     <display value="Subclavian vein"/>
     <display value="Structure of subclavian vein"/>
     <display value="Structure of subclavian vein (body structure)"/>
+  </concept>
+  <concept id="96068000" display="Amoxicillin trihydrate (substance)">
+    <display value="Amoxicilline trihydrate"/>
+    <display value="Amoxicillin trihydrate"/>
+    <display value="Amoxicillin trihydrate"/>
+    <display value="Amoxicilline trihydrate"/>
+    <display value="Amoxicillin trihydrate"/>
+    <display value="Amoxycillin trihydrate"/>
+    <display value="Amoxicilline trihydrate"/>
+    <display value="Amoxicillin trihydrate (substance)"/>
   </concept>
   <concept id="9632001" display="Nursing procedure">
     <display value="Nursing procedure"/>
