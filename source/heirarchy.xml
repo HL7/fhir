@@ -122,7 +122,8 @@ signatures.html
         <page title="CDA on FHIR" filename="cda-intro.html"/>
       </page>
 			<page title="Messaging" filename="messaging.html"/>
-			<page title="Services / SOA" filename="services.html"/>
+			<page title="Services / SOA #1" filename="services.html"/>
+			<page title="Services / SOA #2" filename="soa.html"/>
 
 			<page title="Downloads" filename="downloads.html"/>
 			<page title="Managing Resource Identity" filename="managing.html"/>

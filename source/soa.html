@@ -12,6 +12,12 @@
 
 <h2>Introduction: Services, Service-orientation (SOA) and FHIR</h2>
 
+<blockquote>
+<p>
+<a name="dstu">This page</a> and <a href="services.html">the other FHIR/SOA/Services page</a> will be reconciled and collapsed to a single page during ballot reconciliation.
+</p>
+</blockquote>
+
 <p>This section clarifies what it means to
 apply SOA principles and specifications within a FHIR
 environment/implementation, and the converse. The use of SOA is an
@@ -24,7 +30,7 @@ leverage of previous work done in SOA environments thus allowing FHIR to
 leapfrog within SOA capabilities so that those developing FHIR implementations
 will not have to re-invent these wheels. </p>
 
-<p>One of FHIR’s greatest successes lies in
+<p>One of FHIR's greatest successes lies in
 its simplification of implementation. It does not currently contain
 out-of-the-box behavior for workflow, behaviors, etc., or well defined APIs. 
 The common set of patterns that the SOA specifications provide can be leveraged
@@ -44,11 +50,11 @@ all of which have potential utility in FHIR implementation settings.</p>
 this section is still under development too.</p>
 
 
-<h3>Applying Business Context – Joining-up SOA and FHIR</h3>
+<h3>Applying Business Context - Joining-up SOA and FHIR</h3>
 
 <p><i>If I am doing FHIR, why do I care about
-SOA? Isn’t SOA just a technology, and isn’t REST either more current or just
-what Web Services uses anyway? Isn’t REST better than SOAP? </i>
+SOA? Isn't SOA just a technology, and isn't REST either more current or just
+what Web Services uses anyway? Isn't REST better than SOAP? </i>
  These are very common questions that surface time and time again
 among implementers. FHIR is not a natural replacement for Service-oriented Architecture
 (SOA). Nor is SOA “better than” or “worse than” FHIR. If we consider both of
@@ -91,8 +97,8 @@ Environment</i></b> considers the benefits of applying SOA patterns and
 best-practices to a FHIR implementation community. In these cases, developers
 are faced with implementation decisions that have the potential to benefit from
 existing case studies, design patterns, or guidance that may either help
-provide consistency among FHIR implementations, or which may address gaps –
-either known or unidentified – resulting from implicit assumptions around a
+provide consistency among FHIR implementations, or which may address gaps -
+either known or unidentified - resulting from implicit assumptions around a
 FHIR implementation.</p>
 
 <p><b><i>FHIR in a SOA
@@ -161,12 +167,12 @@ others). </p>
  <td>Each of the implementation approaches are capable of supporting stateless processing</td>
  </tr>
  <tr>
- <td>Support of “loose coupling”</td>
+ <td>Support of "loose coupling"</td>
  <td>Minimum of dependencies between the calling and responding system; reduces burden on client to from managing context of interaction with service</td>
  <td align="center">&#9682;</td>
  <td align="center">&#9682;</td>
  <td align="center">&#9679;</td>
- <td>The notion of “loose coupling” is fundamental to SOA and inherent in that architecture. Loose coupling can be supported by FHIR, but it does not innately do so</td>
+ <td>The notion of "loose coupling" is fundamental to SOA and inherent in that architecture. Loose coupling can be supported by FHIR, but it does not innately do so</td>
  </tr>
  <tr>
  <td>Use of FHIR Resources as Data Payload</td>
@@ -198,7 +204,7 @@ others). </p>
  <td align="center">&#9679;</td>
  <td align="center">&#9682;</td>
  <td align="center">&#9682;</td>
- <td>REST is ideally suited for point access or updates of specific data elements/resources – functions discouraged within SOA and WS*</td>
+ <td>REST is ideally suited for point access or updates of specific data elements/resources - functions discouraged within SOA and WS*</td>
  </tr>
  <tr>
  <td>Suitability for composite transactions</td>
@@ -228,9 +234,9 @@ implementation.</p>
 
 <p>SOA design principles can provide guidance
 to a FHIR implementer resulting in reduction of co-dependencies between
-components, promoting “loose coupling” and minimizing potential impacts
+components, promoting "loose coupling" and minimizing potential impacts
 resulting from changes to inner workings of one component adversely affecting
-others. (For those familiar with the term, this encourages “black box” implementation). 
+others. (For those familiar with the term, this encourages "black box" implementation). 
 </p>
 
 <p>
@@ -332,15 +338,15 @@ of the organization, and so on. </p>
 <ul>
 
 <li>
-“Full Support in FHIR” Approach. This
+"Full Support in FHIR" Approach. This
 alternative involves simplification of the exposed behaviors of the
 service/server so as to be supported within the REST protocol, thus allowing
 full support within FHIR. Behind a FHIR technology stack, SOA design
-principles such as loose coupling and “black box” API design would be coded to
+principles such as loose coupling and "black box" API design would be coded to
 create service autonomy. </li>
 
 <li>
-“Classic SOA with FHIR Payload” Approach. This
+"Classic SOA with FHIR Payload" Approach. This
 alternative is attractive particularly in enterprises that have or are making
 investments in SOA infrastructure. This alternative relies upon traditional
 SOA service definition, leveraging use of FHIR Resources as the parameters into
@@ -363,7 +369,7 @@ specific implementation considerations to take into account. Please note that
 it is particularly important to determine which high-level categorization best
 fits your situation. For each high-level alternative, we present several
 implementation factors affected by the use of FHIR combined with SOA in that
-context. These “dimensions” apply to any implementation, and are described in
+context. These "dimensions" apply to any implementation, and are described in
 the context of each category to illustrate their implications and differentiate
 among the approach alternatives. </p>
 
@@ -374,7 +380,7 @@ akin to an implementation guide.</p>
 <h4>SOA in a FHIR Environment </h4>
 
 <p>
-<i>(“A FHIR Environment into which we are applying SOA Techniques”)</i>
+<i>("A FHIR Environment into which we are applying SOA Techniques")</i>
 </p>
 
 <p>
@@ -391,14 +397,14 @@ typically allowing CRUD operations down to the data element level.
 <p> <b><u>Transactional Integrity.</u></b> 
 Updating applications maintain responsibility to sustain transactional integrity
 as state management is typically not performed within the FHIR server. The
-FHIR specification does not specifically provide for “rollback” in the event of
+FHIR specification does not specifically provide for "rollback" in the event of
 transaction errors, as may be associated with complex or large transactions
 involving changes to multiple resources. If desired, coding will need to be
 done to accommodate this capability.</p>
 
 <p><b><u>API/Interface Design.</u></b>The default interface into a FHIR server is REST-based, providing
 CRUD operations and allowing for stateless access. The FHIR specification does
-not inherently provide for concurrency management (e.g., managing of “deadlock”
+not inherently provide for concurrency management (e.g., managing of "deadlock"
 conditions where two resources each await update permission from the other). 
 As a result, within the FHIR server itself it is assumed that fault tolerance
 and server availability is being managed (beyond the scope of the
@@ -406,9 +412,9 @@ specification).
 </p>
 
 <p>SOA techniques may be useful in API design
-in the form of providing “design patterns” to govern interactions between FHIR
-servers and/or between client-to-server communications (such as the “Fire and
-Forget” pattern). These patterns can help foster loose coupling within FHIR,
+in the form of providing "design patterns" to govern interactions between FHIR
+servers and/or between client-to-server communications (such as the "Fire and
+Forget" pattern). These patterns can help foster loose coupling within FHIR,
 reducing the burden associated with intra-Server implementation and reducing
 risks associated with distributed processing. SOA can define encapsulation
 techniques to guide which and how FHIR functions are to be exposed. The HL7
@@ -480,9 +486,9 @@ and eliminate the need to re-invent solutions exclusively for FHIR.</p>
 
 
 
-<h4>“FHIR in a SOA Environment”</h4>
-<p><i>(“Applying FHIR to <b>Enterprise</b>
-Solutions”)</i></p>
+<h4>"FHIR in a SOA Environment"</h4>
+<p><i>("Applying FHIR to <b>Enterprise</b>
+Solutions")</i></p>
 
 <p><b><u>Data Storage and Coherence.</u></b>In an enterprise environment, data storage and data management are
 typically governed by organizational policy. As such, that policy determines
@@ -502,21 +508,21 @@ enforce these policies. Services have responsibility to interact with
 organizational policy enforcement points to assure appropriate permissions are
 in place.</p>
 
-<p><b><u>Transactional Integrity.</u></b>In part as a function of the “black box” design approach described
+<p><b><u>Transactional Integrity.</u></b>In part as a function of the "black box" design approach described
 above, data integrity and transactional integrity are in part enforced within
 each service as a result of the nature of their exposed APIs. Data update and
 integrity becomes the responsibility of each service. FHIR interfaces may be
 exposed as part of these services, but would be subject to the integrity
 rules/constraints of each service.</p>
 
-<p><b><u>API/Interface Design.</u></b> Services’ API design and explicit exposing of service capabilities
+<p><b><u>API/Interface Design.</u></b> Services' API design and explicit exposing of service capabilities
 is an essential and elemental feature of a SOA architecture. Services provide loosely-coupled
 access (e.g., external clients do not have visibility into the inner workings
 of a service). Each service exposes specific interface capabilities and
 clients must use those capabilities. SOA interfaces are typically aligned with
-business functionality and are coarse-grained (such as “Register Patient” or
-“Validate Identity”, etc.). Note that there is not necessarily a “perfect
-match” between SOA operations and RESTful operations -- Finer grained FHIR
+business functionality and are coarse-grained (such as "Register Patient" or
+"Validate Identity", etc.). Note that there is not necessarily a "perfect
+match" between SOA operations and RESTful operations -- Finer grained FHIR
 interactions may be encapsulated in coarse-grained functions. The API
 definition is where loose-coupling manifests in an implementation. Exposing an
 API access to the inner workings of a service has onward implications that
@@ -537,7 +543,7 @@ that may arise. </p>
 
 <p><b><u>Security.</u></b>Security is inherently a dimension of any enterprise SOA
 architecture, meaning that the responsibility within a service implementation
-is to provide the “hooks” to interact with that architecture. In other words,
+is to provide the "hooks" to interact with that architecture. In other words,
 the service does not need to create or enforce security, it needs to interact
 with those enterprise components that have that responsibility.</p>
 
