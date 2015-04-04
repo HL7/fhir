@@ -20,6 +20,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
+import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.utilities.Utilities;
 
 public class TurtleGenerator {
@@ -52,6 +53,9 @@ public class TurtleGenerator {
   private OutputStreamWriter writer;
   private Definitions definitions;
   private Deque<AnonTypeInfo> anonTypes = new ArrayDeque<AnonTypeInfo>();
+  private String lastSubject;
+  private String lastComment;
+  private boolean separator;
 
   public TurtleGenerator(OutputStream destination, Definitions definitions) {
     super();
@@ -85,22 +89,33 @@ public class TurtleGenerator {
         gen(definitions.getBaseResources().get(n));
     for (String n : sorted(definitions.getResources().keySet())) 
       gen(definitions.getResources().get(n));
-    
+
+    checkClose(".");
     writer.flush();
     writer.close();
   }
 
   private void gen(PrimitiveType t) throws Exception {
     triple(0, "fhir:"+t.getCode(), "rdfs:subClassOf", "fhir:Element", t.getDefinition());
-    triple(1, "fhir:"+t.getCode()+".value", "a", "fhir:Property", t.getComment());
-    triple(2, "fhir:"+t.getCode()+".value", "rdfs:domain", "xs:"+t.getSchemaType(), null);
-    ln();
+    triple(1, "fhir:"+t.getCode()+".value", "a", "rdf:Property", t.getComment());
+    if (t.getSchemaType().endsWith("+")) {
+      triple(2, "fhir:"+t.getCode()+".value", "rdfs:range", "xs:"+t.getSchemaType().substring(0, t.getSchemaType().length()-1), null);
+      triple(2, "fhir:"+t.getCode()+".value", "fhir:regex", "\""+t.getRegEx()+"\"", null);
+    } else if (t.getSchemaType().contains(",")) {
+      triple(2, "fhir:"+t.getCode()+".value", "rdfs:range", "[ a owl:Class; owl:unionOf ("+t.getSchemaType().replace(",", "")+"). ]", "xs:union of "+t.getSchemaType());
+    } else
+      triple(2, "fhir:"+t.getCode()+".value", "rdfs:range", "xs:"+t.getSchemaType(), null);
+    separator = true;
   }
 
   private void gen(DefinedStringPattern t) throws Exception {
     triple(0, "fhir:"+t.getCode(), "rdfs:subClassOf", "fhir:"+t.getBase(), t.getDefinition());
-    triple(2, "fhir:"+t.getCode()+".value", "rdfs:domain", t.getSchema(), null);
-    ln();
+    if (t.getSchema().endsWith("+")) {
+      triple(2, "fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema().substring(0, t.getSchema().length()-1), null);
+      triple(2, "fhir:"+t.getCode()+".value", "fhir:regex", "\""+t.getRegex()+"\"", null);
+    } else
+      triple(2, "fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema(), null);
+    separator = true;
   }
 
   private void gen(TypeDefn t) throws Exception {
@@ -109,22 +124,68 @@ public class TurtleGenerator {
     else
       triple(0, "fhir:"+t.getName(), "rdfs:subClassOf", "fhir:Element", t.getDefinition());
     for (ElementDefn e : t.getElements()) {
-      triple(1, "fhir:"+t.getName()+"."+e.getName(), "a", "fhir:Property", e.getDefinition());
-      if (!e.getTypes().isEmpty())
-        triple(2, "fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+processType(e.typeCode()), null);
-      else {
-        triple(2, "fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+e.getDeclaredTypeName(), null);
-        anonTypes.push(new AnonTypeInfo(e.getDeclaredTypeName(), e, true));
+      if (e.getName().endsWith("[x]")) {
+        String cn = e.getName().substring(0, e.getName().length()-3);
+        triple(1, "fhir:"+t.getName()+"."+cn, "a", "fhir:ChoiceGroup", e.getDefinition());
+        for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
+          String en = cn+Utilities.capitalize(tr.getName());
+          triple(1, "fhir:"+t.getName()+"."+en, "a", "rdf:Property", "choice group "+cn+" as a "+tr.getName());
+          triple(1, "fhir:"+t.getName()+"."+en, "fir:inChoiceGroup", "fhir:"+t.getName()+"."+cn, null);
+          genRange(t.getName(), en, e, tr, true);
+        }
+      } else {
+        triple(1, "fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property", e.getDefinition());
+        genRange(t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), true);
       }
     }
-    ln();   
     processAnonTypes();
+    separator = true;
+  }
+
+  private List<TypeRef> getAnyTypes() {
+    List<TypeRef> refs = new ArrayList<TypeRef>();
+    for (TypeRef t : definitions.getKnownTypes()) 
+      if (!definitions.getInfrastructure().containsKey(t.getName()) && !definitions.getConstraints().containsKey(t.getName())) 
+        refs.add(t);
+    return refs;
+  }
+  
+  private void genRange(String tn, String en, ElementDefn e, TypeRef tr, boolean datatype) throws Exception {
+    if (tr == null) {
+      triple(2, "fhir:"+tn+"."+en, "rdfs:range", "fhir:"+e.getDeclaredTypeName(), null);
+      anonTypes.push(new AnonTypeInfo(e.getDeclaredTypeName(), e, datatype));
+    } else if (tr.getName().startsWith("@")) {
+      ElementDefn r = getElementForPath(tr.getName().substring(1));
+      triple(2, "fhir:"+tn+"."+en, "rdfs:range", "fhir:"+r.getDeclaredTypeName(), null);        
+    } else {
+      triple(2, "fhir:"+tn+"."+en, "rdfs:range", "fhir:"+processType(tr.getName()), null);
+      // if this is a code with an enumerated value set....
+      
+    }
   }
 
   private String processType(String typeCode) {
     if (typeCode.equals("*"))
       return "Element";
     return typeCode;
+  }
+  
+  private ElementDefn getElementForPath(String pathname) throws Exception {
+    String[] path = pathname.split("\\.");
+    ElementDefn res = definitions.getElementDefn(path[0]);
+    for (int i = 1; i < path.length; i++)
+    {
+      String en = path[i];
+      if (en.length() == 0)
+        throw new Exception("Improper path "+pathname);
+      ElementDefn t = res.getElementByName(en);
+      if (t == null) {
+        throw new Exception("unable to resolve "+pathname);
+      }
+      res = t; 
+    }
+    return res;
+
   }
 
   private void gen(ResourceDefn rd) throws Exception {
@@ -134,16 +195,22 @@ public class TurtleGenerator {
     else
       triple(0, "fhir:"+t.getName(), "rdfs:subClassOf", "fhir:"+processType(t.typeCode()), rd.getDefinition());
     for (ElementDefn e : t.getElements()) {
-      triple(1, "fhir:"+t.getName()+"."+e.getName(), "a", "fhir:Property", e.getDefinition());
-      if (!e.getTypes().isEmpty())
-        triple(2, "fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+e.typeCode(), null);
-      else {
-        triple(2, "fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+e.getDeclaredTypeName(), null);
-        anonTypes.push(new AnonTypeInfo(e.getDeclaredTypeName(), e, false));
+      if (e.getName().endsWith("[x]")) {
+        String cn = e.getName().substring(0, e.getName().length()-3);
+        triple(1, "fhir:"+t.getName()+"."+cn, "a", "fhir:ChoiceGroup", e.getDefinition());
+        for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
+          String en = cn+Utilities.capitalize(tr.getName());
+          triple(1, "fhir:"+t.getName()+"."+en, "a", "rdf:Property", "choice group "+cn+" as a "+tr.getName());
+          triple(1, "fhir:"+t.getName()+"."+en, "fir:inChoiceGroup", "fhir:"+t.getName()+"."+cn, null);
+          genRange(t.getName(), en, e, tr, false);
+        }
+      } else {
+        triple(1, "fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property", e.getDefinition());
+        genRange(t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), false);
       }
     }
-    ln();   
     processAnonTypes();
+    separator = true;
   }
 
   private void processAnonTypes() throws Exception {
@@ -157,15 +224,20 @@ public class TurtleGenerator {
     else
       triple(1, "fhir:"+at.name, "a", "fhir:BackboneElement", at.defn.getDefinition());
     for (ElementDefn e : at.defn.getElements()) {
-      triple(2, "fhir:"+at.name+"."+e.getName(), "a", "fhir:Property", e.getDefinition());
-      if (!e.getTypes().isEmpty())
-        triple(3, "fhir:"+at.name+"."+e.getName(), "rdfs:domain", "fhir:"+processType(e.typeCode()), null);
-      else {
-        triple(3, "fhir:"+at.name+"."+e.getName(), "rdfs:domain", "fhir:"+e.getDeclaredTypeName(), null);
-        anonTypes.push(new AnonTypeInfo(e.getDeclaredTypeName(), e, at.type));
+      if (e.getName().endsWith("[x]")) {
+        String cn = e.getName().substring(0, e.getName().length()-3);
+        triple(1, "fhir:"+at.name+"."+cn, "a", "fhir:ChoiceGroup", e.getDefinition());
+        for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
+          String en = cn+Utilities.capitalize(tr.getName());
+          triple(1, "fhir:"+at.name+"."+en, "a", "rdf:Property", "choice group "+cn+" as a "+tr.getName());
+          triple(1, "fhir:"+at.name+"."+en, "fir:inChoiceGroup", "fhir:"+at.name+"."+cn, "choice group "+cn+" as a "+tr.getName());
+          genRange(at.name, en, e, tr, at.type);
+        }
+      } else {
+        triple(2, "fhir:"+at.name+"."+e.getName(), "a", "rdf:Property", e.getDefinition());
+        genRange(at.name, e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), at.type);
       }
     }
-    ln();   
   }
 
   private List<String> sorted(Set<String> keys) {
@@ -175,15 +247,44 @@ public class TurtleGenerator {
     return names;
   }
 
+  private void checkClose(String c) throws Exception {
+    if (lastSubject != null) {
+      if (Utilities.noString(lastComment))
+        ln(c);
+      else
+        ln(c+" # "+lastComment.replace("\r\n", " ").replace("\r", " ").replace("\n", " "));
+      if (c.equals(".")) {
+        ln();
+        lastSubject = null;
+        if (separator) {
+          separator = false;
+          ln("# -------------------------------------------------------------------------------------");
+          ln();
+        }
+      }
+    }
+  }
   private void triple(int indent, String subject, String predicate, String object, String comment) throws Exception {
-    String t = Utilities.padLeft("", ' ', indent);
-    if (comment == null)
-      writer.write(t+subject+" "+predicate+" "+object+".\r\n");
-    else
-      writer.write(t+subject+" "+predicate+" "+object+". # "+comment+"\r\n");
+    if (lastSubject != null && lastSubject.equals(subject)) {
+      checkClose(";");
+      String t = Utilities.padLeft("", ' ', 4);
+      writer.write(t+predicate+" "+object);
+      lastComment = comment;
+    } else {
+      checkClose(".");
+      String t = Utilities.padLeft("", ' ', indent);
+      writer.write(t+subject+" "+predicate+" "+object);
+      lastSubject = subject;
+      lastComment = comment;
+    }
   }
 
   private void ln() throws Exception {
+    writer.write("\r\n");
+  }
+
+  private void ln(String s) throws Exception {
+    writer.write(s);
     writer.write("\r\n");
   }
 
@@ -195,7 +296,8 @@ public class TurtleGenerator {
     //writer.write("@prefix unk: <http://unknown/> .\r\n");
     ln();
     writer.write("#todo: what about choice types? \r\n");
-    writer.write("#todo: what about schema union types? \r\n");
+    ln();
+    ln("# -------------------------------------------------------------------------------------");
     ln();
   }
 
