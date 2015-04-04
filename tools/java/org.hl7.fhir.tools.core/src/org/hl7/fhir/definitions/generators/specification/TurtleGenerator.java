@@ -130,7 +130,7 @@ public class TurtleGenerator {
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
           triple(1, "fhir:"+t.getName()+"."+en, "a", "rdf:Property", "choice group "+cn+" as a "+tr.getName());
-          triple(1, "fhir:"+t.getName()+"."+en, "fir:inChoiceGroup", "fhir:"+t.getName()+"."+cn, null);
+          triple(1, "fhir:"+t.getName()+"."+en, "fhir:inChoiceGroup", "fhir:"+t.getName()+"."+cn, null);
           genRange(t.getName(), en, e, tr, true);
         }
       } else {
@@ -201,7 +201,7 @@ public class TurtleGenerator {
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
           triple(1, "fhir:"+t.getName()+"."+en, "a", "rdf:Property", "choice group "+cn+" as a "+tr.getName());
-          triple(1, "fhir:"+t.getName()+"."+en, "fir:inChoiceGroup", "fhir:"+t.getName()+"."+cn, null);
+          triple(1, "fhir:"+t.getName()+"."+en, "fhir:inChoiceGroup", "fhir:"+t.getName()+"."+cn, null);
           genRange(t.getName(), en, e, tr, false);
         }
       } else {
@@ -230,7 +230,7 @@ public class TurtleGenerator {
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
           triple(1, "fhir:"+at.name+"."+en, "a", "rdf:Property", "choice group "+cn+" as a "+tr.getName());
-          triple(1, "fhir:"+at.name+"."+en, "fir:inChoiceGroup", "fhir:"+at.name+"."+cn, "choice group "+cn+" as a "+tr.getName());
+          triple(1, "fhir:"+at.name+"."+en, "fhir:inChoiceGroup", "fhir:"+at.name+"."+cn, "choice group "+cn+" as a "+tr.getName());
           genRange(at.name, en, e, tr, at.type);
         }
       } else {
@@ -295,7 +295,7 @@ public class TurtleGenerator {
     writer.write("@prefix xs: <http://www.w3.org/2001/XMLSchema#> .\r\n");
     //writer.write("@prefix unk: <http://unknown/> .\r\n");
     ln();
-    writer.write("#todo: what about choice types? \r\n");
+    writer.write("#done; the skeleton. Now, to flesh it out - semantics, expectations, codes etc? \r\n");
     ln();
     ln("# -------------------------------------------------------------------------------------");
     ln();
