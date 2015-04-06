@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -75,16 +76,22 @@ public class TurtleGenerator {
       if (i == 0)
         i = subject.compareTo(other.subject);
       if (i == 0)
+        i = Boolean.compare(!isDefiningPredicate(predicate), !isDefiningPredicate(other.predicate));
+      if (i == 0)
         i = predicate.compareTo(other.predicate);
       if (i == 0)
         i = object.compareTo(other.object);
       return i;
+    }
+    private boolean isDefiningPredicate(String s) {
+      return s.equals("a") || s.equals("rdfs:subClassOf") || s.equals("rdfs:subPropertyOf"); 
     }
     
   }
 
   private List<Triple> triples = new ArrayList<Triple>();
   private List<String> sections = new ArrayList<String>();
+  private Set<String> predicates = new HashSet<String>();
   
   private class AnonTypeInfo {
     private String name;
@@ -282,6 +289,12 @@ public class TurtleGenerator {
     // cardinality
     triple(section, "fhir:"+tn+"."+en, "fhir:minCardinality", literal(e.getMinCardinality().toString()));
     triple(section, "fhir:"+tn+"."+en, "fhir:maxCardinality", literal(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString()));
+    // now in OWL:
+    if (e.getMinCardinality() > 0)
+      triple(section, "fhir:"+tn, "rdfs:subClassOf", "[ a owl:Restriction; owl:onProperty fhir:"+tn+"."+en+"; owl:minCardinality \"\""+(e.getMinCardinality().toString())+"\"^^xsd:nonNegativeInteger ]");
+    if (e.getMaxCardinality() < Integer.MAX_VALUE)
+      triple(section, "fhir:"+tn, "rdfs:subClassOf", "[ a owl:Restriction; owl:onProperty fhir:"+tn+"."+en+"; owl:maxCardinality \"\""+(e.getMaxCardinality().toString())+"\"^^xsd:nonNegativeInteger ]");
+    
     
     // define
     if (tr == null) {
@@ -528,6 +541,7 @@ public class TurtleGenerator {
     checkPrefix(subject);
     checkPrefix(predicate);
     checkPrefix(object);
+    predicates.add(predicate);
     triples.add(new Triple(section, primary, subject, predicate, object, comment == null ? "" : " # "+comment.replace("\r\n", " ").replace("\r", " ").replace("\n", " ")));
   }
   
@@ -607,6 +621,10 @@ public class TurtleGenerator {
     writer.ln();
     for (String p : sorted(prefixes.keySet()))
       writer.ln("@prefix "+p+": <"+prefixes.get(p)+"> .");
+    writer.ln();
+    writer.ln("# Predicates used in this file:");
+    for (String s : sorted(predicates)) 
+      writer.ln(" # "+s);
     writer.ln();
  }
 

@@ -62,7 +62,7 @@ public class MyURIResolver implements URIResolver {
         }
         return TransformerFactory.newInstance().getURIResolver().resolve(href, base);
       } else
-        return new StreamSource(new FileInputStream(href.contains(File.separator) ? href : path+href));
+        return new StreamSource(new FileInputStream(href.contains(File.separator) ? href : Utilities.path(path, href)));
     } catch (FileNotFoundException e) {
       throw new TransformerException(e);
     }

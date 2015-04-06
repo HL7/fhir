@@ -37,5 +37,6 @@
     <dependency org="org.tmatesoft.svnkit" name="svnkit" rev="1.8.5" />
     <dependency org="xpp3" name="xpp3" rev="1.1.4c"/>
     <dependency org="xpp3" name="xpp3_xpath" rev="1.1.4c"/>
+    <dependency org="org.apache.any23" name="apache-any23-core" rev="1.1"/>
   </dependencies>
 </ivy-module>

@@ -31,5 +31,6 @@
 	<classpathentry kind="lib" path="../imports/poi-3.10.1.jar"/>
 	<classpathentry kind="lib" path="../imports/saxon-dom-8.7.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-io-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/apache-any23-core-1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

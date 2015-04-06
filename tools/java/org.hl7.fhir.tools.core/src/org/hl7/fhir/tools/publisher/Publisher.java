@@ -60,6 +60,7 @@ import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
@@ -4232,14 +4233,42 @@ public class Publisher implements URIResolver {
     Element root = doc.getDocumentElement();
     errorCount = errorCount + err.getErrors().size();
 
-    File tmpTransform = Utilities.createTempFile("tmp", ".xslt");
-    File tmpOutput = Utilities.createTempFile("tmp", ".xml");
     String sch = "fhir-invariants.sch";
 
+    validateBySchematron(n, sch);
+    if (profile != null && new File(Utilities.path(page.getFolders().dstDir, profile.getId()+".sch")).exists()) {
+      validateBySchematron(n, profile.getId()+".sch");
+    }
+    
+    // now, finally, we validate the resource ourselves.
+    // the build tool validation focuses on codes and identifiers
+    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
+    validator.validate(issues, root);
+    // if (profile != null)
+    // validator.validateInstanceByProfile(issues, root, profile);
+    for (ValidationMessage m : issues) {
+      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
+        logError("  " + m.summary(), typeforSeverity(m.getLevel()));
+
+      if (m.getLevel() == IssueSeverity.WARNING)
+        warningCount++;
+      else if (m.getLevel() == IssueSeverity.INFORMATION)
+        informationCount++;
+      else
+        errorCount++;
+    }
+  }
+
+  private void validateBySchematron(String n, String sch) throws IOException, ParserConfigurationException, SAXException, FileNotFoundException {
+    DocumentBuilderFactory factory;
+    DocumentBuilder builder;
+    Document doc;
+    File tmpTransform = Utilities.createTempFile("tmp", ".xslt");
+    File tmpOutput = Utilities.createTempFile("tmp", ".xml");
     try {
-      Utilities.saxonTransform(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, page.getFolders().dstDir + sch, page.getFolders().rootDir
-          + "tools" + sc + "schematron" + sc + "iso_svrl_for_xslt2.xsl", tmpTransform.getAbsolutePath(), null);
-      Utilities.saxonTransform(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, page.getFolders().dstDir + n + ".xml",
+      Utilities.saxonTransform(Utilities.path(page.getFolders().rootDir, "tools", "schematron"), Utilities.path(page.getFolders().dstDir, sch),
+          Utilities.path(page.getFolders().rootDir, "tools", "schematron", "iso_svrl_for_xslt2.xsl"), tmpTransform.getAbsolutePath(), null);
+      Utilities.saxonTransform(Utilities.path(page.getFolders().rootDir, "tools", "schematron"), Utilities.path(page.getFolders().dstDir, n + ".xml"),
           tmpTransform.getAbsolutePath(), tmpOutput.getAbsolutePath(), null);
     } catch (Throwable t) {
       //      throw new Exception("Error validating " + page.getFolders().dstDir + n + ".xml with schematrons", t);
@@ -4257,24 +4286,6 @@ public class Publisher implements URIResolver {
         logError("  @" + e.getAttribute("location") + ": " + e.getTextContent(), LogMessageType.Error);
         errorCount++;
       }
-    }
-
-    // now, finally, we validate the resource ourselves.
-    // the build tool validation focuses on codes and identifiers
-    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-    validator.validate(issues, root);
-    // if (profile != null)
-    // validator.validateInstanceByProfile(issues, root, profile);
-    for (ValidationMessage m : issues) {
-      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
-        logError("  " + m.summary(), typeforSeverity(m.getLevel()));
-
-      if (m.getLevel() == IssueSeverity.WARNING)
-        warningCount++;
-      else if (m.getLevel() == IssueSeverity.INFORMATION)
-        informationCount++;
-      else
-        errorCount++;
     }
   }
 
