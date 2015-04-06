@@ -1533,10 +1533,9 @@ public class ProfileUtilities {
       }
       return path;
     }
-
   }
   
-  // generate schematroins for the rules in a structure definition
+  // generate schematrons for the rules in a structure definition
   
   public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws Exception {
   	if (structure.getType() != StructureDefinitionType.CONSTRAINT)

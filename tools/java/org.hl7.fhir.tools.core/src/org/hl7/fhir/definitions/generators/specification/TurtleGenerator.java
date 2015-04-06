@@ -217,14 +217,13 @@ public class TurtleGenerator {
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
-        triple(t.getName(), "fhir:"+t.getName()+"."+cn, "a", "fhir:ChoiceGroup");
+        triple(t.getName(), "fhir:"+t.getName()+"."+cn, "a", "rdf:Property");
         label(t.getName(), "fhir:"+t.getName()+"."+cn, e.getShortDefn());
         comment(t.getName(), "fhir:"+t.getName()+"."+cn, e.getDefinition());
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
-          triple(t.getName(), "fhir:"+t.getName()+"."+en, "a", "rdf:Property", "choice group "+cn+" as a "+tr.getName());
+          triple(t.getName(), "fhir:"+t.getName()+"."+en, "rdfs:subPropertyOf", "fhir:"+t.getName()+"."+cn);
           triple(t.getName(), "fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+t.getName());
-          triple(t.getName(), "fhir:"+t.getName()+"."+en, "fhir:inChoiceGroup", "fhir:"+t.getName()+"."+cn);
           genRange(t.getName(), t.getName(), en, e, tr, true);
         }
       } else {
@@ -341,13 +340,12 @@ public class TurtleGenerator {
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
-        triple(rd.getName(), "fhir:"+t.getName()+"."+cn, "a", "fhir:ChoiceGroup");
+        triple(rd.getName(), "fhir:"+t.getName()+"."+cn, "a", "rdf:Property");
         comment(rd.getName(), "fhir:"+t.getName()+"."+cn, e.getDefinition());
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
-          triple(rd.getName(), "fhir:"+t.getName()+"."+en, "a", "rdf:Property", "choice group "+cn+" as a "+tr.getName());
+          triple(rd.getName(), "fhir:"+t.getName()+"."+en, "rdf:subPropertyOf", "fhir:"+t.getName()+"."+cn);
           triple(rd.getName(), "fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+rd.getName());
-          triple(rd.getName(), "fhir:"+t.getName()+"."+en, "fhir:inChoiceGroup", "fhir:"+t.getName()+"."+cn);
           genRange(rd.getName(), t.getName(), en, e, tr, false);
         }
       } else {
@@ -374,13 +372,12 @@ public class TurtleGenerator {
     for (ElementDefn e : at.getDefn().getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
-        triple(at.getSection(), "fhir:"+at.getName()+"."+cn, "a", "fhir:ChoiceGroup");
+        triple(at.getSection(), "fhir:"+at.getName()+"."+cn, "a", "rdf:Property");
         comment(at.getSection(), "fhir:"+at.getName()+"."+cn, e.getDefinition());
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
-          triple(at.getSection(), "fhir:"+at.getName()+"."+en, "a", "rdf:Property"); //  "choice group "+cn+" as a "+tr.getName());
+          triple(at.getSection(), "fhir:"+at.getName()+"."+en, "rdf:subPropertyOf", "fhir:"+at.getName()+"."+cn); 
           triple(at.getSection(), "fhir:"+at.getName()+"."+en, "rdfs:domain", "fhir:"+at.getName());
-          triple(at.getSection(), "fhir:"+at.getName()+"."+en, "fhir:inChoiceGroup", "fhir:"+at.getName()+"."+cn);
           genRange(at.getSection(), at.getName(), en, e, tr, at.isType());
         }
       } else {
