@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Apr 2, 2015 22:35+1100 for FHIR v0.5.0
+// Generated on Mon, Apr 6, 2015 21:21+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1817,6 +1817,8 @@ public class Procedure extends DomainResource {
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="performer", path="Procedure.performer.person", description="The reference to the practitioner", type="reference" )
   public static final String SP_PERFORMER = "performer";
+  @SearchParamDefinition(name="encounter", path="Procedure.encounter", description="The encounter when procedure performed", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
   @SearchParamDefinition(name="date", path="Procedure.performed[x]", description="Date/Period the procedure was performed", type="date" )
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="type", path="Procedure.type", description="Type of procedure", type="token" )

@@ -46,16 +46,16 @@ public class TextStreamWriter extends OutputStreamWriter {
 
   private String indent = "";
   
-  protected void ln(String line) throws IOException {
+  public void ln(String line) throws IOException {
     write(indent+line+"\r\n");
   }
   
-  protected void ln_i(String line) throws IOException {
+  public void ln_i(String line) throws IOException {
     ln(line);
     indent = indent + "  ";
   }
   
-  protected void ln_o(String line) throws IOException {
+  public void ln_o(String line) throws IOException {
     indent = indent.substring(0, indent.length()-2);
     ln(line);
   }

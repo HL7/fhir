@@ -1,5 +1,7 @@
 package org.hl7.fhir.instance.utils;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -32,8 +34,10 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
@@ -1532,29 +1536,86 @@ public class ProfileUtilities {
 
   }
   
-//  public ExtensionResult getExtensionDefn(StructureDefinition source, String url) {
-//    StructureDefinition profile;
-//    String code;
-//    if (url.startsWith("#")) {
-//      profile = source;
-//      code = url.substring(1);
-//    } else {
-//      String[] parts = url.split("\\#");
-//      profile = context.getProfiles().get(parts[0]).getResource();
-//      code = parts[1];
-//    }
+  // generate schematroins for the rules in a structure definition
+  
+  public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws Exception {
+  	if (structure.getType() != StructureDefinitionType.CONSTRAINT)
+  		throw new Exception("not the right kind of structure to generate schematrons for");
+  	if (!structure.hasSnapshot())
+  		throw new Exception("needs a snapshot");
+    
+  	StructureDefinition base = context.getProfiles().get(structure.getBase());
+  	
+    TextStreamWriter txt = new TextStreamWriter(dest);
+    txt.ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+    txt.ln("<!-- schematron genreation is still veyr much trial. in particular, slicing is not yet supported -->");
+    txt.ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
+    txt.ln("<sch:ns prefix=\"f\" uri=\"http://hl7.org/fhir\"/>");
+    txt.ln("<sch:ns prefix=\"h\" uri=\"http://www.w3.org/1999/xhtml\"/>");
+    
+    // we assume that the resource is valid against the schematrons on 
+    // the underlying resource
+    ElementDefinition ed = structure.getSnapshot().getElement().get(0);
+    generateForChildren(txt, "f:"+ed.getName(), ed, structure, base);
+    txt.ln_o("</sch:schema>");
+    txt.flush();
+    txt.close();
+
+  }
+
+
+  private void generateForChildren(TextStreamWriter txt, String xpath, ElementDefinition ed, StructureDefinition structure, StructureDefinition base) throws IOException {
+  	boolean started = false;
+    //    generateForChild(txt, structure, child);
+    List<ElementDefinition> children = getChildList(structure, ed);
+    for (ElementDefinition child : children) {
+      String name = tail(child.getPath());
+      ElementDefinition based = getByPath(base, child.getPath());
+      boolean doMin = (child.getMin() > 0) && (based == null || (child.getMin() != based.getMin()));
+      boolean doMax =  !child.getMax().equals("*") && (based == null || (!child.getMax().equals(based.getMax()))); 
+      if (doMin || doMax) {
+      	if (!started) {
+        	txt.ln_i("<sch:pattern>");
+          txt.ln("<sch:title>"+ed.getPath()+"</sch:title>");
+          started = true;
+      	}
+      	if (doMin) {
+      		txt.ln_i("<sch:rule context=\"f:*\">");
+      		txt.ln  ("<sch:assert test=\"count(f:/"+name+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
+      		txt.ln_o("</sch:rule>");
+      	}
+      	if (doMax) {
+      		txt.ln_i("<sch:rule context=\"f:*\">");
+      		txt.ln  ("<sch:assert test=\"count(f:/"+name+") &lt;= "+child.getMax()+"\">"+name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
+      		txt.ln_o("</sch:rule>");
+      	}
+      }
+    }
+    if (started)
+    	txt.ln_o("</sch:pattern>");
+    for (ElementDefinition child : children) {
+      String name = tail(child.getPath());
+      generateForChildren(txt, xpath+"/f:"+name, child, structure, base);
+    }      
+  }
+
+
+	private ElementDefinition getByPath(StructureDefinition base, String path) {
+		for (ElementDefinition ed : base.getSnapshot().getElement()) {
+			if (ed.getPath().equals(path))
+				return ed;
+			if (ed.getPath().endsWith("[x]") && ed.getPath().length() <= path.length()-3 &&  ed.getPath().substring(0, ed.getPath().length()-3).equals(path.substring(0, ed.getPath().length()-3)))
+				return ed;				
+		}
+	  return null;
+  }
+
 //
-//    if (profile != null) {
-//      ProfileExtensionDefnComponent defn = null;
-//      for (ProfileExtensionDefnComponent s : profile.getExtensionDefn()) {
-//        if (s.getName().equals(code)) 
-//          defn = s;
-//      }
-//      if (defn != null)
-//        return new ExtensionResult(profile, defn);
-//    }
-//    return null;
-//  }
+//private void generateForChild(TextStreamWriter txt,
+//    StructureDefinition structure, ElementDefinition child) {
+//  // TODO Auto-generated method stub
 //
+//}
+  
   
 }

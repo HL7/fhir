@@ -165,6 +165,7 @@ public class TurtleGenerator {
       gen(n, valuesets.get(n));
 
     commit();
+//    throw new Error("bang");
   }
 
 
