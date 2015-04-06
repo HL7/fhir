@@ -1,6 +1,5 @@
 package org.hl7.fhir.definitions.generators.specification;
 
-import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
@@ -9,27 +8,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.sf.saxon.sort.ComparableAtomicValueComparer;
-
-import org.apache.commons.codec.binary.StringUtils;
-import org.apache.poi.util.StringUtil;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
+import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
@@ -37,7 +33,7 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class TurtleGenerator {
 
-  private class Triple implements Comparable {
+  private class Triple implements Comparable<Triple> {
     private String section;
     private boolean primary;
     private String subject;
@@ -68,12 +64,9 @@ public class TurtleGenerator {
     public String getComment() {
       return comment;
     }
-    public boolean getPrimary() {
-      return primary;
-    }
     
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Triple o) {
       Triple other = (Triple) o;
       
       int i = section.compareTo(other.section);
@@ -140,6 +133,9 @@ public class TurtleGenerator {
     prefixes.put("rdfs", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
     prefixes.put("fhir", "http://hl7.org/fhir/");
     prefixes.put("xs", "http://www.w3.org/2001/XMLSchema#");
+    prefixes.put("owl", "http://www.w3.org/2002/07/owl#");
+    prefixes.put("dc", "http://purl.org/dc/elements/1.1/");
+    prefixes.put("dcterms", "http://purl.org/dc/terms/");
     
     gen(definitions.getInfrastructure().get("Element"));
     genPrimitiveType();
@@ -177,6 +173,8 @@ public class TurtleGenerator {
     primaryTriple("Primitive", "fhir:Primitive", "rdfs:subClassOf", "fhir:Element");
     triple("Primitive", "fhir:Primitive.value", "a", "rdf:Property");
     triple("Primitive", "fhir:Primitive.value", "rdfs:domain", "fhir:Primitive");
+    triple("Primitive", "fhir:Primitive.value", "fhir:minCardinality", literal("0"));
+    triple("Primitive", "fhir:Primitive.value", "fhir:maxCardinality", literal("1"));
   }
 
   private void gen(PrimitiveType t) {
@@ -188,7 +186,7 @@ public class TurtleGenerator {
     triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:domain", "fhir:"+t.getCode());
     if (t.getSchemaType().endsWith("+")) {
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", "xs:"+t.getSchemaType().substring(0, t.getSchemaType().length()-1));
-      triple(t.getCode(), "fhir:"+t.getCode()+".value", "fhir:regex", literal(t.getRegEx()));
+      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xsd:pattern \""+Utilities.escapeJava(t.getRegEx())+"\"]");
     } else if (t.getSchemaType().contains(",")) {
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", "[ a owl:Class; owl:unionOf ("+t.getSchemaType().replace(",", "")+") ]", "xs:union of "+t.getSchemaType());
     } else
@@ -202,7 +200,7 @@ public class TurtleGenerator {
     triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:subPropertyOf", "fhir:"+t.getBase()+".value");
     if (t.getSchema().endsWith("+")) {
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema().substring(0, t.getSchema().length()-1));
-      triple(t.getCode(), "fhir:"+t.getCode()+".value", "fhir:regex", literal(t.getRegex()));
+      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xsd:pattern \""+Utilities.escapeJava(t.getRegex())+"\"]");
     } else
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema());
   }
@@ -213,11 +211,13 @@ public class TurtleGenerator {
       primaryTriple(t.getName(), "fhir:"+t.getName(), "a", "rdfs:Class");
     else
       primaryTriple(t.getName(), "fhir:"+t.getName(), "rdfs:subClassOf", "fhir:Element");
+    label(t.getName(), "fhir:"+t.getName(), t.getShortDefn());
     comment(t.getName(), "fhir:"+t.getName(), t.getDefinition());
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
         triple(t.getName(), "fhir:"+t.getName()+"."+cn, "a", "fhir:ChoiceGroup");
+        label(t.getName(), "fhir:"+t.getName()+"."+cn, e.getShortDefn());
         comment(t.getName(), "fhir:"+t.getName()+"."+cn, e.getDefinition());
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
@@ -238,13 +238,52 @@ public class TurtleGenerator {
 
   private List<TypeRef> getAnyTypes() {
     List<TypeRef> refs = new ArrayList<TypeRef>();
-    for (TypeRef t : definitions.getKnownTypes()) 
-      if (!definitions.getInfrastructure().containsKey(t.getName()) && !definitions.getConstraints().containsKey(t.getName())) 
-        refs.add(t);
+    refs.add(new TypeRef("integer"));
+    refs.add(new TypeRef("decimal"));
+    refs.add(new TypeRef("dateTime"));
+    refs.add(new TypeRef("date"));
+    refs.add(new TypeRef("instant"));
+    refs.add(new TypeRef("time"));
+    refs.add(new TypeRef("string"));
+    refs.add(new TypeRef("uri"));
+    refs.add(new TypeRef("boolean"));
+    refs.add(new TypeRef("code"));
+    refs.add(new TypeRef("base64Binary"));
+    refs.add(new TypeRef("Coding"));
+    refs.add(new TypeRef("CodeableConcept"));
+    refs.add(new TypeRef("Attachment"));
+    refs.add(new TypeRef("Identifier"));
+    refs.add(new TypeRef("Quantity"));
+    refs.add(new TypeRef("Range"));
+    refs.add(new TypeRef("Period"));
+    refs.add(new TypeRef("Ratio"));
+    refs.add(new TypeRef("HumanName"));
+    refs.add(new TypeRef("Address"));
+    refs.add(new TypeRef("ContactPoint"));
+    refs.add(new TypeRef("Timing"));
+    refs.add(new TypeRef("Signature"));
+    refs.add(new TypeRef("Reference"));
     return refs;
   }
   
   private void genRange(String section, String tn, String en, ElementDefn e, TypeRef tr, boolean datatype) throws Exception {
+    // metadata
+    if (e.isModifier())
+      triple(section, "fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isModifier");
+    if (e.isXmlAttribute())
+      triple(section, "fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isXmlAtribute");
+    if (e.hasMustSupport() && e.isMustSupport())
+      triple(section, "fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isMustSupport");
+    if (e.hasSummaryItem() && e.isSummaryItem())
+      triple(section, "fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isSummaryItem");
+    if (!Utilities.noString(e.getW5()))
+      triple(section, "fhir:"+tn+"."+en, "fhir:w5", "fhir:w5-"+e.getW5());
+
+    // cardinality
+    triple(section, "fhir:"+tn+"."+en, "fhir:minCardinality", literal(e.getMinCardinality().toString()));
+    triple(section, "fhir:"+tn+"."+en, "fhir:maxCardinality", literal(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString()));
+    
+    // define
     if (tr == null) {
       triple(section, "fhir:"+tn+"."+en, "rdfs:range", "fhir:"+e.getDeclaredTypeName());
       anonTypes.push(new AnonTypeInfo(section, e.getDeclaredTypeName(), e, datatype));
@@ -326,28 +365,28 @@ public class TurtleGenerator {
   }
 
   private void genAnon(AnonTypeInfo at) throws Exception {
-    if (at.type)
-      triple(at.section, "fhir:"+at.name, "a", "fhir:Element");
+    if (at.isType())
+      triple(at.getSection(), "fhir:"+at.getName(), "a", "fhir:Element");
     else
-      triple(at.section, "fhir:"+at.name, "a", "fhir:BackboneElement");
-    comment(at.section, "fhir:"+at.name, at.defn.getDefinition());
-    for (ElementDefn e : at.defn.getElements()) {
+      triple(at.getSection(), "fhir:"+at.getName(), "a", "fhir:BackboneElement");
+    comment(at.getSection(), "fhir:"+at.getName(), at.getDefn().getDefinition());
+    for (ElementDefn e : at.getDefn().getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
-        triple(at.section, "fhir:"+at.name+"."+cn, "a", "fhir:ChoiceGroup");
-        comment(at.section, "fhir:"+at.name+"."+cn, e.getDefinition());
+        triple(at.getSection(), "fhir:"+at.getName()+"."+cn, "a", "fhir:ChoiceGroup");
+        comment(at.getSection(), "fhir:"+at.getName()+"."+cn, e.getDefinition());
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
-          triple(at.section, "fhir:"+at.name+"."+en, "a", "rdf:Property"); //  "choice group "+cn+" as a "+tr.getName());
-          triple(at.section, "fhir:"+at.name+"."+en, "rdfs:domain", "fhir:"+at.name);
-          triple(at.section, "fhir:"+at.name+"."+en, "fhir:inChoiceGroup", "fhir:"+at.name+"."+cn);
-          genRange(at.section, at.name, en, e, tr, at.type);
+          triple(at.getSection(), "fhir:"+at.getName()+"."+en, "a", "rdf:Property"); //  "choice group "+cn+" as a "+tr.getName());
+          triple(at.getSection(), "fhir:"+at.getName()+"."+en, "rdfs:domain", "fhir:"+at.getName());
+          triple(at.getSection(), "fhir:"+at.getName()+"."+en, "fhir:inChoiceGroup", "fhir:"+at.getName()+"."+cn);
+          genRange(at.getSection(), at.getName(), en, e, tr, at.isType());
         }
       } else {
-        triple(at.section, "fhir:"+at.name+"."+e.getName(), "a", "rdf:Property");
-        comment(at.section, "fhir:"+at.name+"."+e.getName(), e.getDefinition());
-        triple(at.section, "fhir:"+at.name+"."+e.getName(), "rdfs:domain", "fhir:"+at.name);
-        genRange(at.section, at.name, e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), at.type);
+        triple(at.getSection(), "fhir:"+at.getName()+"."+e.getName(), "a", "rdf:Property");
+        comment(at.getSection(), "fhir:"+at.getName()+"."+e.getName(), e.getDefinition());
+        triple(at.getSection(), "fhir:"+at.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+at.getName());
+        genRange(at.getSection(), at.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), at.isType());
       }
     }
   }
@@ -355,12 +394,17 @@ public class TurtleGenerator {
   private void gen(String bn, ValueSet vs) {
     sections.add(bn);
     primaryTriple(bn, bn, "a", "fhir:ValueSet");
-    if (vs.hasName())
-      label(bn, bn, vs.getName());
-    if (vs.hasDescription())
-      comment(bn, bn, vs.getDescription());
     if (vs.hasVersion())
       triple(bn, bn, "fhir:version", literal(vs.getVersion()));
+    if (vs.hasName())
+      label(bn, bn, vs.getName());
+    if (vs.hasDescription()) 
+      comment(bn, bn, vs.getDescription());
+    if (vs.hasCopyright()) 
+      triple(bn, bn, "dc:rights", literal(vs.getCopyright()));
+    if (vs.hasDate()) 
+      triple(bn, bn, "dc:date", literal(vs.getDate().toString()));
+    
     for (CodeableConcept cc : vs.getUseContext()) 
       codedTriple(bn, bn, "fhir:useContext", cc);
     triple(bn, bn, "fhir:status", "fhir:conformance-resource-status#"+vs.getStatus().toCode());
@@ -405,7 +449,7 @@ public class TurtleGenerator {
         triple(section, subject, predicate, s, c.hasDisplay() ? c.getDisplay() : cc.getText());
     }
   }
-  
+ 
   private String getCanonicalStatus(String path, String code) {
     List<String> codes = definitions.getStatusCodes().get(path);
     if (codes == null)
@@ -462,10 +506,12 @@ public class TurtleGenerator {
 
   private void comment(String section, String subject, String comment) {
     triple(section, false, subject, "rdfs:comment", literal(comment), null);
+    triple(section, false, subject, "dc:terms", literal(comment), null);
   }
   
   private void label(String section, String subject, String comment) {
     triple(section, false, subject, "rdfs:label", literal(comment), null);
+    triple(section, false, subject, "dc:title", literal(comment), null);
   }
   
   private void triple(String section, String subject, String predicate, String object) {
@@ -543,15 +589,12 @@ public class TurtleGenerator {
     for (String p : sorted(prefixes.keySet()))
       writer.ln("@prefix "+p+": <"+prefixes.get(p)+"> .");
     writer.ln();
-    writer.ln("# -------------------------------------------------------------------------------------");
-    writer.ln();
-  }
+ }
 
-  @SuppressWarnings("unchecked")
   private void commitSection(LineOutputStreamWriter writer, String section) throws Exception {
     List<Triple> sectlist = new ArrayList<Triple>();
     for (Triple t : triples)
-      if (t.section.equals(section))
+      if (t.getSection().equals(section))
         sectlist.add(t);
     Collections.sort(sectlist);
     writer.ln("# - "+section+" "+Utilities.padLeft("", '-', 75-section.length()));
@@ -561,18 +604,16 @@ public class TurtleGenerator {
     for (Triple t : sectlist) {
       boolean follow = false;
       if (lastSubject != null) {
-        follow = lastSubject.equals(t.subject);
+        follow = lastSubject.equals(t.getSubject());
         String c = follow ? ";" : ".";
         writer.ln(c+lastComment);
         if (!follow) 
           writer.ln();
       }
-      String left = follow ? Utilities.padLeft("", ' ', 2) : t.subject;
-      writer.write(left+" "+t.predicate+" "+t.object);
-      lastComment = t.comment;
-      if (!follow) {
-        lastSubject = t.subject;
-      }
+      String left = follow ? Utilities.padLeft("", ' ', 2) : t.getSubject();
+      writer.write(left+" "+t.getPredicate()+" "+t.getObject());
+      lastComment = t.getComment();
+      lastSubject = t.getSubject();
     }
     writer.ln("."+lastComment);
     writer.ln();

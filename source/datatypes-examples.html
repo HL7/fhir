@@ -1059,45 +1059,60 @@ postal union</a> examples.
 </pre>
 
 <table class="lines">
-<tr><td>101-dong 103-ho</td><td>building number + door</td></tr>
-<tr><td>1229-1 Suseong 4-ga</td><td>complex of buildings + locality</td></tr>
-<tr><td>Suseong-gu</td><td>sub-province</td></tr>
-<tr><td>DAEGU, SEOUL 706-836</td><td>province + “SEOUL” + postcode</td></tr>
-<tr><td>REP. OF KOREA</td><td>country</td></tr>
+<tr><td>705-1104</td><td>building number + door</td></tr>
+<tr><td>56, Dalgubeol-daero 323beon-gil, Suseong-gu</td><td>street</td></tr>
+<tr><td>Daegu</td><td>city</td></tr>
+<tr><td>Rep. OF KOREA</td><td>country</td></tr>
+<tr><td>706-907</td><td>postcode</td></tr>
 </table>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
-      &lt;valueCode value=&quot;Suseong-gu&quot;/&gt;
-    &lt;/extension&gt;
-    &lt;line value=&quot;101-dong 103-ho&quot;/&gt;
-    &lt;line value=&quot;1229-1 Suseong 4-ga&quot;/&gt;
-    &lt;city value=&quot;Suseong&quot;/&gt;
-    &lt;state value="DAEGU" /&gt;
-    &lt;postalCode value=&quot;706-836&quot;/&gt;
-    &lt;country value="REP. OF KOREA" /&gt;
+    &lt;line value=&quot;705-1104&quot;/&gt;
+    &lt;line value=&quot;56, Dalgubeol-daero 323beon-gil, Suseong-gu&quot;/&gt;
+    &lt;city value=&quot;Daegu&quot;/&gt;
+    &lt;country value=&quot;Rep. OF KOREA&quot; /&gt;
+    &lt;postalCode value=&quot;706-907&quot;/&gt;
   &lt;/address&gt;
 </pre>
 
 <table class="lines">
-<tr><td>35-8 Doekhyeon-ri, Gujeong-myeon</td><td>premises + locality + sub-province 2</td></tr>
-<tr><td>Gangneung-si</td><td>sub-province</td></tr>
-<tr><td>GANGWON-do, SEOUL 210-813</td><td>province + “SEOUL” + postcode</td></tr>
-<tr><td>REP. OF KOREA</td><td>country</td></tr>
+<tr><td>3F</td><td>building floor</td></tr>
+<tr><td>42, Toegye-ro 77beon-gil</td><td>street</td></tr>
+<tr><td>Chuncheon-si</td><td>city</td></tr>
+<tr><td>Gangwon-do</td><td>province</td></tr>
+<tr><td>Rep. OF KOREA</td><td>country</td></tr>
+<tr><td>200-066</td><td>postcode</td></tr>
 </table>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county&quot;&gt;
-      &lt;valueCode value=&quot;Gangneung-si&quot;/&gt;
-    &lt;/extension&gt;
-    &lt;line value=&quot;35-8 Doekhyeon-ri&quot;/&gt;
-    &lt;city value=&quot;Gujeong-myeon&quot;/&gt;
-    &lt;state value="GANGWON-do" /&gt;
-    &lt;postalCode value=&quot;210-813&quot;/&gt;
-    &lt;country value="REP. OF KOREA" /&gt;
+    &lt;line value=&quot;3F&quot;/&gt;
+    &lt;line value=&quot;42, Toegye-ro 77beon-gil&quot;/&gt;
+    &lt;city value=&quot;Chuncheon-si&quot;/&gt;
+    &lt;state value=&quot;Gangwon-do&quot; /&gt;
+    &lt;country value=&quot;Rep. OF KOREA&quot; /&gt;
+    &lt;postalCode value=&quot;200-066&quot;/&gt;
   &lt;/address&gt;
 </pre>
 </div>
+
+<table class="lines">
+<tr><td>Ga-B101</td><td>building number + door</td></tr>
+<tr><td>136, Sesil-ro</td><td>street</td></tr>
+<tr><td>Busan</td><td>city</td></tr>
+<tr><td>Rep. OF KOREA</td><td>country</td></tr>
+<tr><td>612-837</td><td>postcode</td></tr>
+</table>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+    &lt;line value=&quot;Ga-B101&quot;/&gt;
+    &lt;line value=&quot;136, Sesil-ro&quot;/&gt;
+    &lt;city value=&quot;Busan&quot;/&gt;
+    &lt;country value=&quot;Rep. OF KOREA&quot; /&gt;
+    &lt;postalCode value=&quot;612-837&quot;/&gt;
+  &lt;/address&gt;
+</pre>
+</div>
+
 
 <a name="ContactPoint"></a>
 <a name="contactpoint"></a>
