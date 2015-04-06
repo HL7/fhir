@@ -186,7 +186,7 @@ public class TurtleGenerator {
     triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:domain", "fhir:"+t.getCode());
     if (t.getSchemaType().endsWith("+")) {
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", "xs:"+t.getSchemaType().substring(0, t.getSchemaType().length()-1));
-      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xsd:pattern \""+Utilities.escapeJava(t.getRegEx())+"\"]");
+      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xsd:pattern \""+escape(t.getRegEx())+"\"]");
     } else if (t.getSchemaType().contains(",")) {
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", "[ a owl:Class; owl:unionOf ("+t.getSchemaType().replace(",", "")+") ]", "xs:union of "+t.getSchemaType());
     } else
@@ -200,7 +200,7 @@ public class TurtleGenerator {
     triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:subPropertyOf", "fhir:"+t.getBase()+".value");
     if (t.getSchema().endsWith("+")) {
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema().substring(0, t.getSchema().length()-1));
-      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xsd:pattern \""+Utilities.escapeJava(t.getRegex())+"\"]");
+      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xsd:pattern \""+escape(t.getRegex())+"\"]");
     } else
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema());
   }
@@ -474,17 +474,16 @@ public class TurtleGenerator {
   }
 
   private String getPNameForUri(String url) {
-    String s = matches(url, "http://hl7.org/fhir/v2/vs/", "v2-vs");
-    if (s == null)
-      s = matches(url, "http://hl7.org/fhir/v2/", "v2");
-    if (s == null)
-      s = matches(url, "http://hl7.org/fhir/v3/vs/", "v3-vs");
-    if (s == null)
-      s = matches(url, "http://hl7.org/fhir/v3/", "v3");
-    if (s == null)
-      s = matches(url, "http://hl7.org/fhir/vs/", "fhir-vs");
-    if (s == null)
-      s = matches(url, "http://hl7.org/fhir/", "fhir");
+//    String s = matches(url, "http://hl7.org/fhir/v2/vs/", "v2-vs");
+//    if (s == null)
+//      s = matches(url, "http://hl7.org/fhir/v2/", "v2");
+//    if (s == null)
+//      s = matches(url, "http://hl7.org/fhir/v3/vs/", "v3-vs");
+//    if (s == null)
+//      s = matches(url, "http://hl7.org/fhir/v3/", "v3");
+//    if (s == null)
+//      s = matches(url, "http://hl7.org/fhir/vs/", "fhir-vs");
+    String  s = matches(url, "http://hl7.org/fhir/", "fhir");
     if (s == null)
       s = matches(url, "http://www.hl7.org/fhir/", "fhir");
     if (s == null)
@@ -499,7 +498,7 @@ public class TurtleGenerator {
   private String matches(String url, String prefixUri, String prefix) {
     if (url.startsWith(prefixUri)) {
       prefixes.put(prefix, prefixUri);
-      return prefix+":"+url.substring(prefixUri.length());
+      return prefix+":"+escape(url.substring(prefixUri.length()));
     }
     return null;
   }
@@ -550,7 +549,31 @@ public class TurtleGenerator {
   }
 
   private String literal(String s) {
-    return "\""+Utilities.escapeJava(s)+"\"";
+    return "\""+escape(s)+"\"";
+  }
+
+  private String escape(String s) {
+      if (s == null)
+        return "";
+      
+      StringBuilder b = new StringBuilder();
+      for (char c : s.toCharArray()) {
+        if (c == '\r')
+          b.append("\\r");
+        else if (c == '\n')
+          b.append("\\n");
+        else if (c == '"')
+          b.append("\"");
+        else if (c == '\\')
+          b.append("\\\\");
+        else if (c == '/')
+          b.append("\\/");
+        else 
+          b.append(c);
+      }   
+      return b.toString();
+    }
+
   }
 
   private class LineOutputStreamWriter extends OutputStreamWriter {
