@@ -553,27 +553,25 @@ public class TurtleGenerator {
   }
 
   private String escape(String s) {
-      if (s == null)
-        return "";
-      
-      StringBuilder b = new StringBuilder();
-      for (char c : s.toCharArray()) {
-        if (c == '\r')
-          b.append("\\r");
-        else if (c == '\n')
-          b.append("\\n");
-        else if (c == '"')
-          b.append("\"");
-        else if (c == '\\')
-          b.append("\\\\");
-        else if (c == '/')
-          b.append("\\/");
-        else 
-          b.append(c);
-      }   
-      return b.toString();
-    }
+    if (s == null)
+      return "";
 
+    StringBuilder b = new StringBuilder();
+    for (char c : s.toCharArray()) {
+      if (c == '\r')
+        b.append("\\r");
+      else if (c == '\n')
+        b.append("\\n");
+      else if (c == '"')
+        b.append("\"");
+      else if (c == '\\')
+        b.append("\\\\");
+      else if (c == '/')
+        b.append("\\/");
+      else 
+        b.append(c);
+    }   
+    return b.toString();
   }
 
   private class LineOutputStreamWriter extends OutputStreamWriter {
