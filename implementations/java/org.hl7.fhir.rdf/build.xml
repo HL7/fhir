@@ -6,9 +6,13 @@
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="org.hl7.fhir.utilities">
     <property environment="env"/>
     <property name="debuglevel" value="source,lines,vars"/>
+    <property name="org.hl7.fhir.utilities.location" value="../org.hl7.fhir.utilities"/>
+    <property name="org.hl7.fhir.instance.location" value="../org.hl7.fhir.instance"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
-    <path id="org.hl7.fhir.rdf.classpath">
+  <path id="org.hl7.fhir.rdf.classpath">
+     <pathelement location="${org.hl7.fhir.utilities.location}/bin"/>
+     <pathelement location="${org.hl7.fhir.instance.location}/bin"/>
 	<fileset dir="../../../tools/java/imports" includes="*.jar"/>
     </path>
     <target name="clean">
