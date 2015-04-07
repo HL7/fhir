@@ -115,6 +115,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.SourceParser;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
+import org.hl7.fhir.definitions.validation.RDFValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.FormatUtilities;
@@ -1506,6 +1507,8 @@ public class Publisher implements URIResolver {
 
     TurtleGenerator ttl = new TurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions());
     ttl.execute();
+    RDFValidator val = new RDFValidator();
+    val.validate(Utilities.path(page.getFolders().dstDir, "fhir.ttl"));
     ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir.ttl.zip"));
     zip.addFileName("fhir.ttl", Utilities.path(page.getFolders().dstDir, "fhir.ttl"), false);
     zip.close();

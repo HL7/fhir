@@ -31,6 +31,12 @@
 	<classpathentry kind="lib" path="../imports/poi-3.10.1.jar"/>
 	<classpathentry kind="lib" path="../imports/saxon-dom-8.7.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-io-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/apache-any23-core-1.1.jar"/>
+	<classpathentry kind="lib" path="../imports/jena-core-2.13.0.jar"/>
+	<classpathentry kind="lib" path="../imports/jena-arq-2.13.0.jar"/>
+	<classpathentry kind="lib" path="../imports/jena-iri-1.1.2.jar"/>
+	<classpathentry kind="lib" path="../imports/slf4j-jdk14-1.7.12.jar"/>
+	<classpathentry kind="lib" path="../imports/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="../imports/xercesImpl-2.11.0.jar"/>
+	<classpathentry kind="lib" path="../imports/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

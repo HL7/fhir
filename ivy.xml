@@ -37,6 +37,12 @@
     <dependency org="org.tmatesoft.svnkit" name="svnkit" rev="1.8.5" />
     <dependency org="xpp3" name="xpp3" rev="1.1.4c"/>
     <dependency org="xpp3" name="xpp3_xpath" rev="1.1.4c"/>
-    <dependency org="org.apache.any23" name="apache-any23-core" rev="1.1"/>
+    <dependency org="org.apache.jena" name="jena-core" rev="2.13.0" />
+    <dependency org="org.apache.jena" name="jena-arq" rev="2.13.0"/>
+    <dependency org="org.apache.jena" name="jena-iri" rev="1.1.2"/>
+    <dependency org="org.slf4j" name="slf4j-jdk14" rev="1.7.12" />    
+    <dependency org="org.slf4j" name="slf4j-api" rev="1.7.12" />
+    <dependency org="xerces" name="xercesImpl" rev="2.11.0"/>
+    <dependency org="xml-apis" name="xml-apis" rev="1.4.01" />
   </dependencies>
 </ivy-module>

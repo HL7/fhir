@@ -136,7 +136,7 @@ public class TurtleGenerator {
   public void execute() throws Exception {
 //    triple(fhir("FHIR"), isa, none("spec"));
 
-    prefixes.put("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns##");
+    prefixes.put("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
     prefixes.put("rdfs", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
     prefixes.put("fhir", "http://hl7.org/fhir/");
     prefixes.put("xs", "http://www.w3.org/2001/XMLSchema#");
@@ -194,7 +194,7 @@ public class TurtleGenerator {
     triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:domain", "fhir:"+t.getCode());
     if (t.getSchemaType().endsWith("+")) {
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", "xs:"+t.getSchemaType().substring(0, t.getSchemaType().length()-1));
-      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xsd:pattern \""+escape(t.getRegEx())+"\"]");
+      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xs:pattern \""+escape(t.getRegEx(), false)+"\"]");
     } else if (t.getSchemaType().contains(",")) {
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", "[ a owl:Class; owl:unionOf ("+t.getSchemaType().replace(",", "")+") ]", "xs:union of "+t.getSchemaType());
     } else
@@ -208,7 +208,7 @@ public class TurtleGenerator {
     triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:subPropertyOf", "fhir:"+t.getBase()+".value");
     if (t.getSchema().endsWith("+")) {
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema().substring(0, t.getSchema().length()-1));
-      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xsd:pattern \""+escape(t.getRegex())+"\"]");
+      triple(t.getCode(), "fhir:"+t.getCode()+".value", "owl:withRestriction", "[ xs:pattern \""+escape(t.getRegex(), false)+"\"]");
     } else
       triple(t.getCode(), "fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema());
   }
@@ -291,9 +291,9 @@ public class TurtleGenerator {
     triple(section, "fhir:"+tn+"."+en, "fhir:maxCardinality", literal(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString()));
     // now in OWL:
     if (e.getMinCardinality() > 0)
-      triple(section, "fhir:"+tn, "rdfs:subClassOf", "[ a owl:Restriction; owl:onProperty fhir:"+tn+"."+en+"; owl:minCardinality \"\""+(e.getMinCardinality().toString())+"\"^^xsd:nonNegativeInteger ]");
+      triple(section, "fhir:"+tn, "rdfs:subClassOf", "[ a owl:Restriction; owl:onProperty fhir:"+tn+"."+en+"; owl:minCardinality \""+(e.getMinCardinality().toString())+"\"^^xs:nonNegativeInteger ]");
     if (e.getMaxCardinality() < Integer.MAX_VALUE)
-      triple(section, "fhir:"+tn, "rdfs:subClassOf", "[ a owl:Restriction; owl:onProperty fhir:"+tn+"."+en+"; owl:maxCardinality \"\""+(e.getMaxCardinality().toString())+"\"^^xsd:nonNegativeInteger ]");
+      triple(section, "fhir:"+tn, "rdfs:subClassOf", "[ a owl:Restriction; owl:onProperty fhir:"+tn+"."+en+"; owl:maxCardinality \""+(e.getMaxCardinality().toString())+"\"^^xs:nonNegativeInteger ]");
     
     
     // define
@@ -307,7 +307,7 @@ public class TurtleGenerator {
       triple(section, "fhir:"+tn+"."+en, "rdfs:range", "fhir:"+processType(tr.getName()));
       if (e.hasBinding()) {
         BindingSpecification bs = definitions.getBindingByName(e.getBindingName());
-        triple(section, "fhir:"+tn+"."+en, "fhir:bindingStrength", "fhir:BindingStrength#"+bs.getStrength().toCode());
+        triple(section, "fhir:"+tn+"."+en, "fhir:bindingStrength", "fhir:BindingStrength\\#"+bs.getStrength().toCode());
         if (bs.getReferredValueSet() != null) {
           String bn = getPNameForUri(bs.getReferredValueSet().getUrl());
           triple(section, "fhir:"+tn+"."+en, "fhir:binding", bn);
@@ -418,7 +418,7 @@ public class TurtleGenerator {
     
     for (CodeableConcept cc : vs.getUseContext()) 
       codedTriple(bn, bn, "fhir:useContext", cc);
-    triple(bn, bn, "fhir:status", "fhir:conformance-resource-status#"+vs.getStatus().toCode());
+    triple(bn, bn, "fhir:status", "fhir:conformance-resource-status\\#"+vs.getStatus().toCode());
     triple(bn, bn, "fhir:canonical-status", getCanonicalStatus("ValueSet.status", vs.getStatus().toCode()));
     if (vs.hasDefine()) {
       triple(bn, bn, "fhir:include", gen(bn, vs.getDefine()));
@@ -427,23 +427,44 @@ public class TurtleGenerator {
 
   private String gen(String section, ValueSetDefineComponent define) {
     String bn = getPNameForUri(define.getSystem()); 
-    triple(section, bn, "a", "fhir:CodeSystem");
-    if (define.hasVersion())
-      triple(section, bn, "fhir:version", literal(define.getVersion()));
-    gen(section, bn, bn, define.getConcept());
+    if (!bn.startsWith("<")) {
+      triple(section, bn, "a", "fhir:CodeSystem");
+      if (define.hasVersion())
+        triple(section, bn, "fhir:version", literal(define.getVersion()));
+      gen(section, bn, bn, define.getConcept());
+    }
     return bn;
   }
 
   private void gen(String section, String cs, String owner, List<ConceptDefinitionComponent> concepts) {
     for (ConceptDefinitionComponent c : concepts) {
-      triple(section, cs+"#"+c.getCode(), "a", "fhir:concept");
+      String pcc = pctEncode(c.getCode());
+      triple(section, cs+"\\#"+pcc, "a", "fhir:Concept");
       if (c.hasDisplay())
-        label(section, cs+"#"+c.getCode(), c.getDisplay());
+        label(section, cs+"\\#"+pcc, c.getDisplay());
       if (c.hasDefinition())
-        comment(section, cs+"#"+c.getCode(), c.getDisplay());
-      triple(section, cs+"#"+c.getCode(), "fhir:memberOf", owner);
-      gen(section, cs, cs+"#"+c.getCode(), c.getConcept());
+        comment(section, cs+"\\#"+pcc, c.getDisplay());
+      triple(section, cs+"\\#"+pcc, "fhir:memberOf", owner);
+      gen(section, cs, cs+"\\#"+pcc, c.getConcept());
     }
+  }
+
+  private String pctEncode(String s) {
+    if (s == null)
+      return "";
+
+    StringBuilder b = new StringBuilder();
+    for (char c : s.toCharArray()) {
+      if (c >= 'A' && c <= 'Z')
+        b.append(c);
+      else if (c >= 'a' && c <= 'z')
+        b.append(c);
+      else if (c >= '0' && c <= '9')
+        b.append(c);
+      else 
+        b.append("%"+Integer.toHexString(c));
+    }   
+    return b.toString();
   }
 
   private List<String> sorted(Set<String> keys) {
@@ -471,7 +492,7 @@ public class TurtleGenerator {
         c = i;
     if (c == -1)
       throw new Error("unknown code "+code+" @ path "+path);
-    return "fhir:canonical-status-codes#"+definitions.getStatusCodes().get("@code").get(c);
+    return "fhir:canonical-status-codes\\#"+definitions.getStatusCodes().get("@code").get(c);
   }
 
   private String getLinkedForm(Coding c) {
@@ -502,14 +523,14 @@ public class TurtleGenerator {
     if (s != null)
       return s;
     else
-      return url;
+      return "<"+url+">";
   }
 
 
   private String matches(String url, String prefixUri, String prefix) {
     if (url.startsWith(prefixUri)) {
       prefixes.put(prefix, prefixUri);
-      return prefix+":"+escape(url.substring(prefixUri.length()));
+      return prefix+":"+escape(url.substring(prefixUri.length()), false);
     }
     return null;
   }
@@ -561,10 +582,10 @@ public class TurtleGenerator {
   }
 
   private String literal(String s) {
-    return "\""+escape(s)+"\"";
+    return "\""+escape(s, true)+"\"";
   }
 
-  private String escape(String s) {
+  private String escape(String s, boolean string) {
     if (s == null)
       return "";
 
@@ -575,10 +596,10 @@ public class TurtleGenerator {
       else if (c == '\n')
         b.append("\\n");
       else if (c == '"')
-        b.append("\"");
+        b.append("\\\"");
       else if (c == '\\')
         b.append("\\\\");
-      else if (c == '/')
+      else if (c == '/' && !string)
         b.append("\\/");
       else 
         b.append(c);
@@ -618,6 +639,16 @@ public class TurtleGenerator {
   private void commitPrefixes(LineOutputStreamWriter writer) throws Exception {
     writer.ln("# FHIR definitions");
     writer.write("# This is work in progress, and may change rapidly \r\n");
+    writer.ln();
+    writer.write("# A note about policy: the focus here is providing the knowledge from \r\n"); 
+    writer.write("# the FHIR specification as a set of triples for knowledge processing. \r\n");
+    writer.write("# Where appopriate, predicates defined external to FHIR are used. \"Where \r\n");
+    writer.write("# appropriate\" means that the predicates are a faithful representation \r\n");
+    writer.write("# of the FHIR semantics, and do not involve insane (or owful) syntax. \r\n");
+    writer.ln();
+    writer.write("# Where the community agrees on additional predicate statements (such \r\n");
+    writer.write("# as OWL constraints) these are added in addition to the direct FHIR \r\n");
+    writer.write("# predicates \r\n");
     writer.ln();
     for (String p : sorted(prefixes.keySet()))
       writer.ln("@prefix "+p+": <"+prefixes.get(p)+"> .");
