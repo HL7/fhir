@@ -31,11 +31,12 @@ package org.hl7.fhir.instance.model;
 
 // Generated on Mon, Apr 6, 2015 21:21+1000 for FHIR v0.5.0
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 
 import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A time period defined by a start and end date and optionally time.
  */

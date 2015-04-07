@@ -1,6 +1,5 @@
 package org.hl7.fhir.instance.utils;
 
-import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,8 +10,8 @@ import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Extension;
-import org.hl7.fhir.instance.model.Parameters;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.Parameters;
 import org.hl7.fhir.instance.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.StringType;
@@ -21,7 +20,6 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 public class FHIRTerminologyServices implements ITerminologyServices {

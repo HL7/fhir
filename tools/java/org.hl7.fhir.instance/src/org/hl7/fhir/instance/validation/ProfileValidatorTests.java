@@ -38,8 +38,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Utilities;

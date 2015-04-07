@@ -31,14 +31,14 @@ package org.hl7.fhir.instance.model;
 
 // Generated on Mon, Apr 6, 2015 21:21+1000 for FHIR v0.5.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 /**
  * A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
  */

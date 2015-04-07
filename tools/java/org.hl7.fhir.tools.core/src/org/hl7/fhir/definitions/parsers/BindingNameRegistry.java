@@ -2,6 +2,7 @@ package org.hl7.fhir.definitions.parsers;
 import java.io.File;
 
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.Utilities;
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -30,7 +31,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-import org.hl7.fhir.utilities.Utilities;
 
 public class BindingNameRegistry {
 

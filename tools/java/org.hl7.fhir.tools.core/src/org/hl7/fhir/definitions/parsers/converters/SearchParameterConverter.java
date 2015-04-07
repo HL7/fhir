@@ -32,14 +32,12 @@ package org.hl7.fhir.definitions.parsers.converters;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.definitions.ecore.fhir.FhirFactory;
 import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
 import org.hl7.fhir.definitions.ecore.fhir.SearchType;
-import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.utilities.Utilities;
-
-import java.util.Set;
 
 public class SearchParameterConverter {
   public static List<SearchParameter> buildSearchParametersFromFhirModel(org.hl7.fhir.definitions.model.ResourceDefn resource, Collection<org.hl7.fhir.definitions.model.SearchParameterDefn> searchParameters) {

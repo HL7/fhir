@@ -5,10 +5,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
@@ -25,13 +23,12 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingCom
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.PrimitiveType;
-import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;

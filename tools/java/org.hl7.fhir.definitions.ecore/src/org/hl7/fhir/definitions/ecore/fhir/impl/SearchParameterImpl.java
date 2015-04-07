@@ -7,6 +7,7 @@
 package org.hl7.fhir.definitions.ecore.fhir.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;

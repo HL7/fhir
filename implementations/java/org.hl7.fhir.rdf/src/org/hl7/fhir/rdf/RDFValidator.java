@@ -1,9 +1,5 @@
 package org.hl7.fhir.rdf;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-
 import org.apache.jena.riot.RDFDataMgr;
 
 import com.hp.hpl.jena.rdf.model.Model;

@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.Composition;
-import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.SearchParameter;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
