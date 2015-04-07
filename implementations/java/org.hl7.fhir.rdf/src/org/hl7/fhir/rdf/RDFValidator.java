@@ -1,4 +1,4 @@
-package org.hl7.fhir.definitions.validation;
+package org.hl7.fhir.rdf;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
