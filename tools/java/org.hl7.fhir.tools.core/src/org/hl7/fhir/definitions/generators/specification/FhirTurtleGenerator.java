@@ -80,10 +80,10 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     prefix("owl", "http://www.w3.org/2002/07/owl#");
     prefix("dc", "http://purl.org/dc/elements/1.1/");
     prefix("dcterms", "http://purl.org/dc/terms/");
-    prefix("rim", "http://hl7.org/owl/rim#");
-    prefix("cs", "http://hl7.org/orim/codesystem#");
-    prefix("vs", "http://hl7.org/orim/valueset#");
-    prefix("dt", "http://hl7.org/orim/datatype#");
+    prefix("rim", "http://hl7.org/owl/rim/");
+    prefix("cs", "http://hl7.org/orim/codesystem/");
+    prefix("vs", "http://hl7.org/orim/valueset/");
+    prefix("dt", "http://hl7.org/orim/datatype/");
     
     gen(definitions.getInfrastructure().get("Element"));
     genPrimitiveType();

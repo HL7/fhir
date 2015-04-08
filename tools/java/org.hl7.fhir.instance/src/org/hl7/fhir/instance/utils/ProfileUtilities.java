@@ -1576,13 +1576,13 @@ public class ProfileUtilities {
           started = true;
       	}
       	if (doMin) {
-      		txt.ln_i("<sch:rule context=\"f:*\">");
-        txt.ln("      <sch:assert test=\"count(f:/"+name+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
+      		txt.ln_i("<sch:rule context=\""+xpath+"\">");
+        txt.ln("      <sch:assert test=\"count(f:"+name+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
       		txt.ln_o("</sch:rule>");
       }
       	if (doMax) {
-      		txt.ln_i("<sch:rule context=\"f:*\">");
-        txt.ln("      <sch:assert test=\"count(f:/"+name+") &lt;= "+child.getMax()+"\">"+name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
+      		txt.ln_i("<sch:rule context=\""+xpath+"\">");
+        txt.ln("      <sch:assert test=\"count(f:"+name+") &lt;= "+child.getMax()+"\">"+name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
       		txt.ln_o("</sch:rule>");
       	}
       }

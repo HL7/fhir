@@ -327,6 +327,8 @@ public class Publisher implements URIResolver {
   private IniFile cache;
   private WebMaker wm;
   private String svnStated;
+  private String singleResource;
+  private String singlePage;
 
   public static void main(String[] args) throws Exception {
     //
@@ -338,6 +340,10 @@ public class Publisher implements URIResolver {
     pub.web = (args.length > 1 && hasParam(args, "-web"));
     pub.diffProgram = getNamedParam(args, "-diff");
     pub.noPartialBuild = (args.length > 1 && hasParam(args, "-nopartial"));
+    if (hasParam(args, "-resource"))
+      pub.singleResource = getNamedParam(args, "-resource");
+    if (hasParam(args, "-page"))
+      pub.singlePage = getNamedParam(args, "-page");
     if (hasParam(args, "-name"))
       pub.page.setPublicationType(getNamedParam(args, "-name"));
     if (hasParam(args, "-url"))
@@ -468,10 +474,20 @@ public class Publisher implements URIResolver {
       buildFlags.put(n.toLowerCase(), b);
       doAny = doAny || b;
     }
+    cache.save();
+    // overriding build
+    
     if (noPartialBuild || !doAny || !(new File(page.getFolders().dstDir + "qa.html").exists()))
       buildFlags.put("all", true); // nothing - build all
-    cache.save();
-
+    if (singlePage != null) {
+      for (String n : buildFlags.keySet())
+        buildFlags.put(n, false);
+      buildFlags.put("page-"+singlePage.toLowerCase(), true);
+    } else if (singleResource != null) {
+      for (String n : buildFlags.keySet())
+        buildFlags.put(n, false);
+      buildFlags.put(singleResource.toLowerCase(), true);
+    } 
     if (!buildFlags.get("all")) {
       page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -1500,7 +1516,9 @@ public class Publisher implements URIResolver {
   private void produceSpecification(String eCorePath) throws Exception {
     page.setNavigation(new Navigation());
     page.getNavigation().parse(page.getFolders().srcDir + "navigation.xml");
-
+    if (buildFlags.get("all")) {
+      copyStaticContent();
+    }
     XMIResource resource = new XMIResourceImpl();
     resource.load(new CSFileInputStream(eCorePath), null);
     org.hl7.fhir.definitions.ecore.fhir.Definitions eCoreDefs = (org.hl7.fhir.definitions.ecore.fhir.Definitions) resource.getContents().get(0);
@@ -1509,6 +1527,7 @@ public class Publisher implements URIResolver {
     ttl.execute();
     RDFValidator val = new RDFValidator();
     val.validate(Utilities.path(page.getFolders().dstDir, "fhir.ttl"));
+    val.validate(Utilities.path(page.getFolders().dstDir, "rim.ttl"));
     ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir.ttl.zip"));
     zip.addFileName("fhir.ttl", Utilities.path(page.getFolders().dstDir, "fhir.ttl"), false);
     zip.close();
@@ -1629,10 +1648,6 @@ public class Publisher implements URIResolver {
   }
 
   private void produceSpec() throws Exception {
-    if (buildFlags.get("all")) {
-      copyStaticContent();
-    }
-
     loadValueSets2();
 
     for (StructureDefinition ae : page.getWorkerContext().getExtensionDefinitions().values()) 
@@ -4123,15 +4138,13 @@ public class Publisher implements URIResolver {
           validateXmlFile(schema, n, validator, null);
         }
         // todo-profile: how this works has to change (to use profile tag)
-//        for (ConformancePackage e : r.getConformancePackages()) {
-//          String n = e.getTitle() + ".profile";
-//          page.log(" ...validate " + n, LogMessageType.Process);
-//          validateXmlFile(schema, n, validator, null);
-//          for (String en : e.getExamples().keySet()) {
-//            page.log(" ...validate " + en, LogMessageType.Process);
-//            validateXmlFile(schema, Utilities.changeFileExt(en, ""), validator, e.getResource()); // validates the example against it's base definitions
-//          }
-//        }
+        for (Profile e : r.getConformancePackages()) {
+          page.log(" ...validate Profile " + e.getTitle(), LogMessageType.Process);
+          for (Example en : e.getExamples()) {
+            page.log(" ...validate " + en.getFileTitle(), LogMessageType.Process);
+            validateXmlFile(schema, Utilities.changeFileExt(en.getFileTitle(), ""), validator, e.getProfiles().get(0).getResource()); // validates the example against it's base definitions
+          }
+        }
       }
     }
 

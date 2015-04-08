@@ -7,10 +7,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rim: <http://hl7.org/orim/class#> .
-@prefix dt: <http://hl7.org/orim/datatype#> .
-@prefix vs: <http://hl7.org/orim/valueset#> .
-@prefix cs: <http://hl7.org/orim/codesystem#> .
-@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dt: <http://hl7.org/orim/datatype/> .
+@prefix vs: <http://hl7.org/orim/valueset/> .
+@prefix cs: <http://hl7.org/orim/codesystem/> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema/> .
 @prefix fhir: <http://hl7.org/fhir/> .
 
 # - ANY --------------------------------------------------------------------
