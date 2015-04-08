@@ -31,7 +31,7 @@ dt:ANY.nullFlavor a rdf:Property;
    fhir:minCardinality "0";
    rdfs:comment "An indicator of a data value's exceptional status, sometimes also denoting the manner and rationale for that status.";
    rdfs:domain dt:ANY;
-   rdfs:range dt:CS;
+   rdfs:range cs:NullFlavor\#;
    fhir:binding vs:NullFlavor
    fhir:bindingStrength fhir:BindingStrength\#required.
 
@@ -43,7 +43,7 @@ dt:CS rdfs:subClassOf dt:ANY;
      owl:onProperty dt:CS.code;
      owl:maxCardinality "1^^xs:nonNegativeInteger"
    ];
-   dc:terms "Coded data in its simplest form, where only the code is not predetermined. The code system and code system version are fixed by the context in which CS value occurs. CS is used for coded attributes that have a single HL7-defined value set";
+   dcterms:description "Coded data in its simplest form, where only the code is not predetermined. The code system and code system version are fixed by the context in which CS value occurs. CS is used for coded attributes that have a single HL7-defined value set";
    dc:title "CodedSimpleValue";
    rdfs:comment "Coded data in its simplest form, where only the code is not predetermined. The code system and code system version are fixed by the context in which CS value occurs. CS is used for coded attributes that have a single HL7-defined value set";
    rdfs:label "CodedSimpleValue".
@@ -61,13 +61,13 @@ rim:InfrastructureRoot a rdfs:Class;
      owl:onProperty rim:InfrastructureRoot.nullFlavor;
      owl:maxCardinality "1^^xs:nonNegativeInteger"
    ];
-   dc:terms "An abstract super-type for all RIM classes, either directly or through inheritance";
+   dcterms:description "An abstract super-type for all RIM classes, either directly or through inheritance";
    dc:title "Base RIM Class";
    rdfs:comment "An abstract super-type for all RIM classes, either directly or through inheritance";
    rdfs:label "Base RIM Class".
 
 rim:InfrastructureRoot.nullFlavor a rdf:Property;
-   dc:terms "An indicator that the class instance is null, including the flavor of null that is intended";
+   dcterms:description "An indicator that the class instance is null, including the flavor of null that is intended";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
    rdfs:comment "An indicator that the class instance is null, including the flavor of null that is intended";
@@ -89,13 +89,13 @@ rim:Entity rdfs:subClassOf rim:InfrastructureRoot;
      owl:onProperty rim:Entity.classCode;
      owl:minCardinality "1^^xs:nonNegativeInteger"
    ];
-   dc:terms "A physical thing, group of physical things or an organization capable of participating in Acts while in a role";
+   dcterms:description "A physical thing, group of physical things or an organization capable of participating in Acts while in a role";
    dc:title "Entity";
    rdfs:comment "A physical thing, group of physical things or an organization capable of participating in Acts while in a role";
    rdfs:label "Entity".
  
 rim:Entity.classCode a rdf:Property;
-   dc:terms "The major class of Entities to which an Entity-instance belongs";
+   dcterms:description "The major class of Entities to which an Entity-instance belongs";
    fhir:maxCardinality "1";
    fhir:minCardinality "1";
    rdfs:comment "The major class of Entities to which an Entity-instance belongs";
@@ -113,7 +113,7 @@ rim:Entity.classCode a rdf:Property;
 
 vs:NullFlavor a fhir:ValueSet;
    dc:date "2015-03-23";
-   dc:terms "A collection of codes specifying why a valid value is not present.";
+   dcterms:description "A collection of codes specifying why a valid value is not present.";
    dc:title "NullFlavor";
    fhir:canonical-status fhir:canonical-status-codes\#active;
    fhir:include cs:NullFlavor;
@@ -124,325 +124,294 @@ vs:NullFlavor a fhir:ValueSet;
 
 cs:NullFlavor a fhir:CodeSystem;
    dc:date "2015-03-23";
-   dc:terms "A collection of codes specifying why a valid value is not present.";
+   dcterms:description "A collection of codes specifying why a valid value is not present.";
    dc:title "NullFlavor";
    fhir:canonical-status fhir:canonical-status-codes\#active;
-   fhir:include cs:NullFlavor;
    fhir:status fhir:conformance-resource-status\#active;
    fhir:version "2015-03-23";
    rdfs:comment "A collection of codes specifying why a valid value is not present.";
    rdfs:label "NullFlavor".
 
-cs:NullFlavor\#ASKU a fhir:Concept;
-   dc:terms "asked but unknown";
-   dc:title "asked but unknown";
-   fhir:memberOf cs:NullFlavor\#UNK;
-   rdfs:comment "asked but unknown";
-   rdfs:label "asked but unknown".
+cs:NullFlavor\# a fhir:Concept;
+   dc:title "NullFlavor abstract root concept";
+   rdfs:label "NullFlavor".
+   
+cs:NullFlavor\#NI rdfs:subClassOf cs:NullFlavor\#;
+  rdfs:label "NoInformation";
+  dc:title "NoInformation";
+  rdfs:comment "The value is exceptional (missing, omitted, incomplete, improper). No information as to the reason for being an exceptional value is provided. This is the most general exceptional value. It is also the default exceptional value.";
+  dcterms:description "The value is exceptional (missing, omitted, incomplete, improper). No information as to the reason for being an exceptional value is provided. This is the most general exceptional value. It is also the default exceptional value.".
 
-cs:NullFlavor\#DER a fhir:Concept;
-   dc:terms "derived";
-   dc:title "derived";
-   fhir:memberOf cs:NullFlavor\#INV;
-   rdfs:comment "derived";
-   rdfs:label "derived".
+cs:NullFlavor\#INV rdfs:subClassOf cs:NullFlavor\#NI;
+  rdfs:label "invalid";
+  dc:title "invalid";
+  rdfs:comment "The value as represented in the instance is not a member of the set of permitted data values in the constrained value domain of a variable.";
+  dcterms:description "The value as represented in the instance is not a member of the set of permitted data values in the constrained value domain of a variable.".
 
-cs:NullFlavor\#INV a fhir:Concept;
-   dc:terms "invalid";
-   dc:title "invalid";
-   fhir:memberOf cs:NullFlavor\#NI;
-   rdfs:comment "invalid";
-   rdfs:label "invalid".
+cs:NullFlavor\#DER rdfs:subClassOf cs:NullFlavor\#INV;
+  rdfs:label "derived";
+  dc:title "derived";
+  rdfs:comment "An actual value may exist, but it must be derived from the provided information (usually an EXPR generic data type extension will be used to convey the derivation expressionexpression .";
+  dcterms:description "An actual value may exist, but it must be derived from the provided information (usually an EXPR generic data type extension will be used to convey the derivation expressionexpression .".
 
-cs:NullFlavor\#MSK a fhir:Concept;
-   dc:terms "masked";
-   dc:title "masked";
-   fhir:memberOf cs:NullFlavor\#NI;
-   rdfs:comment "masked";
-   rdfs:label "masked".
+cs:NullFlavor\#OTH rdfs:subClassOf cs:NullFlavor\#INV;
+  rdfs:label "other";
+  dc:title "other";
+  rdfs:comment "The actual value is not a member of the set of permitted data values in the constrained value domain of a variable. (e.g., concept not provided by required code system). Usage Notes: This flavor and its specializations are most commonly used with the CD datatype and its flavors.  However, it may apply to *any* datatype where the constraints of the type are tighter than can be conveyed.  For example, a PQ that is for a true measured amount whose units are not supported in UCUM, a need to convey a REAL when the type has been constrained to INT, etc. With coded datatypes, this null flavor may only be used if the vocabulary binding has a coding strength of CNE.  By definition, all local codes and original text are part of the value set if the coding strength is CWE.";
+  dcterms:description "The actual value is not a member of the set of permitted data values in the constrained value domain of a variable. (e.g., concept not provided by required code system). Usage Notes: This flavor and its specializations are most commonly used with the CD datatype and its flavors.  However, it may apply to *any* datatype where the constraints of the type are tighter than can be conveyed.  For example, a PQ that is for a true measured amount whose units are not supported in UCUM, a need to convey a REAL when the type has been constrained to INT, etc. With coded datatypes, this null flavor may only be used if the vocabulary binding has a coding strength of CNE.  By definition, all local codes and original text are part of the value set if the coding strength is CWE.".
 
-cs:NullFlavor\#NA a fhir:Concept;
-   dc:terms "not applicable";
-   dc:title "not applicable";
-   fhir:memberOf cs:NullFlavor\#NI;
-   rdfs:comment "not applicable";
-   rdfs:label "not applicable".
+cs:NullFlavor\#NINF rdfs:subClassOf cs:NullFlavor\#OTH;
+  rdfs:label "negative infinity";
+  dc:title "negative infinity";
+  rdfs:comment "Negative infinity of numbers.";
+  dcterms:description "Negative infinity of numbers.".
 
-cs:NullFlavor\#NASK a fhir:Concept;
-   dc:terms "not asked";
-   dc:title "not asked";
-   fhir:memberOf cs:NullFlavor\#UNK;
-   rdfs:comment "not asked";
-   rdfs:label "not asked".
+cs:NullFlavor\#PINF rdfs:subClassOf cs:NullFlavor\#OTH;
+  rdfs:label "positive infinity";
+  dc:title "positive infinity";
+  rdfs:comment "Positive infinity of numbers.";
+  dcterms:description "Positive infinity of numbers.".
 
-cs:NullFlavor\#NAV a fhir:Concept;
-   dc:terms "temporarily unavailable";
-   dc:title "temporarily unavailable";
-   fhir:memberOf cs:NullFlavor\#ASKU;
-   rdfs:comment "temporarily unavailable";
-   rdfs:label "temporarily unavailable".
+cs:NullFlavor\#UNC rdfs:subClassOf cs:NullFlavor\#INV;
+  rdfs:label "un-encoded";
+  dc:title "un-encoded";
+  rdfs:comment " The actual value has not yet been encoded within the approved value domain. Example: Original text or a local code has been specified but translation or encoding to the approved value set has not yet occurred due to limitations of the sending system.  Original text has been captured for a PQ, but not attempt has been made to split the value and unit or to encode the unit in UCUM. Usage Notes: If it is known that it is not possible to encode the concept, OTH should be used instead.  However, use of UNC does not necessarily guarantee the concept will be encodable, only that encoding has not been attempted. Data type properties such as original text and translations may be present when this null flavor is included.";
+  dcterms:description " The actual value has not yet been encoded within the approved value domain. Example: Original text or a local code has been specified but translation or encoding to the approved value set has not yet occurred due to limitations of the sending system.  Original text has been captured for a PQ, but not attempt has been made to split the value and unit or to encode the unit in UCUM. Usage Notes: If it is known that it is not possible to encode the concept, OTH should be used instead.  However, use of UNC does not necessarily guarantee the concept will be encodable, only that encoding has not been attempted. Data type properties such as original text and translations may be present when this null flavor is included.".
 
-cs:NullFlavor\#NI a fhir:Concept;
-   dc:terms "NoInformation";
-   dc:title "NoInformation";
-   fhir:memberOf cs:NullFlavor;
-   rdfs:comment "NoInformation";
-   rdfs:label "NoInformation".
+cs:NullFlavor\#MSK rdfs:subClassOf cs:NullFlavor\#NI;
+  rdfs:label "masked";
+  dc:title "masked";
+  rdfs:comment "There is information on this item available but it has not been provided by the sender due to security, privacy or other reasons. There may be an alternate mechanism for gaining access to this information. Note: using this null flavor does provide information that may be a breach of confidentiality, even though no detail data is provided.  Its primary purpose is for those circumstances where it is necessary to inform the receiver that the information does exist without providing any detail.";
+  dcterms:description "There is information on this item available but it has not been provided by the sender due to security, privacy or other reasons. There may be an alternate mechanism for gaining access to this information. Note: using this null flavor does provide information that may be a breach of confidentiality, even though no detail data is provided.  Its primary purpose is for those circumstances where it is necessary to inform the receiver that the information does exist without providing any detail.".
 
-cs:NullFlavor\#NINF a fhir:Concept;
-   dc:terms "negative infinity";
-   dc:title "negative infinity";
-   fhir:memberOf cs:NullFlavor\#OTH;
-   rdfs:comment "negative infinity";
-   rdfs:label "negative infinity".
+cs:NullFlavor\#NA rdfs:subClassOf cs:NullFlavor\#NI;
+  rdfs:label "not applicable";
+  dc:title "not applicable";
+  rdfs:comment "Known to have no proper value (e.g., last menstrual period for a male).";
+  dcterms:description "Known to have no proper value (e.g., last menstrual period for a male).".
 
-cs:NullFlavor\#OTH a fhir:Concept;
-   dc:terms "other";
-   dc:title "other";
-   fhir:memberOf cs:NullFlavor\#INV;
-   rdfs:comment "other";
-   rdfs:label "other".
+cs:NullFlavor\#UNK rdfs:subClassOf cs:NullFlavor\#NI;
+  rdfs:label "unknown";
+  dc:title "unknown";
+  rdfs:comment "A proper value is applicable, but not known. Usage Notes: This means the actual value is not known.  If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used.  No properties should be included for a datatype with this property unless: Those properties themselves directly translate to a semantic of \"unknown\".  (E.g. a local code sent as a translation that conveys 'unknown')\n                           Those properties further qualify the nature of what is unknown.  (E.g. specifying a use code of \"H\" and a URL prefix of \"tel:\" to convey that it is the home phone number that is unknown.)";
+  dcterms:description "A proper value is applicable, but not known. Usage Notes: This means the actual value is not known.  If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used.  No properties should be included for a datatype with this property unless: Those properties themselves directly translate to a semantic of \"unknown\".  (E.g. a local code sent as a translation that conveys 'unknown')\n                           Those properties further qualify the nature of what is unknown.  (E.g. specifying a use code of \"H\" and a URL prefix of \"tel:\" to convey that it is the home phone number that is unknown.)".
 
-cs:NullFlavor\#PINF a fhir:Concept;
-   dc:terms "positive infinity";
-   dc:title "positive infinity";
-   fhir:memberOf cs:NullFlavor\#OTH;
-   rdfs:comment "positive infinity";
-   rdfs:label "positive infinity".
+cs:NullFlavor\#ASKU rdfs:subClassOf cs:NullFlavor\#UNK;
+  rdfs:label "asked but unknown";
+  dc:title "asked but unknown";
+  rdfs:comment "Information was sought but not found (e.g., patient was asked but didn't know)";
+  dcterms:description "Information was sought but not found (e.g., patient was asked but didn't know)".
 
-cs:NullFlavor\#QS a fhir:Concept;
-   dc:terms "Sufficient Quantity";
-   dc:title "Sufficient Quantity";
-   fhir:memberOf cs:NullFlavor\#UNK;
-   rdfs:comment "Sufficient Quantity";
-   rdfs:label "Sufficient Quantity".
+cs:NullFlavor\#NAV rdfs:subClassOf cs:NullFlavor\#ASKU;
+  rdfs:label "temporarily unavailable";
+  dc:title "temporarily unavailable";
+  rdfs:comment "Information is not available at this time but it is expected that it will be available later.";
+  dcterms:description "Information is not available at this time but it is expected that it will be available later.".
 
-cs:NullFlavor\#TRC a fhir:Concept;
-   dc:terms "trace";
-   dc:title "trace";
-   fhir:memberOf cs:NullFlavor\#UNK;
-   rdfs:comment "trace";
-   rdfs:label "trace".
+cs:NullFlavor\#NASK rdfs:subClassOf cs:NullFlavor\#UNK;
+  rdfs:label "not asked";
+  dc:title "not asked";
+  rdfs:comment "This information has not been sought (e.g., patient was not asked)";
+  dcterms:description "This information has not been sought (e.g., patient was not asked)".
 
-cs:NullFlavor\#UNC a fhir:Concept;
-   dc:terms "un-encoded";
-   dc:title "un-encoded";
-   fhir:memberOf cs:NullFlavor\#INV;
-   rdfs:comment "un-encoded";
-   rdfs:label "un-encoded".
+cs:NullFlavor\#QS rdfs:subClassOf cs:NullFlavor\#UNK;
+  rdfs:label "Sufficient Quantity";
+  dc:title "Sufficient Quantity";
+  rdfs:comment "The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material. e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' The null flavor would be used to express the quantity of water.";
+  dcterms:description "The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material. e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' The null flavor would be used to express the quantity of water.".
 
-cs:NullFlavor\#UNK a fhir:Concept;
-   dc:terms "unknown";
-   dc:title "unknown";
-   fhir:memberOf cs:NullFlavor\#NI;
-   rdfs:comment "unknown";
-   rdfs:label "unknown".
+cs:NullFlavor\#TRC rdfs:subClassOf cs:NullFlavor\#UNK;
+  rdfs:label "trace";
+  dc:title "trace";
+  rdfs:comment "The content is greater than zero, but too small to be quantified.";
+  dcterms:description "The content is greater than zero, but too small to be quantified.".
 
 # - EntityClass ----------------------------------------------------------------
 
-vs:EntityClass a fhir:ValueSet;
-   dc:date "2015-03-13";
-   dc:terms "Classifies the Entity class and all of its subclasses.  The terminology is hierarchical.  At the top is this  HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing.";
-   dc:title "EntityClass";
-   fhir:canonical-status fhir:canonical-status-codes\#active;
-   fhir:include cs:EntityClass;
-   fhir:status fhir:conformance-resource-status\#active;
-   fhir:version "2015-03-23";
-   rdfs:comment " Classifies the Entity class and all of its subclasses.  The terminology is hierarchical.  At the top is this  HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing.";
-   rdfs:label "v3 Code System EntityClass".
+cs:EntityClass a fhir:ValueSet;
+  fhir:version "2015-03-23";
+  rdfs:label "EntityClass";
+  dc:title "EntityClass";
+  rdfs:comment "Classifies the Entity class and all of its subclasses.  The terminology is hierarchical.  At the top is this  HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing.";
+  dcterms:description "Classifies the Entity class and all of its subclasses.  The terminology is hierarchical.  At the top is this  HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing.";
+  dc:date "2015-03-23";
+  fhir:status fhir:conformance-resource-status\#active;
+  fhir:canonical-status fhir:canonical-status-codes\#active;
+  fhir:include fhir:v3\/EntityClass.
 
-fhir:cs:EntityClass a fhir:CodeSystem;
-   dc:terms "Classifies the Entity class and all of its subclasses.  The terminology is hierarchical.  At the top is this  HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing.";
-   dc:title "EntityClass";
-   fhir:version "2015-03-23";
-   rdfs:comment " Classifies the Entity class and all of its subclasses.  The terminology is hierarchical.  At the top is this  HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing.";
-   rdfs:label "v3 Code System EntityClass".
+cs:EntityClass a fhir:CodeSystem.
+  fhir:version "2015-03-23";
+  rdfs:label "EntityClass";
+  dc:title "EntityClass";
+  rdfs:comment "Classifies the Entity class and all of its subclasses.  The terminology is hierarchical.  At the top is this  HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing.";
+  dcterms:description "Classifies the Entity class and all of its subclasses.  The terminology is hierarchical.  At the top is this  HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing.";
+  dc:date "2015-03-23";
+  fhir:status fhir:conformance-resource-status\#active;
+  fhir:canonical-status fhir:canonical-status-codes\#active;
 
-fhir:cs:EntityClass\#ANM a fhir:Concept;
-   dc:terms "animal";
-   dc:title "animal";
-   fhir:memberOf fhir:cs:EntityClass\#NLIV;
-   rdfs:comment "animal";
-   rdfs:label "animal".
+cs:EntityClass\# a fhir:Concept;
+   dc:title "EntityClass abstract root concept";
+   rdfs:label "EntityClass".
+   
+  
+cs:EntityClass\#ENT a cs:EntityClass\#;
+  rdfs:label "entity";
+  dc:title "entity";
+  rdfs:comment "Corresponds to the Entity class";
+  dcterms:description "Corresponds to the Entity class".
 
-fhir:cs:EntityClass\#CER a fhir:Concept;
-   dc:terms "certificate representation";
-   dc:title "certificate representation";
-   fhir:memberOf fhir:cs:EntityClass\#DEV;
-   rdfs:comment "certificate representation";
-   rdfs:label "certificate representation".
+cs:EntityClass\#HCE rdfs:subClassOf cs:EntityClass\#ENT;
+  rdfs:label "health chart entity";
+  dc:title "health chart entity";
+  rdfs:comment "A health chart included to serve as a document receiving entity in the management of medical records.";
+  dcterms:description "A health chart included to serve as a document receiving entity in the management of medical records.".
 
-fhir:cs:EntityClass\#CHEM a fhir:Concept;
-   dc:terms "chemical substance";
-   dc:title "chemical substance";
-   fhir:memberOf fhir:cs:EntityClass\#MAT;
-   rdfs:comment "chemical substance";
-   rdfs:label "chemical substance".
+cs:EntityClass\#LIV rdfs:subClassOf cs:EntityClass\#ENT;
+  rdfs:label "living subject";
+  dc:title "living subject";
+  rdfs:comment "Anything that essentially has the property of life, independent of current state (a dead human corpse is still essentially a living subject).";
+  dcterms:description "Anything that essentially has the property of life, independent of current state (a dead human corpse is still essentially a living subject).".
 
-fhir:cs:EntityClass\#CITY a fhir:Concept;
-   dc:terms "city or town";
-   dc:title "city or town";
-   fhir:memberOf fhir:cs:EntityClass\#PLC;
-   rdfs:comment "city or town";
-   rdfs:label "city or town".
+cs:EntityClass\#NLIV rdfs:subClassOf cs:EntityClass\#LIV;
+  rdfs:label "non-person living subject";
+  dc:title "non-person living subject";
+  rdfs:comment "A subtype of living subject that includes all living things except the species Homo Sapiens.";
+  dcterms:description "A subtype of living subject that includes all living things except the species Homo Sapiens.".
 
-fhir:cs:EntityClass\#CONT a fhir:Concept;
-   dc:terms "container";
-   dc:title "container";
-   fhir:memberOf fhir:cs:EntityClass\#MMAT;
-   rdfs:comment "container";
-   rdfs:label "container".
+cs:EntityClass\#ANM rdfs:subClassOf cs:EntityClass\#NLIV;
+  rdfs:label "animal";
+  dc:title "animal";
+  rdfs:comment "A living subject from the animal kingdom.";
+  dcterms:description "A living subject from the animal kingdom.".
 
-fhir:cs:EntityClass\#COUNTRY a fhir:Concept;
-   dc:terms "country";
-   dc:title "country";
-   fhir:memberOf fhir:cs:EntityClass\#PLC;
-   rdfs:comment "country";
-   rdfs:label "country".
+cs:EntityClass\#MIC rdfs:subClassOf cs:EntityClass\#NLIV;
+  rdfs:label "microorganism";
+  dc:title "microorganism";
+  rdfs:comment "All single celled living organisms including protozoa, bacteria, yeast, viruses, etc.";
+  dcterms:description "All single celled living organisms including protozoa, bacteria, yeast, viruses, etc.".
 
-fhir:cs:EntityClass\#COUNTY a fhir:Concept;
-   dc:terms "county or parish";
-   dc:title "county or parish";
-   fhir:memberOf fhir:cs:EntityClass\#PLC;
-   rdfs:comment "county or parish";
-   rdfs:label "county or parish".
+cs:EntityClass\#PLNT rdfs:subClassOf cs:EntityClass\#NLIV;
+  rdfs:label "plant";
+  dc:title "plant";
+  rdfs:comment "A living subject from the order of plants.";
+  dcterms:description "A living subject from the order of plants.".
 
-fhir:cs:EntityClass\#DEV a fhir:Concept;
-   dc:terms "device";
-   dc:title "device";
-   fhir:memberOf fhir:cs:EntityClass\#MMAT;
-   rdfs:comment "device";
-   rdfs:label "device".
+cs:EntityClass\#PSN rdfs:subClassOf cs:EntityClass\#LIV;
+  rdfs:label "person";
+  dc:title "person";
+  rdfs:comment "A living subject of the species homo sapiens.";
+  dcterms:description "A living subject of the species homo sapiens.".
 
-fhir:cs:EntityClass\#ENT a fhir:Concept;
-   dc:terms "entity";
-   dc:title "entity";
-   fhir:memberOf fhir:cs:EntityClass;
-   rdfs:comment "entity";
-   rdfs:label "entity".
+cs:EntityClass\#MAT rdfs:subClassOf cs:EntityClass\#ENT;
+  rdfs:label "material";
+  dc:title "material";
+  rdfs:comment "Any thing that has extension in space and mass, may be of living or non-living origin.";
+  dcterms:description "Any thing that has extension in space and mass, may be of living or non-living origin.".
 
-fhir:cs:EntityClass\#FOOD a fhir:Concept;
-   dc:terms "food";
-   dc:title "food";
-   fhir:memberOf fhir:cs:EntityClass\#MAT;
-   rdfs:comment "food";
-   rdfs:label "food".
+cs:EntityClass\#CHEM rdfs:subClassOf cs:EntityClass\#MAT;
+  rdfs:label "chemical substance";
+  dc:title "chemical substance";
+  rdfs:comment "A substance that is fully defined by an organic or inorganic chemical formula, includes mixtures of other chemical substances. Refine using, e.g., IUPAC codes.";
+  dcterms:description "A substance that is fully defined by an organic or inorganic chemical formula, includes mixtures of other chemical substances. Refine using, e.g., IUPAC codes.".
 
-fhir:cs:EntityClass\#HCE a fhir:Concept;
-   dc:terms "health chart entity";
-   dc:title "health chart entity";
-   fhir:memberOf fhir:cs:EntityClass\#ENT;
-   rdfs:comment "health chart entity";
-   rdfs:label "health chart entity".
+cs:EntityClass\#FOOD rdfs:subClassOf cs:EntityClass\#MAT;
+  rdfs:label "food";
+  dc:title "food";
+  rdfs:comment "Naturally occurring, processed or manufactured entities that are primarily used as food for humans and animals.";
+  dcterms:description "Naturally occurring, processed or manufactured entities that are primarily used as food for humans and animals.".
 
-fhir:cs:EntityClass\#HOLD a fhir:Concept;
-   dc:terms "holder";
-   dc:title "holder";
-   fhir:memberOf fhir:cs:EntityClass\#CONT;
-   rdfs:comment "holder";
-   rdfs:label "holder".
+cs:EntityClass\#MMAT rdfs:subClassOf cs:EntityClass\#MAT;
+  rdfs:label "manufactured material";
+  dc:title "manufactured material";
+  rdfs:comment "Corresponds to the ManufacturedMaterial class";
+  dcterms:description "Corresponds to the ManufacturedMaterial class".
 
-fhir:cs:EntityClass\#LIV a fhir:Concept;
-   dc:terms "living subject";
-   dc:title "living subject";
-   fhir:memberOf fhir:cs:EntityClass\#ENT;
-   rdfs:comment "living subject";
-   rdfs:label "living subject".
+cs:EntityClass\#CONT rdfs:subClassOf cs:EntityClass\#MMAT;
+  rdfs:label "container";
+  dc:title "container";
+  rdfs:comment "A container of other entities.";
+  dcterms:description "A container of other entities.".
 
-fhir:cs:EntityClass\#MAT a fhir:Concept;
-   dc:terms "material";
-   dc:title "material";
-   fhir:memberOf fhir:cs:EntityClass\#ENT;
-   rdfs:comment "material";
-   rdfs:label "material".
+cs:EntityClass\#HOLD rdfs:subClassOf cs:EntityClass\#CONT;
+  rdfs:label "holder";
+  dc:title "holder";
+  rdfs:comment "A type of container that can hold other containers or other holders.";
+  dcterms:description "A type of container that can hold other containers or other holders.".
 
-fhir:cs:EntityClass\#MIC a fhir:Concept;
-   dc:terms "microorganism";
-   dc:title "microorganism";
-   fhir:memberOf fhir:cs:EntityClass\#NLIV;
-   rdfs:comment "microorganism";
-   rdfs:label "microorganism".
+cs:EntityClass\#DEV rdfs:subClassOf cs:EntityClass\#MMAT;
+  rdfs:label "device";
+  dc:title "device";
+  rdfs:comment "A subtype of ManufacturedMaterial used in an activity, without being substantially changed through that activity.  The kind of device is identified by the code attribute inherited from Entity.\r\n\n                        \n                           Usage: This includes durable (reusable) medical equipment as well as disposable equipment.";
+  dcterms:description "A subtype of ManufacturedMaterial used in an activity, without being substantially changed through that activity.  The kind of device is identified by the code attribute inherited from Entity.\r\n\n                        \n                           Usage: This includes durable (reusable) medical equipment as well as disposable equipment.".
 
-fhir:cs:EntityClass\#MMAT a fhir:Concept;
-   dc:terms "manufactured material";
-   dc:title "manufactured material";
-   fhir:memberOf fhir:cs:EntityClass\#MAT;
-   rdfs:comment "manufactured material";
-   rdfs:label "manufactured material".
+cs:EntityClass\#CER rdfs:subClassOf cs:EntityClass\#DEV;
+  rdfs:label "certificate representation";
+  dc:title "certificate representation";
+  rdfs:comment "A physical artifact that stores information about the granting of authorization.";
+  dcterms:description "A physical artifact that stores information about the granting of authorization.".
 
-fhir:cs:EntityClass\#MODDV a fhir:Concept;
-   dc:terms "imaging modality";
-   dc:title "imaging modality";
-   fhir:memberOf fhir:cs:EntityClass\#DEV;
-   rdfs:comment "imaging modality";
-   rdfs:label "imaging modality".
+cs:EntityClass\#MODDV rdfs:subClassOf cs:EntityClass\#DEV;
+  rdfs:label "imaging modality";
+  dc:title "imaging modality";
+  rdfs:comment "Class to contain unique attributes of diagnostic imaging equipment.";
+  dcterms:description "Class to contain unique attributes of diagnostic imaging equipment.".
 
-fhir:cs:EntityClass\#NAT a fhir:Concept;
-   dc:terms "Nation";
-   dc:title "Nation";
-   fhir:memberOf fhir:cs:EntityClass\#STATE;
-   rdfs:comment "Nation";
-   rdfs:label "Nation".
+cs:EntityClass\#ORG rdfs:subClassOf cs:EntityClass\#ENT;
+  rdfs:label "organization";
+  dc:title "organization";
+  rdfs:comment "A social or legal structure formed by human beings.";
+  dcterms:description "A social or legal structure formed by human beings.".
 
-fhir:cs:EntityClass\#NLIV a fhir:Concept;
-   dc:terms "non-person living subject";
-   dc:title "non-person living subject";
-   fhir:memberOf fhir:cs:EntityClass\#LIV;
-   rdfs:comment "non-person living subject";
-   rdfs:label "non-person living subject".
+cs:EntityClass\#PUB rdfs:subClassOf cs:EntityClass\#ORG;
+  rdfs:label "public institution";
+  dc:title "public institution";
+  rdfs:comment "An agency of the people of a state often assuming some authority over a certain matter. Includes government, governmental agencies, associations.";
+  dcterms:description "An agency of the people of a state often assuming some authority over a certain matter. Includes government, governmental agencies, associations.".
 
-fhir:cs:EntityClass\#ORG a fhir:Concept;
-   dc:terms "organization";
-   dc:title "organization";
-   fhir:memberOf fhir:cs:EntityClass\#ENT;
-   rdfs:comment "organization";
-   rdfs:label "organization".
+cs:EntityClass\#STATE rdfs:subClassOf cs:EntityClass\#ORG;
+  rdfs:label "state";
+  dc:title "state";
+  rdfs:comment "A politically organized body of people bonded by territory, culture, or ethnicity, having sovereignty (to a certain extent) granted by other states (enclosing or neighboring states). This includes countries (nations), provinces (e.g., one of the United States of America or a French departement), counties or municipalities. Refine using, e.g., ISO country codes, FIPS-PUB state codes, etc.";
+  dcterms:description "A politically organized body of people bonded by territory, culture, or ethnicity, having sovereignty (to a certain extent) granted by other states (enclosing or neighboring states). This includes countries (nations), provinces (e.g., one of the United States of America or a French departement), counties or municipalities. Refine using, e.g., ISO country codes, FIPS-PUB state codes, etc.".
 
-fhir:cs:EntityClass\#PLC a fhir:Concept;
-   dc:terms "place";
-   dc:title "place";
-   fhir:memberOf fhir:cs:EntityClass\#ENT;
-   rdfs:comment "place";
-   rdfs:label "place".
+cs:EntityClass\#NAT rdfs:subClassOf cs:EntityClass\#STATE;
+  rdfs:label "Nation";
+  dc:title "Nation";
+  rdfs:comment "A politically organized body of people bonded by territory and known as a nation.";
+  dcterms:description "A politically organized body of people bonded by territory and known as a nation.".
 
-fhir:cs:EntityClass\#PLNT a fhir:Concept;
-   dc:terms "plant";
-   dc:title "plant";
-   fhir:memberOf fhir:cs:EntityClass\#NLIV;
-   rdfs:comment "plant";
-   rdfs:label "plant".
+cs:EntityClass\#PLC rdfs:subClassOf cs:EntityClass\#ENT;
+  rdfs:label "place";
+  dc:title "place";
+  rdfs:comment "A physical place or site with its containing structure. May be natural or man-made. The geographic position of a place may or may not be constant.";
+  dcterms:description "A physical place or site with its containing structure. May be natural or man-made. The geographic position of a place may or may not be constant.".
 
-fhir:cs:EntityClass\#PROVINCE a fhir:Concept;
-   dc:terms "state or province";
-   dc:title "state or province";
-   fhir:memberOf fhir:cs:EntityClass\#PLC;
-   rdfs:comment "state or province";
-   rdfs:label "state or province".
+cs:EntityClass\#CITY rdfs:subClassOf cs:EntityClass\#PLC;
+  rdfs:label "city or town";
+  dc:title "city or town";
+  rdfs:comment "The territory of a city, town or other municipality.";
+  dcterms:description "The territory of a city, town or other municipality.".
 
-fhir:cs:EntityClass\#PSN a fhir:Concept;
-   dc:terms "person";
-   dc:title "person";
-   fhir:memberOf fhir:cs:EntityClass\#LIV;
-   rdfs:comment "person";
-   rdfs:label "person".
+cs:EntityClass\#COUNTRY rdfs:subClassOf cs:EntityClass\#PLC;
+  rdfs:label "country";
+  dc:title "country";
+  rdfs:comment "The territory of a sovereign nation.";
+  dcterms:description "The territory of a sovereign nation.".
 
-fhir:cs:EntityClass\#PUB a fhir:Concept;
-   dc:terms "public institution";
-   dc:title "public institution";
-   fhir:memberOf fhir:cs:EntityClass\#ORG;
-   rdfs:comment "public institution";
-   rdfs:label "public institution".
+cs:EntityClass\#COUNTY rdfs:subClassOf cs:EntityClass\#PLC;
+  rdfs:label "county or parish";
+  dc:title "county or parish";
+  rdfs:comment "The territory of a county, parish or other division of a state or province.";
+  dcterms:description "The territory of a county, parish or other division of a state or province.".
 
-fhir:cs:EntityClass\#RGRP a fhir:Concept;
-   dc:terms "group";
-   dc:title "group";
-   fhir:memberOf fhir:cs:EntityClass\#ENT;
-   rdfs:comment "group";
-   rdfs:label "group".
+cs:EntityClass\#PROVINCE rdfs:subClassOf cs:EntityClass\#PLC;
+  rdfs:label "state or province";
+  dc:title "state or province";
+  rdfs:comment "The territory of a state, province, department or other division of a sovereign country.";
+  dcterms:description "The territory of a state, province, department or other division of a sovereign country.".
 
-fhir:cs:EntityClass\#STATE a fhir:Concept;
-   dc:terms "state";
-   dc:title "state";
-   fhir:memberOf fhir:cs:EntityClass\#ORG;
-   rdfs:comment "state";
-   rdfs:label "state".
+cs:EntityClass\#RGRP rdfs:subClassOf cs:EntityClass\#ENT;
+  rdfs:label "group";
+  dc:title "group";
+  rdfs:comment "A grouping of resources (personnel, material, or places) to be used for scheduling purposes.  May be a pool of like-type resources, a team, or combination of personnel, material and places.";
+  dcterms:description "A grouping of resources (personnel, material, or places) to be used for scheduling purposes.  May be a pool of like-type resources, a team, or combination of personnel, material and places.".
