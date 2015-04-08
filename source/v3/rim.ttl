@@ -11,6 +11,7 @@
 @prefix vs: <http://hl7org/orim/valueset> .
 @prefix cs: <http://hl7org/orim/codesystem> .
 @prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fhir: <http://hl7.org/fhir/> .
 
 # - ANY --------------------------------------------------------------------
 
@@ -32,7 +33,7 @@ dt:ANY.nullFlavor a rdf:Property;
    rdfs:comment "An indicator of a data value's exceptional status, sometimes also denoting the manner and rationale for that status.";
    rdfs:domain dt:ANY;
    rdfs:range cs:NullFlavor\#;
-   fhir:binding vs:NullFlavor
+   fhir:binding vs:NullFlavor;
    fhir:bindingStrength fhir:BindingStrength\#required.
 
 # - CS ------------------------------------------------------------------
@@ -73,7 +74,7 @@ rim:InfrastructureRoot.nullFlavor a rdf:Property;
    rdfs:comment "An indicator that the class instance is null, including the flavor of null that is intended";
    rdfs:domain rim:InfrastructureRoot;
    rdfs:range dt:CS;
-   fhir:binding vs:NullFlavor
+   fhir:binding vs:NullFlavor;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
 # - Entity --------------------------------------------------------------------
@@ -101,10 +102,9 @@ rim:Entity.classCode a rdf:Property;
    rdfs:comment "The major class of Entities to which an Entity-instance belongs";
    rdfs:domain rim:Entity;
    rdfs:range dt:CS;
-   fhir:binding vs:EntityClass
+   fhir:binding vs:EntityClass;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
- 
 #- for all classes mapped to acts, we know what happened to classCode, moodCode, code, negationInd,x2, statusCode, id
 #- for all classes mapped to roles, we know what happened to classCode, statusCode, code, negationInd, id, and player,
 #- for all classes mapped to entities, we know what happened to classCode, determineCode, id, code, statusCode   
@@ -239,7 +239,7 @@ cs:EntityClass a fhir:ValueSet;
   fhir:canonical-status fhir:canonical-status-codes\#active;
   fhir:include fhir:v3\/EntityClass.
 
-cs:EntityClass a fhir:CodeSystem.
+cs:EntityClass a fhir:CodeSystem;
   fhir:version "2015-03-23";
   rdfs:label "EntityClass";
   dc:title "EntityClass";
@@ -247,13 +247,12 @@ cs:EntityClass a fhir:CodeSystem.
   dcterms:description "Classifies the Entity class and all of its subclasses.  The terminology is hierarchical.  At the top is this  HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing.";
   dc:date "2015-03-23";
   fhir:status fhir:conformance-resource-status\#active;
-  fhir:canonical-status fhir:canonical-status-codes\#active;
+  fhir:canonical-status fhir:canonical-status-codes\#active.
 
 cs:EntityClass\# a fhir:Concept;
    dc:title "EntityClass abstract root concept";
    rdfs:label "EntityClass".
    
-  
 cs:EntityClass\#ENT a cs:EntityClass\#;
   rdfs:label "entity";
   dc:title "entity";
