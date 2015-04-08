@@ -185,5 +185,12 @@
     <id>qdm</id>
     <sort>21</sort>
   </space>
+  <space>
+    <url>http://hl7.org/orim</url>
+    <columnName>ORIM Mapping</columnName>
+    <title>Ontological RIM Mapping</title>
+    <id>orim</id>
+    <sort>22</sort>
+  </space>
   
 </mappingSpaces>

@@ -11,7 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.jena.riot.RDFDataMgr;
+import org.hl7.fhir.rdf.TurtleLexer.TurtleTokenType;
 import org.hl7.fhir.utilities.Utilities;
+
+import com.hp.hpl.jena.rdf.model.Model;
 
 public class TurtleGenerator {
 
@@ -140,6 +144,30 @@ public class TurtleGenerator {
     public void label(String subject, String comment) {
       triple(subject, "rdfs:label", literal(comment));
       triple(subject, "dc:title", literal(comment));
+    }
+
+    public void importTtl(String ttl) throws Exception {
+      // fhir:Substance a rim:Entity; rim:Act.classCode cs:EntityClass\#MAT
+      TurtleLexer lexer = new TurtleLexer(ttl);
+      String subject = null;
+      while (!lexer.done()) {
+        if (subject == null)
+          subject = lexer.next();
+        String predicate = lexer.next();
+        if (lexer.peekType() == TurtleTokenType.TOKEN) {
+          triple(subject, predicate, lexer.next());
+        } else
+          throw new Exception("Not done yet");
+        String n = lexer.next();
+        if (Utilities.noString(n))
+          break;
+        if (n.equals("."))
+          subject = null;
+        else if (!n.equals(";"))
+          throw new Exception("Unexpected token "+n);          
+      }
+
+      
     }
   }
   

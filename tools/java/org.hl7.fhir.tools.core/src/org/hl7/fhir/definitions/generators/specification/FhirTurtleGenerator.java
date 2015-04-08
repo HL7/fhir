@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -24,6 +25,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
@@ -79,6 +81,9 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     prefix("dc", "http://purl.org/dc/elements/1.1/");
     prefix("dcterms", "http://purl.org/dc/terms/");
     prefix("rim", "http://hl7.org/owl/rim#");
+    prefix("cs", "http://hl7.org/orim/codesystem#");
+    prefix("vs", "http://hl7.org/orim/valueset#");
+    prefix("dt", "http://hl7.org/orim/datatype#");
     
     gen(definitions.getInfrastructure().get("Element"));
     genPrimitiveType();
@@ -103,6 +108,10 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         gen(definitions.getBaseResources().get(n));
     for (String n : sorted(definitions.getResources().keySet())) 
       gen(definitions.getResources().get(n));
+    
+    prefix("vs", "http://hl7.org/orim/valueset");
+    valuesets.put("vs:NullFlavor", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/NullFlavor"));
+    valuesets.put("vs:EntityClass", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/EntityClass"));
     
     for (String n : sorted(valuesets.keySet()))
       gen(n, valuesets.get(n));
@@ -238,17 +247,23 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       ElementDefn r = getElementForPath(tr.getName().substring(1));
       sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+r.getDeclaredTypeName());        
     } else {
-      sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+processType(tr.getName()));
       if (e.hasBinding()) {
         BindingSpecification bs = definitions.getBindingByName(e.getBindingName());
-        sct.triple("fhir:"+tn+"."+en, "fhir:bindingStrength", "fhir:BindingStrength\\#"+bs.getStrength().toCode());
         if (bs.getReferredValueSet() != null) {
           String bn = getPNameForUri(bs.getReferredValueSet().getUrl());
+          if (bs.getStrength() == BindingStrength.REQUIRED && bs.getBinding() == Binding.CodeList && tr.getName().equals("code"))
+            sct.triple("fhir:"+tn+"."+en, "rdfs:range", bn+".class");
+          else
+            sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+processType(tr.getName()));
           sct.triple("fhir:"+tn+"."+en, "fhir:binding", bn);
           valuesets.put(bn, bs.getReferredValueSet());
-        } else if (!Utilities.noString(bs.getReference()))
+        } else if (!Utilities.noString(bs.getReference())) {
+          sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+processType(tr.getName()));
           sct.triple("fhir:"+tn+"."+en, "fhir:binding", "<"+bs.getReference()+">");
-      }
+        }
+        sct.triple("fhir:"+tn+"."+en, "fhir:bindingStrength", "fhir:BindingStrength\\#"+bs.getStrength().toCode());
+      } else
+        sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+processType(tr.getName()));
     }
   }
 
@@ -284,7 +299,9 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     else
       sct.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:"+processType(t.typeCode()));
     sct.comment("fhir:"+t.getName(), rd.getDefinition());
-    String rim = getRimMapping(rd.getRoot());
+    String rim = getORimMapping(rd.getRoot());
+    if (rim != null)
+      sct.importTtl(rim);
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
@@ -304,6 +321,14 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       }
     }
     processAnonTypes();
+  }
+
+  private String getORimMapping(ElementDefn e) {
+    for (String m : e.getMappings().keySet()) {
+      if (m.equals("http://hl7.org/orim"))
+        return e.getMappings().get(m);
+    }
+    return null;
   }
 
   private String getRimMapping(ElementDefn root) {
@@ -359,7 +384,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     if (vs.hasName())
       sct.label(bn, vs.getName());
     if (vs.hasDescription()) 
-      sct.comment(bn, vs.getDescription());
+      sct.comment(bn, vs.getDescription().replace("code system", "value set").replace("Code System", "Value Set").replace("Code system", "Value set"));
     if (vs.hasCopyright()) 
       sct.triple(bn, "dc:rights", literal(vs.getCopyright()));
     if (vs.hasDate()) 
@@ -370,31 +395,64 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     sct.triple(bn, "fhir:status", "fhir:conformance-resource-status\\#"+vs.getStatus().toCode());
     sct.triple(bn, "fhir:canonical-status", getCanonicalStatus("ValueSet.status", vs.getStatus().toCode()));
     if (vs.hasDefine()) {
-      sct.triple(bn, "fhir:include", gen(sct, vs.getDefine()));
+      sct.triple(bn, "fhir:include", gen(sct, vs.getDefine(), vs));
     }
   }
 
-  private String gen(Section section, ValueSetDefineComponent define) {
+  private String gen(Section sct, ValueSetDefineComponent define, ValueSet vs) {
     String bn = getPNameForUri(define.getSystem()); 
     if (!bn.startsWith("<")) {
-      section.triple(bn, "a", "fhir:CodeSystem");
+      sct.triple(bn, "a", "fhir:CodeSystem");
       if (define.hasVersion())
-        section.triple(bn, "fhir:version", literal(define.getVersion()));
-      gen(section, bn, bn, define.getConcept());
+        sct.triple(bn, "fhir:version", literal(define.getVersion()));
+      if (vs.hasName())
+        sct.label(bn, vs.getName());
+      if (vs.hasDescription()) 
+        sct.comment(bn, vs.getDescription().replace("value set", "code system").replace("Value Set", "Code System").replace("Value set", "Code system"));
+      if (vs.hasCopyright()) 
+        sct.triple(bn, "dc:rights", literal(vs.getCopyright()));
+      if (vs.hasDate()) 
+        sct.triple(bn, "dc:date", literal(vs.getDate().toString()));
+      
+      sct.triple(bn+".class", "a", "fhir:Concept");
+      sct.triple(bn+".class", "owl:oneOf", "("+listTokens(bn+"\\#", null, define.getConcept())+")");
+
+      gen(sct, bn, bn+".class", define.getConcept());
     }
     return bn;
   }
 
-  private void gen(Section section, String cs, String owner, List<ConceptDefinitionComponent> concepts) {
+  private String listTokens(String prefix, ConceptDefinitionComponent root, List<ConceptDefinitionComponent> children) {
+    StringBuilder b = new StringBuilder();
+    if (root != null) {
+      b.append(" ");
+      b.append(prefix);
+      b.append(pctEncode(root.getCode()));
+    }
+    listChildTokens(prefix, children, b);
+    return b.toString().substring(1);
+  }
+
+  private void listChildTokens(String prefix, List<ConceptDefinitionComponent> children, StringBuilder b) {
+    for (ConceptDefinitionComponent child : children) {
+      b.append(" ");
+      b.append(prefix);
+      b.append(pctEncode(child.getCode()));
+      listChildTokens(prefix, child.getConcept(), b);
+    }
+  }
+
+  private void gen(Section sct, String cs, String owner, List<ConceptDefinitionComponent> concepts) {
     for (ConceptDefinitionComponent c : concepts) {
       String pcc = pctEncode(c.getCode());
-      section.triple(cs+"\\#"+pcc, "a", "fhir:Concept");
+      sct.triple(cs+".class\\#"+pcc, "rdfs:subClassOf", owner);
+      sct.triple(cs+".class\\#"+pcc, "owl:oneOf", "("+listTokens(cs+"\\#", c, c.getConcept())+")");
       if (c.hasDisplay())
-        section.label(cs+"\\#"+pcc, c.getDisplay());
+        sct.label(cs+".class\\#"+pcc, c.getDisplay());
       if (c.hasDefinition())
-        section.comment(cs+"\\#"+pcc, c.getDefinition());
-      section.triple(cs+"\\#"+pcc, "fhir:memberOf", owner);
-      gen(section, cs, cs+"\\#"+pcc, c.getConcept());
+        sct.comment(cs+".class\\#"+pcc, c.getDefinition());
+      sct.triple(cs+"\\#"+pcc, "a", cs+".class\\#"+pcc);
+      gen(sct, cs, cs+".class\\#"+pcc, c.getConcept());
     }
   }
 
