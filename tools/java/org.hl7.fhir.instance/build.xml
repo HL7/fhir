@@ -4,63 +4,63 @@
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="org.hl7.fhir.implementation">
-    <property environment="env"/>
-    <property name="org.hl7.fhir.tools.location" value="../org.hl7.fhir.tools.core"/>
-    <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
-    <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.6"/>
-    <property name="source" value="1.6"/>
-    <path id="org.hl7.fhir.utilities.classpath">
-        <pathelement location="${org.hl7.fhir.utilities.location}/bin"/>
-	<fileset dir="../imports" includes="*.jar"/>
-    </path>
-    <path id="org.hl7.fhir.implementation.classpath">
-        <pathelement location="bin"/>
-	<fileset dir="../imports" includes="*.jar"/>
-        <path refid="org.hl7.fhir.utilities.classpath"/>
-    </path>
-    <target name="init">
-        <mkdir dir="bin"/>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="src">
-                <exclude name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="clean">
-        <delete dir="bin"/>
-    </target>
-    <target depends="clean" name="cleanall">
-        <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="clean"/>
-    </target>
-    <target depends="build-subprojects,build-project" name="build"/>
-    <target name="build-subprojects">
-        <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="build-project">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
-    </target>
-    <target depends="init" name="build-project">
-        <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" 
+  <property environment="env"/>
+  <property name="org.hl7.fhir.tools.location" value="../org.hl7.fhir.tools.core"/>
+  <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
+  <property name="debuglevel" value="source,lines,vars"/>
+  <property name="target" value="1.6"/>
+  <property name="source" value="1.6"/>
+  <path id="org.hl7.fhir.utilities.classpath">
+    <pathelement location="${org.hl7.fhir.utilities.location}/bin"/>
+    <fileset dir="../imports" includes="*.jar"/>
+  </path>
+  <path id="org.hl7.fhir.implementation.classpath">
+    <pathelement location="bin"/>
+    <fileset dir="../imports" includes="*.jar"/>
+    <path refid="org.hl7.fhir.utilities.classpath"/>
+  </path>
+  <target name="init">
+    <mkdir dir="bin"/>
+    <copy includeemptydirs="false" todir="bin">
+      <fileset dir="src">
+        <exclude name="**/*.java"/>
+      </fileset>
+    </copy>
+  </target>
+  <target name="clean">
+    <delete dir="bin"/>
+  </target>
+  <target depends="clean" name="cleanall">
+    <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="clean"/>
+  </target>
+  <target depends="build-subprojects,build-project" name="build"/>
+  <target name="build-subprojects">
+    <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="build-project">
+      <propertyset>
+        <propertyref name="build.compiler"/>
+      </propertyset>
+    </ant>
+  </target>
+  <target depends="init" name="build-project">
+    <echo message="${ant.project.name}: ${ant.file}"/>
+    <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" 
 			encoding="UTF-8" source="${source}" target="${target}">
-            <src path="src"/>
-	    <include name="**"/>
-	    <exclude name="**/test/**/*Test.java"/>
-            <classpath refid="org.hl7.fhir.implementation.classpath"/>
-        </javac>
-    </target>
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
-        <ant antfile="build.xml" dir="${org.hl7.fhir.tools.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.tools.location}" inheritAll="false" target="build">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
-    </target>
-    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
-        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
-        <antcall target="build"/>
-    </target>
+      <src path="src"/>
+      <include name="**"/>
+      <exclude name="**/test/**/*Test.java"/>
+      <classpath refid="org.hl7.fhir.implementation.classpath"/>
+    </javac>
+  </target>
+  <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+    <ant antfile="build.xml" dir="${org.hl7.fhir.tools.location}" inheritAll="false" target="clean"/>
+    <ant antfile="build.xml" dir="${org.hl7.fhir.tools.location}" inheritAll="false" target="build">
+      <propertyset>
+        <propertyref name="build.compiler"/>
+      </propertyset>
+    </ant>
+  </target>
+  <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+    <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+    <antcall target="build"/>
+  </target>
 </project>
