@@ -171,14 +171,14 @@ dt:CD.originalText a rdf:Property;
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
    rdfs:domain dt:CD;
-   rdfs:range dt:ED.TEXT.
+   rdfs:range xs:string. # todo: dt:ED.TEXT.
 
 dt:CD.codingRationale a rdf:Property;
    dcterms:description "The reason a particular CD has been provided";
    rdfs:comment "The reason a particular CD has been provided";
    fhir:maxCardinality "*";
    fhir:minCardinality "0";
-   rim:collectionType rim:CollectionType#DSET
+   rim:collectionType rim:CollectionType\#DSET;
    rdfs:domain dt:CD;
    rdfs:range cs:CodingRationale.class;
    fhir:binding vs:CodingRationale;
@@ -189,7 +189,7 @@ dt:CD.translation a rdf:Property;
    rdfs:comment "A set of other CDs that each represent a translation of this CD into equivalent codes within the same code system or into corresponding concepts from other code systems";
    fhir:maxCardinality "*";
    fhir:minCardinality "0";
-   rim:collectionType rim:CollectionType#DSET
+   rim:collectionType rim:CollectionType\#DSET;
    rdfs:domain dt:CD;
    rdfs:range dt:CD.
    
@@ -292,7 +292,7 @@ dt:II.display a rdf:Property;
    rdfs:domain dt:II;
    rdfs:range xs:boolean.
    
-   
+      
 # - InfrastructureRoot --------------------------------------------------------------------
 
 rim:InfrastructureRoot a rdfs:Class;
@@ -388,7 +388,7 @@ rim:Entity.id a rdf:Property;
    dcterms:description "A unique identifier for the Entity";
    fhir:maxCardinality "*";
    fhir:minCardinality "0";
-   rim:collectionType rim:CollectionType#DSET
+   rim:collectionType rim:CollectionType\#DSET;
    rdfs:comment "A unique identifier for the Entity";
    rdfs:domain rim:Entity;
    rdfs:range dt:II.
@@ -397,7 +397,7 @@ rim:Entity.code a rdf:Property;
    dcterms:description "The specific kind of Entity to which an Entity-instance belongs";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rim:collectionType rim:CollectionType#DSET
+   rim:collectionType rim:CollectionType\#DSET;
    rdfs:comment "The specific kind of Entity to which an Entity-instance belongs";
    rdfs:domain rim:Entity;
    rdfs:range dt:CD;
@@ -1070,4 +1070,71 @@ cs:IdentifierReliability.class\#VRF rdfs:subClassOf cs:IdentifierReliability.cla
 
 cs:IdentifierReliability\#VRF a cs:IdentifierReliability.class\#VRF.
 
+# - vs:CodingRationale ---------------------------------------------------------
+
+vs:CodingRationale a fhir:ValueSet;
+  fhir:version "2015-03-23";
+  rdfs:label "v3 Code System CodingRationale";
+  dc:title "v3 Code System CodingRationale";
+  rdfs:comment " Identifies how to interpret the instance of the code, codeSystem value in a set of translations.  Since HL7 (or a government body) may mandate that codes from certain value sets be sent in conformant messages, other synonyms that are sent in the translation set need to be distinguished among the originally captured source, the HL7 specified code, or some future role.  When this code is NULL, it indicates that the translation is an undefined type.  When valued, this property must contain one of the following values: SRC - Source (or original) code HL7 - HL7 Specified or Mandated SH - both HL7 mandated and the original code (precoordination) There may be additional values added to this value set as we work through the use of codes in messages and determine other Use Cases requiring special interpretation of the translations.";
+  dcterms:description " Identifies how to interpret the instance of the code, codeSystem value in a set of translations.  Since HL7 (or a government body) may mandate that codes from certain value sets be sent in conformant messages, other synonyms that are sent in the translation set need to be distinguished among the originally captured source, the HL7 specified code, or some future role.  When this code is NULL, it indicates that the translation is an undefined type.  When valued, this property must contain one of the following values: SRC - Source (or original) code HL7 - HL7 Specified or Mandated SH - both HL7 mandated and the original code (precoordination) There may be additional values added to this value set as we work through the use of codes in messages and determine other Use Cases requiring special interpretation of the translations.";
+  dc:date "2015-03-23";
+  fhir:status fhir:conformance-resource-status\#active;
+  fhir:canonical-status fhir:canonical-status-codes\#active;
+  fhir:include cs:CodingRationale.
+
+cs:CodingRationale a fhir:CodeSystem;
+  rdfs:label "v3 Code System CodingRationale";
+  dc:title "v3 Code System CodingRationale";
+  rdfs:comment " Identifies how to interpret the instance of the code, codeSystem value in a set of translations.  Since HL7 (or a government body) may mandate that codes from certain code systems be sent in conformant messages, other synonyms that are sent in the translation set need to be distinguished among the originally captured source, the HL7 specified code, or some future role.  When this code is NULL, it indicates that the translation is an undefined type.  When valued, this property must contain one of the following values: SRC - Source (or original) code HL7 - HL7 Specified or Mandated SH - both HL7 mandated and the original code (precoordination) There may be additional values added to this code system as we work through the use of codes in messages and determine other Use Cases requiring special interpretation of the translations.";
+  dcterms:description " Identifies how to interpret the instance of the code, codeSystem value in a set of translations.  Since HL7 (or a government body) may mandate that codes from certain code systems be sent in conformant messages, other synonyms that are sent in the translation set need to be distinguished among the originally captured source, the HL7 specified code, or some future role.  When this code is NULL, it indicates that the translation is an undefined type.  When valued, this property must contain one of the following values: SRC - Source (or original) code HL7 - HL7 Specified or Mandated SH - both HL7 mandated and the original code (precoordination) There may be additional values added to this code system as we work through the use of codes in messages and determine other Use Cases requiring special interpretation of the translations.";
+  dc:date "Mon Mar 23 00:00:00 EST 2015".
+
+cs:CodingRationale.class a fhir:Concept;
+  owl:oneOf (cs:CodingRationale\#O cs:CodingRationale\#OR cs:CodingRationale\#P cs:CodingRationale\#PR cs:CodingRationale\#R).
+
+cs:CodingRationale.class\#O rdfs:subClassOf cs:CodingRationale.class;
+  owl:oneOf (cs:CodingRationale\#O);
+  rdfs:label "originally produced code";
+  dc:title "originally produced code";
+  rdfs:comment "Description: Originally produced code.";
+  dcterms:description "Description: Originally produced code.".
+
+cs:CodingRationale\#O a cs:CodingRationale.class\#O.
+
+cs:CodingRationale.class\#OR rdfs:subClassOf cs:CodingRationale.class;
+  owl:oneOf (cs:CodingRationale\#OR);
+  rdfs:label "original and required";
+  dc:title "original and required";
+  rdfs:comment "Originally produced code, required by the specification describing the use of the coded concept.";
+  dcterms:description "Originally produced code, required by the specification describing the use of the coded concept.".
+
+cs:CodingRationale\#OR a cs:CodingRationale.class\#OR.
+
+cs:CodingRationale.class\#P rdfs:subClassOf cs:CodingRationale.class;
+  owl:oneOf (cs:CodingRationale\#P);
+  rdfs:label "post-coded";
+  dc:title "post-coded";
+  rdfs:comment "Description: Post-coded from free text source</description>";
+  dcterms:description "Description: Post-coded from free text source</description>".
+
+cs:CodingRationale\#P a cs:CodingRationale.class\#P.
+
+cs:CodingRationale.class\#PR rdfs:subClassOf cs:CodingRationale.class;
+  owl:oneOf (cs:CodingRationale\#PR);
+  rdfs:label "post-coded and required";
+  dc:title "post-coded and required";
+  rdfs:comment "Post-coded from free text source, required by the specification describing the use of the coded concept.";
+  dcterms:description "Post-coded from free text source, required by the specification describing the use of the coded concept.".
+
+cs:CodingRationale\#PR a cs:CodingRationale.class\#PR.
+
+cs:CodingRationale.class\#R rdfs:subClassOf cs:CodingRationale.class;
+  owl:oneOf (cs:CodingRationale\#R);
+  rdfs:label "required";
+  dc:title "required";
+  rdfs:comment "Description: Required standard code for HL7.";
+  dcterms:description "Description: Required standard code for HL7.".
+
+cs:CodingRationale\#R a cs:CodingRationale.class\#R.
 
