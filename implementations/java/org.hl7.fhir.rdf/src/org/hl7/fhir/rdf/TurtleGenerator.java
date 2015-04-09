@@ -64,12 +64,17 @@ public class TurtleGenerator {
     }
     
     public ComplexObject predicate(String predicate, String object) {
+      predicateSet.add(predicate);
+      objectSet.add(object);
       return predicate(predicate, new StringObject(object));
     }
     
     public ComplexObject predicate(String predicate, TripleObject object) {
       Predicate p = new Predicate();
       p.predicate = predicate;
+      predicateSet.add(predicate);
+      if (object instanceof StringObject)
+        objectSet.add(((StringObject) object).value);
       p.object = object;
       predicates.add(p);
       return this;
@@ -96,9 +101,14 @@ public class TurtleGenerator {
     private String id;
     private List<Predicate> predicates = new ArrayList<Predicate>();
     public Predicate predicate(String predicate, TripleObject object) {
+      subjectSet.add(id);
       return predicate(predicate, object, null);
     }
     public Predicate predicate(String predicate, TripleObject object, String comment) {
+      subjectSet.add(id);
+      predicateSet.add(predicate);
+      if (object instanceof StringObject)
+        objectSet.add(((StringObject) object).value);
       Predicate p = new Predicate();
       p.predicate = predicate;
       p.object = object;
@@ -197,7 +207,9 @@ public class TurtleGenerator {
   }
   
   private List<Section> sections = new ArrayList<Section>();
-  private Set<String> predicates = new HashSet<String>();
+  protected Set<String> subjectSet = new HashSet<String>();
+  protected Set<String> predicateSet = new HashSet<String>();
+  protected Set<String> objectSet = new HashSet<String>();
   private OutputStream destination;
   protected Map<String, String> prefixes = new HashMap<String, String>();
 
@@ -218,6 +230,8 @@ public class TurtleGenerator {
       else if (c >= 'a' && c <= 'z')
         b.append(c);
       else if (c >= '0' && c <= '9')
+        b.append(c);
+      else if (c == '.')
         b.append(c);
       else 
         b.append("%"+Integer.toHexString(c));
@@ -438,7 +452,7 @@ public class TurtleGenerator {
       writer.ln("@prefix "+p+": <"+prefixes.get(p)+"> .");
     writer.ln();
     writer.ln("# Predicates used in this file:");
-    for (String s : sorted(predicates)) 
+    for (String s : sorted(predicateSet)) 
       writer.ln(" # "+s);
     writer.ln();
  }

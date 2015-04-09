@@ -932,7 +932,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">E.g. SEG.1.2.3</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">LOINC Mapping</Data><Comment
+    <Cell ss:StyleID="s75"><Data ss:Type="String">LOINC Code</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Change column name to one from mappingSpaces.xml.  Add more if needed</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4126,7 +4126,7 @@
     <Cell ss:MergeAcross="2"><Data ss:Type="String">The contents of this spreadsheet are for work-group purposes only.  They are not published.</Data></Cell>
    </Row>
    <Row ss:Index="3" ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">LOINC mapping</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">LOINC Code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:MergeAcross="2"><ss:Data ss:Type="String"

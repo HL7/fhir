@@ -19,12 +19,16 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.PrimitiveType;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
@@ -58,7 +62,6 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     public boolean isType() {
       return type;
     }
-    
   }
   
   private Definitions definitions;
@@ -84,6 +87,10 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     prefix("cs", "http://hl7.org/orim/codesystem/");
     prefix("vs", "http://hl7.org/orim/valueset/");
     prefix("dt", "http://hl7.org/orim/datatype/");
+    prefix("os", "http://open-services.net/ns/core#");
+    prefix("loinc", "http://loinc.org/owl#");
+    
+    genBaseMetadata();
     
     gen(definitions.getInfrastructure().get("Element"));
     genPrimitiveType();
@@ -102,6 +109,8 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       gen(definitions.getTypes().get(n));
     for (String n : sorted(definitions.getStructures().keySet())) 
       gen(definitions.getStructures().get(n));
+    for (String n : sorted(definitions.getConstraints().keySet()))
+      gen(definitions.getConstraints().get(n));
     gen(definitions.getBaseResources().get("Resource"));
     for (String n : sorted(definitions.getBaseResources().keySet()))
       if (!n.equals("Resource"))
@@ -122,75 +131,222 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     for (String n : sorted(valuesets.keySet()))
       gen(n, valuesets.get(n));
 
+    chckSubjects();
     commit();
 //    throw new Error("bang");
   }
 
 
+  private void genBaseMetadata() {
+    Section section = section("Basic Framework");
+    
+    section.triple("fhir:binding", "a", "rdf:Property");
+    section.label("fhir:binding", "ValueSet bound to this property");
+    section.comment("fhir:binding", "Refer to FHIR documentation for the use of this property");
+    section.triple("fhir:binding", "rdfs:range", "xs:anyUri");
+    
+    section.triple("fhir:bindingStrength", "a", "rdf:Property");
+    section.label("fhir:bindingStrength", "Strength of ValueSet binding");
+    section.comment("fhir:bindingStrength", "Refer to FHIR documentation for the use of this property");
+    section.triple("fhir:bindingStrength", "rdfs:range", "xs:anyUri");
+
+    section.triple("fhir:canonical-status", "a", "rdf:Property");
+    section.label("fhir:canonical-status", "Canonical Status Mapping");
+    section.comment("fhir:canonical-status", "Each resource has it's own list of status codes. This contains a mapping through to the basic status");
+    section.triple("fhir:canonical-status", "rdfs:range", "fhir:canonical-status.class");
+    
+    section.triple("fhir:Concept", "a", "fhir:Concept");
+    section.label("fhir:Concept", "Canonical Status Codes");
+    section.comment("fhir:Concept", "Base class for Canonical Status codes");
+    section.triple("fhir:Concept", "rdfs:range", "fhir:canonical-status.class");
+
+    section.triple("fhir:CodeSystem", "rdfs:subClassOf", "rdf:Class");
+    section.label("fhir:CodeSystem", "Base class for code systems");
+    section.comment("fhir:CodeSystem", "Base class for code systems");
+
+    section.triple("fhir:hasFlag", "a", "rdf:Property");
+    section.label("fhir:hasFlag", "Flags for FHIR properties");
+    section.comment("fhir:hasFlag", "A set of flags that provide additional knowledge about the meaning of a property");
+    section.triple("fhir:hasFlag", "rdfs:range", "fhir:flag-item.class");
+
+    section.triple("fhir:w5", "a", "rdf:Property");
+    section.label("fhir:w5", "W5 Categorization (preliminary)");
+    section.comment("fhir:w5", "FHIR W5 categorization is a preliminary classification of the type of fhir property");
+    section.triple("fhir:w5", "rdfs:range", "fhir:w5.class");
+
+    section.triple("fhir:include", "a", "rdf:Property");
+    section.label("fhir:include", "Include a code system or value set in a value set");
+    section.comment("fhir:include", "Include a code system or value set in a value set");
+    section.triple("fhir:include", "rdfs:range", "xs:anyURI");
+
+    section.triple("fhir:status", "a", "rdf:Property");
+    section.label("fhir:status", "The status of the item");
+    section.comment("fhir:status", "The status of the item");
+    section.triple("fhir:status", "rdfs:range", "fhir:conformance-resource-status.class");
+
+    section.triple("fhir:version", "a", "rdf:Property");
+    section.label("fhir:version", "Assigned Version Number");
+    section.comment("fhir:version", "The version number assigned to the item");
+    section.triple("fhir:version", "rdfs:range", "xs:string");
+
+    section.triple("fhir:loinc", "a", "rdf:Property");
+    section.label("fhir:loinc", "LOINC equivalent concept");
+    section.comment("fhir:loinc", "LOINC equivalent concept - may be a LOINC code, a LOINC part code, or a LOINC property");
+    section.triple("fhir:loinc", "rdfs:range", "xs:anyURI");
+
+    //---------------------------------------------------
+    section = section("Property Flags");
+    section.triple("fhir:flag-item.class", "a", "fhir:Concept");
+    section.triple("fhir:flag-item.class", "owl:oneOf", "(fhir:isModifier fhir:isSummaryItem fhir:isXmlAtribute)");
+
+    section.triple("fhir:flag-item.class\\#isModifier", "rdfs:subClassOf", "fhir:flag-item.class");
+    section.triple("fhir:flag-item.class\\#isModifier", "owl:oneOf", "(fhir:flag-item\\#isModifier)");
+    section.comment("fhir:flag-item.class\\#isModifier", "An element is labeled isModifier if the value it contains may change the interpretation of the element that contains it (including if the element is the resource as a whole). Typical examples of elements that are labeled isModifier are elements such as 'status', 'active', 'refuted', or 'certainty'");
+    section.triple("fhir:isModifier", "a", "fhir:flag-item.class\\#isModifier");
+
+    section.triple("fhir:flag-item.class\\#isSummaryItem", "rdfs:subClassOf", "fhir:flag-item.class");
+    section.triple("fhir:flag-item.class\\#isSummaryItem", "owl:oneOf", "(fhir:flag-item\\#isSummaryItem)");
+    section.comment("fhir:flag-item.class\\#isSummaryItem", "Whether the element should be included if a client requests a search with the parameter _summary=true.");
+    section.triple("fhir:isSummaryItem", "a", "fhir:flag-item.class\\#isSummaryItem");
+
+    section.triple("fhir:flag-item.class\\#isXmlAtribute", "rdfs:subClassOf", "fhir:flag-item.class");
+    section.triple("fhir:flag-item.class\\#isXmlAtribute", "owl:oneOf", "(fhir:flag-item\\#isXmlAtribute)");
+    section.comment("fhir:flag-item.class\\#isXmlAtribute", "In the XML format, this property is represented as an attribute not an element");
+    section.triple("fhir:isXmlAtribute", "a", "fhir:flag-item.class\\#isXmlAtribute");
+    
+    //---------------------------------------------------   
+    section = section("Canonical Status Codes");
+    section.triple("fhir:canonical-status.class", "a", "fhir:Concept");
+    section.triple("fhir:canonical-status", "owl:oneOf", "("+listStatusCodes()+")");
+
+    for (int i = 0; i < definitions.getStatusCodes().get("@code").size(); i++) {
+      if (!Utilities.noString(definitions.getStatusCodes().get("@code").get(i))) {
+        String pcc = pctEncode(definitions.getStatusCodes().get("@code").get(i));
+        section.triple("fhir:canonical-status.class\\#"+pcc, "rdfs:subClassOf", "fhir:canonical-status.class");
+        section.triple("fhir:canonical-status.class\\#"+pcc, "owl:oneOf", "(fhir:canonical-status\\#"+pcc+")");
+        section.comment("fhir:canonical-status.class\\#"+pcc, definitions.getStatusCodes().get("@definition").get(i));
+        section.triple("fhir:canonical-status\\#"+pcc, "a", "fhir:canonical-status.class\\#"+pcc);
+      }
+    }
+    
+    //---------------------------------------------------   
+    section = section("W5 Classifications");
+    section.triple("fhir:w5.class", "a", "fhir:Concept");
+    section.triple("fhir:w5", "owl:oneOf", "("+listW5Codes()+")");
+
+    for (W5Entry e : definitions.getW5s().values()) {
+      String pcc = pctEncode(e.getCode());
+      section.triple("fhir:w5.class\\#"+pcc, "rdfs:subClassOf", "fhir:w5.class");
+      section.triple("fhir:w5.class\\#"+pcc, "owl:oneOf", "(fhir:w5\\#"+pcc+")");
+      section.comment("fhir:w5.class\\#"+pcc, e.getDescription());
+      section.triple("fhir:w5\\#"+pcc, "a", "fhir:w5.class\\#"+pcc);
+    }
+  }
+
+  private String listW5Codes() {
+    StringBuilder b = new StringBuilder();
+    for (W5Entry e : definitions.getW5s().values()) {
+      b.append(" ");
+      b.append("fhir:w5\\#");
+      b.append(pctEncode(e.getCode()));
+    }
+    return b.toString().substring(1);
+  }
+
+  private String listStatusCodes() {
+    StringBuilder b = new StringBuilder();
+    for (String s : definitions.getStatusCodes().get("@code")) {
+      b.append(" ");
+      b.append("fhir:canonical-status\\#");
+      b.append(pctEncode(s));
+    }
+    return b.toString().substring(1);
+  }
+
   private void genPrimitiveType() {
-    Section sct = section("Primitive");
-    sct.triple("fhir:Primitive", "rdfs:subClassOf", "fhir:Element");
-    sct.triple("fhir:Primitive.value", "a", "rdf:Property");
-    sct.triple("fhir:Primitive.value", "rdfs:domain", "fhir:Primitive");
-    sct.triple("fhir:Primitive.value", "fhir:minCardinality", literal("0"));
-    sct.triple("fhir:Primitive.value", "fhir:maxCardinality", literal("1"));
+    Section section = section("Primitive");
+    section.triple("fhir:Primitive", "rdfs:subClassOf", "fhir:Element");
+    section.triple("fhir:Primitive.value", "a", "rdf:Property");
+    section.triple("fhir:Primitive.value", "rdfs:domain", "fhir:Primitive");
+    cardinality(section, "fhir:Primitive.value", "0", "1");
+  }
+
+  private void cardinality(Section section, String subj, String min, String max) {
+    if ("0".equals(min) && "1".equals(max))
+      section.triple(subj, "os:occurs", "os:Zero-or-one");
+    else if ("0".equals(min) && "*".equals(max))
+      section.triple(subj, "os:occurs", "os:Zero-or-many");
+    else if ("1".equals(min) && "1".equals(max))
+      section.triple(subj, "os:occurs", "os:Exactly-one");
+    else if ("1".equals(min) && "*".equals(max))
+      section.triple(subj, "os:occurs", "os:One-or-many");
+    else
+      throw new Error("Unhandled cardinality combination ("+min+"/"+max+")");
   }
 
   private void gen(PrimitiveType t) {
-    Section sct = section(t.getCode());
-    sct.triple("fhir:"+t.getCode(), "rdfs:subClassOf", "fhir:Primitive");
-    sct.comment("fhir:"+t.getCode(), t.getDefinition());
-    sct.triple("fhir:"+t.getCode()+".value", "rdfs:subPropertyOf", "fhir:Primitive.value");
-    sct.triple("fhir:"+t.getCode()+".value", "rdfs:domain", "fhir:"+t.getCode());
+    Section section = section(t.getCode());
+    section.triple("fhir:"+t.getCode(), "rdfs:subClassOf", "fhir:Primitive");
+    section.comment("fhir:"+t.getCode(), t.getDefinition());
+    section.triple("fhir:"+t.getCode()+".value", "rdfs:subPropertyOf", "fhir:Primitive.value");
+    section.triple("fhir:"+t.getCode()+".value", "rdfs:domain", "fhir:"+t.getCode());
     if (t.getSchemaType().endsWith("+")) {
-      sct.triple("fhir:"+t.getCode()+".value", "rdfs:range", "xs:"+t.getSchemaType().substring(0, t.getSchemaType().length()-1));
-      sct.triple("fhir:"+t.getCode()+".value", "owl:withRestriction", complex().predicate("xs:pattern", literal(t.getRegEx())));
+      section.triple("fhir:"+t.getCode()+".value", "rdfs:range", "xs:"+t.getSchemaType().substring(0, t.getSchemaType().length()-1));
+      section.triple("fhir:"+t.getCode()+".value", "owl:withRestriction", complex().predicate("xs:pattern", literal(t.getRegEx())));
     } else if (t.getSchemaType().contains(",")) {
-      sct.triple("fhir:"+t.getCode()+".value", "rdfs:range", complex().predicate("a", "owl:Class").predicate("owl:unionOf", "("+t.getSchemaType().replace(",", "")+")"), "xs:union of "+t.getSchemaType());
+      section.triple("fhir:"+t.getCode()+".value", "rdfs:range", complex().predicate("a", "owl:Class").predicate("owl:unionOf", "("+t.getSchemaType().replace(",", "")+")"), "xs:union of "+t.getSchemaType());
     } else
-      sct.triple("fhir:"+t.getCode()+".value", "rdfs:range", "xs:"+t.getSchemaType());
+      section.triple("fhir:"+t.getCode()+".value", "rdfs:range", "xs:"+t.getSchemaType());
   }
 
   private void gen(DefinedStringPattern t) {
-    Section sct = section(t.getCode());
-    sct.triple("fhir:"+t.getCode(), "rdfs:subClassOf", "fhir:"+t.getBase());
-    sct.comment("fhir:"+t.getCode(), t.getDefinition());
-    sct.triple("fhir:"+t.getCode()+".value", "rdfs:subPropertyOf", "fhir:"+t.getBase()+".value");
+    Section section = section(t.getCode());
+    section.triple("fhir:"+t.getCode(), "rdfs:subClassOf", "fhir:"+t.getBase());
+    section.comment("fhir:"+t.getCode(), t.getDefinition());
+    section.triple("fhir:"+t.getCode()+".value", "rdfs:subPropertyOf", "fhir:"+t.getBase()+".value");
     if (t.getSchema().endsWith("+")) {
-      sct.triple("fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema().substring(0, t.getSchema().length()-1));
-      sct.triple("fhir:"+t.getCode()+".value", "owl:withRestriction", complex().predicate("xs:pattern", literal(t.getRegex())));
+      section.triple("fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema().substring(0, t.getSchema().length()-1));
+      section.triple("fhir:"+t.getCode()+".value", "owl:withRestriction", complex().predicate("xs:pattern", literal(t.getRegex())));
     } else
-      sct.triple("fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema());
+      section.triple("fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema());
   }
 
+  private void gen(ProfiledType t) {
+    Section section = section(t.getName());
+    section.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:"+t.getBaseType(), "TODO: express the constraints");
+    section.label("fhir:"+t.getName(), t.getDescription());
+    section.comment("fhir:"+t.getName(), t.getDefinition());
+  }
+
+  
   private void gen(TypeDefn t) throws Exception {
-    Section sct = section(t.getName());
+    Section section = section(t.getName());
     if (t.getTypes().isEmpty())
-      sct.triple("fhir:"+t.getName(), "a", "rdfs:Class");
+      section.triple("fhir:"+t.getName(), "a", "rdfs:Class");
     else
-      sct.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:Element");
-    sct.label("fhir:"+t.getName(), t.getShortDefn());
-    sct.comment("fhir:"+t.getName(), t.getDefinition());
-    sct.importTtl(getORimMapping(t));
+      section.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:Element");
+    section.label("fhir:"+t.getName(), t.getShortDefn());
+    section.comment("fhir:"+t.getName(), t.getDefinition());
+    processMappings(section, "fhir:"+t.getName(), t);
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
-        sct.triple("fhir:"+t.getName()+"."+cn, "a", "rdf:Property");
-        sct.label("fhir:"+t.getName()+"."+cn, e.getShortDefn());
-        sct.comment("fhir:"+t.getName()+"."+cn, e.getDefinition());
-        sct.importTtl(getORimMapping(e));
+        section.triple("fhir:"+t.getName()+"."+cn, "a", "rdf:Property");
+        section.label("fhir:"+t.getName()+"."+cn, e.getShortDefn());
+        section.comment("fhir:"+t.getName()+"."+cn, e.getDefinition());
+        processMappings(section, "fhir:"+t.getName()+"."+cn, e);
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
-          sct.triple("fhir:"+t.getName()+"."+en, "rdfs:subPropertyOf", "fhir:"+t.getName()+"."+cn);
-          sct.triple("fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+t.getName());
-          genRange(sct, t.getName(), en, e, tr, true);
+          section.triple("fhir:"+t.getName()+"."+en, "rdfs:subPropertyOf", "fhir:"+t.getName()+"."+cn);
+          section.triple("fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+t.getName());
+          genRange(section, t.getName(), en, e, tr, true);
         }
       } else {
-        sct.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
-        sct.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
-        sct.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+t.getName());
-        sct.importTtl(getORimMapping(e));
-        genRange(sct, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), true);
+        section.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
+        section.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
+        section.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+t.getName());
+        processMappings(section, "fhir:"+t.getName()+"."+e.getName(), e);
+        genRange(section, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), true);
       }
     }
     processAnonTypes();
@@ -226,60 +382,64 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     return refs;
   }
   
-  private void genRange(Section sct, String tn, String en, ElementDefn e, TypeRef tr, boolean datatype) throws Exception {
+  private void genRange(Section section, String tn, String en, ElementDefn e, TypeRef tr, boolean datatype) throws Exception {
     // metadata
     if (e.isModifier())
-      sct.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isModifier");
+      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isModifier");
     if (e.isXmlAttribute())
-      sct.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isXmlAtribute");
+      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isXmlAtribute");
     if (e.hasMustSupport() && e.isMustSupport())
-      sct.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isMustSupport");
+      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isMustSupport");
     if (e.hasSummaryItem() && e.isSummaryItem())
-      sct.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isSummaryItem");
+      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isSummaryItem");
     if (!Utilities.noString(e.getW5()))
-      sct.triple("fhir:"+tn+"."+en, "fhir:w5", "fhir:w5-"+e.getW5());
+      section.triple("fhir:"+tn+"."+en, "fhir:w5", "fhir:w5\\#"+e.getW5());
 
     // cardinality
-    sct.triple("fhir:"+tn+"."+en, "fhir:minCardinality", literal(e.getMinCardinality().toString()));
-    sct.triple("fhir:"+tn+"."+en, "fhir:maxCardinality", literal(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString()));
+    cardinality(section, "fhir:"+tn+"."+en, e.getMinCardinality().toString(), e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString());
+//    section.triple("fhir:"+tn+"."+en, "fhir:minCardinality", literal(e.getMinCardinality().toString()));
+//    section.triple("fhir:"+tn+"."+en, "fhir:maxCardinality", literal(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString()));
+    
     // now in OWL:
     if (e.getMinCardinality() > 0)
-      sct.triple("fhir:"+tn, "rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", "fhir:"+tn+"."+en).predicate("owl:minCardinality", literal(e.getMinCardinality().toString()+"^^xs:nonNegativeInteger")));
+      section.triple("fhir:"+tn, "rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", "fhir:"+tn+"."+en).predicate("owl:minCardinality", literal(e.getMinCardinality().toString()+"^^xs:nonNegativeInteger")));
     if (e.getMaxCardinality() < Integer.MAX_VALUE)
-      sct.triple("fhir:"+tn, "rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", "fhir:"+tn+"."+en).predicate("owl:maxCardinality", literal(e.getMaxCardinality().toString()+"^^xs:nonNegativeInteger")));
+      section.triple("fhir:"+tn, "rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", "fhir:"+tn+"."+en).predicate("owl:maxCardinality", literal(e.getMaxCardinality().toString()+"^^xs:nonNegativeInteger")));
         
     // define
     if (tr == null) {
-      sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+e.getDeclaredTypeName());
-      anonTypes.push(new AnonTypeInfo(sct, e.getDeclaredTypeName(), e, datatype));
+      section.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+e.getDeclaredTypeName());
+      anonTypes.push(new AnonTypeInfo(section, e.getDeclaredTypeName(), e, datatype));
     } else if (tr.getName().startsWith("@")) {
       ElementDefn r = getElementForPath(tr.getName().substring(1));
-      sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+r.getDeclaredTypeName());        
+      section.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+r.getDeclaredTypeName());        
     } else {
       if (e.hasBinding()) {
         BindingSpecification bs = definitions.getBindingByName(e.getBindingName());
         if (bs.getReferredValueSet() != null) {
           String bn = getPNameForUri(bs.getReferredValueSet().getUrl());
-          if (bs.getStrength() == BindingStrength.REQUIRED && bs.getBinding() == Binding.CodeList && tr.getName().equals("code"))
-            sct.triple("fhir:"+tn+"."+en, "rdfs:range", bn+".class");
+          if (bs.getStrength() == BindingStrength.REQUIRED && bs.getBinding() == Binding.CodeList && tr.getName().equals("code") && bs.getReferredValueSet().hasDefine())
+            section.triple("fhir:"+tn+"."+en, "rdfs:range", getPNameForUri(bs.getReferredValueSet().getDefine().getSystem())+".class");
           else
-            sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+processType(tr.getName()));
-          sct.triple("fhir:"+tn+"."+en, "fhir:binding", bn);
+            section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
+          section.triple("fhir:"+tn+"."+en, "fhir:binding", bn);
           valuesets.put(bn, bs.getReferredValueSet());
         } else if (!Utilities.noString(bs.getReference())) {
-          sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+processType(tr.getName()));
-          sct.triple("fhir:"+tn+"."+en, "fhir:binding", "<"+bs.getReference()+">");
+          section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
+          section.triple("fhir:"+tn+"."+en, "fhir:binding", "<"+bs.getReference()+">");
         }
-        sct.triple("fhir:"+tn+"."+en, "fhir:bindingStrength", "fhir:BindingStrength\\#"+bs.getStrength().toCode());
+        section.triple("fhir:"+tn+"."+en, "fhir:bindingStrength", "fhir:binding-strength\\#"+bs.getStrength().toCode());
       } else
-        sct.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+processType(tr.getName()));
+        section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
     }
   }
 
   private String processType(String typeCode) {
     if (typeCode.equals("*"))
-      return "Element";
-    return typeCode;
+      return "fhir:Element";
+    if (typeCode.equals("xhtml"))
+      return "xs:String";
+    return "fhir:"+typeCode;
   }
   
   private ElementDefn getElementForPath(String pathname) throws Exception {
@@ -301,57 +461,78 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   }
 
   private void gen(ResourceDefn rd) throws Exception {
-    Section sct = section(rd.getName());
+    Section section = section(rd.getName());
     ElementDefn t = rd.getRoot();
     if (t.getTypes().isEmpty())
-      sct.triple("fhir:"+t.getName(), "a", "rdfs:Class");
+      section.triple("fhir:"+t.getName(), "a", "rdfs:Class");
     else
-      sct.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:"+processType(t.typeCode()));
-    sct.comment("fhir:"+t.getName(), rd.getDefinition());
-    sct.importTtl(getORimMapping(rd.getRoot()));
+      section.triple("fhir:"+t.getName(), "rdfs:subClassOf", processType(t.typeCode()));
+    section.comment("fhir:"+t.getName(), rd.getDefinition());
+    processMappings(section, "fhir:"+rd.getName(), rd.getRoot());
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
-        sct.triple("fhir:"+t.getName()+"."+cn, "a", "rdf:Property");
-        sct.comment("fhir:"+t.getName()+"."+cn, e.getDefinition());
-        sct.importTtl(getORimMapping(e));
+        section.triple("fhir:"+t.getName()+"."+cn, "a", "rdf:Property");
+        section.comment("fhir:"+t.getName()+"."+cn, e.getDefinition());
+        processMappings(section, "fhir:"+t.getName()+"."+cn, e);
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
-          sct.triple("fhir:"+t.getName()+"."+en, "rdf:subPropertyOf", "fhir:"+t.getName()+"."+cn);
-          sct.triple("fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+rd.getName());
-          genRange(sct, t.getName(), en, e, tr, false);
+          section.triple("fhir:"+t.getName()+"."+en, "rdf:subPropertyOf", "fhir:"+t.getName()+"."+cn);
+          section.triple("fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+rd.getName());
+          genRange(section, t.getName(), en, e, tr, false);
         }
       } else {
-        sct.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
-        sct.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
-        sct.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+rd.getName());
-        sct.importTtl(getORimMapping(e));
-        genRange(sct, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), false);
+        section.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
+        section.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
+        section.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+rd.getName());
+        processMappings(section, "fhir:"+t.getName()+"."+e.getName(), e);
+        genRange(section, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), false);
       }
     }
     processAnonTypes();
   }
 
-  private String getORimMapping(ElementDefn e) {
+  private void processMappings(Section section, String subject, ElementDefn e) throws Exception {
     for (String m : e.getMappings().keySet()) {
       if (m.equals("http://hl7.org/orim"))
-        return e.getMappings().get(m);
+        section.importTtl(e.getMappings().get(m));
+      if (m.equals("http://snomed.info")) {
+        System.out.println("sct = "+e.getMappings().get(m));
+        throw new Error("Snomed CT mappings are not done for RDF"); // reminder to actually do this
+      }
+      if (m.equals("http://loinc.org")) {
+        /*loinc = LOINC_NUM
+loinc = TERM DEFINITION/DESCRIPTION(S)
+loinc = COMMENTS
+loinc = R/O/C
+loinc = RELATED NAMES (only some of these apply)
+loinc = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
+loinc = EXMPL_ANSWERS
+loinc = ANSWER LIST, NORMATIVE ANSWER LIST
+loinc = ANSWER LIST, NORMATIVE ANSWER LIST
+loinc = N/A
+loinc = CODE_TABLE
+loinc = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
+loinc = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
+loinc = LOINC_NUM (the code is the identifier)
+loinc = N/A
+loinc = LONG_COMMON_NAME
+loinc = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
+loinc = STATUS
+loinc = DATE_LAST_CHANGED
+loinc = Fixed to Regenstrief or SOURCE
+loinc = N/A
+loinc = N/A
+loinc = 21112-8
+*/
+        String[] sl = e.getMappings().get(m).split("\\,");
+        for (String sp : sl) {
+          String s = sp.contains("(") ? sp.substring(0, sp.indexOf("(")).trim() : sp.trim();
+          if (!s.contains(" ") && !s.contains("/"))
+            section.triple(subject, "fhir:loinc", "loinc:"+s);
+        }
+      }
     }
-    return null;
-  }
-
-  private String getRimMapping(ElementDefn root) {
-    if (root.getMappings().containsKey(Definitions.RIM_MAPPING)) {
-      String res = root.getMappings().get(Definitions.RIM_MAPPING);
-      if (isSimpleRIM(res))
-        return res;
-    } 
-    return null;
-  }
-
-  private boolean isSimpleRIM(String res) {
-    
-    return false;
   }
 
   private void processAnonTypes() throws Exception {
@@ -365,11 +546,13 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     else
       at.getSection().triple("fhir:"+at.getName(), "a", "fhir:BackboneElement");
     at.getSection().comment("fhir:"+at.getName(), at.getDefn().getDefinition());
+    processMappings(at.getSection(), "fhir:"+at.getName(), at.getDefn());
     for (ElementDefn e : at.getDefn().getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
         at.getSection().triple("fhir:"+at.getName()+"."+cn, "a", "rdf:Property");
         at.getSection().comment("fhir:"+at.getName()+"."+cn, e.getDefinition());
+        processMappings(at.getSection(), "fhir:"+at.getName()+"."+cn, e);
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
           at.getSection().triple("fhir:"+at.getName()+"."+en, "rdf:subPropertyOf", "fhir:"+at.getName()+"."+cn); 
@@ -379,6 +562,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       } else {
         at.getSection().triple("fhir:"+at.getName()+"."+e.getName(), "a", "rdf:Property");
         at.getSection().comment("fhir:"+at.getName()+"."+e.getName(), e.getDefinition());
+        processMappings(at.getSection(), "fhir:"+at.getName()+"."+e.getName(), e);
         at.getSection().triple("fhir:"+at.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+at.getName());
         genRange(at.getSection(), at.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), at.isType());
       }
@@ -386,47 +570,47 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   }
 
   private void gen(String bn, ValueSet vs) {
-    Section sct = section(bn);
-    sct.triple(bn, "a", "fhir:ValueSet");
+    Section section = section(bn);
+    section.triple(bn, "a", "fhir:ValueSet");
     if (vs.hasVersion())
-      sct.triple(bn, "fhir:version", literal(vs.getVersion()));
+      section.triple(bn, "fhir:version", literal(vs.getVersion()));
     if (vs.hasName())
-      sct.label(bn, vs.getName());
+      section.label(bn, vs.getName());
     if (vs.hasDescription()) 
-      sct.comment(bn, vs.getDescription().replace("code system", "value set").replace("Code System", "Value Set").replace("Code system", "Value set"));
+      section.comment(bn, vs.getDescription().replace("code system", "value set").replace("Code System", "Value Set").replace("Code system", "Value set"));
     if (vs.hasCopyright()) 
-      sct.triple(bn, "dc:rights", literal(vs.getCopyright()));
+      section.triple(bn, "dc:rights", literal(vs.getCopyright()));
     if (vs.hasDate()) 
-      sct.triple(bn, "dc:date", literal(vs.getDateElement().asStringValue()));
+      section.triple(bn, "dc:date", literal(vs.getDateElement().asStringValue()));
     
     for (CodeableConcept cc : vs.getUseContext()) 
-      codedTriple(sct, bn, "fhir:useContext", cc);
-    sct.triple(bn, "fhir:status", "fhir:conformance-resource-status\\#"+vs.getStatus().toCode());
-    sct.triple(bn, "fhir:canonical-status", getCanonicalStatus("ValueSet.status", vs.getStatus().toCode()));
+      codedTriple(section, bn, "fhir:useContext", cc);
+    section.triple(bn, "fhir:status", "fhir:conformance-resource-status\\#"+vs.getStatus().toCode());
+    section.triple(bn, "fhir:canonical-status", getCanonicalStatus("ValueSet.status", vs.getStatus().toCode()));
     if (vs.hasDefine()) {
-      sct.triple(bn, "fhir:include", gen(sct, vs.getDefine(), vs));
+      section.triple(bn, "fhir:include", gen(section, vs.getDefine(), vs));
     }
   }
 
-  private String gen(Section sct, ValueSetDefineComponent define, ValueSet vs) {
+  private String gen(Section section, ValueSetDefineComponent define, ValueSet vs) {
     String bn = getPNameForUri(define.getSystem()); 
     if (!bn.startsWith("<")) {
-      sct.triple(bn, "a", "fhir:CodeSystem");
+      section.triple(bn, "a", "fhir:CodeSystem");
       if (define.hasVersion())
-        sct.triple(bn, "fhir:version", literal(define.getVersion()));
+        section.triple(bn, "fhir:version", literal(define.getVersion()));
       if (vs.hasName())
-        sct.label(bn, vs.getName());
+        section.label(bn, vs.getName());
       if (vs.hasDescription()) 
-        sct.comment(bn, vs.getDescription().replace("value set", "code system").replace("Value Set", "Code System").replace("Value set", "Code system"));
+        section.comment(bn, vs.getDescription().replace("value set", "code system").replace("Value Set", "Code System").replace("Value set", "Code system"));
       if (vs.hasCopyright()) 
-        sct.triple(bn, "dc:rights", literal(vs.getCopyright()));
+        section.triple(bn, "dc:rights", literal(vs.getCopyright()));
       if (vs.hasDate()) 
-        sct.triple(bn, "dc:date", literal(vs.getDate().toString()));
+        section.triple(bn, "dc:date", literal(vs.getDate().toString()));
       
-      sct.triple(bn+".class", "a", "fhir:Concept");
-      sct.triple(bn+".class", "owl:oneOf", "("+listTokens(bn+"\\#", null, define.getConcept())+")");
+      section.triple(bn+".class", "a", "fhir:Concept");
+      section.triple(bn+".class", "owl:oneOf", "("+listTokens(bn+"\\#", null, define.getConcept())+")");
 
-      gen(sct, bn, bn+".class", define.getConcept());
+      gen(section, bn, bn+".class", define.getConcept());
     }
     return bn;
   }
@@ -444,24 +628,28 @@ public class FhirTurtleGenerator extends TurtleGenerator {
 
   private void listChildTokens(String prefix, List<ConceptDefinitionComponent> children, StringBuilder b) {
     for (ConceptDefinitionComponent child : children) {
-      b.append(" ");
-      b.append(prefix);
-      b.append(pctEncode(child.getCode()));
-      listChildTokens(prefix, child.getConcept(), b);
+      if (!child.getCode().equals("...")) { // special work around for v2 - to be resolved elsewhere
+        b.append(" ");
+        b.append(prefix);
+        b.append(pctEncode(child.getCode()));
+        listChildTokens(prefix, child.getConcept(), b);
+      }
     }
   }
 
-  private void gen(Section sct, String cs, String owner, List<ConceptDefinitionComponent> concepts) {
+  private void gen(Section section, String cs, String owner, List<ConceptDefinitionComponent> concepts) {
     for (ConceptDefinitionComponent c : concepts) {
-      String pcc = pctEncode(c.getCode());
-      sct.triple(cs+".class\\#"+pcc, "rdfs:subClassOf", owner);
-      sct.triple(cs+".class\\#"+pcc, "owl:oneOf", "("+listTokens(cs+"\\#", c, c.getConcept())+")");
-      if (c.hasDisplay())
-        sct.label(cs+".class\\#"+pcc, c.getDisplay());
-      if (c.hasDefinition())
-        sct.comment(cs+".class\\#"+pcc, c.getDefinition());
-      sct.triple(cs+"\\#"+pcc, "a", cs+".class\\#"+pcc);
-      gen(sct, cs, cs+".class\\#"+pcc, c.getConcept());
+      if (!c.getCode().equals("...")) { // special work around for v2 - to be resolved elsewhere
+        String pcc = pctEncode(c.getCode());
+        section.triple(cs+".class\\#"+pcc, "rdfs:subClassOf", owner);
+        section.triple(cs+".class\\#"+pcc, "owl:oneOf", "("+listTokens(cs+"\\#", c, c.getConcept())+")");
+        if (c.hasDisplay())
+          section.label(cs+".class\\#"+pcc, c.getDisplay());
+        if (c.hasDefinition())
+          section.comment(cs+".class\\#"+pcc, c.getDefinition());
+        section.triple(cs+"\\#"+pcc, "a", cs+".class\\#"+pcc);
+        gen(section, cs, cs+".class\\#"+pcc, c.getConcept());
+      }
     }
   }
 
@@ -475,7 +663,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         c = i;
     if (c == -1)
       throw new Error("unknown code "+code+" @ path "+path);
-    return "fhir:canonical-status-codes\\#"+definitions.getStatusCodes().get("@code").get(c);
+    return "fhir:canonical-status\\#"+definitions.getStatusCodes().get("@code").get(c);
   }
 
   private String getPNameForUri(String url) {
@@ -518,6 +706,18 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     }
     return null;
   }
+
+  protected void chckSubjects() {
+    for (String s : sorted(predicateSet)) {
+      if (s.startsWith("fhir:") && !subjectSet.contains(s))
+        System.out.println("Undefined predicate "+s);
+    }
+    for (String s : sorted(objectSet)) {
+      if (s.startsWith("fhir:") && !subjectSet.contains(s))
+        System.out.println("Undefined object "+s);
+    }
+  }
+
 
 }
 

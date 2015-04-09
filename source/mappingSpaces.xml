@@ -101,16 +101,6 @@
     <sort>11</sort>
   </space>
   <space>
-    <url>http://loinc.org/downloads</url>
-    <columnName>LOINC Mapping</columnName>
-    <title>LOINC Internal structure</title>
-    <id>loincstruc</id>
-    <preamble>
-      <p>The internal LOINC structures as named in the LOINC Access database columns</p>
-    </preamble>
-    <sort>12</sort>
-  </space>
-  <space>
     <url>http://metadata-standards.org/11179/</url>
     <columnName>11179 Mapping</columnName>
     <title>ISO 11179</title>

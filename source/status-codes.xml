@@ -246,25 +246,29 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">resolved</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">refuted</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23.25">
-    <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">The record was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
+   <Row ss:AutoFitHeight="0" ss:Height="23.25" ss:StyleID="s67">
+    <Cell ss:StyleID="s63"><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
+    <Cell><Data ss:Type="String">The resource was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
+    <Cell><Data ss:Type="String">The resource describes an item that is proposed to occur</Data></Cell>
+    <Cell><Data ss:Type="String">The resource describes an item that is planned to occur</Data></Cell>
+    <Cell><Data ss:Type="String">The resource describes an item that is still being defined/edited</Data></Cell>
+    <Cell><Data ss:Type="String">The resource describes an item that has been communicated from one party to another for consideration/action</Data></Cell>
+    <Cell><Data ss:Type="String">The resource describes an item that has been received after being communicated from one party to another for consideration/action</Data></Cell>
+    <Cell><Data ss:Type="String">The action described in the resource will not happen because </Data></Cell>
+    <Cell><Data ss:Type="String">The resource defines an action which has a set time at which it is expected to occur</Data></Cell>
+    <Cell><Data ss:Type="String">The preconditions for the action have been met, and it is about to start</Data></Cell>
+    <Cell><Data ss:Type="String">The action is currently happening</Data></Cell>
+    <Cell><Data ss:Type="String">The action was taking place, but is presently on hold</Data></Cell>
+    <Cell><Data ss:Type="String">The action was taking place, but the process failed, and it is not expected to complete</Data></Cell>
+    <Cell><Data ss:Type="String">The item was considered final, but it has been replaced with an updated set of content</Data></Cell>
+    <Cell><Data ss:Type="String">The action or item is complete, and no further action or changes are anticipated</Data></Cell>
+    <Cell><Data ss:Type="String">The item is no longer considered valid for use/consideration (e.g. a past record)</Data></Cell>
+    <Cell><Data ss:Type="String">The action was stopped before it started to happen</Data></Cell>
+    <Cell><Data ss:Type="String">Other status codes not yet assigned a meaning in the canonical status codes</Data></Cell>
+    <Cell><Data ss:Type="String">It is not yet known whether the information described in this resource is correct </Data></Cell>
+    <Cell><Data ss:Type="String">The information in this resource is considered to be valid and authoritative</Data></Cell>
+    <Cell><Data ss:Type="String">The issue described in this resource has been resolved and it no longer is a consideration</Data></Cell>
+    <Cell><Data ss:Type="String">The issue described in the resource has been demonstrated to be valid after investigation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AllergyIntolerance.status</Data></Cell>
@@ -1328,7 +1332,7 @@
    <SplitHorizontal>4</SplitHorizontal>
    <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1336,6 +1340,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1343,7 +1348,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
