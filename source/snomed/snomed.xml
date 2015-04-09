@@ -2024,6 +2024,10 @@
     <display value="Nocturnal"/>
     <display value="Night time (qualifier value)"/>
   </concept>
+  <concept id="254626006" display="Adenocarcinoma of lung (disorder)">
+    <display value="Adenocarcinoma of lung"/>
+    <display value="Adenocarcinoma of lung (disorder)"/>
+  </concept>
   <concept id="254637007" display="Non-small cell lung cancer">
     <display value="Non-small cell lung cancer"/>
     <display value="NSCLC - Non-small cell lung cancer"/>

@@ -57,7 +57,7 @@ dt:CS.code a rdf:Property;
 
 # - CD ------------------------------------------------------------------
 
-#CD has been restructured in the oRIM to make reasoning easy.
+#CD has been restructured in the oRIM to make reasoning easy, and to align with FHIR better - principally, codeSystem is a URI instead of a OID/UUID.
 
 dt:CD rdfs:subClassOf dt:ANY;
    rdfs:subClassOf [
@@ -84,7 +84,7 @@ dt:CD.originalText a rdf:Property;
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
    rdfs:domain dt:CD;
-   rdfs:range xs:string. # todo: dt:ED.TEXT.
+   rdfs:range xs:string. 
  
 dt:CDCoding rdfs:subClassOf dt:ANY;
    rdfs:subClassOf [
@@ -151,9 +151,7 @@ dt:CDCoding.codeSystem a rdf:Property;
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
    rdfs:domain dt:CDCoding;
-   rdfs:range xs:string.
-   # in the RIM proper this must be an OID or a UUID. But for the o-RIM, we are primarily interested in statements or meaning, so we allow URL as well
-   # owl:withRestriction [ xs:pattern "((0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)))|([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|((http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))"].
+   rdfs:range xs:anyURI. # in the RIM proper this must be an OID or a UUID. But for the o-RIM, we are primarily interested in statements or meaning, so we allow URL as well
    
 dt:CDCoding.codeSystemName a rdf:Property;
    dcterms:description "The common name of the coding system";
@@ -259,9 +257,7 @@ dt:II.root a rdf:Property;
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
    rdfs:domain dt:II;
-   rdfs:range xs:string.
-   # in the RIM proper this must be an OID or a UUID. But for the o-RIM, we are primarily interested in statements or meaning, so we allow URL as well
-   # owl:withRestriction [ xs:pattern "((0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)))|([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|((http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))"].
+   rdfs:range xs:anyURI. # in the RIM proper this must be an OID or a UUID. But for the o-RIM, we are primarily interested in statements or meaning, so we make it URI instead
    
 dt:II.extension a rdf:Property;
    dcterms:description "A character string as a unique identifier within the scope of the identifier root.";

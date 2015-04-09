@@ -1528,8 +1528,11 @@ public class Publisher implements URIResolver {
     RDFValidator val = new RDFValidator();
     val.validate(Utilities.path(page.getFolders().dstDir, "fhir.ttl"));
     val.validate(Utilities.path(page.getFolders().dstDir, "rim.ttl"));
-    ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir.ttl.zip"));
+    ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir.rdf.zip"));
     zip.addFileName("fhir.ttl", Utilities.path(page.getFolders().dstDir, "fhir.ttl"), false);
+    zip.addFileName("fhir.rdf.xml", Utilities.path(page.getFolders().dstDir, "fhir.rdf.xml"), false);
+    zip.addFileName("rim.ttl", Utilities.path(page.getFolders().dstDir, "rim.ttl"), false);
+    zip.addFileName("rim.rdf.xml", Utilities.path(page.getFolders().dstDir, "rim.rdf.xml"), false);
     zip.close();
 
     page.log("Produce Schemas", LogMessageType.Process);
