@@ -109,9 +109,15 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     for (String n : sorted(definitions.getResources().keySet())) 
       gen(definitions.getResources().get(n));
     
-    prefix("vs", "http://hl7.org/orim/valueset");
     valuesets.put("vs:NullFlavor", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/NullFlavor"));
     valuesets.put("vs:EntityClass", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/EntityClass"));
+    valuesets.put("vs:EntityDeterminer", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/EntityDeterminer"));
+    valuesets.put("vs:EntityStatus", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/EntityStatus"));
+    valuesets.put("vs:IdentifierScope", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/IdentifierScope"));
+    valuesets.put("vs:IdentifierReliability", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/IdentifierReliability"));
+    valuesets.put("vs:EntityCode", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/EntityCode"));
+    valuesets.put("vs:CodingRationale", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/CodingRationale"));
+    
     
     for (String n : sorted(valuesets.keySet()))
       gen(n, valuesets.get(n));
@@ -165,12 +171,14 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       sct.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:Element");
     sct.label("fhir:"+t.getName(), t.getShortDefn());
     sct.comment("fhir:"+t.getName(), t.getDefinition());
+    sct.importTtl(getORimMapping(t));
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
         sct.triple("fhir:"+t.getName()+"."+cn, "a", "rdf:Property");
         sct.label("fhir:"+t.getName()+"."+cn, e.getShortDefn());
         sct.comment("fhir:"+t.getName()+"."+cn, e.getDefinition());
+        sct.importTtl(getORimMapping(e));
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
           sct.triple("fhir:"+t.getName()+"."+en, "rdfs:subPropertyOf", "fhir:"+t.getName()+"."+cn);
@@ -181,6 +189,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         sct.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
         sct.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
         sct.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+t.getName());
+        sct.importTtl(getORimMapping(e));
         genRange(sct, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), true);
       }
     }
@@ -299,14 +308,13 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     else
       sct.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:"+processType(t.typeCode()));
     sct.comment("fhir:"+t.getName(), rd.getDefinition());
-    String rim = getORimMapping(rd.getRoot());
-    if (rim != null)
-      sct.importTtl(rim);
+    sct.importTtl(getORimMapping(rd.getRoot()));
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {
         String cn = e.getName().substring(0, e.getName().length()-3);
         sct.triple("fhir:"+t.getName()+"."+cn, "a", "rdf:Property");
         sct.comment("fhir:"+t.getName()+"."+cn, e.getDefinition());
+        sct.importTtl(getORimMapping(e));
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
           sct.triple("fhir:"+t.getName()+"."+en, "rdf:subPropertyOf", "fhir:"+t.getName()+"."+cn);
@@ -317,6 +325,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         sct.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
         sct.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
         sct.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+rd.getName());
+        sct.importTtl(getORimMapping(e));
         genRange(sct, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), false);
       }
     }
@@ -388,7 +397,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     if (vs.hasCopyright()) 
       sct.triple(bn, "dc:rights", literal(vs.getCopyright()));
     if (vs.hasDate()) 
-      sct.triple(bn, "dc:date", literal(vs.getDate().toString()));
+      sct.triple(bn, "dc:date", literal(vs.getDateElement().asStringValue()));
     
     for (CodeableConcept cc : vs.getUseContext()) 
       codedTriple(sct, bn, "fhir:useContext", cc);
@@ -470,16 +479,18 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   }
 
   private String getPNameForUri(String url) {
+    String  s = null;
 //    String s = matches(url, "http://hl7.org/fhir/v2/vs/", "v2-vs");
 //    if (s == null)
 //      s = matches(url, "http://hl7.org/fhir/v2/", "v2");
-//    if (s == null)
-//      s = matches(url, "http://hl7.org/fhir/v3/vs/", "v3-vs");
-//    if (s == null)
-//      s = matches(url, "http://hl7.org/fhir/v3/", "v3");
+    if (s == null)
+      s = matches(url, "http://hl7.org/fhir/v3/vs/", "vs");
+    if (s == null)
+      s = matches(url, "http://hl7.org/fhir/v3/", "cs");
 //    if (s == null)
 //      s = matches(url, "http://hl7.org/fhir/vs/", "fhir-vs");
-    String  s = matches(url, "http://hl7.org/fhir/", "fhir");
+    if (s == null)
+      s = matches(url, "http://hl7.org/fhir/", "fhir");
     if (s == null)
       s = matches(url, "http://www.hl7.org/fhir/", "fhir");
     if (s == null)

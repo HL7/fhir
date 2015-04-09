@@ -176,6 +176,7 @@ Function StringIsAlphabetic(Const sValue : String) : Boolean; Overload;
 Function StringIsWhitespace(Const sValue : String) : Boolean; Overload;
 function GetStringCell(const ADelimitedString: String; ACell: Cardinal; ADelimiter: String): String; Overload;
 function SQLWrapString(const AStr: String): String;
+function SQLWrapStrings(const AStr: String): String;
 function AppendForwardSlash(const AStr: String): String;
 Function DescribeBytes(i : int64) : String;
 
@@ -1142,6 +1143,33 @@ begin
   for i := Length(Result) downto 1 do
     if Result[i] = '''' then
       Insert('''', Result, i);
+end;
+
+function SQLWrapStrings(const AStr: String): String;
+var
+  sl : TArray<String>;
+  b : TStringBuilder;
+  s : String;
+  first : boolean;
+begin
+  sl := aStr.Split([',']);
+  b := TStringBuilder.Create;
+  try
+    first := true;
+    for s in sl do
+    begin
+      if first then
+        first := false
+      else
+        b.Append(',');
+      b.Append('''');
+      b.Append(sqlwrapstring(s));
+      b.Append('''');
+    end;
+    result := b.ToString;
+  finally
+    b.free;
+  end;
 end;
 
 function AppendForwardSlash(const AStr: String): String;

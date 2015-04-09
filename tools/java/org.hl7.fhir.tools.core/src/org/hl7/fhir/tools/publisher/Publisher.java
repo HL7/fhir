@@ -4139,9 +4139,8 @@ public class Publisher implements URIResolver {
         }
         // todo-profile: how this works has to change (to use profile tag)
         for (Profile e : r.getConformancePackages()) {
-          page.log(" ...validate Profile " + e.getTitle(), LogMessageType.Process);
           for (Example en : e.getExamples()) {
-            page.log(" ...validate " + en.getFileTitle(), LogMessageType.Process);
+            page.log(" ...validate " + en.getFileTitle()+" ("+e.getTitle()+")", LogMessageType.Process);
             validateXmlFile(schema, Utilities.changeFileExt(en.getFileTitle(), ""), validator, e.getProfiles().get(0).getResource()); // validates the example against it's base definitions
           }
         }

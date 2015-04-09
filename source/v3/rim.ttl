@@ -6,7 +6,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rim: <http://hl7.org/orim/class#> .
+@prefix rim: <http://hl7.org/orim/class/> .
 @prefix dt: <http://hl7.org/orim/datatype/> .
 @prefix vs: <http://hl7.org/orim/valueset/> .
 @prefix cs: <http://hl7.org/orim/codesystem/> .
@@ -57,7 +57,36 @@ dt:CS.code a rdf:Property;
 
 # - CD ------------------------------------------------------------------
 
+#CD has been restructured in the oRIM to make reasoning easy.
+
 dt:CD rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.originalText;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dc:title "ConceptDescriptor";
+   dcterms:description "A concept defined by text and/or references to concepts defined in a code system";
+   rdfs:comment "A concept defined by text and/or references to concepts defined in a code system";
+   rdfs:label "ConceptDescriptor".
+
+dt:CD.coding a rdf:Property;
+   dcterms:description "A reference to a concept defined in a code system";
+   rdfs:comment "A reference to a concept defined in a code system";
+   fhir:maxCardinality "*";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range xs:string.
+
+dt:CD.originalText a rdf:Property;
+   dcterms:description "The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user";
+   rdfs:comment "The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range xs:string. # todo: dt:ED.TEXT.
+ 
+dt:CDCoding rdfs:subClassOf dt:ANY;
    rdfs:subClassOf [
      a owl:Restriction;
      owl:onProperty dt:II.code;
@@ -103,103 +132,88 @@ dt:CD rdfs:subClassOf dt:ANY;
      owl:onProperty dt:II.source;
      owl:maxCardinality "1^^xs:nonNegativeInteger"
    ];
-   dc:title "ConceptDescriptor";
+   dc:title "ConceptDescriptorCoding";
    dcterms:description "A reference to a concept defined in a code system";
    rdfs:comment "A reference to a concept defined in a code system";
-   rdfs:label "ConceptDescriptor".
+   rdfs:label "ConceptDescriptorCoding".
 
-dt:CD.code a rdf:Property;
+dt:CDCoding.code a rdf:Property;
    dcterms:description "The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept";
    rdfs:comment "The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rdfs:domain dt:CD;
+   rdfs:domain dt:CDCoding;
    rdfs:range xs:string.
 
-dt:CD.codeSystem a rdf:Property;
+dt:CDCoding.codeSystem a rdf:Property;
    dcterms:description "The code system that defines the code";
    rdfs:comment "The code system that defines the code";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rdfs:domain dt:CD;
-   rdfs:range xs:string;
-   owl:withRestriction [ xs:pattern "((0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)))|([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"].
+   rdfs:domain dt:CDCoding;
+   rdfs:range xs:string.
+   # in the RIM proper this must be an OID or a UUID. But for the o-RIM, we are primarily interested in statements or meaning, so we allow URL as well
+   # owl:withRestriction [ xs:pattern "((0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)))|([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|((http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))"].
    
-dt:CD.codeSystemName a rdf:Property;
+dt:CDCoding.codeSystemName a rdf:Property;
    dcterms:description "The common name of the coding system";
    rdfs:comment "The common name of the coding system";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rdfs:domain dt:CD;
+   rdfs:domain dt:CDCoding;
    rdfs:range xs:string.
  
-dt:CD.codeSystemVersion a rdf:Property;
+dt:CDCoding.codeSystemVersion a rdf:Property;
    dcterms:description "If applicable, a version descriptor defined specifically for the given code system";
    rdfs:comment "If applicable, a version descriptor defined specifically for the given code system";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rdfs:domain dt:CD;
+   rdfs:domain dt:CDCoding;
    rdfs:range xs:string.
  
-dt:CD.valueSet a rdf:Property;
+dt:CDCoding.valueSet a rdf:Property;
    dcterms:description "The value set that applied when this CD was created";
    rdfs:comment "The value set that applied when this CD was created";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rdfs:domain dt:CD;
+   rdfs:domain dt:CDCoding;
    rdfs:range xs:string.
  
-dt:CD.valueSetVersion a rdf:Property;
+dt:CDCoding.valueSetVersion a rdf:Property;
    dcterms:description "The version of the value set that applied when this CD was created";
    rdfs:comment "The version of the value set that applied when this CD was created";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rdfs:domain dt:CD;
+   rdfs:domain dt:CDCoding;
    rdfs:range xs:string.
  
-dt:CD.displayName a rdf:Property;
+dt:CDCoding.displayName a rdf:Property;
    dcterms:description "A name, title, or representation for the code or expression as it exists in the code system identified by the value of codeSystem";
    rdfs:comment "A name, title, or representation for the code or expression as it exists in the code system identified by the value of codeSystem.";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rdfs:domain dt:CD;
+   rdfs:domain dt:CDCoding;
    rdfs:range xs:string.
  
-dt:CD.originalText a rdf:Property;
-   dcterms:description "The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user";
-   rdfs:comment "The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user";
-   fhir:maxCardinality "1";
-   fhir:minCardinality "0";
-   rdfs:domain dt:CD;
-   rdfs:range xs:string. # todo: dt:ED.TEXT.
-
-dt:CD.codingRationale a rdf:Property;
+dt:CDCoding.codingRationale a rdf:Property;
    dcterms:description "The reason a particular CD has been provided";
    rdfs:comment "The reason a particular CD has been provided";
    fhir:maxCardinality "*";
    fhir:minCardinality "0";
    rim:collectionType rim:CollectionType\#DSET;
-   rdfs:domain dt:CD;
+   rdfs:domain dt:CDCoding;
    rdfs:range cs:CodingRationale.class;
    fhir:binding vs:CodingRationale;
    fhir:bindingStrength fhir:BindingStrength\#required.
-   
-dt:CD.translation a rdf:Property;
-   dcterms:description "A set of other CDs that each represent a translation of this CD into equivalent codes within the same code system or into corresponding concepts from other code systems";
-   rdfs:comment "A set of other CDs that each represent a translation of this CD into equivalent codes within the same code system or into corresponding concepts from other code systems";
-   fhir:maxCardinality "*";
-   fhir:minCardinality "0";
-   rim:collectionType rim:CollectionType\#DSET;
-   rdfs:domain dt:CD;
-   rdfs:range dt:CD.
-   
-dt:CD.source a rdf:Property;
+      
+dt:CDCoding.source a rdf:Property;
    dcterms:description "The CD from which this CD was translated, if it was translated from another CD";
    rdfs:comment "The CD from which this CD was translated, if it was translated from another CD";
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rdfs:domain dt:CD;
-   rdfs:range dt:CD.
+   rdfs:domain dt:CDCoding;
+   rdfs:range dt:CDCoding.
+   
    
 # - II ------------------------------------------------------------------
 
@@ -245,8 +259,9 @@ dt:II.root a rdf:Property;
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
    rdfs:domain dt:II;
-   rdfs:range xs:string;
-   owl:withRestriction [ xs:pattern "((0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)))|([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"].
+   rdfs:range xs:string.
+   # in the RIM proper this must be an OID or a UUID. But for the o-RIM, we are primarily interested in statements or meaning, so we allow URL as well
+   # owl:withRestriction [ xs:pattern "((0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)))|([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|((http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))"].
    
 dt:II.extension a rdf:Property;
    dcterms:description "A character string as a unique identifier within the scope of the identifier root.";

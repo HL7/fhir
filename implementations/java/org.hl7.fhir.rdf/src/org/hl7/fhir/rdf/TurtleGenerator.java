@@ -147,27 +147,52 @@ public class TurtleGenerator {
     }
 
     public void importTtl(String ttl) throws Exception {
-      // fhir:Substance a rim:Entity; rim:Act.classCode cs:EntityClass\#MAT
-      TurtleLexer lexer = new TurtleLexer(ttl);
-      String subject = null;
-      while (!lexer.done()) {
-        if (subject == null)
-          subject = lexer.next();
+      if (!Utilities.noString(ttl)) {
+//        System.out.println("import ttl: "+ttl);
+        TurtleLexer lexer = new TurtleLexer(ttl);
+        String subject = null;
+        String predicate = null;
+        while (!lexer.done()) {
+          if (subject == null)
+            subject = lexer.next();
+          if (predicate == null)
+            predicate = lexer.next();
+          if (lexer.peekType() == TurtleTokenType.TOKEN) {
+            triple(subject, predicate, lexer.next());
+          } else if (lexer.peek().equals("[")) {
+            triple(subject, predicate, importComplex(lexer));
+          } else
+            throw new Exception("Not done yet");
+          String n = lexer.next();
+          if (Utilities.noString(n))
+            break;
+          if (n.equals(".")) {
+            subject = null;
+            predicate = null;
+        } else if (n.equals(";")) {
+            predicate = null;
+          } else if (!n.equals(","))
+            throw new Exception("Unexpected token "+n);          
+        }
+      }
+    }
+
+    private ComplexObject importComplex(TurtleLexer lexer) throws Exception {
+      lexer.next(); // read [
+      ComplexObject obj = new ComplexObject();
+      while (!lexer.peek().equals("]")) {
         String predicate = lexer.next();
-        if (lexer.peekType() == TurtleTokenType.TOKEN) {
-          triple(subject, predicate, lexer.next());
+        if (lexer.peekType() == TurtleTokenType.TOKEN || lexer.peekType() == TurtleTokenType.LITERAL) {
+          obj.predicate(predicate, lexer.next());
+        } else if (lexer.peek().equals("[")) {
+          obj.predicate(predicate, importComplex(lexer));
         } else
           throw new Exception("Not done yet");
-        String n = lexer.next();
-        if (Utilities.noString(n))
-          break;
-        if (n.equals("."))
-          subject = null;
-        else if (!n.equals(";"))
-          throw new Exception("Unexpected token "+n);          
+        if (lexer.peek().equals(";")) 
+          lexer.next();
       }
-
-      
+      lexer.next(); // read ]
+      return obj;
     }
   }
   

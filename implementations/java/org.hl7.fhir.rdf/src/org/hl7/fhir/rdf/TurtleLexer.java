@@ -4,7 +4,7 @@ public class TurtleLexer {
 
   public enum TurtleTokenType {
     NULL, 
-    TOKEN, SPECIAL
+    TOKEN, SPECIAL, LITERAL
   }
 
   private String source;
@@ -23,16 +23,34 @@ public class TurtleLexer {
       token = null;
       type = TurtleTokenType.NULL;
     } else if (source.charAt(cursor) == '"')
-      throw new Exception("not supported yet");
-    else if (source.charAt(cursor) == '[')
-      throw new Exception("not supported yet");
+      readLiteral();
+    else if (source.charAt(cursor) == '[' || source.charAt(cursor) == ']')
+      readDelimiter();
     else if (source.charAt(cursor) == '(')
       throw new Exception("not supported yet");
-    else if (source.charAt(cursor) == ';')
+    else if (source.charAt(cursor) == ';' || source.charAt(cursor) == '.' || source.charAt(cursor) == ',')
       readDelimiter();
     else if (Character.isAlphabetic(source.charAt(cursor)))
       readToken();
     
+  }
+
+  private void readLiteral() {
+    StringBuilder b = new StringBuilder();
+    cursor++; // skip "        
+    while (cursor < source.length() && source.charAt(cursor) != '"') {
+      if (source.charAt(cursor) == '\\') {
+        b.append(source.charAt(cursor));
+        cursor++;        
+      } 
+      b.append(source.charAt(cursor));
+      cursor++;
+    }
+    token = "\""+b.toString()+"\"";
+    type = TurtleTokenType.LITERAL;
+    cursor++; // skip "
+    while (cursor < source.length() && Character.isWhitespace(source.charAt(cursor))) 
+      cursor++;    
   }
 
   private void readDelimiter() {
@@ -57,6 +75,10 @@ public class TurtleLexer {
     }
     token = b.toString();
     type = TurtleTokenType.TOKEN;
+    if (token.endsWith(".")) {
+      cursor--;
+      token = token.substring(0, token.length()-1);
+    }
     while (cursor < source.length() && Character.isWhitespace(source.charAt(cursor))) 
       cursor++;
   }
@@ -73,6 +95,10 @@ public class TurtleLexer {
     String res = token;
     readNext();
     return res;
+  }
+
+  public String peek() throws Exception {
+    return token;
   }
 
   public TurtleTokenType peekType() {
