@@ -52,8 +52,247 @@ dt:CS rdfs:subClassOf dt:ANY;
 dt:CS.code a rdf:Property;
    fhir:maxCardinality "1";
    fhir:minCardinality "0";
-   rdfs:domain dt:CS.
+   rdfs:domain dt:CS;
+   rdfs:range xs:string.
 
+# - CD ------------------------------------------------------------------
+
+dt:CD rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.code;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.codeSystem;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.codeSystemName;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.codeSystemVersion;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.valueSet;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.valueSetVersion;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.displayName;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.originalText;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.source;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dc:title "ConceptDescriptor";
+   dcterms:description "A reference to a concept defined in a code system";
+   rdfs:comment "A reference to a concept defined in a code system";
+   rdfs:label "ConceptDescriptor".
+
+dt:CD.code a rdf:Property;
+   dcterms:description "The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept";
+   rdfs:comment "The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range xs:string.
+
+dt:CD.codeSystem a rdf:Property;
+   dcterms:description "The code system that defines the code";
+   rdfs:comment "The code system that defines the code";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range xs:string;
+   owl:withRestriction [ xs:pattern "((0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)))|([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"].
+   
+dt:CD.codeSystemName a rdf:Property;
+   dcterms:description "The common name of the coding system";
+   rdfs:comment "The common name of the coding system";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range xs:string.
+ 
+dt:CD.codeSystemVersion a rdf:Property;
+   dcterms:description "If applicable, a version descriptor defined specifically for the given code system";
+   rdfs:comment "If applicable, a version descriptor defined specifically for the given code system";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range xs:string.
+ 
+dt:CD.valueSet a rdf:Property;
+   dcterms:description "The value set that applied when this CD was created";
+   rdfs:comment "The value set that applied when this CD was created";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range xs:string.
+ 
+dt:CD.valueSetVersion a rdf:Property;
+   dcterms:description "The version of the value set that applied when this CD was created";
+   rdfs:comment "The version of the value set that applied when this CD was created";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range xs:string.
+ 
+dt:CD.displayName a rdf:Property;
+   dcterms:description "A name, title, or representation for the code or expression as it exists in the code system identified by the value of codeSystem";
+   rdfs:comment "A name, title, or representation for the code or expression as it exists in the code system identified by the value of codeSystem.";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range xs:string.
+ 
+dt:CD.originalText a rdf:Property;
+   dcterms:description "The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user";
+   rdfs:comment "The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range dt:ED.TEXT.
+
+dt:CD.codingRationale a rdf:Property;
+   dcterms:description "The reason a particular CD has been provided";
+   rdfs:comment "The reason a particular CD has been provided";
+   fhir:maxCardinality "*";
+   fhir:minCardinality "0";
+   rim:collectionType rim:CollectionType#DSET
+   rdfs:domain dt:CD;
+   rdfs:range cs:CodingRationale.class;
+   fhir:binding vs:CodingRationale;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+dt:CD.translation a rdf:Property;
+   dcterms:description "A set of other CDs that each represent a translation of this CD into equivalent codes within the same code system or into corresponding concepts from other code systems";
+   rdfs:comment "A set of other CDs that each represent a translation of this CD into equivalent codes within the same code system or into corresponding concepts from other code systems";
+   fhir:maxCardinality "*";
+   fhir:minCardinality "0";
+   rim:collectionType rim:CollectionType#DSET
+   rdfs:domain dt:CD;
+   rdfs:range dt:CD.
+   
+dt:CD.source a rdf:Property;
+   dcterms:description "The CD from which this CD was translated, if it was translated from another CD";
+   rdfs:comment "The CD from which this CD was translated, if it was translated from another CD";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:CD;
+   rdfs:range dt:CD.
+   
+# - II ------------------------------------------------------------------
+
+dt:II rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.root;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.extension;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.identifierName;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.scope;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.reliability;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.display;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dc:title "InstanceIdentifier";
+   dcterms:description "An identifier that uniquely identifies a thing or object. Examples are object identifier for HL7 RIM objects, medical record number, order id, service catalog item id, Vehicle Identification Number (VIN), etc.";
+   rdfs:comment "An identifier that uniquely identifies a thing or object. Examples are object identifier for HL7 RIM objects, medical record number, order id, service catalog item id, Vehicle Identification Number (VIN), etc.";
+   rdfs:label "InstanceIdentifier".
+
+dt:II.root a rdf:Property;
+   dcterms:description "A unique identifier that guarantees the global uniqueness of the instance identifier. The root alone may be the entire instance identifier";
+   rdfs:comment "A unique identifier that guarantees the global uniqueness of the instance identifier. The root alone may be the entire instance identifier";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:II;
+   rdfs:range xs:string;
+   owl:withRestriction [ xs:pattern "((0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)))|([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"].
+   
+dt:II.extension a rdf:Property;
+   dcterms:description "A character string as a unique identifier within the scope of the identifier root.";
+   rdfs:comment "A character string as a unique identifier within the scope of the identifier root.";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:II;
+   rdfs:range xs:string.
+
+dt:II.identifierName a rdf:Property;
+   dcterms:description "This is a human-readable name for the namespace represented in the root. It is a descriptive name for the actual namespace. e.g. 'California, U.S. Driver's License Number, 1970-'.";
+   rdfs:comment "This is a human-readable name for the namespace represented in the root. It is a descriptive name for the actual namespace. e.g. 'California, U.S. Driver's License Number, 1970-'.";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:II;
+   rdfs:range xs:string.
+ 
+dt:II.scope a rdf:Property;
+   dcterms:description "Specifies the scope in which the identifier applies to the object with which it is associated";
+   rdfs:comment "Specifies the scope in which the identifier applies to the object with which it is associated";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:II;
+   rdfs:range cs:IdentifierScope.class;
+   fhir:binding vs:IdentifierScope;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+
+dt:II.reliability a rdf:Property;
+   dcterms:description "Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms";
+   rdfs:comment "Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:II;
+   rdfs:range cs:IdentifierReliability.class;
+   fhir:binding vs:IdentifierReliability;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+dt:II.display a rdf:Property;
+   dcterms:description "Specifies if the identifier is intended for human display and data entry (displayable = true) as opposed to pure machine interoperation (displayable = false)";
+   rdfs:comment "Specifies if the identifier is intended for human display and data entry (displayable = true) as opposed to pure machine interoperation (displayable = false)";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:domain dt:II;
+   rdfs:range xs:boolean.
+   
+   
 # - InfrastructureRoot --------------------------------------------------------------------
 
 rim:InfrastructureRoot a rdfs:Class;
@@ -90,6 +329,26 @@ rim:Entity rdfs:subClassOf rim:InfrastructureRoot;
      owl:onProperty rim:Entity.classCode;
      owl:minCardinality "1^^xs:nonNegativeInteger"
    ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.determinerCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.determinerCode;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.statusCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.code;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
    dcterms:description "A physical thing, group of physical things or an organization capable of participating in Acts while in a role";
    dc:title "Entity";
    rdfs:comment "A physical thing, group of physical things or an organization capable of participating in Acts while in a role";
@@ -100,10 +359,51 @@ rim:Entity.classCode a rdf:Property;
    fhir:maxCardinality "1";
    fhir:minCardinality "1";
    rdfs:comment "The major class of Entities to which an Entity-instance belongs";
-   rdfs:domain rim:Entity.class;
-   rdfs:range dt:CS;
+   rdfs:domain rim:Entity;
+   rdfs:range cs:EntityClass.class;
    fhir:binding vs:EntityClass;
    fhir:bindingStrength fhir:BindingStrength\#required.
+   
+rim:Entity.determinerCode a rdf:Property;
+   dcterms:description "A code specifying whether the Entity object represents a universal (KIND) vs. a particular (INSTANCE)";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "1";
+   rdfs:comment "A code specifying whether the Entity object represents a universal (KIND) vs. a particular (INSTANCE)";
+   rdfs:domain rim:Entity;
+   rdfs:range cs:EntityDeterminer.class;
+   fhir:binding vs:EntityDeterminer;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+rim:Entity.statusCode a rdf:Property;
+   dcterms:description "A value representing whether the information associated with an Entity is currently active or inactive for the purpose of participation in acts";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rdfs:comment "A value representing whether the information associated with an Entity is currently active or inactive for the purpose of participation in acts";
+   rdfs:domain rim:Entity;
+   rdfs:range cs:EntityStatus.class;
+   fhir:binding vs:EntityStatus;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+
+rim:Entity.id a rdf:Property;
+   dcterms:description "A unique identifier for the Entity";
+   fhir:maxCardinality "*";
+   fhir:minCardinality "0";
+   rim:collectionType rim:CollectionType#DSET
+   rdfs:comment "A unique identifier for the Entity";
+   rdfs:domain rim:Entity;
+   rdfs:range dt:II.
+   
+rim:Entity.code a rdf:Property;
+   dcterms:description "The specific kind of Entity to which an Entity-instance belongs";
+   fhir:maxCardinality "1";
+   fhir:minCardinality "0";
+   rim:collectionType rim:CollectionType#DSET
+   rdfs:comment "The specific kind of Entity to which an Entity-instance belongs";
+   rdfs:domain rim:Entity;
+   rdfs:range dt:CD;
+   fhir:binding vs:EntityCode;
+   fhir:bindingStrength fhir:BindingStrength\#extensible.
+   
    
 #- for all classes mapped to acts, we know what happened to classCode, moodCode, code, negationInd,x2, statusCode, id
 #- for all classes mapped to roles, we know what happened to classCode, statusCode, code, negationInd, id, and player,
@@ -542,4 +842,232 @@ cs:EntityClass.class\#RGRP rdfs:subClassOf cs:EntityClass.class\#ENT;
   dcterms:description "A grouping of resources (personnel, material, or places) to be used for scheduling purposes.  May be a pool of like-type resources, a team, or combination of personnel, material and places.".
 
 cs:EntityClass\#RGRP a cs:EntityClass.class\#RGRP.
+
+# - vs:EntityDeterminer --------------------------------------------------------
+
+vs:EntityDeterminer a fhir:ValueSet;
+  fhir:version "2015-03-23";
+  rdfs:label "v3 Code System EntityDeterminer";
+  dc:title "v3 Code System EntityDeterminer";
+  rdfs:comment " EntityDeterminer in natural language grammar is the class of words that comprises articles, demonstrative pronouns, and quantifiers. In the RIM, determiner is a structural code in the Entity class to distinguish whether any given Entity object stands for some, any one, or a specific thing.";
+  dcterms:description " EntityDeterminer in natural language grammar is the class of words that comprises articles, demonstrative pronouns, and quantifiers. In the RIM, determiner is a structural code in the Entity class to distinguish whether any given Entity object stands for some, any one, or a specific thing.";
+  dc:date "2015-03-23";
+  fhir:status fhir:conformance-resource-status\#active;
+  fhir:canonical-status fhir:canonical-status-codes\#active;
+  fhir:include cs:EntityDeterminer.
+
+cs:EntityDeterminer a fhir:CodeSystem;
+  rdfs:label "v3 Code System EntityDeterminer";
+  dc:title "v3 Code System EntityDeterminer";
+  rdfs:comment " EntityDeterminer in natural language grammar is the class of words that comprises articles, demonstrative pronouns, and quantifiers. In the RIM, determiner is a structural code in the Entity class to distinguish whether any given Entity object stands for some, any one, or a specific thing.";
+  dcterms:description " EntityDeterminer in natural language grammar is the class of words that comprises articles, demonstrative pronouns, and quantifiers. In the RIM, determiner is a structural code in the Entity class to distinguish whether any given Entity object stands for some, any one, or a specific thing.";
+  dc:date "Mon Mar 23 00:00:00 EST 2015".
+
+cs:EntityDeterminer.class a fhir:Concept;
+  owl:oneOf (cs:EntityDeterminer\#INSTANCE cs:EntityDeterminer\#GROUP cs:EntityDeterminer\#KIND cs:EntityDeterminer\#GROUPKIND).
+
+cs:EntityDeterminer.class\#INSTANCE rdfs:subClassOf cs:EntityDeterminer.class;
+  owl:oneOf (cs:EntityDeterminer\#INSTANCE cs:EntityDeterminer\#GROUP);
+  rdfs:label "specific";
+  dc:title "specific";
+  rdfs:comment "Description:A determiner that specifies that the Entity object represents a particular physical thing (as opposed to a universal, kind, or class of physical thing).\r\n\n                        \n                           Discussion: It does not matter whether an INSTANCE still exists as a whole at the point in time (or process) when we mention it, for example, a drug product lot is an INSTANCE even though it has been portioned out for retail purpose.";
+  dcterms:description "Description:A determiner that specifies that the Entity object represents a particular physical thing (as opposed to a universal, kind, or class of physical thing).\r\n\n                        \n                           Discussion: It does not matter whether an INSTANCE still exists as a whole at the point in time (or process) when we mention it, for example, a drug product lot is an INSTANCE even though it has been portioned out for retail purpose.".
+
+cs:EntityDeterminer\#INSTANCE a cs:EntityDeterminer.class\#INSTANCE.
+
+cs:EntityDeterminer.class\#GROUP rdfs:subClassOf cs:EntityDeterminer.class\#INSTANCE;
+  owl:oneOf (cs:EntityDeterminer\#GROUP);
+  rdfs:label "specific group";
+  dc:title "specific group";
+  rdfs:comment "A determiner that specifies that the Entity object represents a particular collection of physical things (as opposed to a universal, kind, or class of physical thing).  While the collection may resolve to having only a single individual (or even no individuals), the potential should exist for it to cover multiple individuals.";
+  dcterms:description "A determiner that specifies that the Entity object represents a particular collection of physical things (as opposed to a universal, kind, or class of physical thing).  While the collection may resolve to having only a single individual (or even no individuals), the potential should exist for it to cover multiple individuals.".
+
+cs:EntityDeterminer\#GROUP a cs:EntityDeterminer.class\#GROUP.
+
+cs:EntityDeterminer.class\#KIND rdfs:subClassOf cs:EntityDeterminer.class;
+  owl:oneOf (cs:EntityDeterminer\#KIND cs:EntityDeterminer\#GROUPKIND);
+  rdfs:label "described";
+  dc:title "described";
+  rdfs:comment "Description:A determiner that specifies that the Entity object represents a universal, kind or class of physical thing (as opposed to a particular thing).";
+  dcterms:description "Description:A determiner that specifies that the Entity object represents a universal, kind or class of physical thing (as opposed to a particular thing).".
+
+cs:EntityDeterminer\#KIND a cs:EntityDeterminer.class\#KIND.
+
+cs:EntityDeterminer.class\#GROUPKIND rdfs:subClassOf cs:EntityDeterminer.class\#KIND;
+  owl:oneOf (cs:EntityDeterminer\#GROUPKIND);
+  rdfs:label "described group";
+  dc:title "described group";
+  rdfs:comment "A determiner that specifies that the Entity object represents a universal, kind or class of collections physical things.  While the collection may resolve to having only a single individual (or even no individuals), the potential should exist for it to cover multiple individuals.";
+  dcterms:description "A determiner that specifies that the Entity object represents a universal, kind or class of collections physical things.  While the collection may resolve to having only a single individual (or even no individuals), the potential should exist for it to cover multiple individuals.".
+
+cs:EntityDeterminer\#GROUPKIND a cs:EntityDeterminer.class\#GROUPKIND.
+
+# - vs:EntityStatus ------------------------------------------------------------
+
+vs:EntityStatus a fhir:ValueSet;
+  fhir:version "2015-03-23";
+  rdfs:label "v3 Code System EntityStatus";
+  dc:title "v3 Code System EntityStatus";
+  rdfs:comment " Codes representing the defined possible states of an Entity, as defined by the Entity class state machine.";
+  dcterms:description " Codes representing the defined possible states of an Entity, as defined by the Entity class state machine.";
+  dc:date "2015-03-23";
+  fhir:status fhir:conformance-resource-status\#active;
+  fhir:canonical-status fhir:canonical-status-codes\#active;
+  fhir:include cs:EntityStatus.
+
+cs:EntityStatus a fhir:CodeSystem;
+  rdfs:label "v3 Code System EntityStatus";
+  dc:title "v3 Code System EntityStatus";
+  rdfs:comment " Codes representing the defined possible states of an Entity, as defined by the Entity class state machine.";
+  dcterms:description " Codes representing the defined possible states of an Entity, as defined by the Entity class state machine.";
+  dc:date "Mon Mar 23 00:00:00 EST 2015".
+
+cs:EntityStatus.class a fhir:Concept;
+  owl:oneOf (cs:EntityStatus\#normal cs:EntityStatus\#active cs:EntityStatus\#inactive cs:EntityStatus\#nullified).
+
+cs:EntityStatus.class\#normal rdfs:subClassOf cs:EntityStatus.class;
+  owl:oneOf (cs:EntityStatus\#normal cs:EntityStatus\#active cs:EntityStatus\#inactive);
+  rdfs:label "normal";
+  dc:title "normal";
+  rdfs:comment "The 'typical' state. Excludes \"nullified\" which represents the termination state of an Entity record instance that was created in error.";
+  dcterms:description "The 'typical' state. Excludes \"nullified\" which represents the termination state of an Entity record instance that was created in error.".
+
+cs:EntityStatus\#normal a cs:EntityStatus.class\#normal.
+
+cs:EntityStatus.class\#active rdfs:subClassOf cs:EntityStatus.class\#normal;
+  owl:oneOf (cs:EntityStatus\#active);
+  rdfs:label "active";
+  dc:title "active";
+  rdfs:comment "The state representing the fact that the Entity record is currently active.";
+  dcterms:description "The state representing the fact that the Entity record is currently active.".
+
+cs:EntityStatus\#active a cs:EntityStatus.class\#active.
+
+cs:EntityStatus.class\#inactive rdfs:subClassOf cs:EntityStatus.class\#normal;
+  owl:oneOf (cs:EntityStatus\#inactive);
+  rdfs:label "inactive";
+  dc:title "inactive";
+  rdfs:comment "Definition: The state representing the fact that the entity is inactive.";
+  dcterms:description "Definition: The state representing the fact that the entity is inactive.".
+
+cs:EntityStatus\#inactive a cs:EntityStatus.class\#inactive.
+
+cs:EntityStatus.class\#nullified rdfs:subClassOf cs:EntityStatus.class;
+  owl:oneOf (cs:EntityStatus\#nullified);
+  rdfs:label "nullified";
+  dc:title "nullified";
+  rdfs:comment "The state representing the termination of an Entity record instance that was created in error.";
+  dcterms:description "The state representing the termination of an Entity record instance that was created in error.".
+
+cs:EntityStatus\#nullified a cs:EntityStatus.class\#nullified.
+
+# - vs:IdentifierScope ---------------------------------------------------------
+
+vs:IdentifierScope a fhir:ValueSet;
+  fhir:version "2015-03-23";
+  rdfs:label "v3 Code System IdentifierScope";
+  dc:title "v3 Code System IdentifierScope";
+  rdfs:comment "  Description:\r\nCodes to specify the scope in which the identifier applies to the object with which it is associated, and used in the datatype property II.";
+  dcterms:description "  Description:\r\nCodes to specify the scope in which the identifier applies to the object with which it is associated, and used in the datatype property II.";
+  dc:date "2015-03-23";
+  fhir:status fhir:conformance-resource-status\#active;
+  fhir:canonical-status fhir:canonical-status-codes\#active;
+  fhir:include cs:IdentifierScope.
+
+cs:IdentifierScope a fhir:CodeSystem;
+  rdfs:label "v3 Code System IdentifierScope";
+  dc:title "v3 Code System IdentifierScope";
+  rdfs:comment "  Description:\r\nCodes to specify the scope in which the identifier applies to the object with which it is associated, and used in the datatype property II.";
+  dcterms:description "  Description:\r\nCodes to specify the scope in which the identifier applies to the object with which it is associated, and used in the datatype property II.";
+  dc:date "Mon Mar 23 00:00:00 EST 2015".
+
+cs:IdentifierScope.class a fhir:Concept;
+  owl:oneOf (cs:IdentifierScope\#BUSN cs:IdentifierScope\#OBJ cs:IdentifierScope\#VER cs:IdentifierScope\#VW).
+
+cs:IdentifierScope.class\#BUSN rdfs:subClassOf cs:IdentifierScope.class;
+  owl:oneOf (cs:IdentifierScope\#BUSN);
+  rdfs:label "Business Identifier";
+  dc:title "Business Identifier";
+  rdfs:comment "Description: An identifier whose scope is defined by the business practices associated with the object. In contrast to the other scope identifiers, the scope of the use of the id is not necessarily restricted to a single object, but may be reused for other objects closely associated with the object due to business practice.";
+  dcterms:description "Description: An identifier whose scope is defined by the business practices associated with the object. In contrast to the other scope identifiers, the scope of the use of the id is not necessarily restricted to a single object, but may be reused for other objects closely associated with the object due to business practice.".
+
+cs:IdentifierScope\#BUSN a cs:IdentifierScope.class\#BUSN.
+
+cs:IdentifierScope.class\#OBJ rdfs:subClassOf cs:IdentifierScope.class;
+  owl:oneOf (cs:IdentifierScope\#OBJ);
+  rdfs:label "Object Identifier";
+  dc:title "Object Identifier";
+  rdfs:comment "Description: The identifier associated with a particular object. It remains consistent as the object undergoes state transitions.";
+  dcterms:description "Description: The identifier associated with a particular object. It remains consistent as the object undergoes state transitions.".
+
+cs:IdentifierScope\#OBJ a cs:IdentifierScope.class\#OBJ.
+
+cs:IdentifierScope.class\#VER rdfs:subClassOf cs:IdentifierScope.class;
+  owl:oneOf (cs:IdentifierScope\#VER);
+  rdfs:label "Version Identifier";
+  dc:title "Version Identifier";
+  rdfs:comment "Description: An identifier that references a particular object as it existed at a given point in time. The identifier SHALL change with each state transition on the object. I.e. The version identifier of an object prior to a 'suspend' state transition is distinct from the identifier of the object after the state transition. Each version identifier can be tied to exactly one ControlAct event which brought that version into being (though the control act may never be instantiated).\r\n\n                        \n                            NOTE: Applications that do not support versioning of objects must ignore and not persist these ids to avoid confusion resulting from leaving the same identifier on an object that undergoes changes.";
+  dcterms:description "Description: An identifier that references a particular object as it existed at a given point in time. The identifier SHALL change with each state transition on the object. I.e. The version identifier of an object prior to a 'suspend' state transition is distinct from the identifier of the object after the state transition. Each version identifier can be tied to exactly one ControlAct event which brought that version into being (though the control act may never be instantiated).\r\n\n                        \n                            NOTE: Applications that do not support versioning of objects must ignore and not persist these ids to avoid confusion resulting from leaving the same identifier on an object that undergoes changes.".
+
+cs:IdentifierScope\#VER a cs:IdentifierScope.class\#VER.
+
+cs:IdentifierScope.class\#VW rdfs:subClassOf cs:IdentifierScope.class;
+  owl:oneOf (cs:IdentifierScope\#VW);
+  rdfs:label "View Specific Identifier";
+  dc:title "View Specific Identifier";
+  rdfs:comment "Description: An identifier that references a particular object as it existed at a given point in time. The identifier SHALL change with each state transition on the object.\r\n\n                        \n                           Example The version identifier of an object prior to a 'suspend' state transition is distinct from the identifier of the object after the state transition. Each version identifier can be tied to exactly one ControlAct event which brought that version into being (though the control act may never be instantiated).\r\n\n                        \n                            NOTE: Applications that do not support versioning of objects must ignore and not persist these ids to avoid confusion resulting from leaving the same identifier on an object that undergoes changes.";
+  dcterms:description "Description: An identifier that references a particular object as it existed at a given point in time. The identifier SHALL change with each state transition on the object.\r\n\n                        \n                           Example The version identifier of an object prior to a 'suspend' state transition is distinct from the identifier of the object after the state transition. Each version identifier can be tied to exactly one ControlAct event which brought that version into being (though the control act may never be instantiated).\r\n\n                        \n                            NOTE: Applications that do not support versioning of objects must ignore and not persist these ids to avoid confusion resulting from leaving the same identifier on an object that undergoes changes.".
+
+cs:IdentifierScope\#VW a cs:IdentifierScope.class\#VW.
+
+# - vs:IdentifierReliability ---------------------------------------------------
+
+vs:IdentifierReliability a fhir:ValueSet;
+  fhir:version "2015-03-23";
+  rdfs:label "v3 Code System IdentifierReliability";
+  dc:title "v3 Code System IdentifierReliability";
+  rdfs:comment " Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms.";
+  dcterms:description " Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms.";
+  dc:date "2015-03-23";
+  fhir:status fhir:conformance-resource-status\#active;
+  fhir:canonical-status fhir:canonical-status-codes\#active;
+  fhir:include cs:IdentifierReliability.
+
+cs:IdentifierReliability a fhir:CodeSystem;
+  rdfs:label "v3 Code System IdentifierReliability";
+  dc:title "v3 Code System IdentifierReliability";
+  rdfs:comment " Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms.";
+  dcterms:description " Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms.";
+  dc:date "Mon Mar 23 00:00:00 EST 2015".
+
+cs:IdentifierReliability.class a fhir:Concept;
+  owl:oneOf (cs:IdentifierReliability\#ISS cs:IdentifierReliability\#UNV cs:IdentifierReliability\#VRF).
+
+cs:IdentifierReliability.class\#ISS rdfs:subClassOf cs:IdentifierReliability.class;
+  owl:oneOf (cs:IdentifierReliability\#ISS);
+  rdfs:label "Issued by System";
+  dc:title "Issued by System";
+  rdfs:comment "Description: The identifier was issued by the system responsible for constructing the instance.";
+  dcterms:description "Description: The identifier was issued by the system responsible for constructing the instance.".
+
+cs:IdentifierReliability\#ISS a cs:IdentifierReliability.class\#ISS.
+
+cs:IdentifierReliability.class\#UNV rdfs:subClassOf cs:IdentifierReliability.class;
+  owl:oneOf (cs:IdentifierReliability\#UNV);
+  rdfs:label "Unverified by system";
+  dc:title "Unverified by system";
+  rdfs:comment "Description: The identifier was provided to the system that constructed the instance, but has not been verified. e.g. a Drivers  license entered manually into a system by a user.";
+  dcterms:description "Description: The identifier was provided to the system that constructed the instance, but has not been verified. e.g. a Drivers  license entered manually into a system by a user.".
+
+cs:IdentifierReliability\#UNV a cs:IdentifierReliability.class\#UNV.
+
+cs:IdentifierReliability.class\#VRF rdfs:subClassOf cs:IdentifierReliability.class;
+  owl:oneOf (cs:IdentifierReliability\#VRF);
+  rdfs:label "Verified by system";
+  dc:title "Verified by system";
+  rdfs:comment "Description: The identifier was not issued by the system responsible for constructing the instance, but the system that captured the id has verified the identifier with the issuing authority, or with another system that has verified the identifier.";
+  dcterms:description "Description: The identifier was not issued by the system responsible for constructing the instance, but the system that captured the id has verified the identifier with the issuing authority, or with another system that has verified the identifier.".
+
+cs:IdentifierReliability\#VRF a cs:IdentifierReliability.class\#VRF.
+
 
