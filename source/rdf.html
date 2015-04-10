@@ -69,7 +69,7 @@ In most cases, the conversion from the base resource definitions is straight-for
 </p>
 <p>
 Constraints are represented intwo ways - as OWL statements, and as SHACL predicates. Implementers
-wishing to enforce cosntraints can use tools from either language, or process the knowledge represented
+wishing to enforce constraints can use tools from either language, or process the knowledge represented
 in these constraints in any other way they see fit.
 </p>
 <h4>Enumerated Codes</h4>
@@ -300,10 +300,7 @@ example:
     fhir:CodeableConcept.coding [
 	  fhir:Coding.system &lt;http://snomed.info/sct&gt;;
 	  fhir:Coding.code "128045006:{363698007=56459004}";
-	  ex:concept [
-	    sct:main sct:128045006;
-        sct:363698007 sct:56459004
-	  ]
+	  ex:concept [ owl:intersectionOf (sct:128045006, [sct:363698007 sct:56459004])]
 	];
   ];
 </pre>
