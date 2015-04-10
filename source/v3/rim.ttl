@@ -54,6 +54,61 @@ dt:CS.code a rdf:Property;
    rdfs:domain dt:CS;
    rdfs:range xs:string.
 
+# - BL ------------------------------------------------------------------
+
+dt:BL rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:BL.value;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "A binary value for use in boolean logic. A BL value can be either true or false, or, as any other value, MAY be NULL";
+   dc:title "Boolean";
+   rdfs:comment "A binary value for use in boolean logic. A BL value can be either true or false, or, as any other value, MAY be NULL";
+   rdfs:label "Boolean".
+
+dt:BL.value a rdf:Property;
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:BL;
+   rdfs:range xs:boolean.
+   
+# - INT ------------------------------------------------------------------
+
+dt:INT rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:INT.value;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "Integer numbers (-1,0,1,2, 100, 3398129, etc.) are precise numbers that are results of counting and enumerating. Integer numbers are discrete, the set of integers is infinite but countable. No arbitrary limit is imposed on the range of integer numbers. Two NULL flavors are defined for the positive and negative infinity";
+   dc:title "IntegerNumber";
+   rdfs:comment "Integer numbers (-1,0,1,2, 100, 3398129, etc.) are precise numbers that are results of counting and enumerating. Integer numbers are discrete, the set of integers is infinite but countable. No arbitrary limit is imposed on the range of integer numbers. Two NULL flavors are defined for the positive and negative infinity";
+   rdfs:label "IntegerNumber".
+
+dt:INT.value a rdf:Property;
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:INT;
+   rdfs:range xs:integer.
+
+# - REAL ------------------------------------------------------------------
+
+dt:REAL rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:REAL.value;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "A scalar magnitude. Typically used whenever quantities are measured, estimated, or computed from other real numbers. The typical representation is decimal, where the number of significant decimal digits is known as the precision.";
+   dc:title "RealNumber";
+   rdfs:comment "A scalar magnitude. Typically used whenever quantities are measured, estimated, or computed from other real numbers. The typical representation is decimal, where the number of significant decimal digits is known as the precision.";
+   rdfs:label "RealNumber".
+
+dt:REAL.value a rdf:Property;
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:REAL;
+   rdfs:range xs:decimal.
+      
+   
 # - CD ------------------------------------------------------------------
 
 #CD has been restructured in the oRIM to make reasoning easy, and to align with FHIR better - principally, codeSystem is a URI instead of a OID/UUID.
@@ -309,6 +364,7 @@ rim:InfrastructureRoot.nullFlavor a rdf:Property;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
 # - Entity --------------------------------------------------------------------
+# Entity: classCode, determinerCode, id, code, statusCode
 
 rim:Entity rdfs:subClassOf rim:InfrastructureRoot;
    rdfs:subClassOf [
@@ -318,7 +374,7 @@ rim:Entity rdfs:subClassOf rim:InfrastructureRoot;
    ];
    rdfs:subClassOf [
      a owl:Restriction;
-     owl:onProperty rim:Entity.classCode;
+     owl:onProperty rim:Entity.id;
      owl:minCardinality "1^^xs:nonNegativeInteger"
    ];
    rdfs:subClassOf [
@@ -395,5 +451,10 @@ rim:Entity.code a rdf:Property;
 #- for all classes mapped to acts, we know what happened to classCode, moodCode, code, negationInd,x2, statusCode, id
 #- for all classes mapped to roles, we know what happened to classCode, statusCode, code, negationInd, id, and player,
 #- for all classes mapped to entities, we know what happened to classCode, determineCode, id, code, statusCode   
+# Role: classCode, id, code, negationInd, statusCode, priorityNumber
+# Participation: typeCode, functionCode, seequenceNumber, negationInd
+# Act: classCode, moodCode, id, code, actionNegationInd, negationInd, statusCode, priorityCode
+# ActRelationsship: typeCode, inversionInd, priorityNumber, negationInd
+
 
 # vocab... pasted here at the end by the build tool

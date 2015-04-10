@@ -171,7 +171,31 @@ There are several special issues for the RDF based representation:
 <h4>Missing elements</h4>
 <p>
 There are a number of elements in the FHIR resources and data types
-that have an explicit meaning when they are missing. For example, 
+that have an explicit meaning or a default value when they are missing. 
+Default values are represented explicitly in the RDF representation; 
+they are omitted. For example, Patient.active has a default value of 
+"false", and is defined like this:
+</p>
+<pre>
+fhir:Patient.active a rdf:Property;
+  os:occurs os:Zero-or-one;
+  rdfs:range fhir:boolean;
+  fhir:default [
+     a fhir:boolean;
+     fhir:value "true"
+  ].
+</pre>
+<p>
+Since it has a default value, it can never be omitted from an instance:
+</p>
+<pre>
+:resource a fhir:Patient;
+  fhir:Patient.active "true",
+  ...etc
+</pre>
+<p>
+Some elements do not have a default value, but they do have a meaning 
+when there is no element present. As an example, 
 if <a href="patient-definition.html#Patient.animal">Patient.animal</a> is not present, 
 the the patient is a human. In RDF (OWL particularly), reasoners cannot 
 infer meaning from missing elements, so the RDF format includes a specific

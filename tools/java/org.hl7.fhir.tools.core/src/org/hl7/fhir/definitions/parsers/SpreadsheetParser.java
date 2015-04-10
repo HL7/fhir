@@ -489,6 +489,8 @@ public class SpreadsheetParser {
 			  inv.setEnglish(sheet.getColumn(row, "English"));
 			  inv.setXpath(sheet.getColumn(row, "XPath"));
 			  inv.setSeverity(sheet.getColumn(row, "Severity"));
+        inv.setTurtle(sheet.getColumn(row, "RDF"));
+
 			  if (!Utilities.noString(sheet.getColumn(row,  "Schematron")))
 			    log.log("Value found for schematron "+getLocation(row), LogMessageType.Hint);  
 			  inv.setOcl(sheet.getColumn(row, "OCL"));

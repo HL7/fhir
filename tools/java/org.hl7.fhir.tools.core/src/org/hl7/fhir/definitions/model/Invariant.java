@@ -37,6 +37,7 @@ public class Invariant {
   private String id;
   private String fixedName; // when the invariant is only one one of a set of choices
   private String severity;
+  private String turtle;
   
   public String getId()
   {
@@ -102,6 +103,14 @@ public class Invariant {
 
   public void setSeverity(String value) {
     this.severity = value;    
+  }
+
+  public String getTurtle() {
+    return turtle;
+  }
+
+  public void setTurtle(String turtle) {
+    this.turtle = turtle;
   }
 
   

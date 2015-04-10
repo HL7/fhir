@@ -26,11 +26,14 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.W5Entry;
+import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.DecimalType;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -347,11 +350,13 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       section.triple("fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema());
   }
 
-  private void gen(ProfiledType t) {
+  private void gen(ProfiledType t) throws Exception {
     Section section = section(t.getName());
-    section.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:"+t.getBaseType(), "TODO: express the constraints");
+    section.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:"+t.getBaseType());
     section.label("fhir:"+t.getName(), t.getDescription());
     section.comment("fhir:"+t.getName(), t.getDefinition());
+    if (!Utilities.noString(t.getInvariant().getTurtle()))
+      section.importTtl(t.getInvariant().getTurtle());
   }
 
   
@@ -494,6 +499,16 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         section.triple("fhir:"+tn+"."+en, "fhir:bindingStrength", "fhir:binding-strength\\#"+bs.getStrength().toCode());
       } else
         section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
+    }
+    if (e.getDefaultValue() != null) {
+      if (e.getDefaultValue() instanceof DecimalType) 
+        section.triple("fhir:"+tn+"."+en, "fhir:default", complex().predicate("a", "fhir:decimal").predicate("fhir:value", literal(((DecimalType) e.getDefaultValue()).asStringValue())));
+      else if (e.getDefaultValue() instanceof BooleanType) 
+        section.triple("fhir:"+tn+"."+en, "fhir:default", complex().predicate("a", "fhir:boolean").predicate("fhir:value", literal(((BooleanType) e.getDefaultValue()).asStringValue())));
+      else if (e.getDefaultValue() instanceof IntegerType) 
+        section.triple("fhir:"+tn+"."+en, "fhir:default", complex().predicate("a", "fhir:integer").predicate("fhir:value", literal(((IntegerType) e.getDefaultValue()).asStringValue())));
+      else
+        throw new Error("default of type "+e.getDefaultValue().getClass().getName()+" not handled yet");
     }
   }
 
