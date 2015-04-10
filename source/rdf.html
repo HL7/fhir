@@ -206,8 +206,25 @@ TODO: it is not yet resolved how this will be done.
 </p>
 <h4>Contained Resources</h4>
 <p>
-Todo
+Contained resources are represented like this:
 </p>
+<pre>
+:resource a fhir:Observation;
+  fhir:contained fhir:Observation\#23;
+  fhir:Observation.subject [
+     fhir:Reference.reference fhir:Observation\#23
+  ].
+
+fhir:Observation\#23 a fhir:Patient;
+  fhir:Patient.name [
+    fhir:text "John Smith
+  ].
+</pre>
+<p>
+In order to make it easy to serialise multiple resources, the id within 
+the resource is scoped by the URL of the resource that contains it.
+</p>
+
 <h4>Extensions</h4>
 <p>
 In RDF, extensions are represented in two parts. The first 
