@@ -20,7 +20,7 @@ public class RDFValidator {
 
   public void validate(String filename) throws Exception {
     Model model = RDFDataMgr.loadModel(filename) ;
-    System.out.println(Integer.toString(model.getGraph().size())+" triples in RDF file");
+    System.out.println(Integer.toString(model.getGraph().size())+" triples in RDF file "+filename);
     FileOutputStream strm = new FileOutputStream(Utilities.changeFileExt(filename, ".rdf.xml"));
     try {
       RDFDataMgr.write(strm, model, RDFFormat.RDFXML_PLAIN);

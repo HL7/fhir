@@ -210,130 +210,176 @@ Todo
 </p>
 <h4>Extensions</h4>
 <p>
-The representation of extensions is different in RDF. 
-An extension is represented as a property, where the extension
-URL is the predicate, and the value of the property is the 
-value of the extension, or a complex object with further 
-extensions. The definition of the extension SHALL be made
-available in the same RDF graph as the instance that refers 
-to it (note: this does not mean that it must be exchanged in
-the same packet).
+In RDF, extensions are represented in two parts. The first 
+part is a definition of the resource, and the second part is
+the extension value. Extensions are split like this in RDF 
+to take advantage of RDF and to make reasoning easier.
 </p>
-<pre class="rdf">
-@ex &lt;http://hl7.org/fhir/StructureDefinition/&gt; .
-
-:start a fhir:Patient;
-  ex:birthPlace [ .. properties of address ... ];
-</pre>
 <p>
-The definition of the extension must be made available:
+The first part is the definition. This conveys whether the 
+extension is a modifier, and what type it has:
 </p>
 <pre class="rdf">
+@prefix ex: &lt;http://hl7.org/fhir/StructureDefinition/&gt; .
+
 ex:birthplace a fhir:ExtensionDefinition;
    rdfs:range fhir:Address;
    fhir:flag fhir:isModifier.
 </pre>
 <p>
-If the extension is a modifier, it SHALL be labelled as such. 
-At least a type (rdfs:range) SHALL be provided. Oher properties
-MAY be specified as well. 
+This definition SHALL be present in any instance of an RDF
+graph where an extension is used. If the extension is a 
+modifier, it SHALL be labelled as such. Additional 
+information from the extension definition MAY be provided,
+but this is not required, and often is not possible (the 
+minimum mandatory content is also represented in XML and
+JSON). 
+</p>
+<p>
+The value of an extension is represented as a predicate:
+</p>
+<pre class="rdf">
+:start a fhir:Patient;
+  ex:birthPlace [ .. properties of address ... ];
+</pre>
+<p>
+The value of the property is the value of the extension, 
+or a complex object with further extensions. 
 </p>
 <h4>Concept References</h4>
 <p>
-This specification defines an RDF specific extension for the data types <a href="datatypes.html#Coding">Coding</a> and
-<a href="references.html#Reference">Reference</a>. These critical type represent references from 
-one resource to another, or from a resource to a separate knowledge container. The definitions of
-these data types are constained by operational considerations around incomplete knowledge, longitudinal
-version issues, use across multiple contexts, etc. This can make their use for reasoning in 
-RDF more complicated than users desire. For this reason, the extension "concept" is defined:
+The data types <a href="datatypes.html#Coding">Coding</a> and 
+<a href="references.html#Reference">Reference</a> represent 
+references from a resource to a separate knowledge container or 
+from one resource to another. The definitions of these data types 
+are constained by operational considerations around incomplete 
+knowledge, longitudinal version issues, use across multiple 
+contexts, etc, and a mapping process is required to match 
+the information that constitutes the reference to the target
+RDF concept on which reasoning is based. 
+</p>
+<p>
+For instance, a reference to a LOINC code in an JSON resource 
+instance takes this form: 
 </p>
 <pre class="rdf">
-
+{
+  "resourceType" : "Observation",
+  "code" : {
+    "coding" : {
+      "system" : "http://loinc.org",
+      "code" : "54411-4",
+      "display" : "Rh immune globulin given Qualitative"
+   	},
+    "text" : "Rh immune globulin"
+  }
+}
+</pre>
+<p>
+In the local LOINC RDF representation, the URI for that LOINC
+code is http://loinc.org/owl/54411-4. 
+Note that for many terminologies, including LOINC,
+there is no standard RDF representation and multiple forms with different addressing 
+schemes are available. Where standard representations exist, implementers 
+SHOULD use the same addressing scheme. 
+</p>
+<p>
+There is no algorithmic conversion between the system/code and the equivalent 
+RDF concept; instead, a mapping table of some kind must be maintained. These 
+mapping tables have variable complexity. In the worst case - codes that have
+the form of an expression - considerable syntactic and semantic logic is 
+required to perform the mapping. For this reason, the reconciliation process
+is often performed as a preprocessing step prior to using the RDF for reasoning. 
+In order to assist with implementation, this specification defines a standard
+extension for this purpose:
+</p>
+<pre class="rdf">
 ex:concept a fhir:ExtensionDefinition;
    rdfs:label "Direct reference to concept described in the containing object"
    rdfs:range fhir:uri.
 </pre>
 <p>
 This can be used to reference a concept directly when representing a Coding or a Reference.
-Consider this example:
+Here's the same example as above, with the direct concept reference added:
 </p>
 <pre class="rdf">
-  fhir:Observation.code [
-    fhir:CodeableConcept.coding [
-	  fhir:Coding.system &lt;http://loinc.org&gt;;
-	  fhir:Coding.code "54411-4";
-	  fhir:Coding.display "Rh immune globulin given Qualitative";
-	];
-	fhir:CodeableConcept.text "Rh immune globulin"
-  ];
-</pre>
-<p>
-The problem for an RDF reasoner is how the combination of system and code (and potentially version) are converted 
-to a valid RDF reference to a concept.
-</p>
-<pre class="rdf">
-@prefix loinc: &lt;http://loinc.org/owl#&gt; 
+@prefix loinc: &lt;http://loinc.org/owl#&gt; .
 
+:start a fhir:Observation;
   fhir:Observation.code [
     fhir:CodeableConcept.coding [
-	  ex:concept loinc:54411-4;
-	];
-	fhir:CodeableConcept.text "Rh immune globulin"
-  ];
+      fhir:Coding.system &lt;http://loinc.org&gt;;
+      fhir:Coding.code "54411-4";
+      fhir:Coding.display "Rh immune globulin given Qualitative";
+      ex:concept loinc:54411-4;
+      ];
+    fhir:CodeableConcept.text "Rh immune globulin";
+  ].
 </pre>
 <p>
-Conversion from one form to another requires injection of knowledge by some 
-system that knows both how the concepts are represented in FHIR, and how they
-are represented in RDF (which may vary by context).  For this reason, and to
-enable round-tripping betwene RDF and other FHIR formats, the RDF form 
-should retain the original coding, and the concept extension should be 
-inserted when known:
+Defining a standard extension for this allows for sharing the pre-processed 
+content between implementations. Typically, the concept extension is 
+only used in the RDF form, but it can be carried as a normal FHIR 
+extension in both the XML and JSON forms:
 </p>
 <pre class="rdf">
-  fhir:Observation.code [
-    fhir:CodeableConcept.coding [
-	  fhir:Coding.system &lt;http://loinc.org&gt;;
-	  fhir:Coding.code "54411-4";
-	  ex:concept loinc:54411-4;
-	  fhir:Coding.display "Rh immune globulin given Qualitative";
-	];
-	fhir:CodeableConcept.text "Rh immune globulin"
-  ];
+{
+  "resourceType" : "Observation",
+  "code" : {
+    "coding" : {
+      "extension" : {
+        "url" : "http://hl7.org/fhir/StructureDefinition/concept",
+        "valueUri" : "http://loinc.org/owl/54411-4"
+      }
+      "system" : "http://loinc.org",
+      "code" : "54411-4",
+      "display" : "Rh immune globulin given Qualitative"
+   	},
+    "text" : "Rh immune globulin"
+  }
+}
 </pre>
 <p>
-This can be used for expression forms as well. For 
+Implementers should note that the concept reference into a local 
+ontology is inherently less stable, and it is usually not appropriate
+to persist these references.
+</p>
+<p>
+In RDF, this capability can be used for expression forms as well. For 
 example:
 </p>
 <pre class="rdf">
 @prefix sct: &lt;http://snomed.info/id/&gt; 
 
+:start a fhir:Observation;
   fhir:Observation.valueCodeableConcept [
     fhir:CodeableConcept.coding [
-	  fhir:Coding.system &lt;http://snomed.info/sct&gt;;
-	  fhir:Coding.code "128045006:{363698007=56459004}";
-	  ex:concept [ owl:intersectionOf (sct:128045006 [sct:363698007 sct:56459004])]
-	];
+    fhir:Coding.system &lt;http://snomed.info/sct&gt;;
+      fhir:Coding.code "128045006:{363698007=56459004}";
+      ex:concept [ owl:intersectionOf (sct:128045006 [sct:363698007 sct:56459004])]
+    ];
   ];
 </pre>
 <p>
-For reference, the issue is that the reference may be local, and 
-resolution is subject to local rules and contextz (e.g. server 
-API [base], or context in a bundle). It's a lot simpler to 
-convert the reference to a full URL that has explicit meaning
-in context of the the RDF graph:
+Note that there's no equivalent for this form in XML and JSON. 
+</p>
+<p>
+For the Reference datatype, the issue is that the reference may 
+be a relative URL, and resolution is subject to local rules and 
+context (e.g. server API [base], or context in a bundle). It's 
+a lot simpler to add a reference to a full URL that has 
+explicit meaning in context of the RDF graph:
 </p>
 <pre class="rdf">
 @prefix pat: &lt;http://acme.com/services/fhir/Patient/#&gt; 
 
+:start a fhir:Observation;
   fhir:Observation.subject [
     fhir:Reference.reference "Patient/example";
-	ex:concept pat:example
-  ]
+  	ex:concept pat:example
+  ].
 </pre>
 <p>
-Typically, the concept extension is only used in the RDF form, 
-but it can be carried as a normal FHIR extension in both the 
-XML and JSON forms.
 </p>
 
 <h4>Other Stuff</h4>
@@ -341,7 +387,7 @@ XML and JSON forms.
 Todo: implement a template for RDF? (turtle? RDF XML - yuck)
 Todo: note that there's no canonical form for RDF, nor any defined support for signatures. 
 </p>
-<a name="schema"> </a>
+<a name="api"> </a>
 <h3>Using RDF with the REST API</h3>
 <p>
 When using RDF on the REST API, the following media types apply:
@@ -354,18 +400,6 @@ When using RDF on the REST API, the following media types apply:
 <p>
 Implementations are encouraged to support this list. However servers are not required to support all these, 
 and may support additional syntaxes.
-</p>
-<p>
-When a server supports RDF syntaxes, it SHALL also make available
-at [base]/$owl an RDF file that contains any extension definitions
-that it will support in the resources (at least the content described 
-above). 
-</p>
-<p>
-Implementers should note that applications are encouraged 
-and/or required to round-trip resources that contain extensions they
-do not recognise, so it should not be assumed that all extensions 
-will be defined.
 </p>
 
 </div>

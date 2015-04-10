@@ -646,7 +646,6 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     }    
   }
 
-
   private void gen(String bn, ValueSet vs) {
     Section section = section(bn);
     section.triple(bn, "a", "fhir:ValueSet");

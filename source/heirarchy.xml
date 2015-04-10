@@ -51,6 +51,7 @@ signatures.html
 			<page title="Formats" filename="formats.html">
 				<page title="XML" filename="xml.html"/>
 				<page title="JSON" filename="json.html"/>
+				<page title="RDF" filename="rdf.html"/>
 			</page>
 			<page title="Data Types" filename="datatypes.html">
 				<page title="Examples" filename="datatypes-examples.html"/>
