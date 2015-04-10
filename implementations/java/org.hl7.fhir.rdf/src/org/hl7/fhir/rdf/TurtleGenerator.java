@@ -422,9 +422,10 @@ public class TurtleGenerator {
   }
 
 
-  protected void commit() throws Exception {
+  protected void commit(boolean header) throws Exception {
     LineOutputStreamWriter writer = new LineOutputStreamWriter(destination);
-    commitPrefixes(writer);
+    if (header)
+      commitPrefixes(writer);
     for (Section s : sections) {
       commitSection(writer, s);
     }
@@ -447,6 +448,8 @@ public class TurtleGenerator {
     writer.write("# Where the community agrees on additional predicate statements (such \r\n");
     writer.write("# as OWL constraints) these are added in addition to the direct FHIR \r\n");
     writer.write("# predicates \r\n");
+    writer.ln();
+    writer.write("# this file refers to concepts defined in rim.ttl and to others defined elsewhere outside HL7 \r\n");
     writer.ln();
     for (String p : sorted(prefixes.keySet()))
       writer.ln("@prefix "+p+": <"+prefixes.get(p)+"> .");

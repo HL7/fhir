@@ -26,6 +26,8 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.W5Entry;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -73,12 +75,36 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     this.definitions = definitions;
   }
   
-  public void execute() throws Exception {
+  /**
+   * Only produce the v3 vocabulary for appending to rim.ttl
+   * @throws Exception
+   */
+  public void executeV3(Bundle bundle) throws Exception {
+    for (BundleEntryComponent e : bundle.getEntry()) {
+      ValueSet vs = (ValueSet) e.getResource();
+      valuesets.put("vs:"+tail(vs.getUrl()), vs);
+    }
+
+    for (String n : sorted(valuesets.keySet()))
+      gen(n, valuesets.get(n));
+    commit(false);
+  }
+  
+  private String tail(String url) {
+    return url.substring(url.lastIndexOf("/")+1);
+  }
+
+  /**
+   * prouce main fhir.ttl file
+   * @throws Exception
+   */
+  public void executeMain() throws Exception {
 //    triple(fhir("FHIR"), isa, none("spec"));
 
     prefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
     prefix("rdfs", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
     prefix("fhir", "http://hl7.org/fhir/");
+    prefix("fhir-vs", "http://hl7.org/fhir/vs/");
     prefix("xs", "http://www.w3.org/2001/XMLSchema#");
     prefix("owl", "http://www.w3.org/2002/07/owl#");
     prefix("dc", "http://purl.org/dc/elements/1.1/");
@@ -118,22 +144,12 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     for (String n : sorted(definitions.getResources().keySet())) 
       gen(definitions.getResources().get(n));
     
-    valuesets.put("vs:NullFlavor", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/NullFlavor"));
-    valuesets.put("vs:EntityClass", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/EntityClass"));
-    valuesets.put("vs:EntityDeterminer", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/EntityDeterminer"));
-    valuesets.put("vs:EntityStatus", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/EntityStatus"));
-    valuesets.put("vs:IdentifierScope", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/IdentifierScope"));
-    valuesets.put("vs:IdentifierReliability", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/IdentifierReliability"));
-    valuesets.put("vs:EntityCode", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/EntityCode"));
-    valuesets.put("vs:CodingRationale", definitions.getValuesets().get("http://hl7.org/fhir/v3/vs/CodingRationale"));
-    
     
     for (String n : sorted(valuesets.keySet()))
       gen(n, valuesets.get(n));
 
     chckSubjects();
-    commit();
-//    throw new Error("bang");
+    commit(true);
   }
 
 
@@ -423,6 +439,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
           else
             section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
           section.triple("fhir:"+tn+"."+en, "fhir:binding", bn);
+          if (!bn.startsWith("vs:")) // a v3 valueset
           valuesets.put(bn, bs.getReferredValueSet());
         } else if (!Utilities.noString(bs.getReference())) {
           section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
@@ -477,7 +494,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         processMappings(section, "fhir:"+t.getName()+"."+cn, e);
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
-          section.triple("fhir:"+t.getName()+"."+en, "rdf:subPropertyOf", "fhir:"+t.getName()+"."+cn);
+          section.triple("fhir:"+t.getName()+"."+en, "rdfs:subPropertyOf", "fhir:"+t.getName()+"."+cn);
           section.triple("fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+rd.getName());
           genRange(section, t.getName(), en, e, tr, false);
         }
@@ -555,7 +572,7 @@ loinc = 21112-8
         processMappings(at.getSection(), "fhir:"+at.getName()+"."+cn, e);
         for (TypeRef tr : e.typeCode().equals("*") ? getAnyTypes() : e.getTypes()) {
           String en = cn+Utilities.capitalize(tr.getName());
-          at.getSection().triple("fhir:"+at.getName()+"."+en, "rdf:subPropertyOf", "fhir:"+at.getName()+"."+cn); 
+          at.getSection().triple("fhir:"+at.getName()+"."+en, "rdfs:subPropertyOf", "fhir:"+at.getName()+"."+cn); 
           at.getSection().triple("fhir:"+at.getName()+"."+en, "rdfs:domain", "fhir:"+at.getName());
           genRange(at.getSection(), at.getName(), en, e, tr, at.isType());
         }
@@ -623,7 +640,7 @@ loinc = 21112-8
       b.append(pctEncode(root.getCode()));
     }
     listChildTokens(prefix, children, b);
-    return b.toString().substring(1);
+    return b.length() == 0 ? "" : b.toString().substring(1);
   }
 
   private void listChildTokens(String prefix, List<ConceptDefinitionComponent> children, StringBuilder b) {
@@ -675,8 +692,8 @@ loinc = 21112-8
       s = matches(url, "http://hl7.org/fhir/v3/vs/", "vs");
     if (s == null)
       s = matches(url, "http://hl7.org/fhir/v3/", "cs");
-//    if (s == null)
-//      s = matches(url, "http://hl7.org/fhir/vs/", "fhir-vs");
+    if (s == null)
+      s = matches(url, "http://hl7.org/fhir/vs/", "fhir-vs");
     if (s == null)
       s = matches(url, "http://hl7.org/fhir/", "fhir");
     if (s == null)

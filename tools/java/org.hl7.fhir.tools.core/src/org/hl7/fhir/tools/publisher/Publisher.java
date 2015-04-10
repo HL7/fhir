@@ -1523,8 +1523,15 @@ public class Publisher implements URIResolver {
     resource.load(new CSFileInputStream(eCorePath), null);
     org.hl7.fhir.definitions.ecore.fhir.Definitions eCoreDefs = (org.hl7.fhir.definitions.ecore.fhir.Definitions) resource.getContents().get(0);
 
-    FhirTurtleGenerator ttl = new FhirTurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions());
-    ttl.execute();
+    // first, process the RIM file
+    String rim = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "v3", "rim.ttl"));
+    ByteArrayOutputStream tmp = new ByteArrayOutputStream();
+    FhirTurtleGenerator ttl = new FhirTurtleGenerator(tmp, page.getDefinitions());
+    ttl.executeV3(page.getV3Valuesets());
+    rim = rim + tmp.toString();
+    TextFile.stringToFile(rim, Utilities.path(page.getFolders().dstDir, "rim.ttl"));
+    ttl = new FhirTurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions());
+    ttl.executeMain();
     RDFValidator val = new RDFValidator();
     val.validate(Utilities.path(page.getFolders().dstDir, "fhir.ttl"));
     val.validate(Utilities.path(page.getFolders().dstDir, "rim.ttl"));
