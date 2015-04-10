@@ -30,11 +30,13 @@ import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.rdf.TurtleGenerator;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -67,12 +69,14 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   }
   
   private Definitions definitions;
+  private WorkerContext context;
   private Deque<AnonTypeInfo> anonTypes = new ArrayDeque<AnonTypeInfo>();
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
 
-  public FhirTurtleGenerator(OutputStream destination, Definitions definitions) {
+  public FhirTurtleGenerator(OutputStream destination, Definitions definitions, WorkerContext context) {
     super(destination);
     this.definitions = definitions;
+    this.context = context;
   }
   
   /**
@@ -105,6 +109,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     prefix("rdfs", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
     prefix("fhir", "http://hl7.org/fhir/");
     prefix("fhir-vs", "http://hl7.org/fhir/vs/");
+    prefix("ex", "http://hl7.org/fhir/StructureDefinition/");
     prefix("xs", "http://www.w3.org/2001/XMLSchema#");
     prefix("owl", "http://www.w3.org/2002/07/owl#");
     prefix("dc", "http://purl.org/dc/elements/1.1/");
@@ -144,6 +149,8 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     for (String n : sorted(definitions.getResources().keySet())) 
       gen(definitions.getResources().get(n));
     
+    for (String n : sorted(context.getExtensionDefinitions().keySet()))
+      genExtension(context.getExtensionDefinitions().get(n));
     
     for (String n : sorted(valuesets.keySet()))
       gen(n, valuesets.get(n));
@@ -611,6 +618,35 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     }
   }
 
+  
+  private void genExtension(StructureDefinition extension) {
+    // for now, only simple extensions
+    if (extension.getSnapshot().getElement().size() == 5 && !hasSection("Extension: "+tail(extension.getUrl()))) {
+      ElementDefinition base = extension.getSnapshot().getElement().get(0);
+      ElementDefinition valueX = extension.getSnapshot().getElement().get(4);
+      Section section = section("Extension: "+tail(extension.getUrl()));
+      Subject subject = section.subject("ex:birthplace");
+      subject.predicate("a", "fhir:ExtensionDefinition");
+      subject.label(extension.getDisplay());
+      subject.comment(extension.getDescription());
+      if (extension.hasVersion())
+        subject.predicate("fhir:version", extension.getVersion());
+      if (extension.hasCopyright()) 
+        subject.predicate("dc:rights", literal(extension.getCopyright()));
+      subject.predicate("fhir:status", "fhir:conformance-resource-status\\#"+extension.getStatus().toCode());
+      subject.predicate("fhir:canonical-status", getCanonicalStatus("ValueSet.status", extension.getStatus().toCode()));
+      for (CodeableConcept cc : extension.getUseContext()) 
+        codedTriple(subject, "fhir:useContext", cc);
+      if (extension.hasDate()) 
+        subject.predicate("dc:date", literal(extension.getDateElement().asStringValue()));
+      
+      subject.predicate("rdfs:range", processType(valueX.getType().get(0).getCode()));
+      if (base.getIsModifier())
+        subject.predicate("fhir:flag", "fhir:isModifier");
+    }    
+  }
+
+
   private void gen(String bn, ValueSet vs) {
     Section section = section(bn);
     section.triple(bn, "a", "fhir:ValueSet");
@@ -736,6 +772,14 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       String s = getLinkedForm(c);
       if (s != null) 
         section.triple(subject, predicate, s, c.hasDisplay() ? c.getDisplay() : cc.getText());
+    }
+  }
+ 
+  protected void codedTriple(Subject subject, String predicate, CodeableConcept cc) {
+    for (Coding c : cc.getCoding()) {
+      String s = getLinkedForm(c);
+      if (s != null) 
+        subject.predicate(predicate, new StringObject(s), c.hasDisplay() ? c.getDisplay() : cc.getText());
     }
   }
  

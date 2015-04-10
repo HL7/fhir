@@ -123,13 +123,17 @@ public class TurtleGenerator {
       return p;
     }
     public void comment(String comment) {
-      predicate("rdfs:comment", literal(comment));
-      predicate("dcterms:description", literal(comment));
+      if (!Utilities.noString(comment)) {
+        predicate("rdfs:comment", literal(comment));
+        predicate("dcterms:description", literal(comment));
+      }
     }
 
-    public void label(String comment) {
-      predicate("rdfs:label", literal(comment));
-      predicate("dc:title", literal(comment));
+    public void label(String label) {
+      if (!Utilities.noString(label)) {
+        predicate("rdfs:label", literal(label));
+        predicate("dc:title", literal(label));
+      }
     }
 
   }
@@ -270,7 +274,7 @@ public class TurtleGenerator {
     prefixes.put(code, url);
   }
 
-  private boolean hasSection(String sn) {
+  protected boolean hasSection(String sn) {
     for (Section s : sections)
       if (s.name.equals(sn))
         return true;

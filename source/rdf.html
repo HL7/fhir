@@ -36,6 +36,7 @@ specification. This page describes:
 </p>
 <ul>
  <li><a href="#class">RDF description of the FHIR Resource Class definitions</a></li>
+ <li><a href="#profile">RDF representation of Profiles</a></li>
  <li><a href="#instance">RDF description of FHIR resource instances</a></li>
  <li><a href="#api">How to exchange RDF using the RESTful API</a></li>
 </ul>
@@ -84,10 +85,10 @@ and the single instance is used to refer to the concept.
 </p>
 <h4>The Ontological RIM</h4>
 <p>
-THe RDF definitions for the resources and classes depend on the RDF definitions for the v3 RIM, which 
-are also distributed as part of this specification (<a href="rim.ttl">turtle</a> and <a href="rim.rdf.xml">RDF/XML</a>).
-The resources directly depend on both classes and code systems defined as part of the RIM, though
-the references to the classes defined in the RIM are generally only of interest from a RIM perspective;
+THe RDF definitions for the resources and classes are also mapped to an ontological representation of the 
+v3 RIM, which is also distributed as part of this specification (<a href="rim.ttl">turtle</a> and <a href="rim.rdf.xml">RDF/XML</a>).
+The resources and type definitions refer to both classes and code systems defined as part of the RIM. 
+The references to the classes defined in the RIM are generally only of interest from a RIM perspective;
 they do not define semantics that are necessary to understand the FHIR resources directly. 
 </p>
 <p>
@@ -107,6 +108,12 @@ In addition to mappings to the Ontological RIM, the RDF contains mappings to oth
 sources of knowledge, including LOINC, SNOMED CT, OBO, etc. In these cases, the mappings 
 reference concepts that are not defined within the RDF content provided as part of this
 specification, and implementers will need to locate them elsewhere.
+</p>
+
+<a name="profile"> </a>
+<h3>RDF Representation of Profiles</h3>
+<p>
+todo.
 </p>
 
 <a name="instance"> </a>
@@ -196,6 +203,10 @@ must be maintained when round-tripping FHIR instances.
 </p>
 <p>
 TODO: it is not yet resolved how this will be done.
+</p>
+<h4>Contained Resources</h4>
+<p>
+Todo
 </p>
 <h4>Extensions</h4>
 <p>

@@ -1526,11 +1526,11 @@ public class Publisher implements URIResolver {
     // first, process the RIM file
     String rim = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "v3", "rim.ttl"));
     ByteArrayOutputStream tmp = new ByteArrayOutputStream();
-    FhirTurtleGenerator ttl = new FhirTurtleGenerator(tmp, page.getDefinitions());
+    FhirTurtleGenerator ttl = new FhirTurtleGenerator(tmp, page.getDefinitions(), page.getWorkerContext());
     ttl.executeV3(page.getV3Valuesets());
     rim = rim + tmp.toString();
     TextFile.stringToFile(rim, Utilities.path(page.getFolders().dstDir, "rim.ttl"));
-    ttl = new FhirTurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions());
+    ttl = new FhirTurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions(), page.getWorkerContext());
     ttl.executeMain();
     RDFValidator val = new RDFValidator();
     val.validate(Utilities.path(page.getFolders().dstDir, "fhir.ttl"));
