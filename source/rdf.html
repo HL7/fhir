@@ -127,15 +127,15 @@ instances using turtle, but production instances can use any valid RDF syntax.
 @prefix fhir: &lt;http://hl7.org/fhir/&gt; .
 @prefix flag: &lt;http://hl7.org/fhir/Flag.&gt; .
 
-:start a fhir:Flag;...
+:resource a fhir:Flag;...
 </pre>
 <p>
-The ":start" object has a type predicate ("a") the indicates what kind of resource it is. 
+The ":resource" object has a type predicate ("a") the indicates what kind of resource it is. 
 In addition, the object will have a series of predicates for the properties 
 defined in the RDF class definitions:
 </p>
 <pre class="rdf">
-:start a fhir:Flag;
+:resource a fhir:Flag;
   flag:id "example";
   flag:text [...];
   flag:category [...];
@@ -181,14 +181,14 @@ infer meaning from missing elements, so the RDF format includes a specific
 Here's a patient resource with an animal property:
 </p>
 <pre class="rdf">
-:start a fhir:Patient;
+:resource a fhir:Patient;
   pat:animal [ ... ]
 </pre>
 <p>
 If the patient is human then the representation will be:
 </p>
 <pre class="rdf">
-:start a fhir:Patient;
+:resource a fhir:Patient;
   pat:animal-Missing "true";
 </pre>
 <p>
@@ -239,7 +239,7 @@ JSON).
 The value of an extension is represented as a predicate:
 </p>
 <pre class="rdf">
-:start a fhir:Patient;
+:resource a fhir:Patient;
   ex:birthPlace [ .. properties of address ... ];
 </pre>
 <p>
@@ -291,7 +291,7 @@ the form of an expression - considerable syntactic and semantic logic is
 required to perform the mapping. For this reason, the reconciliation process
 is often performed as a preprocessing step prior to using the RDF for reasoning. 
 In order to assist with implementation, this specification defines a standard
-extension for this purpose:
+extension for representing the outcome of the pre-processing:
 </p>
 <pre class="rdf">
 ex:concept a fhir:ExtensionDefinition;
@@ -305,7 +305,7 @@ Here's the same example as above, with the direct concept reference added:
 <pre class="rdf">
 @prefix loinc: &lt;http://loinc.org/owl#&gt; .
 
-:start a fhir:Observation;
+:resource a fhir:Observation;
   fhir:Observation.code [
     fhir:CodeableConcept.coding [
       fhir:Coding.system &lt;http://loinc.org&gt;;
@@ -351,7 +351,7 @@ example:
 <pre class="rdf">
 @prefix sct: &lt;http://snomed.info/id/&gt; 
 
-:start a fhir:Observation;
+:resource a fhir:Observation;
   fhir:Observation.valueCodeableConcept [
     fhir:CodeableConcept.coding [
     fhir:Coding.system &lt;http://snomed.info/sct&gt;;
@@ -373,7 +373,7 @@ explicit meaning in context of the RDF graph:
 <pre class="rdf">
 @prefix pat: &lt;http://acme.com/services/fhir/Patient/#&gt; 
 
-:start a fhir:Observation;
+:resource a fhir:Observation;
   fhir:Observation.subject [
     fhir:Reference.reference "Patient/example";
   	ex:concept pat:example
