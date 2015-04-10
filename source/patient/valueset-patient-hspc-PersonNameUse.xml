@@ -1,0 +1,57 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC Person Name Use value set"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="The set of values that describe the manner an individual uses a name."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/vs/EntityNameUse"/>
+			<caseSensitive value="true"/>
+			<concept>
+				<code value="L"/>
+				<display value="Legal Name"/>
+				<definition value="A legally recognized name."/>
+			</concept>
+			<concept>
+				<code value="ASGN"/>
+				<display value="Assigned (alias)"/>
+				<definition value="A name assigned to an entity."/>
+			<concept/>
+		</include>
+		<include>
+			<system value ="http://hl7.org/fhir/v3/vs/EntityNameuseR2"
+			<caseSensitive value ="true"/>
+			<concept>
+				<code value="M"/>
+				<display value="maiden name"/>
+				<definition value="A name used prior to marriage."/>
+			</concept>
+		</include>
+	</compose>
+	<define>
+		<concept>
+			<code value = "Previous Name"/>
+			<display value ="Previous Name"/>
+			<definition value ="A name by which an individual previously identified by."/>
+		</concept>
+		<concept>
+			<code value="Preferred Name"/>
+			<display value="Preferred Name"/>
+			<defintion value="The name by which an individual prefers to be known by"/>
+		</concept>
+		<concept>
+			<code value="Professional Name"/>
+			<display value="Professional Name"/>
+			<definition value="The name by which an individual in known by professionally."/>
+		</concept>
+	</define>
+</ValueSet>
+
+

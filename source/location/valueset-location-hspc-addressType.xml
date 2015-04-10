@@ -1,0 +1,46 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="Address Type value set"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of value that describe different kinds of addresses."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/vs/EntityNameUse"/>
+			<caseSensitive value="true"/>
+			<concept>
+				<code value="IDE"/>
+				<display value="Ideographic"/>
+				<definition value="Ideographic representation of an entity, such as Chinese or Japanese characters."/>
+			</concept>
+			<concept>
+				<code value="SYL"/>
+				<display value="Syllabic"/>
+				<definition value="Syllabic transcription of a name, Japanese kana or Korean hangul."/>
+			</concept>
+			<concept>
+				<code value="SNDX"/>
+				<display value="Soundex"/>
+				<definition value="A name spelled according to a SoundEx algorithm"/>
+			</concept>
+			<concept>
+				<code value ="ABC"/>
+				<display value="Alphabetic"/>
+				<definition value="The alphabetic transcription of a name"/>
+			</concept>
+			<concept>
+				<code value="PHON"/>
+				<display value="Phonetic"/>
+				<definition value="A name spelled phonetically"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+

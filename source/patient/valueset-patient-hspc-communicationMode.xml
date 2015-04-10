@@ -1,0 +1,50 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC Communication Mode"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of codes that describe the method by which an individual communicates."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/LanguageAbilityMode"/>
+			<caseSensitive value="true"/>
+			<concept>
+				<code value="ESGN"/>
+				<display value="Expressed signed"/>
+				<definition value="Expressed signed."/>
+			</concept>
+			<concept>
+				<code value="ESP"/>
+				<display value="Expressed spoken"/>
+				<definition value="Expressed spoken."/>
+			<concept/>
+			<concept>
+				<code value="EWR"/>
+				<display value="Expressed written"/>
+				<definition value="Expressed written."/>
+			</concept>
+			<concept>
+				<code value="RSGN"/>
+				<display value="Received signed"/>
+				<definition value="Received signed."/>
+			</concept>
+			<concept>
+				<code value="RSP"/>
+				<display value="Received spoken"/>
+				<definition value="Received spoken."/>
+			</concept>
+			<concept>
+				<code value="RWR"/>
+				<display value="Received written"/>
+				<definition value="Received written."/>
+			</concept>
+		</include>
+</ValueSet>
+
+

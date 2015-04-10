@@ -1,0 +1,87 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC Address Use"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of codes that describe the manner in which an addressed is used."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
+			<caseSensitive value="true"/>
+			<concept>
+				<code value="BAD"/>
+				<display value="Bad address"/>
+				<definition value="A flag indicating the address is useless."/>
+			</concept>
+			<concept>
+				<code value="PHYS"/>
+				<display value="Physical visit address"/>
+				<definition value="Used primarily to visit an address."/>
+			<concept/>
+			<concept>
+				<code value="PST"/>
+				<display value="Postal address"/>
+				<definition value="Used to send mail."/>
+			</concept>
+			<concept>
+				<code value="HP"/>
+				<display value="Primary home"/>
+				<definition value="The primary home, used to reach a person after business hours."/>
+			</concept>
+			<concept>
+				<code value="PUB"/>
+				<display value="Public"/>
+				<definition value="An address used to reach a reception service, mail room, or other intermediary prior to the target entity."/>
+			</concept>
+			<concept>
+				<code value="TMP"/>
+				<display value="Temporary address"/>
+				<definition value="An address that is not permanent."/>
+			</concept>
+			<concept>
+				<code value="HV"/>
+				<display value="Vacation home"/>
+				<definition value="An address used while on vacation."/>
+			</concept>
+			<concept>
+				<code value="WP"/>
+				<display value="Work place"/>
+				<definition value="An office address."/>
+			</concept>
+			<concept>
+				<code value="H"/>
+				<display value="Home address"/>
+				<definition value="The address of an individual's residence."/>
+			</concept>
+			<concept>
+				<code value="DIR"/>
+				<display value="Direct address"/>
+				<definition value="An address that reaches individuals or organizations without intermediaries."/>
+			</concept>
+			<concept>
+				<code value="CONF"/>
+				<display value="Confidential address"/>
+				<definition value="Indicates the address is sensitive and should only be shared or published in accordance with organizational or governing controls."/>
+			</concept>
+		</include>
+		<define>
+			<concept>
+				<code value="Permanent"/>
+				<display value="Permanent"/>
+				<definition value="A place of permanent physical residence."/>
+			</concept>
+			<concept>
+				<code value="Primary office"/>
+				<display value="Primary office"/>
+				<definition value="An office, work, or business location that represents where the most work time is spent.."/>
+			</concept>
+		</define>
+</ValueSet>
+
+

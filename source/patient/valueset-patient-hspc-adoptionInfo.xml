@@ -1,0 +1,27 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="Adption Info"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of value that describe the state of the medical records of an adopted child."/>
+	<status value="draft"/>
+	<define>
+		<concept>
+			<code value="ABR"/>
+			<display value="Adopted Birth Record"/>
+			<definition value="An indication that the medical records being viewed are from a time prior to a patient's adoption and therefore cannot be viewed by adoptive guardians."/>
+		</concept>
+		<concept>
+			<code value="APR"/>
+			<display value="Adopted Patient Record"/>
+			<definition value="An indication that the medical records being viewed are from a time after a patient's adoption and can be viewed by the adoptive guardians."/>
+		</concept>
+	</define>
+</ValueSet>
+
+

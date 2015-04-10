@@ -1,0 +1,31 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="ServiceDeliveryLocation status value set"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="This value set defines the set of codes used to define the status of the location."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/vs/EntityStatus"/>
+			<caseSensitive value="true"/>
+			<concept>
+				<code value="active"/>
+				<display value="Active"/>
+				<definition value="The state arepresenting the fact that the entity is currently active."/>
+			</concept>
+			<concept>
+				<code value="inactive"/>
+				<display value="Inactive"/>
+				<definition value="The state arepresenting the fact that the entity is not active."/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+
