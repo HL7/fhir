@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code. 
+-->
+      
+[%settitle RDF Representation%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%fmtheader rdf%>
+
+<a name="root"> </a>
+<h2>RDF Representation </h2>
+
+<div style="background-color: #F0B0B0; border:1px solid black; padding: 5px;">
+<p>
+This page and the RDF forms are particularly prone to change. The page is not 
+part of the current ballot, and so at the most it can be a draft page in DSTU 2.
+Comments on this and the page content are welcome.
+</p>
+</div>
+
+<p>
+FHIR resources can be represented as an <a href="http://www.w3.org/RDF/">RDF graph</a> serialised in one of a number of RDF syntaxes.
+When represented in RDF, the resources are described as instances of classes that are also defined in RDF, and published with this 
+specification. This page describes:
+</p>
+<ul>
+ <li><a href="#class">RDF description of the FHIR Resource Class definitions</a></li>
+ <li><a href="#instance">RDF description of FHIR resource instances</a></li>
+ <li><a href="#api">How to exchange RDF using the RESTful API</a></li>
+</ul>
+<p>
+Note: this page uses turtle for clarify and readability, but there is no requirement or 
+expectation that turtle should be used in preference to other syntaxes. Note that production
+turtle instances would not be laid out so clearly either.
+</p>
+
+<a name="class"> </a>
+<h3>RDF Representation of FHIR</h3>
+<p>
+The FHIR RDF definitions are defined for the following purposes:
+</p>
+<ul>
+ <li>Providing the class definitions to support RDF based representation of resource instances</li>
+ <li>Supporting knowledge based analysis of the FHIR specification itself</li>
+ <li>Providing knowledge of use at run-time for converting between FHIR and other content models</li>
+ <li>Supporting reasoning across the information/terminology model boundary</li>
+</ul>
+<p>
+The RDF definitions are available in <a href="fhir.ttl">turtle</a> and <a href="fhir.rdf.xml">RDF/XML</a>. You can also
+download <a href="fhir.rdf.zip">all the RDF definitions</a>.
+</p>
+<h4>RDF Class Definitions</h4>
+<p>
+The backbone of the RDF definitions are a formal definition of the FHIR resources as RDF classes. 
+Each data type, resource, or element within a resource is defined as rdf:Class with a series of 
+rdf:Property items. Each property has a rdfs:range the specifies the value domain for the property. 
+In most cases, the conversion from the base resource definitions is straight-forward. 
+</p>
+<p>
+Constraints are represented intwo ways - as OWL statements, and as SHACL predicates. Implementers
+wishing to enforce cosntraints can use tools from either language, or process the knowledge represented
+in these constraints in any other way they see fit.
+</p>
+<h4>Enumerated Codes</h4>
+<p>
+FHIR elements that have a <a href="datatypes.html#code">code data type</a> with a 
+<a href="terminologies.html#required">Required</a> binding to an extensional 
+<a href="valueset.html">ValueSet</a> are bound directly to the concepts defined
+in the code system. The RDF defines the value set, an associated code system, and 
+an RDF class for the code system. Each code in the code system is defined as a singleton
+class where the class elucidates the definition and relationships of the concept, 
+and the single instance is used to refer to the concept. 
+</p>
+<h4>The Ontological RIM</h4>
+<p>
+THe RDF definitions for the resources and classes depend on the RDF definitions for the v3 RIM, which 
+are also distributed as part of this specification (<a href="rim.ttl">turtle</a> and <a href="rim.rdf.xml">RDF/XML</a>).
+The resources directly depend on both classes and code systems defined as part of the RIM, though
+the references to the classes defined in the RIM are generally only of interest from a RIM perspective;
+they do not define semantics that are necessary to understand the FHIR resources directly. 
+</p>
+<p>
+The Ontological RIM is a variant of the <a href="http://www.hl7.org/implement/standards/rim.cfm">v3 RIM</a>
+optimised for it's use as an ontology supporting FHIR and other reasonsing uses. It has the following
+variations from the classical v3 RIM:
+</p>
+<ul>
+ <li>II.root and CD.codeSystem are changed to xs:anyUri so that they can accomodate RDF concepts as well as pure OIDs and UUIDs</li>
+ <li>The structure of the CD data type has been re-organised to support validation logic more effectively</li>
+ <li>Only the base structural classes are included (yet?)</li>
+ <li>More: mixins? associations? nullFlavor on associations?</li>
+</ul>
+<h4>Other Mappings</h4>
+<p>
+In addition to mappings to the Ontological RIM, the RDF contains mappings to other 
+sources of knowledge, including LOINC, SNOMED CT, OBO, etc. In these cases, the mappings 
+reference concepts that are not defined within the RDF content provided as part of this
+specification, and implementers will need to locate them elsewhere.
+</p>
+
+<a name="instance"> </a>
+<h3>RDF Resource Instances</h3>
+<p>
+A FHIR resource is represented by a series of RDF triples, starting 
+with the fixed identifier ":resource". For readability, this page presents
+instances using turtle, but production instances can use any valid RDF syntax.
+</p>
+<pre class="rdf">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .
+@prefix flag: &lt;http://hl7.org/fhir/Flag.&gt; .
+
+:start a fhir:Flag;...
+</pre>
+<p>
+The ":start" object has a type predicate ("a") the indicates what kind of resource it is. 
+In addition, the object will have a series of predicates for the properties 
+defined in the RDF class definitions:
+</p>
+<pre class="rdf">
+:start a fhir:Flag;
+  flag:id "example";
+  flag:text [...];
+  flag:category [...];
+  flag:status fhir:flag-status\#active.
+</pre>
+<p>
+Enumerated fields are represented using a direct link to the singleton instance
+of the class for the concept, as defined in the RDF code system definitions.
+</p>
+<p>
+Property names are defined by class, and follow into the data types:
+</p>
+<pre class="rdf">
+  flag:category [
+    fhir:CodeableConcept.coding [
+	  fhir:Coding.system &lt;http://example.org/local&gt;;
+	  fhir:Coding.code "admin";
+	  fhir:Coding.display "Admin";
+	];
+	fhir:CodeableConcept.text "admin"
+  ];
+</pre>
+<p>
+The <a href="datatypes.html">primitive types</a> are represented using the 
+same W3c schema based types as in the XML and JSON formats. Since the types 
+are defined in advance, there is not usually a need to specify the type 
+explicitly unless the RDF syntax requires this (e.g. in turtle, it would 
+not be specified).
+</p>
+<p>
+There are several special issues for the RDF based representation:
+</p>
+<h4>Missing elements</h4>
+<p>
+There are a number of elements in the FHIR resources and data types
+that have an explicit meaning when they are missing. For example, 
+if <a href="patient-definition.html#Patient.animal">Patient.animal</a> is not present, 
+the the patient is a human. In RDF (OWL particularly), reasoners cannot 
+infer meaning from missing elements, so the RDF format includes a specific
+"-Missing" element to allow for reasoning in these cases.
+</p>
+<p>
+Here's a patient resource with an animal property:
+</p>
+<pre class="rdf">
+:start a fhir:Patient;
+  pat:animal [ ... ]
+</pre>
+<p>
+If the patient is human then the representation will be:
+</p>
+<pre class="rdf">
+:start a fhir:Patient;
+  pat:animal-Missing "true";
+</pre>
+<p>
+When the element has a 'meaning when missing', there SHALL be either an property
+or an -Missing property present in the instance.
+</p>
+<h4>Order</h4>
+<p>
+FHIR elements with cardinality > 1 are inherently ordered (though the meaning of the 
+order may not be known, or the order may have no real significance). This order 
+must be maintained when round-tripping FHIR instances. 
+</p>
+<p>
+TODO: it is not yet resolved how this will be done.
+</p>
+<h4>Extensions</h4>
+<p>
+The representation of extensions is different in RDF. 
+An extension is represented as a property, where the extension
+URL is the predicate, and the value of the property is the 
+value of the extension, or a complex object with further 
+extensions. The definition of the extension SHALL be made
+available in the same RDF graph as the instance that refers 
+to it (note: this does not mean that it must be exchanged in
+the same packet).
+</p>
+<pre class="rdf">
+@ex &lt;http://hl7.org/fhir/StructureDefinition/&gt; .
+
+:start a fhir:Patient;
+  ex:birthPlace [ .. properties of address ... ];
+</pre>
+<p>
+The definition of the extension must be made available:
+</p>
+<pre class="rdf">
+ex:birthplace a fhir:ExtensionDefinition;
+   rdfs:range fhir:Address;
+   fhir:flag fhir:isModifier.
+</pre>
+<p>
+If the extension is a modifier, it SHALL be labelled as such. 
+At least a type (rdfs:range) SHALL be provided. Oher properties
+MAY be specified as well. 
+</p>
+<h4>Concept References</h4>
+<p>
+This specification defines an RDF specific extension for the data types <a href="datatypes.html#Coding">Coding</a> and
+<a href="references.html#Reference">Reference</a>. These critical type represent references from 
+one resource to another, or from a resource to a separate knowledge container. The definitions of
+these data types are constained by operational considerations around incomplete knowledge, longitudinal
+version issues, use across multiple contexts, etc. This can make their use for reasoning in 
+RDF more complicated than users desire. For this reason, the extension "concept" is defined:
+</p>
+<pre class="rdf">
+
+ex:concept a fhir:ExtensionDefinition;
+   rdfs:label "Direct reference to concept described in the containing object"
+   rdfs:range fhir:uri.
+</pre>
+<p>
+This can be used to reference a concept directly when representing a Coding or a Reference.
+Consider this example:
+</p>
+<pre class="rdf">
+  fhir:Observation.code [
+    fhir:CodeableConcept.coding [
+	  fhir:Coding.system &lt;http://loinc.org&gt;;
+	  fhir:Coding.code "54411-4";
+	  fhir:Coding.display "Rh immune globulin given Qualitative";
+	];
+	fhir:CodeableConcept.text "Rh immune globulin"
+  ];
+</pre>
+<p>
+The problem for an RDF reasoner is how the combination of system and code (and potentially version) are converted 
+to a valid RDF reference to a concept.
+</p>
+<pre class="rdf">
+@prefix loinc: &lt;http://loinc.org/owl#&gt; 
+
+  fhir:Observation.code [
+    fhir:CodeableConcept.coding [
+	  ex:concept loinc:54411-4;
+	];
+	fhir:CodeableConcept.text "Rh immune globulin"
+  ];
+</pre>
+<p>
+Conversion from one form to another requires injection of knowledge by some 
+system that knows both how the concepts are represented in FHIR, and how they
+are represented in RDF (which may vary by context).  For this reason, and to
+enable round-tripping betwene RDF and other FHIR formats, the RDF form 
+should retain the original coding, and the concept extension should be 
+inserted when known:
+</p>
+<pre class="rdf">
+  fhir:Observation.code [
+    fhir:CodeableConcept.coding [
+	  fhir:Coding.system &lt;http://loinc.org&gt;;
+	  fhir:Coding.code "54411-4";
+	  ex:concept loinc:54411-4;
+	  fhir:Coding.display "Rh immune globulin given Qualitative";
+	];
+	fhir:CodeableConcept.text "Rh immune globulin"
+  ];
+</pre>
+<p>
+This can be used for expression forms as well. For 
+example:
+</p>
+<pre class="rdf">
+@prefix sct: &lt;http://snomed.info/id/#&gt; 
+
+  fhir:Observation.valueCodeableConcept [
+    fhir:CodeableConcept.coding [
+	  fhir:Coding.system &lt;http://snomed.info/sct&gt;;
+	  fhir:Coding.code "128045006:{363698007=56459004}";
+	  ex:concept [
+	    sct:main sct:128045006;
+        sct:363698007 sct:56459004
+	  ]
+	];
+  ];
+</pre>
+<p>
+For reference, the issue is that the reference may be local, and 
+resolution is subject to local rules and contextz (e.g. server 
+API [base], or context in a bundle). It's a lot simpler to 
+convert the reference to a full URL that has explicit meaning
+in context of the the RDF graph:
+</p>
+<pre class="rdf">
+@prefix pat: &lt;http://acme.com/services/fhir/Patient/#&gt; 
+
+  fhir:Observation.subject [
+    fhir:Reference.reference "Patient/example";
+	ex:concept pat:example
+  ]
+</pre>
+<p>
+Typically, the concept extension is only used in the RDF form, 
+but it can be carried as a normal FHIR extension in both the 
+XML and JSON forms.
+</p>
+
+<h4>Other Stuff</h4>
+<p>
+Todo: implement a template for RDF? (turtle? RDF XML - yuck)
+Todo: note that there's no canonical form for RDF, nor any defined support for signatures. 
+</p>
+<a name="schema"> </a>
+<h3>Using RDF with the REST API</h3>
+<p>
+When using RDF on the REST API, the following media types apply:
+</p>
+<ul>
+ <li>text/turtle - RDF as Turtle</li>
+ <li>application/rdf+xml - RDF in XML format</li>
+ <li>text/n3 - N3 format</li>
+</ul>
+<p>
+Implementations are encouraged to support this list. However servers are not required to support all these, 
+and may support additional syntaxes.
+</p>
+<p>
+When a server supports RDF syntaxes, it SHALL also make available
+at [base]/$owl an RDF file that contains any extension definitions
+that it will support in the resources (at least the content described 
+above). 
+</p>
+<p>
+Implementers should note that applications are encouraged 
+and/or required to round-trip resources that contain extensions they
+do not recognise, so it should not be assumed that all extensions 
+will be defined.
+</p>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

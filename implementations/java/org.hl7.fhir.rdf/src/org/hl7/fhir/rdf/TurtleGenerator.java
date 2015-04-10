@@ -100,10 +100,17 @@ public class TurtleGenerator {
   public class Subject {
     private String id;
     private List<Predicate> predicates = new ArrayList<Predicate>();
+    
     public Predicate predicate(String predicate, TripleObject object) {
       subjectSet.add(id);
       return predicate(predicate, object, null);
     }
+    
+    public Predicate predicate(String predicate, String object) {
+      subjectSet.add(id);
+      return predicate(predicate, new StringObject(object), null);
+    }
+    
     public Predicate predicate(String predicate, TripleObject object, String comment) {
       subjectSet.add(id);
       predicateSet.add(predicate);
@@ -115,6 +122,16 @@ public class TurtleGenerator {
       predicates.add(p);
       return p;
     }
+    public void comment(String comment) {
+      predicate("rdfs:comment", literal(comment));
+      predicate("dcterms:description", literal(comment));
+    }
+
+    public void label(String comment) {
+      predicate("rdfs:label", literal(comment));
+      predicate("dc:title", literal(comment));
+    }
+
   }
 
   public class Section {
@@ -133,15 +150,7 @@ public class TurtleGenerator {
     }
     
     public Subject triple(String subject, String predicate, TripleObject object, String comment) {
-      Subject s = null;
-      for (Subject ss : subjects) 
-        if (ss.id.equals(subject))
-          s = ss;
-      if (s == null) {
-        s = new Subject();
-        s.id = subject;
-        subjects.add(s);
-      }
+      Subject s = subject(subject);
       s.predicate(predicate, object, comment);
       return s;
     }
@@ -203,6 +212,16 @@ public class TurtleGenerator {
       }
       lexer.next(); // read ]
       return obj;
+    }
+
+    public Subject subject(String subject) {
+      for (Subject ss : subjects) 
+        if (ss.id.equals(subject))
+          return ss;
+      Subject s = new Subject();
+      s.id = subject;
+      subjects.add(s);
+      return s;
     }
   }
   

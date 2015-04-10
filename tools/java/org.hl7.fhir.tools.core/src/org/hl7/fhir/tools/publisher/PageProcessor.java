@@ -2312,6 +2312,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Formats", pfx + "formats.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("XML", pfx + "xml.html", "xml".equals(mode)));
     b.append(makeHeaderTab("JSON", pfx + "json.html", "json".equals(mode)));
+    b.append(makeHeaderTab("RDF", pfx + "rdf.html", "rdf".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }

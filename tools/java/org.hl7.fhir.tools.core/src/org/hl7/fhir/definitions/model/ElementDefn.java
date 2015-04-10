@@ -819,6 +819,10 @@ public class ElementDefn {
     return meaningWhenMissing;
   }
 
+  public boolean hasMeaningWhenMissing() {
+    return !Utilities.noString(meaningWhenMissing);
+  }
+
   public void setMeaningWhenMissing(String meaningWhenMissing) {
     this.meaningWhenMissing = meaningWhenMissing;
   }

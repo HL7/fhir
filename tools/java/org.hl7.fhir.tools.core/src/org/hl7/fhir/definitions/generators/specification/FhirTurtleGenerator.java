@@ -300,6 +300,19 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       throw new Error("Unhandled cardinality combination ("+min+"/"+max+")");
   }
 
+  private void cardinality(Subject subject, String min, String max) {
+    if ("0".equals(min) && "1".equals(max))
+      subject.predicate("os:occurs", "os:Zero-or-one");
+    else if ("0".equals(min) && "*".equals(max))
+      subject.predicate("os:occurs", "os:Zero-or-many");
+    else if ("1".equals(min) && "1".equals(max))
+      subject.predicate("os:occurs", "os:Exactly-one");
+    else if ("1".equals(min) && "*".equals(max))
+      subject.predicate("os:occurs", "os:One-or-many");
+    else
+      throw new Error("Unhandled cardinality combination ("+min+"/"+max+")");
+  }
+
   private void gen(PrimitiveType t) {
     Section section = section(t.getCode());
     section.triple("fhir:"+t.getCode(), "rdfs:subClassOf", "fhir:Primitive");
@@ -357,15 +370,39 @@ public class FhirTurtleGenerator extends TurtleGenerator {
           section.triple("fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+t.getName());
           genRange(section, t.getName(), en, e, tr, true);
         }
+        if (e.hasMeaningWhenMissing())
+          throw new Exception("MeaningWhenMissing on an element with choice types ("+t.getName()+"): "+e.getMeaningWhenMissing());
       } else {
         section.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
         section.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
         section.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+t.getName());
         processMappings(section, "fhir:"+t.getName()+"."+e.getName(), e);
         genRange(section, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), true);
+        if (e.hasMeaningWhenMissing()) {
+          geMissingFlag(section, e, t.getName(), "fhir:"+t.getName()+"."+e.getName()+"-Missing");
+        }
       }
     }
     processAnonTypes();
+  }
+
+  private void geMissingFlag(Section section, ElementDefn e, String owner, String name) {
+    Subject sbj = section.subject(name);
+    sbj.predicate("a", "rdf:Property");
+    sbj.comment("When there is no explicit value, so the meaning-when-missing applies");
+    sbj.predicate("rdfs:domain", "fhir:"+owner);
+    if (e.isModifier())
+      sbj.predicate("fhir:hasFlag", "fhir:isModifier");
+    if (e.hasSummaryItem() && e.isSummaryItem())
+      sbj.predicate("fhir:hasFlag", "fhir:isSummaryItem");
+    if (!Utilities.noString(e.getW5()))
+      sbj.predicate("fhir:w5", "fhir:w5\\#"+e.getW5());
+    cardinality(sbj, "0", "1");
+    if (e.getMinCardinality() > 0)
+      sbj.predicate("rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", name).predicate("owl:minCardinality", literal(e.getMinCardinality().toString()+"^^xs:nonNegativeInteger")));
+    if (e.getMaxCardinality() < Integer.MAX_VALUE)
+      sbj.predicate("rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", name).predicate("owl:maxCardinality", literal(e.getMaxCardinality().toString()+"^^xs:nonNegativeInteger")));
+    sbj.predicate("rdfs:range", "xs:boolean");
   }
 
   private List<TypeRef> getAnyTypes() {
@@ -410,7 +447,9 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isSummaryItem");
     if (!Utilities.noString(e.getW5()))
       section.triple("fhir:"+tn+"."+en, "fhir:w5", "fhir:w5\\#"+e.getW5());
-
+    if (e.hasMeaningWhenMissing())
+      section.triple("fhir:"+tn+"."+en, "fhir:missingMeaning", literal(e.getMeaningWhenMissing()));
+    
     // cardinality
     cardinality(section, "fhir:"+tn+"."+en, e.getMinCardinality().toString(), e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString());
 //    section.triple("fhir:"+tn+"."+en, "fhir:minCardinality", literal(e.getMinCardinality().toString()));
@@ -498,12 +537,17 @@ public class FhirTurtleGenerator extends TurtleGenerator {
           section.triple("fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+rd.getName());
           genRange(section, t.getName(), en, e, tr, false);
         }
+        if (e.hasMeaningWhenMissing())
+          throw new Exception("MeaningWhenMissing on an element with choice types ("+t.getName()+")");
       } else {
         section.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
         section.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
         section.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+rd.getName());
         processMappings(section, "fhir:"+t.getName()+"."+e.getName(), e);
         genRange(section, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), false);
+        if (e.hasMeaningWhenMissing()) {
+          geMissingFlag(section, e, t.getName(), "fhir:"+t.getName()+"."+e.getName()+"-Missing");
+        }
       }
     }
     processAnonTypes();
@@ -515,33 +559,9 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         section.importTtl(e.getMappings().get(m));
       if (m.equals("http://snomed.info")) {
         System.out.println("sct = "+e.getMappings().get(m));
-        throw new Error("Snomed CT mappings are not done for RDF"); // reminder to actually do this
+        throw new Error("Snomed CT mappings are not done for RDF"); // reminder to actually do this // http://snomed.info/id/{sctid}
       }
       if (m.equals("http://loinc.org")) {
-        /*loinc = LOINC_NUM
-loinc = TERM DEFINITION/DESCRIPTION(S)
-loinc = COMMENTS
-loinc = R/O/C
-loinc = RELATED NAMES (only some of these apply)
-loinc = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
-loinc = EXMPL_ANSWERS
-loinc = ANSWER LIST, NORMATIVE ANSWER LIST
-loinc = ANSWER LIST, NORMATIVE ANSWER LIST
-loinc = N/A
-loinc = CODE_TABLE
-loinc = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
-loinc = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
-loinc = LOINC_NUM (the code is the identifier)
-loinc = N/A
-loinc = LONG_COMMON_NAME
-loinc = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
-loinc = STATUS
-loinc = DATE_LAST_CHANGED
-loinc = Fixed to Regenstrief or SOURCE
-loinc = N/A
-loinc = N/A
-loinc = 21112-8
-*/
         String[] sl = e.getMappings().get(m).split("\\,");
         for (String sp : sl) {
           String s = sp.contains("(") ? sp.substring(0, sp.indexOf("(")).trim() : sp.trim();
@@ -576,12 +596,17 @@ loinc = 21112-8
           at.getSection().triple("fhir:"+at.getName()+"."+en, "rdfs:domain", "fhir:"+at.getName());
           genRange(at.getSection(), at.getName(), en, e, tr, at.isType());
         }
+        if (e.hasMeaningWhenMissing())
+          throw new Exception("MeaningWhenMissing on an element with choice types ("+at.getName()+")");
       } else {
         at.getSection().triple("fhir:"+at.getName()+"."+e.getName(), "a", "rdf:Property");
         at.getSection().comment("fhir:"+at.getName()+"."+e.getName(), e.getDefinition());
         processMappings(at.getSection(), "fhir:"+at.getName()+"."+e.getName(), e);
         at.getSection().triple("fhir:"+at.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+at.getName());
         genRange(at.getSection(), at.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), at.isType());
+        if (e.hasMeaningWhenMissing()) {
+          geMissingFlag(at.getSection(), e, at.getName(), "fhir:"+at.getName()+"."+e.getName()+"-Missing");
+        }
       }
     }
   }
