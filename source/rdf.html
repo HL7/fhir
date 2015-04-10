@@ -294,13 +294,13 @@ This can be used for expression forms as well. For
 example:
 </p>
 <pre class="rdf">
-@prefix sct: &lt;http://snomed.info/id/#&gt; 
+@prefix sct: &lt;http://snomed.info/id/&gt; 
 
   fhir:Observation.valueCodeableConcept [
     fhir:CodeableConcept.coding [
 	  fhir:Coding.system &lt;http://snomed.info/sct&gt;;
 	  fhir:Coding.code "128045006:{363698007=56459004}";
-	  ex:concept [ owl:intersectionOf (sct:128045006, [sct:363698007 sct:56459004])]
+	  ex:concept [ owl:intersectionOf (sct:128045006 [sct:363698007 sct:56459004])]
 	];
   ];
 </pre>
