@@ -155,6 +155,7 @@ import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParame
 import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterPartComponent;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationKind;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUse;
+import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Reference;
@@ -196,6 +197,7 @@ import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.TextFile;
@@ -226,6 +228,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
+import org.xmlpull.v1.builder.XmlUnexpandedEntityReference;
 
 /**
  * This is the entry point for the publication method for FHIR The general order
@@ -1523,24 +1526,7 @@ public class Publisher implements URIResolver {
     resource.load(new CSFileInputStream(eCorePath), null);
     org.hl7.fhir.definitions.ecore.fhir.Definitions eCoreDefs = (org.hl7.fhir.definitions.ecore.fhir.Definitions) resource.getContents().get(0);
 
-    // first, process the RIM file
-    String rim = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "v3", "rim.ttl"));
-    ByteArrayOutputStream tmp = new ByteArrayOutputStream();
-    FhirTurtleGenerator ttl = new FhirTurtleGenerator(tmp, page.getDefinitions(), page.getWorkerContext());
-    ttl.executeV3(page.getV3Valuesets());
-    rim = rim + tmp.toString();
-    TextFile.stringToFile(rim, Utilities.path(page.getFolders().dstDir, "rim.ttl"));
-    ttl = new FhirTurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions(), page.getWorkerContext());
-    ttl.executeMain();
-    RDFValidator val = new RDFValidator();
-    val.validate(Utilities.path(page.getFolders().dstDir, "fhir.ttl"));
-    val.validate(Utilities.path(page.getFolders().dstDir, "rim.ttl"));
-    ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir.rdf.zip"));
-    zip.addFileName("fhir.ttl", Utilities.path(page.getFolders().dstDir, "fhir.ttl"), false);
-    zip.addFileName("fhir.rdf.xml", Utilities.path(page.getFolders().dstDir, "fhir.rdf.xml"), false);
-    zip.addFileName("rim.ttl", Utilities.path(page.getFolders().dstDir, "rim.ttl"), false);
-    zip.addFileName("rim.rdf.xml", Utilities.path(page.getFolders().dstDir, "rim.rdf.xml"), false);
-    zip.close();
+    processRDF();
 
     page.log("Produce Schemas", LogMessageType.Process);
     new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
@@ -1606,6 +1592,47 @@ public class Publisher implements URIResolver {
         produceArchive();
       }
     }
+  }
+
+  private void processRDF() throws Exception, FileNotFoundException {
+    // first, process the RIM file
+    String rim = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "v3", "rim.ttl"));
+    ByteArrayOutputStream tmp = new ByteArrayOutputStream();
+    FhirTurtleGenerator ttl = new FhirTurtleGenerator(tmp, page.getDefinitions(), page.getWorkerContext());
+    ttl.executeV3(page.getV3Valuesets());
+    rim = rim + tmp.toString();
+    TextFile.stringToFile(rim, Utilities.path(page.getFolders().dstDir, "rim.ttl"));
+    ttl = new FhirTurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions(), page.getWorkerContext());
+    ttl.executeMain();
+    RDFValidator val = new RDFValidator();
+    val.validate(Utilities.path(page.getFolders().dstDir, "fhir.ttl"));
+    val.validate(Utilities.path(page.getFolders().dstDir, "rim.ttl"));
+    ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir.rdf.zip"));
+    zip.addFileName("fhir.ttl", Utilities.path(page.getFolders().dstDir, "fhir.ttl"), false);
+    zip.addFileName("fhir.rdf.xml", Utilities.path(page.getFolders().dstDir, "fhir.rdf.xml"), false);
+    zip.addFileName("rim.ttl", Utilities.path(page.getFolders().dstDir, "rim.ttl"), false);
+    zip.addFileName("rim.rdf.xml", Utilities.path(page.getFolders().dstDir, "rim.rdf.xml"), false);
+    zip.close();
+    
+    // now that the RDF is generated, run any sparql rules that have been defined
+    Element test = loadDom(new FileInputStream(Utilities.path(page.getFolders().srcDir, "sparql-rules.xml"))).getDocumentElement();
+    test = XMLUtil.getFirstChild(test);
+    while (test != null) {
+      if (test.getNodeName().equals("assertion")) {
+        boolean error = "error".equals(test.getAttribute("level"));
+        boolean rows = "true".equals(test.getAttribute("expectation"));
+        String description = test.getAttribute("description");
+        String sparql = test.getTextContent();
+        String rowSet = val.assertion(sparql);
+        boolean outcome = rows = (rowSet == null);
+        if (!outcome) {
+          System.out.println();
+          validationErrors.add(new ValidationMessage(Source.Publisher, "rdf", "rdf validation rules", description+"\r\n"+rowSet, error ? OperationOutcome.IssueSeverity.ERROR : OperationOutcome.IssueSeverity.WARNING));
+        }
+      }
+      test = XMLUtil.getNextSibling(test);
+    }
+    processValidationOutcomes();
   }
 
   private void produceArchive() throws Exception {
@@ -2046,6 +2073,14 @@ public class Publisher implements URIResolver {
 //    return new ByteArrayInputStream(bo.toByteArray());
   }
 
+  private Document loadDom(InputStream src) throws Exception {
+  DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+  factory.setNamespaceAware(false);
+  DocumentBuilder builder = factory.newDocumentBuilder();
+  Document doc = builder.parse(src);
+  return doc;
+  }
+  
   private void stripElement(Element element, String name) {
     Node child = element.getFirstChild();
     while (child != null) {
