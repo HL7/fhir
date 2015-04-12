@@ -180,8 +180,12 @@ public class TurtleGenerator {
             subject = lexer.next();
           if (predicate == null)
             predicate = lexer.next();
-          if (lexer.peekType() == TurtleTokenType.TOKEN) {
+          if (lexer.peekType() == null) {
+            throw new Error("Unexpected end of input parsing turtle");
+          } if (lexer.peekType() == TurtleTokenType.TOKEN) {
             triple(subject, predicate, lexer.next());
+          } else if (lexer.peek() == null) {
+            throw new Error("Unexected - turtle lexer found no token");
           } else if (lexer.peek().equals("[")) {
             triple(subject, predicate, importComplex(lexer));
           } else
