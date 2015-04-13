@@ -31,7 +31,6 @@
 	<classpathentry kind="lib" path="../imports/poi-3.10.1.jar"/>
 	<classpathentry kind="lib" path="../imports/saxon-dom-8.7.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-io-1.2.jar"/>
-	<classpathentry kind="lib" path="../imports/xml-apis-1.4.01.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.rdf"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
