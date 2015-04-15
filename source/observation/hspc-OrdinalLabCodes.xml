@@ -1,0 +1,1470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="hspc-standardlabs-ordinal"/>
+  <name value="HSPC Ordinal Labs"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+    <system value="url"/>
+    <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="Ordinal LOINC codes used in HSPC"/>
+  <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <status value="draft"/>
+  <date value="2015-02-20T13:44:49+11:00"/>
+  <compose>
+    <include>
+        <system value="http://loinc.org"/>
+		<concpet>
+			<code value="1004-1"/>
+			<dislplay value="Direct antiglobulin test.complement specific reagent [Presence] on Red Blood Cells"/>
+		</concept>
+		<concpet>
+			<code value="1007-4"/>
+			<dislplay value="Direct antiglobulin test.poly specific reagent [Presence] on Red Blood Cells"/>
+		</concept>
+		<concpet>
+			<code value="10374-7"/>
+			<dislplay value="Helmet cells [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="10378-8"/>
+			<dislplay value="Polychromasia [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="10380-4"/>
+			<dislplay value="Stomatocytes [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="10381-2"/>
+			<dislplay value="Target cells [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="10900-9"/>
+			<dislplay value="Hepatitis B virus surface Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="11060-1"/>
+			<dislplay value="Reducing substances [Presence] in Stool"/>
+		</concept>
+		<concpet>
+			<code value="11259-9"/>
+			<dislplay value="Hepatitis C virus RNA [Presence] in Serum or Plasma by Probe & target amplification method|Hepatitis C virus RNA [Presence] in Serum or Plasma by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="11281-3"/>
+			<dislplay value="Auer rods [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="11483-5"/>
+			<dislplay value="Varicella zoster virus DNA [Presence] in Unspecified specimen by Probe & target amplification method|Varicella zoster virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="12239-0"/>
+			<dislplay value="Oligosaccharides [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="12454-5"/>
+			<dislplay value="Urate crystals amorphous [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="12598-9"/>
+			<dislplay value="Fat.neutral [Presence] in Stool"/>
+		</concept>
+		<concpet>
+			<code value="12853-8"/>
+			<dislplay value="Purkinje cells Ab [Presence] in Serum by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="13248-0"/>
+			<dislplay value="Hepatitis D virus Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="13532-7"/>
+			<dislplay value="Xanthochromia [Presence] of Cerebral spinal fluid|Xanthochromia of Cerebral spinal fluid Qualitative"/>
+		</concept>
+		<concpet>
+			<code value="13533-5"/>
+			<dislplay value="Acid hemolysis [Presence] of Blood"/>
+		</concept>
+		<concpet>
+			<code value="13578-0"/>
+			<dislplay value="Promazine [Presence] in Serum or Plasma"/>
+		</concept>
+		<concpet>
+			<code value="13655-6"/>
+			<dislplay value="Leukocytes [Presence] in Stool by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="13931-1"/>
+			<dislplay value="Striated muscle Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="13949-3"/>
+			<dislplay value="Cytomegalovirus IgG Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="13950-1"/>
+			<dislplay value="Hepatitis A virus IgM Ab [Presence] in Serum by Immunoassay|Hepatitis A virus IgM Ab [Presence] in Serum or Plasma by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="13951-9"/>
+			<dislplay value="Hepatitis A virus Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="13952-7"/>
+			<dislplay value="Hepatitis B virus core Ab [Presence] in Serum by Immunoassay|Hepatitis B virus core Ab [Presence] in Serum or Plasma by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="13953-5"/>
+			<dislplay value="Hepatitis B virus e Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="14249-7"/>
+			<dislplay value="Purkinje cells Ab [Presence] in Serum by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="14273-7"/>
+			<dislplay value="Reticulin IgA Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="14564-9"/>
+			<dislplay value="Hemoglobin.gastrointestinal [Presence] in Stool --2nd specimen"/>
+		</concept>
+		<concpet>
+			<code value="14565-6"/>
+			<dislplay value="Hemoglobin.gastrointestinal [Presence] in Stool --3rd specimen"/>
+		</concept>
+		<concpet>
+			<code value="15151-4"/>
+			<dislplay value="Aspergillus fumigatus 3 Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="15179-5"/>
+			<dislplay value="Fibrin D-dimer [Presence] in Platelet poor plasma"/>
+		</concept>
+		<concpet>
+			<code value="16128-1"/>
+			<dislplay value="Hepatitis C virus Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="16369-1"/>
+			<dislplay value="Amphetamines [Presence] in Urine by Confirmatory method"/>
+		</concept>
+		<concpet>
+			<code value="16933-4"/>
+			<dislplay value="Hepatitis B virus core Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="16942-5"/>
+			<dislplay value="Herpes simplex virus Ab [Presence] in Serum by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="16955-7"/>
+			<dislplay value="Herpes simplex virus 2 IgG Ab [Presence] in Serum by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="17257-7"/>
+			<dislplay value="Mesothelial cells [Presence] in Body fluid by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="17726-1"/>
+			<dislplay value="Treponema pallidum IgG Ab [Presence] in Serum by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="17783-2"/>
+			<dislplay value="Hemosiderin [Presence] in Urine by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="17850-9"/>
+			<dislplay value="Herpes simplex virus 1 IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="18282-4"/>
+			<dislplay value="Cannabinoids [Presence] in Urine by Screen method"/>
+		</concept>
+		<concpet>
+			<code value="18311-1"/>
+			<dislplay value="Pelger Huet cells [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="18312-9"/>
+			<dislplay value="Platelet satellitism [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="18390-5"/>
+			<dislplay value="Opiates [Presence] in Urine by Confirmatory method"/>
+		</concept>
+		<concpet>
+			<code value="18481-2"/>
+			<dislplay value="Streptococcus pyogenes Ag [Presence] in Throat"/>
+		</concept>
+		<concpet>
+			<code value="19162-7"/>
+			<dislplay value="Varicella zoster virus IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="19252-6"/>
+			<dislplay value="Megakaryocytes/100 leukocytes in Blood"/>
+		</concept>
+		<concpet>
+			<code value="1928-1"/>
+			<dislplay value="Immunoglobulin light chains [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="19429-0"/>
+			<dislplay value="Propoxyphene [Presence] in Urine by Screen method"/>
+		</concept>
+		<concpet>
+			<code value="19554-5"/>
+			<dislplay value="Methamphetamine [Presence] in Urine by Screen method"/>
+		</concept>
+		<concpet>
+			<code value="1977-8"/>
+			<dislplay value="Bilirubin [Presence] in Urine|Bilirubin.total [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="20404-0"/>
+			<dislplay value="Fibronectin.fetal [Presence] in Vaginal fluid"/>
+		</concept>
+		<concpet>
+			<code value="20411-5"/>
+			<dislplay value="Barbiturates [Mass/volume] in Urine by Confirmatory method"/>
+		</concept>
+		<concpet>
+			<code value="20421-4"/>
+			<dislplay value="Barbiturates [Presence] in Serum or Plasma by Screen method"/>
+		</concept>
+		<concpet>
+			<code value="20507-0"/>
+			<dislplay value="Reagin Ab [Presence] in Serum by RPR"/>
+		</concept>
+		<concpet>
+			<code value="2106-3"/>
+			<dislplay value="Choriogonadotropin (pregnancy test) [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="2118-8"/>
+			<dislplay value="Choriogonadotropin (pregnancy test) [Presence] in Serum or Plasma"/>
+		</concept>
+		<concpet>
+			<code value="21233-2"/>
+			<dislplay value="Cryptosporidium sp Ag [Presence] in Stool"/>
+		</concept>
+		<concpet>
+			<code value="21348-8"/>
+			<dislplay value="HTLV 1+2 IgG Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="21518-6"/>
+			<dislplay value="SCL-70 extractable nuclear IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="21523-6"/>
+			<dislplay value="Smith extractable nuclear IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="21560-8"/>
+			<dislplay value="Thermoactinomyces candidus Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="21561-6"/>
+			<dislplay value="Thermoactinomyces sacchari Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="21695-2"/>
+			<dislplay value="HFE gene p.C282Y [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="21696-0"/>
+			<dislplay value="HFE gene p.H63D [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="21747-1"/>
+			<dislplay value="HC gene rearrangements [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="21753-9"/>
+			<dislplay value="TCRG gene rearrangements [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="22239-8"/>
+			<dislplay value="Cytomegalovirus Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="22295-0"/>
+			<dislplay value="Epstein Barr virus early IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="22310-7"/>
+			<dislplay value="Helicobacter pylori Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="22362-8"/>
+			<dislplay value="HTLV 1+2 Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="22415-4"/>
+			<dislplay value="Mumps virus IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="22566-4"/>
+			<dislplay value="Streptococcus pyogenes enzyme Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="22572-2"/>
+			<dislplay value="Saccharomonospora viridis Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="2334-1"/>
+			<dislplay value="Hemoglobin.gastrointestinal [Presence] in Gastric fluid"/>
+		</concept>
+		<concpet>
+			<code value="2335-8"/>
+			<dislplay value="Hemoglobin.gastrointestinal [Presence] in Stool"/>
+		</concept>
+		<concpet>
+			<code value="2349-9"/>
+			<dislplay value="Glucose [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="2350-7"/>
+			<dislplay value="Glucose [Mass/volume] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="23785-9"/>
+			<dislplay value="Trypanosoma cruzi Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="23820-4"/>
+			<dislplay value="Aspergillus flavus Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="23826-1"/>
+			<dislplay value="Bordetella pertussis DNA [Presence] in Unspecified specimen by Probe & target amplification method|Bordetella pertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="23867-5"/>
+			<dislplay value="Hantavirus sin nombre IgG Ab [Titer] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="23868-3"/>
+			<dislplay value="Hantavirus sin nombre IgM Ab [Titer] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="23929-3"/>
+			<dislplay value="Ribonucleoprotein extractable nuclear IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="23980-6"/>
+			<dislplay value="Borrelia burgdorferi IgG Ab [Presence] in Body fluid by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="23982-2"/>
+			<dislplay value="Borrelia burgdorferi IgM Ab [Presence] in Body fluid by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="24015-0"/>
+			<dislplay value="Influenza virus A+B Ag [Presence] in Unspecified specimen"/>
+		</concept>
+		<concpet>
+			<code value="24027-5"/>
+			<dislplay value="Streptococcus pneumoniae Ag [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="24111-7"/>
+			<dislplay value="Neisseria gonorrhoeae DNA [Presence] in Unspecified specimen by Probe & target amplification method|Neisseria gonorrhoeae DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="24113-3"/>
+			<dislplay value="Hepatitis B virus core IgM Ab [Presence] in Serum by Immunoassay|Hepatitis B virus core IgM Ab [Presence] in Serum or Plasma by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="24114-1"/>
+			<dislplay value="Epstein Barr virus capsid IgG Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="24115-8"/>
+			<dislplay value="Epstein Barr virus capsid IgM Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="24119-0"/>
+			<dislplay value="Cytomegalovirus IgM Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="24312-1"/>
+			<dislplay value="Treponema pallidum Ab [Presence] in Serum by Agglutination"/>
+		</concept>
+		<concpet>
+			<code value="2432-3"/>
+			<dislplay value="Homogentisate [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="2474-5"/>
+			<dislplay value="Indicans [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="2514-8"/>
+			<dislplay value="Ketones [Presence] in Urine by Test strip"/>
+		</concept>
+		<concpet>
+			<code value="25514-1"/>
+			<dislplay value="Rubella virus IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="2606-2"/>
+			<dislplay value="Melanin [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="26620-5"/>
+			<dislplay value="Hantavirus IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="26960-5"/>
+			<dislplay value="Trypsin [Presence] in Stool"/>
+		</concept>
+		<concpet>
+			<code value="27270-8"/>
+			<dislplay value="4-Hydroxyphenylacetate [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="27420-9"/>
+			<dislplay value="Phosphatidylglycerol [Units/volume] in Amniotic fluid"/>
+		</concept>
+		<concpet>
+			<code value="2761-5"/>
+			<dislplay value="Phenylketones [Presence] in Blood"/>
+		</concept>
+		<concpet>
+			<code value="28005-7"/>
+			<dislplay value="MTHFR gene p.C677T [Presence] in Blood or Tissue by Molecular genetics method|MTHFR gene c.677C>T [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="28060-2"/>
+			<dislplay value="MTHFR gene p.A1298C [Presence] in Blood or Tissue by Molecular genetics method|MTHFR gene c.1298A>C [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="28067-7"/>
+			<dislplay value="Hemoglobin F [Presence] in Amniotic fluid"/>
+		</concept>
+		<concpet>
+			<code value="2887-8"/>
+			<dislplay value="Protein [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="29257-3"/>
+			<dislplay value="Mycoplasma pneumoniae DNA [Presence] in Unspecified specimen by Probe & target amplification method|Mycoplasma pneumoniae DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="29495-9"/>
+			<dislplay value="Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe & target amplification method|Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="29497-5"/>
+			<dislplay value="Platelet associated IgG Ab [Presence] in Blood by Flow cytometry (FC)"/>
+		</concept>
+		<concpet>
+			<code value="29498-3"/>
+			<dislplay value="Platelet associated IgM Ab [Presence] in Blood by Flow cytometry (FC)"/>
+		</concept>
+		<concpet>
+			<code value="29591-5"/>
+			<dislplay value="Enterovirus RNA [Presence] in Unspecified specimen by Probe & target amplification method|Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="29610-3"/>
+			<dislplay value="Hepatitis B virus DNA [Presence] in Serum or Plasma by Probe & target amplification method|Hepatitis B virus DNA [Presence] in Serum or Plasma by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="29672-3"/>
+			<dislplay value="Bordetella pertussis IgA Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="29673-1"/>
+			<dislplay value="Bordetella pertussis IgM Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="29674-9"/>
+			<dislplay value="Bordetella pertussis IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="29723-4"/>
+			<dislplay value="Bordetella parapertussis DNA [Presence] in Unspecified specimen by Probe & target amplification method|Bordetella parapertussis DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="29771-3"/>
+			<dislplay value="Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"/>
+		</concept>
+		<concpet>
+			<code value="29778-8"/>
+			<dislplay value="West Nile virus IgM Ab [Presence] in Unspecified specimen by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="29891-9"/>
+			<dislplay value="Helicobacter pylori [Presence] in Stomach by urea breath test"/>
+		</concept>
+		<concpet>
+			<code value="29899-2"/>
+			<dislplay value="Gamma globulin [Presence] in 24 hour Urine"/>
+		</concept>
+		<concpet>
+			<code value="29901-6"/>
+			<dislplay value="HTLV 1+2 Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="29908-1"/>
+			<dislplay value="Parainfluenza virus 1 RNA [Presence] in Unspecified specimen by Probe & target amplification method|Parainfluenza virus 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="29909-9"/>
+			<dislplay value="Parainfluenza virus 2 RNA [Presence] in Unspecified specimen by Probe & target amplification method|Parainfluenza virus 2 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="29910-7"/>
+			<dislplay value="Parainfluenza virus 3 RNA [Presence] in Unspecified specimen by Probe & target amplification method|Parainfluenza virus 3 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="29945-3"/>
+			<dislplay value="Alpha 1 globulin [Presence] in 24 hour Urine by Electrophoresis"/>
+		</concept>
+		<concpet>
+			<code value="29947-9"/>
+			<dislplay value="Alpha 2 globulin [Presence] in 24 hour Urine by Electrophoresis"/>
+		</concept>
+		<concpet>
+			<code value="29950-3"/>
+			<dislplay value="Nuclear IgG Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="29951-1"/>
+			<dislplay value="Beta globulin [Presence] in 24 hour Urine"/>
+		</concept>
+		<concpet>
+			<code value="29990-9"/>
+			<dislplay value="Spermatozoa [Presence] in Semen by Light microscopy --post vasectomy"/>
+		</concept>
+		<concpet>
+			<code value="29994-1"/>
+			<dislplay value="Basement membrane IgG Ab [Presence] in Serum by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="29995-8"/>
+			<dislplay value="Basement membrane IgA Ab [Presence] in Serum by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="30036-8"/>
+			<dislplay value="Aspergillus fumigatus 2 Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="30167-1"/>
+			<dislplay value="Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA [Presence] in Cervix by Probe & signal amplification method|Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+68 DNA [Presence] in Cervix by Probe and signal amplification method"/>
+		</concept>
+		<concpet>
+			<code value="30219-0"/>
+			<dislplay value="Coxsackievirus A9 Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="30246-3"/>
+			<dislplay value="Cytomegalovirus DNA [Presence] in Serum or Plasma by Probe & target amplification method|Cytomegalovirus DNA [Presence] in Serum or Plasma by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="30361-0"/>
+			<dislplay value="HIV 2 Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="30557-3"/>
+			<dislplay value="Smooth muscle IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="30577-1"/>
+			<dislplay value="2-methyl,3-hydroxybutyrate (C5-OH) [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="31153-0"/>
+			<dislplay value="Coccidioides sp Ab [Presence] in Unspecified specimen by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="31201-7"/>
+			<dislplay value="HIV 1+2 Ab [Presence] in Serum by Immunoassay|HIV 1+2 Ab [Presence] in Serum or Plasma by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="31539-0"/>
+			<dislplay value="Neuronal nuclear type 2 Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="31545-7"/>
+			<dislplay value="Nuclear IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="31588-7"/>
+			<dislplay value="Ribonucleoprotein extractable nuclear IgG Ab [Units/volume] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="31625-7"/>
+			<dislplay value="Sjogrens syndrome-A extractable nuclear IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="31626-5"/>
+			<dislplay value="Sjogrens syndrome-B extractable nuclear IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="31627-3"/>
+			<dislplay value="Smith extractable nuclear Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="31788-3"/>
+			<dislplay value="Cryptococcus sp Ag [Presence] in Cerebral spinal fluid"/>
+		</concept>
+		<concpet>
+			<code value="31843-6"/>
+			<dislplay value="Helicobacter pylori Ag [Presence] in Stool"/>
+		</concept>
+		<concpet>
+			<code value="31859-2"/>
+			<dislplay value="Influenza virus A Ag [Presence] in Unspecified specimen"/>
+		</concept>
+		<concpet>
+			<code value="31864-2"/>
+			<dislplay value="Influenza virus B Ag [Presence] in Unspecified specimen"/>
+		</concept>
+		<concpet>
+			<code value="31969-9"/>
+			<dislplay value="Streptococcus pneumoniae Ag [Presence] in Unspecified specimen"/>
+		</concept>
+		<concpet>
+			<code value="32131-5"/>
+			<dislplay value="Hantavirus IgM Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="32356-8"/>
+			<dislplay value="Yeast [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="32358-4"/>
+			<dislplay value="Protein fractions.oligoclonal bands [Presence] in Cerebral spinal fluid"/>
+		</concept>
+		<concpet>
+			<code value="3241-7"/>
+			<dislplay value="Coagulation factor XIII coagulum dissolution at 24H [Presence] in Platelet poor plasma by Coagulation assay|Coagulation factor XIII coagulum dissolution at 24 hours [Presence] in Platelet poor plasma by Coagulation assay"/>
+		</concept>
+		<concpet>
+			<code value="32637-1"/>
+			<dislplay value="Urease [Presence] in Tissue"/>
+		</concept>
+		<concpet>
+			<code value="32765-0"/>
+			<dislplay value="Yeast [Presence] in Unspecified specimen by Wet preparation"/>
+		</concept>
+		<concpet>
+			<code value="32789-0"/>
+			<dislplay value="Viscosity of Semen Qualitative"/>
+		</concept>
+		<concpet>
+			<code value="33031-6"/>
+			<dislplay value="Sodium urate crystals [#/area] in Urine sediment by Microscopy low power field"/>
+		</concept>
+		<concpet>
+			<code value="33032-4"/>
+			<dislplay value="Spermatozoa Progressive [Presence] in Semen"/>
+		</concept>
+		<concpet>
+			<code value="33291-6"/>
+			<dislplay value="Herpes simplex virus 1 IgG Ab [Presence] in Serum by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="33422-7"/>
+			<dislplay value="Amphiphysin Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="3349-8"/>
+			<dislplay value="Amphetamines [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="33615-6"/>
+			<dislplay value="Neuronal nuclear type 1 Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="3376-1"/>
+			<dislplay value="Barbiturates [Presence] in Serum, Plasma or Blood"/>
+		</concept>
+		<concpet>
+			<code value="3377-9"/>
+			<dislplay value="Barbiturates [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="33861-6"/>
+			<dislplay value="Starch granules [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="3390-2"/>
+			<dislplay value="Benzodiazepines [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="33923-4"/>
+			<dislplay value="Hemosiderin [Presence] in Unspecified specimen"/>
+		</concept>
+		<concpet>
+			<code value="33930-9"/>
+			<dislplay value="Lupus anticoagulant neutralization hexagonal phase phospholipid [Presence] in Platelet poor plasma|aPTT W excess hexagonal phospholipid (StaClot LA confirm)"/>
+		</concept>
+		<concpet>
+			<code value="3414-0"/>
+			<dislplay value="Buprenorphine [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="34469-7"/>
+			<dislplay value="Leukocytes [Presence] in Bile fluid by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="34470-5"/>
+			<dislplay value="Giardia lamblia Ag [Presence] in Bile fluid"/>
+		</concept>
+		<concpet>
+			<code value="34471-3"/>
+			<dislplay value="Calcium bilirubinate crystals [Presence] in Bile fluid by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="34472-1"/>
+			<dislplay value="Cholesterol crystals [Presence] in Bile fluid by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="34473-9"/>
+			<dislplay value="Neutrophils.vacuolated+Segmented [Presence] in Blood"/>
+		</concept>
+		<concpet>
+			<code value="34487-9"/>
+			<dislplay value="Influenza virus A RNA [Presence] in Unspecified specimen by Probe & target amplification method|Influenza virus A RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="34701-3"/>
+			<dislplay value="Ab [Presence] in Serum|Platelet Ab.heparin induced [Presence] in Serum|Heparin induced platelet Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="34706-2"/>
+			<dislplay value="CFTR gene p.3199 del6 [Presence] in Blood or Tissue by Molecular genetics method|CFTR gene c.3199del6 [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="34713-8"/>
+			<dislplay value="Clostridium difficile toxin A+B [Presence] in Stool"/>
+		</concept>
+		<concpet>
+			<code value="34729-4"/>
+			<dislplay value="CFTR gene p.R117H+5T variant [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="34892-0"/>
+			<dislplay value="West Nile virus RNA [Presence] in Unspecified specimen by Probe & target amplification method|West Nile virus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="35270-8"/>
+			<dislplay value="Candida sp Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="35271-6"/>
+			<dislplay value="Candida sp Ag [Presence] in Serum by Latex agglutination"/>
+		</concept>
+		<concpet>
+			<code value="35272-4"/>
+			<dislplay value="Centromere IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="35277-3"/>
+			<dislplay value="Myocardium IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="35284-9"/>
+			<dislplay value="Histone IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="35471-2"/>
+			<dislplay value="HLA Ab [Presence]"/>
+		</concept>
+		<concpet>
+			<code value="35492-8"/>
+			<dislplay value="Methicillin resistant Staphylococcus aureus (MRSA) DNA [Presence] by Probe & target amplification method|Methicillin resistant Staphylococcus aureus (MRSA) DNA [Presence] by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="35503-2"/>
+			<dislplay value="Arterial patency Wrist artery --pre arterial puncture"/>
+		</concept>
+		<concpet>
+			<code value="35729-3"/>
+			<dislplay value="Chlamydia sp DNA [Presence] in Unspecified specimen by Probe & target amplification method|Chlamydia sp DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="3773-9"/>
+			<dislplay value="Methadone [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="38380-2"/>
+			<dislplay value="HFE gene p.S65C [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="3879-4"/>
+			<dislplay value="Opiates [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="38917-1"/>
+			<dislplay value="Human metapneumovirus RNA [Presence] in Unspecified specimen by Probe & target amplification method|Human metapneumovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="3936-2"/>
+			<dislplay value="Phencyclidine [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="39528-5"/>
+			<dislplay value="Adenovirus DNA [Presence] in Unspecified specimen by Probe & target amplification method|Adenovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="4027-9"/>
+			<dislplay value="Secobarbital [Presence] in Serum or Plasma"/>
+		</concept>
+		<concpet>
+			<code value="40473-1"/>
+			<dislplay value="Thermoactinomyces vulgaris 1 Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="40703-1"/>
+			<dislplay value="Lactoferrin [Presence] in Stool by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="40729-6"/>
+			<dislplay value="Herpes simplex virus IgM Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="4073-3"/>
+			<dislplay value="Tricyclic antidepressants [Presence] in Serum or Plasma"/>
+		</concept>
+		<concpet>
+			<code value="4093-1"/>
+			<dislplay value="Verapamil [Presence] in Serum or Plasma"/>
+		</concept>
+		<concpet>
+			<code value="40982-1"/>
+			<dislplay value="Influenza virus B RNA [Presence] in Unspecified specimen by Probe & target amplification method|Influenza virus B RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="40988-8"/>
+			<dislplay value="Respiratory syncytial virus RNA [Presence] in Unspecified specimen by Probe & target amplification method|Respiratory syncytial virus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="40991-2"/>
+			<dislplay value="Rhinovirus+Enterovirus RNA [Presence] in Unspecified specimen by Probe & target amplification method|Rhinovirus+Enterovirus RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="41005-0"/>
+			<dislplay value="Human coronavirus NL63 RNA [Presence] in Unspecified specimen by Probe & target amplification method|Human coronavirus NL63 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="41010-0"/>
+			<dislplay value="Parainfluenza virus 4 RNA [Presence] in Unspecified specimen by Probe & target amplification method|Parainfluenza virus 4 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="41400-3"/>
+			<dislplay value="Yersinia sp IgA Ab [Presence] in Serum by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="41401-1"/>
+			<dislplay value="Yersinia sp IgG Ab [Presence] in Serum by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="42241-0"/>
+			<dislplay value="Cocaine+Benzoylecgonine [Presence] in Urine by Screen method"/>
+		</concept>
+		<concpet>
+			<code value="42481-2"/>
+			<dislplay value="Human papilloma virus 6+11+42+43+44 DNA [Presence] in Cervix by Probe & signal amplification method|Human papilloma virus 6+11+42+43+44 DNA [Presence] in Cervix by Probe and signal amplification method"/>
+		</concept>
+		<concpet>
+			<code value="42714-6"/>
+			<dislplay value="t(9,22)(ABL1,BCR) p210 Translocation [Presence] in Blood or Tissue by Molecular genetics method|t(9;22)(q34.1;q11)(ABL1,BCR) b2a2+b3a2 fusion transcript [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="42938-1"/>
+			<dislplay value="CFTR gene allele 1 [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="42939-9"/>
+			<dislplay value="CFTR gene allele 2 [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="43249-2"/>
+			<dislplay value="X ray dye crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="43399-5"/>
+			<dislplay value="JAK2 gene p.V617F [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="43597-4"/>
+			<dislplay value="Inner Ear 68kD Ab [Presence] in Serum or Plasma by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="44099-0"/>
+			<dislplay value="Galactomannan Ag [Presence] in Serum or Plasma by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="44332-5"/>
+			<dislplay value="Jo-1 extractable nuclear IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="44754-0"/>
+			<dislplay value="Hepatitis D virus Ag [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="44877-9"/>
+			<dislplay value="Insulin dependent diabetes mellitus [Presence]"/>
+		</concept>
+		<concpet>
+			<code value="44938-9"/>
+			<dislplay value="Hepatitis D virus IgM Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="45153-4"/>
+			<dislplay value="HLA Ab in Serum"/>
+		</concept>
+		<concpet>
+			<code value="4579-9"/>
+			<dislplay value="Hemoglobin F [Presence] in Blood"/>
+		</concept>
+		<concpet>
+			<code value="4631-8"/>
+			<dislplay value="Hemoglobin F [Presence] in Stool by Apt-Downey method"/>
+		</concept>
+		<concpet>
+			<code value="4639-1"/>
+			<dislplay value="Unstable Hemoglobin [Presence] in Red Blood Cells"/>
+		</concept>
+		<concpet>
+			<code value="46740-7"/>
+			<dislplay value="Hemoglobin disorders newborn screen interpretation"/>
+		</concept>
+		<concpet>
+			<code value="46771-2"/>
+			<dislplay value="Classical galactosemia newborn screen interpretation"/>
+		</concept>
+		<concpet>
+			<code value="47238-1"/>
+			<dislplay value="Treponema pallidum IgG Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="47251-4"/>
+			<dislplay value="BK virus DNA [Presence] in Unspecified specimen by Probe & target amplification method|BK virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="49524-2"/>
+			<dislplay value="Influenza virus A H3 RNA [Presence] in Unspecified specimen by Probe & target amplification method|Influenza virus A H3 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="49541-6"/>
+			<dislplay value="Fasting status [Presence] - Reported|Fasting status - Reported"/>
+		</concept>
+		<concpet>
+			<code value="49795-8"/>
+			<dislplay value="t(9,22)(ABL1,BCR) p190 Translocation [Presence] in Blood or Tissue by Molecular genetics method|t(9;22)(q34.1;q11)(ABL1,BCR) e1a2 fusion transcript [Presence] in Blood or Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="5000-5"/>
+			<dislplay value="Cytomegalovirus DNA [Presence] in Unspecified specimen by Probe & target amplification method|Cytomegalovirus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="5005-4"/>
+			<dislplay value="Epstein Barr virus DNA [Presence] in Unspecified specimen by Probe & target amplification method|Epstein Barr virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="5010-4"/>
+			<dislplay value="Hepatitis C virus RNA [Presence] in Blood by Probe & target amplification method|Hepatitis C virus RNA [Presence] in Blood by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="5014-6"/>
+			<dislplay value="Herpes simplex virus DNA [Presence] in Unspecified specimen by Probe & target amplification method|Herpes simplex virus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="5018-7"/>
+			<dislplay value="HIV 1 RNA [Presence] in Unspecified specimen by Probe & target amplification method|HIV 1 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="5020-3"/>
+			<dislplay value="Legionella sp rRNA [Presence] in Unspecified specimen by DNA probe"/>
+		</concept>
+		<concpet>
+			<code value="5028-6"/>
+			<dislplay value="Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by DNA probe"/>
+		</concept>
+		<concpet>
+			<code value="50322-7"/>
+			<dislplay value="MLH-1 Ag [Presence] in Tissue by Immune stain"/>
+		</concept>
+		<concpet>
+			<code value="50323-5"/>
+			<dislplay value="MSH-2 Ag [Presence] in Tissue by Immune stain"/>
+		</concept>
+		<concpet>
+			<code value="50324-3"/>
+			<dislplay value="MSH-6 Ag [Presence] in Tissue by Immune stain"/>
+		</concept>
+		<concpet>
+			<code value="50328-4"/>
+			<dislplay value="PMS-2 Ag [Presence] in Tissue by Immune stain"/>
+		</concept>
+		<concpet>
+			<code value="50385-4"/>
+			<dislplay value="Alpha-1-Microglobulin.placental [Presence] in Vaginal fluid"/>
+		</concept>
+		<concpet>
+			<code value="5052-6"/>
+			<dislplay value="Aspergillus sp Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="5058-3"/>
+			<dislplay value="Blastomyces dermatitidis Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="51006-5"/>
+			<dislplay value="Direct antiglobulin test.unspecified reagent [Presence] on Red Blood Cells"/>
+		</concept>
+		<concpet>
+			<code value="5117-7"/>
+			<dislplay value="Cryoglobulin [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="5156-5"/>
+			<dislplay value="Epstein Barr virus nuclear IgG Ab [Presence] in Serum by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="5195-3"/>
+			<dislplay value="Hepatitis B virus surface Ag [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="5196-1"/>
+			<dislplay value="Hepatitis B virus surface Ag [Presence] in Serum by Immunoassay|Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="5199-5"/>
+			<dislplay value="Hepatitis C virus Ab [Presence] in Serum by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="5213-4"/>
+			<dislplay value="Heterophile Ab [Presence] in Serum by Latex agglutination"/>
+		</concept>
+		<concpet>
+			<code value="5218-3"/>
+			<dislplay value="Histoplasma capsulatum Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="5290-2"/>
+			<dislplay value="Reagin Ab [Presence] in Cerebral spinal fluid by VDRL"/>
+		</concept>
+		<concpet>
+			<code value="5292-8"/>
+			<dislplay value="Reagin Ab [Presence] in Serum by VDRL"/>
+		</concept>
+		<concpet>
+			<code value="5297-7"/>
+			<dislplay value="Rheumatoid factor [Presence] in Serum by Latex agglutination"/>
+		</concept>
+		<concpet>
+			<code value="5358-7"/>
+			<dislplay value="Smooth muscle Ab [Titer] in Serum by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="5393-4"/>
+			<dislplay value="Treponema pallidum Ab [Presence] in Serum by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="54067-4"/>
+			<dislplay value="Clostridium difficile toxin genes [Presence] in Stool by Probe & target amplification method|Clostridium difficile toxin genes [Presence] in Stool by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="54142-5"/>
+			<dislplay value="Candida sp DNA [Presence] in Vaginal fluid by Probe & signal amplification method|Candida sp DNA [Presence] in Vaginal fluid by Probe and signal amplification method"/>
+		</concept>
+		<concpet>
+			<code value="54143-3"/>
+			<dislplay value="Gardnerella vaginalis DNA [Presence] in Vaginal fluid by Probe & signal amplification method|Gardnerella vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method"/>
+		</concept>
+		<concpet>
+			<code value="54144-1"/>
+			<dislplay value="Trichomonas vaginalis DNA [Presence] in Vaginal fluid by Probe & signal amplification method|Trichomonas vaginalis DNA [Presence] in Vaginal fluid by Probe and signal amplification method"/>
+		</concept>
+		<concpet>
+			<code value="54905-5"/>
+			<dislplay value="Norovirus 1 RNA [Presence] in Stool by Probe & target amplification method|Norovirus 1 RNA [Presence] in Stool by Probe and target amplification method|Norovirus Genogroup I RNA [Presence] in Stool by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="54906-3"/>
+			<dislplay value="Norovirus 2 RNA [Presence] in Stool by Probe & target amplification method|Norovirus 2 RNA [Presence] in Stool by Probe and target amplification method|Norovirus Genogroup II RNA [Presence] in Stool by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="550-4"/>
+			<dislplay value="Bordetella pertussis Ag [Presence] in Unspecified specimen by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="55464-2"/>
+			<dislplay value="Influenza virus A swine origin RNA [Presence] in Unspecified specimen by Probe & target amplification method|Influenza virus A swine origin RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="55465-9"/>
+			<dislplay value="Influenza virus A H1 2009 pandemic RNA [Presence] in Unspecified specimen by Probe & target amplification method|Influenza virus A H1 2009 pandemic RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="5766-1"/>
+			<dislplay value="Ammonium urate crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5770-3"/>
+			<dislplay value="Bilirubin [Presence] in Urine by Test strip|Bilirubin.total [Presence] in Urine by Test strip"/>
+		</concept>
+		<concpet>
+			<code value="5771-1"/>
+			<dislplay value="Bilirubin crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5773-7"/>
+			<dislplay value="Calcium carbonate crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5774-5"/>
+			<dislplay value="Calcium oxalate crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5775-2"/>
+			<dislplay value="Calcium phosphate crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5777-8"/>
+			<dislplay value="Cholesterol crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5783-6"/>
+			<dislplay value="Unidentified crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5784-4"/>
+			<dislplay value="Cystine crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="57901-1"/>
+			<dislplay value="Clostridium difficile glutamate dehydrogenase [Presence] in Stool"/>
+		</concept>
+		<concpet>
+			<code value="5794-3"/>
+			<dislplay value="Hemoglobin [Presence] in Urine by Test strip"/>
+		</concept>
+		<concpet>
+			<code value="5795-0"/>
+			<dislplay value="Hippurate crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5799-2"/>
+			<dislplay value="Leukocyte esterase [Presence] in Urine by Test strip"/>
+		</concept>
+		<concpet>
+			<code value="58012-6"/>
+			<dislplay value="Natalizumab Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="5802-4"/>
+			<dislplay value="Nitrite [Presence] in Urine by Test strip"/>
+		</concept>
+		<concpet>
+			<code value="5809-9"/>
+			<dislplay value="Reducing substances [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="5813-1"/>
+			<dislplay value="Trichomonas vaginalis [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5814-9"/>
+			<dislplay value="Triple phosphate crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5815-6"/>
+			<dislplay value="Tyrosine crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="5817-2"/>
+			<dislplay value="Urate crystals [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="58415-1"/>
+			<dislplay value="BRAF gene p.V600E [Presence] in Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="58416-9"/>
+			<dislplay value="MLH1 gene methylation [Presence] in Tissue by Molecular genetics method"/>
+		</concept>
+		<concpet>
+			<code value="5846-1"/>
+			<dislplay value="Herpes simplex virus 1 Ag [Presence] in Unspecified specimen by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="5849-5"/>
+			<dislplay value="Herpes simplex virus 2 Ag [Presence] in Unspecified specimen by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="5863-6"/>
+			<dislplay value="Influenza virus A Ag [Presence] in Unspecified specimen by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="5867-7"/>
+			<dislplay value="Influenza virus B Ag [Presence] in Unspecified specimen by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="58751-9"/>
+			<dislplay value="Treponema pallidum IgG Ab [Presence] in Cerebral spinal fluid by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="5876-8"/>
+			<dislplay value="Respiratory syncytial virus Ag [Presence] in Unspecified specimen by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="5880-0"/>
+			<dislplay value="Rotavirus Ag [Presence] in Stool by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="588-4"/>
+			<dislplay value="Legionella pneumophila Ag [Presence] in Unspecified specimen by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="59262-6"/>
+			<dislplay value="Leukocyte esterase [Presence] in Cerebral spinal fluid by Test strip"/>
+		</concept>
+		<concpet>
+			<code value="59420-0"/>
+			<dislplay value="Human papilloma virus16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe & signal amplification method|Human papilloma virus 16+18+31+33+35+39+45+51+52+56+58+59+66+68 DNA [Presence] in Cervix by Probe and signal amplification method"/>
+		</concept>
+		<concpet>
+			<code value="59838-3"/>
+			<dislplay value="Cytomegalovirus Ab [Presence] in Serum or Plasma by Latex agglutination"/>
+		</concept>
+		<concpet>
+			<code value="59839-1"/>
+			<dislplay value="Urate crystals [Presence] in Tissue by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="60340-7"/>
+			<dislplay value="Crystals.amorphous [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="61404-0"/>
+			<dislplay value="Staphylococcus aureus DNA [Presence] in Unspecified specimen by Probe & target amplification method|Staphylococcus aureus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="62423-9"/>
+			<dislplay value="Human coronavirus HKU1 RNA [Presence] in Unspecified specimen by Probe & target amplification method|Human coronavirus HKU1 RNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="62862-8"/>
+			<dislplay value="Microsatellite instability [Presence] in Tissue by Immune stain"/>
+		</concept>
+		<concpet>
+			<code value="6306-5"/>
+			<dislplay value="Adenovirus C(40)+B(41) Ag [Presence] in Stool by Immunoassay|Adenovirus 40+41 Ag [Presence] in Stool by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="6320-6"/>
+			<dislplay value="Borrelia burgdorferi IgG Ab [Presence] in Serum by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="6321-4"/>
+			<dislplay value="Borrelia burgdorferi IgM Ab [Presence] in Serum by Immunoblot (IB)"/>
+		</concept>
+		<concpet>
+			<code value="63379-2"/>
+			<dislplay value="DNA double strand IgG Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="6355-2"/>
+			<dislplay value="Chlamydia trachomatis Ag [Presence] in Unspecified specimen by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="63558-1"/>
+			<dislplay value="HLA-DQB1*0602 [Presence]"/>
+		</concept>
+		<concpet>
+			<code value="6362-8"/>
+			<dislplay value="Clostridium difficile toxin A+B [Presence] in Stool by Cytotoxin tissue culture assay"/>
+		</concept>
+		<concpet>
+			<code value="6443-6"/>
+			<dislplay value="Lactoferrin [Presence] in Stool by Latex agglutination"/>
+		</concept>
+		<concpet>
+			<code value="6447-7"/>
+			<dislplay value="Legionella pneumophila Ag [Presence] in Urine by Immunoassay"/>
+		</concept>
+		<concpet>
+			<code value="6733-0"/>
+			<dislplay value="Pigeon serum Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="6808-0"/>
+			<dislplay value="Aspergillus fumigatus 1 Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="6809-8"/>
+			<dislplay value="Aspergillus fumigatus 6 Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="6810-6"/>
+			<dislplay value="Aureobasidium pullulans Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="6818-9"/>
+			<dislplay value="Saccharopolyspora rectivirgula Ab [Presence] in Serum by Immune diffusion (ID)"/>
+		</concept>
+		<concpet>
+			<code value="700-5"/>
+			<dislplay value="Pneumocystis jiroveci Ag [Presence] in Unspecified specimen by Immunofluorescence"/>
+		</concept>
+		<concpet>
+			<code value="702-1"/>
+			<dislplay value="Anisocytosis [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="703-9"/>
+			<dislplay value="Basophilic stippling [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="716-1"/>
+			<dislplay value="Heinz bodies [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="728-6"/>
+			<dislplay value="Hypochromia [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="733-6"/>
+			<dislplay value="Lymphocytes Variant [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="738-5"/>
+			<dislplay value="Macrocytes [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="741-9"/>
+			<dislplay value="Microcytes [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="765-8"/>
+			<dislplay value="Neutrophils.hypersegmented [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="774-0"/>
+			<dislplay value="Ovalocytes [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7789-1"/>
+			<dislplay value="Acanthocytes [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7790-9"/>
+			<dislplay value="Burr cells [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7791-7"/>
+			<dislplay value="Dacrocytes [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7792-5"/>
+			<dislplay value="Dohle body [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7793-3"/>
+			<dislplay value="Howell-Jolly bodies [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7795-8"/>
+			<dislplay value="Pappenheimer bodies [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7796-6"/>
+			<dislplay value="Platelet clump [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7797-4"/>
+			<dislplay value="Rouleaux [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7798-2"/>
+			<dislplay value="Smudge cells [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="779-9"/>
+			<dislplay value="Poikilocytosis [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="7918-6"/>
+			<dislplay value="HIV 1+2 Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="800-3"/>
+			<dislplay value="Schistocytes [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="801-1"/>
+			<dislplay value="Sickle cells [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="802-9"/>
+			<dislplay value="Spherocytes [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="803-7"/>
+			<dislplay value="Toxic granules [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="8041-6"/>
+			<dislplay value="Treponema pallidum Ab [Presence] in Serum by Hemagglutination"/>
+		</concept>
+		<concpet>
+			<code value="8061-4"/>
+			<dislplay value="Nuclear Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="8091-1"/>
+			<dislplay value="Ribonucleoprotein extractable nuclear Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="8092-9"/>
+			<dislplay value="SCL-70 extractable nuclear Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="8093-7"/>
+			<dislplay value="Sjogrens syndrome-A extractable nuclear Ab [Presence] in Serum"/>
+		</concept>
+		<concpet>
+			<code value="8247-9"/>
+			<dislplay value="Mucus [Presence] in Urine sediment by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="890-4"/>
+			<dislplay value="Blood group antibody screen [Presence] in Serum or Plasma"/>
+		</concept>
+		<concpet>
+			<code value="9308-8"/>
+			<dislplay value="2,4-Dinitrophenylhydrazine reacting substances [Presence] in Urine"/>
+		</concept>
+		<concpet>
+			<code value="9317-9"/>
+			<dislplay value="Platelet adequacy [Presence] in Blood by Light microscopy"/>
+		</concept>
+		<concpet>
+			<code value="9537-2"/>
+			<dislplay value="Intrinsic factor blocking Ab [Presence] in Serum by Radioimmunoassay (RIA)"/>
+		</concept>
+		<concpet>
+			<code value="9571-1"/>
+			<dislplay value="Parvovirus B19 DNA [Presence] in Unspecified specimen by Probe & target amplification method|Parvovirus B19 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+		</concept>
+		<concpet>
+			<code value="9644-6"/>
+			<dislplay value="Cystine [Presence] in Urine"/>
+		</concept>
+    </include>
+  </compose>
+</ValueSet>

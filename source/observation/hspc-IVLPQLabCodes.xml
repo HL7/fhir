@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="hspc-standardlabs-ivlpq"/>
+  <name value="HSPC Interval Physical Quantity Labs"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+    <system value="url"/>
+    <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="Ordinal LOINC codes used in HSPC"/>
+  <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <status value="draft"/>
+  <date value="2015-02-20T13:44:49+11:00"/>
+    <compose>
+		<include>
+			<system value="http://loinc.org"/>
+			<filter>
+				<property value="Scale"/>
+				 <value value="OrdQn"/>
+			</filter>
+		</include>
+    </compose>
+</ValueSet>
