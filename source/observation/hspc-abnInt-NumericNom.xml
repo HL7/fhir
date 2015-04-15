@@ -45,16 +45,5 @@
 	  </concept>
     </include>
   </compose>
-  <define>
-	  <concept>
-		  <code value="Higher than technical"/>
-		  <display vlaue="Higher than technical"/>
-		  <defninition value="The results were lower than the technical limits of the test procedure"/>
-	  </concept>
-	  <concept>
-		  <code value="Lower than technical"/>
-		  <display vlaue="Lower than technical"/>
-		  <definition value="The results were higher than the technical limits of the test procedure"/>
-	  </concept>
   </define>
 </ValueSet>
