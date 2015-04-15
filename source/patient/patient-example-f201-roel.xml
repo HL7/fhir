@@ -65,7 +65,7 @@
     <multipleBirthBoolean value="false"/>
     <photo>
         <contentType value="image/jpeg" />
-        <url value="binary/@f006"/>
+        <url value="Binary/f006"/>
     </photo>
     <contact>
         <!--Contact of the patient-->
