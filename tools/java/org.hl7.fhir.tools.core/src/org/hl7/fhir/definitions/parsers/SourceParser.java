@@ -36,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -122,22 +121,22 @@ import org.w3c.dom.Element;
  */
 public class SourceParser {
 
-  private Logger logger;
-	private IniFile ini;
-	private Definitions definitions;
-  private String srcDir;
-  private String dstDir;
-	private String sndBoxDir;
-	private String imgDir;
-	private String termDir;
+  private final Logger logger;
+	private final IniFile ini;
+	private final Definitions definitions;
+	private final String srcDir;
+	private final String dstDir;
+	private final String sndBoxDir;
+	private final String imgDir;
+	private final String termDir;
 	public String dtDir;
-	private String rootDir;
-	private BindingNameRegistry registry;
-	private String version;
-	private WorkerContext context; 
-	private Calendar genDate;
-  private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
-  private PageProcessor page;
+	private final String rootDir;
+	private final BindingNameRegistry registry;
+	private final String version;
+	private final WorkerContext context;
+	private final Calendar genDate;
+	private final Map<String, StructureDefinition> extensionDefinitions;
+	private final PageProcessor page;
 
 	public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, WorkerContext context, Calendar genDate, Map<String, StructureDefinition> extensionDefinitions, PageProcessor page) {
 		this.logger = logger;
@@ -305,10 +304,12 @@ public class SourceParser {
 
   private void loadDictionaries() {
     String[] dicts = ini.getPropertyNames("dictionaries");
-    for (String dict : dicts) {
-     String[] s = ini.getStringProperty("dictionaries", dict).split("\\:");
-     definitions.getDictionaries().put(dict, new Dictionary(dict, s[1], s[0]));
-    }   
+    if (dicts != null) {
+        for (String dict : dicts) {
+            String[] s = ini.getStringProperty("dictionaries", dict).split("\\:");
+            definitions.getDictionaries().put(dict, new Dictionary(dict, s[1], s[0]));
+        }
+    }
   }
 
 
