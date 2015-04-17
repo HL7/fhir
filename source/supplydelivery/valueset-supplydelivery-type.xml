@@ -1,0 +1,27 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Supply Item Type"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="This value sets refers to a specific supply item"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/supply-item-type"/>
+    <caseSensitive value="true"/>    
+    <concept>
+      <code value="medication"/>
+      <display value="Medication"/>
+      <definition value="Supply is a kind of medication."/>
+    </concept>
+    <concept>
+      <code value="device"/>
+      <display value="Device"/>
+      <definition value="What is supplied (or requested) is a device"/>
+    </concept>
+  </define>
+</ValueSet>
