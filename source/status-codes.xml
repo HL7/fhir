@@ -9,17 +9,17 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
-  <LastSaved>2015-03-08T06:04:14Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2015-04-15T04:11:27Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>8835</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
-  <WindowTopX>7530</WindowTopX>
-  <WindowTopY>2835</WindowTopY>
+  <WindowWidth>20610</WindowWidth>
+  <WindowTopX>-2565</WindowTopX>
+  <WindowTopY>825</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -165,7 +165,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="57" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="59" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:Width="314.25"/>
@@ -213,7 +213,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">on hold, onleave suspended </Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">stopped, aborted, failed</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Amended, replaced</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">completed, final, finished, achieved, done, dispensed</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">completed, final, finished, achieved, done, dispensed, delivered</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">superceded, retired, not in use, inactive, off, refuted</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">cancelled, withdrawn, not done, abandoned</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Miscellany</Data></Cell>
@@ -246,29 +246,25 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">resolved</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">refuted</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23.25" ss:StyleID="s67">
-    <Cell ss:StyleID="s63"><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
-    <Cell><Data ss:Type="String">The resource was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
-    <Cell><Data ss:Type="String">The resource describes an item that is proposed to occur</Data></Cell>
-    <Cell><Data ss:Type="String">The resource describes an item that is planned to occur</Data></Cell>
-    <Cell><Data ss:Type="String">The resource describes an item that is still being defined/edited</Data></Cell>
-    <Cell><Data ss:Type="String">The resource describes an item that has been communicated from one party to another for consideration/action</Data></Cell>
-    <Cell><Data ss:Type="String">The resource describes an item that has been received after being communicated from one party to another for consideration/action</Data></Cell>
-    <Cell><Data ss:Type="String">The action described in the resource will not happen because </Data></Cell>
-    <Cell><Data ss:Type="String">The resource defines an action which has a set time at which it is expected to occur</Data></Cell>
-    <Cell><Data ss:Type="String">The preconditions for the action have been met, and it is about to start</Data></Cell>
-    <Cell><Data ss:Type="String">The action is currently happening</Data></Cell>
-    <Cell><Data ss:Type="String">The action was taking place, but is presently on hold</Data></Cell>
-    <Cell><Data ss:Type="String">The action was taking place, but the process failed, and it is not expected to complete</Data></Cell>
-    <Cell><Data ss:Type="String">The item was considered final, but it has been replaced with an updated set of content</Data></Cell>
-    <Cell><Data ss:Type="String">The action or item is complete, and no further action or changes are anticipated</Data></Cell>
-    <Cell><Data ss:Type="String">The item is no longer considered valid for use/consideration (e.g. a past record)</Data></Cell>
-    <Cell><Data ss:Type="String">The action was stopped before it started to happen</Data></Cell>
-    <Cell><Data ss:Type="String">Other status codes not yet assigned a meaning in the canonical status codes</Data></Cell>
-    <Cell><Data ss:Type="String">It is not yet known whether the information described in this resource is correct </Data></Cell>
-    <Cell><Data ss:Type="String">The information in this resource is considered to be valid and authoritative</Data></Cell>
-    <Cell><Data ss:Type="String">The issue described in this resource has been resolved and it no longer is a consideration</Data></Cell>
-    <Cell><Data ss:Type="String">The issue described in the resource has been demonstrated to be valid after investigation</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="23.25">
+    <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">The record was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AllergyIntolerance.status</Data></Cell>
@@ -1295,6 +1291,44 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SupplyDelivery.status</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">abandoned</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SupplyRequest.status</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.status</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1348,7 +1382,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

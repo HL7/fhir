@@ -7,19 +7,19 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
-  <LastSaved>2015-04-02T12:14:48Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2015-04-10T01:54:05Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10155</WindowHeight>
-  <WindowWidth>22365</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowHeight>4590</WindowHeight>
+  <WindowWidth>20550</WindowWidth>
+  <WindowTopX>-15</WindowTopX>
+  <WindowTopY>4530</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -122,7 +122,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -132,10 +132,11 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="90" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="92" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
+   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="96"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
@@ -577,6 +578,15 @@
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">supplier</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell><Data ss:Type="String">SupplyRequest</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">supplier | receiver</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
    </Row>
@@ -604,7 +614,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>79</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -612,7 +622,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>89</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
