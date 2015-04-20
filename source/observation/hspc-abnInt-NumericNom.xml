@@ -15,7 +15,7 @@
   <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83 + SNOMED CT SNOMED CT concepts from the Degree findings (qualifier value)272520006, Presence findings (qualifier value)260411009, Absence findings (qualifier value)272519000"/>
   <copyright value="IHC"/>
   <status value="draft"/>
-  <date value="2014-06-25"/>
+  <date value="2015-04-14"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>
@@ -45,4 +45,16 @@
 	  </concept>
     </include>
   </compose>
+  <define>
+	  <concept>
+		  <code value="Higher than technical"/>
+		  <display vlaue="Higher than technical"/>
+		  <definition value="The results were lower than the technical limits of the test procedure"/>
+	  </concept>
+	  <concept>
+		  <code value="Lower than technical"/>
+		  <display vlaue="Lower than technical"/>
+		  <definition value="The results were higher than the technical limits of the test procedure"/>
+	  </concept>
+  </define>
 </ValueSet>
