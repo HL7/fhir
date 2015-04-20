@@ -1,83 +1,159 @@
 package org.hl7.fhir.convertors;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
+import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.Address;
+import org.hl7.fhir.instance.model.AllergyIntolerance;
+import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceEventComponent;
 import org.hl7.fhir.instance.model.Base;
+import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.Condition;
+import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.DocumentReference;
+import org.hl7.fhir.instance.model.InstantType;
+import org.hl7.fhir.instance.model.Organization;
+import org.hl7.fhir.instance.model.DocumentReference.DocumentReferenceContextComponent;
+import org.hl7.fhir.instance.model.DocumentReference.DocumentReferenceStatus;
+import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.Immunization;
+import org.hl7.fhir.instance.model.Immunization.ImmunizationExplanationComponent;
+import org.hl7.fhir.instance.model.Location;
+import org.hl7.fhir.instance.model.Medication;
+import org.hl7.fhir.instance.model.Condition.ConditionStatus;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Encounter;
-import org.hl7.fhir.instance.model.Composition.SectionComponent;
+import org.hl7.fhir.instance.model.Encounter.EncounterClass;
 import org.hl7.fhir.instance.model.Encounter.EncounterHospitalizationComponent;
 import org.hl7.fhir.instance.model.Encounter.EncounterParticipantComponent;
+import org.hl7.fhir.instance.model.Encounter.EncounterState;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Identifier;
+import org.hl7.fhir.instance.model.List_;
+import org.hl7.fhir.instance.model.List_.ListMode;
+import org.hl7.fhir.instance.model.List_.ListStatus;
+import org.hl7.fhir.instance.model.MedicationStatement;
+import org.hl7.fhir.instance.model.MedicationStatement.MedicationStatementDosageComponent;
+import org.hl7.fhir.instance.model.MedicationStatement.MedicationStatementStatus;
+import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.Observation;
+import org.hl7.fhir.instance.model.Observation.ObservationRelationshiptypes;
+import org.hl7.fhir.instance.model.Observation.ObservationReliability;
+import org.hl7.fhir.instance.model.Observation.ObservationStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Practitioner;
+import org.hl7.fhir.instance.model.Procedure;
+import org.hl7.fhir.instance.model.Procedure.ProcedurePerformerComponent;
+import org.hl7.fhir.instance.model.Procedure.ProcedureStatus;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.ResourceFactory;
+import org.hl7.fhir.instance.model.ResourceType;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.Timing;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.utils.FHIRTerminologyServices;
 import org.hl7.fhir.instance.utils.ITerminologyServices;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
-import org.hl7.fhir.instance.utils.WorkerContext;
-import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ValidationEngine;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.ucum.UcumEssenceService;
 import org.hl7.fhir.utilities.ucum.UcumService;
+import org.hl7.fhir.utilities.xhtml.NodeType;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xml.XMLUtil;
-import org.w3c.dom.Document;
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 
 public class ArgonautConverter extends ConverterBase {
+	//  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
+  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960/open";
+	public static final String UCUM_PATH = "c:\\work\\org.hl7.fhir\\build\\implementations\\java\\org.hl7.fhir.convertors\\samples\\ucum-essence.xml";
+	public static final String SRC_PATH = "c:\\work\\org.hl7.fhir\\build\\publish\\";
+	private static final String DEFAULT_ID_SPACE = "urn:uuid:e8e06b15-0f74-4b8e-b5e2-609dae7119dc";
+	
+	private static final boolean WANT_SAVE = true;
+	private static final boolean WANT_VALIDATE = true;
+	private String destFolder;
+	
+	public static void main(String[] args) {
+		try {
+		  ArgonautConverter c = new ArgonautConverter(new UcumEssenceService(UCUM_PATH), Utilities.path(SRC_PATH, "validation.zip"), new FHIRTerminologyServices(DEV_TS_SERVER));
+		  c.destFolder = "C:\\work\\com.healthintersections.fhir\\argonaut\\output";
+		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_ed", EncounterClass.INPATIENT);
+		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_emergency", EncounterClass.EMERGENCY);
+		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\fileX", EncounterClass.AMBULATORY);
+			c.printSectionSummaries();
+			c.closeZips();
+		  System.out.println("All done. "+Integer.toString(c.getErrors())+" errors, "+Integer.toString(c.getWarnings())+" warnings");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+		
+	public class Context {
+
+		public String baseId;
+		public Patient subject;
+		public Practitioner author;
+		public Encounter encounter;
+		public EncounterClass encClass;
+		public int obsId;
+		public DateTimeType now = DateTimeType.now();
+		public int orgId;
+  }
+
+	public class Stats {
+		public int instances;
+		public int errors;
+		public int warnings;
+  }
 
 	private UcumService ucumSvc;
 	private ValidationEngine validator;
 	private Map<String, Map<String, Integer>> sections = new HashMap<String, Map<String,Integer>>();
-	private Map<String, Reference> cache = new HashMap<String, Reference>();
+	private Map<String, Practitioner> practitionerCache = new HashMap<String, Practitioner>();
+	public int perfCount;
+	private Set<String> oids = new HashSet<String>();
+	private Map<String, ZipGenerator> zips = new HashMap<String, ZipGenerator>();
+	private Map<String, Stats> stats = new HashMap<String, Stats>();
+	private ZipGenerator zip;
 
 	int errors = 0;
 	int warnings = 0;
-	private String destFolder;
 
 	public ArgonautConverter(UcumService ucumSvc, String path, ITerminologyServices tx) throws Exception {
 		super();
 		this.ucumSvc = ucumSvc;
 		validator = new ValidationEngine();
 		validator.readDefinitions(path);
+		validator.setNoSchematron(true);
+		validator.setAnyExtensionsAllowed(true);
 		if (tx != null)
 			validator.getContext().setTerminologyServices(tx);
 	}
-
-
-	public ArgonautConverter(UcumEssenceService ucumEssenceService) {
-		// TODO Auto-generated constructor stub
-		ucumSvc = ucumEssenceService;
-	}
-
 
 	public int getErrors() {
 		return errors;
@@ -89,19 +165,29 @@ public class ArgonautConverter extends ConverterBase {
 	}
 
 
-	public void convert(String sourceFolder, String destFolder) throws Exception {
+	public void convert(String sourceFolder, EncounterClass clss) throws Exception {
 		File source = new File(sourceFolder);
 		for (String f : source.list()) {
-			convert(sourceFolder, destFolder, f);
+			convert(sourceFolder, f, clss);
 		}
-		ZipGenerator zip = new ZipGenerator("C:\\work\\com.healthintersections.fhir\\argonaut\\output\\output.zip");
-		zip.addFiles("C:\\work\\com.healthintersections.fhir\\argonaut\\output\\", "", "xml", null);
-		zip.close();
-		printSectionSummaries();
 	}
 
+	private void closeZips() throws Exception {
+		for (ZipGenerator z : zips.values())
+			z.close();	  
+  }
 
-	private void printSectionSummaries() {
+	public void printSectionSummaries() {
+  	System.out.println("Statistics:");
+	  for (String n : sorted(stats.keySet())) { 
+	  	Stats s = stats.get(n);
+	  	System.out.println("  "+n+": generated "+Integer.toString(s.instances)+", errors "+Integer.toString(s.errors)+", warnings "+Integer.toString(s.warnings));
+	  }
+		
+  	System.out.println("OIDs:");
+	  for (String n : sorted(oids)) 
+	  	System.out.println("  "+n);
+	  
 	  for (String n : sections.keySet()) {
 	  	System.out.println(n+" Analysis");
 	    Map<String, Integer> s = sections.get(n);
@@ -118,86 +204,72 @@ public class ArgonautConverter extends ConverterBase {
     return names;
   }
 
-	private void convert(String sourceFolder, String destFolder, String filename) {
+	private void convert(String sourceFolder, String filename, EncounterClass clss) {
 		if (new File(Utilities.path(sourceFolder, filename)).length() == 0)
 			return;
 		
-		this.destFolder = destFolder;
-
 		CDAUtilities cda;
 		try {
 			System.out.println("Process "+Utilities.path(sourceFolder, filename));
 			cda = new CDAUtilities(new FileInputStream(Utilities.path(sourceFolder, filename)));
+			zip = new ZipGenerator(Utilities.path(destFolder, "doc", Utilities.changeFileExt(filename, ".zip")));
 			Element doc = cda.getElement();
-			//    	cda.checkTemplateId(doc, "2.16.840.1.113883.10.20.22.1.1");
-			Convert convert = new Convert(cda, ucumSvc);
-			saveResource(makeSubject(cda, convert, doc, "patient-"+Utilities.changeFileExt(filename, "")), Utilities.path(destFolder, "patient-"+filename), "http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient");
-			saveResource(makeAuthor(cda, convert, doc, "author-"+Utilities.changeFileExt(filename, "")), Utilities.path(destFolder, "author-"+filename), "http://hl7.org/fhir/StructureDefinition/pract-daf-dafpract");
-			saveResource(makeEncounter(cda, convert, doc, "encounter-"+Utilities.changeFileExt(filename, "")), Utilities.path(destFolder, "encounter-"+filename), "http://hl7.org/fhir/StructureDefinition/encounter-daf-dafencounter");
+			Convert convert = new Convert(cda, ucumSvc, "-0400");
+			convert.setGenerateMissingExtensions(true);
+			Context context = new Context();
+			context.baseId = Utilities.changeFileExt(filename, "");
+			context.encClass = clss;
+			saveResource(makeSubject(cda, convert, doc, context, context.baseId+"-patient"));
+			makeAuthor(cda, convert, doc, context, context.baseId+"-author");
+			makeEncounter(cda, convert, doc, context, context.baseId+"-encounter");
 			Element body =  cda.getDescendent(doc, "component/structuredBody");
 			for (Element c : cda.getChildren(body, "component")) {
-				processSection(cda, cda.getChild(c, "section"));
+				processSection(cda, convert, context, cda.getChild(c, "section"));
 			}
-
-//			scanSection("encounter", cda.getChild(doc, "documentationOf"));
-//			scanSection("encounter", cda.getChild(doc, "componentOf"));
-	//scanAuthor(cda)
+			oids.addAll(convert.getOids());
+			saveResource(context.encounter);
+			makeBinary(sourceFolder, filename, context);
+			makeDocumentReference(cda, convert, doc, context);
+			zip.close();
 		} catch (Exception e) {
 			throw new Error("Unable to process "+Utilities.path(sourceFolder, filename)+": "+e.getMessage(), e);
 		}
 	}
 
-	private void processSection(CDAUtilities cda, Element section) throws Exception {
+	private void processSection(CDAUtilities cda, Convert convert, Context context, Element section) throws Exception {
 		checkNoSubject(cda, section, "Section");
 		
 	  // this we do by templateId
 		if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.1.11") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.5.1"))
-		  scanSection("Problems", section);
+			processProblemsSection(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.1.12") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7.1"))
-			scanSection("Procedures", section);
+			processProcedureSection(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.1.3") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.22.1"))
-		  scanSection("Encounters", section);
+			processEncountersSection(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6.1"))
-		  scanSection("Alergies", section);
+			processAllergiesSection(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.2.1") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.1.6"))
-		  scanSection("Immunizations", section);
+			processImmunizationsSection(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "1.3.6.1.4.1.19376.1.5.3.1.3.1"))
-		  scanSection("reason for referral", section);
+			processReasonForEncounter(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.3.1") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.1.14"))
-		  scanSection("Results", section);
+			processResultsSection(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.4.1")	|| cda.hasTemplateId(section, "2.16.840.1.113883.10.20.1.16"))	
-			scanSection("Vital Signs", section);
+			processVitalSignsSection(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.1.1")	|| cda.hasTemplateId(section, "2.16.840.1.113883.10.20.1.8"))	
-			scanSection("Medications", section);
+			processMedicationsSection(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.17")	|| cda.hasTemplateId(section, "2.16.840.1.113883.3.88.11.83.126"))	
-			scanSection("Social History", section);
+			processSocialHistorySection(cda, convert, section, context);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.1.9")	)	
 			scanSection("Payers", section);
-		
-		
-		
-				
 		else
 			throw new Exception("Unprocessed section "+cda.getChild(section, "title").getTextContent());
-					
-//		if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6.1"))
-//			return processAdverseReactionsSection(section);
-//		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7.1"))
-//			return processProceduresSection(section);
-//		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.17"))  
-//		  return processSocialHistorySection(section);
-//		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.4") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.4.1"))
-//		  return processVitalSignsSection(section);
-//		else
-//			// todo: error? 
-	  
   }
 
 	private void checkNoSubject(CDAUtilities cda, Element act, String path) throws Exception {
 	  if (cda.getChild(act, "subject") != null) 
-	  	throw new Exception("The conversion program cannot accept a nullFlavor at the location "+path);	  
+	  	throw new Exception("The conversion program cannot accept a subject at the location "+path);	  
   }
-
 
 	private void scanSection(String name, Element child) {
 	  Map<String, Integer> section;
@@ -214,7 +286,7 @@ public class ArgonautConverter extends ConverterBase {
 	private void iterateChildren(Map<String, Integer> section, String path, Element element) {
 	  Element child = XMLUtil.getFirstChild(element);
 	  while (child != null) {
-	  	String pathC = path+child.getNodeName();
+	  	String pathC = path+child.getNodeName()+attributes(child);
 	  	if (section.containsKey(pathC))
 	  		section.put(pathC, section.get(pathC)+1);
 	  	else
@@ -225,59 +297,134 @@ public class ArgonautConverter extends ConverterBase {
   }
 
 
-	private void saveResource(DomainResource resource, String path, String profile) throws Exception {
-		NarrativeGenerator generator = new NarrativeGenerator("", validator.getContext());
-		generator.generate(resource);
+	private String attributes(Element child) {
+		String s = ",";
+		if (child.hasAttribute("inversionInd"))
+			s += "inversionInd:"+child.getAttribute("inversionInd")+",";
+		if (child.hasAttribute("negationInd"))
+			s += "negationInd:"+child.getAttribute("negationInd")+",";
+		if (child.hasAttribute("nullFlavor"))
+			s += "nullFlavor:"+child.getAttribute("nullFlavor")+",";
+		if (child.hasAttribute("xsi:type"))
+			s += "type:"+child.getAttribute("xsi:type")+",";
+		s = s.substring(0, s.length()-1);
+			
+		if (child.getNodeName().equals("statusCode"))
+			return "[code:"+child.getAttribute("code")+"]";
+		if (child.getNodeName().equals("temnplateId"))
+			return "[id:"+child.getAttribute("root")+"]";
+		else if (child.hasAttribute("moodCode"))
+	  	return "["+child.getAttribute("classCode")+","+child.getAttribute("moodCode")+s+"]";
+	  else if (child.hasAttribute("classCode"))
+		 	return "["+child.getAttribute("classCode")+s+"]";
+	  else if (child.hasAttribute("typeCode"))
+		 	return "["+child.getAttribute("typeCode")+s+"]";
+	  else if (Utilities.noString(s))
+	  	return "";
+	  else
+	  	return "["+s.substring(1)+"]";
+  }
+
+
+	private void saveResource(Resource resource) throws Exception {
+		if (!WANT_SAVE)
+			return;
+		
+		DomainResource dr = null;
+		if (resource instanceof DomainResource) {
+			dr = (DomainResource) resource;
+  		if (!dr.hasText()) {
+	  	  NarrativeGenerator generator = new NarrativeGenerator("", validator.getContext());
+		    generator.generate(dr);
+	  	}
+		}
 		XmlParser parser = new XmlParser();
 		parser.setOutputStyle(OutputStyle.PRETTY);
-		FileOutputStream fo = new FileOutputStream(path);
-		parser.compose(fo, resource);
-		fo.close();
-		validate(path, profile);
+		ByteArrayOutputStream ba = new ByteArrayOutputStream();
+		parser.compose(ba, resource);
+		ba.close();
+		byte[] src = ba.toByteArray();
+		String rn = resource.getResourceType().toString();
+		zip.addBytes(resource.getId()+".xml", src, false);
+		if (!zips.containsKey(rn)) {
+			zips.put(rn, new ZipGenerator(Utilities.path(destFolder, "type", resource.getResourceType().toString().toLowerCase()+".zip")));
+			stats.put(rn, new Stats());
+		}
+		
+		zips.get(rn).addBytes(resource.getId()+"xml", src, false);
+		Stats ss = stats.get(rn);
+		ss.instances++;
+
+		String profile = resource.getUserString("profile");
+		validate(src, profile, resource, ss);
 	}
 
-	private void validate(String filename, String url) throws Exception {
+	private void validate(byte[] src, String url, Resource resource, Stats stats) throws Exception {
+		if (!WANT_VALIDATE)
+			return;
+		if (url == null)
+			url = "http://hl7.org/fhir/StructureDefinition/"+resource.getResourceType().toString();
 		StructureDefinition def = validator.getContext().getProfiles().get(url);
 		if (def == null)
 			throw new Exception("Unable to find Structure Definition "+url);
 
 		validator.reset();
 		validator.setProfile(def);
-		validator.setSource(validator.loadFromFile(filename));
+		validator.setSource(src);
 		validator.process();
 		List<ValidationMessage> msgs = validator.getOutputs();
 		boolean ok = false;
+		boolean first = true;
 		for (ValidationMessage m : msgs) {
-			if (m.getLevel() != IssueSeverity.INFORMATION)
-				System.out.println("  "+m.getLevel().toCode()+": "+m.getMessage()+" @ "+m.getLocation());
-			if (m.getLevel() == IssueSeverity.WARNING)
-				warnings++;
-			if (m.getLevel() == IssueSeverity.ERROR || m.getLevel() == IssueSeverity.FATAL)
-				errors++;
+			if (m.getLevel() == IssueSeverity.ERROR && !msgOk(m.getMessage())) {
+				if (first) {
+					System.out.println("  validate "+resource.getId()+".xml against "+url);
+					first = false;
+				}
+				System.out.println("    "+m.getLevel().toCode()+": "+m.getMessage()+" @ "+m.getLocation());
+				if (m.getLevel() == IssueSeverity.WARNING) {
+					stats.warnings++;
+					warnings++;
+				}
+				if (m.getLevel() == IssueSeverity.ERROR || m.getLevel() == IssueSeverity.FATAL) {
+					stats.errors++;
+					errors++;
+				}
+			}
 
 			ok = ok && !(m.getLevel() == IssueSeverity.ERROR || m.getLevel() == IssueSeverity.FATAL);
 		}
 	}
 
+	private boolean msgOk(String message) {
+	  if (message.equals("Invalid Resource target type. Found Observation, but expected one of (DiagnosticReport)"))
+	  	return true;
+	  return false;
+  }
+
+	private void checkGenerateIdentifier(List<Identifier> ids, DomainResource resource) {
+	  if (ids.isEmpty())
+	  	ids.add(new Identifier().setSystem(DEFAULT_ID_SPACE).setValue(resource.getClass().getName().toLowerCase()+"-"+resource.getId()));	  
+  }
 
 
-//  /patientRole/providerOrganization: 2979
-//  /patientRole/providerOrganization/addr: 2979
-//  /patientRole/providerOrganization/id: 2979
-//  /patientRole/providerOrganization/name: 2979
-//  /patientRole/providerOrganization/telecom: 2979
-	private Patient makeSubject(CDAUtilities cda, Convert convert, Element doc, String id) throws Exception {
+
+	private Patient makeSubject(CDAUtilities cda, Convert convert, Element doc, Context context, String id) throws Exception {
 		Element rt = cda.getChild(doc, "recordTarget");
+	  scanSection("Patient", rt);	  
 		Element pr = cda.getChild(rt, "patientRole");
 		Element p = cda.getChild(pr, "patient");
 
 		Patient pat = new Patient();
+		pat.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/patient-daf-dafpatient");
+		context.subject = pat;
+		
 		pat.setId(id);
 		for (Element e : cda.getChildren(pr, "id"))
 			pat.getIdentifier().add(convert.makeIdentifierFromII(e));
 
 		for (Element e : cda.getChildren(pr, "addr"))
-			pat.getAddress().add(convert.makeAddressFromAD(e));
+			pat.getAddress().add(makeDefaultAddress(convert.makeAddressFromAD(e)));
 		for (Element e : cda.getChildren(pr, "telecom"))
 			pat.getTelecom().add(convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(p, "name"))
@@ -298,7 +445,7 @@ public class ArgonautConverter extends ConverterBase {
 			guardian.getRelationship().add(Factory.newCodeableConcept("GUARD", "urn:oid:2.16.840.1.113883.5.110", "guardian"));
 			for (Element e : cda.getChildren(g, "addr"))
 				if (guardian.getAddress() == null)
-					guardian.setAddress(convert.makeAddressFromAD(e));
+					guardian.setAddress(makeDefaultAddress(convert.makeAddressFromAD(e)));
 			for (Element e : cda.getChildren(g, "telecom"))
 				guardian.getTelecom().add(convert.makeContactFromTEL(e));
 			g = cda.getChild(g, "guardianPerson");
@@ -315,15 +462,40 @@ public class ArgonautConverter extends ConverterBase {
 		cc.getCoding().add(c);
 		pat.addCommunication().setLanguage(cc); 
 
-		// todo: this got broken.... lang.setMode(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
-		//		cc.getExtension().add(Factory.newExtension(CcdaExtensions.NAME_LANG_PROF, convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")), false));
-		//		pat.getExtension().add(Factory.newExtension(CcdaExtensions.NAME_RELIGION, convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
 		Element prv = cda.getChild(pr, "providerOrganization");
 		if (prv != null) 
-			pat.setManagingOrganization(Factory.makeReference("Organization/"+cda.getChild(prv, "id").getAttribute("root"), cda.getChild(prv, "name").getTextContent()));
+			pat.setManagingOrganization(new Reference().setReference("Organization/"+processOrganization(prv, cda, convert, context).getId()));
 
 		return pat;
 	}
+
+	private Organization processOrganization(Element oo, CDAUtilities cda, Convert convert, Context context) throws Exception {
+		Organization org = new Organization();
+		org.setId(context.baseId+"-organization-"+Integer.toString(context.orgId));
+		org.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/org-daf-daforganization");
+		context.orgId++;
+		for (Element e : cda.getChildren(oo, "id"))
+			org.getIdentifier().add(convert.makeIdentifierFromII(e));
+		for (Element e : cda.getChildren(oo, "addr"))
+			org.getAddress().add(makeDefaultAddress(convert.makeAddressFromAD(e)));
+		for (Element e : cda.getChildren(oo, "telecom"))
+			org.getTelecom().add(convert.makeContactFromTEL(e));
+		for (Element e : cda.getChildren(oo, "name"))
+			org.setName(e.getTextContent());
+		saveResource(org);
+	  return org;
+  }
+
+	private Address makeDefaultAddress(Address ad) {
+	  if (ad == null || ad.isEmpty()) {
+	  	ad = new Address();
+	  	ad.addLine("21 Doar road");
+	  	ad.setCity("Erewhon");
+	  	ad.setState("CA");
+	  	ad.setPostalCode("31233");
+	  }
+	  return ad;
+  }
 
 	private String patchLanguage(String lang) {
 		if (lang.equals("spa"))
@@ -333,226 +505,718 @@ public class ArgonautConverter extends ConverterBase {
 		return lang;
 	}
 
-//  /assignedAuthor/representedOrganization: 2979
-//  /assignedAuthor/representedOrganization/addr: 2979
-//  /assignedAuthor/representedOrganization/id: 2979
-//  /assignedAuthor/representedOrganization/name: 2979
-//  /assignedAuthor/representedOrganization/telecom: 2979
-
-	private Practitioner makeAuthor(CDAUtilities cda, Convert convert, Element doc, String id) throws Exception {
+	private Practitioner makeAuthor(CDAUtilities cda, Convert convert, Element doc, Context context, String id) throws Exception {
 		Element a = cda.getChild(doc, "author");
-		Element aa = cda.getChild(a, "assignedAuthor");
-		Element ap = cda.getChild(aa, "assignedPerson");
-
-		Practitioner pat = new Practitioner();
-		pat.setId(id);
-		for (Element e : cda.getChildren(a, "id"))
-			pat.getIdentifier().add(convert.makeIdentifierFromII(e));
-
-		for (Element e : cda.getChildren(aa, "addr"))
-			pat.getAddress().add(convert.makeAddressFromAD(e));
-		for (Element e : cda.getChildren(aa, "telecom"))
-			pat.getTelecom().add(convert.makeContactFromTEL(e));
-		for (Element e : cda.getChildren(ap, "name"))
-			pat.setName(convert.makeNameFromEN(e));
-
-		Element prv = cda.getChild(aa, "representedOrganization");
-		if (prv != null) 
-			pat.addPractitionerRole().setManagingOrganization(Factory.makeReference("Organization/"+cda.getChild(prv, "id").getAttribute("root"), cda.getChild(prv, "name").getTextContent()));
-		return pat;
+	  scanSection("Author", a);	
+	  Practitioner author = processPerformer(cda, convert, context, a, "assignedAuthor", "assignedPerson");
+	  context.author = author;
+		return author;
 	}
 
-	private Practitioner makePerformer(CDAUtilities cda, Convert convert, Element perf, String id) throws Exception {
-		Element ae = cda.getChild(perf, "assignedEntity");
-		Element ap = cda.getChild(ae, "assignedPerson");
+///legalAuthenticator/assignedEntity: 2979
+///legalAuthenticator/assignedEntity/addr: 2979
+///legalAuthenticator/assignedEntity/assignedPerson: 2979
+///legalAuthenticator/assignedEntity/id: 2979
+///legalAuthenticator/assignedEntity/representedOrganization: 2979
+///legalAuthenticator/assignedEntity/representedOrganization/addr: 2979
+///legalAuthenticator/assignedEntity/representedOrganization/id: 2979
+///legalAuthenticator/assignedEntity/representedOrganization/name: 2979
+///legalAuthenticator/assignedEntity/representedOrganization/telecom: 2979
+///legalAuthenticator/assignedEntity/telecom: 2979
 
-		Practitioner pat = new Practitioner();
-		pat.setId(id);
-		for (Element e : cda.getChildren(ae, "id"))
-			pat.getIdentifier().add(convert.makeIdentifierFromII(e));
+	private Practitioner makePerformer(CDAUtilities cda, Convert convert, Context context, Element eperf, String roleName, String entityName) throws Exception {
+		Element ae = cda.getChild(eperf, roleName); 
+		Element ap = cda.getChild(ae, entityName);
+
+		Practitioner perf = new Practitioner();
+		perf.setId("performer-"+Integer.toString(perfCount));
+		perf.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/pract-daf-dafpract");
+		perfCount++;
+		for (Element e : cda.getChildren(ae, "id")) {
+			Identifier id = convert.makeIdentifierFromII(e);
+			perf.getIdentifier().add(id);
+		}
 
 		for (Element e : cda.getChildren(ae, "addr"))
-			pat.getAddress().add(convert.makeAddressFromAD(e));
+			perf.getAddress().add(makeDefaultAddress(convert.makeAddressFromAD(e)));
 		for (Element e : cda.getChildren(ae, "telecom"))
-			pat.getTelecom().add(convert.makeContactFromTEL(e));
+			perf.getTelecom().add(convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(ap, "name"))
-			pat.setName(convert.makeNameFromEN(e));
+			perf.setName(convert.makeNameFromEN(e));
 
-		return pat;
+		Element e = cda.getChild(ae, "representedOrganization");
+		if (e != null)
+		  perf.addPractitionerRole().setManagingOrganization(new Reference().setReference("Organization/"+processOrganization(e, cda, convert, context).getId()));
+		return perf;
 	}
 
 
 ///serviceEvent/performer/functionCode: 9036
-	private Encounter makeEncounter(CDAUtilities cda, Convert convert, Element doc, String id) throws Exception {
+	private Encounter makeEncounter(CDAUtilities cda, Convert convert, Element doc, Context context, String id) throws Exception {
 		Element co = cda.getChild(doc, "componentOf");
 		Element ee = cda.getChild(co, "encompassingEncounter");
+	  scanSection("Encounter", co);	  
 		Element of = cda.getChild(doc, "documentationOf");
 		Element se = cda.getChild(of, "serviceEvent");
-		Element p = cda.getChild(se, "performer");
+	  scanSection("Encounter", of);	  
 
 		Encounter enc = new Encounter();
 		enc.setId(id);
+		enc.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/encounter-daf-dafencounter");
+		context.encounter = enc;
+		enc.setPatient(new Reference().setReference("Patient/"+context.subject.getId()));
+		
 		for (Element e : cda.getChildren(ee, "id"))
 			enc.getIdentifier().add(convert.makeIdentifierFromII(e));
+		checkGenerateIdentifier(enc.getIdentifier(), enc);
 
 		Period p1 = convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime"));
-		Period p2 = convert.makePeriodFromIVL(cda.getChild(se, "effectiveTime"));
-		if (Base.compareDeep(p1, p2, false))
-			throw new Error("episode time mismatch");
+//		Period p2 = convert.makePeriodFromIVL(cda.getChild(se, "effectiveTime")); // well, what is this?
+//		if (!Base.compareDeep(p1, p2, false))
+//			throw new Error("episode time mismatch: "+NarrativeGenerator.displayPeriod(p1)+" & "+NarrativeGenerator.displayPeriod(p2));
 		enc.setPeriod(p1);
-
+		if (p1.hasEnd())
+			enc.setStatus(EncounterState.FINISHED);
+		else
+			enc.setStatus(EncounterState.INPROGRESS);
+		enc.setClass_(context.encClass);
+		
 		Element dd = cda.getChild(ee, "dischargeDispositionCode");
 		if (dd != null) {
 			enc.setHospitalization(new EncounterHospitalizationComponent());
 			enc.getHospitalization().setDischargeDisposition(convert.makeCodeableConceptFromCD(dd));
 		}
-		int i = 0;
 		for (Element e : cda.getChildren(se, "performer")) {
-			EncounterParticipantComponent part = enc.addParticipant();
-			Practitioner perf = makePerformer(cda, convert, e, id+"-"+Integer.toString(i));
-			Reference ref = null;
-			for (Identifier identifier : perf.getIdentifier()) {
-				String key = "Practitioner-"+keyFor(identifier);
-				if (cache.containsKey(key))
-					ref = cache.get(key);
-			}
-			if (ref == null) {
-				saveResource(perf, Utilities.path(destFolder, perf.getId()), "http://hl7.org/fhir/StructureDefinition/practitioner-daf-dafpractitioner");
-				ref = new Reference();
-				ref.setReference("Practitioner/"+perf.getId());
-				for (Identifier identifier : perf.getIdentifier()) {
-					String key = "Practitioner-"+keyFor(identifier);
-					cache.put(key, ref);
-				}
-			}
-      part.setIndividual(ref);
-      i++;
+			Reference ref = new Reference().setReference("Practitioner/"+processPerformer(cda, convert, context, e, "assignedEntity", "assignedPerson").getId());
+			if (ref != null) 
+				enc.addParticipant().setIndividual(ref);
 		}
 	  return enc;
 	}
+
+
+	private Practitioner processPerformer(CDAUtilities cda, Convert convert, Context context, Element e, String roleName, String entityName) throws Exception {
+	  Practitioner perf = makePerformer(cda, convert, context, e, roleName, entityName);
+	  if (perf == null)
+	  	return null;
+	  
+	  Reference ref = null;
+	  for (Identifier identifier : perf.getIdentifier()) {
+	  	String key = keyFor(identifier);
+	  	if (practitionerCache.containsKey(key))
+	  		return practitionerCache.get(key);
+	  }
+
+   	saveResource(perf);
+  	for (Identifier identifier : perf.getIdentifier()) {
+  		String key = "Practitioner-"+keyFor(identifier);
+  		practitionerCache.put(key, perf);
+  	}
+   	return perf;
+  }
 
 
 	private String keyFor(Identifier identifier) {
 	  return identifier.getSystem()+"||"+identifier.getValue();
   }
 
+	private void buildNarrative(DomainResource resource, Element child) {
+		if (!Utilities.noString(child.getTextContent()))
+			resource.setText(new Narrative().setStatus(NarrativeStatus.ADDITIONAL).setDiv(new XhtmlNode(NodeType.Text).setContent(child.getTextContent())));
+  }
 
-	// problems
-//  /code: 782
-//  /templateId: 2346
-//  /text: 782
-//  /title: 782
-//  /entry: 5260
+	private void processProcedureSection(CDAUtilities cda, Convert convert, Element sect, Context context) throws DOMException, Exception {
+	  scanSection("Procedures", sect);
+		List_ list = new List_();
+		list.setId(context.baseId+"-list-procedures");
+		// list.setUserData("profile", "") none?
+		list.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+    list.setCode(convert.makeCodeableConceptFromCD(cda.getChild(sect, "code")));
+    list.setTitle(cda.getChild(sect, "title").getTextContent());
+    list.setStatus(ListStatus.CURRENT); 
+    list.setMode(ListMode.SNAPSHOT);
+    list.setDateElement(context.now);
+    list.setSource(new Reference().setReference("Practitioner/"+context.author.getId()));
+		buildNarrative(list, cda.getChild(sect, "text"));
+
+		int i = 0;
+		for (Element c : cda.getChildren(sect, "entry")) {
+			Element p = cda.getChild(c, "procedure");
+			Procedure proc = new Procedure();
+			proc.setId(context.baseId+"-procedure-"+Integer.toString(i));
+			proc.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/procedure-daf-dafprocedure");
+			i++;
+			proc.setPatient(new Reference().setReference("Patient/"+context.subject.getId()));
+			proc.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
+			list.addEntry().setItem(new Reference().setReference("Procedure/"+proc.getId()));
+			proc.setType(convert.makeCodeableConceptFromCD(cda.getChild(p, "code")));
+			for (Element e : cda.getChildren(p, "id"))
+				proc.getIdentifier().add(convert.makeIdentifierFromII(e));
+			
+			proc.setStatus(determineProcedureStatus(cda.getChild(p, "statusCode")));
+			buildNarrative(proc, cda.getChild(p, "text"));
+			proc.setPerformed(convert.makeDateTimeFromTS(cda.getChild(p, "effectiveTime")));
+			saveResource(proc);
+
+			for (Element e : cda.getChildren(p, "performer")) {
+				ProcedurePerformerComponent part = proc.addPerformer();
+				Reference ref = new Reference().setReference("Practitioner/"+processPerformer(cda, convert, context, e, "assignedEntity", "assignedPerson").getId());
+				part.setPerson(ref);
+			}
+		}
+		saveResource(list);
+	}	
+
+	private ProcedureStatus determineProcedureStatus(Element child) {
+		if ("completed".equals(child.getAttribute("code")))
+			return ProcedureStatus.COMPLETED;
+	  throw new Error("not done yet: "+child.getAttribute("code"));
+  }
+
+
+	private void processReasonForEncounter(CDAUtilities cda, Convert convert, Element sect, Context context) throws DOMException, Exception {
+	  scanSection("Reason", sect);
+		context.encounter.addReason().setText(cda.getChild(sect, "text").getTextContent());
+	}
 	
-//  /entry/act: 5260
-//  /entry/act/code: 5260
-//  /entry/act/effectiveTime: 5260
-//  /entry/act/effectiveTime/low: 5260
-//  /entry/act/entryRelationship: 5260
-//  /entry/act/entryRelationship/observation: 5260
-//  /entry/act/entryRelationship/observation/code: 5260
-//  /entry/act/entryRelationship/observation/effectiveTime: 5260
-//  /entry/act/entryRelationship/observation/effectiveTime/low: 5260
-//  /entry/act/entryRelationship/observation/entryRelationship: 5260
-//  /entry/act/entryRelationship/observation/entryRelationship/observation: 5260
-//  /entry/act/entryRelationship/observation/entryRelationship/observation/code: 5260
-//  /entry/act/entryRelationship/observation/entryRelationship/observation/statusCode: 5260
-//  /entry/act/entryRelationship/observation/entryRelationship/observation/templateId: 15780
-//  /entry/act/entryRelationship/observation/entryRelationship/observation/text: 5260
-//  /entry/act/entryRelationship/observation/entryRelationship/observation/text/reference: 5260
-//  /entry/act/entryRelationship/observation/entryRelationship/observation/value: 5260
-//  /entry/act/entryRelationship/observation/id: 5260
-//  /entry/act/entryRelationship/observation/statusCode: 5260
-//  /entry/act/entryRelationship/observation/templateId: 10520
-//  /entry/act/entryRelationship/observation/text: 5260
-//  /entry/act/entryRelationship/observation/text/reference: 5260
-//  /entry/act/entryRelationship/observation/value: 5260
-//  /entry/act/entryRelationship/observation/value/translation: 4966
-//  /entry/act/id: 5260
-//  /entry/act/performer: 4499
-//  /entry/act/performer/assignedEntity: 4499
-//  /entry/act/performer/assignedEntity/addr: 4499
-//  /entry/act/performer/assignedEntity/assignedPerson: 4499
-//  /entry/act/performer/assignedEntity/assignedPerson/name: 4499
-//  /entry/act/performer/assignedEntity/assignedPerson/name/family: 4499
-//  /entry/act/performer/assignedEntity/assignedPerson/name/given: 4499
-//  /entry/act/performer/assignedEntity/assignedPerson/name/prefix: 3835
-//  /entry/act/performer/assignedEntity/assignedPerson/name/suffix: 4165
-//  /entry/act/performer/assignedEntity/id: 8998
-//  /entry/act/performer/assignedEntity/telecom: 4499
-//  /entry/act/statusCode: 5260
-//  /entry/act/templateId: 21040
+  private void processProblemsSection(CDAUtilities cda, Convert convert, Element sect, Context context) throws DOMException, Exception {
+	  scanSection("Problems", sect);
+		List_ list = new List_();
+		list.setId(context.baseId+"-list-problems");
+		list.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/list-daf-dafproblemlist");
+		list.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+    list.setCode(convert.makeCodeableConceptFromCD(cda.getChild(sect, "code")));
+    list.setTitle(cda.getChild(sect, "title").getTextContent());
+    list.setStatus(ListStatus.CURRENT); 
+    list.setMode(ListMode.SNAPSHOT);
+    list.setDateElement(context.now);
+    list.setSource(new Reference().setReference("Practitioner/"+context.author.getId()));
+		buildNarrative(list, cda.getChild(sect, "text"));
 
-  
-//	Procedures Analysis
-//  /code: 782
-//  /entry: 1789
-//  /entry/procedure: 1789
-//  /entry/procedure/code: 1789
-//  /entry/procedure/code/originalText: 1789
-//  /entry/procedure/code/originalText/reference: 1789
-//  /entry/procedure/effectiveTime: 1789
-//  /entry/procedure/id: 1789
-//  /entry/procedure/performer: 1414
-//  /entry/procedure/performer/assignedEntity: 1414
-//  /entry/procedure/performer/assignedEntity/addr: 1414
-//  /entry/procedure/performer/assignedEntity/assignedPerson: 1414
-//  /entry/procedure/performer/assignedEntity/assignedPerson/name: 1414
-//  /entry/procedure/performer/assignedEntity/assignedPerson/name/family: 1414
-//  /entry/procedure/performer/assignedEntity/assignedPerson/name/given: 1416
-//  /entry/procedure/performer/assignedEntity/assignedPerson/name/prefix: 1285
-//  /entry/procedure/performer/assignedEntity/assignedPerson/name/suffix: 1383
-//  /entry/procedure/performer/assignedEntity/id: 2492
-//  /entry/procedure/performer/assignedEntity/telecom: 1414
-//  /entry/procedure/statusCode: 1789
-//  /entry/procedure/templateId: 5367
-//  /entry/procedure/text: 1789
-//  /entry/procedure/text/reference: 1789
-//  /templateId: 782
-//  /text: 782
-//  /title: 782
+		int i = 0;
+		for (Element c : cda.getChildren(sect, "entry")) {
+			Element pca = cda.getChild(c, "act"); // problem concern act
+			Condition cond = new Condition();
+			cond.setId(context.baseId+"-problem-"+Integer.toString(i));
+			cond.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/condition-daf-dafcondition");
+			i++;
+			cond.setPatient(new Reference().setReference("Patient/"+context.subject.getId()));
+			cond.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
+			
+			cond.setDateAssertedElement(convert.makeDateFromTS(cda.getChild(cda.getChild(pca, "effectiveTime"), "low")));
+			
+			boolean found = false;
+			for (Element e : cda.getChildren(pca, "id")) {
+				Identifier id = convert.makeIdentifierFromII(e);
+				cond.getIdentifier().add(id);
+			}
+			if (!found) {
+				list.addEntry().setItem(new Reference().setReference("Condition/"+cond.getId()));
+				for (Element e : cda.getChildren(pca, "performer")) {
+					if (cond.hasAsserter())
+						throw new Error("additional asserter discovered");
+					Reference ref = new Reference().setReference("Practitioner/"+processPerformer(cda, convert, context, e, "assignedEntity", "assignedPerson").getId());
+					cond.setAsserter(ref);
+				}
+				Element po = cda.getChild(cda.getChild(pca, "entryRelationship"), "observation"); // problem observation
+				cond.setClinicalStatus(ConditionStatus.UNKNOWN);
+				cond.setCode(convert.makeCodeableConceptFromCD(cda.getChild(po, "code")));
+				cond.setOnset(convert.makeDateTimeFromTS(cda.getChild(cda.getChild(po, "effectiveTime"), "low")));
+				Element pso = cda.getChild(cda.getChild(po, "entryRelationship"), "observation"); // problem status observation
+				String status = cda.getChild(pso, "value").getAttribute("code");
+				if (status.equals("55561003"))
+					cond.setAbatement(new BooleanType("false"));
+				else 
+					throw new Error("unknown status code "+status);
+				saveResource(cond);
+			}
+		}
+		saveResource(list);
+	}
 
-//	Encounters Analysis
-//  /code: 782
-//  /entry: 782
-//  /entry/encounter: 782
-//  /entry/encounter/code: 782
-//  /entry/encounter/code/originalText: 782
-//  /entry/encounter/code/originalText/reference: 782
-//  /entry/encounter/effectiveTime: 782
-//  /entry/encounter/effectiveTime/high: 782
-//  /entry/encounter/effectiveTime/low: 782
-//  /entry/encounter/id: 782
-//  /entry/encounter/participant: 782
-//  /entry/encounter/participant/participantRole: 782
-//  /entry/encounter/participant/participantRole/code: 782
-//  /entry/encounter/participant/participantRole/playingEntity: 782
-//  /entry/encounter/participant/participantRole/playingEntity/name: 782
-//  /entry/encounter/participant/templateId: 782
-//  /entry/encounter/performer: 782
-//  /entry/encounter/performer/assignedEntity: 782
-//  /entry/encounter/performer/assignedEntity/addr: 782
-//  /entry/encounter/performer/assignedEntity/assignedPerson: 782
-//  /entry/encounter/performer/assignedEntity/assignedPerson/name: 782
-//  /entry/encounter/performer/assignedEntity/assignedPerson/name/family: 782
-//  /entry/encounter/performer/assignedEntity/assignedPerson/name/given: 1362
-//  /entry/encounter/performer/assignedEntity/assignedPerson/name/prefix: 782
-//  /entry/encounter/performer/assignedEntity/assignedPerson/name/suffix: 49
-//  /entry/encounter/performer/assignedEntity/id: 782
-//  /entry/encounter/performer/assignedEntity/representedOrganization: 782
-//  /entry/encounter/performer/assignedEntity/representedOrganization/addr: 782
-//  /entry/encounter/performer/assignedEntity/representedOrganization/id: 782
-//  /entry/encounter/performer/assignedEntity/representedOrganization/name: 782
-//  /entry/encounter/performer/assignedEntity/representedOrganization/telecom: 782
-//  /entry/encounter/performer/assignedEntity/telecom: 782
-//  /entry/encounter/performer/time: 782
-//  /entry/encounter/performer/time/high: 782
-//  /entry/encounter/performer/time/low: 782
-//  /entry/encounter/templateId: 2346
-//  /entry/encounter/text: 782
-//  /entry/encounter/text/reference: 782
-//  /templateId: 2346
-//  /text: 782
-//  /title: 782
+	private void processAllergiesSection(CDAUtilities cda, Convert convert, Element section, Context context) throws Exception {
+		scanSection("Allergies", section);
+		List_ list = new List_();
+		list.setId(context.baseId+"-list-allergies");
+		list.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/list-daf-dafallergylist");
+		list.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+    list.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section, "code")));
+    list.setTitle(cda.getChild(section, "title").getTextContent());
+    list.setStatus(ListStatus.CURRENT); 
+    list.setDateElement(context.now);
+    list.setSource(new Reference().setReference("Practitioner/"+context.author.getId()));
+    list.setMode(ListMode.SNAPSHOT);
+		buildNarrative(list, cda.getChild(section, "text"));
+
+		int i = 0;
+		for (Element c : cda.getChildren(section, "entry")) {
+			Element apa = cda.getChild(c, "act"); // allergy problem act
+			AllergyIntolerance ai = new AllergyIntolerance();
+			ai.setId(context.baseId+"-allergy-"+Integer.toString(i));
+			ai.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/allergyintolerance-daf-dafallergyintolerance");
+			i++;
+			ai.setPatient(new Reference().setReference("Patient/"+context.subject.getId()));
+			
+			ai.setRecordedDateElement(convert.makeDateTimeFromTS(cda.getChild(cda.getChild(apa, "effectiveTime"), "low")));
+			boolean found = false;
+			for (Element e : cda.getChildren(apa, "id")) {
+				Identifier id = convert.makeIdentifierFromII(e);
+				ai.getIdentifier().add(id);
+			}
+			if (!found) {
+				list.addEntry().setItem(new Reference().setReference("AllergyIntolerance/"+ai.getId()));
+
+				Element ao = cda.getChild(cda.getChild(apa, "entryRelationship"), "observation"); // allergy observation
+				if (!cda.getChild(ao, "value").getAttribute("code").equals("419511003"))
+					throw new Error("unexpected code");
+				// nothing....
+
+				// no allergy status observation
+				List<Element> reactions = cda.getChildren(ao, "entryRelationship");
+				Element pe = cda.getChild(cda.getChild(cda.getChild(ao, "participant"), "participantRole"), "playingEntity");
+				Element pec = cda.getChild(pe, "code");
+				if (pec == null || !Utilities.noString(pec.getAttribute("nullFlavor"))) {
+					String n = cda.getChild(pe, "name").getTextContent();
+					//				if (n.contains("No Known Drug Allergies") && reactions.isEmpty())
+					//					ai.setSubstance(new CodeableConcept().setText(n)); // todo: what do with this? 
+					//				else
+					ai.setSubstance(new CodeableConcept().setText(n));
+				} else
+					ai.setSubstance(convert.makeCodeableConceptFromCD(pec));
+				if (!reactions.isEmpty()) {
+					AllergyIntoleranceEventComponent aie = ai.addEvent();
+					for (Element er : reactions) {
+						Element ro = cda.getChild(er, "observation");
+						aie.addManifestation(convert.makeCodeableConceptFromCD(cda.getChild(ro, "value")));
+					}
+				}
+
+				saveResource(ai);
+			}
+		}
+		saveResource(list);
+  }
+
+	private void processVitalSignsSection(CDAUtilities cda, Convert convert, Element section, Context context) throws Exception {
+		scanSection("Vital Signs", section);
+		List_ list = new List_();
+		list.setId(context.baseId+"-list-vitalsigns");
+		//. list.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/list-daf-dafproblemlist"); no list 
+		list.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+    list.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section, "code")));
+    list.setTitle(cda.getChild(section, "title").getTextContent());
+    list.setStatus(ListStatus.CURRENT); 
+    list.setMode(ListMode.SNAPSHOT);
+    list.setDateElement(context.now);
+    list.setSource(new Reference().setReference("Practitioner/"+context.author.getId()));
+		buildNarrative(list, cda.getChild(section, "text"));
+
+		int i = 0;
+		for (Element c : cda.getChildren(section, "entry")) {
+			Element org = cda.getChild(c, "organizer"); // problem concern act
+			for (Element oc : cda.getChildren(org, "component")) {
+				Element o = cda.getChild(oc, "observation"); // problem concern act
+				Observation obs = new Observation();
+				obs.setId(context.baseId+"-vitals-"+Integer.toString(i));
+				obs.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/observation-daf-vitalsigns-dafvitalsigns");
+				i++;
+				obs.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+				obs.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
+				obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(o, "code")));
+				
+				boolean found = false;
+				for (Element e : cda.getChildren(o, "id")) {
+					Identifier id = convert.makeIdentifierFromII(e);
+					obs.getIdentifier().add(id);
+				}
+
+				if (!found) {
+					list.addEntry().setItem(new Reference().setReference("Observation/"+obs.getId()));
+					obs.setStatus(ObservationStatus.FINAL);
+					obs.setReliability(ObservationReliability.OK);
+					obs.setApplies(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
+					String v = cda.getChild(o, "value").getAttribute("value");
+					if (!Utilities.IsDecimal(v)) {
+						obs.setDataAbsentReason(new CodeableConcept().setText(v));
+					} else
+						obs.setValue(convert.makeQuantityFromPQ(cda.getChild(o, "value")));
+					saveResource(obs);
+				}
+			}
+		}
+		saveResource(list);	  
+  }
+
+	private void processResultsSection(CDAUtilities cda, Convert convert, Element section, Context context) throws Exception {
+	  scanSection("Results", section);
+	  
+		List_ list = new List_();
+		list.setId(context.baseId+"-list-results");
+    list.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/list-daf-dafresultlist"); 
+		list.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+    list.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section, "code")));
+    list.setTitle(cda.getChild(section, "title").getTextContent());
+    list.setStatus(ListStatus.CURRENT); 
+    list.setMode(ListMode.SNAPSHOT);
+    list.setDateElement(context.now);
+    list.setSource(new Reference().setReference("Practitioner/"+context.author.getId()));
+		buildNarrative(list, cda.getChild(section, "text"));
+
+		context.obsId = 0;
+		for (Element c : cda.getChildren(section, "entry")) {
+			Element org = cda.getChild(c, "organizer"); 
+			if (org != null) {
+				Observation panel = new Observation();
+				panel.setId(context.baseId+"-results-"+Integer.toString(context.obsId));
+				panel.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobspanel");
+				context.obsId++;
+				panel.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+				panel.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
+				panel.setStatus(ObservationStatus.FINAL);
+				panel.setReliability(ObservationReliability.OK);
+				boolean found = false;
+				for (Element e : cda.getChildren(org, "id")) {
+					Identifier id = convert.makeIdentifierFromII(e);
+					panel.getIdentifier().add(id);
+				}
+				if (!found) {
+					list.addEntry().setItem(new Reference().setReference("Observation/"+panel.getId()));
+
+					panel.setCode(convert.makeCodeableConceptFromCD(cda.getChild(org, "code")));
+					for (Element comp : cda.getChildren(org, "component")) {
+						Observation obs = processObservation(cda, convert, context, cda.getChild(comp, "observation"));
+						panel.addRelated().setType(ObservationRelationshiptypes.HASCOMPONENT).setTarget(new Reference().setReference("Observation/"+obs.getId()));
+						if (!panel.hasApplies())
+							panel.setApplies(obs.getApplies());
+					}
+					saveResource(panel);
+				}
+			}
+			Element o = cda.getChild(c, "observation"); 
+			if (o != null) {
+				Observation obs = processObservation(cda, convert, context, o);
+				list.addEntry().setItem(new Reference().setReference("Observation/"+obs.getId()));
+			}
+		}
+		saveResource(list);	  
+  }
+
+	private Observation processObservation(CDAUtilities cda, Convert convert, Context context, Element o) throws Exception {
+		Observation obs = new Observation();
+		obs.setId(context.baseId+"-results-"+Integer.toString(context.obsId));
+		context.obsId++;
+		obs.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+		obs.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
+		obs.setStatus(ObservationStatus.FINAL);
+		obs.setReliability(ObservationReliability.OK);
+		obs.setApplies(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
+		obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(o, "code")));
+		obs.setInterpretation(convert.makeCodeableConceptFromCD(cda.getChild(o, "interpretationCode")));
+		Element rr = cda.getChild(o, "referenceRange");
+		if (rr != null)  
+			obs.addReferenceRange().setText(cda.getChild(cda.getChild(rr, "observationRange"), "text").getTextContent());
+		
+		Element v = cda.getChild(o, "value");
+		String type = v.getAttribute("xsi:type");
+		if ("ST".equals(type)) {
+			obs.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobsother");
+			obs.setValue(new StringType(v.getTextContent()));
+		} else if ("CD".equals(type)) {
+			obs.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobscode");
+			obs.setValue(convert.makeCodeableConceptFromCD(v));
+		} else if ("PQ".equals(type)) {
+			obs.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobsquantity");
+			String va = cda.getChild(o, "value").getAttribute("value");
+			if (!Utilities.IsDecimal(va)) {
+				obs.setDataAbsentReason(new CodeableConcept().setText(va));
+			} else
+			  obs.setValue(convert.makeQuantityFromPQ(cda.getChild(o, "value")));
+		} else
+			throw new Exception("Unknown type '"+type+"'");
+		
+		for (Element e : cda.getChildren(o, "id")) {
+			Identifier id = convert.makeIdentifierFromII(e);
+			obs.getIdentifier().add(id);
+		}
+		saveResource(obs);
+		return obs;
+  }
+
+	private void processSocialHistorySection(CDAUtilities cda, Convert convert, Element section, Context context) throws Exception {
+		scanSection("Social History", section);
+		int i = 0;
+		for (Element c : cda.getChildren(section, "entry")) {
+			Element o = cda.getChild(c, "observation");
+			Observation obs = new Observation();
+			obs.setId(context.baseId+"-smoking-"+(i == 0 ? "" : Integer.toString(i)));
+			obs.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/observation-daf-smokingstatus-dafsmokingstatus");
+			i++;
+			obs.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+			obs.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
+			obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(o, "code")));
+			
+			boolean found = false;
+			for (Element e : cda.getChildren(o, "id")) {
+				Identifier id = convert.makeIdentifierFromII(e);
+				obs.getIdentifier().add(convert.makeIdentifierFromII(e));
+			}
+			if (!found) {
+				obs.setStatus(ObservationStatus.FINAL);
+				obs.setReliability(ObservationReliability.OK);
+				obs.setApplies(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
+				obs.setValue(convert.makeCodeableConceptFromCD(cda.getChild(o, "value")));
+				saveResource(obs);
+			}
+		}
+  }
+
+	private void processMedicationsSection(CDAUtilities cda, Convert convert, Element section, Context context) throws Exception {
+		scanSection("Medications", section);
+		List_ list = new List_();
+		list.setId(context.baseId+"-list-medications");
+		list.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/list-daf-dafmedicationlist");
+		list.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+    list.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section, "code")));
+    list.setTitle(cda.getChild(section, "title").getTextContent());
+    list.setStatus(ListStatus.CURRENT); 
+    list.setMode(ListMode.SNAPSHOT);
+    list.setDateElement(context.now);
+    list.setSource(new Reference().setReference("Practitioner/"+context.author.getId()));
+		buildNarrative(list, cda.getChild(section, "text"));
+
+		int i = 0;
+		for (Element c : cda.getChildren(section, "entry")) {
+			Element sa = cda.getChild(c, "substanceAdministration"); // allergy problem act
+			MedicationStatement ms = new MedicationStatement();
+			ms.setId(context.baseId+"-medication-"+Integer.toString(i));
+			ms.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/medicationstatement-daf-dafmedicationstatement");
+			i++;
+			ms.setPatient(new Reference().setReference("Patient/"+context.subject.getId()));
+			
+			boolean found = false;
+			for (Element e : cda.getChildren(sa, "id")) {
+				Identifier id = convert.makeIdentifierFromII(e);
+				ms.getIdentifier().add(id);
+			}
+			if (!found) {
+				ms.setStatus(MedicationStatementStatus.COMPLETED);
+				list.addEntry().setItem(new Reference().setReference("MedicationStatement/"+ms.getId()));
+
+				Element mm = cda.getChild(cda.getChild(cda.getChild(sa, "consumable"), "manufacturedProduct"), "manufacturedMaterial"); // allergy observation
+				ms.setMedication(new Reference().setReference("#med"));
+				Medication med = new Medication();
+				med.setId("med");
+				med.setCode(convert.makeCodeableConceptFromCD(cda.getChild(mm, "code")));
+				ms.getContained().add(med);
+				MedicationStatementDosageComponent dosage = ms.addDosage();
+				Element qty = cda.getChild(sa, "doseQuantity"); // allergy observation
+				try {
+					if (cda.getChild(qty, "low") != null) {
+						// todo: this is not correct?
+						dosage.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/extensions/medication-statement-range").setValue(convert.makeRangeFromIVLPQ(qty)));
+					} else {
+						dosage.setQuantity(convert.makeQuantityFromPQ(qty));
+					}
+				} catch (Exception e) {
+					System.out.println("  invalid dose quantity '"+qty.getAttribute("value")+" "+qty.getAttribute("unit")+"' ("+e.getClass().getName()+") in "+context.baseId);
+				}
+				dosage.setRoute(convert.makeCodeableConceptFromCD(cda.getChild(sa, "routeCode")));
+				Type t = convert.makeSomethingFromGTS(cda.getChildren(sa, "effectiveTime"));
+				if (t instanceof Timing) {
+					dosage.setSchedule((Timing) t);
+					if (dosage.getSchedule().hasRepeat() && dosage.getSchedule().getRepeat().hasBounds())
+						ms.setEffective(dosage.getSchedule().getRepeat().getBounds());
+				} else if (t instanceof Period)
+					ms.setEffective(t);
+				else
+					throw new Exception("Undecided how to handle "+t.getClass().getName());
+
+				for (Element e : cda.getChildren(sa, "author")) {
+					if (ms.hasInformationSource())
+						throw new Error("additional author discovered");
+					Reference ref = new Reference().setReference("Practitioner/"+processPerformer(cda, convert, context, e, "assignedAuthor", "assignedPerson").getId());
+					ms.setInformationSource(ref);
+					ms.setDateAssertedElement(convert.makeDateTimeFromTS(cda.getChild(e, "time")));
+				}
+				saveResource(ms);
+			}
+		}
+		saveResource(list);
+  }
+	
+	private void processEncountersSection(CDAUtilities cda, Convert convert, Element section, Context context) throws Exception {
+	  scanSection("Encounters", section);
+		List_ list = new List_();
+		list.setId(context.baseId+"-list-encounters");
+		list.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/list-daf-dafencounterlist");
+		list.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+    list.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section, "code")));
+    list.setTitle(cda.getChild(section, "title").getTextContent());
+    list.setStatus(ListStatus.CURRENT); 
+    list.setMode(ListMode.SNAPSHOT);
+    list.setDateElement(context.now);
+    list.setSource(new Reference().setReference("Practitioner/"+context.author.getId()));
+		buildNarrative(list, cda.getChild(section, "text"));
+
+		int i = 0;
+		for (Element c : cda.getChildren(section, "entry")) {
+			Element ee = cda.getChild(c, "encounter"); // allergy problem act
+			Encounter enc = new Encounter();
+			enc.setId(context.baseId+"-encounter-"+Integer.toString(i));
+			enc.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/encounter-daf-dafencounter");
+			i++;
+			enc.setPatient(new Reference().setReference("Patient/"+context.subject.getId()));
+			list.addEntry().setItem(new Reference().setReference("Encounter/"+enc.getId()));
+			
+			for (Element e : cda.getChildren(ee, "id"))
+				enc.getIdentifier().add(convert.makeIdentifierFromII(e));
+			checkGenerateIdentifier(enc.getIdentifier(), enc);
+
+
+			enc.setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
+			if (enc.getPeriod().hasEnd())
+				enc.setStatus(EncounterState.FINISHED);
+			else
+				enc.setStatus(EncounterState.INPROGRESS);
+
+			enc.setClass_(EncounterClass.OTHER); // todo: fix this
+			CodeableConcept type = convert.makeCodeableConceptFromCD(cda.getChild(ee, "code"));
+			if (!type.hasText() && cda.getChild(ee, "text") != null)
+				type.setText(cda.getChild(ee, "text").getTextContent().trim());
+			enc.addType(type);
+			
+			for (Element e : cda.getChildren(ee, "performer")) {
+				Reference ref = new Reference().setReference("Practitioner/"+processPerformer(cda, convert, context, e, "assignedEntity", "assignedPerson").getId());
+				enc.addParticipant().setIndividual(ref).setPeriod(convert.makePeriodFromIVL(cda.getChild(e, "time")));
+			}
+			enc.addLocation().setLocation(new Reference().setReference("#loc"));
+			Location loc = new Location();
+			loc.setId("loc");
+			Element pr = cda.getChild(cda.getChild(ee, "participant"), "participantRole");
+			loc.setName(cda.getChild(cda.getChild(pr, "playingEntity"), "name").getTextContent());
+			loc.setType(convert.makeCodeableConceptFromCD(cda.getChild(pr, "code")));
+			enc.getContained().add(loc);
+			saveResource(enc);
+		}
+		saveResource(list);
+  }
+
+
+	private void processImmunizationsSection(CDAUtilities cda, Convert convert, Element section, Context context) throws Exception {
+	  scanSection("Immunizations", section);	  
+		List_ list = new List_();
+		list.setId(context.baseId+"-list-immunizations");
+		list.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/list-daf-dafimmunizationlist");
+		list.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+    list.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section, "code")));
+    list.setTitle(cda.getChild(section, "title").getTextContent());
+    list.setStatus(ListStatus.CURRENT); 
+    list.setMode(ListMode.SNAPSHOT);
+    list.setDateElement(context.now);
+    list.setSource(new Reference().setReference("Practitioner/"+context.author.getId()));
+		buildNarrative(list, cda.getChild(section, "text"));
+
+		int i = 0;
+		for (Element c : cda.getChildren(section, "entry")) {
+			Element sa = cda.getChild(c, "substanceAdministration"); // allergy problem act
+			Immunization imm = new Immunization();
+			imm.setId(context.baseId+"-immunization-"+Integer.toString(i));
+			imm.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/immunization-daf-dafimmunization");
+			i++;
+			imm.setPatient(new Reference().setReference("Patient/"+context.subject.getId()));
+			imm.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
+			imm.setWasNotGiven("true".equals(sa.getAttribute("negationInd")));
+			
+      boolean found = false;
+			for (Element e : cda.getChildren(sa, "id")) {
+				Identifier id = convert.makeIdentifierFromII(e);
+				imm.getIdentifier().add(id);
+			}
+			if (!found) {
+				list.addEntry().setItem(new Reference().setReference("Immunization/"+imm.getId()));
+
+				imm.setDateElement(convert.makeDateTimeFromTS(cda.getChild(cda.getChild(sa, "effectiveTime"), "low")));
+				if (imm.getWasNotGiven()) {
+					Element reason = cda.getChild(cda.getChildByAttribute(sa, "entryRelationship", "typeCode", "RSON"), "observation");
+					imm.setExplanation( new ImmunizationExplanationComponent());
+					imm.getExplanation().addReasonNotGiven(convert.makeCodeableConceptFromCD(cda.getChild(reason, "code")));
+				}
+				Element mm = cda.getChild(cda.getChild(cda.getChild(sa, "consumable"), "manufacturedProduct"), "manufacturedMaterial");
+				imm.setVaccineType(convert.makeCodeableConceptFromCD(cda.getChild(mm, "code")));
+				imm.setRoute(convert.makeCodeableConceptFromCD(cda.getChild(sa, "routeCode")));
+				if (cda.getChild(mm, "lotNumberText") != null)
+					imm.setLotNumber(cda.getChild(mm, "lotNumberText").getTextContent());
+				Element mr = cda.getChild(cda.getChild(cda.getChild(sa, "consumable"), "manufacturedProduct"), "manufacturerOrganization");
+				if (mr != null)
+					imm.setManufacturer(new Reference().setDisplay(cda.getChild(mr, "name").getTextContent()));
+
+				// the problem with this is that you can't have just a dose sequence number
+				//			Element subject = cda.getChild(cda.getChildByAttribute(sa, "entryRelationship", "typeCode", "SUBJ"), "observation");
+				//			if (subject != null)
+				//				imm.addVaccinationProtocol().setDoseSequence(Integer.parseInt(cda.getChild(subject, "value").getAttribute("value")));
+
+				for (Element e : cda.getChildren(sa, "performer")) {
+					if (imm.hasPerformer())
+						throw new Error("additional performer discovered");
+					Reference ref = new Reference().setReference("Practitioner/"+processPerformer(cda, convert, context, e, "assignedEntity", "assignedPerson").getId());
+					imm.setPerformer(ref);
+				}
+				imm.setReported(!imm.hasPerformer());
+				saveResource(imm);
+			}
+		}
+		saveResource(list);
+  }
+
+	private void makeBinary(String sourceFolder, String filename, Context context) throws Exception {
+	  Binary binary = new Binary();
+	  binary.setId(context.baseId+"-binary");
+	  binary.setContentType("application/hl7-v3+xml");
+	  binary.setContent(IOUtils.toByteArray(new FileInputStream(Utilities.path(sourceFolder, filename))));
+	  saveResource(binary);
+  }
+
+//  /informationRecipient: 2979
+//  /informationRecipient/intendedRecipient: 2979
+//  /informationRecipient/intendedRecipient/addr: 2979
+//  /informationRecipient/intendedRecipient/informationRecipient: 2979
+//  /informationRecipient/intendedRecipient/informationRecipient/name: 2979
+//  /informationRecipient/intendedRecipient/receivedOrganization: 2979
+//  /informationRecipient/intendedRecipient/receivedOrganization/addr: 2979
+//  /informationRecipient/intendedRecipient/receivedOrganization/id: 2979
+//  /informationRecipient/intendedRecipient/receivedOrganization/name: 2979
+//  /informationRecipient/intendedRecipient/receivedOrganization/telecom: 2979
+
+	private void makeDocumentReference(CDAUtilities cda, Convert convert, Element doc, Context context) throws Exception {
+    scanSection("document", doc);
+		DocumentReference ref = new DocumentReference();
+		ref.setId(context.baseId+"-document");
+		ref.setMasterIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "id")));
+		ref.setSubject(new Reference().setReference("Patient/"+context.subject.getId()));
+		ref.setType(convert.makeCodeableConceptFromCD(cda.getChild(doc, "code")));
+		for (Element ti : cda.getChildren(doc, "templateId"))
+			ref.addFormat("urn:oid:"+ti.getAttribute("value"));
+		ref.addAuthor(new Reference().setReference("Practitioner/"+context.author.getId()));
+		ref.setCreatedElement(convert.makeDateTimeFromTS(cda.getChild(doc, "effectiveTime")));
+		ref.setIndexedElement(InstantType.now());
+		ref.setStatus(DocumentReferenceStatus.CURRENT);
+		ref.addConfidentiality(convert.makeCodeableConceptFromCD(cda.getChild(doc, "confidentialityCode")));
+		ref.addContent().setContentType("application/hl7-v3+xml").setUrl("Binary/"+context.baseId).setLanguage(convertLanguage(cda.getChild(doc, "language")));
+		ref.setContext(new DocumentReferenceContextComponent());
+		ref.getContext().setPeriod(convert.makePeriodFromIVL(cda.getChild(cda.getChild(doc, "serviceEvent"), "effectiveTime")));
+		for (CodeableConcept cc : context.encounter.getType())
+			ref.getContext().addEvent(cc);
+		ref.setDescription(cda.getChild(doc, "title").getTextContent());
+		ref.setCustodian(new Reference().setReference("Organization/"+processOrganization(cda.getDescendent(doc, "custodian/assignedCustodian/representedCustodianOrganization"), cda, convert, context)));
+		ref.setAuthenticator(new Reference().setReference("Practitioner/"+processPerformer(cda, convert, context, cda.getChild(doc, "legalAuthenticator"), "assignedEntity", "assignedPerson").getId()));
+	  saveResource(ref);
+  }
+
+	private String convertLanguage(Element child) {
+		if (child == null)
+			return null;
+	  return child.getAttribute("code");
+  }
+
 
 }

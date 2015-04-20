@@ -203,7 +203,7 @@ public class CCDAConverter {
 		cda = new CDAUtilities(stream);
 		doc = cda.getElement();
 		cda.checkTemplateId(doc, "2.16.840.1.113883.10.20.22.1.1");
-		convert = new Convert(cda, ucumSvc);
+		convert = new Convert(cda, ucumSvc, "Z");
 
 		// check it's a CDA/CCD
 		feed = new Bundle();

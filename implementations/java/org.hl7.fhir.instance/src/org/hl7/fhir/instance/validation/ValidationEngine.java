@@ -57,6 +57,7 @@ import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
@@ -84,6 +85,10 @@ public class ValidationEngine {
 	private String profileURI;
 	private WorkerContext context;
 	private Schema schema;
+	private byte[] schCache = null;
+	private ValueSetExpansionCache cache;
+	private List<String> extensionDomains = new ArrayList<String>();
+	private boolean anyExtensionsAllowed;
 
 
 	public String getProfileURI() {
@@ -110,9 +115,11 @@ public class ValidationEngine {
 
 		if (!noSchematron) {
 			// 2. schematron validation
-			String sch = "fhir-invariants.sch";
-			byte[] tmp = Utilities.saxonTransform(definitions, definitions.get(sch), definitions.get("iso_svrl_for_xslt2.xsl"));
-			byte[] out = Utilities.saxonTransform(definitions, source, tmp);
+			if (schCache == null) {
+			  String sch = "fhir-invariants.sch";
+			  schCache = Utilities.saxonTransform(definitions, definitions.get(sch), definitions.get("iso_svrl_for_xslt2.xsl"));
+			}
+			byte[] out = Utilities.saxonTransform(definitions, source, schCache);
 			processSchematronOutput(out);
 		}
 
@@ -124,7 +131,11 @@ public class ValidationEngine {
 		builder.setErrorHandler(new ValidationErrorHandler(outputs));
 		doc = builder.parse(new ByteArrayInputStream(source));
 
-		InstanceValidator validator = new InstanceValidator(context);
+		if (cache == null)
+		  cache = new ValueSetExpansionCache(context, null);
+		InstanceValidator validator = new InstanceValidator(context, cache);
+		validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
+		validator.getExtensionDomains().addAll(extensionDomains);
 
 		if (profile != null)
 			outputs.addAll(validator.validate(doc, profile));
@@ -133,7 +144,11 @@ public class ValidationEngine {
 		else
 			outputs.addAll(validator.validate(doc));
 
-		new XmlParser().parse(new ByteArrayInputStream(source));
+		try {
+		  new XmlParser().parse(new ByteArrayInputStream(source));
+		} catch (Exception e) {
+			outputs.add(new ValidationMessage(Source.InstanceValidator, "structure", "??", e.getMessage(), IssueSeverity.ERROR));
+		}
 
 		OperationOutcome op = new OperationOutcome();
 		for (ValidationMessage vm : outputs) {
@@ -323,6 +338,22 @@ public class ValidationEngine {
 		profile = null;
 		profileURI = null;
   }
+
+	public List<String> getExtensionDomains() {
+		return extensionDomains;
+	}
+
+	public void setExtensionDomains(List<String> extensionDomains) {
+		this.extensionDomains = extensionDomains;
+	}
+
+	public boolean isAnyExtensionsAllowed() {
+		return anyExtensionsAllowed;
+	}
+
+	public void setAnyExtensionsAllowed(boolean anyExtensionsAllowed) {
+		this.anyExtensionsAllowed = anyExtensionsAllowed;
+	}
 
 
 }

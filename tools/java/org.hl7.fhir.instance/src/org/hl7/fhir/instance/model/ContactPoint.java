@@ -29,14 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 6, 2015 21:21+1000 for FHIR v0.5.0
+// Generated on Fri, Apr 17, 2015 10:50+1000 for FHIR v0.5.0
 
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.DatatypeDef;
-import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
  */

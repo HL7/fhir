@@ -29,19 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 6, 2015 21:21+1000 for FHIR v0.5.0
+// Generated on Fri, Apr 17, 2015 10:50+1000 for FHIR v0.5.0
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * This resource provides the adjudication details from the processing of a Claim resource.
  */
@@ -413,14 +411,14 @@ public class ClaimResponse extends DomainResource {
          * Monitory amount associated with the code.
          */
         @Child(name ="amount", type={Money.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Monitary amount", formalDefinition="Monitory amount associated with the code." )
+        @Description(shortDefinition="Monetary amount", formalDefinition="Monitory amount associated with the code." )
         protected Money amount;
 
         /**
-         * A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         @Child(name ="value", type={DecimalType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monitary value for example a percentage. Mutually exclusive to the amount element above." )
+        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
         private static final long serialVersionUID = -949880587L;
@@ -483,7 +481,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public DecimalType getValueElement() { 
           if (this.value == null)
@@ -503,7 +501,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public ItemAdjudicationComponent setValueElement(DecimalType value) { 
           this.value = value;
@@ -511,14 +509,14 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public BigDecimal getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
-         * @param value A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public ItemAdjudicationComponent setValue(BigDecimal value) { 
           if (value == null)
@@ -535,7 +533,7 @@ public class ClaimResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("amount", "Money", "Monitory amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
-          childrenList.add(new Property("value", "decimal", "A non-monitary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public ItemAdjudicationComponent copy() {
@@ -799,14 +797,14 @@ public class ClaimResponse extends DomainResource {
          * Monitory amount associated with the code.
          */
         @Child(name ="amount", type={Money.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Monitary amount", formalDefinition="Monitory amount associated with the code." )
+        @Description(shortDefinition="Monetary amount", formalDefinition="Monitory amount associated with the code." )
         protected Money amount;
 
         /**
-         * A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         @Child(name ="value", type={DecimalType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monitary value for example a percentage. Mutually exclusive to the amount element above." )
+        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
         private static final long serialVersionUID = -949880587L;
@@ -869,7 +867,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public DecimalType getValueElement() { 
           if (this.value == null)
@@ -889,7 +887,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public DetailAdjudicationComponent setValueElement(DecimalType value) { 
           this.value = value;
@@ -897,14 +895,14 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public BigDecimal getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
-         * @param value A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public DetailAdjudicationComponent setValue(BigDecimal value) { 
           if (value == null)
@@ -921,7 +919,7 @@ public class ClaimResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("amount", "Money", "Monitory amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
-          childrenList.add(new Property("value", "decimal", "A non-monitary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public DetailAdjudicationComponent copy() {
@@ -1132,14 +1130,14 @@ public class ClaimResponse extends DomainResource {
          * Monitory amount associated with the code.
          */
         @Child(name ="amount", type={Money.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Monitary amount", formalDefinition="Monitory amount associated with the code." )
+        @Description(shortDefinition="Monetary amount", formalDefinition="Monitory amount associated with the code." )
         protected Money amount;
 
         /**
-         * A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         @Child(name ="value", type={DecimalType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monitary value for example a percentage. Mutually exclusive to the amount element above." )
+        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
         private static final long serialVersionUID = -949880587L;
@@ -1202,7 +1200,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public DecimalType getValueElement() { 
           if (this.value == null)
@@ -1222,7 +1220,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public SubdetailAdjudicationComponent setValueElement(DecimalType value) { 
           this.value = value;
@@ -1230,14 +1228,14 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public BigDecimal getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
-         * @param value A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public SubdetailAdjudicationComponent setValue(BigDecimal value) { 
           if (value == null)
@@ -1254,7 +1252,7 @@ public class ClaimResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("amount", "Money", "Monitory amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
-          childrenList.add(new Property("value", "decimal", "A non-monitary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public SubdetailAdjudicationComponent copy() {
@@ -1668,14 +1666,14 @@ public class ClaimResponse extends DomainResource {
          * Monitory amount associated with the code.
          */
         @Child(name ="amount", type={Money.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Monitary amount", formalDefinition="Monitory amount associated with the code." )
+        @Description(shortDefinition="Monetary amount", formalDefinition="Monitory amount associated with the code." )
         protected Money amount;
 
         /**
-         * A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         @Child(name ="value", type={DecimalType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monitary value for example a percentage. Mutually exclusive to the amount element above." )
+        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
         private static final long serialVersionUID = -949880587L;
@@ -1738,7 +1736,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public DecimalType getValueElement() { 
           if (this.value == null)
@@ -1758,7 +1756,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public AddedItemAdjudicationComponent setValueElement(DecimalType value) { 
           this.value = value;
@@ -1766,14 +1764,14 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public BigDecimal getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
-         * @param value A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public AddedItemAdjudicationComponent setValue(BigDecimal value) { 
           if (value == null)
@@ -1790,7 +1788,7 @@ public class ClaimResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("amount", "Money", "Monitory amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
-          childrenList.add(new Property("value", "decimal", "A non-monitary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public AddedItemAdjudicationComponent copy() {
@@ -2013,14 +2011,14 @@ public class ClaimResponse extends DomainResource {
          * Monitory amount associated with the code.
          */
         @Child(name ="amount", type={Money.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Monitary amount", formalDefinition="Monitory amount associated with the code." )
+        @Description(shortDefinition="Monetary amount", formalDefinition="Monitory amount associated with the code." )
         protected Money amount;
 
         /**
-         * A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         @Child(name ="value", type={DecimalType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monitary value for example a percentage. Mutually exclusive to the amount element above." )
+        @Description(shortDefinition="Non-monitory value", formalDefinition="A non-monetary value for example a percentage. Mutually exclusive to the amount element above." )
         protected DecimalType value;
 
         private static final long serialVersionUID = -949880587L;
@@ -2083,7 +2081,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public DecimalType getValueElement() { 
           if (this.value == null)
@@ -2103,7 +2101,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #value} (A non-monitary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public AddedItemDetailAdjudicationComponent setValueElement(DecimalType value) { 
           this.value = value;
@@ -2111,14 +2109,14 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public BigDecimal getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
-         * @param value A non-monitary value for example a percentage. Mutually exclusive to the amount element above.
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
         public AddedItemDetailAdjudicationComponent setValue(BigDecimal value) { 
           if (value == null)
@@ -2135,7 +2133,7 @@ public class ClaimResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("amount", "Money", "Monitory amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
-          childrenList.add(new Property("value", "decimal", "A non-monitary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public AddedItemDetailAdjudicationComponent copy() {

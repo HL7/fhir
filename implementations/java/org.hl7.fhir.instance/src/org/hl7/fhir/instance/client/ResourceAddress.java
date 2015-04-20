@@ -47,6 +47,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.utils.URIBuilder;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
+import org.hl7.fhir.utilities.Utilities;
 
 //Make resources address subclass of URI
 /**
@@ -393,7 +394,7 @@ public class ResourceAddress {
 		        } else {
 		        	query = "";
 		        }
-		        query += httpParameterName + "=" + parameters.get(httpParameterName);
+		        query += httpParameterName + "=" + Utilities.encodeUri(parameters.get(httpParameterName));
         	}
 	
 	        return new URI(basePath.getScheme(), basePath.getUserInfo(), basePath.getHost(),basePath.getPort(), basePath.getPath(), query, basePath.getFragment());

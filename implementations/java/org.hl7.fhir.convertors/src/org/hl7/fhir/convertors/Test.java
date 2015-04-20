@@ -30,6 +30,14 @@ package org.hl7.fhir.convertors;
   
 */
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import org.hl7.fhir.instance.formats.IParser;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
+import org.hl7.fhir.instance.formats.JsonParser;
+import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.utils.FHIRTerminologyServices;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.Utilities;
@@ -46,20 +54,15 @@ public class Test {
 	
 	public static void main(String[] args) {
 		try {
-//			CCDAConverter c = new CCDAConverter(new UcumEssenceService(UCUM_PATH), WorkerContext.fromPack(Utilities.path(SRC_PATH, "validation.zip")));
-//			Bundle a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
-//			String fx = DEF_PATH + "output.xml";
-//			IParser x = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-//			x.compose(new FileOutputStream(fx),  a);
-//			String fj = DEF_PATH + "output.json";
-//			IParser j = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-//			j.compose(new FileOutputStream(fj),  a);
-//			System.out.println("done. save as "+fx+" and "+fj);
-		  ArgonautConverter c = new ArgonautConverter(new UcumEssenceService(UCUM_PATH), Utilities.path(SRC_PATH, "validation-min.zip"), new FHIRTerminologyServices(DEV_TS_SERVER));
-		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_ed", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
-		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_emergency", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
-		  c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\fileX", "C:\\work\\com.healthintersections.fhir\\argonaut\\output");
-		  System.out.println("All done. "+Integer.toString(c.getErrors())+" errors, "+Integer.toString(c.getWarnings())+" warnings");
+			CCDAConverter c = new CCDAConverter(new UcumEssenceService(UCUM_PATH), WorkerContext.fromPack(Utilities.path(SRC_PATH, "validation.zip")));
+			Bundle a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
+			String fx = DEF_PATH + "output.xml";
+			IParser x = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+			x.compose(new FileOutputStream(fx),  a);
+			String fj = DEF_PATH + "output.json";
+			IParser j = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+			j.compose(new FileOutputStream(fj),  a);
+			System.out.println("done. save as "+fx+" and "+fj);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

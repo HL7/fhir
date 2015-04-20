@@ -1,8 +1,13 @@
 package org.hl7.fhir.instance.utils;
 
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.client.IFHIRClient;
@@ -10,16 +15,20 @@ import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Extension;
-import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Parameters;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 public class FHIRTerminologyServices implements ITerminologyServices {
@@ -27,6 +36,8 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 	private IFHIRClient client;
 	private Conformance conformance;
 	private Map<String, ValidationResult> validateCodeCache = new HashMap<String, ITerminologyServices.ValidationResult>();
+	private Map<String, Boolean> supportedSystems = new HashMap<String, Boolean>();
+	private Map<String, ValueSetExpansionComponent> expansionCache = new HashMap<String, ValueSetExpansionComponent>();
 	
 	
 	public FHIRTerminologyServices(String url) throws Exception {
@@ -38,6 +49,9 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 
 	@Override
   public boolean supportsSystem(String system) {
+		if (supportedSystems.containsKey(system))
+			return supportedSystems.get(system);
+		
 		// is it listed in the conformance statement? 
 		List<Extension> extensions = ToolingExtensions.getExtensions(conformance, "http://hl7.org/fhir/StructureDefinition/supported-system");
 		for (Extension t : extensions)
@@ -47,7 +61,9 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 		// no? then see if there's a value set declaring it 
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("system", system);
-		return client.search(ValueSet.class, params).getTotal() > 0;
+		boolean ok = client.search(ValueSet.class, params).getTotal() > 0;
+		supportedSystems.put(system, ok);
+		return ok;
   }
 
 	@Override
@@ -83,7 +99,46 @@ public class FHIRTerminologyServices implements ITerminologyServices {
 
   @Override
   public ValueSetExpansionComponent expandVS(ConceptSetComponent inc) throws Exception {
-    throw new Error("Not done yet");
+		String key = keyFor(inc);
+		if (expansionCache.containsKey(key))
+			return expansionCache.get(key);
+		
+		Parameters p_in = new Parameters();
+		ValueSet vs = new ValueSet();
+		vs.setId(UUID.randomUUID().toString());
+		vs.setCompose(new ValueSetComposeComponent());
+		vs.getCompose().addInclude(inc);
+		p_in.addParameter().setName("valueset").setResource(vs);
+		Parameters p_out = client.operateType(ValueSet.class, "expand", p_in);
+		boolean ok = false;
+		for (ParametersParameterComponent p : p_out.getParameter()) {
+			if (p.getName().equals("return")) {
+				expansionCache.put(key, ((ValueSet) p.getResource()).getExpansion());
+				return ((ValueSet) p.getResource()).getExpansion();
+			}
+		}
+		throw new Exception("Expansion failed");
+  }
+
+	private String keyFor(ConceptSetComponent inc) {
+	  StringBuilder b = new StringBuilder();
+	  b.append(inc.getSystem());
+	  b.append("|");
+	  b.append(inc.getVersion());
+	  b.append("|");
+	  for (ConceptReferenceComponent cc : inc.getConcept()) {
+		  b.append(cc.getCode());
+		  b.append("-");
+		  b.append(cc.getDisplay());
+		  b.append("|");
+	  }
+	  for (ConceptSetFilterComponent ff : inc.getFilter()) {
+		  b.append(ff.getProperty());
+		  b.append(ff.getOp());
+		  b.append(ff.getValue());
+		  b.append("|");
+	  }
+	  return b.toString();
   }
 
 	@Override

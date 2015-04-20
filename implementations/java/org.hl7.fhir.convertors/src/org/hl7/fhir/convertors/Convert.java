@@ -32,6 +32,10 @@ package org.hl7.fhir.convertors;
 
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Address.AddressUse;
@@ -50,8 +54,14 @@ import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Patient.AdministrativeGender;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Quantity;
+import org.hl7.fhir.instance.model.Range;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.Timing;
+import org.hl7.fhir.instance.model.Timing.EventTiming;
+import org.hl7.fhir.instance.model.Timing.TimingRepeatComponent;
+import org.hl7.fhir.instance.model.Timing.UnitsOfTime;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.UcumService;
 import org.w3c.dom.Element;
@@ -59,19 +69,32 @@ import org.w3c.dom.Node;
 
 public class Convert {
 
-	CDAUtilities cda;
-	UcumService ucumSvc;
+	private CDAUtilities cda;
+	private UcumService ucumSvc;
+	private Set<String> oids = new HashSet<String>();
+	private String defaultTimezone;
+	private boolean generateMissingExtensions;
 	
-	public Convert(CDAUtilities cda, UcumService ucumSvc) {
+	public Convert(CDAUtilities cda, UcumService ucumSvc, String defaultTimezone) {
 		super();
 		this.cda = cda;
 		this.ucumSvc = ucumSvc;
+		this.defaultTimezone = defaultTimezone;
 	}
 	
 	public Identifier makeIdentifierFromII(Element e) throws Exception {
 		Identifier id = new Identifier();
 		String r = e.getAttribute("root");
-		if (Utilities.noString(e.getAttribute("extension"))) {
+		String ex;
+		if (e.hasAttribute("extension") && Utilities.noString(e.getAttribute("extension"))) {
+			if (generateMissingExtensions) 
+				ex = UUID.randomUUID().toString();
+			else
+				throw new Exception("Broken identifier - extension is blank");
+		} else 
+			ex = e.getAttribute("extension");
+      
+		if (Utilities.noString(ex)) {
 			id.setSystem("urn:ietf:rfc:3986");
 			if (isGuid(r)) 
 				id.setValue("urn:uuid:"+r);
@@ -86,7 +109,7 @@ public class Convert {
 				id.setSystem(UriForOid(r));
 			else 
 				id.setSystem("urn:oid:"+r);
-			id.setValue(e.getAttribute("extension"));
+			id.setValue(ex);
 		}
 		return id;
 	}
@@ -111,6 +134,12 @@ public class Convert {
   }
 	
 
+	/*
+  2.16.840.1.113883.3.72.5.2 - NIST owns this
+  2.16.840.1.113883.4.6 - National Provider Identifier
+  2.16.840.1.113883.6.21 - UB92
+  2.16.840.1.113883.6.69 - NDC
+	 */
 	private String UriForOid(String r) {
 		if (r.equals("2.16.840.1.113883.6.96"))
 			return "http://snomed.info/sct";
@@ -122,14 +151,44 @@ public class Convert {
 			return "http://hl7.org/fhir/sid/icd-10";
 		if (r.equals("2.16.840.1.113883.6.42"))
 			return "http://hl7.org/fhir/sid/icd-9";
+		if (r.equals("2.16.840.1.113883.6.104"))
+			return "http://hl7.org/fhir/sid/icd-9";
+		if (r.equals("2.16.840.1.113883.6.103"))
+			return "http://hl7.org/fhir/sid/icd-9"; //todo: confirm this		
 		if (r.equals("2.16.840.1.113883.6.73"))
 			return "http://hl7.org/fhir/sid/atc";
+		if (r.equals("2.16.840.1.113883.3.26.1.1"))
+			return "http://ncimeta.nci.nih.gov";
+		if (r.equals("2.16.840.1.113883.3.26.1.1.1"))
+			return "http://ncimeta.nci.nih.gov";
 		if (r.equals("2.16.840.1.113883.6.88"))
 			return "http://www.nlm.nih.gov/research/umls/rxnorm"; // todo: confirm this
+		
+		if (r.equals("2.16.840.1.113883.5.1008"))
+			return "http://hl7.org/fhir/v3/NullFlavor";
+		if (r.equals("2.16.840.1.113883.5.111"))
+			return "http://hl7.org/fhir/v3/RoleCode";
+		if (r.equals("2.16.840.1.113883.5.4"))
+			return "http://hl7.org/fhir/v3/ActCode";
+		if (r.equals("2.16.840.1.113883.5.8"))
+			return "http://hl7.org/fhir/v3/ActReason";
+		if (r.equals("2.16.840.1.113883.5.83"))
+			return "http://hl7.org/fhir/v3/ObservationInterpretation";
+		if (r.equals("2.16.840.1.113883.6.238"))
+			return "http://hl7.org/fhir/v3/Race";
+	
+		if (r.equals("2.16.840.1.113883.6.59"))
+			return "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx";
+		
+		if (r.equals("2.16.840.1.113883.6.12"))
+			return "http://www.ama-assn.org/go/cpt";
+			
 		if (r.startsWith("2.16.840.1.113883.12."))
 			return "http://hl7.org/fhir/sid/v2-"+r.substring(21);
-		else
+		else {
+			oids.add(r);
 			return "urn:oid:"+r;
+		}
 	}
 
 	public boolean isGuid(String r) {
@@ -145,28 +204,28 @@ public class Convert {
 		if (cv == null)
 			return null;
 		CodeableConcept cc = new CodeableConcept();
-		cc.getCoding().add(makeCodingFromCV(cv));
+		cc.addCoding(makeCodingFromCV(cv));
 		for (Element e : cda.getChildren(cv, "translation"))
-			cc.getCoding().add(makeCodingFromCV(e));
+			cc.addCoding(makeCodingFromCV(e));
 		if (cda.getChild(cv, "originalText") != null) {
 			Element ote = cda.getChild(cv, "originalText");
-			if (cda.getChild(ote, "reference") != null) {
-				if (cda.getChild(ote, "reference").getAttribute("value").startsWith("#")) {
-					Element t = cda.getByXmlId(cda.getChild(ote, "reference").getAttribute("value").substring(1));
-					String ot = t.getTextContent().trim();
-					cc.setText(Utilities.noString(ot) ? null : ot);
-				} else
-					throw new Exception("external references not handled yet "+cda.getChild(ote, "reference").getAttribute("value"));
-			} else {	  		
+//			if (cda.getChild(ote, "reference") != null) {
+//				if (cda.getChild(ote, "reference").getAttribute("value").startsWith("#")) {
+//					Element t = cda.getByXmlId(cda.getChild(ote, "reference").getAttribute("value").substring(1));
+//					String ot = t.getTextContent().trim();
+//					cc.setText(Utilities.noString(ot) ? null : ot);
+//				} else
+//					throw new Exception("external references not handled yet "+cda.getChild(ote, "reference").getAttribute("value"));
+//			} else {	  		
 				String ot = ote.getTextContent().trim();
 				cc.setText(Utilities.noString(ot) ? null : ot);
-	  	}  
+	  	//}  
 	  }
 	  return cc;
   }
 
 	public Coding makeCodingFromCV(Element cd) throws Exception {
-		if (cd == null)
+		if (cd == null || Utilities.noString(cd.getAttribute("code")))
 			return null;
 	  Coding c = new Coding();
 	  c.setCode(cd.getAttribute("code"));
@@ -338,8 +397,14 @@ public class Convert {
 			return null;
 		
     String v = ts.getAttribute("value");
+    if (v.length() > 8 && !hasTimezone(v))
+    	v += defaultTimezone;
     DateTimeType d = DateTimeType.parseV3(v);
     return d;
+  }
+
+	private boolean hasTimezone(String v) {
+	  return v.contains("+") || v.contains("-") || v.endsWith("Z");
   }
 
 	public DateType makeDateFromTS(Element ts) throws Exception {
@@ -347,6 +412,8 @@ public class Convert {
 			return null;
 		
     String v = ts.getAttribute("value");
+    if (Utilities.noString(v))
+    	return null;
     DateType d = DateType.parseV3(v);
     return d;
   }
@@ -445,17 +512,43 @@ public class Convert {
 	  	
   }
 
-	public Type makeQuantityFromPQ(Element pq) {
+	public Range makeRangeFromIVLPQ(Element ivlpq) throws Exception {
+		if (ivlpq == null)
+	    return null;
+		Element low = cda.getChild(ivlpq, "low");
+		Element high = cda.getChild(ivlpq, "high");
+		if (low == null && high == null)
+			return null;
+		Range r = new Range();
+		r.setLow(makeQuantityFromPQ(low, ivlpq.getAttribute("unit")));
+		r.setHigh(makeQuantityFromPQ(high, ivlpq.getAttribute("unit")));
+		return r;
+	}
+	
+	public Quantity makeQuantityFromPQ(Element pq) throws Exception {
+		return makeQuantityFromPQ(pq, null);
+  }
+
+	public Quantity makeQuantityFromPQ(Element pq, String units) throws Exception {
 		if (pq == null)
 	    return null;
 		Quantity qty = new Quantity();
-		qty.setValue(new BigDecimal(pq.getAttribute("value")));
-		qty.setSystem("http://unitsofmeasure.org");
-		qty.setCode(pq.getAttribute("unit"));
-		if (ucumSvc != null)
-			qty.setUnits(ucumSvc.getCommonDisplay(qty.getCode()));
-		else 
-			qty.setUnits(qty.getCode());
+		String n = pq.getAttribute("value").replace(",", "").trim();
+		try {
+		  qty.setValue(new BigDecimal(n));
+		} catch (Exception e) {
+			throw new Exception("Unable to process value '"+n+"'", e);
+		}			
+		units = Utilities.noString(pq.getAttribute("unit")) ? units : pq.getAttribute("unit");
+		if (!Utilities.noString(units)) {
+			if (ucumSvc == null || ucumSvc.validate(units) != null)
+				qty.setUnits(units);
+			else {
+				qty.setCode(units);
+				qty.setSystem("http://unitsofmeasure.org");
+				qty.setUnits(ucumSvc.getCommonDisplay(units));
+			}
+		}
 		return qty;		
   }
 
@@ -471,4 +564,83 @@ public class Convert {
 	  throw new Exception("Unable to read Gender "+system+"::"+code);
   }
 
+	/*
+  /entry[COMP]/substanceAdministration[SBADM,EVN]/effectiveTime[type:EIVL_TS]: 389
+  /entry[COMP]/substanceAdministration[SBADM,EVN]/effectiveTime[type:EIVL_TS]/event: 389
+  /entry[COMP]/substanceAdministration[SBADM,EVN]/effectiveTime[type:IVL_TS]: 33470
+  /entry[COMP]/substanceAdministration[SBADM,EVN]/effectiveTime[type:IVL_TS]/high: 20566
+  /entry[COMP]/substanceAdministration[SBADM,EVN]/effectiveTime[type:IVL_TS]/high[nullFlavor:NA]: 9581
+  /entry[COMP]/substanceAdministration[SBADM,EVN]/effectiveTime[type:IVL_TS]/low: 32501
+  /entry[COMP]/substanceAdministration[SBADM,EVN]/effectiveTime[type:IVL_TS]/low[nullFlavor:UNK]: 969
+  /entry[COMP]/substanceAdministration[SBADM,EVN]/effectiveTime[type:PIVL_TS]: 17911
+  /entry[COMP]/substanceAdministration[SBADM,EVN]/effectiveTime[type:PIVL_TS]/period: 17911
+   */
+	public Type makeSomethingFromGTS(List<Element> children) throws Exception {
+		if (children.isEmpty())
+			return null;
+		if (children.size() == 1) {
+			String type = children.get(0).getAttribute("xsi:type");
+			if (type.equals("IVL_TS"))
+				return makePeriodFromIVL(children.get(0));
+			else
+				throw new Exception("Unknown GTS type '"+type+"'");
+		}
+		CommaSeparatedStringBuilder t = new CommaSeparatedStringBuilder();
+		for (Element c : children)
+			t.append(c.getAttribute("xsi:type"));
+		if (t.toString().equals("IVL_TS, PIVL_TS"))
+			return makeTimingFromBoundedPIVL(children.get(0), children.get(1));
+		if (t.toString().equals("IVL_TS, EIVL_TS"))
+			return makeTimingFromBoundedEIVL(children.get(0), children.get(1));
+  	throw new Exception("Unknown GTS pattern '"+t.toString()+"'");
+  }
+
+	private Type makeTimingFromBoundedEIVL(Element ivl, Element eivl) throws Exception {
+	  Timing t = new Timing();
+	  t.setRepeat(new TimingRepeatComponent());
+	  Element e = cda.getChild(eivl, "event");
+	  t.getRepeat().setBounds(makePeriodFromIVL(ivl));
+	  t.getRepeat().setWhen(convertEventTiming(e.getAttribute("code")));
+	  return t;
+  }
+
+	private EventTiming convertEventTiming(String e) throws Exception {
+	  if ("HS".equals(e))
+	  	return EventTiming.HS;
+	  throw new Exception("Unknown event "+e);
+  }
+
+	private Timing makeTimingFromBoundedPIVL(Element ivl, Element pivl) throws Exception {
+	  Timing t = new Timing();
+	  t.setRepeat(new TimingRepeatComponent());
+	  Element p = cda.getChild(pivl, "period");
+	  t.getRepeat().setBounds(makePeriodFromIVL(ivl));
+	  t.getRepeat().setDuration(new BigDecimal(p.getAttribute("value")));
+	  t.getRepeat().setDurationUnits(convertTimeUnit(p.getAttribute("unit")));
+	  return t;
+  }
+
+	private UnitsOfTime convertTimeUnit(String u) throws Exception {
+	  if ("h".equals(u))
+	  	return UnitsOfTime.H;
+	  if ("d".equals(u))
+	  	return UnitsOfTime.D;
+	  if ("w".equals(u))
+	  	return UnitsOfTime.WK;
+	  throw new Exception("Unknown unit of time "+u);
+  }
+
+	public Set<String> getOids() {
+		return oids;
+	}
+
+	public boolean isGenerateMissingExtensions() {
+		return generateMissingExtensions;
+	}
+
+	public void setGenerateMissingExtensions(boolean generateMissingExtensions) {
+		this.generateMissingExtensions = generateMissingExtensions;
+	}
+
+	
 }

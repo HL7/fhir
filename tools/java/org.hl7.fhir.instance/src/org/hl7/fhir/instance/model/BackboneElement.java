@@ -29,14 +29,13 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 6, 2015 21:21+1000 for FHIR v0.5.0
+// Generated on Fri, Apr 17, 2015 10:50+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * Base definition for all elements that are defined inside a resource - but not those in a data type.
  */

@@ -492,6 +492,9 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 	 * Returns a human readable version of this date/time using the system local format
 	 */
 	public String toHumanDisplay() {
+		if (getValue() == null)
+			return "";
+		
 		switch (getPrecision()) {
 		case YEAR:
 		case MONTH:
@@ -598,6 +601,8 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 				b.append(nextChar);
 			}
 
+			if (b.length() == 16)
+				b.append(":00"); // schema rule, must have seconds
 			if (timeZone != null && b.length() > 10) {
 				if (timeZone.length() ==5) {
 					b.append(timeZone.substring(0, 3));

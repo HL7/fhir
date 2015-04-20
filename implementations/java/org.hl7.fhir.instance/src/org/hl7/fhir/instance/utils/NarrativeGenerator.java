@@ -385,9 +385,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.addText(new Base64().encodeAsString(((Base64BinaryType) e).getValue()));
     else if (e instanceof org.hl7.fhir.instance.model.DateType)
       x.addText(((org.hl7.fhir.instance.model.DateType) e).toHumanDisplay());
-    else if (e instanceof Enumeration)
-      x.addText(((Enumeration<?>) e).getValue().toString()); // todo: look up a display name if there is one
-    else if (e instanceof BooleanType)
+    else if (e instanceof Enumeration) {
+      Object ev = ((Enumeration<?>) e).getValue();
+			x.addText(ev == null ? "" : ev.toString()); // todo: look up a display name if there is one
+    } else if (e instanceof BooleanType)
       x.addText(((BooleanType) e).getValue().toString());
     else if (e instanceof CodeableConcept) {
       renderCodeableConcept((CodeableConcept) e, x, showCodeDetails); 
@@ -574,7 +575,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return hints;
   }
 
-  private String displayPeriod(Period p) {
+  public static String displayPeriod(Period p) {
     String s = !p.hasStart() ? "??" : p.getStartElement().toHumanDisplay();
     s = s + " --> ";
     return s + (!p.hasEnd() ? "(ongoing)" : p.getEndElement().toHumanDisplay());
@@ -890,10 +891,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
           if (rep.hasFrequencyMax())
             st = st + "-"+Integer.toString(rep.getFrequency());
         }
-        st = st + " per "+rep.getPeriod().toPlainString();
-        if (rep.hasPeriodMax())
-          st = st + "-"+rep.getPeriodMax().toPlainString();
-        st = st + displayTimeUnits(rep.getPeriodUnits());
+        if (rep.hasPeriod()) {
+        	st = st + " per "+rep.getPeriod().toPlainString();
+        	if (rep.hasPeriodMax())
+        		st = st + "-"+rep.getPeriodMax().toPlainString();
+        	st = st + displayTimeUnits(rep.getPeriodUnits());
+        }
         b.append("Do "+st);
       }
       if (rep.hasBounds() && rep.getBounds().hasEnd()) 
@@ -923,6 +926,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private String displayTimeUnits(UnitsOfTime units) {
+  	if (units == null)
+  		return "??";
     switch (units) {
     case A: return "years";
     case D: return "days";

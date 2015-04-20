@@ -5,10 +5,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
@@ -25,13 +23,12 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingCom
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.PrimitiveType;
-import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
@@ -1535,7 +1532,7 @@ public class ProfileUtilities {
     }
   }
   
-  // generate schematrons for the rules in a structure definition
+  // generate schematroins for the rules in a structure definition
   
   public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws Exception {
   	if (structure.getType() != StructureDefinitionType.CONSTRAINT)
@@ -1547,7 +1544,6 @@ public class ProfileUtilities {
   	
     TextStreamWriter txt = new TextStreamWriter(dest);
     txt.ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-    txt.ln("<!-- schematron genreation is still veyr much trial. in particular, slicing is not yet supported -->");
     txt.ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
     txt.ln("<sch:ns prefix=\"f\" uri=\"http://hl7.org/fhir\"/>");
     txt.ln("<sch:ns prefix=\"h\" uri=\"http://www.w3.org/1999/xhtml\"/>");
@@ -1579,13 +1575,13 @@ public class ProfileUtilities {
           started = true;
       	}
       	if (doMin) {
-      		txt.ln_i("<sch:rule context=\"f:*\">");
-      		txt.ln  ("<sch:assert test=\"count(f:/"+name+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
+      		txt.ln_i("<sch:rule context=\""+xpath+"\">");
+        txt.ln("      <sch:assert test=\"count(f:"+name+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
       		txt.ln_o("</sch:rule>");
       	}
       	if (doMax) {
-      		txt.ln_i("<sch:rule context=\"f:*\">");
-      		txt.ln  ("<sch:assert test=\"count(f:/"+name+") &lt;= "+child.getMax()+"\">"+name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
+      		txt.ln_i("<sch:rule context=\""+xpath+"\">");
+        txt.ln("      <sch:assert test=\"count(f:"+name+") &lt;= "+child.getMax()+"\">"+name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
       		txt.ln_o("</sch:rule>");
       	}
       }

@@ -18,10 +18,15 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingCom
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.PrimitiveType;
+import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Period;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Range;
 import org.hl7.fhir.instance.model.Ratio;
@@ -29,10 +34,7 @@ import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.SampledData;
 import org.hl7.fhir.instance.model.StringType;
-import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
@@ -50,6 +52,7 @@ import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.xmlpull.v1.builder.xpath.jaxen.expr.LiteralExpr;
 
 
 /* 
@@ -102,6 +105,16 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   public void setRequireResourceId(boolean requiresResourceId) {
     this.requiresResourceId = requiresResourceId;
   }
+  
+  public boolean isAnyExtensionsAllowed() {
+		return anyExtensionsAllowed;
+	}
+	public void setAnyExtensionsAllowed(boolean anyExtensionsAllowed) {
+		this.anyExtensionsAllowed = anyExtensionsAllowed;
+	}
+	public List<String> getExtensionDomains() {
+		return extensionDomains;
+	}
   
   // public API
 
@@ -430,12 +443,23 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private ProfileUtilities utilities;
   private ValueSetExpansionCache cache;
   private boolean requiresResourceId;
+	private List<String> extensionDomains = new ArrayList<String>();
+	private boolean anyExtensionsAllowed;
   
   public InstanceValidator(WorkerContext context) throws Exception {
     super();
     this.context = context;
     source = Source.InstanceValidator;
     cache = new ValueSetExpansionCache(context, null);
+    utilities = new ProfileUtilities(context);
+  }  
+
+  
+  public InstanceValidator(WorkerContext context, ValueSetExpansionCache cache) throws Exception {
+    super();
+    this.context = context;
+    source = Source.InstanceValidator;
+    this.cache = cache;
     utilities = new ProfileUtilities(context);
   }  
 
@@ -690,7 +714,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       	if (ei.definition == ed)
       		count++;
   		if (ed.getMin() > 0) {
-  			rule(errors, "structure", stack.getLiteralPath(), count >= ed.getMin(), "Element "+tail(ed.getPath())+" @ "+stack.getLiteralPath()+": min required = "+Integer.toString(ed.getMin())+", but only found "+Integer.toString(count));
+  			rule(errors, "structure", stack.getLiteralPath(), count >= ed.getMin(), "Element '"+stack.getLiteralPath()+"."+tail(ed.getPath())+"': minimum required = "+Integer.toString(ed.getMin())+", but only found "+Integer.toString(count));
     		}
   		if (ed.hasMax() && !ed.getMax().equals("*")) {
   			rule(errors, "structure", stack.getLiteralPath(), count <= Integer.parseInt(ed.getMax()), "Element "+tail(ed.getPath())+" @ "+stack.getLiteralPath()+": max allowed = "+Integer.toString(ed.getMin())+", but found "+Integer.toString(count));
@@ -705,7 +729,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     	if (ei.definition != null) {
       String type = null;
       ElementDefinition typeDefn = null;
-    		if (ei.definition.getType().size() == 1 && !ei.definition.getType().get(0).getCode().equals("*"))
+    		if (ei.definition.getType().size() == 1 && !ei.definition.getType().get(0).getCode().equals("*") && !ei.definition.getType().get(0).getCode().equals("Element") && !ei.definition.getType().get(0).getCode().equals("BackboneElement") )
     			type = ei.definition.getType().get(0).getCode();
     		else if (ei.definition.getType().size() == 1 && ei.definition.getType().get(0).getCode().equals("*")) {
           String prefix = tail(ei.definition.getPath());
@@ -726,7 +750,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         			if(trc.getCode().equals("Reference"))
         				type = "Reference";
               else 
-    				  throw new Exception("multiple types ("+describeTypes(ei.definition.getType())+") @ "+stack.getLiteralPath()+"/f:"+ei.name);
+              	rule(errors, "structure", stack.getLiteralPath(), false, "The element "+ei.name+" is illegal. Valid types at this point are "+describeTypes(ei.definition.getType()));
           }
     		} else if (ei.definition.getNameReference() != null) {
     			typeDefn = resolveNameReference(profile.getSnapshot(), ei.definition.getNameReference());
@@ -1077,7 +1101,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private boolean allowUnknownExtension(String url) {
-    return url.contains("example.org") || url.contains("acme.com") || url.contains("nema.org");
+    if (url.contains("example.org") || url.contains("acme.com") || url.contains("nema.org"))
+    	return true;
+    for (String s : extensionDomains)
+    	if (url.startsWith(s))
+    		return true;
+    return anyExtensionsAllowed;
   }
   
   private boolean isKnownType(String code) {

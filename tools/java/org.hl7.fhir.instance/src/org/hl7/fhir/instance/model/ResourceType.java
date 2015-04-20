@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Mon, Apr 6, 2015 21:21+1000 for FHIR v0.5.0
+// Generated on Fri, Apr 17, 2015 10:50+1000 for FHIR v0.5.0
 
 public enum ResourceType {
     Condition,

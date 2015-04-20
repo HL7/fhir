@@ -182,7 +182,7 @@ fhir:Patient.active a rdf:Property;
   rdfs:range fhir:boolean;
   fhir:default [
      a fhir:boolean;
-     fhir:value "true"
+     fhir:value [ fhir:Boolean.value "true"]
   ].
 </pre>
 <p>
@@ -190,7 +190,7 @@ Since it has a default value, it can never be omitted from an instance:
 </p>
 <pre>
 :resource a fhir:Patient;
-  fhir:Patient.active "true",
+  fhir:Patient.active [ fhir:Boolean.value "true"],
   ...etc
 </pre>
 <p>
@@ -216,6 +216,10 @@ If the patient is human then the representation will be:
   pat:animal-Missing "true";
 </pre>
 <p>
+TODO: would it be better to use rd:nil? 
+</p>
+
+<p>
 When the element has a 'meaning when missing', there SHALL be either an property
 or an -Missing property present in the instance.
 </p>
@@ -234,14 +238,14 @@ Contained resources are represented like this:
 </p>
 <pre>
 :resource a fhir:Observation;
-  fhir:contained fhir:Observation\#23;
+  fhir:contained :resource\#23;
   fhir:Observation.subject [
-     fhir:Reference.reference fhir:Observation\#23
+     fhir:Reference.reference [ fhir:string.value :resource\#23]
   ].
 
-fhir:Observation\#23 a fhir:Patient;
+:resource\#23 a fhir:Patient;
   fhir:Patient.name [
-    fhir:text "John Smith
+    fhir:text [ fhir:string.value "John Smith"]
   ].
 </pre>
 <p>
@@ -308,9 +312,9 @@ instance takes this form:
   "resourceType" : "Observation",
   "code" : {
     "coding" : {
-      "system" : "http://loinc.org",
-      "code" : "54411-4",
-      "display" : "Rh immune globulin given Qualitative"
+      "system" :  [ fhir:uri.value "http://loinc.org"],
+      "code" : [ fhir:code.value "54411-4"],
+      "display" : [ fhir:string.value "Rh immune globulin given Qualitative"]
    	},
     "text" : "Rh immune globulin"
   }
@@ -349,12 +353,12 @@ Here's the same example as above, with the direct concept reference added:
 :resource a fhir:Observation;
   fhir:Observation.code [
     fhir:CodeableConcept.coding [
-      fhir:Coding.system &lt;http://loinc.org&gt;;
-      fhir:Coding.code "54411-4";
-      fhir:Coding.display "Rh immune globulin given Qualitative";
+      fhir:Coding.system [ fhir:uri.value &lt;http://loinc.org&gt;] ;
+      fhir:Coding.code [ fhir:code.value "54411-4" ];
+      fhir:Coding.display [ fhir:string.value "Rh immune globulin given Qualitative"];
       ex:concept loinc:54411-4;
       ];
-    fhir:CodeableConcept.text "Rh immune globulin";
+    fhir:CodeableConcept.text [ fhir:string.value "Rh immune globulin" ];
   ].
 </pre>
 <p>
@@ -395,8 +399,8 @@ example:
 :resource a fhir:Observation;
   fhir:Observation.valueCodeableConcept [
     fhir:CodeableConcept.coding [
-    fhir:Coding.system &lt;http://snomed.info/sct&gt;;
-      fhir:Coding.code "128045006:{363698007=56459004}";
+    fhir:Coding.system [ fhir:uri.value &lt;http://snomed.info/sct&gt; ];
+      fhir:Coding.code [ fhir:code.value "128045006:{363698007=56459004}" ];
       ex:concept [ owl:intersectionOf (sct:128045006 [sct:363698007 sct:56459004])]
     ];
   ];
@@ -416,7 +420,7 @@ explicit meaning in context of the RDF graph:
 
 :resource a fhir:Observation;
   fhir:Observation.subject [
-    fhir:Reference.reference "Patient/example";
+    fhir:Reference.reference [ fhir:string.value "Patient/example" ];
   	ex:concept pat:example
   ].
 </pre>

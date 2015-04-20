@@ -87,14 +87,13 @@ public class CDAUtilities {
 		return e;
 	}
 
-	@SuppressWarnings("unused") // cause that's a wrong warning
-  public Element getChild(Element element, String name) throws Exception {
+	public Element getChild(Element element, String name) throws Exception {
 		if (element == null)
 			return null;
 		
 		Element e = null;
 		Node n = element.getFirstChild();
-		while (n != null && e == null) {
+		while (n != null) {
 			if (n.getNodeType() == Node.ELEMENT_NODE && n.getNodeName().equals(name)) {
 				if (e == null) {
 					e = (Element) n;
@@ -106,6 +105,26 @@ public class CDAUtilities {
 		}
 		return e;
 	}
+
+  public Element getChildByAttribute(Element element, String name, String attrname, String value) throws Exception {
+		if (element == null)
+			return null;
+		
+		Element e = null;
+		Node n = element.getFirstChild();
+		while (n != null) {
+			if (n.getNodeType() == Node.ELEMENT_NODE && n.getNodeName().equals(name) && value.equals(((Element) n).getAttribute(attrname))) {
+				if (e == null) {
+					e = (Element) n;
+				} else {
+					throw new Exception("multiple matches found for "+name);
+				}
+			}
+			n = n.getNextSibling();
+		}
+		return e;
+  }
+
 
 	public List<Element> getChildren(Element element, String name) {
 		List<Element> l = new ArrayList<Element>();

@@ -40,6 +40,9 @@ private Map<String, Object> userData;
       return userData.containsKey(name);
   }
 
+	public String getUserString(String name) {
+    return (String) getUserData(name);
+  }
 
   public boolean hasFormatComment() {
   	return (formatComments != null && !formatComments.isEmpty());

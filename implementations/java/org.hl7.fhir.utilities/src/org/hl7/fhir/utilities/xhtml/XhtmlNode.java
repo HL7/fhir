@@ -87,10 +87,11 @@ public class XhtmlNode {
     return content;
   }
 
-  public void setContent(String content) {
+  public XhtmlNode setContent(String content) {
     if (!(nodeType != NodeType.Text || nodeType != NodeType.Comment)) 
       throw new Error("Wrong node type");
     this.content = content;
+    return this;
   }
 
   public XhtmlNode addTag(String name)

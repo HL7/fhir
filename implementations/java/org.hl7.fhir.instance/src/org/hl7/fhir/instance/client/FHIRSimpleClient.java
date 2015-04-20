@@ -56,6 +56,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.Version;
 //import org.hl7.fhir.instance.formats.AtomComposer;
+import org.hl7.fhir.utilities.Utilities;
 
 /**
  * Simple RESTful client for the FHIR Resource Oriented API.
@@ -418,25 +419,33 @@ public class FHIRSimpleClient implements IFHIRClient {
   	for (ParametersParameterComponent p : params.getParameter())
   		complex = complex || !(p.getValue() instanceof PrimitiveType);
   	Parameters searchResults = null;
-  	if (complex) {
-  		throw new Error("not done yet");
-  	} else {
-			String ps = "";
-  		try {
-  			for (ParametersParameterComponent p : params.getParameter())
-  				ps += p.getName() + "=" + ((PrimitiveType) p.getValue()).asStringValue()+"&";    	  
-  			ResourceRequest<T> result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveOperationURLFromClass(resourceClass, name, ps), getPreferredResourceFormat(), proxy);
-  			result.addErrorStatus(410);//gone
-  			result.addErrorStatus(404);//unknown
-  			result.addSuccessStatus(200);//Only one for now
-  			if(result.isUnsuccessfulRequest()) 
-  				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
-  			return (Parameters) result.getPayload();
-  		} catch (Exception e) {
-  			handleException("Error performing operation '"+name+"' with parameters " + ps, e);  		
+  	String ps = "";
+  	try {
+      if (!complex)
+  		  for (ParametersParameterComponent p : params.getParameter())
+  	  		if (p.getValue() instanceof PrimitiveType)
+  	  		  ps += p.getName() + "=" + Utilities.encodeUri(((PrimitiveType) p.getValue()).asStringValue())+"&";
+   		ResourceRequest<T> result;
+  		if (complex)
+  			result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationURLFromClass(resourceClass, name, ps), ClientUtils.getResourceAsByteArray(params, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), proxy);
+  		else 
+  			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveOperationURLFromClass(resourceClass, name, ps), getPreferredResourceFormat(), proxy);
+  		result.addErrorStatus(410);//gone
+  		result.addErrorStatus(404);//unknown
+  		result.addSuccessStatus(200);//Only one for now
+  		if(result.isUnsuccessfulRequest()) 
+  			throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
+  		if (result.getPayload() instanceof Parameters)
+    		return (Parameters) result.getPayload();
+  		else {
+  			Parameters p_out = new Parameters();
+  			p_out.addParameter().setName("return").setResource(result.getPayload());
+  			return p_out;
   		}
-  		return null;
+  	} catch (Exception e) {
+  		handleException("Error performing operation '"+name+"' with parameters " + ps, e);  		
   	}
+  	return null;
   }
 
   @Override

@@ -41,6 +41,7 @@ import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
@@ -325,7 +326,8 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 		boolean oldPretty = xml.isPretty();
 		xml.setPretty(htmlPretty);
       comp.setXmlOnly(true);
-		xml.namespace(XhtmlComposer.XHTML_NS, null);
+    if (html.getNodeType() != NodeType.Text)
+    	xml.namespace(XhtmlComposer.XHTML_NS, null);
 		comp.compose(xml, html);
 		xml.setPretty(oldPretty);
     }
