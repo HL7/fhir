@@ -442,6 +442,19 @@ public class Utilities {
     return s.toString();
   }
 
+  public static String pathReverse(String... args) {
+    StringBuilder s = new StringBuilder();
+    boolean d = false;
+    for(String arg: args) {
+      if (!d)
+        d = !noString(arg);
+      else if (!s.toString().endsWith("/"))
+        s.append("/");
+      s.append(arg);
+    }
+    return s.toString();
+  }
+
 
 
 //  public static void checkCase(String filename) {

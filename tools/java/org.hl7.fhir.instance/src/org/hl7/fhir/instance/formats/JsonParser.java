@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Apr 17, 2015 10:50+1000 for FHIR v0.5.0
+// Generated on Tue, Apr 21, 2015 16:18+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -9605,6 +9605,60 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  protected SupplyDelivery parseSupplyDelivery(JsonObject json) throws Exception {
+    SupplyDelivery res = new SupplyDelivery();
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), SupplyDelivery.ValuesetSupplydeliveryStatus.NULL, new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("quantity"))
+      res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
+    if (json.has("suppliedItem"))
+      res.setSuppliedItem(parseReference(json.getAsJsonObject("suppliedItem")));
+    if (json.has("supplier"))
+      res.setSupplier(parseReference(json.getAsJsonObject("supplier")));
+    if (json.has("whenPrepared"))
+      res.setWhenPrepared(parsePeriod(json.getAsJsonObject("whenPrepared")));
+    if (json.has("time"))
+      res.setTimeElement(parseDateTime(json.get("time").getAsString()));
+    if (json.has("_time"))
+      parseElementProperties(json.getAsJsonObject("_time"), res.getTimeElement());
+    if (json.has("destination"))
+      res.setDestination(parseReference(json.getAsJsonObject("destination")));
+    if (json.has("receiver")) {
+      JsonArray array = json.getAsJsonArray("receiver");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReceiver().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    return res;
+  }
+
+  protected SupplyRequest parseSupplyRequest(JsonObject json) throws Exception {
+    SupplyRequest res = new SupplyRequest();
+    parseDomainResourceProperties(json, res);
+    if (json.has("kind"))
+      res.setKind(parseCodeableConcept(json.getAsJsonObject("kind")));
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), SupplyRequest.ValuesetSupplyrequestStatus.NULL, new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("orderedItem"))
+      res.setOrderedItem(parseReference(json.getAsJsonObject("orderedItem")));
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    return res;
+  }
+
   protected ValueSet parseValueSet(JsonObject json) throws Exception {
     ValueSet res = new ValueSet();
     parseDomainResourceProperties(json, res);
@@ -10215,6 +10269,10 @@ public class JsonParser extends JsonParserBase {
       return parseSubstance(json);
     else if (t.equals("Supply"))
       return parseSupply(json);
+    else if (t.equals("SupplyDelivery"))
+      return parseSupplyDelivery(json);
+    else if (t.equals("SupplyRequest"))
+      return parseSupplyRequest(json);
     else if (t.equals("ValueSet"))
       return parseValueSet(json);
     else if (t.equals("VisionPrescription"))
@@ -10636,6 +10694,10 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Substance"))
       return true;
     if (json.has(prefix+"Supply"))
+      return true;
+    if (json.has(prefix+"SupplyDelivery"))
+      return true;
+    if (json.has(prefix+"SupplyRequest"))
       return true;
     if (json.has(prefix+"ValueSet"))
       return true;
@@ -22751,6 +22813,82 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
+  protected void composeSupplyDelivery(String name, SupplyDelivery element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeSupplyDeliveryInner(element);
+    }
+  }
+
+  protected void composeSupplyDeliveryInner(SupplyDelivery element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory(), false);
+      }
+      if (element.hasPatient()) {
+        composeReference("patient", element.getPatient());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasQuantity()) {
+        composeQuantity("quantity", element.getQuantity());
+      }
+      if (element.hasSuppliedItem()) {
+        composeReference("suppliedItem", element.getSuppliedItem());
+      }
+      if (element.hasSupplier()) {
+        composeReference("supplier", element.getSupplier());
+      }
+      if (element.hasWhenPrepared()) {
+        composePeriod("whenPrepared", element.getWhenPrepared());
+      }
+      if (element.hasTimeElement()) {
+        composeDateTimeCore("time", element.getTimeElement(), false);
+        composeDateTimeExtras("time", element.getTimeElement(), false);
+      }
+      if (element.hasDestination()) {
+        composeReference("destination", element.getDestination());
+      }
+      if (element.hasReceiver()) {
+        openArray("receiver");
+        for (Reference e : element.getReceiver()) 
+          composeReference(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSupplyRequest(String name, SupplyRequest element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeSupplyRequestInner(element);
+    }
+  }
+
+  protected void composeSupplyRequestInner(SupplyRequest element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.hasKind()) {
+        composeCodeableConcept("kind", element.getKind());
+      }
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory(), false);
+      }
+      if (element.hasOrderedItem()) {
+        composeReference("orderedItem", element.getOrderedItem());
+      }
+      if (element.hasPatient()) {
+        composeReference("patient", element.getPatient());
+      }
+  }
+
   protected void composeValueSet(String name, ValueSet element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -23447,6 +23585,10 @@ public class JsonParser extends JsonParserBase {
       composeSubstance("Substance", (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply("Supply", (Supply)resource);
+    else if (resource instanceof SupplyDelivery)
+      composeSupplyDelivery("SupplyDelivery", (SupplyDelivery)resource);
+    else if (resource instanceof SupplyRequest)
+      composeSupplyRequest("SupplyRequest", (SupplyRequest)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof VisionPrescription)
@@ -23634,6 +23776,10 @@ public class JsonParser extends JsonParserBase {
       composeSubstance(name, (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply(name, (Supply)resource);
+    else if (resource instanceof SupplyDelivery)
+      composeSupplyDelivery(name, (SupplyDelivery)resource);
+    else if (resource instanceof SupplyRequest)
+      composeSupplyRequest(name, (SupplyRequest)resource);
     else if (resource instanceof ValueSet)
       composeValueSet(name, (ValueSet)resource);
     else if (resource instanceof VisionPrescription)

@@ -2928,7 +2928,7 @@ public class Publisher implements URIResolver {
     if (f.exists())
       f.delete();
     ZipGenerator zip = new ZipGenerator(page.getFolders().tmpResDir + "fhir-spec.zip");
-    zip.addFiles(page.getFolders().dstDir, "site/", null, ".zip");
+    zip.addFolder(page.getFolders().dstDir, "site/", false, ".zip");
     zip.addFolder(Utilities.path(page.getFolders().rootDir, "tools", "html", ""), "site/", true);
     zip.addFileName("index.html", page.getFolders().srcDir + "redirect.html", false);
     zip.close();

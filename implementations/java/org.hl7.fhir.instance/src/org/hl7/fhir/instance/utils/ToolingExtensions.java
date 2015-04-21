@@ -35,6 +35,7 @@ import java.util.List;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.CodeableConcept;
+import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.ElementDefinition;
@@ -79,6 +80,7 @@ public class ToolingExtensions {
   private static final String EXT_TYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   private static final String EXT_REFERENCE = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
   private static final String EXT_ALLOWABLE_UNITS = "http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits";
+  public static final String EXT_CIMI_REFERENCE = "http://hl7.org/fhir/StructureDefinition/cimi-reference";
 
   
   // specific extension helpers
@@ -349,7 +351,6 @@ public class ToolingExtensions {
         return;
       }
     eld.getExtension().add(new Extension().setUrl(EXT_ALLOWABLE_UNITS).setValue(cc));
- 
   }
 
 	public static List<Extension> getExtensions(Element element, String url) {
@@ -366,5 +367,13 @@ public class ToolingExtensions {
 	  	if (ex.getUrl().equals(url))
 	  		results.add(ex);
 	  return results;
+  }
+  public static void addDEReference(DataElement de, String value) {
+    for (Extension e : de.getExtension()) 
+      if (e.getUrl().equals(EXT_CIMI_REFERENCE)) {
+        e.setValue(new UriType(value));
+        return;
+      }
+    de.getExtension().add(new Extension().setUrl(EXT_CIMI_REFERENCE).setValue(new UriType(value)));
   }
 }
