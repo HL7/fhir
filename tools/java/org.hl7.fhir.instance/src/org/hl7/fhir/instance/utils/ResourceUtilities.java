@@ -137,8 +137,12 @@ public class ResourceUtilities {
 
       b.append("<td>"+v+"</td>");
     }
-    if (profileLink)
-      b.append("<td><a href=\""+linkBase+"-"+de.getId()+".html\">Profile</a>, <a href=\"http://www.opencem.org/#/20140917/Intermountain/"+de.getId()+"\">CEM</a></td>");
+    if (profileLink) {
+      b.append("<td><a href=\""+linkBase+"-"+de.getId()+".html\">Profile</a>, <a href=\"http://www.opencem.org/#/20140917/Intermountain/"+de.getId()+"\">CEM</a>");
+      if (ToolingExtensions.hasExtension(de, ToolingExtensions.EXT_CIMI_REFERENCE)) 
+        b.append(", <a href=\""+ToolingExtensions.readStringExtension(de, ToolingExtensions.EXT_CIMI_REFERENCE)+"\">CIMI</a>");
+      b.append("</td>");
+    }
     b.append("</tr>\r\n");
   }
 
@@ -186,7 +190,7 @@ public class ResourceUtilities {
     b.append("<tr>");
     List<String> results = new ArrayList<String>();
     results.add("DataElement.name");
-    b.append("<td><b></b></td>");
+    b.append("<td width=\"250\"><b>Name</b></td>");
     if (!common.hasStatus()) {
       results.add("DataElement.status");
       b.append("<td><b>Status</b></td>");

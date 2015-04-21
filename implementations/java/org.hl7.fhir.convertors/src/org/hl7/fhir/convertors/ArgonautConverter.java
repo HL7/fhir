@@ -94,7 +94,7 @@ public class ArgonautConverter extends ConverterBase {
 	public static final String SRC_PATH = "c:\\work\\org.hl7.fhir\\build\\publish\\";
 	private static final String DEFAULT_ID_SPACE = "urn:uuid:e8e06b15-0f74-4b8e-b5e2-609dae7119dc";
 	
-	private static final boolean WANT_SAVE = true;
+	private static final boolean WANT_SAVE = false;
 	private static final boolean WANT_VALIDATE = true;
 	private String destFolder;
 	

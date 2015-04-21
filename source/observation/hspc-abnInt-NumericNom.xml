@@ -46,13 +46,16 @@
     </include>
   </compose>
   <define>
+    <system value="http://healthcaresoa.org/fhir/hspc-abnInt-NumericNom"/>
+    <version value="0.01"/>
+    <caseSensitive value="true"/>
 	  <concept>
-		  <code value="Higher than technical"/>
+		  <code value="higher"/>
 		  <display vlaue="Higher than technical"/>
 		  <definition value="The results were lower than the technical limits of the test procedure"/>
 	  </concept>
 	  <concept>
-		  <code value="Lower than technical"/>
+		  <code value="lower"/>
 		  <display vlaue="Lower than technical"/>
 		  <definition value="The results were higher than the technical limits of the test procedure"/>
 	  </concept>

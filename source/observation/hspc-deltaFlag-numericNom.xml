@@ -38,8 +38,11 @@
     </include>
   </compose>
   <define>
+    <system value="http://healthcaresoa.org/fhir/hspc-deltaFlag-numericNom"/>
+    <version value="0.01"/>
+    <caseSensitive value="true"/>
 	  <concept>
-		  <code value ="Unchanged"/>
+		  <code value="unchanged"/>
 		  <display value="Unchanged"/>
 		  <definition value="The current test results are not significantly different from previous results"/>
 	  </concept>

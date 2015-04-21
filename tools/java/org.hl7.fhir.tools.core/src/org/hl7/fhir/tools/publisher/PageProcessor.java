@@ -180,7 +180,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         return -1;
       return 0;
     }
-
   }
 
   private static final String SIDEBAR_SPACER = "<p>&#xA0;</p>\r\n";
@@ -759,7 +758,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("status-codes"))
         src = s1 + genStatusCodes() + s3;        
       else if (com[0].equals("dictionary.name"))
-        src = s1 + definitions.getDictionaries().get(name) + s3;        
+        src = s1 + definitions.getDictionaries().get(name).getName() + s3;        
       else if (com[0].equals("dictionary.view"))
         src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-qnlab-de") + s3;        
       else if (com[0].equals("search-param-pack") && resource instanceof SearchParameter)

@@ -3581,7 +3581,7 @@ public class Publisher implements URIResolver {
   }
 
   private void produceConformancePackage(String resourceName, Profile pack, SectionTracker st) throws Exception {
-    if (!web && page.getDefinitions().noPublish(pack.getCategory()))
+     if (web && page.getDefinitions().noPublish(pack.getCategory()))
       return;
           
     String intro = pack.getIntroduction() != null ? page.loadXmlNotesFromFile(pack.getIntroduction(), false, null, null, null) : null;
