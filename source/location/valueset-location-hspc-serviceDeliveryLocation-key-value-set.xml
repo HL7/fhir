@@ -13,7 +13,6 @@
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/v3/vs/EntityCode"/>
-			<caseSensitive value="true"/>
 			<concept>
 				<code value="WING"/>
 				<display value="Wing Location"/>
