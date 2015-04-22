@@ -35,7 +35,7 @@
 		<concept>
 			<code value = "Facility"/>
 			<display value ="Facility"/>
-			<definition value ="A location that is cateforized by the nursing skill, specialty, or type of care delivered"/>
+			<definition value ="A location that is categorized by the nursing skill, specialty, or type of care delivered"/>
 		</concept>
 	</define>
 </ValueSet>
