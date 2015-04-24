@@ -16,17 +16,14 @@
 			<concept>
 				<code value="WING"/>
 				<display value="Wing Location"/>
-				<definition value="A Wing within a Building, this often contains levels, rooms and corridors."/>
 			</concept>
 			<concept>
 				<code value="ROOM"/>
 				<display value="Room Location"/>
-				<definition value="A space that is allocated as a room, it may have walls/roof etc, but does not require these"/>
 			</concept>
 			<concept>
 				<code value="BED"/>
 				<display value="Bed Location"/>
-				<definition value="A space that is allocated for sleeping/laying on"/>
 			</concept>
 		</include>
 	</compose>

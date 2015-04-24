@@ -16,12 +16,11 @@
 			<concept>
 				<code value="L"/>
 				<display value="Legal Name"/>
-				<definition value="A legally recognized name."/>
 			</concept>
 			<concept>
 				<code value="ASGN"/>
 				<display value="Assigned (alias)"/>
-				<definition value="A name assigned to an entity."/>
+			</concept>
 		</include>
 	</compose>
 	<define>

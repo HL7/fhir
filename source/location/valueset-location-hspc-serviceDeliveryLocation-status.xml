@@ -16,12 +16,10 @@
 			<concept>
 				<code value="active"/>
 				<display value="Active"/>
-				<definition value="The state arepresenting the fact that the entity is currently active."/>
 			</concept>
 			<concept>
 				<code value="inactive"/>
 				<display value="Inactive"/>
-				<definition value="The state arepresenting the fact that the entity is not active."/>
 			</concept>
 		</include>
 	</compose>
