@@ -19,6 +19,26 @@ Type
     function ToArray: TArray<T>; virtual;
   end;
 
+  TArrayManager<T> = class abstract
+    procedure Move(var AArray: array of T; FromIndex, ToIndex, Count: Integer); overload; virtual; abstract;
+    procedure Move(var FromArray, ToArray: array of T; FromIndex, ToIndex, Count: Integer); overload; virtual; abstract;
+    procedure Finalize(var AArray: array of T; Index, Count: Integer); virtual; abstract;
+  end;
+
+  TMoveArrayManager<T> = class(TArrayManager<T>)
+    procedure Move(var AArray: array of T; FromIndex, ToIndex, Count: Integer); overload; override;
+    procedure Move(var FromArray, ToArray: array of T; FromIndex, ToIndex, Count: Integer); overload; override;
+    procedure Finalize(var AArray: array of T; Index, Count: Integer); override;
+  end;
+
+{$IF Defined(WEAKREF)}
+  TManualArrayManager<T> = class(TArrayManager<T>)
+    procedure Move(var AArray: array of T; FromIndex, ToIndex, Count: Integer); overload; override;
+    procedure Move(var FromArray, ToArray: array of T; FromIndex, ToIndex, Count: Integer); overload; override;
+    procedure Finalize(var AArray: array of T; Index, Count: Integer); override;
+  end;
+{$ENDIF}
+
   // Actually, T must be TAdvObject, but this doesn't work because of forwards class definitions
   TAdvList<T : class> = class (TAdvEnumerable<T>)
   private
@@ -1148,7 +1168,8 @@ end;
 
 function TAdvMap<T>.ToArray: TArray<TAdvPair<T>>;
 begin
-  Result := ToArrayImpl(Count);
+  raise Exception.Create('unimplemented');
+//  result := ToArrayImpl(Count);
 end;
 
 procedure TAdvMap<T>.TrimExcess;
@@ -1377,7 +1398,8 @@ end;
 
 function TAdvMap<T>.TValueCollection.ToArray: TArray<T>;
 begin
-  Result := ToArrayImpl(FMap.Count);
+  raise Exception.Create('unimplemented');
+//  Result := ToArrayImpl(FMap.Count);
 end;
 
 { TAdvMap<T>.TKeyCollection }
@@ -1405,7 +1427,8 @@ end;
 
 function TAdvMap<T>.TKeyCollection.ToArray: TArray<String>;
 begin
-  Result := ToArrayImpl(FMap.Count);
+  raise Exception.Create('unimplemented');
+//  Result := ToArrayImpl(FMap.Count);
 end;
 
 
@@ -1423,6 +1446,58 @@ begin
   If Assigned(Self) Then
     InterlockedIncrement(FAdvObjectReferenceCount);
 end;
+
+{ TArrayMoveManager<T> }
+
+procedure TMoveArrayManager<T>.Finalize(var AArray: array of T; Index, Count: Integer);
+begin
+  System.FillChar(AArray[Index], Count * SizeOf(T), 0);
+end;
+
+procedure TMoveArrayManager<T>.Move(var AArray: array of T; FromIndex, ToIndex, Count: Integer);
+begin
+  System.Move(AArray[FromIndex], AArray[ToIndex], Count * SizeOf(T));
+end;
+
+procedure TMoveArrayManager<T>.Move(var FromArray, ToArray: array of T; FromIndex, ToIndex, Count: Integer);
+begin
+  System.Move(FromArray[FromIndex], ToArray[ToIndex], Count * SizeOf(T));
+end;
+
+{$IF Defined(WEAKREF)}
+procedure TManualArrayManager<T>.Finalize(var AArray: array of T; Index, Count: Integer);
+begin
+  System.Finalize(AArray[Index], Count);
+  System.FillChar(AArray[Index], Count * SizeOf(T), 0);
+end;
+
+procedure TManualArrayManager<T>.Move(var AArray: array of T; FromIndex, ToIndex, Count: Integer);
+var
+  I: Integer;
+begin
+  if Count > 0 then
+    if FromIndex < ToIndex then
+      for I := Count - 1 downto 0 do
+        AArray[ToIndex + I] := AArray[FromIndex + I]
+    else if FromIndex > ToIndex then
+      for I := 0 to Count - 1 do
+        AArray[ToIndex + I] := AArray[FromIndex + I];
+end;
+
+procedure TManualArrayManager<T>.Move(var FromArray, ToArray: array of T; FromIndex, ToIndex, Count: Integer);
+var
+  I: Integer;
+begin
+  if Count > 0 then
+    if FromIndex < ToIndex then
+      for I := Count - 1 downto 0 do
+        ToArray[ToIndex + I] := FromArray[FromIndex + I]
+    else if FromIndex > ToIndex then
+      for I := 0 to Count - 1 do
+        ToArray[ToIndex + I] := FromArray[FromIndex + I];
+end;
+{$ENDIF}
+
 
 end.
 

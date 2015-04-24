@@ -159,6 +159,7 @@ public class Validator {
   }
 
   private byte[] loadSource() throws Exception {
+    System.out.println("  .. load "+source);
     byte[] src;
     if (new File(source).exists())
       src = loadFromFile(source);

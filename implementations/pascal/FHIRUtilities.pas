@@ -47,6 +47,15 @@ const
   MAX_DATE = DATETIME_MAX;
   ANY_CODE_VS = 'http://www.healthintersections.com.au/fhir/ValueSet/anything';
 
+type
+  TFhirConceptMapConceptList = TFhirConceptMapElementList;
+  TFhirConceptMapConceptMapList = TFhirConceptMapElementMapList;
+  TFhirConceptMapConcept = TFhirConceptMapElement;
+  TFhirConceptMapConceptMap = TFhirConceptMapElementMap;
+
+const
+  ValueSetStatusActive = ConformanceResourceStatusActive;
+  ConformanceStatementStatusActive = ConformanceResourceStatusActive;
 
 function HumanNameAsText(name : TFhirHumanName):String;
 function GetEmailAddress(contacts : TFhirContactPointList):String;

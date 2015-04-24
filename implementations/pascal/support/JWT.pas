@@ -8,7 +8,7 @@ uses
 
   EncodeSupport, BytesSupport, StringSupport,
   AdvObjects, AdvObjectLists,
-  JSON, HMAC, libeay32;
+  AdvJSON, HMAC, libeay32;
 
 Type
   // 1st, JWK

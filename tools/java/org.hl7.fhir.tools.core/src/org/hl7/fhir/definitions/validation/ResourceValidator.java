@@ -582,7 +582,7 @@ public class ResourceValidator extends BaseValidator {
     Set<String> names = new HashSet<String>();
     for (BindingSpecification b : bindings.values()) {
       if (names.contains(b.getName())) 
-        errors.add(new ValidationMessage(source, "structure", "binding "+b.getName(), "Duplicate Binding Name "+b.getName(), IssueSeverity.ERROR));        
+        errors.add(new ValidationMessage(source, "structure", -1, -1, "binding "+b.getName(), "Duplicate Binding Name "+b.getName(), IssueSeverity.ERROR));        
       else
         names.add(b.getName());
     }

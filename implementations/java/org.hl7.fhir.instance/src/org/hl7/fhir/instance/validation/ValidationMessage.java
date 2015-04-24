@@ -49,14 +49,18 @@ public class ValidationMessage
   }
   
   private Source source;
+  private int line;
+  private int col; 
   private String location;
   private String message;
   private String type;
   private IssueSeverity level;
   
   
-  public ValidationMessage(Source source, String type, String path, String message, IssueSeverity level) {
+  public ValidationMessage(Source source, String type, int line, int col, String path, String message, IssueSeverity level) {
     super();
+    this.line = line;
+    this.col = col;
     this.location = path;
     this.message = message;
     this.level = level;
@@ -104,7 +108,7 @@ public class ValidationMessage
   }
 
   public String summary() {
-    return level.toString()+" @ "+location+": "+message +(source != null ? " (src = "+source+")" : "");
+    return level.toString()+" @ "+location+(line>= 0 && col >= 0 ? " (line "+Integer.toString(line)+", col"+Integer.toString(col)+") " : " ") +message +(source != null ? " (src = "+source+")" : "");
   }
 
   public OperationOutcomeIssueComponent asIssue(OperationOutcome op) throws Exception {
@@ -113,7 +117,7 @@ public class ValidationMessage
     issue.getCode().addCoding().setSystem("http://hl7.org/fhir/issue-type").setCode(type);
     if (location != null) {
       StringType s = new StringType();
-      s.setValue(location);
+      s.setValue(location+(line>= 0 && col >= 0 ? " (line "+Integer.toString(line)+", col"+Integer.toString(col)+")" : "") );
       issue.getLocation().add(s);
     }
     issue.setSeverity(level);

@@ -20,8 +20,9 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/httpmime-4.2.3.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/jdom-1.1.3.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/gson-2.3.jar"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/Saxon-B-9.0.jar"/>	
+	<classpathentry kind="lib" path="../../../tools/java/imports/Saxon-B-9.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/txtmark-0.11.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/rhino-1.7R4.jar"/>
-  <classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/saxon-dom-8.7.jar"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

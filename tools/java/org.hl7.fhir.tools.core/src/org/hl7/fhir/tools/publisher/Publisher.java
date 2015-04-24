@@ -230,6 +230,8 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 import org.xmlpull.v1.builder.XmlUnexpandedEntityReference;
 
+import com.google.gson.JsonObject;
+
 /**
  * This is the entry point for the publication method for FHIR The general order
  * of publishing is Check that everything we expect to find is found Load the
@@ -1361,7 +1363,7 @@ public class Publisher implements URIResolver {
           listLinks(e.getXml().getDocumentElement(), refs);
           for (ExampleReference ref : refs) {
             if (!ref.getId().startsWith("cid:") && !ref.getId().startsWith("urn:") && !ref.getId().startsWith("http:") && !resolveLink(ref)) {
-              errors.add(new ValidationMessage(Source.ExampleValidator, "business-rule", ref.getPath(), "Unable to resolve example reference to "
+              errors.add(new ValidationMessage(Source.ExampleValidator, "business-rule", -1, -1, ref.getPath(), "Unable to resolve example reference to "
                   + ref.describe() + " in " + e.getPath() + "\r\n   Possible Ids: " + listTargetIds(ref.getType()), IssueSeverity.ERROR));
             }
           }
@@ -1627,7 +1629,7 @@ public class Publisher implements URIResolver {
         boolean outcome = rows = (rowSet == null);
         if (!outcome) {
           System.out.println();
-          validationErrors.add(new ValidationMessage(Source.Publisher, "rdf", "rdf validation rules", description+"\r\n"+rowSet, error ? OperationOutcome.IssueSeverity.ERROR : OperationOutcome.IssueSeverity.WARNING));
+          validationErrors.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf validation rules", description+"\r\n"+rowSet, error ? OperationOutcome.IssueSeverity.ERROR : OperationOutcome.IssueSeverity.WARNING));
         }
       }
       test = XMLUtil.getNextSibling(test);
@@ -1937,7 +1939,7 @@ public class Publisher implements URIResolver {
       page.log("Produce .epub Form", LogMessageType.Process);
       page.getEpub().produce();
       for (String t : page.getQa().getBrokenlinks())
-        validationErrors.add(new ValidationMessage(Source.Publisher, "Structure", "spec", t, IssueSeverity.WARNING));
+        validationErrors.add(new ValidationMessage(Source.Publisher, "Structure", -1, -1, "spec", t, IssueSeverity.WARNING));
         processValidationOutcomes();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
@@ -4181,6 +4183,7 @@ public class Publisher implements URIResolver {
           String n = e.getFileTitle();
           logError(" ...validate " + n, LogMessageType.Process);
           validateXmlFile(schema, n, validator, null);
+          validateJsonFile(schema, n, validator, null);          
         }
         // todo-profile: how this works has to change (to use profile tag)
         for (Profile e : r.getConformancePackages()) {
@@ -4303,6 +4306,28 @@ public class Publisher implements URIResolver {
     // the build tool validation focuses on codes and identifiers
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
     validator.validate(issues, root);
+    // if (profile != null)
+    // validator.validateInstanceByProfile(issues, root, profile);
+    for (ValidationMessage m : issues) {
+      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
+        logError("  " + m.summary(), typeforSeverity(m.getLevel()));
+
+      if (m.getLevel() == IssueSeverity.WARNING)
+        warningCount++;
+      else if (m.getLevel() == IssueSeverity.INFORMATION)
+        informationCount++;
+      else
+        errorCount++;
+    }
+  }
+
+  private void validateJsonFile(Schema schema, String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
+    com.google.gson.JsonParser parser = new com.google.gson.JsonParser();
+    JsonObject obj = parser.parse(TextFile.fileToString(Utilities.path(page.getFolders().dstDir, n + ".json"))).getAsJsonObject();
+    
+    // the build tool validation focuses on codes and identifiers
+    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
+    validator.validate(issues, obj);
     // if (profile != null)
     // validator.validateInstanceByProfile(issues, root, profile);
     for (ValidationMessage m : issues) {

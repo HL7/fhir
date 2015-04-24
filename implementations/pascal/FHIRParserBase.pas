@@ -36,7 +36,7 @@ uses
   FHIRSupport,
   MsXmlParser, AdvBuffers, AdvStringLists, StringSupport, DecimalSupport, EncodeSupport, DateAndTime, AdvStringMatches,
   XmlBuilder, AdvXmlBuilders, TextUtilities, FHIRTags,
-  DateSupport, MsXmlBuilder, JSON, AdvVCLStreams, AdvStringStreams, AdvStringBuilders, FHIRLang;
+  DateSupport, MsXmlBuilder, AdvJSON, AdvVCLStreams, AdvStringStreams, AdvStringBuilders, FHIRLang;
 
 const
   ATOM_NS = 'http://www.w3.org/2005/Atom';
@@ -1811,7 +1811,7 @@ begin
   ''#13#10+
   '  &copy; HL7.org'#13#10+
   '  &nbsp;|&nbsp;'#13#10+
-  '  <a href="'+base+'" style="color: gold">'+GetFhirMessage('SERVER_HOME', lang)+'</a> '+
+  '  <a href="/" style="color: gold">'+GetFhirMessage('SERVER_HOME', lang)+'</a> '+
   '  &nbsp;|&nbsp;'#13#10+
   '  <a href="http://www.healthintersections.com.au" style="color: gold">Health Intersections</a> '+GetFhirMessage('NAME_SERVER', lang)+''#13#10+
   '  &nbsp;|&nbsp;'#13#10+

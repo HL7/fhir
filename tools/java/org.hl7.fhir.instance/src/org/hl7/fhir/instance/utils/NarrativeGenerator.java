@@ -190,6 +190,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
             Map<String, String> displayHints = readDisplayHints(child);
             if (!exemptFromRendering(child)) {
               List<ElementDefinition> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
+            filterGrandChildren(grandChildren, path+"."+p.getName(), p);
               if (p.getValues().size() > 0 && child != null) {
                 if (isPrimitive(child)) {
                   XhtmlNode para = x.addTag("p");
@@ -240,6 +241,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
   
+  private void filterGrandChildren(List<ElementDefinition> grandChildren,  String string, Property prop) {
+  	List<ElementDefinition> toRemove = new ArrayList<ElementDefinition>();
+  	toRemove.addAll(grandChildren);
+  	for (Base b : prop.getValues()) {
+    	List<ElementDefinition> list = new ArrayList<ElementDefinition>();
+  		for (ElementDefinition ed : toRemove) {
+  			Property p = b.getChildByName(tail(ed.getPath()));
+  			if (p != null && p.hasValues())
+  				list.add(ed);
+  		}
+  		toRemove.removeAll(list);
+  	}
+  	grandChildren.removeAll(toRemove);
+  }
+
   private List<Property> splitExtensions(StructureDefinition profile, List<Property> children) throws Exception {
     List<Property> results = new ArrayList<Property>();
     Map<String, Property> map = new HashMap<String, Property>();
@@ -857,19 +873,23 @@ public class NarrativeGenerator implements INarrativeGenerator {
   
   private String displayTiming(Timing s) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-    if (s.getEvent().size() > 1 || (!s.hasRepeat() && !s.getEvent().isEmpty())) {
+    if (s.hasCode())
+    	b.append("Code: "+displayCodeableConcept(s.getCode()));
+    
+    if (s.getEvent().size() > 0) {
       CommaSeparatedStringBuilder c = new CommaSeparatedStringBuilder();
       for (DateTimeType p : s.getEvent()) {
         c.append(p.toHumanDisplay());
       }
       b.append("Events: "+ c.toString());
     }
+    
     if (s.hasRepeat()) {
       TimingRepeatComponent rep = s.getRepeat();
       if (rep.hasBounds() && rep.getBounds().hasStart()) 
         b.append("Starting "+rep.getBounds().getStartElement().toHumanDisplay());
       if (rep.hasCount()) 
-        b.append("Count "+Integer.toString(rep.getCount())+"x");
+        b.append("Count "+Integer.toString(rep.getCount())+" times");
       if (rep.hasDuration()) 
         b.append("Duration "+rep.getDuration().toPlainString()+displayTimeUnits(rep.getPeriodUnits()));
       
@@ -895,7 +915,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         st = st + " per "+rep.getPeriod().toPlainString();
         if (rep.hasPeriodMax())
           st = st + "-"+rep.getPeriodMax().toPlainString();
-        st = st + displayTimeUnits(rep.getPeriodUnits());
+        	st = st + " "+displayTimeUnits(rep.getPeriodUnits());
         }
         b.append("Do "+st);
       }
@@ -940,7 +960,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private String displayHumanName(HumanName name) {
+  public static String displayHumanName(HumanName name) {
     StringBuilder s = new StringBuilder();
     if (name.hasText())
       s.append(name.getText());
@@ -992,7 +1012,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return s.toString();
   }
 
-  private String displayContactPoint(ContactPoint contact) {
+  public static String displayContactPoint(ContactPoint contact) {
     StringBuilder s = new StringBuilder();
     s.append(describeSystem(contact.getSystem()));
     if (Utilities.noString(contact.getValue()))
@@ -1004,7 +1024,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return s.toString();
   }
 
-  private Object describeSystem(ContactPointSystem system) {
+  private static String describeSystem(ContactPointSystem system) {
     if (system == null)
       return "";
     switch (system) {

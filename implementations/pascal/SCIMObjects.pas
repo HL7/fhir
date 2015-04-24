@@ -5,7 +5,7 @@ interface
 uses
   SysUtils,
   AdvObjects, AdvObjectLists,
-  JSON, DateAndTime;
+  AdvJSON, DateAndTime;
 
 Const
   SCIM_ADMIN = 'http://www.healthintersections.com.au/scim/entitlement/admin';

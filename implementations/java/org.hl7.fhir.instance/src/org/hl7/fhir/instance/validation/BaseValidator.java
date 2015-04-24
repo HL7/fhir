@@ -38,28 +38,54 @@ public class BaseValidator {
 
   protected Source source;
   
+  protected boolean fail(List<ValidationMessage> errors, String type, int line, int col, String path, boolean b, String msg) {
+    if (!b)
+      errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.FATAL));
+    return b;
+  }
+
+  
+  protected boolean rule(List<ValidationMessage> errors, String type, int line, int col, String path, boolean b, String msg) {
+  	if (!b)
+  		errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.ERROR));
+  	return b;
+  }
+
+  protected boolean hint(List<ValidationMessage> errors, String type, int line, int col, String path, boolean b, String msg) {
+    if (!b)
+      errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.INFORMATION));
+    return b;
+  }
+
+  protected boolean warning(List<ValidationMessage> errors, String type, int line, int col, String path, boolean b, String msg) {
+    if (!b)
+      errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.WARNING));
+    return b;
+    
+  }
+
   protected boolean fail(List<ValidationMessage> errors, String type, String path, boolean b, String msg) {
     if (!b)
-      errors.add(new ValidationMessage(source, type, path, msg, IssueSeverity.FATAL));
+      errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.FATAL));
     return b;
   }
 
   
   protected boolean rule(List<ValidationMessage> errors, String type, String path, boolean b, String msg) {
-  	if (!b)
-  		errors.add(new ValidationMessage(source, type, path, msg, IssueSeverity.ERROR));
-  	return b;
+    if (!b)
+      errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.ERROR));
+    return b;
   }
 
   protected boolean hint(List<ValidationMessage> errors, String type, String path, boolean b, String msg) {
     if (!b)
-      errors.add(new ValidationMessage(source, type, path, msg, IssueSeverity.INFORMATION));
+      errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.INFORMATION));
     return b;
   }
 
   protected boolean warning(List<ValidationMessage> errors, String type, String path, boolean b, String msg) {
     if (!b)
-      errors.add(new ValidationMessage(source, type, path, msg, IssueSeverity.WARNING));
+      errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.WARNING));
     return b;
     
   }

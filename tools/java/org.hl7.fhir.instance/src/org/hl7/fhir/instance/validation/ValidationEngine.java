@@ -47,11 +47,18 @@ import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMResult;
+import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
 import org.apache.commons.io.IOUtils;
+import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -67,7 +74,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+
+import com.google.gson.JsonObject;
 
 public class ValidationEngine {
 	static final String MASTER_SOURCE = "http://hl7.org/documentcenter/public/standards/FHIR-Develop/validator.zip"; // fix after DSTU!!
@@ -100,9 +111,32 @@ public class ValidationEngine {
 	}
 
   public void process() throws Exception {
+		if (isXml())
+			processXml();
+		else
+			processJson();
+	}
+	
+  private boolean isXml() {
+	  int x = position(source, '<'); 
+	  int j = position(source, '{');
+	  return (x < j);
+  }
+
+	private int position(byte[] bytes, char target) {
+		byte t = (byte) target;
+		for (int i = 0; i < bytes.length; i++)
+			if (bytes[i] == t)
+				return i;
+		return Integer.MAX_VALUE;
+	  
+  }
+
+	public void processXml() throws Exception {
     outputs = new ArrayList<ValidationMessage>();
 
     // ok all loaded
+    System.out.println("  .. validate (xml)");
 
     // 1. schema validation 
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -123,13 +157,24 @@ public class ValidationEngine {
     	processSchematronOutput(out);
     }
 
-    // 3. internal validation. reparse without schema to "help"
+		// 3. internal validation. reparse without schema to "help", and use a special parser that keeps location data for us
     factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     factory.setValidating(false);
-    builder = factory.newDocumentBuilder();
-    builder.setErrorHandler(new ValidationErrorHandler(outputs));
-    doc = builder.parse(new ByteArrayInputStream(source));
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer nullTransformer = transformerFactory.newTransformer();
+		DocumentBuilder docBuilder = factory.newDocumentBuilder();
+		doc = docBuilder.newDocument();
+		DOMResult domResult = new DOMResult(doc);
+		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+		saxParserFactory.setNamespaceAware(true);
+		saxParserFactory.setValidating(false);
+		SAXParser saxParser = saxParserFactory.newSAXParser();
+		XMLReader xmlReader = saxParser.getXMLReader();
+    XmlLocationAnnotator locationAnnotator = new XmlLocationAnnotator(xmlReader, doc);
+    InputSource inputSource = new InputSource(new ByteArrayInputStream(source));
+    SAXSource saxSource = new SAXSource(locationAnnotator, inputSource);
+    nullTransformer.transform(saxSource, domResult);
 
 		if (cache == null)
 		  cache = new ValueSetExpansionCache(context, null);
@@ -147,7 +192,7 @@ public class ValidationEngine {
 		try {
     new XmlParser().parse(new ByteArrayInputStream(source));
 		} catch (Exception e) {
-			outputs.add(new ValidationMessage(Source.InstanceValidator, "structure", "??", e.getMessage(), IssueSeverity.ERROR));
+			outputs.add(new ValidationMessage(Source.InstanceValidator, "structure", -1, -1, "??", e.getMessage(), IssueSeverity.ERROR));
 		}
         
     OperationOutcome op = new OperationOutcome();
@@ -157,6 +202,42 @@ public class ValidationEngine {
     new NarrativeGenerator("", context).generate(op);
     outcome = op;
   }
+
+  public void processJson() throws Exception {
+		outputs = new ArrayList<ValidationMessage>();
+
+		// ok all loaded
+    System.out.println("  .. validate (json)");
+
+    com.google.gson.JsonParser parser = new com.google.gson.JsonParser();
+    JsonObject obj = parser.parse(new String(source)).getAsJsonObject();
+
+		if (cache == null)
+		  cache = new ValueSetExpansionCache(context, null);
+		InstanceValidator validator = new InstanceValidator(context, cache);
+		validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
+		validator.getExtensionDomains().addAll(extensionDomains);
+
+		if (profile != null)
+			outputs.addAll(validator.validate(obj, profile));
+		else if (profileURI != null)
+			outputs.addAll(validator.validate(obj, profileURI));
+		else
+			outputs.addAll(validator.validate(obj));
+
+		try {
+		  new JsonParser().parse(new ByteArrayInputStream(source));
+		} catch (Exception e) {
+			outputs.add(new ValidationMessage(Source.InstanceValidator, "structure", -1, -1, "??", e.getMessage(), IssueSeverity.ERROR));
+		}
+
+		OperationOutcome op = new OperationOutcome();
+		for (ValidationMessage vm : outputs) {
+			op.getIssue().add(vm.asIssue(op));
+		}
+		new NarrativeGenerator("", context).generate(op);
+		outcome = op;
+	}
 
   public class ValidatorResourceResolver implements LSResourceResolver {
 
@@ -281,6 +362,7 @@ public class ValidationEngine {
 	}
 
 	public void readDefinitions(String definitions) throws Exception {
+    System.out.println("  .. load definitions from "+definitions);
 		byte[] defn;
 		if (Utilities.noString(definitions)) {
 			defn = loadFromUrl(MASTER_SOURCE);
@@ -308,11 +390,13 @@ public class ValidationEngine {
 	}
 
 	public void loadProfile(String profile) throws Exception {
-		if (!Utilities.noString(profile)) 
+		if (!Utilities.noString(profile)) { 
+	    System.out.println("  .. load profile "+profile);
 			if (getContext().getProfiles().containsKey(profile))
 				setProfile(getContext().getProfiles().get(profile));
 			else
 				setProfile(readProfile(loadProfileCnt(profile)));
+		}
 	}
 
 	private StructureDefinition readProfile(byte[] content) throws Exception {

@@ -179,6 +179,8 @@ public class Convert {
 	
 		if (r.equals("2.16.840.1.113883.6.59"))
 			return "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx";
+		if (r.equals("2.16.840.1.113883.12.292"))
+			return "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx";
 		
 		if (r.equals("2.16.840.1.113883.6.12"))
 			return "http://www.ama-assn.org/go/cpt";
@@ -615,8 +617,8 @@ public class Convert {
 	  t.setRepeat(new TimingRepeatComponent());
 	  Element p = cda.getChild(pivl, "period");
 	  t.getRepeat().setBounds(makePeriodFromIVL(ivl));
-	  t.getRepeat().setDuration(new BigDecimal(p.getAttribute("value")));
-	  t.getRepeat().setDurationUnits(convertTimeUnit(p.getAttribute("unit")));
+	  t.getRepeat().setPeriod(new BigDecimal(p.getAttribute("value")));
+	  t.getRepeat().setPeriodUnits(convertTimeUnit(p.getAttribute("unit")));
 	  return t;
   }
 
