@@ -52,7 +52,7 @@ public class TurtleGenerator {
           if (((ComplexObject) po.getObject()).write(writer, indent+2))
             writer.write(left+" ]");
           else
-            writer.write("]");
+            writer.write(" ]");
         }
         i++;
         if (i < predicates.size())

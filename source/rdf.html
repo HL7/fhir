@@ -395,8 +395,45 @@ The <a href="references.html#Reference">Reference</a> data type
 represents a reference from a resource to to another. The reference 
 may be a relative URL, and resolution is subject to local 
 rules and context (e.g. server API [base], or context in a bundle). 
-For the same reasons as with Concept References, :
+For the same reasons as with Concept References, this can be reconciled
+with the actual concrete resource instance in the RDF. As an example, 
+a reference to a resource would be represented like this in JSON:
 </p>
+<pre class="json">
+{
+  "resourceType" : "Observation",
+  "subject" : {
+    "reference" : "Patient/example"
+  }
+}
+</pre>
+<p>
+In RDF, this is represented as a an anonymous instance of the data type reference:
+</p>
+<pre class="rdf">
+:resource a fhir:Observation;
+  fhir:Observation.subject [
+    fhir:Reference.reference [ fhir:string.value "Patient/example" ];
+  	a pat:example
+  ].
+</pre>
+<p>
+If this has been resolved to a specific instance, then the 
+subject is directly assigned to the instance:
+</p>
+<pre class="rdf">
+:resource a fhir:Observation;
+  fhir:Observation.subject :patient-example.
+  
+:patient-example fhir:Reference.reference [ fhir:string.value "Patient/example" ];
+</pre>
+<p>
+The details of the reference are added to the target resource. 
+<i>TODO: this means that traceability of the reference is lost, and it's not round-trippable
+if the reconciliation includes resources that have more one literal value to reference the 
+target resource</i>
+</p>
+
 <pre class="rdf">
 @prefix pat: &lt;http://acme.com/services/fhir/Patient/#&gt; 
 

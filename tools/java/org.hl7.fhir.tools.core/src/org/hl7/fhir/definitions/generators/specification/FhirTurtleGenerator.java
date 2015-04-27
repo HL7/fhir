@@ -75,6 +75,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   private WorkerContext context;
   private Deque<AnonTypeInfo> anonTypes = new ArrayDeque<AnonTypeInfo>();
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
+  private Subject nilInstance;
 
   public FhirTurtleGenerator(OutputStream destination, Definitions definitions, WorkerContext context) {
     super(destination);
@@ -233,6 +234,10 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     section.comment("fhir:loinc", "LOINC equivalent concept - may be a LOINC code, a LOINC part code, or a LOINC property");
     section.triple("fhir:loinc", "rdfs:range", "xs:anyURI");
 
+    // nil instance
+    nilInstance = section.subject("fhir:nil");
+    nilInstance.comment("To indicate positively that a property has no value. Intended to be used where elements have a meaning when missing, to indicate that they realyl are missing in the instance");
+    
     //---------------------------------------------------
     section = section("Property Flags");
     section.triple("fhir:flag-item.system", "a", "fhir:CodeSystem");
@@ -343,6 +348,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     Section section = section(t.getCode());
     section.triple("fhir:"+t.getCode(), "rdfs:subClassOf", "fhir:Primitive");
     section.comment("fhir:"+t.getCode(), t.getDefinition());
+    nilInstance.predicate("a", "fhir:"+t.getCode());
     section.triple("fhir:"+t.getCode()+".value", "rdfs:subPropertyOf", "fhir:Primitive.value");
     section.triple("fhir:"+t.getCode()+".value", "rdfs:domain", "fhir:"+t.getCode());
     if (t.getSchemaType().endsWith("+")) {
@@ -358,6 +364,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     Section section = section(t.getCode());
     section.triple("fhir:"+t.getCode(), "rdfs:subClassOf", "fhir:"+t.getBase());
     section.comment("fhir:"+t.getCode(), t.getDefinition());
+    nilInstance.predicate("a", "fhir:"+t.getCode());
     section.triple("fhir:"+t.getCode()+".value", "rdfs:subPropertyOf", "fhir:"+t.getBase()+".value");
     if (t.getSchema().endsWith("+")) {
       section.triple("fhir:"+t.getCode()+".value", "rdfs:range", t.getSchema().substring(0, t.getSchema().length()-1));
@@ -369,6 +376,8 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   private void gen(ProfiledType t) throws Exception {
     Section section = section(t.getName());
     section.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:"+t.getBaseType());
+    nilInstance.predicate("a", "fhir:"+t.getName());
+
     section.label("fhir:"+t.getName(), t.getDescription());
     section.comment("fhir:"+t.getName(), t.getDefinition());
     if (!Utilities.noString(t.getInvariant().getTurtle()))
@@ -384,6 +393,9 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       section.triple("fhir:"+t.getName(), "rdfs:subClassOf", "fhir:Element");
     section.label("fhir:"+t.getName(), t.getShortDefn());
     section.comment("fhir:"+t.getName(), t.getDefinition());
+    if (t.getName().equals("Reference")) 
+      section.triple("fhir:"+t.getName(), "a", "fhir:Resource", "This is so that a reference can be replaced by a direct reference to it's target");
+    nilInstance.predicate("a", "fhir:"+t.getName());
     processMappings(section, "fhir:"+t.getName(), t);
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {
@@ -398,39 +410,15 @@ public class FhirTurtleGenerator extends TurtleGenerator {
           section.triple("fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+t.getName());
           genRange(section, t.getName(), en, e, tr, true);
         }
-        if (e.hasMeaningWhenMissing())
-          throw new Exception("MeaningWhenMissing on an element with choice types ("+t.getName()+"): "+e.getMeaningWhenMissing());
       } else {
         section.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
         section.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
         section.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+t.getName());
         processMappings(section, "fhir:"+t.getName()+"."+e.getName(), e);
         genRange(section, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), true);
-        if (e.hasMeaningWhenMissing()) {
-          genMissingFlag(section, e, t.getName(), "fhir:"+t.getName()+"."+e.getName()+"-Missing");
-        }
       }
     }
     processAnonTypes();
-  }
-
-  private void genMissingFlag(Section section, ElementDefn e, String owner, String name) {
-    Subject sbj = section.subject(name);
-    sbj.predicate("a", "rdf:Property");
-    sbj.comment("When there is no explicit value, so the meaning-when-missing applies");
-    sbj.predicate("rdfs:domain", "fhir:"+owner);
-    if (e.isModifier())
-      sbj.predicate("fhir:hasFlag", complex().predicate("a", "fhir:isModifier"));
-    if (e.hasSummaryItem() && e.isSummaryItem())
-      sbj.predicate("fhir:hasFlag", complex().predicate("a", "fhir:isSummaryItem"));
-    if (!Utilities.noString(e.getW5()))
-      sbj.predicate("fhir:w5", complex().predicate("a", "fhir:w5\\#"+e.getW5()));
-    cardinality(sbj, "0", "1");
-    if (e.getMinCardinality() > 0)
-      sbj.predicate("rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", name).predicate("owl:minCardinality", literal(e.getMinCardinality().toString()+"^^xs:nonNegativeInteger")));
-    if (e.getMaxCardinality() < Integer.MAX_VALUE)
-      sbj.predicate("rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", name).predicate("owl:maxCardinality", literal(e.getMaxCardinality().toString()+"^^xs:nonNegativeInteger")));
-    sbj.predicate("rdfs:range", "xs:boolean");
   }
 
   private List<TypeRef> getAnyTypes() {
@@ -575,17 +563,12 @@ public class FhirTurtleGenerator extends TurtleGenerator {
           section.triple("fhir:"+t.getName()+"."+en, "rdfs:domain", "fhir:"+rd.getName());
           genRange(section, t.getName(), en, e, tr, false);
         }
-        if (e.hasMeaningWhenMissing())
-          throw new Exception("MeaningWhenMissing on an element with choice types ("+t.getName()+")");
       } else {
         section.triple("fhir:"+t.getName()+"."+e.getName(), "a", "rdf:Property");
         section.comment("fhir:"+t.getName()+"."+e.getName(), e.getDefinition());
         section.triple("fhir:"+t.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+rd.getName());
         processMappings(section, "fhir:"+t.getName()+"."+e.getName(), e);
         genRange(section, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), false);
-        if (e.hasMeaningWhenMissing()) {
-          genMissingFlag(section, e, t.getName(), "fhir:"+t.getName()+"."+e.getName()+"-Missing");
-        }
       }
     }
     processAnonTypes();
@@ -634,17 +617,12 @@ public class FhirTurtleGenerator extends TurtleGenerator {
           at.getSection().triple("fhir:"+at.getName()+"."+en, "rdfs:domain", "fhir:"+at.getName());
           genRange(at.getSection(), at.getName(), en, e, tr, at.isType());
         }
-        if (e.hasMeaningWhenMissing())
-          throw new Exception("MeaningWhenMissing on an element with choice types ("+at.getName()+")");
       } else {
         at.getSection().triple("fhir:"+at.getName()+"."+e.getName(), "a", "rdf:Property");
         at.getSection().comment("fhir:"+at.getName()+"."+e.getName(), e.getDefinition());
         processMappings(at.getSection(), "fhir:"+at.getName()+"."+e.getName(), e);
         at.getSection().triple("fhir:"+at.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+at.getName());
         genRange(at.getSection(), at.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), at.isType());
-        if (e.hasMeaningWhenMissing()) {
-          genMissingFlag(at.getSection(), e, at.getName(), "fhir:"+at.getName()+"."+e.getName()+"-Missing");
-        }
       }
     }
   }
