@@ -46,6 +46,15 @@ expectation that turtle should be used in preference to other syntaxes. Note tha
 turtle instances would not be laid out so clearly either.
 </p>
 
+<p>
+Implementer Note: The FHIR RDF format is defined to assist the process of bridging between operational
+data exchange and formal knowledge processing systems. While the RDF form offers a fully
+functional representation of FHIR resources, it has very different operational characteristics
+from the <a href="json.html">JSON</a> and <a href="xml.html">XML</a>, and would be implemented
+for different reasons. Systems focused on operational exchange of data would not generally
+use RDF.
+</p>
+
 <a name="class"> </a>
 <h3>RDF Representation of FHIR</h3>
 <p>
@@ -142,8 +151,8 @@ defined in the RDF class definitions:
   flag:status fhir:flag-status\#active.
 </pre>
 <p>
-Enumerated fields are represented using a direct link to the singleton instance
-of the class for the concept, as defined in the RDF code system definitions.
+Enumerated fields are represented using a anonymous concept that has an rdf:type which 
+is the concept as defined in the RDF code system definitions.
 </p>
 <p>
 Property names are defined by class, and follow into the data types:
@@ -160,7 +169,7 @@ Property names are defined by class, and follow into the data types:
 </pre>
 <p>
 The <a href="datatypes.html">primitive types</a> are represented using the 
-same W3c schema based types as in the XML and JSON formats. Since the types 
+same W3C schema based types as in the XML and JSON formats. Since the types 
 are defined in advance, there is not usually a need to specify the type 
 explicitly unless the RDF syntax requires this (e.g. in turtle, it would 
 not be specified).
@@ -198,8 +207,8 @@ Some elements do not have a default value, but they do have a meaning
 when there is no element present. As an example, 
 if <a href="patient-definition.html#Patient.animal">Patient.animal</a> is not present, 
 the the patient is a human. In RDF (OWL particularly), reasoners cannot 
-infer meaning from missing elements, so the RDF format includes a specific
-"-Missing" element to allow for reasoning in these cases.
+infer meaning from missing elements, so the element must always be present,
+but may have a value of http://hl7.org/fhir/nil (in RDF, fhir:nil).
 </p>
 <p>
 Here's a patient resource with an animal property:
@@ -213,15 +222,12 @@ If the patient is human then the representation will be:
 </p>
 <pre class="rdf">
 :resource a fhir:Patient;
-  pat:animal-Missing "true";
+  pat:animal fhir:nil;
 </pre>
 <p>
-TODO: would it be better to use rd:nil? 
-</p>
-
-<p>
-When the element has a 'meaning when missing', there SHALL be either an property
-or an -Missing property present in the instance.
+Note: fhir:nil may be used for any property that has no value in a JSON or XML 
+instance, but  when the element has a 'meaning when missing', there SHALL be either
+a value of fhir:nil in the instance.
 </p>
 <h4>Order</h4>
 <p>
@@ -293,21 +299,20 @@ or a complex object with further extensions.
 </p>
 <h4>Concept References</h4>
 <p>
-The data types <a href="datatypes.html#Coding">Coding</a> and 
-<a href="references.html#Reference">Reference</a> represent 
-references from a resource to a separate knowledge container or 
-from one resource to another. The definitions of these data types 
-are constained by operational considerations around incomplete 
-knowledge, longitudinal version issues, use across multiple 
-contexts, etc, and a mapping process is required to match 
-the information that constitutes the reference to the target
-RDF concept on which reasoning is based. 
+The data type <a href="datatypes.html#Coding">Coding</a> and it's 
+container <a href="datatypes.html#CodeableConcept">CodeableConcept</a> 
+represent references from a resource to a separate knowledge container. 
+The definitions of the Coding data type is constained by operational 
+considerations around incomplete knowledge, longitudinal version issues, 
+use across multiple contexts, etc, so a mapping process is required to 
+match the information that constitutes the Coding reference to the target
+RDF concept on which reasoning will be based. 
 </p>
 <p>
 For instance, a reference to a LOINC code in an JSON resource 
 instance takes this form: 
 </p>
-<pre class="rdf">
+<pre class="json">
 {
   "resourceType" : "Observation",
   "code" : {
@@ -321,61 +326,49 @@ instance takes this form:
 }
 </pre>
 <p>
-In the local LOINC RDF representation, the URI for that LOINC
-code is http://loinc.org/owl/54411-4. 
-Note that for many terminologies, including LOINC,
+As an example, in the local LOINC RDF representation, the URI for that LOINC
+code is http://loinc.org/owl/54411-4. (Note that for many terminologies, including LOINC,
 there is no standard RDF representation and multiple forms with different addressing 
 schemes are available. Where standard representations exist, implementers 
-SHOULD use the same addressing scheme. 
+SHOULD use the same addressing scheme.) 
 </p>
 <p>
 There is no algorithmic conversion between the system/code and the equivalent 
-RDF concept; instead, a mapping table of some kind must be maintained. These 
+RDF concept; instead, a mapping table or process of some kind must be maintained. These 
 mapping tables have variable complexity. In the worst case - codes that have
 the form of an expression - considerable syntactic and semantic logic is 
 required to perform the mapping. For this reason, the reconciliation process
 is often performed as a preprocessing step prior to using the RDF for reasoning. 
-In order to assist with implementation, this specification defines a standard
-extension for representing the outcome of the pre-processing:
-</p>
-<pre class="rdf">
-ex:concept a fhir:ExtensionDefinition;
-   rdfs:label "Direct reference to concept described in the containing object"
-   rdfs:range fhir:uri.
-</pre>
-<p>
-This can be used to reference a concept directly when representing a Coding or a Reference.
-Here's the same example as above, with the direct concept reference added:
+Once the reconciliation process is complete, the resolved concepts are stated as 
+rdf:type assertions on the concept:
 </p>
 <pre class="rdf">
 @prefix loinc: &lt;http://loinc.org/owl#&gt; .
 
 :resource a fhir:Observation;
   fhir:Observation.code [
+    a loinc:54411-4;
     fhir:CodeableConcept.coding [
       fhir:Coding.system [ fhir:uri.value &lt;http://loinc.org&gt;] ;
       fhir:Coding.code [ fhir:code.value "54411-4" ];
       fhir:Coding.display [ fhir:string.value "Rh immune globulin given Qualitative"];
-      ex:concept loinc:54411-4;
       ];
     fhir:CodeableConcept.text [ fhir:string.value "Rh immune globulin" ];
   ].
 </pre>
 <p>
-Defining a standard extension for this allows for sharing the pre-processed 
-content between implementations. Typically, the concept extension is 
-only used in the RDF form, but it can be carried as a normal FHIR 
-extension in both the XML and JSON forms:
+Typically, these type assertions are only used in the RDF form, but they 
+can be carried as a normal FHIR extension in both the XML and JSON forms:
 </p>
 <pre class="rdf">
 {
   "resourceType" : "Observation",
   "code" : {
+    "extension" : {
+      "url" : "http://hl7.org/fhir/StructureDefinition/rdftype",
+      "valueUri" : "http://loinc.org/owl/54411-4"
+    },
     "coding" : {
-      "extension" : {
-        "url" : "http://hl7.org/fhir/StructureDefinition/concept",
-        "valueUri" : "http://loinc.org/owl/54411-4"
-      }
       "system" : "http://loinc.org",
       "code" : "54411-4",
       "display" : "Rh immune globulin given Qualitative"
@@ -385,35 +378,24 @@ extension in both the XML and JSON forms:
 }
 </pre>
 <p>
-Implementers should note that the concept reference into a local 
-ontology is inherently less stable, and it is usually not appropriate
-to persist these references.
+Implementers should note that these type assertions often reference 
+local ontologies, and the correct URI may be scope dependent or 
+may vary on a different lifecycle to the coding information itself, 
+and so it is usually not appropriate to persist these references.
 </p>
 <p>
-In RDF, this capability can be used for expression forms as well. For 
-example:
+These type assertions may be made against either CodeableConcept or
+Coding data types; when the FHIR resource property has a type 
+of CodeableConcept they should be made at this level rather than
+on the Coding.
 </p>
-<pre class="rdf">
-@prefix sct: &lt;http://snomed.info/id/&gt; 
-
-:resource a fhir:Observation;
-  fhir:Observation.valueCodeableConcept [
-    fhir:CodeableConcept.coding [
-    fhir:Coding.system [ fhir:uri.value &lt;http://snomed.info/sct&gt; ];
-      fhir:Coding.code [ fhir:code.value "128045006:{363698007=56459004}" ];
-      ex:concept [ owl:intersectionOf (sct:128045006 [sct:363698007 sct:56459004])]
-    ];
-  ];
-</pre>
+<h4>Resource References</h4>
 <p>
-Note that there's no equivalent for this form in XML and JSON. 
-</p>
-<p>
-For the Reference datatype, the issue is that the reference may 
-be a relative URL, and resolution is subject to local rules and 
-context (e.g. server API [base], or context in a bundle). It's 
-a lot simpler to add a reference to a full URL that has 
-explicit meaning in context of the RDF graph:
+The <a href="references.html#Reference">Reference</a> data type 
+represents a reference from a resource to to another. The reference 
+may be a relative URL, and resolution is subject to local 
+rules and context (e.g. server API [base], or context in a bundle). 
+For the same reasons as with Concept References, :
 </p>
 <pre class="rdf">
 @prefix pat: &lt;http://acme.com/services/fhir/Patient/#&gt; 
@@ -421,11 +403,9 @@ explicit meaning in context of the RDF graph:
 :resource a fhir:Observation;
   fhir:Observation.subject [
     fhir:Reference.reference [ fhir:string.value "Patient/example" ];
-  	ex:concept pat:example
+  	a pat:example
   ].
 </pre>
-<p>
-</p>
 
 <h4>Other Stuff</h4>
 <p>

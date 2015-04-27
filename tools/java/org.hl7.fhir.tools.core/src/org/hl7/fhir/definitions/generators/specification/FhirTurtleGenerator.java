@@ -166,6 +166,32 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   private void genBaseMetadata() {
     Section section = section("Basic Framework");
     
+    // terminology base:
+    section.triple("fhir:Concept", "a", "rdf:Class");
+    section.label("fhir:Concept", "A concept in a code system defined by FHIR");
+    section.comment("fhir:Concept", "Concepts are defined as classes, and individual properties have a value which is an anonymous class with a type of the appropriate concept");
+
+    section.triple("fhir:CodeSystem", "rdfs:subClassOf", "rdf:Class");
+    section.label("fhir:CodeSystem", "Base class for code systems");
+    section.comment("fhir:CodeSystem", "A code system identifies the definition framework. Code systems contain concepts");
+
+    section.triple("fhir:ValueSet", "rdfs:subClassOf", "rdf:Class");
+    section.label("fhir:ValueSet", "A value set - a set of codes for concepts from one or more code systems");
+    section.comment("fhir:Concept", "ValueSets...");
+
+    // wiring the terminology base together 
+    section.triple("fhir:contains", "a", "rdf:Property");
+    section.label("fhir:contains", "A concept in a code system");
+    section.triple("fhir:contains", "rdfs:domain", "fhir:CodeSystem");
+    section.triple("fhir:contains", "rdfs:range", "fhir:Concept"); // todo: is this valid? a meta-range? 
+    
+    section.triple("fhir:include", "a", "rdf:Property");
+    section.label("fhir:include", "A concept included in a value set");
+    section.comment("fhir:include", "Include a code system or value set in a value set");
+    section.triple("fhir:include", "rdfs:domain", "fhir:ValueSet");
+    section.triple("fhir:include", "rdfs:range", "fhir:Concept"); // todo: is this valid? a meta-range? 
+    
+    // standard properties
     section.triple("fhir:binding", "a", "rdf:Property");
     section.label("fhir:binding", "ValueSet bound to this property");
     section.comment("fhir:binding", "Refer to FHIR documentation for the use of this property");
@@ -176,39 +202,26 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     section.comment("fhir:bindingStrength", "Refer to FHIR documentation for the use of this property");
     section.triple("fhir:bindingStrength", "rdfs:range", "xs:anyUri");
 
-    section.triple("fhir:canonical-status", "a", "rdf:Property");
-    section.label("fhir:canonical-status", "Canonical Status Mapping");
-    section.comment("fhir:canonical-status", "Each resource has it's own list of status codes. This contains a mapping through to the basic status");
-    section.triple("fhir:canonical-status", "rdfs:range", "fhir:canonical-status.class");
+    section.triple("fhir:canonicalStatus", "a", "rdf:Property");
+    section.label("fhir:canonicalStatus", "Canonical Status Mapping");
+    section.comment("fhir:canonicalStatus", "Each resource has it's own list of status codes. This contains a mapping through to the basic status");
+    section.triple("fhir:canonicalStatus", "rdfs:range", "fhir:canonical-status");
     
-    section.triple("fhir:Concept", "a", "fhir:Concept");
-    section.label("fhir:Concept", "Canonical Status Codes");
-    section.comment("fhir:Concept", "Base class for Canonical Status codes");
-    section.triple("fhir:Concept", "rdfs:range", "fhir:canonical-status.class");
-
-    section.triple("fhir:CodeSystem", "rdfs:subClassOf", "rdf:Class");
-    section.label("fhir:CodeSystem", "Base class for code systems");
-    section.comment("fhir:CodeSystem", "Base class for code systems");
-
     section.triple("fhir:hasFlag", "a", "rdf:Property");
     section.label("fhir:hasFlag", "Flags for FHIR properties");
     section.comment("fhir:hasFlag", "A set of flags that provide additional knowledge about the meaning of a property");
-    section.triple("fhir:hasFlag", "rdfs:range", "fhir:flag-item.class");
+    section.triple("fhir:hasFlag", "rdfs:range", "fhir:flag-item");
 
     section.triple("fhir:w5", "a", "rdf:Property");
     section.label("fhir:w5", "W5 Categorization (preliminary)");
     section.comment("fhir:w5", "FHIR W5 categorization is a preliminary classification of the type of fhir property");
-    section.triple("fhir:w5", "rdfs:range", "fhir:w5.class");
+    section.triple("fhir:w5", "rdfs:range", "fhir:w5");
 
-    section.triple("fhir:include", "a", "rdf:Property");
-    section.label("fhir:include", "Include a code system or value set in a value set");
-    section.comment("fhir:include", "Include a code system or value set in a value set");
-    section.triple("fhir:include", "rdfs:range", "xs:anyURI");
 
     section.triple("fhir:status", "a", "rdf:Property");
     section.label("fhir:status", "The status of the item");
     section.comment("fhir:status", "The status of the item");
-    section.triple("fhir:status", "rdfs:range", "fhir:conformance-resource-status.class");
+    section.triple("fhir:status", "rdfs:range", "fhir:conformance-resource-status");
 
     section.triple("fhir:version", "a", "rdf:Property");
     section.label("fhir:version", "Assigned Version Number");
@@ -222,72 +235,75 @@ public class FhirTurtleGenerator extends TurtleGenerator {
 
     //---------------------------------------------------
     section = section("Property Flags");
-    section.triple("fhir:flag-item.class", "a", "fhir:Concept");
-    section.triple("fhir:flag-item.class", "owl:oneOf", "(fhir:isModifier fhir:isSummaryItem fhir:isXmlAtribute)");
+    section.triple("fhir:flag-item.system", "a", "fhir:CodeSystem");
+    section.comment("fhir:flag-item.system", "An internal code system defined for the FHIR definitions");
+    section.triple("fhir:flag-item.system", "fhir:contains", "fhir:flag-item");
+    
+    section.triple("fhir:flag-item", "a", "fhir:Concept");
 
-    section.triple("fhir:flag-item.class\\#isModifier", "rdfs:subClassOf", "fhir:flag-item.class");
-    section.triple("fhir:flag-item.class\\#isModifier", "owl:oneOf", "(fhir:flag-item\\#isModifier)");
-    section.comment("fhir:flag-item.class\\#isModifier", "An element is labeled isModifier if the value it contains may change the interpretation of the element that contains it (including if the element is the resource as a whole). Typical examples of elements that are labeled isModifier are elements such as 'status', 'active', 'refuted', or 'certainty'");
-    section.triple("fhir:isModifier", "a", "fhir:flag-item.class\\#isModifier");
+    section.triple("fhir:flag-item\\#isModifier", "rdfs:subClassOf", "fhir:flag-item");
+    section.triple("fhir:flag-item\\#isModifier", "owl:oneOf", "(fhir:flag-item\\#isModifier)");
+    section.comment("fhir:flag-item\\#isModifier", "An element is labeled isModifier if the value it contains may change the interpretation of the element that contains it (including if the element is the resource as a whole). Typical examples of elements that are labeled isModifier are elements such as 'status', 'active', 'refuted', or 'certainty'");
 
-    section.triple("fhir:flag-item.class\\#isSummaryItem", "rdfs:subClassOf", "fhir:flag-item.class");
-    section.triple("fhir:flag-item.class\\#isSummaryItem", "owl:oneOf", "(fhir:flag-item\\#isSummaryItem)");
-    section.comment("fhir:flag-item.class\\#isSummaryItem", "Whether the element should be included if a client requests a search with the parameter _summary=true.");
-    section.triple("fhir:isSummaryItem", "a", "fhir:flag-item.class\\#isSummaryItem");
+    section.triple("fhir:flag-item\\#isSummaryItem", "rdfs:subClassOf", "fhir:flag-item");
+    section.triple("fhir:flag-item\\#isSummaryItem", "owl:oneOf", "(fhir:flag-item\\#isSummaryItem)");
+    section.comment("fhir:flag-item\\#isSummaryItem", "Whether the element should be included if a client requests a search with the parameter _summary=true.");
 
-    section.triple("fhir:flag-item.class\\#isXmlAtribute", "rdfs:subClassOf", "fhir:flag-item.class");
-    section.triple("fhir:flag-item.class\\#isXmlAtribute", "owl:oneOf", "(fhir:flag-item\\#isXmlAtribute)");
-    section.comment("fhir:flag-item.class\\#isXmlAtribute", "In the XML format, this property is represented as an attribute not an element");
-    section.triple("fhir:isXmlAtribute", "a", "fhir:flag-item.class\\#isXmlAtribute");
+    section.triple("fhir:flag-item\\#isXmlAtribute", "rdfs:subClassOf", "fhir:flag-item");
+    section.triple("fhir:flag-item\\#isXmlAtribute", "owl:oneOf", "(fhir:flag-item\\#isXmlAtribute)");
+    section.comment("fhir:flag-item\\#isXmlAtribute", "In the XML format, this property is represented as an attribute not an element");
+    section.triple("fhir:isXmlAtribute", "a", "fhir:flag-item\\#isXmlAtribute");
     
     //---------------------------------------------------   
     section = section("Canonical Status Codes");
-    section.triple("fhir:canonical-status.class", "a", "fhir:Concept");
-    section.triple("fhir:canonical-status", "owl:oneOf", "("+listStatusCodes()+")");
+    section.triple("fhir:canonical-status.system", "a", "fhir:CodeSystem");
+    section.comment("fhir:canonical-status.system", "An internal ontology defined for the FHIR definitions");
+    section.triple("fhir:canonical-status.system", "fhir:contains", "fhir:canonical-status");
+    
+    section.triple("fhir:canonical-status", "a", "fhir:Concept");
 
     for (int i = 0; i < definitions.getStatusCodes().get("@code").size(); i++) {
       if (!Utilities.noString(definitions.getStatusCodes().get("@code").get(i))) {
         String pcc = pctEncode(definitions.getStatusCodes().get("@code").get(i));
-        section.triple("fhir:canonical-status.class\\#"+pcc, "rdfs:subClassOf", "fhir:canonical-status.class");
-        section.triple("fhir:canonical-status.class\\#"+pcc, "owl:oneOf", "(fhir:canonical-status\\#"+pcc+")");
-        section.comment("fhir:canonical-status.class\\#"+pcc, definitions.getStatusCodes().get("@definition").get(i));
-        section.triple("fhir:canonical-status\\#"+pcc, "a", "fhir:canonical-status.class\\#"+pcc);
+        section.triple("fhir:canonical-status\\#"+pcc, "rdfs:subClassOf", "fhir:canonical-status");
+        section.comment("fhir:canonical-status\\#"+pcc, definitions.getStatusCodes().get("@definition").get(i));
       }
     }
     
     //---------------------------------------------------   
     section = section("W5 Classifications");
-    section.triple("fhir:w5.class", "a", "fhir:Concept");
-    section.triple("fhir:w5", "owl:oneOf", "("+listW5Codes()+")");
+    section.triple("fhir:w5.system", "a", "fhir:CodeSystem");
+    section.comment("fhir:w5.system", "An internal ontology defined for the FHIR definitions");
+    section.triple("fhir:w5.system", "fhir:contains", "fhir:w5");
+    
+    section.triple("fhir:w5", "a", "fhir:Concept");
 
     for (W5Entry e : definitions.getW5s().values()) {
       String pcc = pctEncode(e.getCode());
-      section.triple("fhir:w5.class\\#"+pcc, "rdfs:subClassOf", "fhir:w5.class");
-      section.triple("fhir:w5.class\\#"+pcc, "owl:oneOf", "(fhir:w5\\#"+pcc+")");
-      section.comment("fhir:w5.class\\#"+pcc, e.getDescription());
-      section.triple("fhir:w5\\#"+pcc, "a", "fhir:w5.class\\#"+pcc);
+      section.triple("fhir:w5\\#"+pcc, "rdfs:subClassOf", "fhir:w5");
+      section.comment("fhir:w5\\#"+pcc, e.getDescription());
     }
   }
 
-  private String listW5Codes() {
-    StringBuilder b = new StringBuilder();
-    for (W5Entry e : definitions.getW5s().values()) {
-      b.append(" ");
-      b.append("fhir:w5\\#");
-      b.append(pctEncode(e.getCode()));
-    }
-    return b.toString().substring(1);
-  }
-
-  private String listStatusCodes() {
-    StringBuilder b = new StringBuilder();
-    for (String s : definitions.getStatusCodes().get("@code")) {
-      b.append(" ");
-      b.append("fhir:canonical-status\\#");
-      b.append(pctEncode(s));
-    }
-    return b.toString().substring(1);
-  }
+//  private String listW5Codes() {
+//    StringBuilder b = new StringBuilder();
+//    for (W5Entry e : definitions.getW5s().values()) {
+//      b.append(" ");
+//      b.append("fhir:w5\\#");
+//      b.append(pctEncode(e.getCode()));
+//    }
+//    return b.toString().substring(1);
+//  }
+//
+//  private String listStatusCodes() {
+//    StringBuilder b = new StringBuilder();
+//    for (String s : definitions.getStatusCodes().get("@code")) {
+//      b.append(" ");
+//      b.append("fhir:canonical-status\\#");
+//      b.append(pctEncode(s));
+//    }
+//    return b.toString().substring(1);
+//  }
 
   private void genPrimitiveType() {
     Section section = section("Primitive");
@@ -391,24 +407,24 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         processMappings(section, "fhir:"+t.getName()+"."+e.getName(), e);
         genRange(section, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), true);
         if (e.hasMeaningWhenMissing()) {
-          geMissingFlag(section, e, t.getName(), "fhir:"+t.getName()+"."+e.getName()+"-Missing");
+          genMissingFlag(section, e, t.getName(), "fhir:"+t.getName()+"."+e.getName()+"-Missing");
         }
       }
     }
     processAnonTypes();
   }
 
-  private void geMissingFlag(Section section, ElementDefn e, String owner, String name) {
+  private void genMissingFlag(Section section, ElementDefn e, String owner, String name) {
     Subject sbj = section.subject(name);
     sbj.predicate("a", "rdf:Property");
     sbj.comment("When there is no explicit value, so the meaning-when-missing applies");
     sbj.predicate("rdfs:domain", "fhir:"+owner);
     if (e.isModifier())
-      sbj.predicate("fhir:hasFlag", "fhir:isModifier");
+      sbj.predicate("fhir:hasFlag", complex().predicate("a", "fhir:isModifier"));
     if (e.hasSummaryItem() && e.isSummaryItem())
-      sbj.predicate("fhir:hasFlag", "fhir:isSummaryItem");
+      sbj.predicate("fhir:hasFlag", complex().predicate("a", "fhir:isSummaryItem"));
     if (!Utilities.noString(e.getW5()))
-      sbj.predicate("fhir:w5", "fhir:w5\\#"+e.getW5());
+      sbj.predicate("fhir:w5", complex().predicate("a", "fhir:w5\\#"+e.getW5()));
     cardinality(sbj, "0", "1");
     if (e.getMinCardinality() > 0)
       sbj.predicate("rdfs:subClassOf", complex().predicate("a", "owl:Restriction").predicate("owl:onProperty", name).predicate("owl:minCardinality", literal(e.getMinCardinality().toString()+"^^xs:nonNegativeInteger")));
@@ -450,15 +466,15 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   private void genRange(Section section, String tn, String en, ElementDefn e, TypeRef tr, boolean datatype) throws Exception {
     // metadata
     if (e.isModifier())
-      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isModifier");
+      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", complex().predicate("a", "fhir:isModifier"));
     if (e.isXmlAttribute())
-      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isXmlAtribute");
+      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", complex().predicate("a", "fhir:isXmlAtribute"));
     if (e.hasMustSupport() && e.isMustSupport())
-      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isMustSupport");
+      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", complex().predicate("a", "fhir:isMustSupport"));
     if (e.hasSummaryItem() && e.isSummaryItem())
-      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", "fhir:isSummaryItem");
+      section.triple("fhir:"+tn+"."+en, "fhir:hasFlag", complex().predicate("a", "fhir:isSummaryItem"));
     if (!Utilities.noString(e.getW5()))
-      section.triple("fhir:"+tn+"."+en, "fhir:w5", "fhir:w5\\#"+e.getW5());
+      section.triple("fhir:"+tn+"."+en, "fhir:w5", complex().predicate("a", "fhir:w5\\#"+e.getW5()));
     if (e.hasMeaningWhenMissing())
       section.triple("fhir:"+tn+"."+en, "fhir:missingMeaning", literal(e.getMeaningWhenMissing()));
     
@@ -486,7 +502,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         if (bs.getReferredValueSet() != null) {
           String bn = getPNameForUri(bs.getReferredValueSet().getUrl());
           if (bs.getStrength() == BindingStrength.REQUIRED && bs.getBinding() == Binding.CodeList && tr.getName().equals("code") && bs.getReferredValueSet().hasDefine())
-            section.triple("fhir:"+tn+"."+en, "rdfs:range", getPNameForUri(bs.getReferredValueSet().getDefine().getSystem())+".class");
+            section.triple("fhir:"+tn+"."+en, "rdfs:range", getPNameForUri(bs.getReferredValueSet().getDefine().getSystem()));
           else
             section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
           section.triple("fhir:"+tn+"."+en, "fhir:binding", bn);
@@ -496,7 +512,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
           section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
           section.triple("fhir:"+tn+"."+en, "fhir:binding", "<"+bs.getReference()+">");
         }
-        section.triple("fhir:"+tn+"."+en, "fhir:bindingStrength", "fhir:binding-strength\\#"+bs.getStrength().toCode());
+        section.triple("fhir:"+tn+"."+en, "fhir:bindingStrength", complex().predicate("a", "fhir:binding-strength\\#"+bs.getStrength().toCode()));
       } else
         section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
     }
@@ -568,7 +584,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         processMappings(section, "fhir:"+t.getName()+"."+e.getName(), e);
         genRange(section, t.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), false);
         if (e.hasMeaningWhenMissing()) {
-          geMissingFlag(section, e, t.getName(), "fhir:"+t.getName()+"."+e.getName()+"-Missing");
+          genMissingFlag(section, e, t.getName(), "fhir:"+t.getName()+"."+e.getName()+"-Missing");
         }
       }
     }
@@ -627,7 +643,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         at.getSection().triple("fhir:"+at.getName()+"."+e.getName(), "rdfs:domain", "fhir:"+at.getName());
         genRange(at.getSection(), at.getName(), e.getName(), e, e.getTypes().isEmpty() ? null : e.getTypes().get(0), at.isType());
         if (e.hasMeaningWhenMissing()) {
-          geMissingFlag(at.getSection(), e, at.getName(), "fhir:"+at.getName()+"."+e.getName()+"-Missing");
+          genMissingFlag(at.getSection(), e, at.getName(), "fhir:"+at.getName()+"."+e.getName()+"-Missing");
         }
       }
     }
@@ -648,8 +664,8 @@ public class FhirTurtleGenerator extends TurtleGenerator {
         subject.predicate("fhir:version", extension.getVersion());
       if (extension.hasCopyright()) 
         subject.predicate("dc:rights", literal(extension.getCopyright()));
-      subject.predicate("fhir:status", "fhir:conformance-resource-status\\#"+extension.getStatus().toCode());
-      subject.predicate("fhir:canonical-status", getCanonicalStatus("ValueSet.status", extension.getStatus().toCode()));
+      subject.predicate("fhir:status", complex().predicate("a", "fhir:conformance-resource-status\\#"+extension.getStatus().toCode()));
+      subject.predicate("fhir:canonicalStatus", complex().predicate("a", getCanonicalStatus("ValueSet.status", extension.getStatus().toCode())));
       for (CodeableConcept cc : extension.getUseContext()) 
         codedTriple(subject, "fhir:useContext", cc);
       if (extension.hasDate()) 
@@ -677,8 +693,8 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     
     for (CodeableConcept cc : vs.getUseContext()) 
       codedTriple(section, bn, "fhir:useContext", cc);
-    section.triple(bn, "fhir:status", "fhir:conformance-resource-status\\#"+vs.getStatus().toCode());
-    section.triple(bn, "fhir:canonical-status", getCanonicalStatus("ValueSet.status", vs.getStatus().toCode()));
+    section.triple(bn, "fhir:status", complex().predicate("a", "fhir:conformance-resource-status\\#"+vs.getStatus().toCode()));
+    section.triple(bn, "fhir:canonicalStatus", complex().predicate("a", getCanonicalStatus("ValueSet.status", vs.getStatus().toCode())));
     if (vs.hasDefine()) {
       section.triple(bn, "fhir:include", gen(section, vs.getDefine(), vs));
     }
@@ -687,60 +703,57 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   private String gen(Section section, ValueSetDefineComponent define, ValueSet vs) {
     String bn = getPNameForUri(define.getSystem()); 
     if (!bn.startsWith("<")) {
-      section.triple(bn, "a", "fhir:CodeSystem");
+      section.triple(bn+".system", "a", "fhir:CodeSystem");
       if (define.hasVersion())
-        section.triple(bn, "fhir:version", literal(define.getVersion()));
+        section.triple(bn+".system", "fhir:version", literal(define.getVersion()));
       if (vs.hasName())
-        section.label(bn, vs.getName());
+        section.label(bn+".system", vs.getName());
       if (vs.hasDescription()) 
-        section.comment(bn, vs.getDescription().replace("value set", "code system").replace("Value Set", "Code System").replace("Value set", "Code system"));
+        section.comment(bn+".system", vs.getDescription().replace("value set", "code system").replace("Value Set", "Code System").replace("Value set", "Code system"));
       if (vs.hasCopyright()) 
-        section.triple(bn, "dc:rights", literal(vs.getCopyright()));
+        section.triple(bn+".system", "dc:rights", literal(vs.getCopyright()));
       if (vs.hasDate()) 
-        section.triple(bn, "dc:date", literal(vs.getDate().toString()));
+        section.triple(bn+".system", "dc:date", literal(vs.getDate().toString()));
       
-      section.triple(bn+".class", "a", "fhir:Concept");
-      section.triple(bn+".class", "owl:oneOf", "("+listTokens(bn+"\\#", null, define.getConcept())+")");
+      section.triple(bn, "a", "fhir:Concept");
 
-      gen(section, bn, bn+".class", define.getConcept());
+      gen(section, bn, bn, define.getConcept());
     }
     return bn;
   }
 
-  private String listTokens(String prefix, ConceptDefinitionComponent root, List<ConceptDefinitionComponent> children) {
-    StringBuilder b = new StringBuilder();
-    if (root != null) {
-      b.append(" ");
-      b.append(prefix);
-      b.append(pctEncode(root.getCode()));
-    }
-    listChildTokens(prefix, children, b);
-    return b.length() == 0 ? "" : b.toString().substring(1);
-  }
+//  private String listTokens(String prefix, ConceptDefinitionComponent root, List<ConceptDefinitionComponent> children) {
+//    StringBuilder b = new StringBuilder();
+//    if (root != null) {
+//      b.append(" ");
+//      b.append(prefix);
+//      b.append(pctEncode(root.getCode()));
+//    }
+//    listChildTokens(prefix, children, b);
+//    return b.length() == 0 ? "" : b.toString().substring(1);
+//  }
 
-  private void listChildTokens(String prefix, List<ConceptDefinitionComponent> children, StringBuilder b) {
-    for (ConceptDefinitionComponent child : children) {
-      if (!child.getCode().equals("...")) { // special work around for v2 - to be resolved elsewhere
-        b.append(" ");
-        b.append(prefix);
-        b.append(pctEncode(child.getCode()));
-        listChildTokens(prefix, child.getConcept(), b);
-      }
-    }
-  }
+//  private void listChildTokens(String prefix, List<ConceptDefinitionComponent> children, StringBuilder b) {
+//    for (ConceptDefinitionComponent child : children) {
+//      if (!child.getCode().equals("...")) { // special work around for v2 - to be resolved elsewhere
+//        b.append(" ");
+//        b.append(prefix);
+//        b.append(pctEncode(child.getCode()));
+//        listChildTokens(prefix, child.getConcept(), b);
+//      }
+//    }
+//  }
 
   private void gen(Section section, String cs, String owner, List<ConceptDefinitionComponent> concepts) {
     for (ConceptDefinitionComponent c : concepts) {
       if (!c.getCode().equals("...")) { // special work around for v2 - to be resolved elsewhere
         String pcc = pctEncode(c.getCode());
-        section.triple(cs+".class\\#"+pcc, "rdfs:subClassOf", owner);
-        section.triple(cs+".class\\#"+pcc, "owl:oneOf", "("+listTokens(cs+"\\#", c, c.getConcept())+")");
+        section.triple(cs+"\\#"+pcc, "rdfs:subClassOf", owner);
         if (c.hasDisplay())
-          section.label(cs+".class\\#"+pcc, c.getDisplay());
+          section.label(cs+"\\#"+pcc, c.getDisplay());
         if (c.hasDefinition())
-          section.comment(cs+".class\\#"+pcc, c.getDefinition());
-        section.triple(cs+"\\#"+pcc, "a", cs+".class\\#"+pcc);
-        gen(section, cs, cs+".class\\#"+pcc, c.getConcept());
+          section.comment(cs+"\\#"+pcc, c.getDefinition());
+        gen(section, cs, cs+"\\#"+pcc, c.getConcept());
       }
     }
   }

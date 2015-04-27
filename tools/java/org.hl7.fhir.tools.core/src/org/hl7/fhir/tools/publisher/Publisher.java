@@ -335,12 +335,18 @@ public class Publisher implements URIResolver {
   private String singleResource;
   private String singlePage;
 
+  private boolean genRDF;
+
   public static void main(String[] args) throws Exception {
     //
 
     Publisher pub = new Publisher();
     pub.page = new PageProcessor(PageProcessor.DEV_TS_SERVER); 
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
+    if (hasParam(args, "-rdf")) {
+      pub.isGenerate = false;
+      pub.genRDF = true; 
+    }
     pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
     pub.web = (args.length > 1 && hasParam(args, "-web"));
     pub.diffProgram = getNamedParam(args, "-diff");
@@ -545,7 +551,9 @@ public class Publisher implements URIResolver {
         page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
         throw new Exception("Errors executing build. Details logged.");
       }
-    }
+    } else if (genRDF) 
+      processRDF();
+
     validateXml();
     if (isGenerate && buildFlags.get("all"))
       produceQA();

@@ -39,7 +39,7 @@ public class TurtleGenerator {
         return false;
       if (predicates.size() == 1 && predicates.get(0).object instanceof StringObject && Utilities.noString(predicates.get(0).comment)) {
         writer.write(" "+predicates.get(0).predicate+" "+((StringObject) predicates.get(0).object).value);
-        return true;
+        return false;
       }
       String left = Utilities.padLeft("", ' ', indent);
       int i = 0;

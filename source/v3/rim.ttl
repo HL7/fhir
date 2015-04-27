@@ -33,7 +33,7 @@ dt:ANY.nullFlavor a rdf:Property;
    rdfs:comment "An indicator of a data value's exceptional status, sometimes also denoting the manner and rationale for that status.";
    os:occurs os:Zero-or-one;
    rdfs:domain dt:ANY;
-   rdfs:range cs:NullFlavor.class;
+   rdfs:range cs:NullFlavor;
    fhir:binding vs:NullFlavor;
    fhir:bindingStrength fhir:BindingStrength\#required.
 
@@ -245,7 +245,7 @@ dt:CDCoding.codingRationale a rdf:Property;
    os:occurs os:Zero-or-one;
    rim:collectionType rim:CollectionType\#DSET;
    rdfs:domain dt:CDCoding;
-   rdfs:range cs:CodingRationale.class;
+   rdfs:range cs:CodingRationale;
    fhir:binding vs:CodingRationale;
    fhir:bindingStrength fhir:BindingStrength\#required.
       
@@ -321,7 +321,7 @@ dt:II.scope a rdf:Property;
    rdfs:comment "Specifies the scope in which the identifier applies to the object with which it is associated";
    os:occurs os:Zero-or-one;
    rdfs:domain dt:II;
-   rdfs:range cs:IdentifierScope.class;
+   rdfs:range cs:IdentifierScope;
    fhir:binding vs:IdentifierScope;
    fhir:bindingStrength fhir:BindingStrength\#required.
 
@@ -330,7 +330,7 @@ dt:II.reliability a rdf:Property;
    rdfs:comment "Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms";
    os:occurs os:Zero-or-one;
    rdfs:domain dt:II;
-   rdfs:range cs:IdentifierReliability.class;
+   rdfs:range cs:IdentifierReliability;
    fhir:binding vs:IdentifierReliability;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
@@ -408,7 +408,7 @@ rim:Entity.classCode a rdf:Property;
    rdfs:comment "The major class of Entities to which an Entity-instance belongs";
    os:occurs os:Exactly-one;
    rdfs:domain rim:Entity;
-   rdfs:range cs:EntityClass.class;
+   rdfs:range cs:EntityClass;
    fhir:binding vs:EntityClass;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
@@ -417,7 +417,7 @@ rim:Entity.determinerCode a rdf:Property;
    rdfs:comment "A code specifying whether the Entity object represents a universal (KIND) vs. a particular (INSTANCE)";
    os:occurs os:Exactly-one;
    rdfs:domain rim:Entity;
-   rdfs:range cs:EntityDeterminer.class;
+   rdfs:range cs:EntityDeterminer;
    fhir:binding vs:EntityDeterminer;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
@@ -426,7 +426,7 @@ rim:Entity.statusCode a rdf:Property;
    rdfs:comment "A value representing whether the information associated with an Entity is currently active or inactive for the purpose of participation in acts";
    os:occurs os:Zero-or-one;
    rdfs:domain rim:Entity;
-   rdfs:range cs:EntityStatus.class;
+   rdfs:range cs:EntityStatus;
    fhir:binding vs:EntityStatus;
    fhir:bindingStrength fhir:BindingStrength\#required.
 
@@ -496,7 +496,7 @@ rim:Role.classCode a rdf:Property;
    rdfs:comment "The major class of Role to which a Role-instance belongs";
    os:occurs os:Exactly-one;
    rdfs:domain rim:Role;
-   rdfs:range cs:RoleClass.class;
+   rdfs:range cs:RoleClass;
    fhir:binding vs:RoleClass;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
@@ -529,7 +529,7 @@ rim:Role.statusCode a rdf:Property;
    rdfs:comment "The state of this Role as defined in the state-transition mode";
    os:occurs os:Zero-or-one;
    rdfs:domain rim:Role;
-   rdfs:range cs:RoleStatus.class;
+   rdfs:range cs:RoleStatus;
    fhir:binding vs:RoleStatus;
    fhir:bindingStrength fhir:BindingStrength\#required.
 
@@ -585,7 +585,7 @@ rim:Participation.typeCode a rdf:Property;
    rdfs:comment "The kind of Participation or involvement the Entity playing the Role associated with the Participation has with regard to the associated Act";
    os:occurs os:Exactly-one;
    rdfs:domain rim:Participation;
-   rdfs:range cs:ParticipationType.class;
+   rdfs:range cs:ParticipationType;
    fhir:binding vs:ParticipationType;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
@@ -666,7 +666,7 @@ rim:Act.classCode a rdf:Property;
    rdfs:comment "The major class of Acts to which an Act-instance belongs.";
    os:occurs os:Exactly-one;
    rdfs:domain rim:Act;
-   rdfs:range cs:ActClass.class;
+   rdfs:range cs:ActClass;
    fhir:binding vs:ActClass;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
@@ -675,7 +675,7 @@ rim:Act.moodCode a rdf:Property;
    rdfs:comment "The intended use of the Act statement: as a report of fact, a command, a possibility, a goal, etc";
    os:occurs os:Exactly-one;
    rdfs:domain rim:Act;
-   rdfs:range cs:ActMood.class;
+   rdfs:range cs:ActMood;
    fhir:binding vs:ActMood;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
@@ -700,7 +700,7 @@ rim:Act.statusCode a rdf:Property;
    rdfs:comment "The state of the Act";
    os:occurs os:Zero-or-one;
    rdfs:domain rim:Act;
-   rdfs:range cs:ActStatus.class;
+   rdfs:range cs:ActStatus;
    fhir:binding vs:ActStatus;
    fhir:bindingStrength fhir:BindingStrength\#required.
 
@@ -789,7 +789,7 @@ rim:ActRelationship.typeCode a rdf:Property;
    rdfs:comment "The meaning and purpose of the ActRelationship instance";
    os:occurs os:Exactly-one;
    rdfs:domain rim:ActRelationship;
-   rdfs:range cs:ActRelationshipType.class;
+   rdfs:range cs:ActRelationshipType;
    fhir:binding vs:ActRelationshipType;
    fhir:bindingStrength fhir:BindingStrength\#required.
    
