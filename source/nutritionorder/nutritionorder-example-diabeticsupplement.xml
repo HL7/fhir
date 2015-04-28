@@ -85,9 +85,9 @@ edited by Eric Haas Health eData Inc
         <bounds>
           <start value="2015-02-10"/>
         </bounds>
-				<when value="HS"/>
 				<period value="1"/>
 				<periodUnits value="h"/>
+				<when value="HS"/>
 			</repeat>
 		</scheduled>
 		<quantity>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Apr 24, 2015 15:59+1000 for FHIR v0.5.0
+// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ import org.hl7.fhir.instance.model.annotations.DatatypeDef;
  * Optional Extensions Element - found in all resources.
  */
 @DatatypeDef(name="Extension")
-public class Extension extends Element {
+public class Extension extends Type {
 
     /**
      * Source of the definition for the extension code - a logical name or a URL.

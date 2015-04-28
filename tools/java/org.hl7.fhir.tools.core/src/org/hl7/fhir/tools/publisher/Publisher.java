@@ -1625,7 +1625,7 @@ public class Publisher implements URIResolver {
     zip.close();
     
     // now that the RDF is generated, run any sparql rules that have been defined
-    Element test = loadDom(new FileInputStream(Utilities.path(page.getFolders().srcDir, "sparql-rules.xml"))).getDocumentElement();
+    Element test = loadDom(new FileInputStream(Utilities.path(page.getFolders().srcDir, "sparql-rules.xml")), false).getDocumentElement();
     test = XMLUtil.getFirstChild(test);
     while (test != null) {
       if (test.getNodeName().equals("assertion")) {
@@ -2083,9 +2083,9 @@ public class Publisher implements URIResolver {
 //    return new ByteArrayInputStream(bo.toByteArray());
   }
 
-  private Document loadDom(InputStream src) throws Exception {
+  private Document loadDom(InputStream src, boolean namespaces) throws Exception {
   DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-  factory.setNamespaceAware(false);
+  factory.setNamespaceAware(namespaces);
   DocumentBuilder builder = factory.newDocumentBuilder();
   Document doc = builder.parse(src);
   return doc;
@@ -3309,84 +3309,76 @@ public class Publisher implements URIResolver {
     // delete namespace crap
     xdoc = e.getXml() == null ? builder.parse(new CSFileInputStream(e.getPath())) : e.getXml();
     XmlGenerator xmlgen = new XmlGenerator();
-    xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://hl7.org/fhir", xdoc.getDocumentElement()
+    CSFile file = new CSFile(page.getFolders().dstDir + n + ".xml");
+    xmlgen.generate(xdoc.getDocumentElement(), file, "http://hl7.org/fhir", xdoc.getDocumentElement()
           .getLocalName());
 
     // check the narrative. We generate auto-narrative. If the resource didn't
     // have it's own original narrative, then we save it anyway
     // n
     String rt = null;
-    Resource r;
     try {
-      XmlParser xml = new XmlParser();
-      XhtmlNode combined = new XhtmlNode(NodeType.Element, "div");
-      Resource rf = xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-      if (!page.getDefinitions().getBaseResources().containsKey(rf.getResourceType().toString()) && (!rf.hasId() || !rf.getId().equals(e.getId()) || Utilities.noString(e.getId())))
+      NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext().clone(new SpecificationInternalClient(page, null)));
+      xdoc = loadDom(new FileInputStream(file), true);
+      rt = xdoc.getDocumentElement().getNodeName();
+      String id = XMLUtil.getNamedChildValue(xdoc.getDocumentElement(), "id");
+      if (!page.getDefinitions().getBaseResources().containsKey(rt) && !id.equals(e.getId()))
         throw new Error("Resource in "+n + ".xml needs an id of value=\""+e.getId()+"\"");
-      boolean wantSave = false;
-      if (rf instanceof Bundle) {
-        rt = ((Bundle) rf).getEntry().get(0).getResource().getResourceType().toString();
-        for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
-          r = ae.getResource();
-          // check for Resource.id no longer valid
-//          if (r.getId() == null)
-//            throw new Exception("Resource in bundle in "+n + ".xml needs an id");
-          if (r instanceof DomainResource) {
-            DomainResource dr = (DomainResource) r;
-            wantSave = wantSave || (!dr.hasText() || !dr.getText().hasDiv());
-            if (true /*(r.getText() == null || r.getText().getDiv() == null) || !web */) {
-              NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext().clone(new SpecificationInternalClient(page, (Bundle) rf)));
-              gen.generate(dr);
-            }
-            if (dr.hasText() && dr.getText().hasDiv()) {
-              combined.getChildNodes().add(dr.getText().getDiv());
-              combined.addTag("hr");
-            }
-            // todo-bundle
-//            if (rf.getFeed().isDocument()) {
-//              NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext().clone(new SpecificationInternalClient(page, null)));
-//              combined = gen.generateDocumentNarrative(rf.getFeed());
-//            }
-          }
-        }
-        narrative = new XhtmlComposer().setXmlOnly(true).compose(combined);
-        if (true /*wantSave*/) {
-          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), rf);
-          xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-        }
-        r = null;
+      if (rt.equals("ValueSet") || rt.equals("ConceptMap") || rt.equals("Conformance")) {
+        // for these, we use the reference implementation directly
+        DomainResource res = (DomainResource) new XmlParser().parse(new FileInputStream(file));
+        if (!res.hasText() || !res.getText().hasDiv()) {
+          gen.generate(res);
+          new XmlParser().compose(new FileOutputStream(file), res);
+        } 
+        narrative = new XhtmlComposer().compose(res.getText().getDiv());                  
       } else {
-        r = rf;
-        rt = r.getResourceType().toString();
-        if (r instanceof DomainResource) {
-          DomainResource dr = (DomainResource) r;
-          wantSave = !dr.hasText() || !dr.getText().hasDiv();
-          if (wantSave/* || !web */) {
-            NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext().clone(new SpecificationInternalClient(page, null)));
-            gen.generate(dr);
-          }
-          if (dr.hasText() && dr.getText().hasDiv()) {
-            narrative = new XhtmlComposer().compose(dr.getText().getDiv());
-            if (true /*wantSave*/) {
-              new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), r);
-              xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+        if (rt.equals("Bundle")) {
+          List<Element> entries = new ArrayList<Element>();
+          XMLUtil.getNamedChildren(xdoc.getDocumentElement(), "entry", entries);
+          boolean wantSave = false;
+          for (Element entry : entries) {
+            Element ers = XMLUtil.getFirstChild(XMLUtil.getNamedChild(entry, "resource"));
+            if (ers != null) {
+              String ert = ers.getLocalName();
+              String s = null;
+              if (!page.getDefinitions().getBaseResources().containsKey(ert) && !ert.equals("Binary") && !ert.equals("Parameters") && !ert.equals("Bundle")) {
+                Element div = gen.getNarrative(ers); 
+                if (div == null || !div.hasChildNodes()) {
+                  wantSave = true;
+                  s = gen.generate(ers);
+                } else
+                  s = new XmlGenerator().generate(div);
+                if (s != null)
+                  narrative = narrative == null ? s : narrative +"<hr/>\r\n"+s;
+              }
             }
-          } else
-            narrative = "&lt;-- No Narrative for this resource --&gt;";
+          }
+          if (wantSave)
+            new XmlGenerator().generate(xdoc.getDocumentElement(), file, "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
+        } else {
+          if (!page.getDefinitions().getBaseResources().containsKey(rt) && !rt.equals("Binary") && !rt.equals("Parameters")) {
+            Element div = gen.getNarrative(xdoc.getDocumentElement()); 
+            if (div == null || !div.hasChildNodes()) {
+              narrative = gen.generate(xdoc.getDocumentElement());
+              new XmlGenerator().generate(xdoc.getDocumentElement(), file, "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
+            } else {
+              narrative = new XmlGenerator().generate(div);          
+            }
+          }
         }
       }
     } catch (Exception ex) {
       StringWriter errors = new StringWriter();
-      ex.printStackTrace(new PrintWriter(errors));
+      ex.printStackTrace();
       XhtmlNode xhtml = new XhtmlNode(NodeType.Element, "div");
       xhtml.addTag("p").setAttribute("style", "color: maroon").addText("Error processing narrative: " + ex.getMessage());
       xhtml.addTag("p").setAttribute("style", "color: maroon").addText(errors.toString());
       narrative = new XhtmlComposer().compose(xhtml);
-      r = null;
     }
 
-    if (r instanceof ValueSet) {
-      ValueSet vs = (ValueSet) r;
+    if (rt.equals("ValueSet")) {
+      ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
       new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "Value set Example "+n, vs, false, false);
       if (vs.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
@@ -3401,8 +3393,8 @@ public class Publisher implements URIResolver {
       if (vs.hasDefine()) {
         page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
       }
-    } else if (r instanceof ConceptMap) {
-      ConceptMap cm = (ConceptMap) r;
+    } else if (rt.equals("ConceptMap")) {
+      ConceptMap cm = (ConceptMap) new XmlParser().parse(new FileInputStream(file));
       new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
       if (cm.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
@@ -3445,7 +3437,7 @@ public class Publisher implements URIResolver {
 
     // reload it now, xml to xhtml of xml
     builder = factory.newDocumentBuilder();
-    xdoc = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().dstDir + n + ".xml")));
+    xdoc = builder.parse(new CSFileInputStream(file));
     XhtmlGenerator xhtml = new XhtmlGenerator(new ExampleAdorner(page.getDefinitions()));
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()
@@ -3457,10 +3449,10 @@ public class Publisher implements URIResolver {
     XhtmlNode pre = d.getElement("html").getElement("body").getElement("div");
     e.setXhtm(b.toString());
     if (!Utilities.noString(e.getId()))
-      Utilities.copyFile(new CSFile(page.getFolders().dstDir + n + ".xml"),
+      Utilities.copyFile(file,
           new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + "(" + e.getId() + ").xml"));
     else
-      Utilities.copyFile(new CSFile(page.getFolders().dstDir + n + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + ".xml"));
+      Utilities.copyFile(file, new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + ".xml"));
 
     // now, we create an html page from the narrative
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative);

@@ -10,7 +10,6 @@
     <coding>
       <system value="urn:oid:1.2.36.1.2001.1005.17"/>
       <code value="FLUVAX"/>
-      <code value="Fluvax"/>
     </coding>
     <text value="Fluvax	(Influenza)"/>
   </vaccineType> 

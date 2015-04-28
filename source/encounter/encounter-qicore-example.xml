@@ -6,6 +6,23 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient @qicore</div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition">
+    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-condition">
+      <valueReference>
+        <reference value="Condition/qicore"/>
+      </valueReference>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-conditionRole">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="8319008" />
+          <display value="Principal diagnosis"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </extension>
+
   <status value="finished" />
   <class value="inpatient" />
   <patient>
@@ -25,22 +42,5 @@
       </coding>
     </dischargeDisposition>
   </hospitalization>
-
-  <extension url="http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition">
-    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-condition">
-      <valueReference>
-        <reference value="Condition/qicore"/>
-      </valueReference>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-conditionRole">
-      <valueCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="8319008" />
-          <display value="Principal diagnosis"/>
-        </coding>
-      </valueCodeableConcept>
-    </extension>
-  </extension>
 
 </Encounter>

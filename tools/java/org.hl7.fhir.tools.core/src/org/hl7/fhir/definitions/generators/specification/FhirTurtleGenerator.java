@@ -394,7 +394,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     section.label("fhir:"+t.getName(), t.getShortDefn());
     section.comment("fhir:"+t.getName(), t.getDefinition());
     if (t.getName().equals("Reference")) 
-      section.triple("fhir:"+t.getName(), "a", "fhir:Resource", "This is so that a reference can be replaced by a direct reference to it's target");
+      section.triple("fhir:"+t.getName(), "a", "fhir:Resource"); // This is so that a reference can be replaced by a direct reference to it's target
     nilInstance.predicate("a", "fhir:"+t.getName());
     processMappings(section, "fhir:"+t.getName(), t);
     for (ElementDefn e : t.getElements()) {

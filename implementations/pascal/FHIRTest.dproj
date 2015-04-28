@@ -7,7 +7,7 @@
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Console</AppType>
         <FrameworkType>VCL</FrameworkType>
-        <ProjectVersion>15.3</ProjectVersion>
+        <ProjectVersion>17.2</ProjectVersion>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -46,6 +46,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <SanitizedProjectName>FHIRTest</SanitizedProjectName>
         <VerInfo_Locale>3081</VerInfo_Locale>
         <DCC_ImageBase>00400000</DCC_ImageBase>
         <DCC_S>false</DCC_S>
@@ -173,7 +174,7 @@
         <DCCReference Include="support\AdvXmlBuilders.pas"/>
         <DCCReference Include="support\AdvXMLFormatters.pas"/>
         <DCCReference Include="support\AdvXMLEntities.pas"/>
-        <DCCReference Include="support\JSON.pas"/>
+        <DCCReference Include="support\AdvJSON.pas"/>
         <DCCReference Include="support\AfsResourceVolumes.pas"/>
         <DCCReference Include="support\AfsVolumes.pas"/>
         <DCCReference Include="support\AfsStreamManagers.pas"/>

@@ -26,7 +26,6 @@
   </medication>  
   <dosage>
     <text value="5ml three times daily" />
-    <schedule></schedule>
     <asNeededBoolean value="false" />
     <route>
      <coding>

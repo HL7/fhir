@@ -628,6 +628,13 @@ public class Utilities {
     return false;
   }
 
+  public static boolean existsInListNC(String value, String... array) {
+    for (String s : array)
+      if (value.equalsIgnoreCase(s))
+          return true;
+    return false;
+  }
+
 
   public static String getFileNameForName(String name) {
     return name.toLowerCase();

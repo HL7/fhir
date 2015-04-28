@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Apr 24, 2015 15:59+1000 for FHIR v0.5.0
+// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -9082,7 +9082,43 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected Type parseType(String prefix, XmlPullParser xpp) throws Exception {
-    if (xpp.getName().equals(prefix+"Period"))
+    if (xpp.getName().equals(prefix+"integer"))
+      return parseInteger(xpp);
+    else if (xpp.getName().equals(prefix+"dateTime"))
+      return parseDateTime(xpp);
+    else if (xpp.getName().equals(prefix+"unsignedInt"))
+      return parseUnsignedInt(xpp);
+    else if (xpp.getName().equals(prefix+"code"))
+      return parseCode(xpp);
+    else if (xpp.getName().equals(prefix+"date"))
+      return parseDate(xpp);
+    else if (xpp.getName().equals(prefix+"decimal"))
+      return parseDecimal(xpp);
+    else if (xpp.getName().equals(prefix+"uri"))
+      return parseUri(xpp);
+    else if (xpp.getName().equals(prefix+"id"))
+      return parseId(xpp);
+    else if (xpp.getName().equals(prefix+"base64Binary"))
+      return parseBase64Binary(xpp);
+    else if (xpp.getName().equals(prefix+"time"))
+      return parseTime(xpp);
+    else if (xpp.getName().equals(prefix+"oid"))
+      return parseOid(xpp);
+    else if (xpp.getName().equals(prefix+"positiveInt"))
+      return parsePositiveInt(xpp);
+    else if (xpp.getName().equals(prefix+"string"))
+      return parseString(xpp);
+    else if (xpp.getName().equals(prefix+"boolean"))
+      return parseBoolean(xpp);
+    else if (xpp.getName().equals(prefix+"uuid"))
+      return parseUuid(xpp);
+    else if (xpp.getName().equals(prefix+"instant"))
+      return parseInstant(xpp);
+    else if (xpp.getName().equals(prefix+"Extension"))
+      return parseExtension(xpp);
+    else if (xpp.getName().equals(prefix+"Narrative"))
+      return parseNarrative(xpp);
+    else if (xpp.getName().equals(prefix+"Period"))
       return parsePeriod(xpp);
     else if (xpp.getName().equals(prefix+"Coding"))
       return parseCoding(xpp);
@@ -9162,7 +9198,43 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected Type parseType(XmlPullParser xpp, String type) throws Exception {
-    if (type.equals("Period"))
+    if (type.equals("integer"))
+      return parseInteger(xpp);
+    else if (type.equals("dateTime"))
+      return parseDateTime(xpp);
+    else if (type.equals("unsignedInt"))
+      return parseUnsignedInt(xpp);
+    else if (type.equals("code"))
+      return parseCode(xpp);
+    else if (type.equals("date"))
+      return parseDate(xpp);
+    else if (type.equals("decimal"))
+      return parseDecimal(xpp);
+    else if (type.equals("uri"))
+      return parseUri(xpp);
+    else if (type.equals("id"))
+      return parseId(xpp);
+    else if (type.equals("base64Binary"))
+      return parseBase64Binary(xpp);
+    else if (type.equals("time"))
+      return parseTime(xpp);
+    else if (type.equals("oid"))
+      return parseOid(xpp);
+    else if (type.equals("positiveInt"))
+      return parsePositiveInt(xpp);
+    else if (type.equals("string"))
+      return parseString(xpp);
+    else if (type.equals("boolean"))
+      return parseBoolean(xpp);
+    else if (type.equals("uuid"))
+      return parseUuid(xpp);
+    else if (type.equals("instant"))
+      return parseInstant(xpp);
+    else if (type.equals("Extension"))
+      return parseExtension(xpp);
+    else if (type.equals("Narrative"))
+      return parseNarrative(xpp);
+    else if (type.equals("Period"))
       return parsePeriod(xpp);
     else if (type.equals("Coding"))
       return parseCoding(xpp);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Apr 24, 2015 15:59+1000 for FHIR v0.5.0
+// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -42,7 +42,7 @@ import org.hl7.fhir.instance.model.annotations.DatatypeDef;
  * A human-readable formatted text, including images.
  */
 @DatatypeDef(name="Narrative")
-public class Narrative extends Element {
+public class Narrative extends Type {
 
     public enum NarrativeStatus {
         /**

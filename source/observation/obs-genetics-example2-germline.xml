@@ -1,102 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
-	<id value="genetics-example2-germline"/>
-	<code>
-       <coding>
-            <system value="http://loinc.org"/>
-            <code value="21636-6"/>
-            <display value="BRCA1 gene mutation analysis"/>
-        </coding>
-    </code>
-    <status value="final"/> 
-    
-	<subject>
-		<reference value="Patient/genetics-example2-germline"/>
-		<display value="Molecular Lab Patient ID: HOSP-23456"/>
-	</subject>
-	<specimen>
-		<reference value="Specimen/genetics-example2-germline"/>
-		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
-	</specimen>
-	<performer>
-		<reference value="Practitioner/genetics-example2-germline"/>
-		<display value="Molecular Diagnostic Laboratory"/>
-	</performer>    
-    
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">
-		<valueString value="GRCh 37"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsChromosome">
-		<valueString value="17"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicReferenceSequenceId">
-			<valueCode value="NC_000017.10"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStart">
-		<valueInteger value="41258504"/>
-	</extension>
-		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStop">
-		<valueInteger value="41258504"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsReferenceAllele">
-			<valueString value="A"/>
-	</extension>
-			<extension url="http://hl7.org/fhir/StructureDefinition/geneticsObservedAllele">
-			<valueString value="C"/>
-	</extension>
-	
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneId">
-		<valueCodeableConcept>
-			<coding>
-			<system value="http://www.genenames.org"/>
-			<code value="1100"/>
-			<display value="BRCA1"/>
-			</coding>
-		</valueCodeableConcept>
-	</extension>
-		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsTranscriptReferenceSequenseId">
-			<valueCode value="NM_007294.3"/>
-	</extension>
-		<extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
-			<valueString value="c.181T>G"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsVariationId">
-			<valueCode value="ClinVar:17661"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNARegionName">
-			<valueString value="Exon 4"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariationType">
-		<valueCodeableConcept>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="LA6690-7"/>
-			<display value="Substitution"/>
-		</coding>
-		</valueCodeableConcept>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsProteinReferenceSequenceId">
-			<valueCode value="NP_009225.1"/>
-	</extension>	
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsAminoAcidChange">
-			<valueString value="p.Cys61Gly"/>
-	</extension>		
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicSourceClass">
-	<valueCodeableConcept>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="LA6683-2"/>
-			<display value="Germline"/>
-		</coding>
-		</valueCodeableConcept>
-	</extension>	
-	
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsSpecies">
-			<valueString value="Human"/>
-	</extension>	
-	<extension url="http://hl7.org/fhir/StructureDefinition/geneticsCIGAR">
-			<valueString value="CATAAAGGACaCTGTGAAGGC"/>
-	</extension>	
-	
+  <id value="genetics-example2-germline"/>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomeBuild">
+    <valueString value="GRCh 37"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsChromosome">
+    <valueString value="17"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicReferenceSequenceId">
+    <valueCode value="NC_000017.10"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStart">
+    <valueInteger value="41258504"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicStop">
+    <valueInteger value="41258504"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsReferenceAllele">
+    <valueString value="A"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsObservedAllele">
+    <valueString value="C"/>
+  </extension>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGeneId">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://www.genenames.org"/>
+        <code value="1100"/>
+        <display value="BRCA1"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsTranscriptReferenceSequenseId">
+    <valueCode value="NM_007294.3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation">
+    <valueString value="c.181T>G"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsVariationId">
+    <valueCode value="ClinVar:17661"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNARegionName">
+    <valueString value="Exon 4"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariationType">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="LA6690-7"/>
+        <display value="Substitution"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsProteinReferenceSequenceId">
+    <valueCode value="NP_009225.1"/>
+  </extension>	
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsAminoAcidChange">
+    <valueString value="p.Cys61Gly"/>
+  </extension>		
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsGenomicSourceClass">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="LA6683-2"/>
+        <display value="Germline"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>	
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsSpecies">
+    <valueString value="Human"/>
+  </extension>	
+  <extension url="http://hl7.org/fhir/StructureDefinition/geneticsCIGAR">
+    <valueString value="CATAAAGGACaCTGTGAAGGC"/>
+  </extension>	
+  
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="21636-6"/>
+      <display value="BRCA1 gene mutation analysis"/>
+    </coding>
+  </code>
+  <status value="final"/> 
+
+  <subject>
+    <reference value="Patient/genetics-example2-germline"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <specimen>
+    <reference value="Specimen/genetics-example2-germline"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+  <performer>
+    <reference value="Practitioner/genetics-example2-germline"/>
+    <display value="Molecular Diagnostic Laboratory"/>
+  </performer>    
+
 </Observation>

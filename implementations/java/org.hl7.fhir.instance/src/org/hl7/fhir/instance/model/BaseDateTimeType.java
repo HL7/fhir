@@ -499,23 +499,23 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
      * instead.
      * </p>
      */
-    public String toHumanDisplay() {
-            TimeZone tz = getTimeZone();
-			Calendar value = tz != null ? Calendar.getInstance(tz) : Calendar.getInstance();
-            value.setTime(getValue());
-            
-			switch (getPrecision()) {
-            case YEAR:
-            case MONTH:
-            case DAY:
-                    return ourHumanDateFormat.format(value);
-            case MILLI:
-            case SECOND:
-            default:
-                    return ourHumanDateTimeFormat.format(value);
-            }
-    }
-	
+	public String toHumanDisplay() {
+		TimeZone tz = getTimeZone();
+		Calendar value = tz != null ? Calendar.getInstance(tz) : Calendar.getInstance();
+		value.setTime(getValue());
+
+		switch (getPrecision()) {
+		case YEAR:
+		case MONTH:
+		case DAY:
+			return ourHumanDateFormat.format(value);
+		case MILLI:
+		case SECOND:
+		default:
+			return ourHumanDateTimeFormat.format(value);
+		}
+	}
+
     /**
      * Returns a human readable version of this date/time using the system local format,
      * converted to the local timezone if neccesary.

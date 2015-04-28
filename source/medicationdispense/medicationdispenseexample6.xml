@@ -59,8 +59,6 @@
     </route>
     <doseQuantity>
       <value value="2"/>
-      <units> 
-      </units>
       <system value="http://snomed.info/sct"/>
       <code value="415215001"/>
     </doseQuantity>

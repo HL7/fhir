@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
   <id value="proband"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <b>Annie Proband</b>: Female, born 1966-04-04</p>
+    </div>
+  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
     <valueCodeableConcept>
       <coding>
@@ -10,13 +17,6 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>
-        <b>Annie Proband</b>: Female, born 1966-04-04</p>
-    </div>
-  </text>
   <identifier>
     <use value="usual"/>
     <type><text value="Computer-Stored Abulatory Records (COSTAR)"/></type>

@@ -10,6 +10,24 @@
         Example Diagnostic Order
         </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticorder-reason">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="PHY" />
+        <display value="Physician request"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticorder-reasonRejected">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="NON-AVAIL" />
+        <display value="patient not-available"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
   <subject>
     <reference value="Patient/example"/>
   </subject>
@@ -39,22 +57,4 @@
       <text value="Lipid panel with direct LDL - Serum or Plasma"/>
     </code>
   </item>
-  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticorder-reason">
-    <valueCodeableConcept>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/ActReason"/>
-        <code value="PHY" />
-        <display value="Physician request"/>
-      </coding>
-    </valueCodeableConcept>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticorder-reasonRejected">
-    <valueCodeableConcept>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/ActReason"/>
-        <code value="NON-AVAIL" />
-        <display value="patient not-available"/>
-      </coding>
-    </valueCodeableConcept>
-  </extension>
 </DiagnosticOrder>

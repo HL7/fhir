@@ -81,7 +81,7 @@ uses
   AdvXmlBuilders in 'support\AdvXmlBuilders.pas',
   AdvXMLFormatters in 'support\AdvXMLFormatters.pas',
   AdvXMLEntities in 'support\AdvXMLEntities.pas',
-  JSON in 'support\JSON.pas',
+  AdvJSON in 'support\AdvJSON.pas',
   AfsResourceVolumes in 'support\AfsResourceVolumes.pas',
   AfsVolumes in 'support\AfsVolumes.pas',
   AfsStreamManagers in 'support\AfsStreamManagers.pas',

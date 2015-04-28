@@ -87,7 +87,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       if (!n.getName().equals("Element") && !n.getName().equals("BackboneElement")) {
         generate(n, JavaGenClass.Structure);
         String t = upFirst(n.getName());
-        //      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+t+"(xpp);\r\n");
+        regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+t+"(xpp);\r\n");
+        regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+t+"(xpp);\r\n");
         //    regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
         regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       }
@@ -238,6 +239,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");
+    regt.append ("    else if (xpp.getName().equals(prefix+\""+dc.getCode()+"\"))\r\n      return parse"+upFirst(dc.getCode())+"(xpp);\r\n");
+    regt2.append("    else if (type.equals(\""+dc.getCode()+"\"))\r\n      return parse"+upFirst(dc.getCode())+"(xpp);\r\n");
   }
 
   private String upFirst(String n) {

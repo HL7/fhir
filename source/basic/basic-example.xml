@@ -6,6 +6,17 @@ Note: Referral is likely to be incorporated as an official resource in a future 
 -->
 <Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/basic">
   <id value="referral"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p><b>Patient:</b>Roel</p>
+      <p><b>Requestor:</b>Dokter Bronsig</p>
+      <p><b>Type:</b>Consultation</p>
+      <p><b>Target Date:</b>April 1 - April 31</p>
+      <p>COMPLETED</p>
+      <b>The patient had fever peaks over the last couple of days. He is worried about these peaks.</b>
+    </div>
+  </text>
   <extension url="http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner">
     <valueReference>
       <reference value="Practitioner/f201"/>
@@ -38,17 +49,6 @@ Note: Referral is likely to be incorporated as an official resource in a future 
   <modifierExtension url="http://example.org/do-not-use/fhir-extensions/referral#status">
     <valueCode value="complete"/>
   </modifierExtension>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p><b>Patient:</b>Roel</p>
-      <p><b>Requestor:</b>Dokter Bronsig</p>
-      <p><b>Type:</b>Consultation</p>
-      <p><b>Target Date:</b>April 1 - April 31</p>
-      <p>COMPLETED</p>
-      <b>The patient had fever peaks over the last couple of days. He is worried about these peaks.</b>
-    </div>
-  </text>
   <code>
     <coding>
       <system value="http://hl7.org/fhir/basic-resource-type"/>

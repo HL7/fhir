@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medicationdispense.xsd">
   <id value="qicore"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-refillsRemaining">
-    <valueInteger value="0"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod">
-    <valuePeriod>
-      <start value="2012-05-30"/>
-      <end value="2012-06-10"/>
-    </valuePeriod>
-  </extension>
    <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -21,6 +12,15 @@
     </div>
   </text>
 
+  <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-refillsRemaining">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod">
+    <valuePeriod>
+      <start value="2012-05-30"/>
+      <end value="2012-06-10"/>
+    </valuePeriod>
+  </extension>
   <status value="completed" />
   <patient>
     <reference value="Patient/example"/>

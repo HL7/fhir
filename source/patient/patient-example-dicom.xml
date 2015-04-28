@@ -2,6 +2,12 @@
 <Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd">
   <id value="dicom"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"> Patient MINT_TEST, ID = MINT1234. Age = 56y, Size =
+      1.83m, Weight = 72.58kg </div>
+  </text>
+
   <extension url="http://nema.org/fhir/extensions#0010:1010">
     <valueQuantity>
       <value value="56"/>
@@ -20,11 +26,6 @@
       <units value="kg"/>
     </valueQuantity>
   </extension>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml"> Patient MINT_TEST, ID = MINT1234. Age = 56y, Size =
-      1.83m, Weight = 72.58kg </div>
-  </text>
 
   <identifier>
     <system value="http://nema.org/examples/patients"/>

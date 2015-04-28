@@ -1271,8 +1271,8 @@ public class ProfileUtilities {
     return value.equals("Reference");
   }
 
-  private boolean isPrimitive(String value) {
-    return Utilities.existsInList(value, "boolean", "integer", "decimal", "base64Binary", "instant", "string", "date", "dateTime", "code", "oid", "uuid", "id");
+  public static boolean isPrimitive(String value) {
+    return Utilities.existsInListNC(value, "boolean", "integer", "decimal", "base64Binary", "instant", "string", "date", "dateTime", "code", "oid", "uuid", "id");
   }
 
 //  private static String listStructures(StructureDefinition p, ProfileKnowledgeProvider pkp) throws Exception {

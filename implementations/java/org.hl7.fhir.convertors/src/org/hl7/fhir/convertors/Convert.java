@@ -399,6 +399,9 @@ public class Convert {
 			return null;
 		
     String v = ts.getAttribute("value");
+    if (Utilities.noString(v))
+    	return null;
+    
     if (v.length() > 8 && !hasTimezone(v))
     	v += defaultTimezone;
     DateTimeType d = DateTimeType.parseV3(v);

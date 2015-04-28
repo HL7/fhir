@@ -3174,7 +3174,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrCode.uses.add("FHIRTypes");
     prsrCode.uses.add("MsXmlParser");
     prsrCode.uses.add("XmlBuilder");
-    prsrCode.uses.add("JSON");
+    prsrCode.uses.add("AdvJSON");
     prsrCode.uses.add("AdvStringMatches");
     prsrCode.comments.add("FHIR v"+version+" generated "+Config.DATE_FORMAT().format(genDate));
 

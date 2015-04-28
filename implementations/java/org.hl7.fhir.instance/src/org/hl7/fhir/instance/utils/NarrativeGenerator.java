@@ -38,6 +38,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.instance.formats.FormatUtilities;
+import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.Base;
@@ -67,6 +69,7 @@ import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.ExtensionHelper;
@@ -75,6 +78,7 @@ import org.hl7.fhir.instance.model.HumanName.NameUse;
 import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.InstantType;
+import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationDefinition;
@@ -109,20 +113,405 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
+import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.hl7.fhir.utilities.xml.XmlGenerator;
+import org.w3c.dom.Element;
+import org.xmlpull.v1.builder.XmlUnexpandedEntityReference;
 
 import com.github.rjeschke.txtmark.Processor;
 
 
 public class NarrativeGenerator implements INarrativeGenerator {
 
+  private interface PropertyWrapper {
+    
+    public String getName();
+
+    public boolean hasValues();
+
+    public List<BaseWrapper> getValues();
+
+    public String getTypeCode();
+
+    public String getDefinition();
+
+    public int getMinCardinality();
+
+    public int getMaxCardinality();
+
+    public StructureDefinition getStructure();
+
+  }
+
+  private interface ResourceWrapper {
+
+    List<ResourceWrapper> getContained();
+
+    String getId();
+
+    XhtmlNode getNarrative() throws Exception;
+
+    String getName();
+
+    List<PropertyWrapper> children();
+
+  }
+
+  private interface BaseWrapper {
+
+    public Base getBase() throws Exception;
+
+    public List<PropertyWrapper> children();
+
+    public PropertyWrapper getChildByName(String tail);
+
+  }
+  private class BaseWrapperElement implements BaseWrapper {
+
+    private Element element;
+    private String type;
+    private StructureDefinition structure;
+    private ElementDefinition definition;
+    private List<ElementDefinition> children;
+    private List<PropertyWrapper> list;
+
+    public BaseWrapperElement(Element element, String type, StructureDefinition structure, ElementDefinition definition) {
+      this.element = element;
+      this.type = type;
+      this.structure = structure;
+      this.definition = definition;
+    }
+
+    @Override
+    public Base getBase() throws Exception {
+      if (type == null || type.equals("Resource"))
+        return null;
+      
+      String xml = new XmlGenerator().generate(element);
+      return new XmlParser().parseType(xml, type);
+    }
+
+    @Override
+    public List<PropertyWrapper> children() {
+      if (list == null) {
+        children = ProfileUtilities.getChildList(structure, definition);
+        list = new ArrayList<NarrativeGenerator.PropertyWrapper>();
+      for (ElementDefinition child : children) {
+        List<Element> elements = new ArrayList<Element>();
+        XMLUtil.getNamedChildrenWithWildcard(element, tail(child.getPath()), elements);
+        list.add(new PropertyWrapperElement(structure, child, elements));
+      }
+      }
+      return list;
+    }
+
+    @Override
+    public PropertyWrapper getChildByName(String name) {
+      for (PropertyWrapper p : children())
+        if (p.getName().equals(name))
+          return p;
+      return null;
+    }
+
+  }
+
+  private class PropertyWrapperElement implements PropertyWrapper {
+
+    private StructureDefinition structure;
+    private ElementDefinition definition;
+    private List<Element> values;
+    private List<BaseWrapper> list;
+
+    public PropertyWrapperElement(StructureDefinition structure, ElementDefinition definition, List<Element> values) {
+      this.structure = structure;
+      this.definition = definition;
+      this.values = values;
+    }
+
+    @Override
+    public String getName() {
+      return tail(definition.getPath());
+    }
+
+    @Override
+    public boolean hasValues() {
+      return values.size() > 0;
+    }
+
+    @Override
+    public List<BaseWrapper> getValues() {
+      if (list == null) {
+        list = new ArrayList<NarrativeGenerator.BaseWrapper>();
+      for (Element e : values)
+        list.add(new BaseWrapperElement(e, determineType(e), structure, definition));
+      }
+      return list;
+    }
+    private String determineType(Element e) {
+      if (definition.getType().isEmpty())
+      return null;
+      if (definition.getType().size() == 1)
+        return definition.getType().get(0).getCode();
+      String t = e.getNodeName().substring(tail(definition.getPath()).length()-3);
+      boolean allReference = true;
+      for (TypeRefComponent tr : definition.getType()) {
+        if (!tr.getCode().equals("Reference"))
+          allReference = false;
+      }
+      if (allReference)
+        return "Reference";
+      
+      if (ProfileUtilities.isPrimitive(t))
+        return Utilities.uncapitalize(t);
+      else
+        return t;
+    }
+
+    @Override
+    public String getTypeCode() {
+      throw new Error("todo");
+    }
+
+    @Override
+    public String getDefinition() {
+      throw new Error("todo");
+    }
+
+    @Override
+    public int getMinCardinality() {
+      throw new Error("todo");
+//      return definition.getMin();
+    }
+
+    @Override
+    public int getMaxCardinality() {
+      throw new Error("todo");
+    }
+
+    @Override
+    public StructureDefinition getStructure() {
+      return structure;
+    }
+
+  }
+
+  private class ResurceWrapperElement implements ResourceWrapper {
+
+    private Element wrapped;
+    private StructureDefinition definition;
+    private List<ResourceWrapper> list;
+    private List<PropertyWrapper> list2;
+
+    public ResurceWrapperElement(Element wrapped, StructureDefinition definition) {
+      this.wrapped = wrapped;
+      this.definition = definition;
+    }
+
+    @Override
+    public List<ResourceWrapper> getContained() {
+      if (list == null) {
+      List<Element> children = new ArrayList<Element>();
+      XMLUtil.getNamedChildren(wrapped, "contained", children);
+        list = new ArrayList<NarrativeGenerator.ResourceWrapper>();
+      for (Element e : children) {
+        Element c = XMLUtil.getFirstChild(e);
+        list.add(new ResurceWrapperElement(c, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+c.getNodeName())));
+      }
+      }
+      return list;
+    }
+
+    @Override
+    public String getId() {
+      return XMLUtil.getNamedChildValue(wrapped, "id");
+    }
+
+    @Override
+    public XhtmlNode getNarrative() throws Exception {
+      Element txt = XMLUtil.getNamedChild(wrapped, "text");
+      if (txt == null) 
+        return null;
+      Element div = XMLUtil.getNamedChild(txt, "div");
+      if (div == null)
+        return null;      
+      return new XhtmlParser().parse(new XmlGenerator().generate(div), "div");
+    }
+
+    @Override
+    public String getName() {
+      return wrapped.getNodeName();
+    }
+
+    @Override
+    public List<PropertyWrapper> children() {
+      if (list2 == null) {
+      List<ElementDefinition> children = ProfileUtilities.getChildList(definition, definition.getSnapshot().getElement().get(0));
+        list2 = new ArrayList<NarrativeGenerator.PropertyWrapper>();
+      for (ElementDefinition child : children) {
+        List<Element> elements = new ArrayList<Element>();
+          XMLUtil.getNamedChildrenWithWildcard(wrapped, tail(child.getPath()), elements);
+          list2.add(new PropertyWrapperElement(definition, child, elements));
+      }
+      }
+      return list2;
+    }
+  }
+
+  private class PropertyWrapperDirect implements PropertyWrapper {
+    private Property wrapped;
+    private List<BaseWrapper> list;
+
+    private PropertyWrapperDirect(Property wrapped) {
+      super();
+      if (wrapped == null)
+        throw new Error("wrapped == null");
+      this.wrapped = wrapped;
+    }
+
+    @Override
+    public String getName() {
+      return wrapped.getName();
+    }
+
+    @Override
+    public boolean hasValues() {
+      return wrapped.hasValues();
+    }
+
+    @Override
+    public List<BaseWrapper> getValues() {
+      if (list == null) {
+        list = new ArrayList<NarrativeGenerator.BaseWrapper>();
+      for (Base b : wrapped.getValues())
+        list.add(b == null ? null : new BaseWrapperDirect(b));
+      }
+      return list;
+    }
+
+    @Override
+    public String getTypeCode() {
+      return wrapped.getTypeCode();
+    }
+
+    @Override
+    public String getDefinition() {
+      return wrapped.getDefinition();
+    }
+
+    @Override
+    public int getMinCardinality() {
+      return wrapped.getMinCardinality();
+    }
+
+    @Override
+    public int getMaxCardinality() {
+      return wrapped.getMinCardinality();
+    }
+
+    @Override
+    public StructureDefinition getStructure() {
+      return wrapped.getStructure();
+    }
+  }
+
+  private class BaseWrapperDirect implements BaseWrapper {
+    private Base wrapped;
+    private List<PropertyWrapper> list;
+
+    private BaseWrapperDirect(Base wrapped) {
+      super();
+      if (wrapped == null)
+        throw new Error("wrapped == null");
+      this.wrapped = wrapped;
+    }
+
+    @Override
+    public Base getBase() {
+      return wrapped;
+    }
+
+    @Override
+    public List<PropertyWrapper> children() {
+      if (list == null) {
+        list = new ArrayList<NarrativeGenerator.PropertyWrapper>();
+      for (Property p : wrapped.children())
+        list.add(new PropertyWrapperDirect(p));
+      }
+      return list;
+      
+    }
+
+    @Override
+    public PropertyWrapper getChildByName(String name) {
+      Property p = wrapped.getChildByName(name);
+      if (p == null)
+        return null;
+      else
+        return new PropertyWrapperDirect(p);
+    }
+
+  }
+  
+  private class ResourceWrapperDirect implements ResourceWrapper {
+    private Resource wrapped;
+
+    private ResourceWrapperDirect(Resource wrapped) {
+      super();
+      if (wrapped == null)
+        throw new Error("wrapped == null");
+      this.wrapped = wrapped;
+    }
+
+    @Override
+    public List<ResourceWrapper> getContained() {
+      List<ResourceWrapper> list = new ArrayList<NarrativeGenerator.ResourceWrapper>();
+      if (wrapped instanceof DomainResource) {
+        DomainResource dr = (DomainResource) wrapped;
+        for (Resource c : dr.getContained()) {
+          list.add(new ResourceWrapperDirect(c));
+        }
+      }
+      return list;
+    }
+
+    @Override
+    public String getId() {
+      return wrapped.getId();
+    }
+
+    @Override
+    public XhtmlNode getNarrative() {
+      if (wrapped instanceof DomainResource) {
+        DomainResource dr = (DomainResource) wrapped;
+        if (dr.hasText() && dr.getText().hasDiv())
+          return dr.getText().getDiv();
+      }
+      return null;
+    }
+
+    @Override
+    public String getName() {
+      return wrapped.getResourceType().toString();
+    }
+
+    @Override
+    public List<PropertyWrapper> children() {
+      List<PropertyWrapper> list = new ArrayList<PropertyWrapper>();
+      for (Property c : wrapped.children()) 
+        list.add(new PropertyWrapperDirect(c));
+      return list;
+    }
+  }
+  
   public class ResourceWithReference {
 
     private String reference;
-    private Resource resource;
+    private ResourceWrapper resource;
 
-    public ResourceWithReference(String reference, Resource resource) {
+    public ResourceWithReference(String reference, ResourceWrapper resource) {
       this.reference = reference;
       this.resource = resource;
     }
@@ -131,11 +520,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return reference;
     }
 
-    public Resource getResource() {
+    public ResourceWrapper getResource() {
       return resource;
     }
   }
-
+  
   private String prefix;
   private WorkerContext context;
   private IWorkerContext ctxt;
@@ -162,9 +551,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
       StructureDefinition p = context.getProfiles().get(r.getResourceType().toString());
       generateByProfile(r, p /* context.getProfiles().get(r.getResourceType().toString()) */, true); // todo: make this manageable externally 
-    } else if (context.getProfiles().containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
-      generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
+    } else if (context.getProfiles().containsKey("http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase())) {
+      generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
     }
+    }
+
+  // dom based version, for build program
+  public String generate(Element doc) throws Exception {
+    String rt = "http://hl7.org/fhir/StructureDefinition/"+doc.getNodeName();
+    if (context.getProfiles().containsKey(rt)) {
+      StructureDefinition p = context.getProfiles().get(rt);
+      return generateByProfile(doc, p, true);  
+    } else 
+      throw new Exception("not done yet");
+    //             narrative = "&lt;-- No Narrative for this resource --&gt;";
+
   }
   
   private void generateByProfile(DomainResource r, StructureDefinition profile, boolean showCodeDetails) throws Exception {
@@ -179,11 +580,35 @@ public class NarrativeGenerator implements INarrativeGenerator {
     inject(r, x,  NarrativeStatus.GENERATED);
   }
 
+  private String generateByProfile(Element er, StructureDefinition profile, boolean showCodeDetails) throws Exception {  
+    XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
+    x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
+    try {
+      generateByProfile(er, profile, er, profile.getSnapshot().getElement(), profile.getSnapshot().getElement().get(0), getChildrenForPath(profile.getSnapshot().getElement(), er.getLocalName()), x, er.getLocalName(), showCodeDetails);
+    } catch (Exception e) {
+      e.printStackTrace();
+      x.addTag("p").addTag("b").setAttribute("style", "color: maroon").addText("Exception generating Narrative: "+e.getMessage());
+    }
+    inject(er, x,  NarrativeStatus.GENERATED);
+    return new XhtmlComposer().compose(x);
+  }
+
+  private void generateByProfile(Element eres, StructureDefinition profile, Element ee, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
+    
+    ResurceWrapperElement resw = new ResurceWrapperElement(eres, profile);
+    BaseWrapperElement base = new BaseWrapperElement(ee, null, profile, profile.getSnapshot().getElement().get(0));
+    generateByProfile(resw, profile, base, allElements, defn, children, x, path, showCodeDetails); 
+  }
+  
   private void generateByProfile(Resource res, StructureDefinition profile, Base e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
+    generateByProfile(new ResourceWrapperDirect(res), profile, new BaseWrapperDirect(e), allElements, defn, children, x, path, showCodeDetails); 
+  }
+  
+  private void generateByProfile(ResourceWrapper res, StructureDefinition profile, BaseWrapper e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
     if (children.isEmpty()) {
       renderLeaf(res, e, defn, x, false, showCodeDetails, readDisplayHints(defn));
     } else {
-      for (Property p : splitExtensions(profile, e.children())) {
+      for (PropertyWrapper p : splitExtensions(profile, e.children())) {
         if (p.hasValues()) {
           ElementDefinition child = getElementDefinition(children, path+"."+p.getName(), p);
           if (child != null) {
@@ -202,11 +627,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
                   para.addText(": ");
                   if (renderAsList(child) && p.getValues().size() > 1) {
                     XhtmlNode list = x.addTag("ul");
-                    for (Base v : p.getValues()) 
+                      for (BaseWrapper v : p.getValues()) 
                       renderLeaf(res, v, child, list.addTag("li"), false, showCodeDetails, displayHints);
                   } else { 
                     boolean first = true;
-                    for (Base v : p.getValues()) {
+                      for (BaseWrapper v : p.getValues()) {
                       if (first)
                         first = false;
                       else
@@ -218,14 +643,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
               } else if (canDoTable(path, p, grandChildren)) {
                 x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
                 XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
-                addColumnHeadings(tbl.addTag("tr"), grandChildren);
-                for (Base v : p.getValues()) {
+                  XhtmlNode tr = tbl.addTag("tr");
+                  tr.addTag("td").addText("-"); // work around problem with empty table rows
+                  addColumnHeadings(tr, grandChildren);
+                  for (BaseWrapper v : p.getValues()) {
                   if (v != null) {
-                    addColumnValues(res, tbl.addTag("tr"), grandChildren, v, showCodeDetails, displayHints);
+                      tr = tbl.addTag("tr");
+                      tr.addTag("td").addText("*"); // work around problem with empty table rows
+                      addColumnValues(res, tr, grandChildren, v, showCodeDetails, displayHints);
                   }
                 }
               } else {
-                for (Base v : p.getValues()) {
+                  for (BaseWrapper v : p.getValues()) {
                   if (v != null) {
                     XhtmlNode bq = x.addTag("blockquote");
                     bq.addTag("p").addTag("b").addText(p.getName());
@@ -241,13 +670,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
   
-  private void filterGrandChildren(List<ElementDefinition> grandChildren,  String string, Property prop) {
+  private void filterGrandChildren(List<ElementDefinition> grandChildren,  String string, PropertyWrapper prop) {
   	List<ElementDefinition> toRemove = new ArrayList<ElementDefinition>();
   	toRemove.addAll(grandChildren);
-  	for (Base b : prop.getValues()) {
+  	for (BaseWrapper b : prop.getValues()) {
     	List<ElementDefinition> list = new ArrayList<ElementDefinition>();
   		for (ElementDefinition ed : toRemove) {
-  			Property p = b.getChildByName(tail(ed.getPath()));
+  			PropertyWrapper p = b.getChildByName(tail(ed.getPath()));
   			if (p != null && p.hasValues())
   				list.add(ed);
   		}
@@ -256,31 +685,31 @@ public class NarrativeGenerator implements INarrativeGenerator {
   	grandChildren.removeAll(toRemove);
   }
 
-	private List<Property> splitExtensions(StructureDefinition profile, List<Property> children) throws Exception {
-    List<Property> results = new ArrayList<Property>();
-    Map<String, Property> map = new HashMap<String, Property>();
-    for (Property p : children)
+  private List<PropertyWrapper> splitExtensions(StructureDefinition profile, List<PropertyWrapper> children) throws Exception {
+    List<PropertyWrapper> results = new ArrayList<PropertyWrapper>();
+    Map<String, PropertyWrapper> map = new HashMap<String, PropertyWrapper>();
+    for (PropertyWrapper p : children)
       if (p.getName().equals("extension") || p.getName().equals("modifierExtension")) {
         // we're going to split these up, and create a property for each url 
         if (p.hasValues()) {
-          for (Base v : p.getValues()) {
-            Extension ex  = (Extension) v;
+          for (BaseWrapper v : p.getValues()) {
+            Extension ex  = (Extension) v.getBase();
             String url = ex.getUrl();
             StructureDefinition ed = context.getExtensionStructure(profile, url);
             if (p.getName().equals("modifierExtension") && ed == null)
               throw new Exception("Unknown modifier extension "+url);
-            Property pe = map.get(p.getName()+"["+url+"]");
+            PropertyWrapper pe = map.get(p.getName()+"["+url+"]");
             if (pe == null) {
               if (ed == null)
-                pe = new Property(p.getName()+"["+url+"]", p.getTypeCode(), p.getDefinition(), p.getMinCardinality(), p.getMaxCardinality(), ex);
+                pe = new PropertyWrapperDirect(new Property(p.getName()+"["+url+"]", p.getTypeCode(), p.getDefinition(), p.getMinCardinality(), p.getMaxCardinality(), ex));
               else {
                 ElementDefinition def = ed.getSnapshot().getElement().get(0);
-                pe = new Property(p.getName()+"["+url+"]", "Extension", def.getDefinition(), def.getMin(), def.getMax().equals("*") ? Integer.MAX_VALUE : Integer.parseInt(def.getMax()), ex);
-                pe.setStructure(ed);
+                pe = new PropertyWrapperDirect(new Property(p.getName()+"["+url+"]", "Extension", def.getDefinition(), def.getMin(), def.getMax().equals("*") ? Integer.MAX_VALUE : Integer.parseInt(def.getMax()), ex));
+                ((PropertyWrapperDirect) pe).wrapped.setStructure(ed);
               }
               results.add(pe);
             } else
-              pe.getValues().add(ex);
+              pe.getValues().add(v);
           }
         }
       } else
@@ -288,11 +717,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return results;
   }
 
-  private boolean isDefaultValue(Map<String, String> displayHints, List<Base> list) {
+  @SuppressWarnings("rawtypes")
+  private boolean isDefaultValue(Map<String, String> displayHints, List<BaseWrapper> list) throws Exception {
     if (list.size() != 1)
       return false;
-    if (list.get(0) instanceof PrimitiveType) 
-      return isDefault(displayHints, (PrimitiveType) list.get(0));
+    if (list.get(0).getBase() instanceof PrimitiveType) 
+      return isDefault(displayHints, (PrimitiveType) list.get(0).getBase());
     else
       return false;
   }
@@ -328,9 +758,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
       tr.addTag("td").addTag("b").addText(Utilities.capitalize(tail(e.getPath())));
   }
 
-  private void addColumnValues(Resource res, XhtmlNode tr, List<ElementDefinition> grandChildren, Base v, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
+  private void addColumnValues(ResourceWrapper res, XhtmlNode tr, List<ElementDefinition> grandChildren, BaseWrapper v, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
     for (ElementDefinition e : grandChildren) {
-      Property p = v.getChildByName(e.getPath().substring(e.getPath().lastIndexOf(".")+1));
+      PropertyWrapper p = v.getChildByName(e.getPath().substring(e.getPath().lastIndexOf(".")+1));
       if (p == null || p.getValues().size() == 0 || p.getValues().get(0) == null)
         tr.addTag("td").addText(" ");
       else
@@ -342,19 +772,19 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return path.substring(path.lastIndexOf(".")+1);
   }
 
-  private boolean canDoTable(String path, Property p, List<ElementDefinition> grandChildren) {
+  private boolean canDoTable(String path, PropertyWrapper p, List<ElementDefinition> grandChildren) {
     for (ElementDefinition e : grandChildren) {
-      List<Property> values = getValues(path, p, e);
+      List<PropertyWrapper> values = getValues(path, p, e);
       if (values.size() > 1 || !isPrimitive(e) || !canCollapse(e))
         return false;
     }
     return true;
   }
 
-  private List<Property> getValues(String path, Property p, ElementDefinition e) {
-    List<Property> res = new ArrayList<Property>();
-    for (Base v : p.getValues()) {
-      for (Property g : v.children()) {
+  private List<PropertyWrapper> getValues(String path, PropertyWrapper p, ElementDefinition e) {
+    List<PropertyWrapper> res = new ArrayList<PropertyWrapper>();
+    for (BaseWrapper v : p.getValues()) {
+      for (PropertyWrapper g : v.children()) {
         if ((path+"."+p.getName()+"."+g.getName()).equals(e.getPath()))
           res.add(p);
       }
@@ -372,7 +802,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return !e.getType().isEmpty();
   }
   
-  private ElementDefinition getElementDefinition(List<ElementDefinition> elements, String path, Property p) {
+  private ElementDefinition getElementDefinition(List<ElementDefinition> elements, String path, PropertyWrapper p) {
     for (ElementDefinition element : elements)
       if (element.getPath().equals(path))
         return element;      
@@ -381,10 +811,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private void renderLeaf(Resource res, Base e, ElementDefinition defn, XhtmlNode x, boolean title, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
-    if (e == null)
+  private void renderLeaf(ResourceWrapper res, BaseWrapper ew, ElementDefinition defn, XhtmlNode x, boolean title, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
+    if (ew == null)
       return;
    
+    Base e = ew.getBase();
+    
     if (e instanceof StringType)
       x.addText(((StringType) e).getValue());
     else if (e instanceof CodeType)
@@ -468,13 +900,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return;
     } else if (e instanceof ElementDefinition) {
       x.addText("todo-bundle");
-    } else if (!(e instanceof Attachment) && !(e instanceof Narrative))
+    } else if (e != null && !(e instanceof Attachment) && !(e instanceof Narrative) && !(e instanceof Meta))
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
   }
 
-  private boolean displayLeaf(Resource res, Base e, ElementDefinition defn, XhtmlNode x, String name, boolean showCodeDetails) throws Exception {
-    if (e == null)
+  private boolean displayLeaf(ResourceWrapper res, BaseWrapper ew, ElementDefinition defn, XhtmlNode x, String name, boolean showCodeDetails) throws Exception {
+    if (ew == null)
       return false;
+    Base e = ew.getBase();
     Map<String, String> displayHints = readDisplayHints(defn);
     
     if (name.endsWith("[x]"))
@@ -597,13 +1030,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return s + (!p.hasEnd() ? "(ongoing)" : p.getEndElement().toHumanDisplay());
   }
 
-  private void generateResourceSummary(XhtmlNode x, Resource res, boolean textAlready, boolean showCodeDetails) throws Exception {
-  	if (!(res instanceof DomainResource))
-  		throw new Exception("Not handled yet"); // todo-bundle
-  	DomainResource dres = (DomainResource) res;
+  private void generateResourceSummary(XhtmlNode x, ResourceWrapper res, boolean textAlready, boolean showCodeDetails) throws Exception {
     if (!textAlready) {
-      if (dres.hasText() && dres.getText().hasDiv()) {
-        XhtmlNode div = dres.getText().getDiv();
+      XhtmlNode div = res.getNarrative();
+      if (div != null) {
         if (div.allChildrenAreText())
           x.getChildNodes().addAll(div.getChildNodes());
         if (div.getChildNodes().size() == 1 && div.getChildNodes().get(0).allChildrenAreText())
@@ -611,14 +1041,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
       }
       x.addText("Generated Summary: ");
     }
-    String path = dres.getResourceType().toString();
+    String path = res.getName();
     StructureDefinition profile = context.getProfiles().get(path);
     if (profile == null)
       x.addText("unknown resource " +path);
     else {
       boolean firstElement = true;
       boolean last = false;
-      for (Property p : dres.children()) {
+      for (PropertyWrapper p : res.children()) {
         ElementDefinition child = getElementDefinition(profile.getSnapshot().getElement(), path+"."+p.getName(), p);
         if (p.getValues().size() > 0 && p.getValues().get(0) != null && child != null && isPrimitive(child) && includeInSummary(child)) {
           if (firstElement)
@@ -627,12 +1057,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
             x.addText("; ");
           boolean first = true;
           last = false;
-          for (Base v : p.getValues()) {
+          for (BaseWrapper v : p.getValues()) {
             if (first)
               first = false;
             else if (last)
               x.addText(", ");
-            last = displayLeaf(dres, v, child, x, p.getName(), showCodeDetails) || last;
+            last = displayLeaf(res, v, child, x, p.getName(), showCodeDetails) || last;
           }
         }
       }
@@ -653,11 +1083,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return true;
   }
 
-  private ResourceWithReference resolveReference(Resource res, String url) {
+  private ResourceWithReference resolveReference(ResourceWrapper res, String url) {
     if (url == null)
       return null;
-    if (url.startsWith("#") && res instanceof DomainResource) {
-      for (Resource r : ((DomainResource) res).getContained()) {
+    if (url.startsWith("#")) {
+      for (ResourceWrapper r : res.getContained()) {
         if (r.getId().equals(url.substring(1)))
           return new ResourceWithReference(null, r);
       }
@@ -670,7 +1100,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (ae == null)
       return null;
     else
-      return new ResourceWithReference(url, ae);
+      return new ResourceWithReference(url, new ResourceWrapperDirect(ae));
   }
 
   private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x, boolean showCodeDetails) {
@@ -1284,6 +1714,47 @@ public class NarrativeGenerator implements INarrativeGenerator {
       n.addTag("hr");
       n.getChildNodes().addAll(x.getChildNodes());
     }
+  }
+
+  public Element getNarrative(Element er) {
+    Element txt = XMLUtil.getNamedChild(er, "text");
+    if (txt == null) 
+      return null;
+    return XMLUtil.getNamedChild(txt, "div");
+  }
+  
+  
+  private void inject(Element er, XhtmlNode x, NarrativeStatus status) {
+    Element txt = XMLUtil.getNamedChild(er, "text");
+    if (txt == null) {
+      txt = er.getOwnerDocument().createElementNS(FormatUtilities.FHIR_NS, "text");
+      Element n = XMLUtil.getFirstChild(er);
+      while (n != null && (n.getNodeName().equals("id") || n.getNodeName().equals("meta") || n.getNodeName().equals("implicitRules") || n.getNodeName().equals("language")))
+        n = XMLUtil.getNextSibling(n);
+      if (n == null)
+        er.appendChild(txt);
+      else
+        er.insertBefore(txt, n); 
+    } 
+    Element st = XMLUtil.getNamedChild(txt, "status");
+    if (st == null) {
+      st = er.getOwnerDocument().createElementNS(FormatUtilities.FHIR_NS, "status");
+      Element n = XMLUtil.getFirstChild(txt);
+      if (n == null)
+        txt.appendChild(st);
+      else
+        txt.insertBefore(st, n); 
+    }
+    st.setAttribute("value", status.toCode());
+    Element div = XMLUtil.getNamedChild(txt, "div");
+    if (div == null) {
+      div = er.getOwnerDocument().createElementNS(FormatUtilities.XHTML_NS, "div");
+      div.setAttribute("xmlns", FormatUtilities.XHTML_NS);
+      txt.appendChild(div); 
+    }
+    if (div.hasChildNodes())
+      div.appendChild(er.getOwnerDocument().createElementNS(FormatUtilities.XHTML_NS, "hr"));
+    new XhtmlComposer().compose(div, x);
   }
 
   private String getDisplay(List<OtherElementComponent> list, String s) {

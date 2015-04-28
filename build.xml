@@ -63,7 +63,7 @@
     description="--> resolve dependencies, compile and run the project">
     <mkdir dir="${imports.location}"/>
     <ivy:resolve transitive="false" file="ivy.xml"/>
-    <ivy:retrieve sync="true" pattern="${imports.location}/[artifact]-[revision].[ext]"/>
+    <ivy:retrieve type="jar" sync="true" pattern="${imports.location}/[artifact]-[revision].[ext]"/>
   </target>
 
   <target name="clean-ivy" description="--> clean the ivy installation">

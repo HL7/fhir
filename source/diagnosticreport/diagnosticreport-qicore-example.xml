@@ -34,12 +34,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </div>
   </text>
 
-  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed">
-    <valueReference>
-      <reference value="Location/example"/>
-    </valueReference>
-  </extension>
-
   <!--
   all the data items (= Observations) are contained
   in this diagnostic report. It would be equally
@@ -599,6 +593,12 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       </referenceRange>
     </Observation>
   </contained>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed">
+    <valueReference>
+      <reference value="Location/example"/>
+    </valueReference>
+  </extension>
 
 <!-- first, various administrative/context stuff -->
   <name>

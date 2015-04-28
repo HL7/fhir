@@ -19,8 +19,8 @@
   </type>
   <telecom>
     <system value="phone" />
-		<use value="mobile" />
     <value value="2329" />
+		<use value="mobile" />
   </telecom>
   <physicalType>
     <coding>

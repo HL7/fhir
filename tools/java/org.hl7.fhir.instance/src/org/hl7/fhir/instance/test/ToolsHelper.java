@@ -75,7 +75,7 @@ public class ToolsHelper {
       else if (args[0].equals("version")) 
         self.executeVersion(args);
       else if (args[0].equals("fragments")) 
-          self.executeFragments(args);
+        self.executeFragments(args);
       else if (args[0].equals("snapshot-maker")) 
         self.generateSnapshots(args);
       else 

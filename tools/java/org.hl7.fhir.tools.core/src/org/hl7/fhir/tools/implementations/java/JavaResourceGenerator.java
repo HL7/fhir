@@ -136,7 +136,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		} else if (clss == JavaGenClass.Structure) {
       write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
       isAbstract = upFirst(name).equals("BackboneElement");
-      write("public "+(isAbstract ? "abstract " : "")+"class "+upFirst(name)+" extends Element {\r\n");
+      write("public "+(isAbstract ? "abstract " : "")+"class "+upFirst(name)+" extends "+(name.equals("Extension") || name.equals("Narrative") ? "Type" : "Element")+" {\r\n");
 		} else if (clss == JavaGenClass.BackboneElement) {
       write("@Block()\r\n");
       write("public class "+upFirst(name)+" extends BackboneElement {\r\n");
