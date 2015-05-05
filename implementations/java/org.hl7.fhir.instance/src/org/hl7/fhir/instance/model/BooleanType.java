@@ -32,12 +32,13 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.model;
 
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.api.IBaseBooleanDatatype;
 
 /**
  * Primitive type "boolean" in FHIR "true" or "false"
  */
 @DatatypeDef(name="boolean")
-public class BooleanType extends PrimitiveType<Boolean> {
+public class BooleanType extends PrimitiveType<Boolean> implements IBaseBooleanDatatype {
 
 	private static final long serialVersionUID = 3L;
 

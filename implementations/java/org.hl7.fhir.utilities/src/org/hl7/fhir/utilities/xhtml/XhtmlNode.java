@@ -280,4 +280,55 @@ public class XhtmlNode {
 			return false;
 		return e1.equalsDeep(e2);
   }
+	
+	
+	public String getValueAsString() {
+		if (isEmpty()) {
+			return null;
+		}
+		try {
+			return new XhtmlComposer().compose(this);
+		} catch (Exception e) {
+			// TODO: composer shouldn't throw exception like this
+			throw new RuntimeException(e);
+		}
+	}
+
+	public void setValueAsString(String theValue) throws IllegalArgumentException {
+		this.Attributes = null;
+		this.childNodes = null;
+		this.content = null;
+		this.name = null;
+		this.nodeType= null;
+		if (theValue == null) {
+			return;
+		}
+		
+		String val = theValue.trim();
+		if (theValue == null || theValue.isEmpty()) {
+			return;
+		}
+		
+		if (!val.startsWith("<")) {
+			val = "<div>" + val + "</div>";
+		}
+		if (val.startsWith("<?") && val.endsWith("?>")) {
+			return;
+		}
+
+		try {
+			// TODO: this is ugly
+			XhtmlNode fragment = new XhtmlParser().parseFragment(val);
+			this.Attributes = fragment.Attributes;
+			this.childNodes = fragment.childNodes;
+			this.content = fragment.content;
+			this.name = fragment.name;
+			this.nodeType= fragment.nodeType;
+		} catch (Exception e) {
+			// TODO: composer shouldn't throw exception like this
+			throw new RuntimeException(e);
+		}
+		
+	}
+
 }

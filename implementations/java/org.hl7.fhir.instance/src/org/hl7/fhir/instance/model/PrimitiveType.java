@@ -1,15 +1,18 @@
 package org.hl7.fhir.instance.model;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hl7.fhir.instance.model.api.IBaseHasExtensions;
+import org.hl7.fhir.instance.model.api.IPrimitiveType;
 
-public abstract class PrimitiveType<T> extends Type {
+public abstract class PrimitiveType<T> extends Type implements IPrimitiveType<T>, IBaseHasExtensions {
 
-  private static final long serialVersionUID = 3L;
+	private static final long serialVersionUID = 3L;
 
-  private T myCoercedValue;
-  private String myStringValue;
-  
+	private T myCoercedValue;
+	private String myStringValue;
+
 	public T getValue() {
 		return myCoercedValue;
 	}
@@ -21,11 +24,6 @@ public abstract class PrimitiveType<T> extends Type {
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder().append(getValue()).toHashCode();
-	}
-
-	@Override
-	public boolean isEmpty() {
-		return super.isEmpty() && getValue() == null;
 	}
 
 	public PrimitiveType<T> setValue(T theValue) {
@@ -41,6 +39,11 @@ public abstract class PrimitiveType<T> extends Type {
 			// NB this might be null
 			myStringValue = encode(myCoercedValue);
 		}
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return super.isEmpty() && StringUtils.isBlank(getValueAsString());
 	}
 
 	public void fromStringValue(String theValue) {
@@ -77,17 +80,17 @@ public abstract class PrimitiveType<T> extends Type {
 	}
 
 	public boolean hasValue() {
-  	return !isEmpty();
+		return !isEmpty();
 	}
-	
+
 	public String getValueAsString() {
 		return asStringValue();
 	}
-	
+
 	public void setValueAsString(String theValue) {
 		fromStringValue(theValue);
 	}
-	
+
 	protected Type typedCopy() {
 		return copy();
 	}
@@ -112,20 +115,20 @@ public abstract class PrimitiveType<T> extends Type {
 		return b.isEquals();
 	}
 
-	 @Override
-	  public boolean equalsShallow(Base obj) {
-	    if (obj == null) {
-	      return false;
-	    }
-	    if (!(obj.getClass() == getClass())) {
-	      return false;
-	    }
+	@Override
+	public boolean equalsShallow(Base obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj.getClass() == getClass())) {
+			return false;
+		}
 
-	    PrimitiveType<?> o = (PrimitiveType<?>) obj;
+		PrimitiveType<?> o = (PrimitiveType<?>) obj;
 
-	    EqualsBuilder b = new EqualsBuilder();
-	    b.append(getValue(), o.getValue());
-	    return b.isEquals();
-	  }
+		EqualsBuilder b = new EqualsBuilder();
+		b.append(getValue(), o.getValue());
+		return b.isEquals();
+	}
 
 }

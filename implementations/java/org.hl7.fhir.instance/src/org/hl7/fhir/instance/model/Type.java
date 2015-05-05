@@ -28,10 +28,12 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.hl7.fhir.instance.model;
 
+import org.hl7.fhir.instance.model.api.IBaseDatatype;
+
 /**
  * An element that is a type. Used when the element type in FHIR is a choice of more than one data type
  */
-public abstract class Type extends Element {
+public abstract class Type extends Element implements IBaseDatatype {
 
   private static final long serialVersionUID = 4623040030733049991L;
 

@@ -3,13 +3,13 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.utilities"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jena-arq-2.13.0.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jena-core-2.13.0.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jena-iri-1.1.2.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/slf4j-api-1.7.12.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/slf4j-jdk14-1.7.12.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/xercesImpl-2.11.0.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/jena-arq-2.13.0.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/jena-core-2.13.0.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/jena-iri-1.1.2.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-jdk14-1.7.12.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/xercesImpl-2.11.0.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.implementation"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

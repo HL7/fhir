@@ -2823,7 +2823,7 @@ public class Publisher implements URIResolver {
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp);
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
-    addToResourceFeed(rp, typeFeed);
+    addToResourceFeed(rp, typeFeed, (fn));
     cloneToXhtml(pt.getName().toLowerCase() + ".profile", "StructureDefinition for " + pt.getName(), false, "profile-instance:type:" + pt.getName(), "Type");
     jsonToXhtml(pt.getName().toLowerCase() + ".profile", "StructureDefinition for " + pt.getName(), resource2Json(rp), "profile-instance:type:" + pt.getName(), "Type");
   }
@@ -2837,7 +2837,7 @@ public class Publisher implements URIResolver {
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp);
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
-    addToResourceFeed(rp, typeFeed);
+    addToResourceFeed(rp, typeFeed, (fn));
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
     // + File.separator + "datatypes.html"));
     cloneToXhtml(type.getCode().toLowerCase() + ".profile", "StructureDefinition for " + type.getCode(), false, "profile-instance:type:" + type.getCode(), "Type");
@@ -2866,7 +2866,7 @@ public class Publisher implements URIResolver {
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp);
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
-    addToResourceFeed(rp, typeFeed);
+    addToResourceFeed(rp, typeFeed, fn);
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
     // + File.separator + "datatypes.html"));
     cloneToXhtml(type.getName().toLowerCase() + ".profile", "StructureDefinition for " + type.getName(), false, "profile-instance:type:" + type.getName(), "Type");
@@ -3180,7 +3180,7 @@ public class Publisher implements URIResolver {
     jsonToXhtml("operation-" + name, "Operation Definition", resource2Json(opd), "resource-instance:OperationDefinition", "Operation definition");
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + "operation-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "operation-" + name + ".xml"));
     if (buildFlags.get("all"))
-      addToResourceFeed(opd, profileFeed);
+      addToResourceFeed(opd, profileFeed, name);
 
     // now, we create an html page from the narrative
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer().compose(opd.getText().getDiv()));
@@ -3388,7 +3388,7 @@ public class Publisher implements URIResolver {
       if (vs.hasDefine()) {
         page.getCodeSystems().put(vs.getDefine().getSystem().toString(), vs);
       }
-      addToResourceFeed(vs, valueSetsFeed);
+      addToResourceFeed(vs, valueSetsFeed, file.getName());
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
       if (vs.hasDefine()) {
         page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
@@ -3398,7 +3398,7 @@ public class Publisher implements URIResolver {
       new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
       if (cm.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
-      addToResourceFeed(cm, conceptMapsFeed);
+      addToResourceFeed(cm, conceptMapsFeed, file.getName());
       page.getDefinitions().getConceptMaps().put(cm.getUrl(), cm);
       cm.setUserData("path", n + ".html");
       page.getConceptMaps().put(cm.getUrl(), cm);
@@ -3491,7 +3491,7 @@ public class Publisher implements URIResolver {
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + n + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + n
         + ".profile.xml"));
     if (buildFlags.get("all")) {
-      addToResourceFeed(rp, profileFeed);
+      addToResourceFeed(rp, profileFeed, null);
     }
     saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir + "html" + File.separator + n + ".html"));
     cloneToXhtml(n + ".profile", "StructureDefinition for " + n, true, "profile-instance:resource:" + root.getName(), "Profile");
@@ -3532,7 +3532,8 @@ public class Publisher implements URIResolver {
     xml.compose(stream, html);
   }
 
-  private void addToResourceFeed(DomainResource resource, Bundle dest) throws Exception {
+  private void addToResourceFeed(DomainResource resource, Bundle dest, String filename) throws Exception {
+    maybeFixResourceId(resource, filename);
     if (resource.getId() == null)
       throw new Exception("Resource has no id");
     BundleEntryComponent byId = ResourceUtilities.getEntryById(dest, resource.getResourceType(), resource.getId());
@@ -3546,7 +3547,16 @@ public class Publisher implements URIResolver {
     dest.getEntry().add(new BundleEntryComponent().setResource(resource));
   }
 
-  private void addToResourceFeed(ValueSet vs, Bundle dest) throws Exception {
+  private void maybeFixResourceId(DomainResource theResource, String theFilename) {
+    if (theResource.getId() == null && theFilename != null) {
+      String candidateId = theFilename.replaceAll("\\..*", "");
+      candidateId = FormatUtilities.makeId(candidateId);
+      theResource.setId(candidateId);
+    }
+  }
+
+  private void addToResourceFeed(ValueSet vs, Bundle dest, String filename) throws Exception {
+    maybeFixResourceId(vs, filename);
     if (vs.getId() == null)
       throw new Exception("Resource has no id: "+vs.getName()+" ("+vs.getUrl()+")");
     if (ResourceUtilities.getById(dest, ResourceType.ValueSet, vs.getId()) != null)
@@ -4573,7 +4583,7 @@ public class Publisher implements URIResolver {
 
         new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, name, vs, true, false);
 
-        addToResourceFeed(vs, valueSetsFeed); // todo - what should the Oids be
+        addToResourceFeed(vs, valueSetsFeed, null); // todo - what should the Oids be
 
         String sf = page.processPageIncludes(title + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-ig.html"), "valueSet", null, name+".html", vs, null, "Value Set");
         sf = addSectionNumbers(title + ".html", "template-valueset", sf, "??");
@@ -4650,7 +4660,7 @@ public class Publisher implements URIResolver {
     new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, name, vs, true, false);
 
     if (isGenerate) {
-      addToResourceFeed(vs, valueSetsFeed);
+      addToResourceFeed(vs, valueSetsFeed, null);
 
       vs.setUserData("path", name + ".html");
       page.setId(id);
@@ -4958,7 +4968,7 @@ public class Publisher implements URIResolver {
     new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
 
     if (isGenerate) {
-      addToResourceFeed(vs, valueSetsFeed);
+      addToResourceFeed(vs, valueSetsFeed, filename);
 
       String sf;
       if (cd.hasInternalCodes() && cd.getReferredValueSet() != null)

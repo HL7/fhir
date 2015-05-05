@@ -38,8 +38,12 @@ import java.util.List;
 
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.ExtensionHelper;
+import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -334,6 +338,13 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 	}
 
 
+	abstract protected void composeString(String name, StringType value) throws Exception;
+
+	  protected void composeString(String name, IIdType value) throws Exception {
+		  composeString(name, new StringType(value.getValue()));
+	  }    
+
+	
   protected void composeDomainResource(String name, DomainResource res) throws Exception {
     xml.open(FHIR_NS, name);
     composeResource(res.getResourceType().toString(), res);

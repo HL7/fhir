@@ -8,7 +8,6 @@
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.common-2.9.2-v20131212-0545.jar"/>
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore.xmi-2.9.1-v20131212-0545.jar"/>
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore-2.9.2-v20131212-0545.jar"/>
-	<classpathentry kind="src" path="/org.hl7.fhir.implementation"/>
 	<classpathentry kind="src" path="/org.hl7.fhir.utilities"/>
 	<classpathentry kind="src" path="/org.hl7.fhir.definitions.ecore"/>
 	<classpathentry kind="lib" path="../imports/sequence-library-1.0.2.jar"/>
@@ -32,5 +31,6 @@
 	<classpathentry kind="lib" path="../imports/saxon-dom-8.7.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-io-1.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.rdf"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.implementation"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

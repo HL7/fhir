@@ -142,8 +142,8 @@ public class ResourceFactory extends Factory {
             return new DocumentManifest();
         if ("Schedule".equals(name))
             return new Schedule();
-        if ("SupplyDelivery".equals(name))
-            return new SupplyDelivery();
+//        if ("SupplyDelivery".equals(name))
+//            return new SupplyDelivery();
         if ("EligibilityRequest".equals(name))
             return new EligibilityRequest();
         if ("MedicationAdministration".equals(name))
@@ -210,8 +210,8 @@ public class ResourceFactory extends Factory {
             return new EnrollmentResponse();
         if ("Patient".equals(name))
             return new Patient();
-        if ("SupplyRequest".equals(name))
-            return new SupplyRequest();
+//        if ("SupplyRequest".equals(name))
+//            return new SupplyRequest();
         if ("EligibilityResponse".equals(name))
             return new EligibilityResponse();
         if ("Person".equals(name))

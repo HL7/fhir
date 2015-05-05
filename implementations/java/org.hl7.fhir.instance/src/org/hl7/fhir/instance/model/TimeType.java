@@ -29,10 +29,13 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.hl7.fhir.instance.model;
 
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+
 /**
  * Represents a Time datatype, per the FHIR specification. A time is a specification of hours and minutes (and optionally milliseconds), with NO date and NO timezone information attached. It is
  * expressed as a string in the form <code>HH:mm:ss[.SSSS]</code>
  */
+@DatatypeDef(name="time")
 public class TimeType extends PrimitiveType<String> {
 
 	private static final long serialVersionUID = 3L;

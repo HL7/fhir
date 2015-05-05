@@ -36,6 +36,8 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.zip.DataFormatException;
 
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+
 /**
  * Represents a FHIR instant datatype. Valid precisions values for this type are:
  * <ul>
@@ -43,6 +45,7 @@ import java.util.zip.DataFormatException;
  * <li>{@link TemporalPrecisionEnum#MILLI}
  * </ul>
  */
+@DatatypeDef(name="instant")
 public class InstantType extends BaseDateTimeType {
 
 	private static final long serialVersionUID = 3L;

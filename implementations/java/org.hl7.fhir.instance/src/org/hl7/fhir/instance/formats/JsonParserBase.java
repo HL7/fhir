@@ -36,8 +36,11 @@ import java.util.List;
 
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -274,5 +277,25 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 
   protected abstract void composeType(String prefix, Type type) throws Exception;
 
+  
+  abstract void composeStringCore(String name, StringType value, boolean inArray) throws Exception;
+
+  protected void composeStringCore(String name, IIdType value, boolean inArray) throws Exception {
+	  composeStringCore(name, new StringType(value.getValue()), inArray);
+  }    
+
+  abstract void composeStringExtras(String name, StringType value, boolean inArray) throws Exception;
+
+  protected void composeStringExtras(String name, IIdType value, boolean inArray) throws Exception {
+	  composeStringExtras(name, new StringType(value.getValue()), inArray);
+  }    
+  
+  protected void parseElementProperties(JsonObject theAsJsonObject, IIdType theReferenceElement) throws Exception {
+	  parseElementProperties(theAsJsonObject, (Element)theReferenceElement);
+  }
+
+  protected void parseElementProperties(JsonObject theAsJsonObject, IdType theReferenceElement) throws Exception {
+	  parseElementProperties(theAsJsonObject, (Element)theReferenceElement);
+  }
 
 }

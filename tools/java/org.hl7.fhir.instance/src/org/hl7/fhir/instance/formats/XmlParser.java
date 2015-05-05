@@ -8472,65 +8472,65 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  protected SupplyDelivery parseSupplyDelivery(XmlPullParser xpp) throws Exception {
-    SupplyDelivery res = new SupplyDelivery();
-    parseDomainResourceAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.setIdentifier(parseIdentifier(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
-        res.setStatusElement(parseEnumeration(xpp, SupplyDelivery.ValuesetSupplydeliveryStatus.NULL, new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patient")) {
-        res.setPatient(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
-        res.setType(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("quantity")) {
-        res.setQuantity(parseQuantity(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("suppliedItem")) {
-        res.setSuppliedItem(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("supplier")) {
-        res.setSupplier(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("whenPrepared")) {
-        res.setWhenPrepared(parsePeriod(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("time")) {
-        res.setTimeElement(parseDateTime(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("destination")) {
-        res.setDestination(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("receiver")) {
-        res.getReceiver().add(parseReference(xpp));
-      } else if (!parseDomainResourceContent(eventType, xpp, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    return res;
-  }
-
-  protected SupplyRequest parseSupplyRequest(XmlPullParser xpp) throws Exception {
-    SupplyRequest res = new SupplyRequest();
-    parseDomainResourceAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("kind")) {
-        res.setKind(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.setIdentifier(parseIdentifier(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
-        res.setStatusElement(parseEnumeration(xpp, SupplyRequest.ValuesetSupplyrequestStatus.NULL, new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("orderedItem")) {
-        res.setOrderedItem(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patient")) {
-        res.setPatient(parseReference(xpp));
-      } else if (!parseDomainResourceContent(eventType, xpp, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    return res;
-  }
+//  protected SupplyDelivery parseSupplyDelivery(XmlPullParser xpp) throws Exception {
+//    SupplyDelivery res = new SupplyDelivery();
+//    parseDomainResourceAttributes(xpp, res);
+//    next(xpp);
+//    int eventType = nextNoWhitespace(xpp);
+//    while (eventType != XmlPullParser.END_TAG) {
+//      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
+//        res.setIdentifier(parseIdentifier(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
+//        res.setStatusElement(parseEnumeration(xpp, SupplyDelivery.ValuesetSupplydeliveryStatus.NULL, new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory()));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patient")) {
+//        res.setPatient(parseReference(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+//        res.setType(parseCodeableConcept(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("quantity")) {
+//        res.setQuantity(parseQuantity(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("suppliedItem")) {
+//        res.setSuppliedItem(parseReference(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("supplier")) {
+//        res.setSupplier(parseReference(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("whenPrepared")) {
+//        res.setWhenPrepared(parsePeriod(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("time")) {
+//        res.setTimeElement(parseDateTime(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("destination")) {
+//        res.setDestination(parseReference(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("receiver")) {
+//        res.getReceiver().add(parseReference(xpp));
+//      } else if (!parseDomainResourceContent(eventType, xpp, res))
+//        unknownContent(xpp);
+//      eventType = nextNoWhitespace(xpp);
+//    }
+//    next(xpp);
+//    return res;
+//  }
+//
+//  protected SupplyRequest parseSupplyRequest(XmlPullParser xpp) throws Exception {
+//    SupplyRequest res = new SupplyRequest();
+//    parseDomainResourceAttributes(xpp, res);
+//    next(xpp);
+//    int eventType = nextNoWhitespace(xpp);
+//    while (eventType != XmlPullParser.END_TAG) {
+//      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("kind")) {
+//        res.setKind(parseCodeableConcept(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
+//        res.setIdentifier(parseIdentifier(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
+//        res.setStatusElement(parseEnumeration(xpp, SupplyRequest.ValuesetSupplyrequestStatus.NULL, new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory()));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("orderedItem")) {
+//        res.setOrderedItem(parseReference(xpp));
+//      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patient")) {
+//        res.setPatient(parseReference(xpp));
+//      } else if (!parseDomainResourceContent(eventType, xpp, res))
+//        unknownContent(xpp);
+//      eventType = nextNoWhitespace(xpp);
+//    }
+//    next(xpp);
+//    return res;
+//  }
 
   protected ValueSet parseValueSet(XmlPullParser xpp) throws Exception {
     ValueSet res = new ValueSet();
@@ -9068,10 +9068,10 @@ public class XmlParser extends XmlParserBase {
       return parseSubstance(xpp);
     else if (xpp.getName().equals("Supply"))
       return parseSupply(xpp);
-    else if (xpp.getName().equals("SupplyDelivery"))
-      return parseSupplyDelivery(xpp);
-    else if (xpp.getName().equals("SupplyRequest"))
-      return parseSupplyRequest(xpp);
+//    else if (xpp.getName().equals("SupplyDelivery"))
+//      return parseSupplyDelivery(xpp);
+//    else if (xpp.getName().equals("SupplyRequest"))
+//      return parseSupplyRequest(xpp);
     else if (xpp.getName().equals("ValueSet"))
       return parseValueSet(xpp);
     else if (xpp.getName().equals("VisionPrescription"))
@@ -9506,10 +9506,10 @@ public class XmlParser extends XmlParserBase {
       return parseSubstance(xpp);
     else if (type.equals("Supply"))
       return parseSupply(xpp);
-    else if (type.equals("SupplyDelivery"))
-      return parseSupplyDelivery(xpp);
-    else if (type.equals("SupplyRequest"))
-      return parseSupplyRequest(xpp);
+//    else if (type.equals("SupplyDelivery"))
+//      return parseSupplyDelivery(xpp);
+//    else if (type.equals("SupplyRequest"))
+//      return parseSupplyRequest(xpp);
     else if (type.equals("ValueSet"))
       return parseValueSet(xpp);
     else if (type.equals("VisionPrescription"))
@@ -18857,70 +18857,70 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  protected void composeSupplyDelivery(String name, SupplyDelivery element) throws Exception {
-    if (element != null) {
-      composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasStatusElement())
-        composeEnumeration("status", element.getStatusElement(), new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory());
-      if (element.hasPatient()) {
-        composeReference("patient", element.getPatient());
-      }
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
-      }
-      if (element.hasQuantity()) {
-        composeQuantity("quantity", element.getQuantity());
-      }
-      if (element.hasSuppliedItem()) {
-        composeReference("suppliedItem", element.getSuppliedItem());
-      }
-      if (element.hasSupplier()) {
-        composeReference("supplier", element.getSupplier());
-      }
-      if (element.hasWhenPrepared()) {
-        composePeriod("whenPrepared", element.getWhenPrepared());
-      }
-      if (element.hasTimeElement()) {
-        composeDateTime("time", element.getTimeElement());
-      }
-      if (element.hasDestination()) {
-        composeReference("destination", element.getDestination());
-      }
-      if (element.hasReceiver()) { 
-        for (Reference e : element.getReceiver()) 
-          composeReference("receiver", e);
-      }
-      xml.close(FHIR_NS, name);
-    }
-  }
-
-  protected void composeSupplyRequest(String name, SupplyRequest element) throws Exception {
-    if (element != null) {
-      composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeDomainResourceElements(element);
-      if (element.hasKind()) {
-        composeCodeableConcept("kind", element.getKind());
-      }
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasStatusElement())
-        composeEnumeration("status", element.getStatusElement(), new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory());
-      if (element.hasOrderedItem()) {
-        composeReference("orderedItem", element.getOrderedItem());
-      }
-      if (element.hasPatient()) {
-        composeReference("patient", element.getPatient());
-      }
-      xml.close(FHIR_NS, name);
-    }
-  }
+//  protected void composeSupplyDelivery(String name, SupplyDelivery element) throws Exception {
+//    if (element != null) {
+//      composeDomainResourceAttributes(element);
+//      xml.open(FHIR_NS, name);
+//      composeDomainResourceElements(element);
+//      if (element.hasIdentifier()) {
+//        composeIdentifier("identifier", element.getIdentifier());
+//      }
+//      if (element.hasStatusElement())
+//        composeEnumeration("status", element.getStatusElement(), new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory());
+//      if (element.hasPatient()) {
+//        composeReference("patient", element.getPatient());
+//      }
+//      if (element.hasType()) {
+//        composeCodeableConcept("type", element.getType());
+//      }
+//      if (element.hasQuantity()) {
+//        composeQuantity("quantity", element.getQuantity());
+//      }
+//      if (element.hasSuppliedItem()) {
+//        composeReference("suppliedItem", element.getSuppliedItem());
+//      }
+//      if (element.hasSupplier()) {
+//        composeReference("supplier", element.getSupplier());
+//      }
+//      if (element.hasWhenPrepared()) {
+//        composePeriod("whenPrepared", element.getWhenPrepared());
+//      }
+//      if (element.hasTimeElement()) {
+//        composeDateTime("time", element.getTimeElement());
+//      }
+//      if (element.hasDestination()) {
+//        composeReference("destination", element.getDestination());
+//      }
+//      if (element.hasReceiver()) { 
+//        for (Reference e : element.getReceiver()) 
+//          composeReference("receiver", e);
+//      }
+//      xml.close(FHIR_NS, name);
+//    }
+//  }
+//
+//  protected void composeSupplyRequest(String name, SupplyRequest element) throws Exception {
+//    if (element != null) {
+//      composeDomainResourceAttributes(element);
+//      xml.open(FHIR_NS, name);
+//      composeDomainResourceElements(element);
+//      if (element.hasKind()) {
+//        composeCodeableConcept("kind", element.getKind());
+//      }
+//      if (element.hasIdentifier()) {
+//        composeIdentifier("identifier", element.getIdentifier());
+//      }
+//      if (element.hasStatusElement())
+//        composeEnumeration("status", element.getStatusElement(), new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory());
+//      if (element.hasOrderedItem()) {
+//        composeReference("orderedItem", element.getOrderedItem());
+//      }
+//      if (element.hasPatient()) {
+//        composeReference("patient", element.getPatient());
+//      }
+//      xml.close(FHIR_NS, name);
+//    }
+//  }
 
   protected void composeValueSet(String name, ValueSet element) throws Exception {
     if (element != null) {
@@ -19480,10 +19480,10 @@ public class XmlParser extends XmlParserBase {
       composeSubstance("Substance", (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply("Supply", (Supply)resource);
-    else if (resource instanceof SupplyDelivery)
-      composeSupplyDelivery("SupplyDelivery", (SupplyDelivery)resource);
-    else if (resource instanceof SupplyRequest)
-      composeSupplyRequest("SupplyRequest", (SupplyRequest)resource);
+//    else if (resource instanceof SupplyDelivery)
+//      composeSupplyDelivery("SupplyDelivery", (SupplyDelivery)resource);
+//    else if (resource instanceof SupplyRequest)
+//      composeSupplyRequest("SupplyRequest", (SupplyRequest)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof VisionPrescription)
@@ -19671,10 +19671,10 @@ public class XmlParser extends XmlParserBase {
       composeSubstance(name, (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply(name, (Supply)resource);
-    else if (resource instanceof SupplyDelivery)
-      composeSupplyDelivery(name, (SupplyDelivery)resource);
-    else if (resource instanceof SupplyRequest)
-      composeSupplyRequest(name, (SupplyRequest)resource);
+//    else if (resource instanceof SupplyDelivery)
+//      composeSupplyDelivery(name, (SupplyDelivery)resource);
+//    else if (resource instanceof SupplyRequest)
+//      composeSupplyRequest(name, (SupplyRequest)resource);
     else if (resource instanceof ValueSet)
       composeValueSet(name, (ValueSet)resource);
     else if (resource instanceof VisionPrescription)
