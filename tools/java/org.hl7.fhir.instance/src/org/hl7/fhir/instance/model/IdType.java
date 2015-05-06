@@ -181,6 +181,11 @@ public class IdType extends UriType implements IIdType {
 		return getIdPartAsBigDecimal();
 	}
 
+	@Override
+	public String asStringValue() {
+		return getValue();
+	}
+
 	/**
 	 * Returns true if this IdDt matches the given IdDt in terms of resource type and ID, but ignores the URL base
 	 */
