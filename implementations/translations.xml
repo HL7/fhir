@@ -603,6 +603,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="StructureDefinition">
         <translation lang="en">StructureDefinition</translation>
     </item>
+    <item id="TestScript">
+        <translation lang="en">TestScript</translation>
+    </item>
     <!-- Messages -->
     <item id="MSG_AUTH_REQUIRED">
         <translation lang="en">You must authenticate before you can use this service</translation>
