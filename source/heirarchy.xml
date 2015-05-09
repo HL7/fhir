@@ -274,6 +274,7 @@ signatures.html
 			<page type="resource" resource="ValueSet"/>
 			<page type="resource" resource="NamingSystem"/>
 			<page type="resource" resource="ConceptMap"/>
+			<page type="resource" resource="TestScript" />
 		</page>
 		<page title="Financial" filename="financial.html">
 			<page type="resource" resource="Claim"/>

@@ -1,0 +1,339 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+<h2>Notes</h2>
+
+This table presents a summary of the constraints applicable to TestScript.setup.operation, TestScript.test.operation,
+and TestScript.teardown.operation elements. The operation elements should be configured consistently with the
+<a href="http.html#2.1.0.22">FHIR RESTful API summary</a>.
+
+<h3><a id="operations-table">Operations Table</a></h3>
+<table class="grid">
+  <tr>
+    <th>operation.type</th>
+    <th>operation.source</th>
+    <th>operation.target</th>
+    <th>operation.destination</th>
+    <th>operation.parameter(s)</th>
+    <th>operation.responseId</th>
+  </tr>
+  <tr>
+    <td>read</td>
+    <td>N/A</td>
+    <td>
+      Optional fixture<sup><a href="#footnote1">1</a></sup> to be read from the server,
+      if specified, will substitute the "type" and "id" in the path: /[type]/[id]
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>
+      <b>type</b>: the resource "type" for the path: /[type].
+      Only used when an operation.target is not supplied, otherwise it is ignored.
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote3">3</a></sup></td>
+  </tr>
+  <tr>
+    <td>vread</td>
+    <td>N/A</td>
+    <td>
+      fixture<sup><a href="#footnote1">1</a></sup> to be read from the server,
+      will substitute the "type" and "id" in the path: /[type]/[id]/_history/[vid]
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>
+      <b>vid</b> the version id ("vid") for the path: /[type]/[id]/_history/[vid]. Optional.
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote3">3</a></sup></td>
+  </tr>
+  <tr>
+    <td>update</td>
+    <td>
+      fixture<sup><a href="#footnote1">1</a></sup> to be used as the updated resource
+    </td>
+    <td>
+      fixture<sup><a href="#footnote1">1</a></sup> to be updated on the server,
+      will substitute the "type" and "id" in the path: /[type]/[id]
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>N/A</td>
+    <td><i>Optional</i><sup><a href="#footnote3">3</a></sup></td>
+  </tr>
+  <tr>
+    <td>delete</td>
+    <td>N/A</td>
+    <td>
+      fixture<sup><a href="#footnote1">1</a></sup> to be deleted from the server,
+      will substitute the "type" and "id" in the path: /[type]/[id]
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>N/A</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>history</td>
+    <td>N/A</td>
+    <td>
+      Optional fixture<sup><a href="#footnote1">1</a></sup> to be read from the server,
+      if specified, will substitute the "type" and "id" in the path: /[type]/[id]/_history
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>
+      <b>type</b>: the resource "type" for the path: /[type]/_history. Ignored if an operation.target
+      is supplied.
+      <br/><br/>
+      If an operation.target or operation.parameter is not supplied, the path will result in "/_history"
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote3">3</a></sup></td>
+  </tr>
+  <tr>
+    <td>create</td>
+    <td>
+      fixture<sup><a href="#footnote1">1</a></sup> to be used for the created resource,
+      will substitute the "type" in the path: /[type]
+    </td>
+    <td>N/A</td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>N/A</td>
+    <td><i>Optional</i><sup><a href="#footnote3">3</a></sup></td>
+  </tr>
+  <tr>
+    <td>search</td>
+    <td>
+      Optional fixture<sup><a href="#footnote1">1</a></sup> type to be searched on the server,
+      if specified, will substitute the "type" in the path: /[type]/_search?[params]
+    </td>
+    <td>N/A</td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>
+      <b>params</b>: Optional search query "params" for the path: /[type]/_search?[params]
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote3">3</a></sup></td>
+  </tr>
+  <tr>
+    <td>transaction</td>
+    <td>
+      fixture<sup><a href="#footnote1">1</a></sup> to use for the transaction,
+      should be a Bundle.
+    </td>
+    <td>N/A</td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>N/A</td>
+    <td><i>Optional</i><sup><a href="#footnote3">3</a></sup></td>
+  </tr>
+  <tr>
+    <td>conformance</td>
+    <td>N/A</td>
+    <td>assigns conformance document to the fixture id</td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>N/A</td>
+    <td><i>Optional</i><sup><a href="#footnote3">3</a></sup></td>
+  </tr>
+  <tr>
+    <td>tags</td>
+    <td>N/A</td>
+    <td>
+      Optional fixture<sup><a href="#footnote1">1</a></sup> to get tags for from the server,
+      if specified, will substitute the "type" and "id" in the path: /[type]/[id]/_tags
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote2">2</a></sup></td>
+    <td>
+      All parameters in the query string are optional.
+      <br/><br/>
+      <b>vid</b>: The version id ("vid") in the path: /[type]/[id]/_history/[vid]/_tags.
+      If the operation.target was not specified, this argument is ignored.
+      <br/><br/>
+      <b>delete</b>: If "true" is specified, the resulting path
+      will be constructed: /[type]/[id]/_tags/_delete. Defaults to "false" if missing, empty, or null.
+      If the operation.target was not specified, this argument is ignored.
+      <br/><br/>
+      If "vid" and "delete" and operation.target are all specified, the resulting path
+      will be constructed: /[type]/[id]/_history/[vid]/_tags/_delete
+      <br/><br/>
+      If an operation.target and operation.parameter are not supplied, the path will result in "/_tags"
+    </td>
+    <td><i>Optional</i><sup><a href="#footnote3">3</a></sup></td>
+  </tr>
+  <tr>
+    <td>mailbox</td>
+    <td colspan=5>Not currently supported.</td>
+  </tr>
+  <tr>
+    <td>document</td>
+    <td colspan=5>Not currently supported.</td>
+  </tr>
+  <tr>
+    <td>assertion</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>
+      <b>assertion</b>: specifies the assertion function that is being made about the last non-assertion operation that was executed (operation.type != "assertion")
+      <br/><br/>
+      Additional parameters depend on the assertion function being called. A list of the various assertion function
+      signatures are detailed below in the Assertions table.
+    </td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>assertion_false</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>
+      <b>assertion</b>: specifies the false assertion that is being made about the last non-assertion operation that was executed (operation.type != "assertion")
+      <br/><br/>
+      Additional parameters depend on the false assertion function being called. A list of the various assertion function
+      signatures are detailed below in the Assertions table.
+    </td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>assertion_warning</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>
+      <b>assertion</b>: specifies the warning assertion function that is being made about the last non-assertion operation that was executed (operation.type != "assertion")
+      <br/><br/>
+      Additional parameters depend on the warning assertion function being called. A list of the various assertion function
+      signatures are detailed below in the Assertions table.
+    </td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td colspan=6>
+      <ol>
+        <li><a id="footnote1">Fixture</a>: specified by TestScript.fixture.id and <i>not</i> the resource ID on the FHIR server.</li>
+        <li><a id="footnote2">Destination</a>: If the TestScript is testing more than one FHIR server simultaneously, the destination identifies
+          which server the operation applies to using zero-based indexing.</li>
+        <li><a id="footnote3">ResponseId</a>: If a responseId is supplied, and the server responds with a Resource, then the resulting
+          Resource is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by "responseId."</li>
+      </ol>
+    </td>
+  </tr>
+</table>
+
+<h2><a id="assertion-table">Assertions</a></h2>
+<table class="grid">
+  <tr>
+    <th>Assertion Function</th>
+    <th>Assertion Parameters</th>
+    <th>Assertion Description</th>
+  </tr>
+  <tr>
+    <td>equals</td>
+    <td>
+      <b>expected</b>: value<sup><a href="#assertion1">1</a></sup> or xpath expression<sup><a href="#assertion2">2</a></sup>
+      <br/><br/>
+      <b>actual</b>: value<sup><a href="#assertion1">1</a></sup> or xpath expression<sup><a href="#assertion2">2</a></sup>
+    </td>
+    <td>Asserts that "expected" is equal to "actual". Missing parameters default to null.</td>
+  </tr>
+  <tr>
+    <td>fixture_equals</td>
+    <td>
+      <b>fixture_id</b>: the ID of a fixture
+      <br/><br/>
+      <b>fixture_xpath</b>: xpath expression<sup><a href="#assertion2">2</a></sup> into fixture specified by 'fixture_id'
+      <br/><br/>
+      <b>actual</b>: value<sup><a href="#assertion1">1</a></sup> or xpath expression<sup><a href="#assertion2">2</a></sup>
+    </td>
+    <td>Asserts that a node specified by 'fixture_xpath' within a Resource specified by 'fixture_id' has a value specified by 'actual'</td>
+  </tr>
+  <tr>
+    <td>fixture_compare</td>
+    <td>
+      <b>expected_fixture_id</b>: the ID of a fixture
+      <br/><br/>
+      <b>expected_fixture_xpath</b>: xpath expression<sup><a href="#assertion2">2</a></sup> into fixture specified by 'expected_fixture_id'
+      <br/><br/>
+      <b>actual_fixture_id</b>: the ID of a fixture
+      <br/><br/>
+      <b>actual_fixture_xpath</b>: xpath expression<sup><a href="#assertion2">2</a></sup> into fixture specified by 'actual_fixture_id'
+    </td>
+    <td>Asserts that a node specified by 'expected_fixture_xpath' within a Resource specified by 'expected_fixture_id'
+      has a value specified by 'actual_fixture_xpath' within a Resource specified by 'actual_fixture_xpath'</td>
+  </tr>
+  <tr>
+    <td>minimum</td>
+    <td>
+      <b>fixture_id</b>: the ID of a fixture
+    </td>
+    <td>Asserts that the response contains at a minimum the fixture specified by 'fixture_id'.</td>
+  </tr>
+  <tr>
+    <td>validate</td>
+    <td>
+      <b>profile_fixture_id</b>: the ID of a Profile fixture
+    </td>
+    <td>Asserts that the response is valid according to the Profile specified by 'profile_fixture_id'.</td>
+  </tr>
+  <tr>
+    <td>response_code</td>
+    <td><b>code</b>: numeric HTTP response code</td>
+    <td>Asserts that the response code equals "code".</td>
+  </tr>
+  <tr>
+    <td>response_okay</td>
+    <td>N/A</td>
+    <td>Asserts that the response code is in the set (200, 201).</td>
+  </tr>
+  <tr>
+    <td>response_gone</td>
+    <td>N/A</td>
+    <td>Asserts that the response code is 410.</td>
+  </tr>
+  <tr>
+    <td>response_not_found</td>
+    <td>N/A</td>
+    <td>Asserts that the response code is 404.</td>
+  </tr>
+  <tr>
+    <td>response_bad</td>
+    <td>N/A</td>
+    <td>Asserts that the response code is 400.</td>
+  </tr>
+  <tr>
+    <td>navigation_links</td>
+    <td>Bundle</td>
+    <td>Asserts that the Bundle contains first, last, and next links.</td>
+  </tr>
+  <tr>
+    <td>resource_type</td>
+    <td><b>resourceType</b>: string</td>
+    <td>Asserts that the response contained a FHIR Resource of the given "resourceType".</td>
+  </tr>
+  <tr>
+    <td>valid_content_type</td>
+    <td>N/A</td>
+    <td>
+      Asserts that the response contains a "content-type" is either "application/xml+fhir" or "application/json+fhir"
+      and that "charset" is specified as "UTF-8"
+    </td>
+  </tr>
+  <tr>
+    <td>valid_content_location</td>
+    <td>N/A</td>
+    <td>Asserts that the response contains a valid "content-location" header.</td>
+  </tr>
+  <tr>
+    <td>valid_last_modified</td>
+    <td>N/A</td>
+    <td>Asserts that the response contains a valid "last-modified" header.</td>
+  </tr>
+  <tr>
+    <td colspan=3>
+      <ol>
+        <li><a id="assertion1">value</a> is the string-representation of a number, string, or boolean.</li>
+        <li><a id="assertion2">xpath expressions</a>
+          are evaluated against the response body before the assertion is evaluated.
+          xpath expression should return a value. If the expression returns a set of nodes, the assertion fails.
+          xpath expressions are evaluated as-is if the server response or fixture representation is XML.
+          If the server response or fixture representation is JSON, the xpath expression is first converted into
+          a <a href="http://goessner.net/articles/JsonPath/">JsonPath</a> expression, and then evaluated.
+        </li>
+      </ol>
+    </td>
+  </tr>
+</table>
+
+</div>

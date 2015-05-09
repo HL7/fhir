@@ -1,0 +1,4740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
+  <id value="2014-02-washington-ts"/>
+  <name value="Terminology Connectathon #1 Test Script"/>
+  <description value="This is the test script the 1st Terminology Services Connectathon"/>
+
+  <fixture id="extensional-case-1">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id value="extensional-case-1"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://hl7.org/fhir/patient-contact-relationship</div>
+        </text>
+        <identifier>
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1" />
+        </identifier>
+        <name value="Terminology Services Connectation #1 Extensional case #1"/>
+        <publisher value="Grahame Grieve"/>
+        <contact>
+          <telecom>
+            <system value="email"/>
+            <value value="grahame@healthintersections.com.au"/>
+          </telecom>
+        </contact>
+        <description value="an enumeration of codes defined by FHIR itself"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <compose>
+          <include>
+            <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+            <concept>
+              <code value="emergency"/>
+              <display value="Emergency"/>
+            </concept>
+            <concept>
+              <code value="family"/>
+              <display value="Family"/>
+            </concept>
+            <concept>
+              <code value="guardian"/>
+              <display value="Guardian"/>
+            </concept>
+            <concept>
+              <code value="friend"/>
+              <display value="Friend"/>
+            </concept>
+            <concept>
+              <code value="partner"/>
+              <display value="Partner"/>
+            </concept>
+            <concept>
+              <code value="work"/>
+              <display value="Work"/>
+            </concept>
+            <concept>
+              <code value="parent"/>
+              <display value="Parent"/>
+            </concept>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="extensional-case-2">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id value="extensional-case-2"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://loinc.org</div>
+        </text>
+        <identifier>
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2" />
+        </identifier>
+        <name value="Terminology Services Connectation #1 Extensional case #2"/>
+        <publisher value="Grahame Grieve"/>
+        <contact>
+          <telecom>
+            <system value="email"/>
+            <value value="grahame@healthintersections.com.au"/>
+          </telecom>
+        </contact>
+        <description value="an enumeration of codes defined by LOINC"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <compose>
+          <include>
+            <system value="http://loinc.org"/>
+            <concept>
+              <code value="11378-7"/>
+              <display value="Systolic blood pressure at First encounter"/>
+            </concept>
+            <concept>
+              <code value="8493-9"/>
+              <display value="Systolic blood pressure 10 hour minimum"/>
+            </concept>
+            <concept>
+              <code value="8494-7"/>
+              <display value="Systolic blood pressure 12 hour minimum"/>
+            </concept>
+            <concept>
+              <code value="8495-4"/>
+              <display value="Systolic blood pressure 24 hour minimum"/>
+            </concept>
+            <concept>
+              <code value="8450-9"/>
+              <display value="Systolic blood pressure--expiration"/>
+            </concept>
+            <concept>
+              <code value="8451-7"/>
+              <display value="Systolic blood pressure--inspiration"/>
+            </concept>
+            <concept>
+              <code value="8452-5"/>
+              <display value="Systolic blood pressure.inspiration - expiration"/>
+            </concept>
+            <concept>
+              <code value="8459-0"/>
+              <display value="Systolic blood pressure--sitting"/>
+            </concept>
+            <concept>
+              <code value="8460-8"/>
+              <display value="Systolic blood pressure--standing"/>
+            </concept>
+            <concept>
+              <code value="8461-6"/>
+              <display value="Systolic blood pressure--supine"/>
+            </concept>
+            <concept>
+              <code value="8479-8"/>
+              <display value="Systolic blood pressure by palpation"/>
+            </concept>
+            <concept>
+              <code value="8480-6"/>
+              <display value="Systolic blood pressure"/>
+            </concept>
+            <concept>
+              <code value="8481-4"/>
+              <display value="Systolic blood pressure 1 hour maximum"/>
+            </concept>
+            <concept>
+              <code value="8482-2"/>
+              <display value="Systolic blood pressure 8 hour maximum"/>
+            </concept>
+            <concept>
+              <code value="8483-0"/>
+              <display value="Systolic blood pressure 10 hour maximum"/>
+            </concept>
+            <concept>
+              <code value="8484-8"/>
+              <display value="Systolic blood pressure 12 hour maximum"/>
+            </concept>
+            <concept>
+              <code value="8485-5"/>
+              <display value="Systolic blood pressure 24 hour maximum"/>
+            </concept>
+            <concept>
+              <code value="8486-3"/>
+              <display value="Systolic blood pressure 1 hour mean"/>
+            </concept>
+            <concept>
+              <code value="8487-1"/>
+              <display value="Systolic blood pressure 8 hour mean"/>
+            </concept>
+            <concept>
+              <code value="8488-9"/>
+              <display value="Systolic blood pressure 10 hour mean"/>
+            </concept>
+            <concept>
+              <code value="8489-7"/>
+              <display value="Systolic blood pressure 12 hour mean"/>
+            </concept>
+            <concept>
+              <code value="8490-5"/>
+              <display value="Systolic blood pressure 24 hour mean"/>
+            </concept>
+            <concept>
+              <code value="8491-3"/>
+              <display value="Systolic blood pressure 1 hour minimum"/>
+            </concept>
+            <concept>
+              <code value="8492-1"/>
+              <display value="Systolic blood pressure 8 hour minimum"/>
+            </concept>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="extensional-case-3">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id value="extensional-case-3"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://snomed.info/sct</div>
+        </text>
+        <identifier>
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3" />
+        </identifier>
+        <name value="Terminology Services Connectation #1 Extensional case #3"/>
+        <publisher value="Grahame Grieve"/>
+        <contact>
+          <telecom>
+            <system value="email"/>
+            <value value="grahame@healthintersections.com.au"/>
+          </telecom>
+        </contact>
+        <description value="an enumeration of codes defined by SNOMED"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <compose>
+          <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+              <code value="371037005"/>
+              <display value="Systolic dysfunction"/>
+            </concept>
+            <concept>
+              <code value="56218007"/>
+              <display value="Systolic hypertension"/>
+            </concept>
+            <concept>
+              <code value="271657009"/>
+              <display value="Systolic cardiac thrill"/>
+            </concept>
+            <concept>
+              <code value="429457004"/>
+              <display value="Systolic essential hypertension"/>
+            </concept>
+            <concept>
+              <code value="417996009"/>
+              <display value="Systolic heart failure"/>
+            </concept>
+            <concept>
+              <code value="44623008"/>
+              <display value="Systolic ejection sound"/>
+            </concept>
+            <concept>
+              <code value="248677002"/>
+              <display value="Systolic flow murmur"/>
+            </concept>
+            <concept>
+              <code value="31574009"/>
+              <display value="Systolic murmur"/>
+            </concept>
+            <concept>
+              <code value="120871000119108"/>
+              <display value="Systolic heart failure stage B"/>
+            </concept>
+            <concept>
+              <code value="120851000119104"/>
+              <display value="Systolic heart failure stage D"/>
+            </concept>
+            <concept>
+              <code value="120861000119102"/>
+              <display value="Systolic heart failure stage C"/>
+            </concept>
+            <concept>
+              <code value="609556008"/>
+              <display value="Systolic heart failure stage A"/>
+            </concept>
+            <concept>
+              <code value="61926008"/>
+              <display value="Basal systolic thrill"/>
+            </concept>
+            <concept>
+              <code value="248672008"/>
+              <display value="Soft systolic murmur"/>
+            </concept>
+            <concept>
+              <code value="65254001"/>
+              <display value="Late systolic murmur"/>
+            </concept>
+            <concept>
+              <code value="89985004"/>
+              <display value="Early systolic murmur"/>
+            </concept>
+            <concept>
+              <code value="248692001"/>
+              <display value="Mid-systolic click"/>
+            </concept>
+            <concept>
+              <code value="248678007"/>
+              <display value="Mitral late systolic murmur"/>
+            </concept>
+            <concept>
+              <code value="443254009"/>
+              <display value="Acute systolic heart failure"/>
+            </concept>
+            <concept>
+              <code value="441481004"/>
+              <display value="Chronic systolic heart failure"/>
+            </concept>
+            <concept>
+              <code value="48965007"/>
+              <display value="Single non-ejection systolic click"/>
+            </concept>
+            <concept>
+              <code value="68519006"/>
+              <display value="Multiple non-ejection systolic clicks"/>
+            </concept>
+            <concept>
+              <code value="134401001"/>
+              <display value="Left ventricular systolic dysfunction"/>
+            </concept>
+            <concept>
+              <code value="416158002"/>
+              <display value="Right ventricular systolic dysfunction"/>
+            </concept>
+            <concept>
+              <code value="68494000"/>
+              <display value="Mid-systolic murmur"/>
+            </concept>
+            <concept>
+              <code value="442304009"/>
+              <display value="Combined systolic and diastolic dysfunction"/>
+            </concept>
+            <concept>
+              <code value="18352002"/>
+              <display value="Abnormal systolic arterial pressure"/>
+            </concept>
+            <concept>
+              <code value="407596008"/>
+              <display value="Echocardiogram shows left ventricular systolic dysfunction"/>
+            </concept>
+            <concept>
+              <code value="371857005"/>
+              <display value="Normal left ventricular systolic function and wall motion"/>
+            </concept>
+            <concept>
+              <code value="430396006"/>
+              <display value="Chronic systolic dysfunction of left ventricle"/>
+            </concept>
+            <concept>
+              <code value="12929001"/>
+              <display value="Normal systolic arterial pressure"/>
+            </concept>
+            <concept>
+              <code value="275285009"/>
+              <display value="On examination - systolic murmur"/>
+            </concept>
+            <concept>
+              <code value="443253003"/>
+              <display value="Acute on chronic systolic heart failure"/>
+            </concept>
+            <concept>
+              <code value="371862006"/>
+              <display value="Depression of left ventricular systolic function"/>
+            </concept>
+            <concept>
+              <code value="81010002"/>
+              <display value="Decreased systolic arterial pressure"/>
+            </concept>
+            <concept>
+              <code value="163030003"/>
+              <display value="On examination - Systolic BP reading"/>
+            </concept>
+            <concept>
+              <code value="163069009"/>
+              <display value="On examination - systolic cardiac thrill"/>
+            </concept>
+            <concept>
+              <code value="18050000"/>
+              <display value="Increased systolic arterial pressure"/>
+            </concept>
+            <concept>
+              <code value="163094005"/>
+              <display value="On examination - pulmonary systolic murmur"/>
+            </concept>
+            <concept>
+              <code value="426263006"/>
+              <display value="Congestive heart failure due to left ventricular systolic dysfunction"/>
+            </concept>
+            <concept>
+              <code value="417081007"/>
+              <display value="Systolic anterior movement of mitral valve"/>
+            </concept>
+            <concept>
+              <code value="248679004"/>
+              <display value="Mitral pansystolic murmur"/>
+            </concept>
+            <concept>
+              <code value="248687003"/>
+              <display value="Presystolic mitral murmur"/>
+            </concept>
+            <concept>
+              <code value="248688008"/>
+              <display value="Presystolic tricuspid murmur"/>
+            </concept>
+            <concept>
+              <code value="71201008"/>
+              <display value="Pansystolic murmur"/>
+            </concept>
+            <concept>
+              <code value="23795000"/>
+              <display value="Presystolic murmur"/>
+            </concept>
+            <concept>
+              <code value="23795000"/>
+              <display value="Presystolic murmur"/>
+            </concept>
+            <concept>
+              <code value="248680001"/>
+              <display value="Tricuspid inspiratory pansystolic murmur"/>
+            </concept>
+            <concept>
+              <code value="248681002"/>
+              <display value="Left parasternal pansystolic murmur"/>
+            </concept>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="extensional-case-4">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id value="extensional-case-4"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://hl7.org/fhir/patient-contact-relationship</div>
+        </text>
+        <identifier>
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4" />
+        </identifier>
+        <name value="Terminology Services Connectation #1 Extensional case #4"/>
+        <publisher value="Grahame Grieve"/>
+        <contact>
+          <telecom>
+            <system value="email"/>
+            <value value="grahame@healthintersections.com.au"/>
+          </telecom>
+        </contact>
+        <description value="A mixed enumeration of codes from FHIR, and from V3 role code"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <compose>
+          <include>
+            <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+            <concept>
+              <code value="emergency"/>
+              <display value="Emergency"/>
+            </concept>
+            <concept>
+              <code value="family"/>
+              <display value="Family"/>
+            </concept>
+            <concept>
+              <code value="guardian"/>
+              <display value="Guardian"/>
+            </concept>
+            <concept>
+              <code value="friend"/>
+              <display value="Friend"/>
+            </concept>
+            <concept>
+              <code value="partner"/>
+              <display value="Partner"/>
+            </concept>
+            <concept>
+              <code value="work"/>
+              <display value="Work"/>
+            </concept>
+          </include>
+          <include>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <concept>
+              <code value="CHILD"/>
+              <display value="child"/>
+            </concept>
+            <concept>
+              <code value="FTH"/>
+              <display value="father"/>
+            </concept>
+            <concept>
+              <code value="MTH"/>
+              <display value="mother"/>
+            </concept>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="intensional-case-1">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id value="intensional-case-1"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">All loinc codes for system = Arterial system</div>
+        </text>
+        <identifier>
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1" />
+        </identifier>
+        <name value="Terminology Services Connectation #1 Intensional case #1"/>
+        <publisher value="Grahame Grieve"/>
+        <contact>
+          <telecom>
+            <system value="email"/>
+            <value value="grahame@healthintersections.com.au"/>
+          </telecom>
+        </contact>
+        <description value="All loinc codes for system = Arterial system"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <compose>
+          <include>
+            <system value="http://loinc.org"/>
+            <filter>
+              <property value="SYSTEM"/>
+              <op value="="/>
+              <value value="Arterial system"/>
+            </filter>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="intensional-case-2">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id value="intensional-case-2"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">All Snomed codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)</div>
+        </text>
+        <identifier>
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2" />
+        </identifier>
+        <name value="Terminology Services Connectation #1 Intensional case #2"/>
+        <publisher value="Grahame Grieve"/>
+        <contact>
+          <telecom>
+            <system value="email"/>
+            <value value="grahame@healthintersections.com.au"/>
+          </telecom>
+        </contact>
+        <description value="All Snomed codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <compose>
+          <include>
+            <system value="http://snomed.info/sct"/>
+            <filter>
+              <property value="concept"/>
+              <op value="is-a"/>
+              <value value="38341003"/>
+            </filter>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="intensional-case-3">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id value="intensional-case-3"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">All Snomed codes that are subsumed by 404684003 (Clinical Finding)</div>
+        </text>
+        <identifier>
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-3" />
+        </identifier>
+        <name value="Terminology Services Connectation #1 Intensional case #3"/>
+        <publisher value="Grahame Grieve"/>
+        <contact>
+          <telecom>
+            <system value="email"/>
+            <value value="grahame@healthintersections.com.au"/>
+          </telecom>
+        </contact>
+        <description value="All Snomed codes that are subsumed by 404684003 (Clinical Finding)"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <compose>
+          <include>
+            <system value="http://snomed.info/sct"/>
+            <filter>
+              <property value="concept"/>
+              <op value="is-a"/>
+              <value value="404684003"/>
+            </filter>
+          </include>
+        </compose>
+      </ValueSet>
+    </resource>
+  </fixture>
+
+  <fixture id="test1-1-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="exact-no-order"/>
+              </extension>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="emergency"/>
+              <display value="Emergency"/>
+          </contains>
+          <contains>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="family"/>
+              <display value="Family"/>
+          </contains>
+          <contains>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="guardian"/>
+              <display value="Guardian"/>
+          </contains>
+          <contains>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="friend"/>
+              <display value="Friend"/>
+          </contains>
+          <contains>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="partner"/>
+              <display value="Partner"/>
+          </contains>
+          <contains>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="work"/>
+              <display value="Work"/>
+          </contains>
+          <contains>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="parent"/>
+              <display value="Parent"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test1-2-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="exact-no-order"/>
+              </extension>
+              <system value="http://loinc.org"/>
+              <code value="11378-7"/>
+              <display value="Systolic blood pressure at First encounter"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8493-9"/>
+              <display value="Systolic blood pressure 10 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8494-7"/>
+              <display value="Systolic blood pressure 12 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8495-4"/>
+              <display value="Systolic blood pressure 24 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8450-9"/>
+              <display value="Systolic blood pressure--expiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8451-7"/>
+              <display value="Systolic blood pressure--inspiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8452-5"/>
+              <display value="Systolic blood pressure.inspiration - expiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8459-0"/>
+              <display value="Systolic blood pressure--sitting"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8460-8"/>
+              <display value="Systolic blood pressure--standing"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8461-6"/>
+              <display value="Systolic blood pressure--supine"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8479-8"/>
+              <display value="Systolic blood pressure by palpation"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8480-6"/>
+              <display value="Systolic blood pressure"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8481-4"/>
+              <display value="Systolic blood pressure 1 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8482-2"/>
+              <display value="Systolic blood pressure 8 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8483-0"/>
+              <display value="Systolic blood pressure 10 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8484-8"/>
+              <display value="Systolic blood pressure 12 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8485-5"/>
+              <display value="Systolic blood pressure 24 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8486-3"/>
+              <display value="Systolic blood pressure 1 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8487-1"/>
+              <display value="Systolic blood pressure 8 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8488-9"/>
+              <display value="Systolic blood pressure 10 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8489-7"/>
+              <display value="Systolic blood pressure 12 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8490-5"/>
+              <display value="Systolic blood pressure 24 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8491-3"/>
+              <display value="Systolic blood pressure 1 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8492-1"/>
+              <display value="Systolic blood pressure 8 hour minimum"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test1-3-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="exact-no-order"/>
+              </extension>
+              <system value="http://snomed.info/sct"/>
+              <code value="371037005"/>
+              <display value="Systolic dysfunction (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="56218007"/>
+              <display value="Systolic hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="271657009"/>
+              <display value="Systolic cardiac thrill (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="429457004"/>
+              <display value="Systolic essential hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="417996009"/>
+              <display value="Systolic heart failure (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="44623008"/>
+              <display value="Systolic ejection sound (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="248677002"/>
+              <display value="Systolic flow murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="31574009"/>
+              <display value="Systolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="120871000119108"/>
+              <display value="Systolic heart failure stage B (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="120851000119104"/>
+              <display value="Systolic heart failure stage D (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="120861000119102"/>
+              <display value="Systolic heart failure stage C (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="609556008"/>
+              <display value="Systolic heart failure stage A (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="61926008"/>
+              <display value="Basal systolic thrill (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="248672008"/>
+              <display value="Soft systolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="65254001"/>
+              <display value="Late systolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="89985004"/>
+              <display value="Early systolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="248692001"/>
+              <display value="Mid-systolic click (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="248678007"/>
+              <display value="Mitral late systolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="443254009"/>
+              <display value="Acute systolic heart failure (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="441481004"/>
+              <display value="Chronic systolic heart failure (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="48965007"/>
+              <display value="Single non-ejection systolic click (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="68519006"/>
+              <display value="Multiple non-ejection systolic clicks (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="134401001"/>
+              <display value="Left ventricular systolic dysfunction (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="416158002"/>
+              <display value="Right ventricular systolic dysfunction (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="68494000"/>
+              <display value="Mid-systolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="442304009"/>
+              <display value="Combined systolic and diastolic dysfunction (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="18352002"/>
+              <display value="Abnormal systolic arterial pressure (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="407596008"/>
+              <display value="Echocardiogram shows left ventricular systolic dysfunction (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="371857005"/>
+              <display value="Normal left ventricular systolic function and wall motion (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="430396006"/>
+              <display value="Chronic systolic dysfunction of left ventricle (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="12929001"/>
+              <display value="Normal systolic arterial pressure (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="275285009"/>
+              <display value="On examination - systolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="443253003"/>
+              <display value="Acute on chronic systolic heart failure (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="371862006"/>
+              <display value="Depression of left ventricular systolic function (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="81010002"/>
+              <display value="Decreased systolic arterial pressure (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="163030003"/>
+              <display value="On examination - Systolic BP reading (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="163069009"/>
+              <display value="On examination - systolic cardiac thrill (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="18050000"/>
+              <display value="Increased systolic arterial pressure (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="163094005"/>
+              <display value="On examination - pulmonary systolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="426263006"/>
+              <display value="Congestive heart failure due to left ventricular systolic dysfunction (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="417081007"/>
+              <display value="Systolic anterior movement of mitral valve (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="248679004"/>
+              <display value="Mitral pansystolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="248687003"/>
+              <display value="Presystolic mitral murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="248688008"/>
+              <display value="Presystolic tricuspid murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="71201008"/>
+              <display value="Pansystolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="23795000"/>
+              <display value="Presystolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="248680001"/>
+              <display value="Tricuspid inspiratory pansystolic murmur (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="248681002"/>
+              <display value="Left parasternal pansystolic murmur (finding)"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test1-5-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="exact-no-order"/>
+              </extension>
+              <system value="http://loinc.org"/>
+              <code value="11328-2"/>
+              <display value="Heart rate at First encounter"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="11377-9"/>
+              <display value="Diastolic blood pressure at First encounter"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="11378-7"/>
+              <display value="Systolic blood pressure at First encounter"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="18708-8"/>
+              <display value="First Heart rate Set"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="34538-9"/>
+              <display value="Orthostatic blood pressure"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="34553-8"/>
+              <display value="Orthostatic blood pressure panel"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="45372-0"/>
+              <display value="Blood pressure systolic and diastolic--post phlebotomy"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="50402-7"/>
+              <display value="Blood pressure systolic and diastolic--after transfusion"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="50403-5"/>
+              <display value="Blood pressure systolic and diastolic--before transfusion"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="55284-4"/>
+              <display value="Blood pressure systolic and diastolic"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="55422-0"/>
+              <display value="Heart rate Encounter maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="55425-3"/>
+              <display value="Heart rate unspecified time mean by Pedometer"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="55426-1"/>
+              <display value="Heart rate unspecified time maximum by Pedometer"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="68999-2"/>
+              <display value="Heart rate --supine"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="69000-8"/>
+              <display value="Heart rate --sitting"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="69001-6"/>
+              <display value="Heart rate --standing"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="69408-3"/>
+              <display value="Orthostatic heart rate [Difference in rate]"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8464-0"/>
+              <display value="Diastolic blood pressure 8 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8465-7"/>
+              <display value="Diastolic blood pressure 10 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8466-5"/>
+              <display value="Diastolic blood pressure 12 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8467-3"/>
+              <display value="Diastolic blood pressure 24 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8468-1"/>
+              <display value="Diastolic blood pressure 1 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8469-9"/>
+              <display value="Diastolic blood pressure 8 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8470-7"/>
+              <display value="Diastolic blood pressure 10 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8471-5"/>
+              <display value="Diastolic blood pressure 12 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8493-9"/>
+              <display value="Systolic blood pressure 10 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8494-7"/>
+              <display value="Systolic blood pressure 12 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8495-4"/>
+              <display value="Systolic blood pressure 24 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8446-7"/>
+              <display value="Diastolic blood pressure--expiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8447-5"/>
+              <display value="Diastolic blood pressure--inspiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8448-3"/>
+              <display value="Mean blood pressure--expiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8449-1"/>
+              <display value="Mean blood pressure--inspiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8450-9"/>
+              <display value="Systolic blood pressure--expiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8451-7"/>
+              <display value="Systolic blood pressure--inspiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8452-5"/>
+              <display value="Systolic blood pressure.inspiration - expiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8453-3"/>
+              <display value="Diastolic blood pressure--sitting"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8454-1"/>
+              <display value="Diastolic blood pressure--standing"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8455-8"/>
+              <display value="Diastolic blood pressure--supine"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8456-6"/>
+              <display value="Mean blood pressure--sitting"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8457-4"/>
+              <display value="Mean blood pressure--standing"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8458-2"/>
+              <display value="Mean blood pressure--supine"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8459-0"/>
+              <display value="Systolic blood pressure--sitting"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8460-8"/>
+              <display value="Systolic blood pressure--standing"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8461-6"/>
+              <display value="Systolic blood pressure--supine"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8462-4"/>
+              <display value="Diastolic blood pressure"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8463-2"/>
+              <display value="Diastolic blood pressure 1 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8472-3"/>
+              <display value="Diastolic blood pressure 24 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8473-1"/>
+              <display value="Diastolic blood pressure 1 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8474-9"/>
+              <display value="Diastolic blood pressure 8 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8475-6"/>
+              <display value="Diastolic blood pressure 10 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8476-4"/>
+              <display value="Diastolic blood pressure 12 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8477-2"/>
+              <display value="Diastolic blood pressure 24 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8478-0"/>
+              <display value="Mean blood pressure"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8479-8"/>
+              <display value="Systolic blood pressure by palpation"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8480-6"/>
+              <display value="Systolic blood pressure"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8481-4"/>
+              <display value="Systolic blood pressure 1 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8482-2"/>
+              <display value="Systolic blood pressure 8 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8483-0"/>
+              <display value="Systolic blood pressure 10 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8484-8"/>
+              <display value="Systolic blood pressure 12 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8485-5"/>
+              <display value="Systolic blood pressure 24 hour maximum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8486-3"/>
+              <display value="Systolic blood pressure 1 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8487-1"/>
+              <display value="Systolic blood pressure 8 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8488-9"/>
+              <display value="Systolic blood pressure 10 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8489-7"/>
+              <display value="Systolic blood pressure 12 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8490-5"/>
+              <display value="Systolic blood pressure 24 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8491-3"/>
+              <display value="Systolic blood pressure 1 hour minimum"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8492-1"/>
+              <display value="Systolic blood pressure 8 hour minimum"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test1-6-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="exact-no-order"/>
+              </extension>
+              <system value="http://snomed.info/sct"/>
+              <code value="1201005"/>
+              <display value="Benign essential hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="8218002"/>
+              <display value="Chronic hypertension complicating AND/OR reason for care during childbirth"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="8762007"/>
+              <display value="Chronic hypertension in obstetric context (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="9901000"/>
+              <display value="Essential hypertension complicating AND/OR reason for care during puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="10562009"/>
+              <display value="Malignant hypertension complicating AND/OR reason for care during childbirth (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="10725009"/>
+              <display value="Benign hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="14973001"/>
+              <display value="Renal sclerosis with hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="15394000"/>
+              <display value="Toxaemia of pregnancy"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="18416000"/>
+              <display value="Essential hypertension complicating AND/OR reason for care during childbirth (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="19769006"/>
+              <display value="High-renin essential hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="23130000"/>
+              <display value="Paroxysmal hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="23717007"/>
+              <display value="Benign essential hypertension complicating AND/OR reason for care during pregnancy (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="23786008"/>
+              <display value="Malignant hypertension complicating AND/OR reason for care during puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="24042004"/>
+              <display value="Chronic hypertension complicating AND/OR reason for care during puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="26078007"/>
+              <display value="Hypertension secondary to renal disease complicating AND/OR reason for care during childbirth (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="28119000"/>
+              <display value="Renal hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="29259002"/>
+              <display value="Malignant hypertension complicating AND/OR reason for care during pregnancy (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="31407004"/>
+              <display value="Pre-existing hypertension complicating AND/OR reason for care during puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="31992008"/>
+              <display value="Secondary hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="34694006"/>
+              <display value="Pre-existing hypertension complicating AND/OR reason for care during childbirth (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="35303009"/>
+              <display value="Benign essential hypertension complicating AND/OR reason for care during puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="37618003"/>
+              <display value="Chronic hypertension complicating AND/OR reason for care during pregnancy (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="39018007"/>
+              <display value="Renal arterial hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="39727004"/>
+              <display value="Hypertension secondary to renal disease complicating AND/OR reason for care during puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="41114007"/>
+              <display value="Mild pre-eclampsia (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="46481004"/>
+              <display value="Low-renin essential hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="46764007"/>
+              <display value="Severe pre-eclampsia (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="48146000"/>
+              <display value="Diastolic hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="48194001"/>
+              <display value="Pregnancy-induced hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="48552006"/>
+              <display value="Hypertension secondary to renal disease complicating AND/OR reason for care during pregnancy (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="52698002"/>
+              <display value="Transient hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="56218007"/>
+              <display value="Systolic hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="57684003"/>
+              <display value="Parenchymal renal hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="59621000"/>
+              <display value="Essential hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="59720008"/>
+              <display value="Sustained diastolic hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="59997006"/>
+              <display value="Endocrine hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="62275004"/>
+              <display value="Hypertensive episode (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="63287004"/>
+              <display value="Benign essential hypertension in obstetric context (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="65402008"/>
+              <display value="Pre-existing hypertension complicating AND/OR reason for care during pregnancy (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="65518004"/>
+              <display value="Labile diastolic hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="67359005"/>
+              <display value="Pre-eclampsia added to pre-existing hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="69909000"/>
+              <display value="Eclampsia added to pre-existing hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="70272006"/>
+              <display value="Malignant hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="71874008"/>
+              <display value="Benign essential hypertension complicating AND/OR reason for care during childbirth (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="72022006"/>
+              <display value="Essential hypertension in obstetric context (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="73410007"/>
+              <display value="Benign secondary renovascular hypertension"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="74451002"/>
+              <display value="Secondary diastolic hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="78808002"/>
+              <display value="Essential hypertension complicating AND/OR reason for care during pregnancy (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="78975002"/>
+              <display value="Malignant essential hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="81626002"/>
+              <display value="Malignant hypertension in obstetric context (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="84094009"/>
+              <display value="Rebound hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="86041002"/>
+              <display value="Pre-existing hypertension in obstetric context (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="89242004"/>
+              <display value="Malignant secondary hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="95605009"/>
+              <display value="Hemolysis-elevated liver enzymes-low platelet count syndrome (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="111438007"/>
+              <display value="Hypertension secondary to renal disease in obstetric context (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="123799005"/>
+              <display value="Renovascular hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="123800009"/>
+              <display value="Goldblatt hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="169465000"/>
+              <display value="Hypertension induced by oral contraceptive pill (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="194783001"/>
+              <display value="Secondary malignant renovascular hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="194785008"/>
+              <display value="Secondary benign hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="194788005"/>
+              <display value="Hypertension secondary to endocrine disorder (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="194791005"/>
+              <display value="Hypertension secondary to drug (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198941007"/>
+              <display value="Hypertension complicating pregnancy, childbirth and the puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198942000"/>
+              <display value="Benign essential hypertension complicating pregnancy, childbirth and the puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198944004"/>
+              <display value="Benign essential hypertension complicating pregnancy, childbirth and the puerperium - delivered (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198945003"/>
+              <display value="Benign essential hypertension complicating pregnancy, childbirth and the puerperium - delivered with postnatal complication (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198946002"/>
+              <display value="Benign essential hypertension complicating pregnancy, childbirth and the puerperium - not delivered (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198947006"/>
+              <display value="Benign essential hypertension complicating pregnancy, childbirth and the puerperium with postnatal complication (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198949009"/>
+              <display value="Renal hypertension complicating pregnancy, childbirth and the puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198951008"/>
+              <display value="Renal hypertension complicating pregnancy, childbirth and the puerperium - delivered (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198952001"/>
+              <display value="Renal hypertension complicating pregnancy, childbirth and the puerperium - delivered with postnatal complication (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198953006"/>
+              <display value="Renal hypertension complicating pregnancy, childbirth and the puerperium - not delivered (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198954000"/>
+              <display value="Renal hypertension complicating pregnancy, childbirth and the puerperium with postnatal complication (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198965005"/>
+              <display value="Transient hypertension of pregnancy - delivered"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198966006"/>
+              <display value="Transient hypertension of pregnancy - delivered with postnatal complication"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198967002"/>
+              <display value="Transient hypertension of pregnancy - not delivered (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198968007"/>
+              <display value="Transient hypertension of pregnancy with postnatal complication (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198983002"/>
+              <display value="Severe pre-eclampsia - delivered (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198984008"/>
+              <display value="Severe pre-eclampsia - delivered with postnatal complication (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198985009"/>
+              <display value="Severe pre-eclampsia - not delivered (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198986005"/>
+              <display value="Severe pre-eclampsia with postnatal complication (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198997005"/>
+              <display value="Pre-eclampsia or eclampsia with pre-existing hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="198999008"/>
+              <display value="Pre-eclampsia or eclampsia with pre-existing hypertension - delivered (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="199000005"/>
+              <display value="Pre-eclampsia or eclampsia with pre-existing hypertension - delivered with postnatal complication (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="199002002"/>
+              <display value="Pre-eclampsia or eclampsia with pre-existing hypertension - not delivered (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="199003007"/>
+              <display value="Pre-eclampsia or eclampsia with pre-existing hypertension with postnatal complication (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="199005000"/>
+              <display value="Pre-existing hypertension complicating pregnancy, childbirth and puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="199007008"/>
+              <display value="Pre-existing hypertensive heart and renal disease complicating pregnancy, childbirth and the puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="199008003"/>
+              <display value="Pre-existing secondary hypertension complicating pregnancy, childbirth and puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="206596003"/>
+              <display value="Neonatal hypertension"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="237279007"/>
+              <display value="Transient hypertension of pregnancy (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="237281009"/>
+              <display value="Moderate proteinuric hypertension of pregnancy (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="237282002"/>
+              <display value="Impending eclampsia (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="276789009"/>
+              <display value="Labile hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="288250001"/>
+              <display value="Maternal hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="307632004"/>
+              <display value="Non-proteinuric hypertension of pregnancy (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="308551004"/>
+              <display value="Gestational hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="367390009"/>
+              <display value="Hypertension in the obstetric context (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="371125006"/>
+              <display value="Labile essential hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="397748008"/>
+              <display value="Hypertension with albuminuria (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="398254007"/>
+              <display value="Pre-eclampsia (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="427889009"/>
+              <display value="Hypertension associated with transplantation (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="428575007"/>
+              <display value="Hypertension secondary to kidney transplant (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="429198000"/>
+              <display value="Exertional hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="429457004"/>
+              <display value="Systolic essential hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="443482000"/>
+              <display value="Hypertensive urgency (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="541000119105"/>
+              <display value="Hypertension complicating pregnancy, childbirth and the puerperium, antepartum (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="5501000119106"/>
+              <display value="Postoperative hypertension (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="132721000119104"/>
+              <display value="Hypertensive emergency (disorder)"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+
+  <fixture id="test2-1-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
+                <valueInteger value="5"/>
+              </extension>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="open"/>
+              </extension>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="family"/>
+              <display value="Family"/>
+          </contains>
+          <contains>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="friend"/>
+              <display value="Friend"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test2-2-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
+                <valueInteger value="18"/>
+              </extension>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="open"/>
+              </extension>
+              <system value="http://loinc.org"/>
+              <code value="8486-3"/>
+              <display value="Systolic blood pressure 1 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8487-1"/>
+              <display value="Systolic blood pressure 8 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8488-9"/>
+              <display value="Systolic blood pressure 10 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8489-7"/>
+              <display value="Systolic blood pressure 12 hour mean"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8490-5"/>
+              <display value="Systolic blood pressure 24 hour mean"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test2-3-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="open"/>
+              </extension>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
+                <valueInteger value="25"/>
+              </extension>
+              <system value="http://snomed.info/sct"/>
+              <code value="417996009"/>
+              <display value="Systolic heart failure (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="120871000119108"/>
+              <display value="Systolic heart failure stage B (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="120851000119104"/>
+              <display value="Systolic heart failure stage D (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="120861000119102"/>
+              <display value="Systolic heart failure stage C (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="609556008"/>
+              <display value="Systolic heart failure stage A (finding)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="443254009"/>
+              <display value="Acute systolic heart failure (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="441481004"/>
+              <display value="Chronic systolic heart failure (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="443253003"/>
+              <display value="Acute on chronic systolic heart failure (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="426263006"/>
+              <display value="Congestive heart failure due to left ventricular systolic dysfunction (disorder)"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test2-4-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="open"/>
+              </extension>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
+                <valueInteger value="8"/>
+              </extension>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="family"/>
+              <display value="Family"/>
+          </contains>
+          <contains>
+              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <code value="friend"/>
+              <display value="Friend"/>
+          </contains>
+          <contains>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="FTH"/>
+              <display value="father"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test2-5-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="open"/>
+              </extension>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
+                <valueInteger value="25"/>
+              </extension>
+              <system value="http://loinc.org"/>
+              <code value="8446-7"/>
+              <display value="Diastolic blood pressure--expiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8448-3"/>
+              <display value="Mean blood pressure--expiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8450-9"/>
+              <display value="Systolic blood pressure--expiration"/>
+          </contains>
+          <contains>
+              <system value="http://loinc.org"/>
+              <code value="8452-5"/>
+              <display value="Systolic blood pressure.inspiration - expiration"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test2-6-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+                <valueCode value="open"/>
+              </extension>
+              <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
+                <valueInteger value="18"/>
+              </extension>
+              <system value="http://snomed.info/sct"/>
+              <code value="8218002"/>
+              <display value="Chronic hypertension complicating AND/OR reason for care during childbirth"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="8762007"/>
+              <display value="Chronic hypertension in obstetric context (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="24042004"/>
+              <display value="Chronic hypertension complicating AND/OR reason for care during puerperium (disorder)"/>
+          </contains>
+          <contains>
+              <system value="http://snomed.info/sct"/>
+              <code value="37618003"/>
+              <display value="Chronic hypertension complicating AND/OR reason for care during pregnancy (disorder)"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+  <fixture id="test2-7-min">
+    <resource>
+      <ValueSet xmlns="http://hl7.org/fhir">
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+        <meta>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+        </meta>
+        <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-3"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <expansion>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <contains>
+            <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+              <valueCode value="open"/>
+            </extension>
+            <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
+              <valueInteger value="100"/>
+            </extension>
+            <system value="http://snomed.info/sct"/>
+            <code value="57883007"/>
+            <display value="Renin test diet (finding)"/>
+          </contains>
+          <contains>
+            <system value="http://snomed.info/sct"/>
+            <code value="95583008"/>
+            <display value="Ectopic renin secretion (finding)"/>
+          </contains>
+          <contains>
+            <system value="http://snomed.info/sct"/>
+            <code value="102799005"/>
+            <display value="Normal renin secretion (finding)"/>
+          </contains>
+          <contains>
+            <system value="http://snomed.info/sct"/>
+            <code value="102800009"/>
+            <display value="Abnormal renin secretion (finding)"/>
+          </contains>
+          <contains>
+            <system value="http://snomed.info/sct"/>
+            <code value="102802001"/>
+            <display value="Decreased renin secretion (finding)"/>
+          </contains>
+          <contains>
+            <system value="http://snomed.info/sct"/>
+            <code value="102801008"/>
+            <display value="Increased renin secretion (finding)"/>
+          </contains>
+          <contains>
+            <system value="http://snomed.info/sct"/>
+            <code value="102803006"/>
+            <display value="Absence of renin secretion (disorder)"/>
+          </contains>
+          <contains>
+            <system value="http://snomed.info/sct"/>
+            <code value="124504004"/>
+            <display value="Deficiency of renin (disorder)"/>
+          </contains>
+          <contains>
+            <system value="http://snomed.info/sct"/>
+            <code value="307618001"/>
+            <display value="Juxtaglomerular tumor (disorder)"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </fixture>
+
+  <fixture id="test3-1-a-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="empty"/>
+          </extension>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-1-b-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-1-c-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+
+  <fixture id="test3-2-a-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="empty"/>
+          </extension>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-2-b-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="warning"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-2-c-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-2-d-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-2-e-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+
+  <fixture id="test3-3-a-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="empty"/>
+          </extension>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-3-b-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="warning"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-3-c-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-3-d-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-3-e-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+
+  <fixture id="test3-4-a-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="empty"/>
+          </extension>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-4-b-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="warning"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-4-c-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-4-d-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-4-e-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+
+  <fixture id="test3-5-a-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="empty"/>
+          </extension>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-5-b-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="warning"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-5-c-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-5-d-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-5-e-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+
+  <fixture id="test3-6-a-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="empty"/>
+          </extension>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-6-b-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="warning"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-6-c-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-6-d-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-6-e-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+
+  <fixture id="test3-7-a-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="empty"/>
+          </extension>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-7-b-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="warning"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-7-c-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-7-d-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test3-7-e-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="error"/>
+          <type>
+            <system value="http://hl7.org/fhir/issue-type"/>
+            <code value="code-unknown"/>
+          </type>
+          <details><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"><valueString value="!"/></extension></details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+
+  <fixture id="test4-1-a-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="empty"/>
+          </extension>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+  <fixture id="test4-1-b-min">
+    <resource>
+      <OperationOutcome xmlns="http://hl7.org/fhir">
+        <issue>
+          <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
+            <valueCode value="minimum-no-order"/>
+          </extension>
+          <severity value="warning"/>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </fixture>
+
+  <setup>
+    <operation>
+      <type value="create"/>
+      <source value="extensional-case-1"/>
+    </operation>
+    <operation>
+      <type value="create"/>
+      <source value="extensional-case-2"/>
+    </operation>
+    <operation>
+      <type value="create"/>
+      <source value="extensional-case-3"/>
+    </operation>
+    <operation>
+      <type value="create"/>
+      <source value="extensional-case-4"/>
+    </operation>
+    <operation>
+      <type value="create"/>
+      <source value="intensional-case-1"/>
+    </operation>
+    <operation>
+      <type value="create"/>
+      <source value="intensional-case-2"/>
+    </operation>
+    <operation>
+      <type value="create"/>
+      <source value="intensional-case-3"/>
+    </operation>
+  </setup>
+
+<!-- These tests are from suite1 - Simple Expansion Tests -->
+  <test id="test1-1">
+    <name value="Fixed expansion #1"/>
+    <description value="Expanding a fixed limited value set, case #1"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="extensional-case-1"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test1-1-min"/>
+    </operation>
+  </test>
+  <test id="test1-2">
+    <name value="Fixed expansion #2"/>
+    <description value="Expanding a fixed limited value set, case #2"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="extensional-case-2"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test1-2-min"/>
+    </operation>
+  </test>
+  <test id="test1-3">
+    <name value="Fixed expansion #3"/>
+    <description value="Expanding a fixed limited value set, case #3"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="extensional-case-3"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test1-3-min"/>
+    </operation>
+  </test>
+  <test id="test1-4">
+    <name value="Fixed expansion #4"/>
+    <description value="Expanding a fixed limited value set, case #4"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="extensional-case-4"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/>
+      <parameter value="fhir:ValueSet/fhir:id/fhir:extension/@url"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/>
+      <parameter value="fhir:ValueSet/fhir:meta/fhir:lastUpdated/fhir:extension/@url"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4"/>
+      <parameter value="fhir:ValueSet/fhir:identifier/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="draft"/>
+      <parameter value="fhir:ValueSet/fhir:status/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="true"/>
+      <parameter value="fhir:ValueSet/fhir:experimental/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:timestamp/fhir:extension/@url"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:extension/@url"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="exact-no-order"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:extension/fhir:valueCode/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:system/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="emergency"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="Emergency"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:display/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="family"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="Family"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:display/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="guardian"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="Guardian"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:display/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="friend"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="Friend"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:display/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="partner"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="Partner"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:display/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="work"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="Work"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:display/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="CHILD"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="child"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:display/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="FTH"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="father"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:display/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="MTH"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="mother"/>
+      <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:display/@value"/>
+    </operation>
+  </test>
+  <test id="test1-5">
+    <name value="Fixed expansion #5"/>
+    <description value="Expanding a fixed limited value set, case #5"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="intensional-case-1"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test1-5-min"/>
+    </operation>
+  </test>
+  <test id="test1-6">
+    <name value="Fixed expansion #6"/>
+    <description value="Expanding a fixed limited value set, case #6"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="intensional-case-2"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test1-6-min"/>
+    </operation>
+  </test>
+  <test id="test1-7">
+    <name value="Fixed expansion #7"/>
+    <description value="Expanding a fixed limited value set, case #7"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="intensional-case-3"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="error"/>
+      <parameter value="fhir:OperationOutcome/fhir:issue/fhir:severity/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="http://hl7.org/fhir/issue-type"/>
+      <parameter value="fhir:OperationOutcome/fhir:issue/fhir:type/fhir:system/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="too-costly"/>
+      <parameter value="fhir:OperationOutcome/fhir:issue/fhir:type/fhir:code/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/>
+      <parameter value="fhir:OperationOutcome/fhir:issue/fhir:details/fhir:extension/@url"/>
+    </operation>
+  </test>
+
+<!-- These tests are from suite2 - Expansion Tests with a text filter -->
+
+  <test id="test2-1">
+    <name value="Fixed expansion #1 + text filter"/>
+    <description value="Expanding a fixed limited value set with a text filter 'f', case #1"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="extensional-case-1"/>
+      <parameter value="filter=f"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test2-1-min"/>
+    </operation>
+  </test>
+  <test id="test2-2">
+    <name value="Fixed expansion with text filter #2"/>
+    <description value="Expanding a fixed limited value set with a text filter 'mean', case #2"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="extensional-case-2"/>
+      <parameter value="filter=mean"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test2-2-min"/>
+    </operation>
+  </test>
+  <test id="test2-3">
+    <name value="Fixed expansion with text filter #3"/>
+    <description value="Expanding a fixed limited value set with text filter 'fail', case #3"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="extensional-case-3"/>
+      <parameter value="filter=fail"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test2-3-min"/>
+    </operation>
+  </test>
+  <test id="test2-4">
+    <name value="Fixed expansion with a text filter #4"/>
+    <description value="Expanding a fixed limited value set with a text filter 'f', case #4"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="extensional-case-4"/>
+      <parameter value="filter=f"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test2-4-min"/>
+    </operation>
+  </test>
+  <test id="test2-5">
+    <name value="Intensional expansion with text filter #1"/>
+    <description value="Expanding an intensional value set with text filter 'exp', case #1"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="intensional-case-1"/>
+      <parameter value="filter=exp"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test2-5-min"/>
+    </operation>
+  </test>
+  <test id="test2-6">
+    <name value="intensional expansion with text filter #2"/>
+    <description value="Expanding an intensional value set with text filter = chronic, case #2"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="intensional-case-2"/>
+      <parameter value="filter=chronic"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test2-6-min"/>
+    </operation>
+  </test>
+  <test id="test2-7">
+    <name value="intensional expansion with text filter #3"/>
+    <description value="Expanding an intensional value set with text filter='renin', case #3"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $expand"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$expand"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$expand"/>
+      <target value="intensional-case-3"/>
+      <parameter value="filter=renin"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test2-7-min"/>
+    </operation>
+  </test>
+
+<!-- These tests are from suite3 - Basic Validation Tests -->
+
+  <test id="test3-1-a">
+    <name value="Validation valueset #1 valid"/>
+    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-1"/>
+      <parameter value="system=http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="code=emergency"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-1-a-min"/>
+    </operation>
+  </test>
+  <test id="test3-1-b">
+    <name value="Validation valueset #1 invalid system"/>
+    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationshipX}emergency is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-1"/>
+      <parameter value="system=http://hl7.org/fhir/patient-contact-relationshipX"/>
+      <parameter value="code=emergency"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-1-b-min"/>
+    </operation>
+  </test>
+  <test id="test3-1-c">
+    <name value="Validation valueset #1 invalid code"/>
+    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergencyX is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-1"/>
+      <parameter value="system=http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="code=emergencyX"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-1-c-min"/>
+    </operation>
+  </test>
+
+  <test id="test3-2-a">
+    <name value="Validation valueset #2 valid"/>
+    <description value="Check that the code {http://loinc.org}11378-7 'Systolic blood pressure at First encounter' is in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-2"/>
+      <parameter value="system=http://loinc.org"/>
+      <parameter value="code=11378-7"/>
+      <parameter value="display=Systolic%20blood%20pressure%20at%20First%20encounter"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-2-a-min"/>
+    </operation>
+  </test>
+  <test id="test3-2-b">
+    <name value="Validation valueset #2 valid code invalid display"/>
+    <description value="Check that the code {http://loinc.org}11378-7 'Systolic blood pressure at First encounter' is in the value set, but supply a wrong display"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-2"/>
+      <parameter value="system=http://loinc.org"/>
+      <parameter value="code=11378-7"/>
+      <parameter value="display=Systolic%20blood%20pressure%20at%20First%20encounterX"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-2-b-min"/>
+    </operation>
+  </test>
+  <test id="test3-2-c">
+    <name value="Validation valueset #2 invalid system"/>
+    <description value="Check that the code {http://loinc.orgX}11378-7 'Systolic blood pressure at First encounter' is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-2"/>
+      <parameter value="system=http://loinc.orgX"/>
+      <parameter value="code=11378-7"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-2-c-min"/>
+    </operation>
+  </test>
+  <test id="test3-2-d">
+    <name value="Validation valueset #2 invalid code"/>
+    <description value="Check that the code {http://loinc.org}11378-7X 'Systolic blood pressure at First encounter' is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-2"/>
+      <parameter value="system=http://loinc.org"/>
+      <parameter value="code=11378-7X"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-2-d-min"/>
+    </operation>
+  </test>
+  <test id="test3-2-e">
+    <name value="Validation valueset #2 valid code not in valid set"/>
+    <description value="Check that the code {http://loinc.org}13457-7 is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-2"/>
+      <parameter value="system=http://loinc.org"/>
+      <parameter value="code=13457-7"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-2-e-min"/>
+    </operation>
+  </test>
+
+  <test id="test3-3-a">
+    <name value="Validation valueset #3 valid"/>
+    <description value="Check that the code {http://snomed.info/sct}371037005 'Systolic dysfunction' is in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-3"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=371037005"/>
+      <parameter value="display=Systolic%20dysfunction"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-3-a-min"/>
+    </operation>
+  </test>
+  <test id="test3-3-b">
+    <name value="Validation valueset #3 valid code invalid display"/>
+    <description value="Check that the code {http://snomed.info/sct}371037005 'Systolic dysfunction' is in the value set, but give the wrong display`"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-3"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=371037005"/>
+      <parameter value="display=Systolic%20dysfunctionX"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-3-b-min"/>
+    </operation>
+  </test>
+  <test id="test3-3-c">
+    <name value="Validation valueset #3 invalid system"/>
+    <description value="Check that the code {http://snomed.info/sctX}371037005 is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-3"/>
+      <parameter value="http://snomed.info/sctX"/>
+      <parameter value="code=371037005"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-3-c-min"/>
+    </operation>
+  </test>
+  <test id="test3-3-d">
+    <name value="Validation valueset #3 invalid code"/>
+    <description value="Check that the code {http://snomed.info/sct}371037005X is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-3"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=371037005X"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-3-d-min"/>
+    </operation>
+  </test>
+  <test id="test3-3-e">
+    <name value="Validation valueset #3 valid code not in valid set"/>
+    <description value="Check that the code {http://snomed.info/sct}102261002 is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-3"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=102261002"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-3-e-min"/>
+    </operation>
+  </test>
+
+  <test id="test3-4-a">
+    <name value="Validation valueset #4 valid"/>
+    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCode}CHILD 'child' is in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-4"/>
+      <parameter value="system=http://hl7.org/fhir/v3/RoleCode"/>
+      <parameter value="code=CHILD"/>
+      <parameter value="display=child"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-4-a-min"/>
+    </operation>
+  </test>
+  <test id="test3-4-b">
+    <name value="Validation valueset #4 valid code invalid display"/>
+    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCode}CHILD 'child' is in the value set, but give the wrong display`"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-4"/>
+      <parameter value="system=http://hl7.org/fhir/v3/RoleCode"/>
+      <parameter value="code=CHILD"/>
+      <parameter value="display=childX"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-4-b-min"/>
+    </operation>
+  </test>
+  <test id="test3-4-c">
+    <name value="Validation valueset #4 invalid system"/>
+    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCodeX}CHILD is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-4"/>
+      <parameter value="system=http://hl7.org/fhir/v3/RoleCodeX"/>
+      <parameter value="code=CHILD"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-4-c-min"/>
+    </operation>
+  </test>
+  <test id="test3-4-d">
+    <name value="Validation valueset #4 invalid code"/>
+    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCode}child is not in the value set (note: this coding system is case sensitive, so 'CHILD' is valid, but 'child' is not"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-4"/>
+      <parameter value="system=http://hl7.org/fhir/v3/RoleCode"/>
+      <parameter value="code=child"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-4-d-min"/>
+    </operation>
+  </test>
+  <test id="test3-4-e">
+    <name value="Validation valueset #4 valid code not in valid set"/>
+    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCode}FULLINS is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-4"/>
+      <parameter value="system=http://hl7.org/fhir/v3/RoleCode"/>
+      <parameter value="code=FULLINS"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-4-e-min"/>
+    </operation>
+  </test>
+
+  <test id="test3-5-a">
+    <name value="Validation valueset #5 valid"/>
+    <description value="Check that the code {http://loinc.org}11377-9 'Diastolic blood pressure at First encounter' is in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-1"/>
+      <parameter value="system=http://loinc.org"/>
+      <parameter value="code=11377-9"/>
+      <parameter value="display=Diastolic%20blood%20pressure%20at%20First%20encounter"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-5-a-min"/>
+    </operation>
+  </test>
+  <test id="test3-5-b">
+    <name value="Validation valueset #5 valid code invalid display"/>
+    <description value="Check that the code {http://loinc.org}11377-9 'Diastolic blood pressure at First encounter' is in the value set, but supply a wrong display"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-1"/>
+      <parameter value="http://loinc.org"/>
+      <parameter value="code=11377-9"/>
+      <parameter value="display=Diastolic%20blood%20pressure%20at%20First%20encounterX"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-5-b-min"/>
+    </operation>
+  </test>
+  <test id="test3-5-c">
+    <name value="Validation valueset #5 invalid system"/>
+    <description value="Check that the code {http://loinc.orgX}11377-9 is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-1"/>
+      <parameter value="system=http://loinc.orgX"/>
+      <parameter value="code=11377-9"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-5-c-min"/>
+    </operation>
+  </test>
+  <test id="test3-5-d">
+    <name value="Validation valueset #5 invalid code"/>
+    <description value="Check that the code {http://loinc.org}11377-9X is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-1"/>
+      <parameter value="system=http://loinc.org"/>
+      <parameter value="code=11377-9X"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-5-d-min"/>
+    </operation>
+  </test>
+  <test id="test3-5-e">
+    <name value="Validation valueset #5 valid code not in valid set"/>
+    <description value="Check that the code {http://loinc.org}13457-7 is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-1"/>
+      <parameter value="system=http://loinc.org"/>
+      <parameter value="code=13457-7"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-5-e-min"/>
+    </operation>
+  </test>
+
+  <test id="test3-6-a">
+    <name value="Validation valueset #6 valid"/>
+    <description value="Check that the code {http://snomed.info/sct}8762007 'Chronic hypertension in obstetric context (disorder)' is in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-2"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=8762007"/>
+      <parameter value="display=Chronic%20hypertension%20in%20obstetric%20context%20(disorder)"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-6-a-min"/>
+    </operation>
+  </test>
+  <test id="test3-6-b">
+    <name value="Validation valueset #6 valid code invalid display"/>
+    <description value="Check that the code {http://snomed.info/sct}8762007 'Chronic hypertension in obstetric context (disorder)' is in the value set, but give the wrong display`"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-2"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=8762007"/>
+      <parameter value="display=Chronic%20hypertension%20in%20obstetric%20context%20(disorder)X"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-6-b-min"/>
+    </operation>
+  </test>
+  <test id="test3-6-c">
+    <name value="Validation valueset #6 invalid system"/>
+    <description value="Check that the code {http://snomed.info/sctX}8762007 is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-2"/>
+      <parameter value="system=http://snomed.info/sctX"/>
+      <parameter value="code=8762007"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-6-c-min"/>
+    </operation>
+  </test>
+  <test id="test3-6-d">
+    <name value="Validation valueset #6 invalid code"/>
+    <description value="Check that the code {http://snomed.info/sct}8762007X is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-2"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=8762007X"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-6-d-min"/>
+    </operation>
+  </test>
+  <test id="test3-6-e">
+    <name value="Validation valueset #6 valid code not in valid set"/>
+    <description value="Check that the code {http://snomed.info/sct}102261002 is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-2"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=102261002"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-6-e-min"/>
+    </operation>
+  </test>
+
+  <test id="test3-7-a">
+    <name value="Validation valueset #7 valid"/>
+    <description value="Check that the code {http://snomed.info/sct}8762007 'Chronic hypertension in obstetric context (disorder)' is in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-3"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=8762007"/>
+      <parameter value="display=Chronic%20hypertension%20in%20obstetric%20context%20(disorder)"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-7-a-min"/>
+    </operation>
+  </test>
+  <test id="test3-7-b">
+    <name value="Validation valueset #7 valid code invalid display"/>
+    <description value="Check that the code {http://snomed.info/sct}8762007 'Chronic hypertension in obstetric context (disorder)' is in the value set, but give the wrong display`"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-3"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=8762007"/>
+      <parameter value="display=Chronic%20hypertension%20in%20obstetric%20context%20(disorder)X"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-7-b-min"/>
+    </operation>
+  </test>
+  <test id="test3-7-c">
+    <name value="Validation valueset #7 invalid system"/>
+    <description value="Check that the code {http://snomed.info/sctX}8762007 is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-3"/>
+      <parameter value="system=http://snomed.info/sctX"/>
+      <parameter value="code=8762007"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-7-c-min"/>
+    </operation>
+  </test>
+  <test id="test3-7-d">
+    <name value="Validation valueset #7 invalid code"/>
+    <description value="Check that the code {http://snomed.info/sct}8762007X is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-3"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=8762007X"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-7-d-min"/>
+    </operation>
+  </test>
+  <test id="test3-7-e">
+    <name value="Validation valueset #7 valid code not in valid set"/>
+    <description value="Check that the code {http://snomed.info/sct}102261002 is not in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="intensional-case-3"/>
+      <parameter value="system=http://snomed.info/sct"/>
+      <parameter value="code=102261002"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test3-7-e-min"/>
+    </operation>
+  </test>
+
+<!-- These tests are from suite4 - Validation Tests - API variation -->
+  <test id="test4-1-a">
+    <name value="Valid - system/code parameters"/>
+    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-1"/>
+      <parameter value="system=http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="code=emergency"/>
+      <parameter value="display=Emergency"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="200"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test4-1-a-min"/>
+    </operation>
+  </test>
+  <test id="test4-1-b">
+    <name value="Invalid display - system/code parameters"/>
+    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationshipX}emergency is in the value set, but give the wrong display"/>
+    <metadata>
+      <link>
+        <url value="http://fhir.org/spec.html"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="ValueSet"/>
+        <operations value="create, $validate"/>
+      </requires>
+      <validates>
+        <type value="ValueSet"/>
+        <operations value="$validate"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="$validate"/>
+      <target value="extensional-case-1"/>
+      <parameter value="system=http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="code=emergency"/>
+      <parameter value="display=EmergencyX"/>
+    </operation>
+    <operation>
+      <type value="assertion_false"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="test4-1-b-min"/>
+    </operation>
+  </test>
+  <!-- Tests below require POSTing data with the $validate operation... -->
+  <!-- <test id="test4-2-a"></test> -->
+  <!-- <test id="test4-2-b"></test> -->
+  <!-- <test id="test4-3-a"></test> -->
+  <!-- <test id="test4-3-b"></test> -->
+  <!-- <test id="test4-4-a"></test> -->
+  <!-- <test id="test4-4-b"></test> -->
+
+  <teardown>
+    <operation>
+      <type value="delete"/>
+      <target value="extensional-case-1"/>
+    </operation>
+    <operation>
+      <type value="delete"/>
+      <target value="extensional-case-2"/>
+    </operation>
+    <operation>
+      <type value="delete"/>
+      <target value="extensional-case-3"/>
+    </operation>
+    <operation>
+      <type value="delete"/>
+      <target value="extensional-case-4"/>
+    </operation>
+    <operation>
+      <type value="delete"/>
+      <target value="intensional-case-1"/>
+    </operation>
+    <operation>
+      <type value="delete"/>
+      <target value="intensional-case-2"/>
+    </operation>
+    <operation>
+      <type value="delete"/>
+      <target value="intensional-case-3"/>
+    </operation>
+  </teardown>
+
+</TestScript>

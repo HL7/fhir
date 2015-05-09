@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
+  <id value="update"/>
+  <name value="Update Test Script"/>
+  <description value="Test Script for update of the patient resource"/>
+  <fixture id="example-patient"><uri value="/patient/patient-example.xml"/></fixture>
+  <fixture id="example-patient-updated"><uri value="/patient/patient-example-updated.xml"/></fixture>
+  <setup>
+    <operation>
+      <type value="create"/>
+      <source value="example-patient"/>
+    </operation>
+  </setup>
+  <test id="UPDATE01">
+    <name value="Update Patient"/>
+    <description value="Update a patient and validate response."/>
+    <metadata>
+      <link>
+        <url value="http://www.hl7.org/implement/standards/fhir/http.html#update"/>
+        <description value="Update Operation"/>
+      </link>
+      <link>
+        <url value="http://www.hl7.org/implement/standards/fhir/patient.html"/>
+        <description value="Patient Resource"/>
+      </link>
+      <requires>
+        <type value="Patient"/>
+        <operations value="create"/>
+      </requires>
+      <requires>
+        <type value="Patient"/>
+        <operations value="read"/>
+      </requires>
+      <validates>
+        <type value="Patient"/>
+        <operations value="update"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="update"/>
+      <source value="example-patient-updated"/>
+      <target value="example-patient"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_code"/>
+      <parameter value="201"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="valid_content_location"/>
+    </operation>
+    <operation>
+      <type value="read"/>
+      <target value="example-patient"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_okay"/>
+    </operation>
+  </test>
+  <teardown>
+    <operation>
+      <type value="delete"/>
+      <target value="example-patient"/>
+    </operation>
+  </teardown>
+</TestScript>

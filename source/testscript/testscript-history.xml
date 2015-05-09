@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
+  <id value="history"/>
+  <name value="History Test Script"/>
+  <description value="Test Script for history of the patient resource"/>
+  <fixture id="example-patient"><uri value="/patient/patient-example.xml"/></fixture>
+  <fixture id="example-patient-updated"><uri value="/patient/patient-example-updated.xml"/></fixture>
+  <setup>
+    <operation>
+      <type value="create"/>
+      <source value="example-patient"/>
+    </operation>
+    <operation>
+      <type value="update"/>
+      <source value="example-patient-updated"/>
+      <target value="example-patient"/>
+    </operation>
+  </setup>
+  <test id="HISTORY01">
+    <name value="History for specific resource"/>
+    <description value="History for specific resource."/>
+    <metadata>
+      <link>
+        <url value="http://www.hl7.org/implement/standards/fhir/http.html#history"/>
+        <description value="History Operation"/>
+      </link>
+      <link>
+        <url value="http://www.hl7.org/implement/standards/fhir/patient.html"/>
+        <description value="Patient Resource"/>
+      </link>
+      <requires>
+        <type value="Patient"/>
+        <operations value="create,update,delete"/>
+      </requires>
+      <validates>
+        <type value="Patient"/>
+        <operations value="history-instance"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="history"/>
+      <target value="example-patient"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="resource_type"/>
+      <parameter value="Bundle"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="2"/>
+      <parameter value="fhir:Bundle/fhir:total/@value"/>
+    </operation>
+  </test>
+  <teardown>
+    <operation>
+      <type value="delete"/>
+      <target value="example-patient"/>
+    </operation>
+  </teardown>
+</TestScript>

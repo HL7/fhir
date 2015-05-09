@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
+  <id value="ReadTestScript"/>
+  <name value="ReadTestScript"/>
+  <description value="TestScript for Sprinkler tests (R001, R002, R003, R004) for testing basic READ requests."/>
+  <fixture id="F1">
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir">
+        <id value="example"/>
+        <name>
+          <family value="Emerald"/>
+          <given value="Caro"/>
+        </name>
+      </Patient>
+    </resource>
+  </fixture>
+  <setup>
+    <operation>
+      <type value="create"/>
+      <source value="F1"/>
+    </operation>
+  </setup>
+  <test id="R001">
+    <name value="Get Test Data Person"/>
+    <description value="Result headers on normal read."/>
+    <metadata>
+      <link>
+        <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="Patient"/>
+        <operations value="create,read,delete"/>
+      </requires>
+      <validates>
+        <type value="Patient"/>
+        <operations value="read"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="read"/>
+      <target value="F1"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion_warning"/>
+      <parameter value="valid_content_type"/>
+    </operation>
+    <operation>
+      <type value="assertion_warning"/>
+      <parameter value="valid_last_modified"/>
+    </operation>
+    <operation>
+      <type value="assertion_warning"/>
+      <parameter value="valid_content_location"/>
+    </operation>
+  </test>
+  <test id="R002">
+    <name value="Try Read Unknown Resource Type"/>
+    <description value="Read unknown resource type"/>
+    <metadata>
+      <link>
+        <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <link>
+        <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="Patient"/>
+        <operations value="read"/>
+      </requires>
+      <validates>
+        <type value="Patient"/>
+        <operations value="read"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="read"/>
+      <parameter value="thisreallywondexist"/>
+      <parameter value="1"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_not_found"/>
+    </operation>
+  </test>
+  <test id="R003">
+    <name value="Try Read Non Existing Resource"/>
+    <description value="Read non-existing resource id"/>
+    <metadata>
+      <link>
+        <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="Patient"/>
+        <operations value="read"/>
+      </requires>
+      <validates>
+        <type value="Patient"/>
+        <operations value="read"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="read"/>
+      <parameter value="Patient"/>
+      <parameter value="3141592unlikely"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_not_found"/>
+    </operation>
+  </test>
+  <test id="R004">
+    <name value="Try Read Bad Formatted Resource Id"/>
+    <description value="Read bad formatted resource id"/>
+    <metadata>
+      <link>
+        <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <link>
+        <url value="http://hl7.org/implement/standards/FHIR-Develop/datatypes.html#id"/>
+        <description value="link to the FHIR specification"/>
+      </link>
+      <requires>
+        <type value="Patient"/>
+        <operations value="read"/>
+      </requires>
+      <validates>
+        <type value="Patient"/>
+        <operations value="read"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="read"/>
+      <parameter value="Patient"/>
+      <parameter value="ID-may-not-contain-CAPITALS"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_bad"/>
+    </operation>
+  </test>
+  <teardown>
+    <operation>
+      <type value="delete"/>
+      <target value="F1"/>
+    </operation>
+  </teardown>
+</TestScript>

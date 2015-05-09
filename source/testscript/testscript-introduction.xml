@@ -1,0 +1,123 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The TestScript resource is used to define tests that can be executed on one or more FHIR servers. The TestScript resource contains
+<ul>
+  <li>a list of fixtures (required resources used in the tests)</li>
+  <li>setup procedures</li>
+  <li>a suite of thematically related tests</li>
+  <li>teardown procedures</li>
+</ul>
+</p><p>
+For example, one TestScript might feature a set of tests focusing on searching Patients and validating the Bundle responses. The fixtures for such a test would contain a list of Patient resources that are required for the test
+to complete successfully. The setup procedures create the fixtures on the FHIR server being tested. A series
+of tests execute various search parameters and search for the fixtures in the results. The teardown procedures would then clean up (delete) the fixtures on FHIR server that were created during the setup procedures.
+</p><p>
+The purpose of the TestScript is to encode in an executable representation tests that can be used to
+<ol>
+  <li>determine whether a given FHIR server adheres to the FHIR specification and</li>
+  <li>determine whether two or more FHIR servers implement capabilities in a compatible or interoperable manner.</li>
+</ol>
+It may not be possible to fully automate the latter goal (especially with regards to business rules that might ride on top of different implementations), however the tests should be able to determine whether two servers support the operations, value sets, profiles, and extensions to exchange Bundles of Resources (such as returned from the <a href="operation-patient-everything.html">Patient $everything operation</a>).
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+The TestScript resource should <b>NOT</b> be used to represent Clinical tests, Prescriptions, or any other Healthcare related concept. The TestScript resource is an infrastructure support resource used to represent standardized tests to determine an implementation's level of adherence to the FHIR specification.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+<h3>Background</h3>
+<p>
+  The TestScript resource is designed to establish testing as a first class artifact within the FHIR specification.  This resource allows defining a suite of tests that can be executed on one or more FHIR servers.  The TestScript resource provides an implementation agnostic description of tests that allows test execution engines to evaluate if a server implementation conforms with the FHIR specification.  Providing a clear and concise test methodology for the FHIR specification through the TestScript resource helps to enable interoperability among various FHIR server and client implementations.
+</p>
+<p>
+Furthermore, the TestScript resource provides clear examples of the appropriate use of the FHIR specification through test-based documentation.  The TestScript resource stands as a form of executable documentation allowing developers to examine the operations defined by the tests to understand how various RESTful API interactions and resources should be used in coordination.  The tests can also be automatically executed against systems under development to determine how well the systems adhere to the specification.
+</p>
+<div>
+  <p>
+    The TestScript resource contains:
+  </p>
+  <p>
+
+	<ul>
+	  <li>Name and description detailing the purpose of the test suite</li>
+	  <li>Links describing how the test suite relates to the FHIR specification</li>
+	  <li>A list of server interactions required to execute the test suite</li>
+	  <li>A list of server interactions that the test suite validates the correctness of</li>
+	  <li>The fixtures (required data or resources) the tests use during execution</li>
+	  <li>A set of operations to set up the test suite environment</li>
+	  <li>A list of tests each containing
+	    <ul>
+	      <li>Name and description of the test</li>
+	      <li>Links describing how the test relates to the FHIR specification</li>
+	      <li>A list of server interactions required to execute the test</li>
+	      <li>A list of server interactions that the test validates the correctness of</li>
+	      <li>A list of operations that provide the execution logic of the test</li>
+	    </ul>
+	  </li>
+	  <li>A set of operations to tear down the test environment</li>
+	</ul>
+  </p>
+</div>
+
+<h3>Execution</h3>
+<h4>Workflow</h4>
+<p>
+  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test.  This can be determined by evaluating if the interactions listed in the TestScript metadata "requires" section are supported by the server's conformance resource.  If required operations are supported by the server, then the test can be executed, if the operations are not supported, then the TestScript may be skipped.
+</p>
+<p>
+  If the server supports the requirements of the TestScript instance, any specified fixtures are loaded or retrieved. If the fixtures are marked as 'autocreate' then they are automatically created on the server(s) under test using 'create' operations. If any of the autocreate operations fail, then the tests in the TestScript are skipped.
+</p>
+<p>
+  After the fixtures are loaded and autocreates are executed, then the setup section is executed to establish the test suite environment.  The purpose of the setup section is typically to pre-load data (if it was not autocreated) required for the execution of the tests into the FHIR server under test.  The setup operations are executed once before all the tests are run (see <a href="#operation-execution">Operation Execution</a>). All operations in a setup section (including assertions) must complete successfully for the tests to be executed. If an assertion operation in the setup section fails, then execution and evaluation of the tests in the TestScript should be skipped. Technically, any operation (see the <a href="#operations-table">operations table</a> for a complete listing) can be included in the setup section, but typical operations will be create, update, read, and vread.
+</p>
+<p>
+  Once setup is complete, each test is executed.  Tests contain a set of operations, and executing a test involves the evaluation of each operation listed in the test in the order defined by the test (see <a href="#operation-execution">Operation Execution</a> and the <a href="#operations-table">list of operations</a>).
+</p>
+<p>
+  After all the tests have completed execution, the teardown section is executed.  The purpose of the teardown section is to revert the FHIR server under test to a pre-test clean state.  This requires removing any resources or artifacts generated as part of test suite setup or test execution.  Technically, any operation (see the <a href="#operations-table">operations table</a> for a complete listing) can be included in the teardown section, but the most often used operation will be delete.  An assertion operation in the teardown section has no effect.
+</p>
+<p>
+  After the teardown section is executed, any fixtures that were marked 'autodelete' are removed from the server(s) under test. After this final stage, the execution of the TestScript is complete.
+</p>
+
+<h4><a id="fixtures">Fixtures</a></h4>
+<p>
+  The fixtures section of the TestScript defines a set of resource instances that will be used as part of the setup, test, and teardown sections during TestScript execution.  The fixtures are required for the test script to execute.  Each fixture defines a resource instance either by URI or as an embedded resource, and must be identified by an ID.  The URI can be local or remote (i.e. another server than the one the TestScript resource resides), absolute or relative.  The ID on the fixture is considered the "source" identifier of the fixture -- it is not the same thing as the resource ID on the server where it was hosted.  The "source" identifier is used to define the fixture instance within the context of the TestScript.  Operations reference the ID of a fixture to uniquely identify the fixture instance the operation is using ("source") or acting against ("target").  Once a fixture has been instantiated on a server (typically by the use of a create operation), the fixture ID is mapped to the ID of the corresponding resource instance on the server.  TestScript execution engines must maintain this relationship between fixture IDs and server resource IDs.  The TestScript execution engine is responsible for translating the fixture IDs (whether provided to the operation as "source" or "target")  to the ID of the resource on the server during execution.
+</p>
+<p>
+  Using the optional "autocreate" and "autodelete" elements (missing values default to false), fixtures can be configured to automatically be created during TestScript setup and automatically deleted during TestScript teardown. This means that additional "create" and "delete" operations in the TestScript.setup and TestScript.teardown sections are unnecessary.
+</p>
+
+<h4><a id="operation-execution">Operation Execution</a></h4>
+<p>
+  The setup, test, and teardown sections of a TestScript can contain operation elements.  Operations are intended to be executed in sequence and they represent the logic defined by the TestScript.  Operations define a type, source, target, destination, responseId, contentType, and a set of parameters.  Except for the case of "assertion" (see <a href="#assertion-execution">Assertion Execution </a>), the type of the operation aligns with a corresponding RESTful API interaction.  The source and target of an operation define the context of the fixture data the operation is acting against (see <a href="#fixtures">Fixtures</a>).  The destination defines the server the operation is executed on and is only required for tests that include multiple servers.  The responseId specifies a fixture ID to use to map to the server response.  The contentType defines the format (XML or JSON) and the corresponding mime-type (application/xml+fhir and application/json+fhir) to use in the RESTful operation (defaulting to XML).  The parameters of an operation allow providing additional data required for execution.
+</p>
+<p>
+  TestScript execution engines must load the operation details and execute the operation against the server(s) under test.  Operations that are expected to result in an error or exception, shall immediately be followed by one or more "assertion" operations (that test for those error conditions), otherwise the test fails. This allows for "negative" testing (for example, the test script may perform operations that should return a 4XX or 5XX HTTP response code).  If two non-assertion operations fail consecutively, then execution is halted for the current test and execution resumes with the next test. If an operation is an assertion (see <a href="#assertion-execution">Assertion Execution </a>) and results in a failure, the status of the test is a failure and execution is halted for the current test.  Test script execution then continues to the next test.  If all operations complete successfully (or are immediately followed by successful assertions, when "negative" testing), the test passes and execution continues to the next test.  Once all tests have completed execution, the teardown section is executed.  Once teardown completes, the suite execution is complete.
+</p>
+
+<h4><a id="assertion-execution">Assertion Execution</a></h4>
+<p>
+The "assertion" operation is a special case operation that allows evaluating the results of previous operations to determine if the server under test behaves appropriately.  In order to evaluate an assertion operation the request, response, and results of the most recently executed non-assertion operation must always be maintained by the TestScript execution engine.
+</p>
+<p>
+  The first parameter of the assertion operation defines the type of the assertion being evaluated (see the <a href="#assertion-table">assertion table</a>). All subsequent parameters are passed to the assertion as an ordered list to evaluate if the assertion has passed or failed.  The TestScript execution engine must implement the behavior of each assertion to determine if the response of the previous non-assertion operation meets the conditions of the assertion.
+</p>
+<p>
+  If the conditions of the assertion are met execution of the test continues.  If the conditions of the assertion are not met, the test being executed fails and execution of the test is halted. An assertion operation in the setup or teardown sections has no effect. All operations in a setup section must complete successfully for the tests to be executed -- so additional assertions are unnecessary.
+</p>
+
+</p>
+</div>
+
+</div>

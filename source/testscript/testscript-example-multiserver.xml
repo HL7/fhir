@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
+    <id value="multiserver"/>
+    <name value="Multiserver Test Script"/>
+    <description value="Multiserver Test Script"/>
+    <fixture id="F1">
+        <uri value="/patient/patient-example.xml"/>
+    </fixture>
+    <setup>
+        <operation>
+            <type value="create"/>
+            <source value="F1"/>
+            <destination value="0"/>
+            <contentType value="xml"/>
+        </operation>
+    </setup>
+    <test id="READ01">
+        <name value="Read Patient"/>
+        <description value="Read the patient from server 0."/>
+        <metadata>
+            <link>
+                <url value="http://hl7.org/implement/standards/FHIR-Develop/patient.html"/>
+                <description value="FHIR Patient"/>
+            </link>
+            <link>
+                <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html"/>
+                <description value="FHIR RESTful API"/>
+            </link>
+            <requires>
+                <type value="Patient"/>
+                <operations value="create"/>
+            </requires>
+            <validates>
+                <type value="Patient"/>
+                <operations value="read"/>
+            </validates>
+        </metadata>
+        <operation>
+            <!-- this operation reads the fixture "F1" from server-0 and
+              maps the response to fixture "R1" -->
+            <type value="read"/>
+            <target value="F1"/>
+            <destination value="0"/>
+            <responseId value="R1"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="response_okay"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="valid_content_location"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="resource_type"/>
+            <parameter value="Patient"/>
+        </operation>
+        <operation>
+            <!-- this operation asserts that the response to the
+              read operation contains at a minimum the resource
+              mapped to fixture ID "F1"-->
+            <type value="assertion"/>
+            <parameter value="minimum"/>
+            <parameter value="F1"/>
+        </operation>
+    </test>
+    <test id="WRITE01">
+        <name value="Write Patient"/>
+        <description value="Write the patient read from server 0 to server 1."/>
+        <metadata>
+            <link>
+                <url value="http://hl7.org/implement/standards/FHIR-Develop/patient.html"/>
+                <description value="FHIR Patient"/>
+            </link>
+            <link>
+                <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html"/>
+                <description value="FHIR RESTful API"/>
+            </link>
+            <validates>
+                <type value="Patient"/>
+                <operations value="create, read"/>
+            </validates>
+        </metadata>
+        <operation>
+            <!-- this operation creates the fixture "R1" that was read from
+              server-0 and creates it on server-1 -->
+            <type value="create"/>
+            <source value="R1"/>
+            <destination value="1"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="response_okay"/>
+        </operation>
+        <operation>
+            <!-- this operation reads the fixture "R1" from server-1 and
+              maps the response to fixture "R2" -->
+            <type value="read"/>
+            <target value="R1"/>
+            <destination value="1"/>
+            <responseId value="R2"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="response_okay"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="valid_content_location"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="resource_type"/>
+            <parameter value="Patient"/>
+        </operation>
+        <operation>
+            <!-- this operation asserts that the response to the
+              read operation contains at a minimum the resource
+              mapped to fixture ID "F1"-->
+            <type value="assertion"/>
+            <parameter value="minimum"/>
+            <parameter value="F1"/>
+        </operation>
+        <operation>
+            <!-- this [redundant] operation asserts that the response to the
+              read operation contains at a minimum the resource
+              mapped to fixture ID "R1"-->
+            <type value="assertion"/>
+            <parameter value="minimum"/>
+            <parameter value="R1"/>
+        </operation>
+    </test>
+    <test id="UPDATE01">
+        <name value="Update Patient"/>
+        <description value="Update the patient on server 0 with the one read from server 1."/>
+        <metadata>
+            <link>
+                <url value="http://hl7.org/implement/standards/FHIR-Develop/patient.html"/>
+                <description value="FHIR Patient"/>
+            </link>
+            <link>
+                <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html"/>
+                <description value="FHIR RESTful API"/>
+            </link>
+            <requires>
+                <type value="Patient"/>
+                <operations value="create, read"/>
+            </requires>
+            <validates>
+                <type value="Patient"/>
+                <operations value="update"/>
+            </validates>
+        </metadata>
+        <operation>
+            <!-- this operation updates the fixture "R1" on
+              server-0 and with fixture "R2" that was read from server-1 -->
+            <type value="update"/>
+            <source value="R2"/>
+            <target value="R1"/>
+            <destination value="0"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="response_okay"/>
+        </operation>
+        <operation>
+            <!-- this operation reads the fixture "R1" from server-0 and
+              maps the response to fixture "R3" -->
+            <type value="read"/>
+            <target value="R1"/>
+            <destination value="0"/>
+            <responseId value="R3"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="response_okay"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="valid_content_location"/>
+        </operation>
+        <operation>
+            <type value="assertion"/>
+            <parameter value="resource_type"/>
+            <parameter value="Patient"/>
+        </operation>
+        <operation>
+            <!-- this operation asserts that the response to the
+              read operation contains at a minimum the resource
+              mapped to fixture ID "F1"-->
+            <type value="assertion"/>
+            <parameter value="minimum"/>
+            <parameter value="F1"/>
+        </operation>
+        <operation>
+            <!-- this [redundant] operation asserts that the response to the
+              read operation contains at a minimum the resource
+              mapped to fixture ID "R1"-->
+            <type value="assertion"/>
+            <parameter value="minimum"/>
+            <parameter value="R1"/>
+        </operation>
+        <operation>
+            <!-- this [redundant] operation asserts that the response to the
+              read operation contains at a minimum the resource
+              mapped to fixture ID "R1"-->
+            <type value="assertion"/>
+            <parameter value="minimum"/>
+            <parameter value="R2"/>
+        </operation>
+    </test>
+    <teardown>
+        <!-- delete the patient from server-0 -->
+        <operation>
+            <type value="delete"/>
+            <target value="F1"/>
+            <destination value="0"/>
+        </operation>
+        <!-- delete the patient from server-1 -->
+        <operation>
+            <type value="delete"/>
+            <target value="F1"/>
+            <destination value="1"/>
+        </operation>
+    </teardown>
+</TestScript>

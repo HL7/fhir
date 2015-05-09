@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
+  <id value="example"/>
+  <name value="Test Script 1"/>
+  <description value="Example Test Script"/>
+  <fixture id="F1">
+    <uri value="/patient/patient-example.xml"/>
+    <autocreate value="true"/>
+    <autodelete value="true"/>
+  </fixture>
+  <fixture id="F1-min">
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir">
+        <id value="example"/>
+        <name>
+          <family value="Chalmers"/>
+          <given value="Peter"/>
+        </name>
+      </Patient>
+    </resource>
+  </fixture>
+  <test id="READ01">
+    <name value="Read Patient"/>
+    <description value="Read a patient and validate response."/>
+    <metadata>
+      <link>
+        <url value="http://hl7.org/implement/standards/FHIR-Develop/patient.html"/>
+        <description value="FHIR Patient"/>
+      </link>
+      <link>
+        <url value="http://hl7.org/implement/standards/FHIR-Develop/http.html"/>
+        <description value="FHIR RESTful API"/>
+      </link>
+      <requires>
+        <type value="Patient"/>
+        <operations value="create"/>
+      </requires>
+      <validates>
+        <type value="Patient"/>
+        <operations value="read"/>
+      </validates>
+    </metadata>
+    <operation>
+      <type value="read"/>
+      <target value="F1"/>
+      <responseId value="F1-read"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="response_okay"/>
+    </operation>
+    <operation>
+      <type value="assertion_warning"/>
+      <parameter value="valid_content_location"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="resource_type"/>
+      <parameter value="Patient"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="equals"/>
+      <parameter value="Chalmers"/>
+      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="fixture_equals"/>
+      <parameter value="F1"/>
+      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
+      <parameter value="Chalmers"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="fixture_equals"/>
+      <parameter value="F1-read"/>
+      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
+      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="fixture_compare"/>
+      <parameter value="F1"/>
+      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
+      <parameter value="F1-read"/>
+      <parameter value="fhir:Patient/fhir:name/fhir:family/@value"/>
+    </operation>
+    <operation>
+      <type value="assertion"/>
+      <parameter value="minimum"/>
+      <parameter value="F1-min"/>
+    </operation>
+  </test>
+</TestScript>
