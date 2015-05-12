@@ -59,6 +59,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="Basic">
       <translation lang="en">Basic</translation>
+      <translation lang="fr">Basique</translation>  
     </item>
     <item id="Binary">
         <translation lang="en">Binary</translation>
@@ -74,6 +75,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="NewBundle">
       <translation lang="en">NewBundle</translation>
+      <translation lang="fr">NouveauPaquet</translation>  
     </item>
     <item id="CarePlan">
         <translation lang="en">CarePlan</translation>
@@ -89,15 +91,19 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="ClaimResponse">
         <translation lang="en">ClaimResponse</translation>
+        <translation lang="fr">RéponseARéclamation</translation>
     </item>
     <item id="ClinicalImpression">
         <translation lang="en">ClinicalImpression</translation>
+        <translation lang="fr">ImpressionClinique</translation>
     </item>
     <item id="Communication">
         <translation lang="en">Communication</translation>
+        <translation lang="fr">Communication</translation>
     </item>
     <item id="CommunicationRequest">
         <translation lang="en">CommunicationRequest</translation>
+        <translation lang="fr">DemandeDeCommunication</translation>
     </item>
     <item id="Composition">
         <translation lang="en">Composition</translation>
@@ -119,6 +125,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="Contract">
         <translation lang="en">Contract</translation>
+        <translation lang="fr">Contrat</translation>
     </item>
     <item id="Conformance">
         <translation lang="en">Conformance</translation>
@@ -128,6 +135,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="Contraindication">
         <translation lang="en">Contraindication</translation>
+        <translation lang="fr">Contre-indication</translation>
     </item>
     <item id="Coverage">
         <translation lang="en">Coverage</translation>
@@ -149,6 +157,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="DeviceUseRequest">
         <translation lang="en">DeviceUseRequest</translation>
+        <translation lang="fr">DemandeUtilisationDispositif</translation>
     </item>
     <item id="DeviceUseStatement">
         <translation lang="en">DeviceUseStatement</translation>
@@ -161,9 +170,11 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>-->
 	<item id="DeviceComponent">
         <translation lang="en">DeviceComponent</translation>
+	    <translation lang="fr">ComposantDeDispositif</translation>
     </item>
 	<item id="DeviceMetric">
         <translation lang="en">DeviceMetric</translation>
+	    <translation lang="fr">MétriqueDispositif</translation>
     </item>
     <item id="DiagnosticOrder">
         <translation lang="en">DiagnosticOrder</translation>
@@ -191,9 +202,11 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="EligibilityResponse">
         <translation lang="en">EligibilityResponse</translation>
+        <translation lang="fr">RéponseEligibilité</translation>
     </item>
     <item id="EligibilityRequest">
         <translation lang="en">EligibilityRequest</translation>
+        <translation lang="fr">DemandeEligibilité</translation>
     </item>
     <item id="Encounter">
         <translation lang="en">Encounter</translation>
@@ -203,27 +216,35 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="EpisodeOfCare">
         <translation lang="en">EpisodeOfCare</translation>
+        <translation lang="fr">ÉpisodeDeSoins</translation>
     </item>
     <item id="EnrollmentRequest">
         <translation lang="en">EnrollmentRequest</translation>
+        <translation lang="fr">DemandeInscription</translation>
     </item>
     <item id="EnrollmentResponse">
         <translation lang="en">EnrollmentResponse</translation>
+        <translation lang="fr">RéponseInscription</translation>
     </item>
     <item id="ExplanationOfBenefit">
         <translation lang="en">ExplanationOfBenefit</translation>
+        <translation lang="fr">ExplicationDuBénéfice</translation>
     </item>
      <item id="ExtensionDefinition">
         <translation lang="en">ExtensionDefinition</translation>
+        <translation lang="fr">DéfinitionExtension</translation>
     </item>
     <item id="FamilyMemberHistory">
         <translation lang="en">FamilyMemberHistory</translation>
+        <translation lang="fr">HistoireMembreFamille</translation>
     </item>
     <item id="Flag">
         <translation lang="en">Flag</translation>
+        <translation lang="fr">Drapeau</translation>
     </item>
     <item id="Goal">
         <translation lang="en">Goal</translation>
+        <translation lang="fr">But</translation>
     </item>
     <item id="Subscription">
         <translation lang="en">Subscription</translation>
@@ -262,7 +283,8 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">GVFVariante</translation>
     </item>
     <item id="HealthcareService">
-      <translation lang="en">HealthcareService</translation>
+        <translation lang="en">HealthcareService</translation>
+        <translation lang="fr">ServiceDeSanté</translation>  
     </item>
     <item id="ImagingStudy">
         <translation lang="en">ImagingStudy</translation>
@@ -272,6 +294,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="ImagingObjectSelection">
         <translation lang="en">ImagingObjectSelection</translation>
+        <translation lang="fr">ImagingObjectSelection</translation>
     </item>
     <item id="Immunization">
         <translation lang="en">Immunization</translation>
@@ -287,6 +310,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="InstitutionalClaim">
         <translation lang="en">InstitutionalClaim</translation>
+        <translation lang="fr">RéclamationInstitutionelle</translation>
     </item>
     <item id="List">
         <translation lang="en">List</translation>
@@ -349,6 +373,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="NamingSystem">
         <translation lang="en">NamingSystem</translation>
+        <translation lang="fr">SystèmeDeNommage</translation>
     </item>
     <item id="NutritionOrder">
         <translation lang="en">NutritionOrder</translation>
@@ -364,6 +389,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="OperationDefinition">
         <translation lang="en">OperationDefinition</translation>
+        <translation lang="fr">DéfinitionOpération</translation>
     </item>
     <item id="OperationOutcome">
         <translation lang="en">OperationOutcome</translation>
@@ -373,6 +399,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="OralHealthClaim">
         <translation lang="en">OralHealthClaim</translation>
+        <translation lang="fr">DemandeSoinsBuccoDentaire</translation>
     </item>
     <item id="Order">
         <translation lang="en">Order</translation>
@@ -400,15 +427,19 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="Person">
         <translation lang="en">Person</translation>
+        <translation lang="fr">Personne</translation>
     </item>
      <item id="PaymentNotice">
         <translation lang="en">PaymentNotice</translation>
+        <translation lang="fr">AvisPaiement</translation>
     </item>
      <item id="PaymentReconciliation">
         <translation lang="en">PaymentReconciliation</translation>
+        <translation lang="fr">RéconciliationPaiement</translation>
     </item>
     <item id="PharmacyClaim">
         <translation lang="en">PharmacyClaim</translation>
+        <translation lang="fr">DemandePharmaceutique</translation>
     </item>
     <item id="Picture">
         <translation lang="en">Picture</translation>
@@ -434,12 +465,15 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="ProcessRequest">
         <translation lang="en">ProcessRequest</translation>
+        <translation lang="fr">DemandeProcessus</translation>
     </item>
     <item id="ProcessResponse">
         <translation lang="en">ProcessResponse</translation>
+        <translation lang="fr">RéponseProcessus</translation>
     </item>
     <item id="ProfessionalClaim">
         <translation lang="en">ProfessionalClaim</translation>
+        <translation lang="fr">DemandeProfessionnel</translation>
     </item>
     <item id="Profile">
         <translation lang="en">Profile</translation>
@@ -477,6 +511,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="ReferralRequest">
         <translation lang="en">ReferralRequest</translation>
+        <translation lang="fr">DemandeRenvoi</translation>
     </item>
     <item id="RelatedPerson">
         <translation lang="en">RelatedPerson</translation>
@@ -492,12 +527,15 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="RiskAssessment">
         <translation lang="en">RiskAssessment</translation>
+        <translation lang="fr">ÉvaluationRisques</translation>
     </item>
     <item id="AdverseReactionRisk">
         <translation lang="en">AdverseReactionRisk</translation>
+        <translation lang="fr">RisqueEffetIndésirable</translation>
     </item>
     <item id="SearchParameter">
         <translation lang="en">SearchParameter</translation>
+        <translation lang="fr">ParamètreRecherche</translation>
     </item>
     <item id="AuditEvent">
         <translation lang="en">AuditEvent</translation>
@@ -567,6 +605,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="SupportingDocumentation">
         <translation lang="en">SupportingDocumentation</translation>
+        <translation lang="fr">DocumentationJustificative</translation>
     </item>
     <item id="User">
         <translation lang="en">User</translation>
@@ -582,9 +621,11 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="VisionClaim">
         <translation lang="en">VisionClaim</translation>
+        <translation lang="fr">DemandeSoinsVision</translation>
     </item>
     <item id="VisionPrescription">
         <translation lang="en">VisionPrescription</translation>
+        <translation lang="fr">PrescriptionVision</translation>
     </item>
     <item id="VCFMeta">
         <translation lang="en">VCFMeta</translation>
@@ -602,9 +643,11 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="StructureDefinition">
         <translation lang="en">StructureDefinition</translation>
+        <translation lang="fr">DéfinitionStructure</translation>
     </item>
     <item id="TestScript">
         <translation lang="en">TestScript</translation>
+        <translation lang="fr">ScriptTest</translation>
     </item>
     <!-- Messages -->
     <item id="MSG_AUTH_REQUIRED">
@@ -677,6 +720,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="MSG_CONTENT_PASTE">
         <translation lang="en">or just paste your xml or json here</translation>
         <translation lang="nl">of plak uw xml of json hier</translation>
+        <translation lang="fr">ou collez simplement votre xml ou json ici</translation>
     </item>
     <item id="MSG_CONTENT_UPLOAD">
         <translation lang="en">Content to upload</translation>
@@ -1001,9 +1045,11 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="MSG_RESOURCE_ID_MISMATCH">
         <translation lang="en">Resource Id Mismatch</translation>
+        <translation lang="fr">Problème de correspondance d'Id de la Ressource</translation>
     </item>
     <item id="MSG_RESOURCE_ID_MISSING">
         <translation lang="en">Resource Id Missing</translation>
+        <translation lang="fr">Id de la Ressource manquante</translation>
     </item>
     <item id="MSG_RESOURCE_TYPE_MISMATCH">
         <translation lang="en">Resource Type Mismatch</translation>
@@ -1454,6 +1500,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="NO_TAGS">
         <translation lang="en">(No tags defined)</translation>
         <translation lang="nl">(Geen labels gedefinieerd)</translation>
+        <translation lang="fr">(Aucun label défini)</translation>
     </item>
     <item id="RESOURCE_TAGS">
         <translation lang="en">Tags defined on this System for the resource type %s ID %s</translation>
@@ -1640,25 +1687,30 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="HOME">
         <translation lang="en">Home</translation>
         <translation lang="nl">Start</translation>
+        <translation lang="fr">Accueil</translation>
     </item>
     <item id="SERVER_HOME">
         <translation lang="en">Server Home</translation>
         <translation lang="nl">Server start</translation>
+        <translation lang="fr">Démarrage du serveur</translation>
     </item>
     <item id="TERMINOLOGY">
         <!-- as in, this is a 'terminology' server -->
         <translation lang="en">Terminology</translation>
         <translation lang="nl">Terminologie</translation>
+        <translation lang="fr">Terminologie</translation>
     </item>
     <item id="WELCOME">
         <!-- as in, 'welcome' to the FHIR server -->
         <translation lang="en">Welcome</translation>
         <translation lang="nl">Welkom</translation>
+        <translation lang="fr">Bienvenue</translation>
     </item>
     <item id="FOUND">
         <!-- as in, # Patients 'found' -->
         <translation lang="en">found</translation>
         <translation lang="nl">gevonden</translation>
+        <translation lang="fr">trouvé</translation>
     </item>
     <item id="SYSTEM_OPERATIONS">
         <translation lang="en">System Operations</translation>
@@ -1667,6 +1719,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="CONF_PROFILE">
         <translation lang="en">Conformance Profile</translation>
         <translation lang="nl">Conformanceprofiel</translation>
+        <translation lang="fr">Profile de conformité</translation>
     </item>
     <item id="OR">
         <!-- as in, XML 'or' JSON -->
@@ -1682,12 +1735,15 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="GENERAL_SEARCH">
         <translation lang="en">General Search</translation>
         <translation lang="nl">Algemene zoekopdracht</translation>
+        <translation lang="fr">Recherche générale</translation>
     </item>
     <item id="THIS_RESOURCE">
         <translation lang="en">This Resource</translation>
         <translation lang="nl">Deze resource</translation>
+        <translation lang="fr">Cette ressource</translation>
     </item>
     <item id="Bundle">
         <translation lang="en">Bundle</translation>
+        <translation lang="fr">Paquet</translation>
     </item>
 </translations>
