@@ -31,10 +31,10 @@
             <display value="Asthma"/>
         </coding>
     </reasonCodeableConcept>
-    <medication> <!-- Linked to a RESOURCE Medication -->
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/MedicationExample11"/>
         <display value="prescribed medication"/>
-    </medication>
+    </medicationReference>
     <dosageInstruction>
         <text value="Take 1 tablet twice daily for 3 days" />
         <additionalInstructions>

@@ -27,10 +27,10 @@
             <display value="High glucose level in blood"/>
         </coding>
     </reasonCodeableConcept>
-    <medication> <!-- Linked to a RESOURCE Medication -->
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/f003"/>
         <display value="prescribed medication"/>
-    </medication> 
+    </medicationReference> 
     <dosageInstruction>
         <scheduledTiming>
             <repeat>

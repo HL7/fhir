@@ -22,9 +22,9 @@
   <prescriber>
     <reference value="Practitioner/example"/>
   </prescriber>
-  <medication>
+  <medicationReference>
     <reference value="Medication/example"/>
-  </medication>
+  </medicationReference>
 
   <dosageInstruction>
     <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType" >

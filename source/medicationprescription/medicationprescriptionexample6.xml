@@ -22,9 +22,9 @@
   <patient>
     <reference value="Patient/1288992"/>
   </patient>
-  <medication>
+  <medicationReference>
     <reference value="Medication/MedicationExample15"/>
-  </medication>
+  </medicationReference>
   <dosageInstruction>
     <text value="Capecitabine 1000 mg/m^2 PO twice daily D1-14"/>
     <scheduledTiming>

@@ -18,7 +18,7 @@
   </informationSource>
   <dateAsserted value="2015-02-22"/>
   <status value="completed" />
-  <wasNotGiven value="false"/>
+  <wasNotTaken value="false"/>
   <reasonForUseCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -28,9 +28,9 @@
   </reasonForUseCodeableConcept>
   <effectiveDateTime value="2014-01-23"></effectiveDateTime>
   <note value="Patient indicates they miss the occasional dose" />
-  <medication> <!-- Linked to a RESOURCE Medication -->
+  <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="Medication/MedicationExample6"/>
-  </medication>  
+  </medicationReference>  
   <dosage>
     <text value="one capsule three times daily" />
     <schedule>

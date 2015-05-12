@@ -10,9 +10,9 @@
     </div>
   </text>
   <status value="active" />
-  <medication>
+  <medicationReference>
     <reference value="Medication/medicationexample17"/>
-  </medication>
+  </medicationReference>
   <dosageInstruction>
     <text value="Gentamicin 80mg IV over one hour"/>
     <scheduledTiming>

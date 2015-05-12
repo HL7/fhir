@@ -28,10 +28,10 @@
             <display value="Chronic obstructive pulmonary disease"/>
         </coding>
     </reasonCodeableConcept>
-    <medication> <!-- Linked to a RESOURCE Medication -->
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/f001"/>
         <display value="prescribed medication"/>
-    </medication> 
+    </medicationReference> 
     <dosageInstruction>
         <text value="3 tot 4 maal daags 1 flacon"/>
         <additionalInstructions>

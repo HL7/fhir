@@ -30,10 +30,10 @@
             <display value="Osteoporosis"/>
         </coding>
     </reasonCodeableConcept>
-    <medication> <!-- Linked to a RESOURCE Medication -->
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/MedicationExample5"/>
         <display value="prescribed medication"/>
-    </medication> 
+    </medicationReference> 
     <dosageInstruction>
         <text value="Take one tablet daily as directed" />
     </dosageInstruction>

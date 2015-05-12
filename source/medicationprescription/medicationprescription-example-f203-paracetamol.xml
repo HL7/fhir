@@ -19,10 +19,10 @@
    <reference value="Condition/f201"/>
    <display value="fever"/>
  </reasonReference> 
- <medication>
+ <medicationReference>
     <reference value="Medication/f203"/>
     <display value="Paracetamol"/>
- </medication>
+ </medicationReference>
  <dosageInstruction>  
   <text value="Paracetamol 3xdaags 1000mg"/>
   <!--No defined schedule (<timing>)-->

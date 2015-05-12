@@ -18,12 +18,12 @@
   </informationSource>
   <dateAsserted value="2014-02-22"/>
   <status value="in-progress" />
-  <wasNotGiven value="false"/>
+  <wasNotTaken value="false"/>
 <effectiveDateTime value="2014-02-01"></effectiveDateTime>
   <note value="Father indicates they miss the occasional dose"/>
-  <medication> <!-- Linked to a RESOURCE Medication -->
+  <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="Medication/MedicationExample4"/>
-  </medication>  
+  </medicationReference>  
   <dosage>
     <text value="5ml three times daily" />
     <asNeededBoolean value="false" />

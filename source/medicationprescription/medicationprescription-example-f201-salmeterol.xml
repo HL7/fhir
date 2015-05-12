@@ -16,10 +16,10 @@
     <reference value="Condition/f201"/>
     <display value="fever"/>
   </reasonReference>
-  <medication>
+  <medicationReference>
     <reference value="Medication/f201"/>
     <display value="25ug Salmeterol + 250ug Fluticasone"/>
-  </medication>
+  </medicationReference>
   <dosageInstruction>
     <text value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
     <scheduledTiming>

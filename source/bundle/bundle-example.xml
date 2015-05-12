@@ -40,9 +40,9 @@
         <patient>
           <reference value="Patient/347"/>
         </patient>
-        <medication>
+        <medicationReference>
           <reference value="Medication/example"/>
-        </medication>
+        </medicationReference>
         <!-- snip -->
       </MedicationPrescription>
     </resource>

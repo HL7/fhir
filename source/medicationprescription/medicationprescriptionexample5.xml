@@ -30,10 +30,10 @@
             <display value="Otitis Media"/>
         </coding>
     </reasonCodeableConcept>
-    <medication> <!-- Linked to a RESOURCE Medication -->
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/MedicationExample6"/>
         <display value="prescribed medication"/>
-    </medication>
+    </medicationReference>
     <dosageInstruction>
         <text value="Take two capsules to start" />
         <additionalInstructions>

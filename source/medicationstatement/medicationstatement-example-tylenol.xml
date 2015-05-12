@@ -63,9 +63,9 @@
   </patient>
   <status value="completed"/>
   <effectiveDateTime value="2010"/>
-  <medication>
+  <medicationReference>
     <reference value="#2"/> 
-  </medication>
+  </medicationReference>
   <dosage>
     <schedule>
       <repeat>

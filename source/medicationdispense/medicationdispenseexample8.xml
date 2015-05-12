@@ -24,9 +24,9 @@
   <authorizingPrescription>
     <reference value="MedicationPrescription/medicationprescriptionexample6" />
   </authorizingPrescription>
-  <medication>
+  <medicationReference>
     <reference value="Medication/54ba8e550cf2ef25ba8bcfd2"/>
-  </medication>
+  </medicationReference>
   <dosageInstruction>
     <scheduleTiming>
       <repeat>

@@ -19,10 +19,10 @@
    <reference value="Condition/f203"/>
    <display value="sepsis"/>
  </reasonReference>
- <medication>
+ <medicationReference>
     <reference value="Medication/f202"/>
     <display value="Flucloxacilline"/>
- </medication>
+ </medicationReference>
  <dosageInstruction>  
   <text value="Flucloxacilline 12g/24h"/>
   <scheduledPeriod>

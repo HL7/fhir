@@ -30,10 +30,10 @@
             <display value="Otitis Media"/>
         </coding>
     </reasonCodeableConcept>
-    <medication> <!-- Linked to a RESOURCE Medication -->
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/MedicationExample2"/>
         <display value="prescribed medication"/>
-    </medication> 
+    </medicationReference> 
     <dosageInstruction>
         <text value="Take 5ml three times daily" />
         <additionalInstructions>
@@ -72,9 +72,9 @@
         </doseQuantity>
     </dosageInstruction>         
     <dispense>
-        <medication>
+        <medicationReference>
             <reference value="Medication/MedicationExample3"/>
-        </medication>
+        </medicationReference>
         <validityPeriod>
             <start value="2015-01-15"/>
             <end value="2016-01-15"/>

@@ -17,10 +17,10 @@
   <start value="2015-01-15T14:30:00+01:00"/>
   <end value="2015-01-15T14:30:00+01:00"/>
 </effectiveTimePeriod>
-  <medication>
+  <medicationReference>
     <!-- references medication 6 -->
     <reference value="Medication/medicationexample17"/> 
-  </medication>
+  </medicationReference>
   <dosage>
     <route>
       <coding>

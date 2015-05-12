@@ -24,9 +24,9 @@
   <start value="2012-06-01T14:30:00+01:00"/>
   <end value="2012-06-01T14:30:00+01:00"/>
 </effectiveTimePeriod>
-  <medication>
+  <medicationReference>
     <reference value="Medication/example"/> 
-  </medication>
+  </medicationReference>
   <dosage>
     <route>
       <coding>

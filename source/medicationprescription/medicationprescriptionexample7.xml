@@ -16,9 +16,9 @@
   </text>
   <status value="on-hold">
   </status>
-  <medication>
+  <medicationReference>
     <reference value="Medication/medicationexample16"/>
-  </medication>
+  </medicationReference>
   <dosageInstruction>
     <text value="Paclitaxel 175 mg/m^2 IV over 3 hours D1"/>
     <route>

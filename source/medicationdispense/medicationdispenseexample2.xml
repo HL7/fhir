@@ -32,10 +32,10 @@
   <system value="http://unitsofmeasure.org"/>
   <code value="D"/>   
 </daysSupply>
-  <medication> <!-- Linked to a RESOURCE Medication -->
+  <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="Medication/MedicationExample3"/>
     <display value="prescribed medication"/>
-  </medication> 
+  </medicationReference> 
   <whenPrepared value="2015-01-15T16:20:00Z"/>
   <whenHandedOver value="2015-01-16T10:20:00Z"/>
   <dosageInstruction>

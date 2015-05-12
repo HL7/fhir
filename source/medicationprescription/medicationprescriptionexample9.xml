@@ -19,9 +19,9 @@
       <valueCode value='pending'/>
     </extension>
   </status>
-  <medication>
+  <medicationReference>
     <reference value="Medication/Cyclophosphamide"/>
-  </medication>
+  </medicationReference>
   <dosageInstruction>
     <text value="Cyclophosphamide 600 mg/m^2 IV over 30 minutes D1"/>
     <route>
