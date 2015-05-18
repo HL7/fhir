@@ -1,0 +1,624 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC ProviderPractitioner Classification"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of codes that describe the class of health care a practitioner provides."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://www.nucc.org"/>
+			<concept>
+				<code value="207K00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Allergy and Immunology"/>
+			</concept>
+			<concept>
+				<code value="207L00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Anesthesiology"/>
+			</concept>
+			<concept>
+				<code value="208U00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Clinical Pharmacology"/>
+			</concept>
+			<concept>
+				<code value="208C00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Colon and Rectal Surgery"/>
+			</concept>
+			<concept>
+				<code value="207N00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Dermatology"/>
+			</concept>
+			<concept>
+				<code value="204R00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Electrodiagnostic Medicine"/>
+			</concept>
+			<concept>
+				<code value="207P00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Emergency Medicine"/>
+			</concept>
+			<concept>
+				<code value="207Q00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Family Medicine"/>
+			</concept>
+			<concept>
+				<code value="208D00000X"/>
+				<display value="Allopathic and Osteopathic Physicians General Practice"/>
+			</concept>
+			<concept>
+				<code value="208M00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Hospitalist"/>
+			</concept>
+			<concept>
+				<code value="202C00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Independent Medical Examiner"/>
+			</concept>
+			<concept>
+				<code value="207R00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Internal Medicine"/>
+			</concept>
+			<concept>
+				<code value="209800000X"/>
+				<display value="Allopathic and Osteopathic Physicians Legal Medicine"/>
+			</concept>
+			<concept>
+				<code value="207T00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Neurological Surgery"/>
+			</concept>
+			<concept>
+				<code value="204D00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Neuromusculoskeletal Medicine and OMM"/>
+			</concept>
+			<concept>
+				<code value="204C00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Neuromusculoskeletal Medicine, Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="207U00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Nuclear Medicine"/>
+			</concept>
+			<concept>
+				<code value="207V00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Obstetrics and Gynecology"/>
+			</concept>
+			<concept>
+				<code value="207W00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Ophthalmology"/>
+			</concept>
+			<concept>
+				<code value="204E00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Oral and Maxillofacial Surgery"/>
+			</concept>
+			<concept>
+				<code value="207X00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Orthopaedic Surgery"/>
+			</concept>
+			<concept>
+				<code value="207Y00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Otolaryngology"/>
+			</concept>
+			<concept>
+				<code value="208000000X"/>
+				<display value="Allopathic and Osteopathic Physicians Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="202K00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Phlebology"/>
+			</concept>
+			<concept>
+				<code value="208100000X"/>
+				<display value="Allopathic and Osteopathic Physicians Physical Medicine and Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="208200000X"/>
+				<display value="Allopathic and Osteopathic Physicians Plastic Surgery"/>
+			</concept>
+			<concept>
+				<code value="208600000X"/>
+				<display value="Allopathic and Osteopathic Physicians Surgery"/>
+			</concept>
+			<concept>
+				<code value="208G00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Thoracic Surgery (Cardiothoracic Vascular Surgery)"/>
+			</concept>
+			<concept>
+				<code value="204F00000X"/>
+				<display value="Allopathic and Osteopathic Physicians Transplant Surgery"/>
+			</concept>
+			<concept>
+				<code value="208800000X"/>
+				<display value="Allopathic and Osteopathic Physicians Urology"/>
+			</concept>
+			<concept>
+				<code value="103K00000X"/>
+				<display value="Behavioral Health and Social Service Providers Behavioral Analyst"/>
+			</concept>
+			<concept>
+				<code value="103G00000X"/>
+				<display value="Behavioral Health and Social Service Providers Clinical Neuropsychologist"/>
+			</concept>
+			<concept>
+				<code value="101Y00000X"/>
+				<display value="Behavioral Health and Social Service Providers Counselor"/>
+			</concept>
+			<concept>
+				<code value="106H00000X"/>
+				<display value="Behavioral Health and Social Service Providers Marriage and Family Therapist"/>
+			</concept>
+			<concept>
+				<code value="102X00000X"/>
+				<display value="Behavioral Health and Social Service Providers Poetry Therapist"/>
+			</concept>
+			<concept>
+				<code value="102L00000X"/>
+				<display value="Behavioral Health and Social Service Providers Psychoanalyst"/>
+			</concept>
+			<concept>
+				<code value="103T00000X"/>
+				<display value="Behavioral Health and Social Service Providers Psychologist"/>
+			</concept>
+			<concept>
+				<code value="104100000X"/>
+				<display value="Behavioral Health and Social Service Providers Social Worker"/>
+			</concept>
+			<concept>
+				<code value="111N00000X"/>
+				<display value="Chiropractic Providers Chiropractor"/>
+			</concept>
+			<concept>
+				<code value="125K00000X"/>
+				<display value="Dental Providers Advanced Practice Dental Therapist"/>
+			</concept>
+			<concept>
+				<code value="126800000X"/>
+				<display value="Dental Providers Dental Assistant"/>
+			</concept>
+			<concept>
+				<code value="124Q00000X"/>
+				<display value="Dental Providers Dental Hygienist"/>
+			</concept>
+			<concept>
+				<code value="126900000X"/>
+				<display value="Dental Providers Dental Laboratory Technician"/>
+			</concept>
+			<concept>
+				<code value="125J00000X"/>
+				<display value="Dental Providers Dental Therapist"/>
+			</concept>
+			<concept>
+				<code value="122300000X"/>
+				<display value="Dental Providers Dentist"/>
+			</concept>
+			<concept>
+				<code value="122400000X"/>
+				<display value="Dental Providers Denturist"/>
+			</concept>
+			<concept>
+				<code value="132700000X"/>
+				<display value="Dietary and Nutritional Service Providers Dietary Manager"/>
+			</concept>
+			<concept>
+				<code value="136A00000X"/>
+				<display value="Dietary and Nutritional Service Providers Dietetic Technician, Registered"/>
+			</concept>
+			<concept>
+				<code value="133V00000X"/>
+				<display value="Dietary and Nutritional Service Providers Dietitian, Registered"/>
+			</concept>
+			<concept>
+				<code value="133N00000X"/>
+				<display value="Dietary and Nutritional Service Providers Nutritionist"/>
+			</concept>
+			<concept>
+				<code value="146N00000X"/>
+				<display value="Emergency Medical Service Providers Emergency Medical Technician, Basic"/>
+			</concept>
+			<concept>
+				<code value="146M00000X"/>
+				<display value="Emergency Medical Service Providers Emergency Medical Technician, Intermediate"/>
+			</concept>
+			<concept>
+				<code value="146L00000X"/>
+				<display value="Emergency Medical Service Providers Emergency Medical Technician, Paramedic"/>
+			</concept>
+			<concept>
+				<code value="146D00000X"/>
+				<display value="Emergency Medical Service Providers Personal Emergency Response Attendant"/>
+			</concept>
+			<concept>
+				<code value="152W00000X"/>
+				<display value="Eye and Vision Services Providers Optometrist"/>
+			</concept>
+			<concept>
+				<code value="156F00000X"/>
+				<display value="Eye and Vision Services Providers Technician/Technologist"/>
+			</concept>
+			<concept>
+				<code value="193200000X"/>
+				<display value="Group Multi Specialty"/>
+			</concept>
+			<concept>
+				<code value="193400000X"/>
+				<display value="Group Single Specialty"/>
+			</concept>
+			<concept>
+				<code value="164W00000X"/>
+				<display value="Nursing Service Providers Licensed Practical Nurse"/>
+			</concept>
+			<concept>
+				<code value="167G00000X"/>
+				<display value="Nursing Service Providers Licensed Psychiatric Technician"/>
+			</concept>
+			<concept>
+				<code value="164X00000X"/>
+				<display value="Nursing Service Providers Licensed Vocational Nurse"/>
+			</concept>
+			<concept>
+				<code value="163W00000X"/>
+				<display value="Nursing Service Providers Registered Nurse"/>
+			</concept>
+			<concept>
+				<code value="372600000X"/>
+				<display value="Nursing Service Related Providers Adult Companion"/>
+			</concept>
+			<concept>
+				<code value="372500000X"/>
+				<display value="Nursing Service Related Providers Chore Provider"/>
+			</concept>
+			<concept>
+				<code value="373H00000X"/>
+				<display value="Nursing Service Related Providers Day Training/Habilitation Specialist"/>
+			</concept>
+			<concept>
+				<code value="374J00000X"/>
+				<display value="Nursing Service Related Providers Doula"/>
+			</concept>
+			<concept>
+				<code value="374U00000X"/>
+				<display value="Nursing Service Related Providers Home Health Aide"/>
+			</concept>
+			<concept>
+				<code value="376J00000X"/>
+				<display value="Nursing Service Related Providers Homemaker"/>
+			</concept>
+			<concept>
+				<code value="376K00000X"/>
+				<display value="Nursing Service Related Providers Nurse's Aide"/>
+			</concept>
+			<concept>
+				<code value="376G00000X"/>
+				<display value="Nursing Service Related Providers Nursing Home Administrator"/>
+			</concept>
+			<concept>
+				<code value="374T00000X"/>
+				<display value="Nursing Service Related Providers Religious Nonmedical Nursing Personnel"/>
+			</concept>
+			<concept>
+				<code value="374K00000X"/>
+				<display value="Nursing Service Related Providers Religious Nonmedical Practitioner"/>
+			</concept>
+			<concept>
+				<code value="374700000X"/>
+				<display value="Nursing Service Related Providers Technician"/>
+			</concept>
+			<concept>
+				<code value="171100000X"/>
+				<display value="Other Service Providers Acupuncturist"/>
+			</concept>
+			<concept>
+				<code value="171M00000X"/>
+				<display value="Other Service Providers Case Manager/Care Coordinator"/>
+			</concept>
+			<concept>
+				<code value="174V00000X"/>
+				<display value="Other Service Providers Clinical Ethicist"/>
+			</concept>
+			<concept>
+				<code value="172V00000X"/>
+				<display value="Other Service Providers Community Health Worker"/>
+			</concept>
+			<concept>
+				<code value="171W00000X"/>
+				<display value="Other Service Providers Contractor"/>
+			</concept>
+			<concept>
+				<code value="172A00000X"/>
+				<display value="Other Service Providers Driver"/>
+			</concept>
+			<concept>
+				<code value="176P00000X"/>
+				<display value="Other Service Providers Funeral Director"/>
+			</concept>
+			<concept>
+				<code value="170300000X"/>
+				<display value="Other Service Providers Genetic Counselor, MS"/>
+			</concept>
+			<concept>
+				<code value="174H00000X"/>
+				<display value="Other Service Providers Health Educator"/>
+			</concept>
+			<concept>
+				<code value="175L00000X"/>
+				<display value="Other Service Providers Homeopath"/>
+			</concept>
+			<concept>
+				<code value="171R00000X"/>
+				<display value="Other Service Providers Interpreter"/>
+			</concept>
+			<concept>
+				<code value="174N00000X"/>
+				<display value="Other Service Providers Lactation Consultant, Non RN"/>
+			</concept>
+			<concept>
+				<code value="173000000X"/>
+				<display value="Other Service Providers Legal Medicine"/>
+			</concept>
+			<concept>
+				<code value="177F00000X"/>
+				<display value="Other Service Providers Lodging"/>
+			</concept>
+			<concept>
+				<code value="174200000X"/>
+				<display value="Other Service Providers Meals"/>
+			</concept>
+			<concept>
+				<code value="172M00000X"/>
+				<display value="Other Service Providers Mechanotherapist"/>
+			</concept>
+			<concept>
+				<code value="170100000X"/>
+				<display value="Other Service Providers Medical Genetics, Ph.D. Medical Genetics"/>
+			</concept>
+			<concept>
+				<code value="176B00000X"/>
+				<display value="Other Service Providers Midwife"/>
+			</concept>
+			<concept>
+				<code value="175M00000X"/>
+				<display value="Other Service Providers Midwife, Lay"/>
+			</concept>
+			<concept>
+				<code value="171000000X"/>
+				<display value="Other Service Providers Military Health Care Provider"/>
+			</concept>
+			<concept>
+				<code value="172P00000X"/>
+				<display value="Other Service Providers Naprapath"/>
+			</concept>
+			<concept>
+				<code value="175F00000X"/>
+				<display value="Other Service Providers Naturopath"/>
+			</concept>
+			<concept>
+				<code value="175T00000X"/>
+				<display value="Other Service Providers Peer Specialist"/>
+			</concept>
+			<concept>
+				<code value="173C00000X"/>
+				<display value="Other Service Providers Reflexologist"/>
+			</concept>
+			<concept>
+				<code value="173F00000X"/>
+				<display value="Other Service Providers Sleep Specialist, PhD"/>
+			</concept>
+			<concept>
+				<code value="174400000X"/>
+				<display value="Other Service Providers Specialist"/>
+			</concept>
+			<concept>
+				<code value="174M00000X"/>
+				<display value="Other Service Providers Veterinarian"/>
+			</concept>
+			<concept>
+				<code value="183500000X"/>
+				<display value="Pharmacy Service Providers Pharmacist"/>
+			</concept>
+			<concept>
+				<code value="183700000X"/>
+				<display value="Pharmacy Service Providers Pharmacy Technician"/>
+			</concept>
+			<concept>
+				<code value="367A00000X"/>
+				<display value="Physician Assistants and Advanced Practice Nursing Providers Advanced Practice Midwife"/>
+			</concept>
+			<concept>
+				<code value="367H00000X"/>
+				<display value="Physician Assistants and Advanced Practice Nursing Providers Anesthesiologist Assistant"/>
+			</concept>
+			<concept>
+				<code value="364S00000X"/>
+				<display value="Physician Assistants and Advanced Practice Nursing Providers Clinical Nurse Specialist"/>
+			</concept>
+			<concept>
+				<code value="367500000X"/>
+				<display value="Physician Assistants and Advanced Practice Nursing Providers Nurse Anesthetist, Certified Registered"/>
+			</concept>
+			<concept>
+				<code value="363L00000X"/>
+				<display value="Physician Assistants and Advanced Practice Nursing Providers Nurse Practitioner"/>
+			</concept>
+			<concept>
+				<code value="363A00000X"/>
+				<display value="Physician Assistants and Advanced Practice Nursing Providers Physician Assistant"/>
+			</concept>
+			<concept>
+				<code value="211D00000X"/>
+				<display value="Podiatric Medicine and Surgery Service Providers Assistant, Podiatric"/>
+			</concept>
+			<concept>
+				<code value="213E00000X"/>
+				<display value="Podiatric Medicine and Surgery Service Providers Podiatrist"/>
+			</concept>
+			<concept>
+				<code value="229N00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Anaplastologist"/>
+			</concept>
+			<concept>
+				<code value="221700000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Art Therapist"/>
+			</concept>
+			<concept>
+				<code value="224Y00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Clinical Exercise Physiologist"/>
+			</concept>
+			<concept>
+				<code value="225600000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Dance Therapist"/>
+			</concept>
+			<concept>
+				<code value="222Q00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Developmental Therapist"/>
+			</concept>
+			<concept>
+				<code value="226300000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Kinesiotherapist"/>
+			</concept>
+			<concept>
+				<code value="225700000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Massage Therapist"/>
+			</concept>
+			<concept>
+				<code value="224900000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Mastectomy Fitter"/>
+			</concept>
+			<concept>
+				<code value="225A00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Music Therapist"/>
+			</concept>
+			<concept>
+				<code value="225X00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Occupational Therapist"/>
+			</concept>
+			<concept>
+				<code value="224Z00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Occupational Therapy Assistant"/>
+			</concept>
+			<concept>
+				<code value="225000000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Orthotic Fitter"/>
+			</concept>
+			<concept>
+				<code value="222Z00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Orthotist"/>
+			</concept>
+			<concept>
+				<code value="224L00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Pedorthist"/>
+			</concept>
+			<concept>
+				<code value="225100000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Physical Therapist"/>
+			</concept>
+			<concept>
+				<code value="225200000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Physical Therapy Assistant"/>
+			</concept>
+			<concept>
+				<code value="224P00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Prosthetist"/>
+			</concept>
+			<concept>
+				<code value="225B00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Pulmonary Function Technologist"/>
+			</concept>
+			<concept>
+				<code value="225800000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Recreation Therapist"/>
+			</concept>
+			<concept>
+				<code value="225C00000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Rehabilitation Counselor"/>
+			</concept>
+			<concept>
+				<code value="225400000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Rehabilitation Practitioner"/>
+			</concept>
+			<concept>
+				<code value="227800000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Respiratory Therapist, Certified"/>
+			</concept>
+			<concept>
+				<code value="227900000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Respiratory Therapist, Registered"/>
+			</concept>
+			<concept>
+				<code value="225500000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers Specialist/Technologist"/>
+			</concept>
+			<concept>
+				<code value="231H00000X"/>
+				<display value="Speech, Language and Hearing Service Providers Audiologist"/>
+			</concept>
+			<concept>
+				<code value="237600000X"/>
+				<display value="Speech, Language and Hearing Service Providers Audiologist Hearing Aid Fitter"/>
+			</concept>
+			<concept>
+				<code value="237700000X"/>
+				<display value="Speech, Language and Hearing Service Providers Hearing Instrument Specialist"/>
+			</concept>
+			<concept>
+				<code value="235500000X"/>
+				<display value="Speech, Language and Hearing Service Providers Specialist/Technologist"/>
+			</concept>
+			<concept>
+				<code value="235Z00000X"/>
+				<display value="Speech, Language and Hearing Service Providers Speech Language Pathologist"/>
+			</concept>
+			<concept>
+				<code value="390200000X"/>
+				<display value="Student, Health Care Student in an Organized Health Care Education/Training Program"/>
+			</concept>
+			<concept>
+				<code value="242T00000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Perfusionist"/>
+			</concept>
+			<concept>
+				<code value="247100000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Radiologic Technologist"/>
+			</concept>
+			<concept>
+				<code value="243U00000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Radiology Practitioner Assistant"/>
+			</concept>
+			<concept>
+				<code value="246X00000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Spec/Tech, Cardiovascular"/>
+			</concept>
+			<concept>
+				<code value="246Y00000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Spec/Tech, Health Info"/>
+			</concept>
+			<concept>
+				<code value="246Q00000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Spec/Tech, Pathology"/>
+			</concept>
+			<concept>
+				<code value="246Z00000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Specialist/Technologist, Other"/>
+			</concept>
+			<concept>
+				<code value="246W00000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Technician, Cardiology"/>
+			</concept>
+			<concept>
+				<code value="247000000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Technician, Health Information"/>
+			</concept>
+			<concept>
+				<code value="247200000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Technician, Other"/>
+			</concept>
+			<concept>
+				<code value="246R00000X"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers Technician, Pathology"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+

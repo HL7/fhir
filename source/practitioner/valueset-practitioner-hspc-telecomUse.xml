@@ -1,0 +1,46 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC Telecom Use"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of values that describe the type of system the telecom value belongs to."/>
+	<status value="draft"/>
+	<define>
+		<system value="Intermountain Health Care HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="492"/>
+			<display value="fax"/>
+			<definition value="Method of communication which uses telephone lines to send and receive printed documents between facsimile devices."/>
+		</concept>
+		<concept>
+			<code value="526850934"/>
+			<display value="Uniform Resource Locator"/>
+			<definition value="A reference that specifies the location of a resource on a computer network."/>
+		</concept>
+	</define>
+	<compose>
+		<include>
+		<system value="http://hl7.org/fhir/v3/AddressUse"/>
+			<concept>
+				<code value="EC"/>
+				<display value="emergency contact"/>
+			</concept>
+			<concept>
+				<code value="MC"/>
+				<display value="mobile contact"/>
+			</concept>
+			<concept>
+				<code value="PG"/>
+				<display value="pager"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+
