@@ -10,6 +10,15 @@
 	</contact>
 	<description value="The set of values that describe how usage of the service delivery location name."/>
 	<status value="draft"/>
+	<define>
+		<system value="Intermountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value = "ABR"/>
+			<display value ="Abbreviation"/>
+			<definition value ="A name or word display that has had a number of letters removed in order to fit into limited fields or spaces"/>
+		</concept>
+	</define>	
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/v3/vs/EntityNameUse"/>
@@ -23,13 +32,6 @@
 			</concept>
 		</include>
 	</compose>
-	<define>
-		<concept>
-			<code value = "ABR"/>
-			<display value ="Abbreviation"/>
-			<definition value ="A name or word display that has had a number of letters removed in order to fit into limited fields or spaces"/>
-		</concept>
-	</define>
 </ValueSet>
 
 

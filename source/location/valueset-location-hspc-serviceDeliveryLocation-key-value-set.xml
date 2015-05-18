@@ -10,6 +10,15 @@
 	</contact>
 	<description value="This value set defines the set of codes used to identify the service delivery location."/>
 	<status value="draft"/>
+	<define>
+		<system value="Intermountain Healthcare Health Data Dictionary"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value = "119"/>
+			<display value ="Facility"/>
+			<definition value ="A location that is categorized by the nursing skill, specialty, or type of care delivered"/>
+		</concept>
+	</define>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/v3/vs/EntityCode"/>
@@ -27,13 +36,6 @@
 			</concept>
 		</include>
 	</compose>
-	<define>
-		<concept>
-			<code value = "Facility"/>
-			<display value ="Facility"/>
-			<definition value ="A location that is categorized by the nursing skill, specialty, or type of care delivered"/>
-		</concept>
-	</define>
 </ValueSet>
 
 

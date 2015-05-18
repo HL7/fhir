@@ -5729,7 +5729,7 @@
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">!HSPC Service Delivery Location</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">HSPC Service Delivery Location</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">location-hspc-servicedeliverylocation-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">location-hspc-servicedeliverylocation-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">spreadsheet</Data></Cell>
@@ -5962,7 +5962,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>9</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
