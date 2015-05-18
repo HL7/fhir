@@ -78,14 +78,14 @@
 		<display value="Dr Leonard T Bloodraw Jr"/>
 	</performer>
 	<related>
-		<type value="has-component"/>
+		<type value="has-member"/>
 		<target>
 		<reference value="Observation/uslab-example7"></reference>
 			<display value="CT RNA"/>
 		</target>
 	</related>
 	<related>
-		<type value="has-component"/>
+		<type value="has-member"/>
 		<target><reference value="Observation/uslab-example2"></reference>
 			<display value="GC-RNA"/>
 		</target>
