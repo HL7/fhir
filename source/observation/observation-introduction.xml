@@ -22,30 +22,10 @@ provide a clinical or workflow context for a set of observations. Expected uses 
   <li>Social history: tobacco use, family supports, cognitive status</li>
   <li>Core characteristics: pregnancy status, death assertion</li>
 </ul>
+<p>Normally, an observation will have either a value (e.g. a blood glucose measurement) or a set of related observations ( e.g. an electrolyte panel) and not both. A few observations (e.g. apgar store) may have both a value and related observations (for apgar, the observations from which the measure is derived).</p>
 </div>
 
-<div>
-<h2>Background and Context</h2>
-<p>
-The observation resource has the following aspects:
-</p>
-<ul>
- <li>status (mandatory) - all users of observations SHALL be sure of the status of the observation</li>
- <li>reliability -  provides an estimate of the degree to which quality issues have impacted on the value of an observation</li>
- <li>code (mandatory) - describes what was observed. This is the 'name' in the name/value pair assertion pattern used in this resource</li>
- <li>identifier - Unique identifier for this particular observation so it can be recognized in all contexts where it is represented</li>
- <li>value - the actual value that was observed</li>
- <li>related observations - Other observations that are components of this observation, or provide supporting information, context or warnings about this observation</li>
- <li>subject,.bodySite[x] - the patient, or group of patients, location, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified, though this is often implicit in the Observation.code</li>
- <li>applies[x] - The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time.</li>
- <li>interpretation, comments, and reference range: information to help understand the observed value</li>
- <li>method, issued, performer - additional information about how the test was performed that may help understand the observation. The method is often implicit in the Observation.code</li>
-</ul>  
-<p>
-Typically, an observation will have either a value or component observations, and not both.
-</p>
 
-</div>
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>In contrast to the Observation resource, the <a href="diagnosticreport.html">DiagnosticReport</a> resource typically includes additional clinical context and and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations.  Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.</p>
