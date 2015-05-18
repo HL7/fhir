@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="hspc-standardlabs-ivlpq"/>
   <name value="HSPC Interval Physical Quantity Labs"/>
   <publisher value="HSPC"/>
@@ -19,7 +20,8 @@
 			<system value="http://loinc.org"/>
 			<filter>
 				<property value="Scale"/>
-				 <value value="OrdQn"/>
+				<op value="="/>
+				<value value="OrdQn"/>
 			</filter>
 		</include>
     </compose>

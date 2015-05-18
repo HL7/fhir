@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="hspc-standardlabs-narrative"/>
   <name value="HSPC Narrative Labs"/>
   <publisher value="HSPC"/>
@@ -179,7 +180,7 @@
 		</concept>
 		<concept>
 			<code value="29495-9"/>
-			<display value="Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe & target amplification method|Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+			<display value="Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method|Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
 		</concept>
 		<concept>
 			<code value="30554-0"/>
@@ -203,7 +204,7 @@
 		</concept>
 		<concept>
 			<code value="32286-7"/>
-			<display value="Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe & target amplification method|Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe and target amplification method"/>
+			<display value="Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe and target amplification method|Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe and target amplification method"/>
 		</concept>
 		<concept>
 			<code value="32297-4"/>
@@ -239,7 +240,7 @@
 		</concept>
 		<concept>
 			<code value="34474-7"/>
-			<display value="ABO + Rh group [Type] in Cord blood|ABO & Rh group [Type] in Cord blood|ABO and Rh group [Type] in Cord blood"/>
+			<display value="ABO + Rh group [Type] in Cord blood|ABO and Rh group [Type] in Cord blood|ABO and Rh group [Type] in Cord blood"/>
 		</concept>
 		<concept>
 			<code value="34477-0"/>
@@ -283,7 +284,7 @@
 		</concept>
 		<concept>
 			<code value="38348-9"/>
-			<display value="Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe & target amplification method|Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe and target amplification method"/>
+			<display value="Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe and target amplification method|Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe and target amplification method"/>
 		</concept>
 		<concept>
 			<code value="41048-0"/>
@@ -443,11 +444,11 @@
 		</concept>
 		<concept>
 			<code value="881-3"/>
-			<display value="ABO + Rh group [Type] in Serum or Plasma from Blood product unit|ABO & Rh group [Type] in Serum or Plasma from Blood product unit|ABO and Rh group [Type] in Serum or Plasma from Blood product unit"/>
+			<display value="ABO + Rh group [Type] in Serum or Plasma from Blood product unit|ABO and Rh group [Type] in Serum or Plasma from Blood product unit|ABO and Rh group [Type] in Serum or Plasma from Blood product unit"/>
 		</concept>
 		<concept>
 			<code value="882-1"/>
-			<display value="ABO + Rh group [Type] in Blood|ABO & Rh group [Type] in Blood|ABO and Rh group [Type] in Blood"/>
+			<display value="ABO + Rh group [Type] in Blood|ABO and Rh group [Type] in Blood|ABO and Rh group [Type] in Blood"/>
 		</concept>
 		<concept>
 			<code value="883-9"/>
@@ -491,7 +492,7 @@
 		</concept>
 		<concept>
 			<code value="9785-7"/>
-			<display value="Microscopic observation [Identifier] in Stool by Ova & Parasite Preparation|Deprecated Microscopic observation [Identifier] in Stool by Ova and Parasite Preparation"/>
+			<display value="Microscopic observation [Identifier] in Stool by Ova and Parasite Preparation|Deprecated Microscopic observation [Identifier] in Stool by Ova and Parasite Preparation"/>
 		</concept>
 		<concept>
 			<code value="9795-6"/>

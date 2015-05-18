@@ -20,7 +20,7 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -950,7 +950,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">author.name</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">HSPC Standard Narrative Lab Observation</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">HSPC</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">author.reference</Data></Cell>
@@ -1027,7 +1027,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3792,7 +3792,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3813,9 +3812,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>21</ActiveRow>
      <ActiveCol>9</ActiveCol>
-     <RangeSelection>R6C10:R7C10</RangeSelection>
+     <RangeSelection>R21C10:R22C10</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6933,12 +6932,12 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">hspc-abnInt-CodedNom</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">The set of codes that describe in what way a lab value is abnormal</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">hspc-abnInt-CodedNom</Data></Cell>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -6949,12 +6948,12 @@
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">hspc-deltaFlag-codedNom</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">The set of codes that describe the significant changes in test values</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">hspc-deltaFlag-codedNom</Data></Cell>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -7363,6 +7362,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7382,8 +7382,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

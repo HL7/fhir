@@ -9,19 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-04-14T20:16:31Z</LastSaved>
+  <LastSaved>2015-04-27T21:37:48Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2580</WindowHeight>
-  <WindowWidth>9870</WindowWidth>
+  <WindowHeight>2520</WindowHeight>
+  <WindowWidth>4080</WindowWidth>
   <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
-  <RefModeR1C1/>
+  <WindowTopY>60</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3792,7 +3791,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3813,8 +3811,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6847,7 +6845,7 @@
    x:FullRows="1" ss:StyleID="s132" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s132" ss:AutoFitWidth="0" ss:Width="183.75"/>
    <Column ss:StyleID="s132" ss:AutoFitWidth="0" ss:Width="274.5"/>
-   <Column ss:StyleID="s132" ss:Width="51"/>
+   <Column ss:StyleID="s132" ss:Width="56.25"/>
    <Column ss:StyleID="s132" ss:Width="67.5"/>
    <Column ss:StyleID="s132" ss:Width="54"/>
    <Column ss:StyleID="s132" ss:AutoFitWidth="0" ss:Width="198.75"/>
@@ -6917,7 +6915,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="String">HSPC-IVLPQ-Observations</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">!HSPC-IVLPQ-Observations</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">The list of LOINC codes that are used for interval physical quantities</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
@@ -6933,12 +6931,12 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">hspc-abnInt-NumericNom</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">The set of codes that describe in what way a lab value is abnormal</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">hspc-abnInt-NumericNom</Data></Cell>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -6949,12 +6947,12 @@
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">hspc-deltaFlag-numericNom</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">The set of codes that describe the significant changes in test values</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">hspc-deltaFlag-numericNom</Data></Cell>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -7395,6 +7393,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7415,8 +7414,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
-     <RangeSelection>R3C6:R4C6</RangeSelection>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7451,7 +7449,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R30C14,R2C2:R2C14,R3C2:R4C5,R3C7:R4C14</Range>
+   <Range>R5C1:R30C14,R2C2:R2C14,R4C2:R4C5,R3C7:R4C14,R3C3:R3C5</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7465,7 +7463,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R30C5</Range>
+   <Range>R2C2:R2C5,R4C2:R30C5,R3C3:R3C5</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7493,7 +7491,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R30C14,R2C2:R2C14,R3C2:R4C5,R3C7:R4C14</Range>
+   <Range>R5C1:R30C14,R2C2:R2C14,R4C2:R4C5,R3C7:R4C14,R3C3:R3C5</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -7514,6 +7512,27 @@
    <Range>R2C1</Range>
    <Condition>
     <Value1>LEFT(RC4,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C2</Range>
+   <Condition>
+    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C2</Range>
+   <Condition>
+    <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C2</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="hspc-standardlabs-coded"/>
   <name value="HSPC Coded Labs"/>
   <publisher value="HSPC"/>
@@ -43,7 +43,7 @@
 		</concept>
 		<concept>
 			<code value="10701-1"/>
-			<display value="Ova+Parasites identified in Stool by Concentration|Ova and parasites identified in Stool by Concentration"/>
+			<display value="Ova and parasites identified in Stool by Concentration"/>
 		</concept>
 		<concept>
 			<code value="10762-3"/>
@@ -95,7 +95,7 @@
 		</concept>
 		<concept>
 			<code value="14618-3"/>
-			<display value="Appearance of Stone|Appearance in Stone"/>
+			<display value="Appearance of Stone"/>
 		</concept>
 		<concept>
 			<code value="14869-2"/>
@@ -135,7 +135,7 @@
 		</concept>
 		<concept>
 			<code value="19156-9"/>
-			<display value="Susceptibility method - Unspecified specimen|Susceptibility method [Identifier] in Unspecified specimen|Susceptibility method [Identifier]"/>
+			<display value="Susceptibility method [Identifier] in Unspecified specimen"/>
 		</concept>
 		<concept>
 			<code value="20431-3"/>
@@ -147,7 +147,7 @@
 		</concept>
 		<concept>
 			<code value="20671-4"/>
-			<display value="Amino acids [interpretation] in Serum or Plasma|Deprecated Amino acids [interpretation] in Serum or Plasma"/>
+			<display value="Amino acids [interpretation] in Serum or Plasma"/>
 		</concept>
 		<concept>
 			<code value="20785-2"/>
@@ -179,11 +179,11 @@
 		</concept>
 		<concept>
 			<code value="29495-9"/>
-			<display value="Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe & target amplification method|Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+			<display value="Herpes virus 6 DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
 		</concept>
 		<concept>
 			<code value="30554-0"/>
-			<display value="HIV reverse transcriptase gene mutations detected [Identifier] in Isolate|HIV reverse transcriptase gene mutations detected [Identifier]"/>
+			<display value="HIV reverse transcriptase gene mutations detected [Identifier] in Isolate"/>
 		</concept>
 		<concept>
 			<code value="30934-4"/>
@@ -203,11 +203,11 @@
 		</concept>
 		<concept>
 			<code value="32286-7"/>
-			<display value="Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe & target amplification method|Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe and target amplification method"/>
+			<display value="Hepatitis C virus genotype [Identifier] in Serum or Plasma by Probe and target amplification method"/>
 		</concept>
 		<concept>
 			<code value="32297-4"/>
-			<display value="Amino acids [interpretation] in Urine|Deprecated Amino acids [interpretation] in Urine"/>
+			<display value="Amino acids [interpretation] in Urine"/>
 		</concept>
 		<concept>
 			<code value="32624-9"/>
@@ -235,11 +235,11 @@
 		</concept>
 		<concept>
 			<code value="33630-5"/>
-			<display value="HIV protease gene mutations detected [Identifier] in Isolate|HIV protease gene mutations detected [Identifier]"/>
+			<display value="HIV protease gene mutations detected [Identifier] in Isolate"/>
 		</concept>
 		<concept>
 			<code value="34474-7"/>
-			<display value="ABO + Rh group [Type] in Cord blood|ABO & Rh group [Type] in Cord blood|ABO and Rh group [Type] in Cord blood"/>
+			<display value="ABO and Rh group [Type] in Cord blood"/>
 		</concept>
 		<concept>
 			<code value="34477-0"/>
@@ -283,7 +283,7 @@
 		</concept>
 		<concept>
 			<code value="38348-9"/>
-			<display value="Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe & target amplification method|Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe and target amplification method"/>
+			<display value="Herpes virus 6 DNA [Identifier] in Unspecified specimen by Probe and target amplification method"/>
 		</concept>
 		<concept>
 			<code value="41048-0"/>
@@ -315,7 +315,7 @@
 		</concept>
 		<concept>
 			<code value="43804-4"/>
-			<display value="Amino acids [interpretation] in Cerebral spinal fluid|Amino acid pattern [interpretation] in Cerebral spinal fluid"/>
+			<display value="Amino acids [interpretation] in Cerebral spinal fluid"/>
 		</concept>
 		<concept>
 			<code value="44014-9"/>
@@ -335,11 +335,11 @@
 		</concept>
 		<concept>
 			<code value="45175-7"/>
-			<display value="HIV nucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate|HIV nucleoside reverse transcriptase gene mutations detected [Identifier]"/>
+			<display value="HIV nucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate"/>
 		</concept>
 		<concept>
 			<code value="45176-5"/>
-			<display value="HIV nonnucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate|HIV nonnucleoside reverse transcriptase gene mutations detected [Identifier]"/>
+			<display value="HIV nonnucleoside reverse transcriptase gene mutations detected [Identifier] in Isolate"/>
 		</concept>
 		<concept>
 			<code value="47938-6"/>
@@ -351,11 +351,11 @@
 		</concept>
 		<concept>
 			<code value="49024-3"/>
-			<display value="Differential cell count method - Blood|Differential cell count method [Type] in Blood"/>
+			<display value="Differential cell count method - Blood"/>
 		</concept>
 		<concept>
 			<code value="49541-6"/>
-			<display value="Fasting status [Presence] - Reported|Fasting status - Reported"/>
+			<display value="Fasting status [Presence] - Reported"/>
 		</concept>
 		<concept>
 			<code value="50008-2"/>
@@ -403,7 +403,7 @@
 		</concept>
 		<concept>
 			<code value="59465-5"/>
-			<display value="Pathologist review [interpretation] in Unspecified specimen Narrative|Pathologist review of results"/>
+			<display value="Pathologist review [interpretation] in Unspecified specimen Narrative"/>
 		</concept>
 		<concept>
 			<code value="6013-7"/>
@@ -431,7 +431,7 @@
 		</concept>
 		<concept>
 			<code value="675-9"/>
-			<display value="Enterobius vermicularis [Presence] in Unspecified specimen by Pinworm exam|Enterobius vermicularis [Presence] in Unspecified specimen Qualitative by Pinworm exam|Enterobius vermicularis [Identifier] in Unspecified specimen by Pinworm exam"/>
+			<display value="Enterobius vermicularis [Presence] in Unspecified specimen by Pinworm exam"/>
 		</concept>
 		<concept>
 			<code value="6824-7"/>
@@ -443,11 +443,11 @@
 		</concept>
 		<concept>
 			<code value="881-3"/>
-			<display value="ABO + Rh group [Type] in Serum or Plasma from Blood product unit|ABO & Rh group [Type] in Serum or Plasma from Blood product unit|ABO and Rh group [Type] in Serum or Plasma from Blood product unit"/>
+			<display value="ABO and Rh group [Type] in Serum or Plasma from Blood product unit"/>
 		</concept>
 		<concept>
 			<code value="882-1"/>
-			<display value="ABO + Rh group [Type] in Blood|ABO & Rh group [Type] in Blood|ABO and Rh group [Type] in Blood"/>
+			<display value="ABO and Rh group [Type] in Blood"/>
 		</concept>
 		<concept>
 			<code value="883-9"/>
@@ -491,7 +491,7 @@
 		</concept>
 		<concept>
 			<code value="9785-7"/>
-			<display value="Microscopic observation [Identifier] in Stool by Ova & Parasite Preparation|Deprecated Microscopic observation [Identifier] in Stool by Ova and Parasite Preparation"/>
+			<display value="Microscopic observation [Identifier] in Stool by Ova and Parasite Preparation"/>
 		</concept>
 		<concept>
 			<code value="9795-6"/>
