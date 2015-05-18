@@ -10,43 +10,41 @@
 	</contact>
 	<description value="A set of codes that describe the manner in which an addressed is used."/>
 	<status value="draft"/>
+	<define>
+		<system value="Intermountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="Fax"/>
+			<display value="Fax"/>
+			<definition value="Method of communication which uses telephone lines to send and receive printed documents between facsimile devices."/>
+		</concept>
+		<concept>
+			<code value="NS"/>
+			<display value="NotSpecified"/>
+			<definition value="The type of telecom system was not specified for the given number."/>
+		</concept>
+	</define>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/v3/AddressUse"/>
-			<caseSensitive value="true"/>
 			<concept>
 				<code value="AS"/>
 				<display value="Answering service"/>
-				<definition value="An automated answering machine used for less urgent cases and if the main purpose of contact is to leave a message or access an automated announcement."/>
 			</concept>
 			<concept>
 				<code value="EC"/>
 				<display value="Emergency contact"/>
-				<definition value="A contact specifically designated for use in emergencies."/>
-			<concept/>
+			</concept>
 			<concept>
 				<code value="MC"/>
 				<display value="Mobile contact"/>
-				<definition value="A communication device that moves and stays with its owner."/>
 			</concept>
 			<concept>
 				<code value="PG"/>
 				<display value="Pager"/>
-				<definition value="A paging device suitable to solicit a callback or to leave a very short message."/>
 			</concept>
 		</include>
-		<define>
-			<concept>
-				<code value="Fax"/>
-				<display value="Fax"/>
-				<definition value="Method of communication which uses telephone lines to send and receive printed documents between facsimile devices."/>
-			</concept>
-			<concept>
-				<code value="Not Specified"/>
-				<display value="Telecom phone type not specified"/>
-				<definition value="The type of telecom system was not specified for the given number."/>
-			</concept>
-		</define>
+	</compose>
 </ValueSet>
 
 

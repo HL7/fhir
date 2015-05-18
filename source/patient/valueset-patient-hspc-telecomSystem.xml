@@ -11,6 +11,8 @@
 	<description value="A set of values that describe the type of system the telecom value belongs to."/>
 	<status value="draft"/>
 	<define>
+		<system value="Intermountain Health Care HDD"/>
+		<caseSensitive value="true"/>
 		<concept>
 			<code value="fax"/>
 			<display value="fax"/>
