@@ -8132,7 +8132,7 @@
     <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">!HPSC Age Profile</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">HPSC Age Profile</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-hspc-age-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-hspc-age-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
@@ -8181,10 +8181,11 @@
     <Cell><Data ss:Type="String">hspc</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">HSPC Height Profile</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">observation-hspc-height-profile-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">observation-hspc-height-profile-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">hspc</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s120"/>
@@ -8276,7 +8277,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8289,6 +8290,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
@@ -8309,7 +8311,7 @@
   <AutoFilter x:Range="R1C1:R2C4" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C1:R38C4,R2C1:R4C4</Range>
+   <Range>R2C1:R4C4,R28C1:R38C4,R27C1</Range>
    <Condition>
     <Value1>AND(R[1048560]C1=&quot;&quot;,R[1048560]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8323,14 +8325,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C4:R38C4,R27C2:R38C2,R2C4:R4C4,R2C2:R4C2</Range>
+   <Range>R28C4:R38C4,R28C2:R38C2,R2C4:R4C4,R2C2:R4C2</Range>
    <Condition>
     <Value1>AND(R[1048560]C1&lt;&gt;&quot;&quot;,R[1048560]C[16368]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C1:R38C4,R2C1:R4C4</Range>
+   <Range>R2C1:R4C4,R28C1:R38C4,R27C1</Range>
    <Condition>
     <Value1>LEFT(R[1048560]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>

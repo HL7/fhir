@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="valueset-observation-hspc-heightMeasMethodDevice"/>
+  <version value="0.01"/>
+  <name value="HSPC Height Meas Method Device"/>
+  <immutable value="true"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="The set of codes that describe the methods or devices used to measure an individual's height."/>
+  <copyright value="Intermountain Healthcare"/>
+  <status value="draft"/>
+  <extensible value="true"/>
+  <date value="2015-05-19"/>
+  <define>
+		<system value="Internountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="2057"/>
+			<display value="Height, estimated by provider"/>
+			<definition value="The method of determining body length or height where it is guessed at by the health care provider"/>
+		</concept>
+		<concept>
+			<code value="2058"/>
+			<display value="Height, measured"/>
+			<definition value="A method of determining body length or height by utilizing a device to measure it."/>
+		</concept>
+		<concept>
+			<code value="2061"/>
+			<display value="Height, percentile"/>
+			<definition value="A method of determining body length or height by using a growth percentile chart"/>
+		</concept>
+		<concept>
+			<code value="2063"/>
+			<display value="Height, stated (reported)"/>
+			<definition value="The body length or height was given verbally rather than measured."/>
+		</concept>
+		<concept>
+			<code value="521363688"/>
+			<display value="Stadiometer"/>
+			<definition value="A device for measuring body length or height.  Usually constructed of a ruler and a sliding headpiece that, when placed on an individual's head will give a reading of the body length or height."/>
+		</concept>
+  </define>
+</ValueSet>
