@@ -45,7 +45,6 @@ editor Eric Haas Health eData Inc
 	<status value="active"/>
 	<!-- Tube feedings given as continuous rate -->
 	<enteralFormula>
-		<administrationInstructions value="Hold feedings from 7 pm to 7 am. Add MCT oil to increase calories from 1.0 cal/mL to 1.5 cal/mL"/>
 		<baseFormulaType>
 			<coding>
 				<system value="http://snomed/sct"/>
@@ -54,9 +53,7 @@ editor Eric Haas Health eData Inc
 			</coding>
 		</baseFormulaType>
 		<baseFormulaProductName value=" Acme Diabetes Formula"/>
-		<scheduled>
-			<event value="2014-09-17"/>
-		</scheduled>
+		
 		<caloricDensity>
 			<value value="1"/>
 			<units value="calories per milliliter"/>
@@ -69,32 +66,62 @@ editor Eric Haas Health eData Inc
 				<code value="NGT"/>
 				<display value="Instillation, nasogastrostomy tube"/>
 			</coding>
+		<!--step up rate of tube feeding by 20 ml/hr every 4 hours -->
 		</routeofAdministration>
-		<rate>
-			<value value="60"/>
-			<units value="ml/hr"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="mL/h"/>
-		</rate>
-		<rateAdjustment>
-			<numerator>
-				<value value="10"/>
-				<units value="ml"/>
+		<administration>
+			
+			<schedule>
+			<repeat>
+				<bounds>
+				  <start value="2014-09-17T07:00:00Z"/>
+				</bounds>
+			</repeat>
+			</schedule>
+			<rateQuantity>
+				<value value="60"/>
+				<units value="ml/hr"/>
 				<system value="http://unitsofmeasure.org"/>
-				<code value="mL"/>
-			</numerator>
-			<denominator>
-				<value value="4"/>
-				<units value="hr"/>
+				<code value="mL/h"/>
+			</rateQuantity>
+		</administration>
+		<administration>	
+			<schedule>
+			<repeat>
+				<bounds>
+				  <start value="2014-09-17T11:00:00Z"/>
+				</bounds>
+			</repeat>
+			</schedule>
+			<rateQuantity>
+				<value value="80"/>
+				<units value="ml/hr"/>
 				<system value="http://unitsofmeasure.org"/>
-				<code value="h"/>
-			</denominator>
-		</rateAdjustment>
+				<code value="mL/h"/>
+			</rateQuantity>
+		</administration>
+		<administration>		
+			<schedule>
+			<repeat>
+				<bounds>
+				  <start value="2014-09-17T15:00:00Z"/>
+				</bounds>
+			</repeat>
+			</schedule>
+			<rateQuantity>
+				<value value="100"/>
+				<units value="ml/hr"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mL/h"/>
+			</rateQuantity>
+		</administration>
+		
 		<maxVolumeToDeliver>
 			<value value="880"/>
 			<units value="milliliter/day"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mL/d"/>
 		</maxVolumeToDeliver>
+		<administrationInstruction value="Hold feedings from 7 pm to 7 am. Add MCT oil to increase calories from 1.0 cal/mL to 1.5 cal/mL"/>
+		
 	</enteralFormula>
 </NutritionOrder>

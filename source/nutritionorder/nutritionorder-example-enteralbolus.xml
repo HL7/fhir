@@ -69,7 +69,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		</coding>
 	</excludeFoodModifier>
 	<enteralFormula>
-		<administrationInstructions value="240 mls every 4hrs "/>
+		
 		<baseFormulaType>
 			<coding>
 				<!--EH:  bolus tube feeding instruction in text-->
@@ -80,16 +80,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 			</coding>
 		</baseFormulaType>
 		<baseFormulaProductName value="Acme High Protein Formula"/>
-		<scheduled>
-			<repeat>
-        <bounds>
-          <start value="2014-09-17"/>
-        </bounds>
-				<frequency value="1"/>
-				<period value="4"/>
-				<periodUnits value="h"/>
-			</repeat>
-		</scheduled>
+
 		<additiveType>
 			<coding>
 				<system value="http://hl7.org/fhir/entformula-additive"/>
@@ -111,17 +102,30 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 				<display value="Instillation, gastrostomy tube"/>
 			</coding>
 		</routeofAdministration>
-		<quantity>
-			<value value="240"/>
-			<units value="milliliters"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="mL"/>
-		</quantity>
+		<administration>
+			<schedule>
+				<repeat>
+				<bounds>
+				  <start value="2014-09-17T16:00:00Z"/>
+				</bounds>
+					<frequency value="1"/>
+					<period value="4"/>
+					<periodUnits value="h"/>
+				</repeat>
+			</schedule>
+			<quantity>
+				<value value="240"/>
+				<units value="milliliters"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mL"/>
+			</quantity>
+		</administration>
 		<maxVolumeToDeliver>
 			<value value="1440"/>
 			<units value="milliliter/day"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mL/d"/>
 		</maxVolumeToDeliver>
+		<administrationInstruction value="240 mls every 4hrs "/>
 	</enteralFormula>
 </NutritionOrder>

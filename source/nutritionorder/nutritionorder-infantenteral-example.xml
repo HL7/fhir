@@ -44,8 +44,6 @@ edited by Eric Haas Health eData Inc-->
 	<dateTime value="2014-09-17"/>
 	<status value="active"/>
 	<enteralFormula>
-		<!-- EH infant feeding instruction and additional instructions -->
-		<administrationInstructions value="Add high calorie high carbohydrate additive to increase cal/oz from 24 cal/oz to 27 cal/oz."/>
 		<baseFormulaType>
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -54,17 +52,7 @@ edited by Eric Haas Health eData Inc-->
 			</coding>
 		</baseFormulaType>
 		<baseFormulaProductName value="Acme Infant Formula + Iron"/>
-		<!-- scheduled 4 oz every 3hrs not to exceed 32 oz/day-->
-		<scheduled>
-			<event>
-				<start value="2014-09-17"/>
-			</event>
-			<repeat>
-				<frequency value="1"/>
-				<duration value="3"/>
-				<units value="h"/>
-			</repeat>
-		</scheduled>
+	
 		<additiveType>
 			<coding>
 				<system value="http://hl7.org/fhir/entformula-additive"/>
@@ -87,17 +75,33 @@ edited by Eric Haas Health eData Inc-->
 				<primary value="true"/>
 			</coding>
 		</routeofAdministration>
-		<quantity>
-			<value value="4"/>
-			<units value="ounces"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="[foz_us]"/>
-		</quantity>
+		<administration>
+			<!-- scheduled 4 oz every 3hrs not to exceed 32 oz/day-->
+			<scheduleTiming>
+				<event>
+					<start value="2014-09-17"/>
+				</event>
+				<repeat>
+					<frequency value="1"/>
+					<duration value="3"/>
+					<units value="h"/>
+				</repeat>
+			</scheduleTiming>
+			<quantity>
+				<value value="4"/>
+				<units value="ounces"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="[foz_us]"/>
+			</quantity>
+		</administration>
+		
 		<maxVolumeToDeliver>
 			<value value="32"/>
 			<units value="ounces"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="[foz_us]"/>
 		</maxVolumeToDeliver>
+		<!-- EH infant feeding instruction and additional instructions -->
+		<administrationInstruction value="Add high calorie high carbohydrate additive to increase cal/oz from 24 cal/oz to 27 cal/oz."/>
 	</enteralFormula>
 </NutritionOrder>

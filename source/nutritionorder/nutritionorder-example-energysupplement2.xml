@@ -64,7 +64,7 @@ edited by Eric Haas Health eData Inc
 			<text value="Adult high energy pudding"/>
 		</type>
 		<productName value="Ensure Pudding"/>
-		<scheduled>
+		<schedule>
 			<repeat>
         <bounds>
           <start value="2015-02-10"/>
@@ -73,7 +73,7 @@ edited by Eric Haas Health eData Inc
 				<duration value="0"/>
 				<units value="min"/>
 			</repeat>
-		</scheduled>
+		</schedule>
 		<quantity>
 			<value value="1"/>
 			<units value="4 oz container"/>

@@ -85,7 +85,7 @@ edited by Eric Haas Health eData Inc
 			<text value="Pureed diet"/>
 		</type>
 		<!-- EH example of three times a day starting on 2/10  -->
-		<scheduled>
+		<schedule>
 			<repeat>
         <bounds>
           <start value="2015-02-10"/>
@@ -94,7 +94,7 @@ edited by Eric Haas Health eData Inc
 				<period value="1"/>
 				<periodUnits value="d"/>
 			</repeat>
-		</scheduled>
+		</schedule>
 		<!--EH: this example showing how to code for texture modification -->
 		<texture>
 			<modifier>

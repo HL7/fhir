@@ -58,14 +58,14 @@ edited by Eric Haas Health eData Inc
 			<text value="High Protein Powder"/>
 		</type>
 		<productName value="Beneprotein"/>
-		<scheduled>
+		<schedule>
 			<repeat>
         <bounds>
           <start value="2015-02-10"/>
         </bounds>
 				<when value="C"/>
 			</repeat>
-		</scheduled>
+		</schedule>
 		<quantity>
 			<value value="1"/>
 			<units value="scoop"/>

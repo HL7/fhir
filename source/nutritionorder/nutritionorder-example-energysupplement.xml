@@ -81,7 +81,7 @@ edited by Eric Haas Health eData Inc
 		</type>
 		<productName value="Ensure"/>
 		<!--EH:  1 8 oz can tid using coded data -->
-		<scheduled>
+		<schedule>
 			<repeat>
         <bounds>
           <start value="2015-02-10"/>
@@ -90,7 +90,7 @@ edited by Eric Haas Health eData Inc
 				<period value="1"/>
 				<periodUnits value="d"/>
 			</repeat>
-		</scheduled>
+		</schedule>
 		<quantity>
 			<value value="1"/>
 			<units value="8 oz can"/>

@@ -79,17 +79,29 @@ edited by Eric Haas Health eData Inc
 			<text value="Adult diabetic formula"/>
 		</type>
 		<productName value="Glucerna"/>
-		<!-- EH 02/11/2015 - no way to say at 3 and HS using the timing datatype -->
-		<scheduled>
+		<!--EH:Glucerna Shake at 3pm and HS-->
+		<schedule>
 			<repeat>
-        <bounds>
-          <start value="2015-02-10"/>
-        </bounds>
-				<period value="1"/>
+				<bounds>
+				  <start value="2015-02-10T22:00:00Z"/>
+				</bounds>
+				<frequency value="1"/>
+				<period value="24"/>
 				<periodUnits value="h"/>
-				<when value="HS"/>
+
 			</repeat>
-		</scheduled>
+		</schedule>
+		<schedule>
+			<repeat>
+				<bounds>
+				  <start value="2015-02-10T22:00:00Z"/>
+				</bounds>
+				<duration value="1"/>
+				<durationUnits value="h"/>
+				<when value="HS"/>
+
+			</repeat>
+		</schedule>
 		<quantity>
 			<value value="1"/>
 			<units value="8 oz bottle"/>

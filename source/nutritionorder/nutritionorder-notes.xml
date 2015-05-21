@@ -1,7 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
-
+<p>Guidance on how to implement enteral vs bolus feedings as structured data.
+define terms  enteral vs bolus 
+reference the examples
+text to describe how
+</p>
 
 
 </div>
