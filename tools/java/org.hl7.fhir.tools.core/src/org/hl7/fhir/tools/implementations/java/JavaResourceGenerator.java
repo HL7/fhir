@@ -44,9 +44,6 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.instance.model.IdType;
-import org.hl7.fhir.instance.model.api.INarrative;
-import org.hl7.fhir.instance.model.api.IRefImplResource;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -146,7 +143,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		  
 			String hierarchy;
       if (Utilities.noString(root.typeCode())) {
-        hierarchy = "BaseResource implements IRefImplResource";
+        hierarchy = "BaseResource implements IAnyResource";
       } else if ("Bundle".equals(upFirst(name))) {
         hierarchy = root.typeCode() + " implements IBaseBundle";
       } else if ("Parameters".equals(upFirst(name))) {
@@ -233,41 +230,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	    if (mandatory.size() > 0)
 	      generateConstructor(upFirst(name), mandatory, "  ");
 
-	    //@formatter:off
-	    if (isRefType) {
-	      write("    /**\r\n" + 
-	          "     * Constructor\r\n" + 
-	          "     * \r\n" + 
-	          "     * @param theReference The given reference string (e.g. \"Patient/123\" or \"http://example.com/Patient/123\")\r\n" + 
-	          "     */\r\n" + 
-	          "    public Reference(String theReference) {\r\n" + 
-	          "      super(theReference);\r\n" + 
-	          "    }\r\n" + 
-	          "\r\n" + 
-	          "    /**\r\n" + 
-	          "     * Constructor\r\n" + 
-	          "     * \r\n" + 
-	          "     * @param theReference The given reference as an IdType (e.g. \"Patient/123\" or \"http://example.com/Patient/123\")\r\n" + 
-	          "     */\r\n" + 
-	          "    public Reference(IdType theReference) {\r\n" + 
-	          "      super(theReference);\r\n" + 
-	          "    }\r\n" + 
-	          "\r\n" + 
-	          "    /**\r\n" + 
-	          "     * Constructor\r\n" + 
-	          "     * \r\n" + 
-	          "     * @param theResource The resource represented by this reference\r\n" + 
-	          "     */\r\n" + 
-	          "    public Reference(IRefImplResource theResource) {\r\n" + 
-	          "      super(theResource);\r\n" + 
-	          "    }\r\n" + 
-	          "\r\n");
-	    }
-	    //@formatter:on
+	    generateTypeSpecificConstructors(isRefType);
 	    
 			for (ElementDefn e : root.getElements()) {
   			generateAccessors(root, e, "    ", upFirst(name));
 			}
+			
+			generateTypeSpecificAccessors(name, clss);
 			
 			generateChildrenRegister(root, "    ", isAbstract);
 		} else
@@ -286,6 +255,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		} else if (isAbstract && Utilities.noString(root.typeCode()) && clss != JavaGenClass.Structure) {
 		  write("  public abstract ResourceType getResourceType();\r\n");
 		}
+		
+		
 		if (map != null) {
 		  for (SearchParameterDefn sp : map.values()) {
 		    write("  @SearchParamDefinition(name=\""+sp.getCode()+"\", path=\""+pipeSeparate(sp.getPaths())+"\", description=\""+Utilities.escapeJava(sp.getDescription())+"\", type=\""+sp.getType().toString()+"\" )\r\n");
@@ -297,6 +268,95 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		write("\r\n");
 		flush();
 	}
+
+  private void generateTypeSpecificConstructors(boolean isRefType) throws IOException {
+    //@formatter:off
+    if (isRefType) {
+      write("    /**\r\n" + 
+          "     * Constructor\r\n" + 
+          "     * \r\n" + 
+          "     * @param theReference The given reference string (e.g. \"Patient/123\" or \"http://example.com/Patient/123\")\r\n" + 
+          "     */\r\n" + 
+          "    public Reference(String theReference) {\r\n" + 
+          "      super(theReference);\r\n" + 
+          "    }\r\n" + 
+          "\r\n" + 
+          "    /**\r\n" + 
+          "     * Constructor\r\n" + 
+          "     * \r\n" + 
+          "     * @param theReference The given reference as an IdType (e.g. \"Patient/123\" or \"http://example.com/Patient/123\")\r\n" + 
+          "     */\r\n" + 
+          "    public Reference(IdType theReference) {\r\n" + 
+          "      super(theReference);\r\n" + 
+          "    }\r\n" + 
+          "\r\n" + 
+          "    /**\r\n" + 
+          "     * Constructor\r\n" + 
+          "     * \r\n" + 
+          "     * @param theResource The resource represented by this reference\r\n" + 
+          "     */\r\n" + 
+          "    public Reference(IAnyResource theResource) {\r\n" + 
+          "      super(theResource);\r\n" + 
+          "    }\r\n" + 
+          "\r\n");
+    }
+    //@formatter:on
+  }
+
+  private void generateTypeSpecificAccessors(String name, JavaGenClass clss) throws IOException {
+    if (clss == JavaGenClass.Resource && upFirst(name).equals("Bundle")) {
+      //@formatter:off
+		  write(" /**\r\n" + 
+		      "   * Returns the {@link #getLink() link} which matches a given {@link BundleLinkComponent#getRelation() relation}. \r\n" + 
+		      "   * If no link is found which matches the given relation, returns <code>null</code>. If more than one\r\n" + 
+		      "   * link is found which matches the given relation, returns the first matching BundleLinkComponent.\r\n" + 
+		      "   * \r\n" + 
+		      "   * @param theRelation\r\n" + 
+		      "   *            The relation, such as \"next\", or \"self. See the constants such as {@link IBaseBundle#LINK_SELF} and {@link IBaseBundle#LINK_NEXT}.\r\n" + 
+		      "   * @return Returns a matching BundleLinkComponent, or <code>null</code>\r\n" + 
+		      "   * @see IBaseBundle#LINK_NEXT\r\n" + 
+		      "   * @see IBaseBundle#LINK_PREV\r\n" + 
+		      "   * @see IBaseBundle#LINK_SELF\r\n" + 
+		      "   */\r\n" + 
+		      "  public BundleLinkComponent getLink(String theRelation) {\r\n" + 
+		      "    org.apache.commons.lang3.Validate.notBlank(theRelation, \"theRelation may not be null or empty\");\r\n" + 
+		      "    for (BundleLinkComponent next : getLink()) {\r\n" + 
+		      "      if (theRelation.equals(next.getRelation())) {\r\n" + 
+		      "        return next;\r\n" + 
+		      "      }\r\n" + 
+		      "    }\r\n" + 
+		      "    return null;\r\n" + 
+		      "  }\r\n" + 
+		      "\r\n" + 
+		      "  /**\r\n" + 
+		      "   * Returns the {@link #getLink() link} which matches a given {@link BundleLinkComponent#getRelation() relation}. \r\n" + 
+		      "   * If no link is found which matches the given relation, creates a new BundleLinkComponent with the\r\n" + 
+		      "   * given relation and adds it to this Bundle. If more than one\r\n" + 
+		      "   * link is found which matches the given relation, returns the first matching BundleLinkComponent.\r\n" + 
+		      "   * \r\n" + 
+		      "   * @param theRelation\r\n" + 
+		      "   *            The relation, such as \"next\", or \"self. See the constants such as {@link IBaseBundle#LINK_SELF} and {@link IBaseBundle#LINK_NEXT}.\r\n" + 
+		      "   * @return Returns a matching BundleLinkComponent, or <code>null</code>\r\n" + 
+		      "   * @see IBaseBundle#LINK_NEXT\r\n" + 
+		      "   * @see IBaseBundle#LINK_PREV\r\n" + 
+		      "   * @see IBaseBundle#LINK_SELF\r\n" + 
+		      "   */\r\n" + 
+		      "  public BundleLinkComponent getLinkOrCreate(String theRelation) {\r\n" + 
+		      "    org.apache.commons.lang3.Validate.notBlank(theRelation, \"theRelation may not be null or empty\");\r\n" + 
+		      "    for (BundleLinkComponent next : getLink()) {\r\n" + 
+		      "      if (theRelation.equals(next.getRelation())) {\r\n" + 
+		      "        return next;\r\n" + 
+		      "      }\r\n" + 
+		      "    }\r\n" + 
+		      "    BundleLinkComponent retVal = new BundleLinkComponent();\r\n" + 
+		      "    retVal.setRelation(theRelation);\r\n" + 
+		      "    getLink().add(retVal);\r\n" + 
+		      "    return retVal;\r\n" + 
+		      "  }\r\n" + 
+		      "");
+		  //@formatter:on
+		}
+  }
 
   private String clean(String code) {
     StringBuilder b = new StringBuilder();

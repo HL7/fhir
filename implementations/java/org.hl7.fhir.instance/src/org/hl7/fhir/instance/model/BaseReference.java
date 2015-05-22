@@ -4,7 +4,7 @@ import org.hl7.fhir.instance.model.api.IBaseReference;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.hl7.fhir.instance.model.api.ICompositeType;
 import org.hl7.fhir.instance.model.api.IIdType;
-import org.hl7.fhir.instance.model.api.IRefImplResource;
+import org.hl7.fhir.instance.model.api.IAnyResource;
 
 public abstract class BaseReference extends Type implements IBaseReference, ICompositeType {
 
@@ -25,7 +25,7 @@ public abstract class BaseReference extends Type implements IBaseReference, ICom
     	}
     }
 
-	public BaseReference(IRefImplResource theResource) {
+	public BaseReference(IAnyResource theResource) {
 		resource = theResource;
 	}
 
