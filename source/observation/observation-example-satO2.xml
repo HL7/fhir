@@ -42,7 +42,7 @@
     </coding>
   </interpretation>
 
-  <appliesDateTime value="2014-12-05T09:30:10+01:00"/>
+  <effectiveDateTime value="2014-12-05T09:30:10+01:00"/>
 
   <status value="final"/>
 

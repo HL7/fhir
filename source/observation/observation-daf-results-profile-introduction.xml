@@ -68,7 +68,7 @@ The DAFResults profile mapping to Meaningful Use data elements and FHIR Resource
 		  <tr>
 		    <td/>
 			<td>Lab Test Specimen collection date</td>
-			<td>Observation.applies[x]</td>
+			<td>Observation.effective[x]</td>
 		  </tr>
 		  <tr>
 		    <td/>

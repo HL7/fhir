@@ -2139,7 +2139,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Have Lloyd check xpath</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Minimum Precision to Day</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
@@ -5238,7 +5238,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Have Lloyd check xpath</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Minimum Precision to Day</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
@@ -8345,7 +8345,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Have Lloyd check xpath</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Minimum Precision to Day</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
@@ -11731,7 +11731,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Have Lloyd check xpath</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Minimum Precision to Day</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.applies[x]</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.effective[x]</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="Number">1</Data></Cell>
@@ -14808,7 +14808,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Have Lloyd check xpath</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Minimum Precision to Day</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
@@ -17959,7 +17959,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Have Lloyd check xpath</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Minimum Precision to Day</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.applies[x]</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.effective[x]</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -22718,7 +22718,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -23282,7 +23282,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -23849,7 +23849,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -24416,7 +24416,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -24969,7 +24969,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">datetime to Day</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.applies[x]</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.effective[x]</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data></Cell>
@@ -25518,7 +25518,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -54,7 +54,7 @@ bundle, but this is not required
 		</coding>
 		<text value="low"/>
 	</interpretation>
-	<appliesDateTime value="2012-09-17"/>
+	<effectiveDateTime value="2012-09-17"/>
 	<!-- for an observation with components, these cannot disagree with the flags on the components -->
 	<status value="final"/>
 	<reliability value="ok"/>

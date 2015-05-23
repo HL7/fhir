@@ -76,7 +76,7 @@ see narrative
 			<code value="A"/>
 		</coding>
 	</interpretation>
-	<appliesDateTime value="2014-12-05"/>
+	<effectiveDateTime value="2014-12-05"/>
 	<!-- EH: Showing dateTime to ss with TZO although only needed to Day -->
 	<issued value="2014-12-06T15:42:15-08:00"/>
 	<status value="final"/>

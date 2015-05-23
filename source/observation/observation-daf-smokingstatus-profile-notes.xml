@@ -27,7 +27,7 @@ The following are example usage scenarios for the DAF Smoking Status profile:
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<p><b>Smoking Status Applicability:</b> The Smoking Status values describe point-in-time smoking status, and implementers have to be mindful of the semantic meaning while using these codes to describe smoking behavior. For example, if I want to say that a patient used to smoke heavily between 2000 and 2010, it <u>does not</u> make sense to use the code for Former smoker', along with an appliesPeriod representing 2000-2010. This is because 'Former smoker' <u>did not</u> apply during that time range. Instead implementers should use a 'current smoker' along with a time range representing 2000-2010. </p>
+	<p><b>Smoking Status Applicability:</b> The Smoking Status values describe point-in-time smoking status, and implementers have to be mindful of the semantic meaning while using these codes to describe smoking behavior. For example, if I want to say that a patient used to smoke heavily between 2000 and 2010, it <u>does not</u> make sense to use the code for Former smoker', along with an effectivePeriod representing 2000-2010. This is because 'Former smoker' <u>did not</u> apply during that time range. Instead implementers should use a 'current smoker' along with a time range representing 2000-2010. </p>
 	<p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 </ul>
 

@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Nathan Davis</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-05-20T22:01:03Z</LastSaved>
+  <LastSaved>2015-05-23T00:55:52Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1382,7 +1382,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1400,7 +1400,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Physiologically Relevant time/time-period for observation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Clinically Relevant time/time-period for observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4522,9 +4522,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>19</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4540,8 +4540,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>20</ActiveCol>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6355,7 +6354,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Observation.applies[x]</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Observation.effective[x]</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">Obtained date/time. If the obtained element is a period, a date that falls in the period</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6539,7 +6538,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6556,8 +6555,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>27</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7980,7 +7979,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="40" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s115" ss:DefaultColumnWidth="65.25"
-   ss:DefaultRowHeight="15">
+   ss:DefaultRowHeight="17.25">
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="320.25"/>
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="281.25"/>
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="252"/>
@@ -8004,7 +8003,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">!C-CDA Smoking Status Observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">observation-ccda-smokingstatus.xml</Data><NamedCell
@@ -8015,42 +8014,42 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s120"><Data ss:Type="String">!C-CDA Age Observation</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">observation-ccda-age.xml</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">observation-ccda-age-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s120"><Data ss:Type="String">!C-CDA Assessment Scale Observation</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">observation-ccda-assessmentscale.xml</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">observation-ccda-assessmentscale-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Caregiver Characteristics Observation</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-caregiverchar.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-caregiverchar-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Cognitive Status Result Observation</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-cognitivestatusresult.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-cognitivestatusresult-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Comment Activity</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-commentactivity.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-commentactivity-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">ccda</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Deceased Observation</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-deceasedobservation.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-deceasedobservation-profile-spreadsheet.xml</Data></Cell>
@@ -8070,14 +8069,14 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-test2-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">Device Metric Observation</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-device-metric.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-device-metric-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">US Laboratory Observation Profile</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">obs-uslab.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">obs-uslab-profile-spreadsheet.xml</Data></Cell>
@@ -8091,7 +8090,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">daf</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="29.0625">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">DAF Smoking Status</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-daf-smokingstatus.xml</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-daf-smokingstatus-profile-spreadsheet.xml</Data></Cell>
@@ -8278,7 +8277,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8295,7 +8294,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
+     <ActiveRow>26</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -8624,7 +8623,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">Genetics Observation Example2 Germline</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">Genetics Observation Example2 Germlin</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s123"><Data ss:Type="String">Genetics Observation of Germline BRCA1 Variant</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">genetics-example2-germline</Data></Cell>
@@ -8765,7 +8764,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8778,11 +8777,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

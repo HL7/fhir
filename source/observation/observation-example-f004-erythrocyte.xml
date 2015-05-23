@@ -21,10 +21,10 @@
             <display value="abnormal"/>
         </coding>
     </interpretation>
-    <appliesPeriod>
+    <effectivePeriod>
         <start value="2013-04-02T10:30:10+01:00"/>
         <end value="2013-04-05T10:30:10+01:00"/>
-    </appliesPeriod>
+    </effectivePeriod>
     <issued value="2013-04-03T15:30:10+01:00"/>
     <status value="final"/> <!--  urn:oid:2.16.840.1.113883.4.642.1.7  -->
     <reliability value="ok"/> <!--  2.16.840.1.113883.4.642.1.118  -->

@@ -45,7 +45,7 @@
 				<system value="http://unitsofmeasure.org"/>
 				<code value="{score}"/>
 			</valueQuantity>
-			<appliesDateTime value="2014-12-11T04:44:16Z"/>
+			<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 			<status value="final"/>
 			<reliability value="ok"/>
 			<subject>
@@ -70,7 +70,7 @@
 				<system value="http://unitsofmeasure.org"/>
 				<code value="{score}"/>
 			</valueQuantity>
-			<appliesDateTime value="2014-12-11T04:44:16Z"/>
+			<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 			<status value="final"/>
 			<reliability value="ok"/>
 			<subject>
@@ -95,7 +95,7 @@
 				<system value="http://unitsofmeasure.org"/>
 				<code value="{score}"/>
 			</valueQuantity>
-			<appliesDateTime value="2014-12-11T04:44:16Z"/>
+			<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 			<status value="final"/>
 			<reliability value="ok"/>
 			<subject>
@@ -128,7 +128,7 @@
 		<system value="http://unitsofmeasure.org"/>
 		<code value="{score}"/>
 	</valueQuantity>
-	<appliesDateTime value="2014-12-11T04:44:16Z"/>
+	<effectiveDateTime value="2014-12-11T04:44:16Z"/>
 	<!-- the mandatory quality flags: -->
 	<status value="final"/>
 	<reliability value="ok"/>

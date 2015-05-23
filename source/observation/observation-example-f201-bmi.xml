@@ -82,7 +82,7 @@
 	<reliability value="ok"/>
 	<!--No reliability concerns-->
 	<bodySiteCodeableConcept>
-		<!--BMI applies to whole body-->
+		<!--BMI effective to whole body-->
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="38266002"/>

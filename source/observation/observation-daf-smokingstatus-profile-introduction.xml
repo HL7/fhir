@@ -45,7 +45,7 @@ The DAF Smoking Status profile mapping to Meaningful Use data elements and FHIR 
 		  <tr>
 		    <td/>
 			<td>Smoking Status Value Applicability (Time Period when the Smoking Status value is/was applicable) </td>
-			<td>Observation.appliesPeriod</td>
+			<td>Observation.effectivePeriod</td>
 		  </tr>
 		</tbody>
 	</table>

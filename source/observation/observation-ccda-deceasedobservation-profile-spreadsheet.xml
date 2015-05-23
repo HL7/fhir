@@ -1390,7 +1390,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.appliesTIME</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.effectiveTIME</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1414,7 +1414,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.appliesTIME</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.effectiveTIME</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -11383,9 +11383,9 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"><Data ss:Type="String">7. SHALL contain exactly one [1..1] effectiveTime (CONF:14855).&#10;a. This effectiveTime SHALL contain exactly one [1..1] low (CONF:14874).</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.appliesTIME</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.effectiveTIME</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell><Data ss:Type="String">Observation.appliesTIME</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.effectiveTIME</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s106"/>
