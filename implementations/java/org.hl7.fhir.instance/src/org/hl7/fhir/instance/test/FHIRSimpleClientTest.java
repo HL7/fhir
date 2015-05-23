@@ -42,31 +42,31 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class FHIRSimpleClientTest {
-	
+
 	private static String connectUrl = null;
 	private static String userAgent = null;
 	private static DateType testDateAndTime = null;
-	
+
 	private IFHIRClient testClient;
 	private String testPatientId;
 	private String testPatientVersion;
 	private boolean logResource = true;
 	private boolean useProxy = true;
-	
+
 	@SuppressWarnings("unused")
   private static void configureForFurore() {
 		connectUrl = "http://spark.furore.com/fhir/";
 		//connectUrl = "http://fhirlab.furore.com/fhir";
 		userAgent = "Spark.Service";
 	}
-	
+
 	private static void configureForHealthIntersection() {
 		//connectUrl = "http://hl7connect.healthintersections.com.au/svc/fhir/";
 		connectUrl = "http://fhir.healthintersections.com.au/open";
 		//userAgent = "HL7Connect";
 		userAgent = "Reference Server";
 	}
-	
+
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -89,9 +89,9 @@ public class FHIRSimpleClientTest {
 	}
 
 	@After
-	public void tearDown() throws Exception {	
+	public void tearDown() throws Exception {
 	}
-	
+
 	/**************************************************************
 	 * START OF TEST SECTION
 	 **************************************************************/
@@ -118,7 +118,7 @@ public class FHIRSimpleClientTest {
 			fail(e.getMessage());
 		}
 	}
-	
+
 	@Test
 	public void testGetConformanceStatementWithOptionsJson() {
 		try {
@@ -131,7 +131,7 @@ public class FHIRSimpleClientTest {
 			fail(e.getMessage());
 		}
 	}
-	
+
 	@Test
 	public void testGetConformanceStatementWithOptionsXml() {
 		try {
@@ -144,7 +144,7 @@ public class FHIRSimpleClientTest {
 			fail(e.getMessage());
 		}
 	}
-	
+
 	@Test
 	public void testGetConformanceStatementWithGetXml() {
 		try {
@@ -156,7 +156,7 @@ public class FHIRSimpleClientTest {
 			fail(e.getMessage());
 		}
 	}
-	
+
 	@Test
 	public void testGetConformanceStatementWithGetJson() {
 		try {
@@ -235,7 +235,7 @@ public class FHIRSimpleClientTest {
 		assertNotNull(resourceId);
 		assertNotNull(entryVersion);
 	}
-	
+
 	@Test
 	public void testDelete() {
 		Patient patientRequest = buildPatient();
@@ -243,7 +243,7 @@ public class FHIRSimpleClientTest {
 		boolean success = testClient.delete(Patient.class, getEntryId(result));
 		assertTrue(success);
 	}
-	
+
 	@Test
 	public void testValidate() {
 		loadPatientReference();
@@ -254,7 +254,7 @@ public class FHIRSimpleClientTest {
 		assertTrue(validate.getIssue().size() == 0);//TODO not sure why bad syntax
 		unloadPatientReference();
 	}
-	
+
 
 	@Test
 	public void testGetHistoryForResourceWithId() {
@@ -266,8 +266,8 @@ public class FHIRSimpleClientTest {
 		assertNotNull(feed);
 		assertEquals(3, feed.getEntry().size());
 	}
-	
-	
+
+
 	@Test
 	public void testGetHistoryForResourcesOfTypeSinceCalendarDate() {
 		try {
@@ -295,7 +295,7 @@ public class FHIRSimpleClientTest {
 		assertNotNull(feed);
 		assertTrue(feed.getEntry().size() > 1);
 	}
-	
+
 	@Test
 	public void testHistoryForAllResourceTypesWithCount() throws Exception {
 		Calendar cal = Calendar.getInstance();
@@ -332,7 +332,7 @@ public class FHIRSimpleClientTest {
 		System.out.println(feed.getEntry().size());
 		assertTrue(feed.getEntry().size() > 0);
 	}
-	
+
 	@Test
 	public void testSearchPatientByGivenName() {
 		try {
@@ -364,7 +364,7 @@ public class FHIRSimpleClientTest {
 			patientReference.setReference(getEntryPath(createdPatientEntry));
 			Observation obs = new Observation();
 			obs.setSubject(patientReference);
-			obs.setApplies(Factory.newDateTime("2013-01-10"));
+			obs.setEffective(Factory.newDateTime("2013-01-10"));
 			OperationOutcome createdObservationEntry = testClient.create(Observation.class, obs);
 			obs.setId(getEntryPath(createdObservationEntry));
 			Bundle batchFeed = new Bundle();
@@ -379,7 +379,7 @@ public class FHIRSimpleClientTest {
 			fail();
 		}
 	}
-	
+
 	@Test
 	public void testSimpleTransaction1() {
 		try {
@@ -400,7 +400,7 @@ public class FHIRSimpleClientTest {
 			fail();
 		}
 	}
-	
+
 	@Test
 	public void testSimpleTransaction2() {
 		try {
@@ -425,8 +425,8 @@ public class FHIRSimpleClientTest {
 			fail();
 		}
 	}
-	
-	@Test	
+
+	@Test
 	public void testTransactionError() {
 		try {
 			Patient patient = buildPatient();
@@ -450,19 +450,19 @@ public class FHIRSimpleClientTest {
 			fail();
 		}
 	}
-	
+
 //	@Test
 //	public void testGetAllTags() {
 //		List<Coding> tags = testClient.getAllTags();
 //		assertTrue(tags != null && tags.size() > 0);
 //	}
-//	
+//
 //	@Test
 //	public void testGetAllTagsForResourceType() {
 //		List<Coding> tags = testClient.getAllTagsForResourceType(Patient.class);
 //		assertTrue(tags != null && tags.size() > 0);
 //	}
-//	
+//
 //	@Test
 //	public void testGetTagsForReference() {
 //		loadPatientReference();
@@ -470,7 +470,7 @@ public class FHIRSimpleClientTest {
 //		assertTrue(tags != null && tags.size() > 0);
 //		unloadPatientReference();
 //	}
-//	
+//
 //	@Test
 //	public void testGetTagsForResourceVersion() {
 //		loadPatientReference();
@@ -478,7 +478,7 @@ public class FHIRSimpleClientTest {
 //		assertTrue(tags != null && tags.size() > 0);
 //		unloadPatientReference();
 //	}
-//	
+//
 //	@Test
 //	public void testDeleteTagsForReference() {
 //		loadPatientReference();
@@ -486,7 +486,7 @@ public class FHIRSimpleClientTest {
 //		assertTrue(success);
 //		unloadPatientReference();
 //	}
-//	
+//
 //	@Test
 //	public void testDeleteTagsForResourceVersion() {
 //		loadPatientReference();
@@ -495,7 +495,7 @@ public class FHIRSimpleClientTest {
 //		assertTrue(success);
 //		unloadPatientReference();
 //	}
-//	
+//
 //	@Test
 //	public void testCreateTagsForReference() {
 //		loadPatientReference();
@@ -504,7 +504,7 @@ public class FHIRSimpleClientTest {
 //		testClient.createTags(tags, Patient.class, testPatientId);
 //		unloadPatientReference();
 //	}
-//	
+//
 //	@Test
 //	public void testCreateTagsForResourceVersion() {
 //		loadPatientReference();
@@ -542,7 +542,7 @@ public class FHIRSimpleClientTest {
 			fail();
 		}
 	}
-	
+
 	@Test
 	public void createNonDuplicatePatientConditionNoPreexisting() {
 		try {
@@ -572,7 +572,7 @@ public class FHIRSimpleClientTest {
 			fail();
 		}
 	}
-	
+
 	@Test
 	public void createNonDuplicatePatientConditionPreexisting() {
 		try {
@@ -619,7 +619,7 @@ public class FHIRSimpleClientTest {
 	/**************************************************************
 	 * END OF TEST SECTION
 	 **************************************************************/
-	
+
 	/**************************************************************
 	 * Helper Methods
 	 **************************************************************/
@@ -631,13 +631,13 @@ public class FHIRSimpleClientTest {
 		coding.setDisplay(displayNameSimple);
 		return conditionCode;
 	}
-	
+
 	@SuppressWarnings("unused")
   private Condition buildCondition(Patient patientEntry) {
 		CodeableConcept conditionCode = createCodeableConcept("29530003", "http://snomed.info/id", "Fungal granuloma (disorder)");
 		return buildCondition(patientEntry, conditionCode);
 	}
-	
+
 	private Condition buildCondition(Patient patientEntry, CodeableConcept conditionCode) {
 		Condition condition = null;
 		try {
@@ -656,7 +656,7 @@ public class FHIRSimpleClientTest {
 	private Patient buildPatient() {
 		return buildPatient("Jsuis Malade", "Jsuis", "Malade");
 	}
-	
+
 	private Patient buildPatient(String fullName, String givenName, String familyName) {
 		Patient patient = new Patient();
 		HumanName name = patient.addName();
@@ -668,7 +668,7 @@ public class FHIRSimpleClientTest {
 		patient.setGender(AdministrativeGender.FEMALE); // This is now a Simple code value
 		return patient;
 	}
-	
+
 	private void loadPatientReference() {
 		Patient testPatient = buildPatient();
 		List<Coding> tags = generateCategoryHeader();
@@ -676,54 +676,54 @@ public class FHIRSimpleClientTest {
 		testPatientId = getEntryId(result);
 		testPatientVersion = getEntryVersion(result);
 	}
-	
+
 	private List<Coding> generateCategoryHeader() {
 		List<Coding> tags = new ArrayList<Coding>();
 		tags.add(new Coding()); // todo-bundle "http://client/scheme", "http://client/scheme/tag/123","tag 123"));
 		tags.add(new Coding()); // todo-bundle "http://client/scheme", "http://client/scheme/tag/456","tag 456"));
 		return tags;
 	}
-	
+
 	private void unloadPatientReference() {
 		testClient.delete(Patient.class, testPatientId);
 	}
-	
+
 	private <T extends Resource> ResourceAddress.ResourceVersionedIdentifier getAtomEntryLink(T entry, String linkName) {
 		// todo-bundle return ResourceAddress.parseCreateLocation(entry.getLinks().get(linkName));
 		return null;
 	}
-	
+
 	private <T extends Resource> ResourceAddress.ResourceVersionedIdentifier getAtomEntrySelfLink(T entry) {
 		return getAtomEntryLink(entry, "self");
 	}
-	
+
 	private <T extends Resource> String getEntryId(T entry) {
 		return getAtomEntrySelfLink(entry).getId();
 	}
-	
+
 	private <T extends Resource> String getEntryVersion(T entry) {
 		return getAtomEntrySelfLink(entry).getVersion();
 	}
-	
+
 	private <T extends Resource> String getResourceType(T entry) {
 		return getAtomEntrySelfLink(entry).getResourceType();
 	}
-	
+
 	private <T extends Resource> String getEntryPath(T entry) {
 		return getAtomEntrySelfLink(entry).getResourcePath();
 	}
-	
+
 	@SuppressWarnings("unused")
   private <T extends Resource> String getResourceId(T entry) {
 		return getAtomEntrySelfLink(entry).getId();
 	}
-	
+
 	private <T extends Resource> void printResourceToSystemOut(T resource, boolean isJson) {
 		if(logResource) {
 			System.out.println(new String(ClientUtils.getResourceAsByteArray(resource, true, isJson)));
 		}
 	}
-	
+
 	private void assertEqualDate(DateType originalDate, DateType modifiedDate) {
 		assert(originalDate.equals(modifiedDate));
 	}
