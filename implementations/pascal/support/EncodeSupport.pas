@@ -604,14 +604,14 @@ Begin
   Result := sValue;
   iLoop := 1;
 
-  While (iLoop <= Length(Result) - 2) Do
+  While (iLoop <= Length(Result)) Do
   Begin
     cValue := Result[iLoop];
 
     if cValue = '+' then
       Result[iLoop] := ' ';
 
-    If (cValue = '%') Then
+    If (iLoop <= Length(Result) - 2) and (cValue = '%') Then
     Begin
       Result[iLoop] := Char(DecodeHexadecimal(AnsiChar(Result[iLoop + 1]), AnsiChar(Result[iLoop + 2])));
       Delete(Result, iLoop + 1, 2);

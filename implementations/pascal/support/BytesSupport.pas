@@ -65,6 +65,7 @@ type
       Procedure AddCardinal(val : cardinal);
       Procedure AddUInt64(val : UInt64);
       Procedure AddString(val : String);
+      Procedure AddAnsiString(val : AnsiString);
 
       procedure Read(index : integer; var buffer; ilength : integer);
 
@@ -649,6 +650,15 @@ Begin
   Move(b, FContent[FLength], 1);
   Inc(FLength);
 End;
+
+procedure TAdvBytesBuilder.AddAnsiString(val: AnsiString);
+Var
+  s : TBytes;
+Begin
+  SetLength(s, System.Length(val));
+  move(val[1], s[0], System.Length(val));
+  Append(s);
+end;
 
 procedure TAdvBytesBuilder.AddCardinal(val: cardinal);
 Var

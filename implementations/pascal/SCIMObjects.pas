@@ -7,10 +7,6 @@ uses
   AdvObjects, AdvObjectLists,
   AdvJSON, DateAndTime;
 
-Const
-  SCIM_ADMIN = 'http://www.healthintersections.com.au/scim/entitlement/admin';
-  SCIM_ANONYMOUS = 'http://www.healthintersections.com.au/scim/entitlement/anonymous';
-
 Type
   ESCIMException = class (Exception)
   private
@@ -214,6 +210,8 @@ Type
 
     Property entitlementCount : integer read GetEntitlementCount;
     Property entitlement[i : integer] : String read GetEntitlement;
+
+    procedure clearEntitlements;
 
     function AddEmail(value, type_ : String) : TSCIMContact;
     function hasEmail(value : String) : boolean;
@@ -467,6 +465,12 @@ begin
   checkSchema('urn:scim:schemas:core:2.0:User');
 end;
 
+
+procedure TSCIMUser.clearEntitlements;
+begin
+  if FJson.has('entitlements') then
+    FJson.clear('entitlements');
+end;
 
 procedure TSCIMUser.copyFrom(source: TSCIMUser);
 var

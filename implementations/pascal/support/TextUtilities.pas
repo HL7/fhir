@@ -46,6 +46,8 @@ function FileToString(filename : String; {$IFDEF UNICODE}encoding : TEncoding; {
 
 procedure BytesToFile(bytes : TBytes; filename : String);
 
+procedure StreamToFile(stream : TStream; filename : String);
+
 implementation
 
 uses
@@ -402,6 +404,21 @@ begin
   try
     if length(bytes) > 0 then
       f.Write(bytes[0], length(bytes));
+  finally
+    f.Free;
+  end;
+end;
+
+procedure StreamToFile(stream : TStream; filename : String);
+var
+  f : TFileStream;
+  i : integer;
+begin
+  f := TFileStream.Create(filename, fmCreate);
+  try
+    i := stream.Position;
+    f.CopyFrom(stream, stream.Size - stream.Position);
+    stream.Position := i;
   finally
     f.Free;
   end;

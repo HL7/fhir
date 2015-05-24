@@ -56,6 +56,7 @@ Type
     FNoDataInStream: Boolean;
     FSkipPreamble: Boolean;
     FStream: TAdvStream;
+    FCursor : Integer;
     {$IFNDEF VER130}
     FEncoding: TEncoding;
     function DetectBOM(var Encoding: TEncoding; Buffer: TBytes): Integer;
@@ -357,6 +358,7 @@ begin
   FStream := aStream;
   FDetectBOM := DetectBOM;
   FSkipPreamble := not FDetectBOM;
+  FCursor := 0;
 end;
 
 constructor TAdvStreamReader.Create(const Filename: string; Encoding: TEncoding; DetectBOM: Boolean = False; BufferSize: Integer = 1024);
@@ -379,7 +381,7 @@ end;
 
 constructor TAdvStreamReader.Create(const Filename: string);
 begin
-  Create(Filename, TEncoding.UTF8);
+  Create(Filename, TEncoding.UTF8, true);
 end;
 
 destructor TAdvStreamReader.Destroy;
@@ -443,6 +445,7 @@ begin
   // Read data from stream
   BytesRead := IntegerMin(FBufferSize, FStream.Readable);
   FStream.Read(LBuffer[0], BytesRead);
+  inc(FCursor, BytesRead);
   FNoDataInStream := FStream.Readable = 0;
 
   // Check for byte order mark and calc start index for character data
@@ -455,7 +458,12 @@ begin
 
   // Convert to string and calc byte count for the string
   ByteBufLen := BytesRead - StartIndex;
+  try
   LString := FEncoding.GetString(LBuffer, StartIndex, ByteBufLen);
+  except
+    on e : Exception do
+      raise Exception.Create(e.message + ' @~'+inttostr(FCursor));
+  end;
   ByteCount := FEncoding.GetByteCount(LString);
 
   // If byte count <> number of bytes read from the stream
@@ -474,7 +482,10 @@ begin
       // End of stream, append what's been read and discard remaining bytes
       Break
     Else
+    begin
       FStream.Read(LBuffer[StartIndex + ByteBufLen], 1);
+      inc(FCursor, 1);
+    end;
     Inc(ByteBufLen);
     LString := FEncoding.GetString(LBuffer, StartIndex, ByteBufLen);
     ByteCount := FEncoding.GetByteCount(LString);

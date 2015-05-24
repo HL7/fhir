@@ -42,7 +42,7 @@ uses
   StringSupport, DecimalSupport, GuidSupport,
   AdvObjects, AdvBuffers, AdvStringLists, AdvStringMatches,
   DateAndTime, JWT, SCIMObjects,
-  FHirBase, FHirResources, FHIRConstants, FHIRComponents, FHIRTypes;
+  FHirBase, FHirResources, FHIRConstants, FHIRComponents, FHIRTypes, FHIRSecurity;
 
 Const
    HTTP_OK_200 = 200;
@@ -93,7 +93,6 @@ Type
     FInnerToken, FOuterToken: String;
     FNextTokenCheck: TDateTime;
     FUseCount: integer;
-    FRights: TStringList;
     FFirstCreated: TDateTime;
     FJwt : TJWT;
     FJwtPacked : String;
@@ -102,13 +101,18 @@ Type
     FsessionLength: String;
     FUser : TSCIMUser;
     Fanonymous : boolean;
+    FSecurity : TFHIRSecurityRights;
+    FSecure : boolean;
 
     procedure SetJwt(const Value: TJWT);
     procedure SetUser(const Value: TSCIMUser);
+    function GetScopes: String;
+    procedure setScopes(scopes: String);
   public
-    Constructor Create; Override;
+    Constructor Create(secure : boolean);
     destructor Destroy; Override;
     function Link : TFhirSession; overload;
+    Property scopes : String read GetScopes write SetScopes;
 
     {@member Key
       Primary database key for this session. Don't change!
@@ -184,8 +188,13 @@ Type
     Property JWTPacked : string read FJWTPacked write FJWTPacked;
 
     Property useCount : integer read FUseCount write FUseCount;
-    Property rights : TStringList read FRights;
-    function HasRight(code : String):boolean;
+    function canRead(aResourceType : TFhirResourceType):boolean;
+    function canReadAll : boolean;
+    function canWrite(aResourceType : TFhirResourceType):boolean;
+    function canGetUser : boolean;
+    function canAdministerUsers : boolean;
+    procedure allowAll; // for internal use
+
     property TaggedCompartments : TStringList read FTaggedCompartments;
     property sessionLength : String read FsessionLength write FsessionLength;
     property PatientList : TStringList read FPatientList;
@@ -232,6 +241,9 @@ Type
     FIfMatch : String;
     FMeta: TFhirMeta;
     FProvenance: TFhirProvenance;
+    FIfNoneMatch: String;
+    FIfModifiedSince: TDateTime;
+    FIfNoneExist: String;
     procedure SetResource(const Value: TFhirResource);
     procedure SetSource(const Value: TAdvBuffer);
     procedure SetSession(const Value: TFhirSession);
@@ -255,6 +267,9 @@ Type
     Property Session : TFhirSession read FSession write SetSession;
     Property ip : string read FIp write FIp;
     Property form : TIdSoapMimeMessage read FForm write FForm;
+    function canRead(aResourceType : TFhirResourceType):boolean;
+    function canWrite(aResourceType : TFhirResourceType):boolean;
+    function canGetUser : boolean;
 
     Property DefaultSearch : boolean read FDefaultSearch write FDefaultSearch;
 
@@ -366,6 +381,9 @@ Type
     Property Lang : String read FLang write FLang;
 
     Property IfMatch : String read FIfMatch write FIfMatch;
+    Property IfNoneMatch : String read FIfNoneMatch write FIfNoneMatch;
+    Property IfModifiedSince : TDateTime read FIfModifiedSince write FIfModifiedSince;
+    Property IfNoneExist : String read FIfNoneExist write FIfNoneExist;
 
     Property Provenance : TFhirProvenance read FProvenance write SetProvenance;
   End;
@@ -718,6 +736,30 @@ end;
 
 { TFHIRRequest }
 
+function TFHIRRequest.canGetUser: boolean;
+begin
+  if session = nil then
+    result := true
+  else
+    result := session.canGetUser;
+end;
+
+function TFHIRRequest.canRead(aResourceType: TFhirResourceType): boolean;
+begin
+  if session = nil then
+    result := true
+  else
+    result := session.canRead(aResourceType);
+end;
+
+function TFHIRRequest.canWrite(aResourceType: TFhirResourceType): boolean;
+begin
+  if session = nil then
+    result := true
+  else
+    result := session.canWrite(aResourceType);
+end;
+
 function TFHIRRequest.Compose: String;
 var
   comp : TFHIRXmlComposer;
@@ -783,7 +825,10 @@ end;
 
 procedure TFHIRRequest.LoadParams(s: String);
 begin
-  FParams := TParseMap.createSmart(s);
+  if (FParams <> nil) then
+    FParams.Free;
+  FParams := nil;
+  FParams := TParseMap.create(s);
 end;
 
 procedure TFHIRRequest.LoadParams(form: TIdSoapMimeMessage);
@@ -1291,10 +1336,40 @@ end;
 
 { TFhirSession }
 
-constructor TFhirSession.Create;
+procedure TFhirSession.allowAll;
 begin
-  inherited;
-  FRights := TStringList.Create;
+  FSecurity.allowAll;
+end;
+
+function TFhirSession.canAdministerUsers: boolean;
+begin
+  result := FSecurity.canAdministerUsers;
+end;
+
+function TFhirSession.canGetUser: boolean;
+begin
+  result := FSecurity.canGetUserInfo;
+end;
+
+function TFhirSession.canRead(aResourceType: TFhirResourceType): boolean;
+begin
+  result := FSecurity.canRead(aResourceType);
+end;
+
+function TFhirSession.canReadAll: boolean;
+begin
+  result := FSecurity.canReadAll;
+end;
+
+function TFhirSession.canWrite(aResourceType: TFhirResourceType): boolean;
+begin
+  result := FSecurity.canWrite(aResourceType);
+end;
+
+constructor TFhirSession.Create(secure : boolean);
+begin
+  inherited Create;
+  FSecure := secure;
   FFirstCreated := now;
   FTaggedCompartments := TStringList.create;
   FPatientList := TStringList.create;
@@ -1302,17 +1377,17 @@ end;
 
 destructor TFhirSession.Destroy;
 begin
+  FSecurity.Free;
   FJwt.free;
-  FRights.Free;
   FTaggedCompartments.Free;
   FPatientList.Free;
   FUser.Free;
   inherited;
 end;
 
-function TFhirSession.HasRight(code: String): boolean;
+function TFhirSession.GetScopes: String;
 begin
-  result :=  Rights.IndexOf(code) > -1;
+  result := FSecurity.source;
 end;
 
 function TFhirSession.Link: TFhirSession;
@@ -1325,6 +1400,11 @@ procedure TFhirSession.SetJwt(const Value: TJWT);
 begin
   FJwt.free;
   FJwt := Value;
+end;
+
+procedure TFhirSession.setScopes(scopes: String);
+begin
+  FSecurity := TFHIRSecurityRights.create(FUser, scopes, FSecure);
 end;
 
 procedure TFhirSession.SetUser(const Value: TSCIMUser);

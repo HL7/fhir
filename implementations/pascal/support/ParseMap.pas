@@ -75,8 +75,7 @@ type
 
   TParseMap = class(TMultiValList)
   Public
-    constructor Create(const s: String);
-    constructor createSmart(const s: String; MimeDecode: Boolean = True);
+    constructor create(const s: String; MimeDecode: Boolean = True);
     function VarExists(const n: String): Boolean;
     function GetVar(const n: String): String;
     function GetStringParameter(const Name, errdesc: String; compulsory: Boolean): String;
@@ -457,18 +456,7 @@ end;
 
 {-----------------------------------------------------------------------------}
 
-constructor TParseMap.Create(const s: String);
-begin
-  try
-    // You should talk to Jeff or Grahame.
-    raise Exception.Create('You should not be using this constructor. UseCreateSmart Instead');
-  except
-    end;
-  inherited Create;
-  Parse(StringTrimWhitespaceRight(s), False, '&');
-end;
-
-constructor TParseMap.createSmart(const s: String; MimeDecode: Boolean);
+constructor TParseMap.Create(const s: String; MimeDecode: Boolean = True);
 begin
   inherited Create;
   Parse(StringTrimWhitespaceRight(s), MimeDecode, '&');
