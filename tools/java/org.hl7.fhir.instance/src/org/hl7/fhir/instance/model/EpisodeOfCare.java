@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
  */
@@ -174,27 +175,33 @@ public class EpisodeOfCare extends DomainResource {
     }
 
     @Block()
-    public static class EpisodeOfCareStatusHistoryComponent extends BackboneElement {
+    public static class EpisodeOfCareStatusHistoryComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * planned | waitlist | active | onhold | finished | cancelled.
          */
-        @Child(name ="status", type={CodeType.class}, order=1, min=1, max=1)
+        @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="planned | waitlist | active | onhold | finished | cancelled", formalDefinition="planned | waitlist | active | onhold | finished | cancelled." )
         protected Enumeration<EpisodeOfCareStatus> status;
 
         /**
          * The period during this EpisodeOfCare that the specific status applied.
          */
-        @Child(name ="period", type={Period.class}, order=2, min=1, max=1)
+        @Child(name = "period", type = {Period.class}, order=2, min=1, max=1)
         @Description(shortDefinition="The period during this EpisodeOfCare that the specific status applied", formalDefinition="The period during this EpisodeOfCare that the specific status applied." )
         protected Period period;
 
         private static final long serialVersionUID = -1192432864L;
 
+    /*
+     * Constructor
+     */
       public EpisodeOfCareStatusHistoryComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public EpisodeOfCareStatusHistoryComponent(Enumeration<EpisodeOfCareStatus> status, Period period) {
         super();
         this.status = status;
@@ -312,11 +319,11 @@ public class EpisodeOfCare extends DomainResource {
   }
 
     @Block()
-    public static class EpisodeOfCareCareTeamComponent extends BackboneElement {
+    public static class EpisodeOfCareCareTeamComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The practitioner (or Organization) within the team.
          */
-        @Child(name ="member", type={Practitioner.class, Organization.class}, order=1, min=0, max=1)
+        @Child(name = "member", type = {Practitioner.class, Organization.class}, order=1, min=0, max=1)
         @Description(shortDefinition="The practitioner (or Organization) within the team", formalDefinition="The practitioner (or Organization) within the team." )
         protected Reference member;
 
@@ -328,19 +335,22 @@ public class EpisodeOfCare extends DomainResource {
         /**
          * The role that this team member is taking within this episode of care.
          */
-        @Child(name ="role", type={CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="The role that this team member is taking within this episode of care", formalDefinition="The role that this team member is taking within this episode of care." )
         protected List<CodeableConcept> role;
 
         /**
          * The period of time that this practitioner is performing some role within the episode of care.
          */
-        @Child(name ="period", type={Period.class}, order=3, min=0, max=1)
+        @Child(name = "period", type = {Period.class}, order=3, min=0, max=1)
         @Description(shortDefinition="The period of time that this practitioner is performing some role within the episode of care", formalDefinition="The period of time that this practitioner is performing some role within the episode of care." )
         protected Period period;
 
         private static final long serialVersionUID = -2134086895L;
 
+    /*
+     * Constructor
+     */
       public EpisodeOfCareCareTeamComponent() {
         super();
       }
@@ -499,35 +509,35 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * Identifier(s) by which this EpisodeOfCare is known.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Identifier(s) by which this EpisodeOfCare is known", formalDefinition="Identifier(s) by which this EpisodeOfCare is known." )
     protected List<Identifier> identifier;
 
     /**
      * planned | waitlist | active | onhold | finished | cancelled.
      */
-    @Child(name ="status", type={CodeType.class}, order=1, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1)
     @Description(shortDefinition="planned | waitlist | active | onhold | finished | cancelled", formalDefinition="planned | waitlist | active | onhold | finished | cancelled." )
     protected Enumeration<EpisodeOfCareStatus> status;
 
     /**
      * The status history for the EpisodeOfCare.
      */
-    @Child(name ="statusHistory", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "statusHistory", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="The status history for the EpisodeOfCare", formalDefinition="The status history for the EpisodeOfCare." )
     protected List<EpisodeOfCareStatusHistoryComponent> statusHistory;
 
     /**
      * The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications.
      */
-    @Child(name ="type", type={CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "type", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Specific type of EpisodeOfCare", formalDefinition="The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications." )
     protected List<CodeableConcept> type;
 
     /**
      * The patient that this EpisodeOfCare applies to.
      */
-    @Child(name ="patient", type={Patient.class}, order=4, min=1, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=4, min=1, max=1)
     @Description(shortDefinition="The patient that this EpisodeOfCare applies to", formalDefinition="The patient that this EpisodeOfCare applies to." )
     protected Reference patient;
 
@@ -539,7 +549,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * The organization that has assumed the specific responsibilities for the specified duration.
      */
-    @Child(name ="managingOrganization", type={Organization.class}, order=5, min=0, max=1)
+    @Child(name = "managingOrganization", type = {Organization.class}, order=5, min=0, max=1)
     @Description(shortDefinition="The organization that has assumed the specific responsibilities for the specified duration", formalDefinition="The organization that has assumed the specific responsibilities for the specified duration." )
     protected Reference managingOrganization;
 
@@ -551,14 +561,14 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * The interval during which the managing organization assumes the defined responsibility.
      */
-    @Child(name ="period", type={Period.class}, order=6, min=0, max=1)
+    @Child(name = "period", type = {Period.class}, order=6, min=0, max=1)
     @Description(shortDefinition="The interval during which the managing organization assumes the defined responsibility", formalDefinition="The interval during which the managing organization assumes the defined responsibility." )
     protected Period period;
 
     /**
      * A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.
      */
-    @Child(name ="condition", type={Condition.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "condition", type = {Condition.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for", formalDefinition="A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for." )
     protected List<Reference> condition;
     /**
@@ -570,7 +580,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.
      */
-    @Child(name ="referralRequest", type={ReferralRequest.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "referralRequest", type = {ReferralRequest.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Referral Request(s) that this EpisodeOfCare manages activities within", formalDefinition="Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals." )
     protected List<Reference> referralRequest;
     /**
@@ -582,7 +592,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * The practitioner that is the care manager/care co-ordinator for this patient.
      */
-    @Child(name ="careManager", type={Practitioner.class}, order=9, min=0, max=1)
+    @Child(name = "careManager", type = {Practitioner.class}, order=9, min=0, max=1)
     @Description(shortDefinition="The practitioner that is the care manager/care co-ordinator for this patient", formalDefinition="The practitioner that is the care manager/care co-ordinator for this patient." )
     protected Reference careManager;
 
@@ -594,16 +604,22 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * The list of practitioners that may be facilitating this episode of care for specific purposes.
      */
-    @Child(name ="careTeam", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "careTeam", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="The list of practitioners that may be facilitating this episode of care for specific purposes", formalDefinition="The list of practitioners that may be facilitating this episode of care for specific purposes." )
     protected List<EpisodeOfCareCareTeamComponent> careTeam;
 
     private static final long serialVersionUID = -1251791864L;
 
+  /*
+   * Constructor
+   */
     public EpisodeOfCare() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public EpisodeOfCare(Enumeration<EpisodeOfCareStatus> status, Reference patient) {
       super();
       this.status = status;

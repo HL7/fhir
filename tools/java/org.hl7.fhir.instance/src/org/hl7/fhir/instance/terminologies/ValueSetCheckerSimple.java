@@ -1,4 +1,4 @@
-package org.hl7.fhir.instance.utils;
+package org.hl7.fhir.instance.terminologies;
 
 import java.util.List;
 
@@ -9,8 +9,9 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.instance.utils.ValueSetExpander.ETooCostly;
-import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ETooCostly;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.utils.WorkerContext;
 
 public class ValueSetCheckerSimple implements ValueSetChecker {
 

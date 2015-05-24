@@ -29,9 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
  */

@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A request for a procedure to be performed. May be a proposal or an order.
  */
@@ -330,20 +331,26 @@ public class ProcedureRequest extends DomainResource {
     }
 
     @Block()
-    public static class ProcedureRequestBodySiteComponent extends BackboneElement {
+    public static class ProcedureRequestBodySiteComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites).
          */
-        @Child(name ="site", type={CodeableConcept.class, BodySite.class}, order=1, min=1, max=1)
+        @Child(name = "site", type = {CodeableConcept.class, BodySite.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Target body site", formalDefinition="Indicates the site on the subject's body where the procedure should be performed ( i.e. the target sites)." )
         protected Type site;
 
         private static final long serialVersionUID = 1429072605L;
 
+    /*
+     * Constructor
+     */
       public ProcedureRequestBodySiteComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public ProcedureRequestBodySiteComponent(Type site) {
         super();
         this.site = site;
@@ -427,14 +434,14 @@ public class ProcedureRequest extends DomainResource {
     /**
      * Identifiers assigned to this order by the order or by the receiver.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Identifier", formalDefinition="Identifiers assigned to this order by the order or by the receiver." )
     protected List<Identifier> identifier;
 
     /**
      * The patient who will receive the procedure.
      */
-    @Child(name ="subject", type={Patient.class}, order=1, min=1, max=1)
+    @Child(name = "subject", type = {Patient.class}, order=1, min=1, max=1)
     @Description(shortDefinition="Subject", formalDefinition="The patient who will receive the procedure." )
     protected Reference subject;
 
@@ -446,35 +453,35 @@ public class ProcedureRequest extends DomainResource {
     /**
      * The specific procedure that is ordered. Use text if the exact nature of the procedure can't be coded.
      */
-    @Child(name ="type", type={CodeableConcept.class}, order=2, min=1, max=1)
+    @Child(name = "type", type = {CodeableConcept.class}, order=2, min=1, max=1)
     @Description(shortDefinition="Procedure Type", formalDefinition="The specific procedure that is ordered. Use text if the exact nature of the procedure can't be coded." )
     protected CodeableConcept type;
 
     /**
      * Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites).
      */
-    @Child(name ="bodySite", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "bodySite", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Target body sites", formalDefinition="Indicates the sites on the subject's body where the procedure should be performed ( i.e. the target sites)." )
     protected List<ProcedureRequestBodySiteComponent> bodySite;
 
     /**
      * The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance.
      */
-    @Child(name ="indication", type={CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "indication", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Indication", formalDefinition="The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance." )
     protected List<CodeableConcept> indication;
 
     /**
      * The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
      */
-    @Child(name ="timing", type={DateTimeType.class, Period.class, Timing.class}, order=5, min=0, max=1)
+    @Child(name = "timing", type = {DateTimeType.class, Period.class, Timing.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Procedure timing schedule", formalDefinition="The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. 'Every 8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:'; '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'." )
     protected Type timing;
 
     /**
      * The encounter within which the procedure proposal or request was created.
      */
-    @Child(name ="encounter", type={Encounter.class}, order=6, min=0, max=1)
+    @Child(name = "encounter", type = {Encounter.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Encounter", formalDefinition="The encounter within which the procedure proposal or request was created." )
     protected Reference encounter;
 
@@ -486,7 +493,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * E.g. surgeon, anaethetist, endoscopist.
      */
-    @Child(name ="performer", type={Practitioner.class, Organization.class, Patient.class, RelatedPerson.class}, order=7, min=0, max=1)
+    @Child(name = "performer", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Performer", formalDefinition="E.g. surgeon, anaethetist, endoscopist." )
     protected Reference performer;
 
@@ -498,35 +505,35 @@ public class ProcedureRequest extends DomainResource {
     /**
      * The status of the order.
      */
-    @Child(name ="status", type={CodeType.class}, order=8, min=0, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted", formalDefinition="The status of the order." )
     protected Enumeration<ProcedureRequestStatus> status;
 
     /**
      * Any other notes associated with this proposal or order - e.g., provider instructions.
      */
-    @Child(name ="notes", type={StringType.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "notes", type = {StringType.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Notes", formalDefinition="Any other notes associated with this proposal or order - e.g., provider instructions." )
     protected List<StringType> notes;
 
     /**
      * If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
      */
-    @Child(name ="asNeeded", type={BooleanType.class, CodeableConcept.class}, order=10, min=0, max=1)
+    @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=10, min=0, max=1)
     @Description(shortDefinition="PRN", formalDefinition="If a CodeableConcept is present, it indicates the pre-condition for performing the procedure." )
     protected Type asNeeded;
 
     /**
      * The time when the request was made.
      */
-    @Child(name ="orderedOn", type={DateTimeType.class}, order=11, min=0, max=1)
+    @Child(name = "orderedOn", type = {DateTimeType.class}, order=11, min=0, max=1)
     @Description(shortDefinition="When Requested", formalDefinition="The time when the request was made." )
     protected DateTimeType orderedOn;
 
     /**
      * The healthcare professional responsible for proposing or ordering the procedure.
      */
-    @Child(name ="orderer", type={Practitioner.class, Patient.class, RelatedPerson.class, Device.class}, order=12, min=0, max=1)
+    @Child(name = "orderer", type = {Practitioner.class, Patient.class, RelatedPerson.class, Device.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Ordering Party", formalDefinition="The healthcare professional responsible for proposing or ordering the procedure." )
     protected Reference orderer;
 
@@ -538,16 +545,22 @@ public class ProcedureRequest extends DomainResource {
     /**
      * The clinical priority associated with this order.
      */
-    @Child(name ="priority", type={CodeType.class}, order=13, min=0, max=1)
+    @Child(name = "priority", type = {CodeType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="routine | urgent | stat | asap", formalDefinition="The clinical priority associated with this order." )
     protected Enumeration<ProcedureRequestPriority> priority;
 
     private static final long serialVersionUID = -1687850759L;
 
+  /*
+   * Constructor
+   */
     public ProcedureRequest() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public ProcedureRequest(Reference subject, CodeableConcept type) {
       super();
       this.subject = subject;

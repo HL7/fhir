@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -38,11 +38,13 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A human-readable formatted text, including images.
  */
 @DatatypeDef(name="Narrative")
-public class Narrative extends Type {
+public class Narrative extends BaseNarrative implements INarrative {
 
     public enum NarrativeStatus {
         /**
@@ -147,23 +149,29 @@ public class Narrative extends Type {
     /**
      * The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
      */
-    @Child(name ="status", type={CodeType.class}, order=0, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=0, min=1, max=1)
     @Description(shortDefinition="generated | extensions | additional | empty", formalDefinition="The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data." )
     protected Enumeration<NarrativeStatus> status;
 
     /**
      * The actual narrative content, a stripped down version of XHTML.
      */
-    @Child(name ="div", type={}, order=1, min=1, max=1)
+    @Child(name = "div", type = {}, order=1, min=1, max=1)
     @Description(shortDefinition="Limited xhtml content", formalDefinition="The actual narrative content, a stripped down version of XHTML." )
     protected XhtmlNode div;
 
     private static final long serialVersionUID = 1463852859L;
 
+  /*
+   * Constructor
+   */
     public Narrative() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public Narrative(Enumeration<NarrativeStatus> status, XhtmlNode div) {
       super();
       this.status = status;

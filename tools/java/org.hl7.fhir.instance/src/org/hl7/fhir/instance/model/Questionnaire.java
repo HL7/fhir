@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
@@ -386,65 +387,68 @@ public class Questionnaire extends DomainResource {
     }
 
     @Block()
-    public static class GroupComponent extends BackboneElement {
+    public static class GroupComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
-        @Child(name ="linkId", type={StringType.class}, order=1, min=0, max=1)
+        @Child(name = "linkId", type = {StringType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="To link questionnaire with questionnaire answers", formalDefinition="An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource." )
         protected StringType linkId;
 
         /**
          * The human-readable name for this section of the questionnaire.
          */
-        @Child(name ="title", type={StringType.class}, order=2, min=0, max=1)
+        @Child(name = "title", type = {StringType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Name to be displayed for group", formalDefinition="The human-readable name for this section of the questionnaire." )
         protected StringType title;
 
         /**
          * Identifies a how this group of questions is known in a particular terminology such as LOINC.
          */
-        @Child(name ="concept", type={Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "concept", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Concept that represents this section on a questionnaire", formalDefinition="Identifies a how this group of questions is known in a particular terminology such as LOINC." )
         protected List<Coding> concept;
 
         /**
          * Additional text for the group, used for display purposes.
          */
-        @Child(name ="text", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name = "text", type = {StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Additional text for the group", formalDefinition="Additional text for the group, used for display purposes." )
         protected StringType text;
 
         /**
          * If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
          */
-        @Child(name ="required", type={BooleanType.class}, order=5, min=0, max=1)
+        @Child(name = "required", type = {BooleanType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Must group be included in data results?", formalDefinition="If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire." )
         protected BooleanType required;
 
         /**
          * Whether the group may occur multiple times in the instance, containing multiple sets of answers.
          */
-        @Child(name ="repeats", type={BooleanType.class}, order=6, min=0, max=1)
+        @Child(name = "repeats", type = {BooleanType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Whether the group may repeat", formalDefinition="Whether the group may occur multiple times in the instance, containing multiple sets of answers." )
         protected BooleanType repeats;
 
         /**
          * A sub-group within a group. The ordering of groups within this group is relevant.
          */
-        @Child(name ="group", type={GroupComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "group", type = {GroupComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Nested questionnaire group", formalDefinition="A sub-group within a group. The ordering of groups within this group is relevant." )
         protected List<GroupComponent> group;
 
         /**
          * Set of questions within this group. The order of questions within the group is relevant.
          */
-        @Child(name ="question", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "question", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Questions in this group", formalDefinition="Set of questions within this group. The order of questions within the group is relevant." )
         protected List<QuestionComponent> question;
 
         private static final long serialVersionUID = 494129548L;
 
+    /*
+     * Constructor
+     */
       public GroupComponent() {
         super();
       }
@@ -877,53 +881,53 @@ public class Questionnaire extends DomainResource {
   }
 
     @Block()
-    public static class QuestionComponent extends BackboneElement {
+    public static class QuestionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
-        @Child(name ="linkId", type={StringType.class}, order=1, min=0, max=1)
+        @Child(name = "linkId", type = {StringType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="To link questionnaire with questionnaire answers", formalDefinition="An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource." )
         protected StringType linkId;
 
         /**
          * Identifies a how this question is known in a particular terminology such as LOINC.
          */
-        @Child(name ="concept", type={Coding.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "concept", type = {Coding.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Concept that represents this question on a questionnaire", formalDefinition="Identifies a how this question is known in a particular terminology such as LOINC." )
         protected List<Coding> concept;
 
         /**
          * The actual question as shown to the user to prompt them for an answer.
          */
-        @Child(name ="text", type={StringType.class}, order=3, min=0, max=1)
+        @Child(name = "text", type = {StringType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Text of the question as it is shown to the user", formalDefinition="The actual question as shown to the user to prompt them for an answer." )
         protected StringType text;
 
         /**
          * The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.
          */
-        @Child(name ="type", type={CodeType.class}, order=4, min=0, max=1)
+        @Child(name = "type", type = {CodeType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="boolean | decimal | integer | date | dateTime +", formalDefinition="The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected." )
         protected Enumeration<AnswerFormat> type;
 
         /**
          * If true, indicates that the question must be answered and have required groups within it also present.  If false, the question and any contained groups may be skipped when answering the questionnaire.
          */
-        @Child(name ="required", type={BooleanType.class}, order=5, min=0, max=1)
+        @Child(name = "required", type = {BooleanType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Must question be answered in data results?", formalDefinition="If true, indicates that the question must be answered and have required groups within it also present.  If false, the question and any contained groups may be skipped when answering the questionnaire." )
         protected BooleanType required;
 
         /**
          * If true, the question may have more than one answer.
          */
-        @Child(name ="repeats", type={BooleanType.class}, order=6, min=0, max=1)
+        @Child(name = "repeats", type = {BooleanType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Can question  have multiple answers?", formalDefinition="If true, the question may have more than one answer." )
         protected BooleanType repeats;
 
         /**
          * Reference to a valueset containing the possible options.
          */
-        @Child(name ="options", type={ValueSet.class}, order=7, min=0, max=1)
+        @Child(name = "options", type = {ValueSet.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Valueset containing the possible options", formalDefinition="Reference to a valueset containing the possible options." )
         protected Reference options;
 
@@ -935,12 +939,15 @@ public class Questionnaire extends DomainResource {
         /**
          * Nested group, containing nested question for this question. The order of groups within the question is relevant.
          */
-        @Child(name ="group", type={GroupComponent.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "group", type = {GroupComponent.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Nested questionnaire group", formalDefinition="Nested group, containing nested question for this question. The order of groups within the question is relevant." )
         protected List<GroupComponent> group;
 
         private static final long serialVersionUID = 1655002985L;
 
+    /*
+     * Constructor
+     */
       public QuestionComponent() {
         super();
       }
@@ -1375,58 +1382,64 @@ public class Questionnaire extends DomainResource {
     /**
      * This records identifiers associated with this question set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External Ids for this questionnaire", formalDefinition="This records identifiers associated with this question set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
     protected List<Identifier> identifier;
 
     /**
      * The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.
      */
-    @Child(name ="version", type={StringType.class}, order=1, min=0, max=1)
+    @Child(name = "version", type = {StringType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Logical id for this version of Questionnaire", formalDefinition="The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated." )
     protected StringType version;
 
     /**
      * The lifecycle status of the questionnaire as a whole.
      */
-    @Child(name ="status", type={CodeType.class}, order=2, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=2, min=1, max=1)
     @Description(shortDefinition="draft | published | retired", formalDefinition="The lifecycle status of the questionnaire as a whole." )
     protected Enumeration<QuestionnaireStatus> status;
 
     /**
      * The date that this questionnaire was last changed.
      */
-    @Child(name ="date", type={DateTimeType.class}, order=3, min=0, max=1)
+    @Child(name = "date", type = {DateTimeType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Date this version was authored", formalDefinition="The date that this questionnaire was last changed." )
     protected DateTimeType date;
 
     /**
      * Organization or person responsible for developing and maintaining the questionnaire.
      */
-    @Child(name ="publisher", type={StringType.class}, order=4, min=0, max=1)
+    @Child(name = "publisher", type = {StringType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Organization/individual who designed the questionnaire", formalDefinition="Organization or person responsible for developing and maintaining the questionnaire." )
     protected StringType publisher;
 
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    @Child(name ="telecom", type={ContactPoint.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "telecom", type = {ContactPoint.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contact information of the publisher", formalDefinition="Contact details to assist a user in finding and communicating with the publisher." )
     protected List<ContactPoint> telecom;
 
     /**
      * A collection of related questions (or further groupings of questions).
      */
-    @Child(name ="group", type={}, order=6, min=1, max=1)
+    @Child(name = "group", type = {}, order=6, min=1, max=1)
     @Description(shortDefinition="Grouped questions", formalDefinition="A collection of related questions (or further groupings of questions)." )
     protected GroupComponent group;
 
     private static final long serialVersionUID = -852096969L;
 
+  /*
+   * Constructor
+   */
     public Questionnaire() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public Questionnaire(Enumeration<QuestionnaireStatus> status, GroupComponent group) {
       super();
       this.status = status;

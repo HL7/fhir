@@ -32,12 +32,13 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.model;
 
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.api.IBaseIntegerDatatype;
 
 /**
  * Primitive type "integer" in FHIR: A signed 32-bit integer 
  */
 @DatatypeDef(name = "integer")
-public class IntegerType extends PrimitiveType<Integer> {
+public class IntegerType extends PrimitiveType<Integer> implements IBaseIntegerDatatype {
 
 	private static final long serialVersionUID = 3L;
 

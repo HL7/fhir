@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.
  */
@@ -174,18 +175,18 @@ public class Condition extends DomainResource {
     }
 
     @Block()
-    public static class ConditionStageComponent extends BackboneElement {
+    public static class ConditionStageComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific.
          */
-        @Child(name ="summary", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name = "summary", type = {CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Simple summary (disease specific)", formalDefinition="A simple summary of the stage such as 'Stage 3'. The determination of the stage is disease-specific." )
         protected CodeableConcept summary;
 
         /**
          * Reference to a formal record of the evidence on which the staging assessment is based.
          */
-        @Child(name ="assessment", type={ClinicalImpression.class, DiagnosticReport.class, Observation.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "assessment", type = {ClinicalImpression.class, DiagnosticReport.class, Observation.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Formal record of assessment", formalDefinition="Reference to a formal record of the evidence on which the staging assessment is based." )
         protected List<Reference> assessment;
         /**
@@ -196,6 +197,9 @@ public class Condition extends DomainResource {
 
         private static final long serialVersionUID = -1961530405L;
 
+    /*
+     * Constructor
+     */
       public ConditionStageComponent() {
         super();
       }
@@ -319,18 +323,18 @@ public class Condition extends DomainResource {
   }
 
     @Block()
-    public static class ConditionEvidenceComponent extends BackboneElement {
+    public static class ConditionEvidenceComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A manifestation or symptom that led to the recording of this condition.
          */
-        @Child(name ="code", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Manifestation/symptom", formalDefinition="A manifestation or symptom that led to the recording of this condition." )
         protected CodeableConcept code;
 
         /**
          * Links to other relevant information, including pathology reports.
          */
-        @Child(name ="detail", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "detail", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Supporting information found elsewhere", formalDefinition="Links to other relevant information, including pathology reports." )
         protected List<Reference> detail;
         /**
@@ -341,6 +345,9 @@ public class Condition extends DomainResource {
 
         private static final long serialVersionUID = 945689926L;
 
+    /*
+     * Constructor
+     */
       public ConditionEvidenceComponent() {
         super();
       }
@@ -464,16 +471,19 @@ public class Condition extends DomainResource {
   }
 
     @Block()
-    public static class ConditionLocationComponent extends BackboneElement {
+    public static class ConditionLocationComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Code that identifies the structural location.
          */
-        @Child(name ="site", type={CodeableConcept.class, BodySite.class}, order=1, min=0, max=1)
+        @Child(name = "site", type = {CodeableConcept.class, BodySite.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Location - may include laterality", formalDefinition="Code that identifies the structural location." )
         protected Type site;
 
         private static final long serialVersionUID = 1429072605L;
 
+    /*
+     * Constructor
+     */
       public ConditionLocationComponent() {
         super();
       }
@@ -554,18 +564,18 @@ public class Condition extends DomainResource {
   }
 
     @Block()
-    public static class ConditionDueToComponent extends BackboneElement {
+    public static class ConditionDueToComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Code that identifies the target of this relationship. The code takes the place of a detailed instance target.
          */
-        @Child(name ="code", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Relationship target by means of a predefined code", formalDefinition="Code that identifies the target of this relationship. The code takes the place of a detailed instance target." )
         protected CodeableConcept code;
 
         /**
          * Target of the relationship.
          */
-        @Child(name ="target", type={Condition.class, Procedure.class, MedicationAdministration.class, Immunization.class, MedicationStatement.class}, order=2, min=0, max=1)
+        @Child(name = "target", type = {Condition.class, Procedure.class, MedicationAdministration.class, Immunization.class, MedicationStatement.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Relationship target resource", formalDefinition="Target of the relationship." )
         protected Reference target;
 
@@ -576,6 +586,9 @@ public class Condition extends DomainResource {
 
         private static final long serialVersionUID = -660755940L;
 
+    /*
+     * Constructor
+     */
       public ConditionDueToComponent() {
         super();
       }
@@ -685,18 +698,18 @@ public class Condition extends DomainResource {
   }
 
     @Block()
-    public static class ConditionOccurredFollowingComponent extends BackboneElement {
+    public static class ConditionOccurredFollowingComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Code that identifies the target of this relationship. The code takes the place of a detailed instance target.
          */
-        @Child(name ="code", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Relationship target by means of a predefined code", formalDefinition="Code that identifies the target of this relationship. The code takes the place of a detailed instance target." )
         protected CodeableConcept code;
 
         /**
          * Target of the relationship.
          */
-        @Child(name ="target", type={Condition.class, Procedure.class, MedicationAdministration.class, Immunization.class, MedicationStatement.class}, order=2, min=0, max=1)
+        @Child(name = "target", type = {Condition.class, Procedure.class, MedicationAdministration.class, Immunization.class, MedicationStatement.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Relationship target resource", formalDefinition="Target of the relationship." )
         protected Reference target;
 
@@ -707,6 +720,9 @@ public class Condition extends DomainResource {
 
         private static final long serialVersionUID = -660755940L;
 
+    /*
+     * Constructor
+     */
       public ConditionOccurredFollowingComponent() {
         super();
       }
@@ -818,14 +834,14 @@ public class Condition extends DomainResource {
     /**
      * This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External Ids for this condition", formalDefinition="This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
     protected List<Identifier> identifier;
 
     /**
      * Indicates the patient who the condition record is associated with.
      */
-    @Child(name ="patient", type={Patient.class}, order=1, min=1, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=1, min=1, max=1)
     @Description(shortDefinition="Who has the condition?", formalDefinition="Indicates the patient who the condition record is associated with." )
     protected Reference patient;
 
@@ -837,7 +853,7 @@ public class Condition extends DomainResource {
     /**
      * Encounter during which the condition was first asserted.
      */
-    @Child(name ="encounter", type={Encounter.class}, order=2, min=0, max=1)
+    @Child(name = "encounter", type = {Encounter.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Encounter when condition first asserted", formalDefinition="Encounter during which the condition was first asserted." )
     protected Reference encounter;
 
@@ -849,7 +865,7 @@ public class Condition extends DomainResource {
     /**
      * Person who takes responsibility for asserting the existence of the condition as part of the electronic record.
      */
-    @Child(name ="asserter", type={Practitioner.class, Patient.class}, order=3, min=0, max=1)
+    @Child(name = "asserter", type = {Practitioner.class, Patient.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Person who asserts this condition", formalDefinition="Person who takes responsibility for asserting the existence of the condition as part of the electronic record." )
     protected Reference asserter;
 
@@ -861,100 +877,106 @@ public class Condition extends DomainResource {
     /**
      * Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
      */
-    @Child(name ="dateAsserted", type={DateType.class}, order=4, min=0, max=1)
+    @Child(name = "dateAsserted", type = {DateType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="When first detected/suspected/entered", formalDefinition="Estimated or actual date the condition/problem/diagnosis was first detected/suspected." )
     protected DateType dateAsserted;
 
     /**
      * Identification of the condition, problem or diagnosis.
      */
-    @Child(name ="code", type={CodeableConcept.class}, order=5, min=1, max=1)
+    @Child(name = "code", type = {CodeableConcept.class}, order=5, min=1, max=1)
     @Description(shortDefinition="Identification of the condition, problem or diagnosis", formalDefinition="Identification of the condition, problem or diagnosis." )
     protected CodeableConcept code;
 
     /**
      * A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.
      */
-    @Child(name ="category", type={CodeableConcept.class}, order=6, min=0, max=1)
+    @Child(name = "category", type = {CodeableConcept.class}, order=6, min=0, max=1)
     @Description(shortDefinition="E.g. complaint | symptom | finding | diagnosis", formalDefinition="A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis." )
     protected CodeableConcept category;
 
     /**
      * The clinical status of the condition.
      */
-    @Child(name ="clinicalStatus", type={CodeType.class}, order=7, min=1, max=1)
+    @Child(name = "clinicalStatus", type = {CodeType.class}, order=7, min=1, max=1)
     @Description(shortDefinition="provisional | working | confirmed | refuted | entered-in-error | unknown", formalDefinition="The clinical status of the condition." )
     protected Enumeration<ConditionStatus> clinicalStatus;
 
     /**
      * A subjective assessment of the severity of the condition as evaluated by the clinician.
      */
-    @Child(name ="severity", type={CodeableConcept.class}, order=8, min=0, max=1)
+    @Child(name = "severity", type = {CodeableConcept.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Subjective severity of condition", formalDefinition="A subjective assessment of the severity of the condition as evaluated by the clinician." )
     protected CodeableConcept severity;
 
     /**
      * Estimated or actual date or date-time  the condition began, in the opinion of the clinician.
      */
-    @Child(name ="onset", type={DateTimeType.class, Age.class, Period.class, Range.class, StringType.class}, order=9, min=0, max=1)
+    @Child(name = "onset", type = {DateTimeType.class, Age.class, Period.class, Range.class, StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Estimated or actual date,  date-time, or age", formalDefinition="Estimated or actual date or date-time  the condition began, in the opinion of the clinician." )
     protected Type onset;
 
     /**
      * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
-    @Child(name ="abatement", type={DateType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1)
+    @Child(name = "abatement", type = {DateType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="If/when in resolution/remission", formalDefinition="The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate." )
     protected Type abatement;
 
     /**
      * Clinical stage or grade of a condition. May include formal severity assessments.
      */
-    @Child(name ="stage", type={}, order=11, min=0, max=1)
+    @Child(name = "stage", type = {}, order=11, min=0, max=1)
     @Description(shortDefinition="Stage/grade, usually assessed formally", formalDefinition="Clinical stage or grade of a condition. May include formal severity assessments." )
     protected ConditionStageComponent stage;
 
     /**
      * Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.
      */
-    @Child(name ="evidence", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "evidence", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Supporting evidence", formalDefinition="Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed." )
     protected List<ConditionEvidenceComponent> evidence;
 
     /**
      * The anatomical location where this condition manifests itself.
      */
-    @Child(name ="location", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "location", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Anatomical location, if relevant", formalDefinition="The anatomical location where this condition manifests itself." )
     protected List<ConditionLocationComponent> location;
 
     /**
      * Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.
      */
-    @Child(name ="dueTo", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "dueTo", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Causes for this Condition", formalDefinition="Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition." )
     protected List<ConditionDueToComponent> dueTo;
 
     /**
      * Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.
      */
-    @Child(name ="occurredFollowing", type={}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "occurredFollowing", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Precedent for this Condition", formalDefinition="Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition." )
     protected List<ConditionOccurredFollowingComponent> occurredFollowing;
 
     /**
      * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
-    @Child(name ="notes", type={StringType.class}, order=16, min=0, max=1)
+    @Child(name = "notes", type = {StringType.class}, order=16, min=0, max=1)
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected StringType notes;
 
     private static final long serialVersionUID = -1018838673L;
 
+  /*
+   * Constructor
+   */
     public Condition() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public Condition(Reference patient, CodeableConcept code, Enumeration<ConditionStatus> clinicalStatus) {
       super();
       this.patient = patient;

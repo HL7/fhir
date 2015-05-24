@@ -123,7 +123,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 	
 	private void checkConformance() {
 	  try {
-      conf = getConformanceStatement();
+      conf = getConformanceStatementQuick();
 	  } catch (Throwable e) {
 	    
 	  }
@@ -173,7 +173,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 			if(useOptionsVerb) {
 				conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getReference();//TODO fix this
 			} else {
-				conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat(), proxy).getReference();
+				conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(false), getPreferredResourceFormat(), proxy).getReference();
 			}
 		} catch(Exception e) {
 			handleException("An error has occurred while trying to fetch the server's conformance statement", e);
@@ -181,6 +181,28 @@ public class FHIRSimpleClient implements IFHIRClient {
 		return conformance;
 	}
 	
+  @Override
+  public Conformance getConformanceStatementQuick() throws EFhirClientException {
+    if (conf != null)
+      return conf;
+    return getConformanceStatementQuick(false);
+  }
+  
+  @Override
+  public Conformance getConformanceStatementQuick(boolean useOptionsVerb) {
+    Conformance conformance = null;
+    try {
+      if(useOptionsVerb) {
+        conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getReference();//TODO fix this
+      } else {
+        conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(true), getPreferredResourceFormat(), proxy).getReference();
+      }
+    } catch(Exception e) {
+      handleException("An error has occurred while trying to fetch the server's conformance statement", e);
+    }
+    return conformance;
+  }
+  
 	//TODO Add call to get resource from URI - absolute or relative (both read and vread)
 	
 	@Override

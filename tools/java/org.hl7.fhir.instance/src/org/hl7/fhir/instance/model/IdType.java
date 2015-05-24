@@ -28,8 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
-import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.apache.commons.lang3.StringUtils.*;
 
 import java.math.BigDecimal;
 
@@ -179,11 +178,6 @@ public class IdType extends UriType implements IIdType {
 	@Deprecated
 	public BigDecimal asBigDecimal() {
 		return getIdPartAsBigDecimal();
-	}
-
-	@Override
-	public String asStringValue() {
-		return getValue();
 	}
 
 	/**

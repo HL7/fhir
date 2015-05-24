@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
  */
@@ -48,7 +49,7 @@ public class BodySite extends DomainResource {
     /**
      * The person to which the body site belongs.
      */
-    @Child(name ="patient", type={Patient.class}, order=0, min=1, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=0, min=1, max=1)
     @Description(shortDefinition="Patient", formalDefinition="The person to which the body site belongs." )
     protected Reference patient;
 
@@ -60,44 +61,50 @@ public class BodySite extends DomainResource {
     /**
      * Identifier for this instance of the anatomical location.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Bodysite identifier", formalDefinition="Identifier for this instance of the anatomical location." )
     protected List<Identifier> identifier;
 
     /**
      * Named anatomical location - ideally would be coded where possible.
      */
-    @Child(name ="code", type={CodeableConcept.class}, order=2, min=0, max=1)
+    @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Named anatomical location", formalDefinition="Named anatomical location - ideally would be coded where possible." )
     protected CodeableConcept code;
 
     /**
      * Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.
      */
-    @Child(name ="modifier", type={CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "modifier", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Modification to location code", formalDefinition="Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane." )
     protected List<CodeableConcept> modifier;
 
     /**
      * Description of anatomical location.
      */
-    @Child(name ="description", type={StringType.class}, order=4, min=0, max=1)
+    @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="The Description of anatomical location", formalDefinition="Description of anatomical location." )
     protected StringType description;
 
     /**
      * Image or images used to identify a location.
      */
-    @Child(name ="image", type={Attachment.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "image", type = {Attachment.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Attached images", formalDefinition="Image or images used to identify a location." )
     protected List<Attachment> image;
 
     private static final long serialVersionUID = 1568109920L;
 
+  /*
+   * Constructor
+   */
     public BodySite() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public BodySite(Reference patient) {
       super();
       this.patient = patient;

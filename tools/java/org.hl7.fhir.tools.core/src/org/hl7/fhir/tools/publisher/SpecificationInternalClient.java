@@ -210,5 +210,15 @@ public class SpecificationInternalClient implements IFHIRClient {
     throw new Error("operateType not supported by the internal specification client");
   }
 
+  @Override
+  public Conformance getConformanceStatementQuick() {
+    throw new Error("getConformanceStatementQuick not supported by the internal specification client");
+  }
+
+  @Override
+  public Conformance getConformanceStatementQuick(boolean useOptionsVerb) {
+    throw new Error("getConformanceStatementQuick not supported by the internal specification client");
+  }
+
 
 }

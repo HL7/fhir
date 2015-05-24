@@ -1,4 +1,4 @@
-package org.hl7.fhir.instance.utils;
+package org.hl7.fhir.instance.terminologies;
 
 /*
 Copyright (c) 2011+, HL7, Inc

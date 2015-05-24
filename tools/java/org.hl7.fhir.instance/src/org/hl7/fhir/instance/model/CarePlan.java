@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * Describes the intention of how one or more practitioners intend to deliver care for a particular patient for a period of time, possibly limited to care for a specific condition or set of conditions.
  */
@@ -402,18 +403,18 @@ public class CarePlan extends DomainResource {
     }
 
     @Block()
-    public static class CarePlanParticipantComponent extends BackboneElement {
+    public static class CarePlanParticipantComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Indicates specific responsibility of an individual within the care plan.  E.g. "Primary physician", "Team coordinator", "Caregiver", etc.
          */
-        @Child(name ="role", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Type of involvement", formalDefinition="Indicates specific responsibility of an individual within the care plan.  E.g. 'Primary physician', 'Team coordinator', 'Caregiver', etc." )
         protected CodeableConcept role;
 
         /**
          * The specific person or organization who is participating/expected to participate in the care plan.
          */
-        @Child(name ="member", type={Practitioner.class, RelatedPerson.class, Patient.class, Organization.class}, order=2, min=1, max=1)
+        @Child(name = "member", type = {Practitioner.class, RelatedPerson.class, Patient.class, Organization.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Who is involved", formalDefinition="The specific person or organization who is participating/expected to participate in the care plan." )
         protected Reference member;
 
@@ -424,10 +425,16 @@ public class CarePlan extends DomainResource {
 
         private static final long serialVersionUID = -466811117L;
 
+    /*
+     * Constructor
+     */
       public CarePlanParticipantComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public CarePlanParticipantComponent(Reference member) {
         super();
         this.member = member;
@@ -538,11 +545,11 @@ public class CarePlan extends DomainResource {
   }
 
     @Block()
-    public static class CarePlanActivityComponent extends BackboneElement {
+    public static class CarePlanActivityComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.
          */
-        @Child(name ="actionResulting", type={}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "actionResulting", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Appointments, orders, etc.", formalDefinition="Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc." )
         protected List<Reference> actionResulting;
         /**
@@ -554,14 +561,14 @@ public class CarePlan extends DomainResource {
         /**
          * Notes about the execution of the activity.
          */
-        @Child(name ="notes", type={StringType.class}, order=2, min=0, max=1)
+        @Child(name = "notes", type = {StringType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Comments about the activity", formalDefinition="Notes about the execution of the activity." )
         protected StringType notes;
 
         /**
          * The details of the proposed activity represented in a specific resource.
          */
-        @Child(name ="reference", type={Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticOrder.class, MedicationPrescription.class, NutritionOrder.class, Order.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, Supply.class, VisionPrescription.class}, order=3, min=0, max=1)
+        @Child(name = "reference", type = {Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticOrder.class, MedicationPrescription.class, NutritionOrder.class, Order.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, Supply.class, VisionPrescription.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Activity details defined in specific resource", formalDefinition="The details of the proposed activity represented in a specific resource." )
         protected Reference reference;
 
@@ -573,12 +580,15 @@ public class CarePlan extends DomainResource {
         /**
          * A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.
          */
-        @Child(name ="detail", type={}, order=4, min=0, max=1)
+        @Child(name = "detail", type = {}, order=4, min=0, max=1)
         @Description(shortDefinition="In-line definition of activity", formalDefinition="A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc." )
         protected CarePlanActivityDetailComponent detail;
 
         private static final long serialVersionUID = -1011983328L;
 
+    /*
+     * Constructor
+     */
       public CarePlanActivityComponent() {
         super();
       }
@@ -795,32 +805,32 @@ public class CarePlan extends DomainResource {
   }
 
     @Block()
-    public static class CarePlanActivityDetailComponent extends BackboneElement {
+    public static class CarePlanActivityDetailComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * High-level categorization of the type of activity in a care plan.
          */
-        @Child(name ="category", type={CodeType.class}, order=1, min=1, max=1)
+        @Child(name = "category", type = {CodeType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="diet | drug | encounter | observation | procedure | supply | other", formalDefinition="High-level categorization of the type of activity in a care plan." )
         protected Enumeration<CarePlanActivityCategory> category;
 
         /**
          * Detailed description of the type of planned activity.  E.g. What lab test, what procedure, what kind of encounter.
          */
-        @Child(name ="code", type={CodeableConcept.class}, order=2, min=0, max=1)
+        @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Detail type of activity", formalDefinition="Detailed description of the type of planned activity.  E.g. What lab test, what procedure, what kind of encounter." )
         protected CodeableConcept code;
 
         /**
          * Provides the health condition(s) or other rationale that drove the inclusion of this particular activity as part of the plan.
          */
-        @Child(name ="reason", type={CodeableConcept.class, Condition.class}, order=3, min=0, max=1)
+        @Child(name = "reason", type = {CodeableConcept.class, Condition.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Why activity should be done", formalDefinition="Provides the health condition(s) or other rationale that drove the inclusion of this particular activity as part of the plan." )
         protected Type reason;
 
         /**
          * Internal reference that identifies the goals that this activity is intended to contribute towards meeting.
          */
-        @Child(name ="goal", type={Goal.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "goal", type = {Goal.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Goals this activity relates to", formalDefinition="Internal reference that identifies the goals that this activity is intended to contribute towards meeting." )
         protected List<Reference> goal;
         /**
@@ -832,35 +842,35 @@ public class CarePlan extends DomainResource {
         /**
          * Identifies what progress is being made for the specific activity.
          */
-        @Child(name ="status", type={CodeType.class}, order=5, min=0, max=1)
+        @Child(name = "status", type = {CodeType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="not-started | scheduled | in-progress | on-hold | completed | cancelled", formalDefinition="Identifies what progress is being made for the specific activity." )
         protected Enumeration<CarePlanActivityStatus> status;
 
         /**
          * Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.
          */
-        @Child(name ="statusReason", type={CodeableConcept.class}, order=6, min=0, max=1)
+        @Child(name = "statusReason", type = {CodeableConcept.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Reason for current status", formalDefinition="Provides reason why the activity isn't yet started, is on hold, was cancelled, etc." )
         protected CodeableConcept statusReason;
 
         /**
          * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
          */
-        @Child(name ="prohibited", type={BooleanType.class}, order=7, min=1, max=1)
+        @Child(name = "prohibited", type = {BooleanType.class}, order=7, min=1, max=1)
         @Description(shortDefinition="Do NOT do", formalDefinition="If true, indicates that the described activity is one that must NOT be engaged in when following the plan." )
         protected BooleanType prohibited;
 
         /**
          * The period, timing or frequency upon which the described activity is to occur.
          */
-        @Child(name ="scheduled", type={Timing.class, Period.class, StringType.class}, order=8, min=0, max=1)
+        @Child(name = "scheduled", type = {Timing.class, Period.class, StringType.class}, order=8, min=0, max=1)
         @Description(shortDefinition="When activity is to occur", formalDefinition="The period, timing or frequency upon which the described activity is to occur." )
         protected Type scheduled;
 
         /**
          * Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.
          */
-        @Child(name ="location", type={Location.class}, order=9, min=0, max=1)
+        @Child(name = "location", type = {Location.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Where it should happen", formalDefinition="Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc." )
         protected Reference location;
 
@@ -872,7 +882,7 @@ public class CarePlan extends DomainResource {
         /**
          * Identifies who's expected to be involved in the activity.
          */
-        @Child(name ="performer", type={Practitioner.class, Organization.class, RelatedPerson.class, Patient.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "performer", type = {Practitioner.class, Organization.class, RelatedPerson.class, Patient.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Who will be responsible?", formalDefinition="Identifies who's expected to be involved in the activity." )
         protected List<Reference> performer;
         /**
@@ -884,7 +894,7 @@ public class CarePlan extends DomainResource {
         /**
          * Identifies the food, drug or other product to be consumed or supplied in the activity.
          */
-        @Child(name ="product", type={Medication.class, Substance.class}, order=11, min=0, max=1)
+        @Child(name = "product", type = {Medication.class, Substance.class}, order=11, min=0, max=1)
         @Description(shortDefinition="What is to be administered/supplied", formalDefinition="Identifies the food, drug or other product to be consumed or supplied in the activity." )
         protected Reference product;
 
@@ -896,30 +906,36 @@ public class CarePlan extends DomainResource {
         /**
          * Identifies the quantity expected to be consumed in a given day.
          */
-        @Child(name ="dailyAmount", type={Quantity.class}, order=12, min=0, max=1)
+        @Child(name = "dailyAmount", type = {Quantity.class}, order=12, min=0, max=1)
         @Description(shortDefinition="How to consume/day?", formalDefinition="Identifies the quantity expected to be consumed in a given day." )
         protected Quantity dailyAmount;
 
         /**
          * Identifies the quantity expected to be supplied, addministered or consumed by the subject.
          */
-        @Child(name ="quantity", type={Quantity.class}, order=13, min=0, max=1)
+        @Child(name = "quantity", type = {Quantity.class}, order=13, min=0, max=1)
         @Description(shortDefinition="How much to administer/supply/consume", formalDefinition="Identifies the quantity expected to be supplied, addministered or consumed by the subject." )
         protected Quantity quantity;
 
         /**
          * This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
          */
-        @Child(name ="note", type={StringType.class}, order=14, min=0, max=1)
+        @Child(name = "note", type = {StringType.class}, order=14, min=0, max=1)
         @Description(shortDefinition="Extra info on activity occurrence", formalDefinition="This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc." )
         protected StringType note;
 
         private static final long serialVersionUID = -1276666801L;
 
+    /*
+     * Constructor
+     */
       public CarePlanActivityDetailComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public CarePlanActivityDetailComponent(Enumeration<CarePlanActivityCategory> category, BooleanType prohibited) {
         super();
         this.category = category;
@@ -1571,14 +1587,14 @@ public class CarePlan extends DomainResource {
     /**
      * This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External Ids for this plan", formalDefinition="This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
     protected List<Identifier> identifier;
 
     /**
      * Identifies the patient/subject whose intended care is described by the plan.
      */
-    @Child(name ="patient", type={Patient.class}, order=1, min=0, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Who care plan is for", formalDefinition="Identifies the patient/subject whose intended care is described by the plan." )
     protected Reference patient;
 
@@ -1590,21 +1606,21 @@ public class CarePlan extends DomainResource {
     /**
      * Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.
      */
-    @Child(name ="status", type={CodeType.class}, order=2, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=2, min=1, max=1)
     @Description(shortDefinition="planned | active | completed", formalDefinition="Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record." )
     protected Enumeration<CarePlanStatus> status;
 
     /**
      * Indicates when the plan did (or is intended to) come into effect and end.
      */
-    @Child(name ="period", type={Period.class}, order=3, min=0, max=1)
+    @Child(name = "period", type = {Period.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Time period plan covers", formalDefinition="Indicates when the plan did (or is intended to) come into effect and end." )
     protected Period period;
 
     /**
      * Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
      */
-    @Child(name ="author", type={Patient.class, Practitioner.class, RelatedPerson.class, Organization.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "author", type = {Patient.class, Practitioner.class, RelatedPerson.class, Organization.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Who is responsible for plan", formalDefinition="Identifies the individual(s) or ogranization who is responsible for the content of the care plan." )
     protected List<Reference> author;
     /**
@@ -1616,21 +1632,21 @@ public class CarePlan extends DomainResource {
     /**
      * Identifies the most recent date on which the plan has been revised.
      */
-    @Child(name ="modified", type={DateTimeType.class}, order=5, min=0, max=1)
+    @Child(name = "modified", type = {DateTimeType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="When last updated", formalDefinition="Identifies the most recent date on which the plan has been revised." )
     protected DateTimeType modified;
 
     /**
      * Identifies what "kind" of plan this is to support differentiation between multiple co-existing plans.  E.g. "Home health", "psychiatric", "asthma", "disease management", etc.
      */
-    @Child(name ="category", type={CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "category", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Type of plan", formalDefinition="Identifies what 'kind' of plan this is to support differentiation between multiple co-existing plans.  E.g. 'Home health', 'psychiatric', 'asthma', 'disease management', etc." )
     protected List<CodeableConcept> category;
 
     /**
      * Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
      */
-    @Child(name ="concern", type={Condition.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "concern", type = {Condition.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Health issues this plan addresses", formalDefinition="Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan." )
     protected List<Reference> concern;
     /**
@@ -1642,7 +1658,7 @@ public class CarePlan extends DomainResource {
     /**
      * Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.
      */
-    @Child(name ="support", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "support", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Information considered as part of plan", formalDefinition="Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc." )
     protected List<Reference> support;
     /**
@@ -1654,14 +1670,14 @@ public class CarePlan extends DomainResource {
     /**
      * Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
      */
-    @Child(name ="participant", type={}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "participant", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Who's involved in plan?", formalDefinition="Identifies all people and organizations who are expected to be involved in the care envisioned by this plan." )
     protected List<CarePlanParticipantComponent> participant;
 
     /**
      * Describes the intended objective(s) of carrying out the Care Plan.
      */
-    @Child(name ="goal", type={Goal.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "goal", type = {Goal.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Desired outcome of plan", formalDefinition="Describes the intended objective(s) of carrying out the Care Plan." )
     protected List<Reference> goal;
     /**
@@ -1673,23 +1689,29 @@ public class CarePlan extends DomainResource {
     /**
      * Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
      */
-    @Child(name ="activity", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "activity", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Action to occur as part of plan", formalDefinition="Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc." )
     protected List<CarePlanActivityComponent> activity;
 
     /**
      * General notes about the care plan not covered elsewhere.
      */
-    @Child(name ="notes", type={StringType.class}, order=12, min=0, max=1)
+    @Child(name = "notes", type = {StringType.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Comments about the plan", formalDefinition="General notes about the care plan not covered elsewhere." )
     protected StringType notes;
 
     private static final long serialVersionUID = -1877285959L;
 
+  /*
+   * Constructor
+   */
     public CarePlan() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public CarePlan(Enumeration<CarePlanStatus> status) {
       super();
       this.status = status;

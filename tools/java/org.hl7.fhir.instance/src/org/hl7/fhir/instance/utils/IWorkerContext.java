@@ -4,6 +4,7 @@ import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.ParserType;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.terminologies.ITerminologyServices;
 import org.hl7.fhir.instance.validation.IResourceValidator;
 
 /**

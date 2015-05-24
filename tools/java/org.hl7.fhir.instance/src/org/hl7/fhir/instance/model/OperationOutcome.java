@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A collection of error, warning or information messages that result from a system action.
  */
@@ -146,41 +147,47 @@ public class OperationOutcome extends DomainResource {
     }
 
     @Block()
-    public static class OperationOutcomeIssueComponent extends BackboneElement {
+    public static class OperationOutcomeIssueComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Indicates whether the issue indicates a variation from successful processing.
          */
-        @Child(name ="severity", type={CodeType.class}, order=1, min=1, max=1)
+        @Child(name = "severity", type = {CodeType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="fatal | error | warning | information", formalDefinition="Indicates whether the issue indicates a variation from successful processing." )
         protected Enumeration<IssueSeverity> severity;
 
         /**
          * Describes the type of the issue.
          */
-        @Child(name ="code", type={CodeableConcept.class}, order=2, min=1, max=1)
+        @Child(name = "code", type = {CodeableConcept.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Error or warning code", formalDefinition="Describes the type of the issue." )
         protected CodeableConcept code;
 
         /**
          * Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue.
          */
-        @Child(name ="details", type={StringType.class}, order=3, min=0, max=1)
+        @Child(name = "details", type = {StringType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Additional diagnostic information about the issue", formalDefinition="Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stck dump to help trace the issue." )
         protected StringType details;
 
         /**
          * A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
          */
-        @Child(name ="location", type={StringType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "location", type = {StringType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="XPath of element(s) related to issue", formalDefinition="A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised." )
         protected List<StringType> location;
 
         private static final long serialVersionUID = -869408333L;
 
+    /*
+     * Constructor
+     */
       public OperationOutcomeIssueComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public OperationOutcomeIssueComponent(Enumeration<IssueSeverity> severity, CodeableConcept code) {
         super();
         this.severity = severity;
@@ -413,12 +420,15 @@ public class OperationOutcome extends DomainResource {
     /**
      * An error, warning or information message that results from a system action.
      */
-    @Child(name ="issue", type={}, order=0, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name = "issue", type = {}, order=0, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A single issue associated with the action", formalDefinition="An error, warning or information message that results from a system action." )
     protected List<OperationOutcomeIssueComponent> issue;
 
     private static final long serialVersionUID = -152150052L;
 
+  /*
+   * Constructor
+   */
     public OperationOutcome() {
       super();
     }

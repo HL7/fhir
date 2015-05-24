@@ -1,9 +1,12 @@
 package org.hl7.fhir.instance.model;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hl7.fhir.instance.model.api.IBaseHasExtensions;
+import org.hl7.fhir.instance.model.api.IPrimitiveType;
 
-public abstract class PrimitiveType<T> extends Type {
+public abstract class PrimitiveType<T> extends Type implements IPrimitiveType<T>, IBaseHasExtensions {
 
   private static final long serialVersionUID = 3L;
 
@@ -24,11 +27,6 @@ public abstract class PrimitiveType<T> extends Type {
 		return new HashCodeBuilder().append(getValue()).toHashCode();
 	}
 
-	@Override
-	public boolean isEmpty() {
-		return super.isEmpty() && getValue() == null;
-	}
-
 	public PrimitiveType<T> setValue(T theValue) {
 		myCoercedValue = theValue;
 		updateStringValue();
@@ -42,6 +40,11 @@ public abstract class PrimitiveType<T> extends Type {
 			// NB this might be null
 			myStringValue = encode(myCoercedValue);
 		}
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return super.isEmpty() && StringUtils.isBlank(getValueAsString());
 	}
 
 	public void fromStringValue(String theValue) {

@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * This resource provides payment details and claim references supporting a bulk payment.
  */
@@ -118,18 +119,18 @@ public class PaymentReconciliation extends DomainResource {
     }
 
     @Block()
-    public static class DetailsComponent extends BackboneElement {
+    public static class DetailsComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Code to indicate the nature of the payment, adjustment, funds advance, etc.
          */
-        @Child(name ="type", type={Coding.class}, order=1, min=1, max=1)
+        @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Type code", formalDefinition="Code to indicate the nature of the payment, adjustment, funds advance, etc." )
         protected Coding type;
 
         /**
          * The claim or financial resource.
          */
-        @Child(name ="request", type={}, order=2, min=0, max=1)
+        @Child(name = "request", type = {}, order=2, min=0, max=1)
         @Description(shortDefinition="Claim", formalDefinition="The claim or financial resource." )
         protected Reference request;
 
@@ -141,7 +142,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * The claim response resource.
          */
-        @Child(name ="responce", type={}, order=3, min=0, max=1)
+        @Child(name = "responce", type = {}, order=3, min=0, max=1)
         @Description(shortDefinition="Claim Response", formalDefinition="The claim response resource." )
         protected Reference responce;
 
@@ -153,7 +154,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * The Organization which submitted the invoice or financial transaction.
          */
-        @Child(name ="submitter", type={Organization.class}, order=4, min=0, max=1)
+        @Child(name = "submitter", type = {Organization.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Submitter", formalDefinition="The Organization which submitted the invoice or financial transaction." )
         protected Reference submitter;
 
@@ -165,7 +166,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * The organization which is receiving the payment.
          */
-        @Child(name ="payee", type={Organization.class}, order=5, min=0, max=1)
+        @Child(name = "payee", type = {Organization.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Payee", formalDefinition="The organization which is receiving the payment." )
         protected Reference payee;
 
@@ -177,23 +178,29 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * The date of the invoice or financial resource.
          */
-        @Child(name ="date", type={DateType.class}, order=6, min=0, max=1)
+        @Child(name = "date", type = {DateType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Invoice date", formalDefinition="The date of the invoice or financial resource." )
         protected DateType date;
 
         /**
          * Amount paid for this detail.
          */
-        @Child(name ="amount", type={Money.class}, order=7, min=0, max=1)
+        @Child(name = "amount", type = {Money.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Detail amount", formalDefinition="Amount paid for this detail." )
         protected Money amount;
 
         private static final long serialVersionUID = -1644048062L;
 
+    /*
+     * Constructor
+     */
       public DetailsComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public DetailsComponent(Coding type) {
         super();
         this.type = type;
@@ -518,23 +525,26 @@ public class PaymentReconciliation extends DomainResource {
   }
 
     @Block()
-    public static class NotesComponent extends BackboneElement {
+    public static class NotesComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The note purpose: Print/Display.
          */
-        @Child(name ="type", type={Coding.class}, order=1, min=0, max=1)
+        @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1)
         @Description(shortDefinition="display | print | printoper", formalDefinition="The note purpose: Print/Display." )
         protected Coding type;
 
         /**
          * The note text.
          */
-        @Child(name ="text", type={StringType.class}, order=2, min=0, max=1)
+        @Child(name = "text", type = {StringType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Notes text", formalDefinition="The note text." )
         protected StringType text;
 
         private static final long serialVersionUID = 129959202L;
 
+    /*
+     * Constructor
+     */
       public NotesComponent() {
         super();
       }
@@ -656,14 +666,14 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * The Response Business Identifier.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Business Identifier", formalDefinition="The Response Business Identifier." )
     protected List<Identifier> identifier;
 
     /**
      * Original request resource reference.
      */
-    @Child(name ="request", type={ProcessRequest.class}, order=1, min=0, max=1)
+    @Child(name = "request", type = {ProcessRequest.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Claim reference", formalDefinition="Original request resource reference." )
     protected Reference request;
 
@@ -675,49 +685,49 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * Transaction status: error, complete.
      */
-    @Child(name ="outcome", type={CodeType.class}, order=2, min=0, max=1)
+    @Child(name = "outcome", type = {CodeType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="complete | error", formalDefinition="Transaction status: error, complete." )
     protected Enumeration<RSLink> outcome;
 
     /**
      * A description of the status of the adjudication.
      */
-    @Child(name ="disposition", type={StringType.class}, order=3, min=0, max=1)
+    @Child(name = "disposition", type = {StringType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Disposition Message", formalDefinition="A description of the status of the adjudication." )
     protected StringType disposition;
 
     /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
      */
-    @Child(name ="ruleset", type={Coding.class}, order=4, min=0, max=1)
+    @Child(name = "ruleset", type = {Coding.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
     protected Coding ruleset;
 
     /**
      * The style (standard) and version of the original material which was converted into this resource.
      */
-    @Child(name ="originalRuleset", type={Coding.class}, order=5, min=0, max=1)
+    @Child(name = "originalRuleset", type = {Coding.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
     protected Coding originalRuleset;
 
     /**
      * The date when the enclosed suite of services were performed or completed.
      */
-    @Child(name ="created", type={DateTimeType.class}, order=6, min=0, max=1)
+    @Child(name = "created", type = {DateTimeType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Creation date", formalDefinition="The date when the enclosed suite of services were performed or completed." )
     protected DateTimeType created;
 
     /**
      * The period of time for which payments have been gathered into this bulk payment for settlement.
      */
-    @Child(name ="period", type={Period.class}, order=7, min=0, max=1)
+    @Child(name = "period", type = {Period.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Period covered", formalDefinition="The period of time for which payments have been gathered into this bulk payment for settlement." )
     protected Period period;
 
     /**
      * The Insurer who produced this adjudicated response.
      */
-    @Child(name ="organization", type={Organization.class}, order=8, min=0, max=1)
+    @Child(name = "organization", type = {Organization.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Insurer", formalDefinition="The Insurer who produced this adjudicated response." )
     protected Reference organization;
 
@@ -729,7 +739,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
-    @Child(name ="requestProvider", type={Practitioner.class}, order=9, min=0, max=1)
+    @Child(name = "requestProvider", type = {Practitioner.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
     protected Reference requestProvider;
 
@@ -741,7 +751,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * The organization which is responsible for the services rendered to the patient.
      */
-    @Child(name ="requestOrganization", type={Organization.class}, order=10, min=0, max=1)
+    @Child(name = "requestOrganization", type = {Organization.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the services rendered to the patient." )
     protected Reference requestOrganization;
 
@@ -753,37 +763,43 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * List of individual settlement amounts and the corresponding transaction.
      */
-    @Child(name ="detail", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "detail", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Details", formalDefinition="List of individual settlement amounts and the corresponding transaction." )
     protected List<DetailsComponent> detail;
 
     /**
      * The form to be used for printing the content.
      */
-    @Child(name ="form", type={Coding.class}, order=12, min=0, max=1)
+    @Child(name = "form", type = {Coding.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     protected Coding form;
 
     /**
      * Total payment amount.
      */
-    @Child(name ="total", type={Money.class}, order=13, min=1, max=1)
+    @Child(name = "total", type = {Money.class}, order=13, min=1, max=1)
     @Description(shortDefinition="Total amount of Payment", formalDefinition="Total payment amount." )
     protected Money total;
 
     /**
      * Suite of notes.
      */
-    @Child(name ="note", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "note", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Note text", formalDefinition="Suite of notes." )
     protected List<NotesComponent> note;
 
     private static final long serialVersionUID = 1602249640L;
 
+  /*
+   * Constructor
+   */
     public PaymentReconciliation() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public PaymentReconciliation(Money total) {
       super();
       this.total = total;

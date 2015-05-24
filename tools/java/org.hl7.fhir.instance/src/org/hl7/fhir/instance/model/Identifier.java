@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -37,11 +37,13 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A technical identifier - identifies some entity uniquely and unambiguously.
  */
 @DatatypeDef(name="Identifier")
-public class Identifier extends Type {
+public class Identifier extends Type implements ICompositeType {
 
     public enum IdentifierUse {
         /**
@@ -146,42 +148,42 @@ public class Identifier extends Type {
     /**
      * The purpose of this identifier.
      */
-    @Child(name ="use", type={CodeType.class}, order=0, min=0, max=1)
+    @Child(name = "use", type = {CodeType.class}, order=0, min=0, max=1)
     @Description(shortDefinition="usual | official | temp | secondary (If known)", formalDefinition="The purpose of this identifier." )
     protected Enumeration<IdentifierUse> use;
 
     /**
      * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
      */
-    @Child(name ="type", type={CodeableConcept.class}, order=1, min=0, max=1)
+    @Child(name = "type", type = {CodeableConcept.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Description of identifier", formalDefinition="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." )
     protected CodeableConcept type;
 
     /**
      * Establishes the namespace in which set of possible id values is unique.
      */
-    @Child(name ="system", type={UriType.class}, order=2, min=0, max=1)
+    @Child(name = "system", type = {UriType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="The namespace for the identifier", formalDefinition="Establishes the namespace in which set of possible id values is unique." )
     protected UriType system;
 
     /**
      * The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
-    @Child(name ="value", type={StringType.class}, order=3, min=0, max=1)
+    @Child(name = "value", type = {StringType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="The value that is unique", formalDefinition="The portion of the identifier typically displayed to the user and which is unique within the context of the system." )
     protected StringType value;
 
     /**
      * Time period during which identifier is/was valid for use.
      */
-    @Child(name ="period", type={Period.class}, order=4, min=0, max=1)
+    @Child(name = "period", type = {Period.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Time period when id is/was valid for use", formalDefinition="Time period during which identifier is/was valid for use." )
     protected Period period;
 
     /**
      * Organization that issued/manages the identifier.
      */
-    @Child(name ="assigner", type={Organization.class}, order=5, min=0, max=1)
+    @Child(name = "assigner", type = {Organization.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Organization that issued id (may be just text)", formalDefinition="Organization that issued/manages the identifier." )
     protected Reference assigner;
 
@@ -192,6 +194,9 @@ public class Identifier extends Type {
 
     private static final long serialVersionUID = -478840981L;
 
+  /*
+   * Constructor
+   */
     public Identifier() {
       super();
     }

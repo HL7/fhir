@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * Dispensing a medication to a named patient.  This includes a description of the supply provided and the instructions for administering the medication.
  */
@@ -160,72 +161,75 @@ public class MedicationDispense extends DomainResource {
     }
 
     @Block()
-    public static class MedicationDispenseDosageInstructionComponent extends BackboneElement {
+    public static class MedicationDispenseDosageInstructionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
          */
-        @Child(name ="additionalInstructions", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Child(name = "additionalInstructions", type = {CodeableConcept.class}, order=1, min=0, max=1)
         @Description(shortDefinition="E.g. 'Take with food'", formalDefinition="Additional instructions such as 'Swallow with plenty of water' which may or may not be coded." )
         protected CodeableConcept additionalInstructions;
 
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
          */
-        @Child(name ="schedule", type={DateTimeType.class, Period.class, Timing.class}, order=2, min=0, max=1)
+        @Child(name = "schedule", type = {DateTimeType.class, Period.class, Timing.class}, order=2, min=0, max=1)
         @Description(shortDefinition="When medication should be administered", formalDefinition="The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  'Every  8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:';  '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'." )
         protected Type schedule;
 
         /**
          * If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.
          */
-        @Child(name ="asNeeded", type={BooleanType.class, CodeableConcept.class}, order=3, min=0, max=1)
+        @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Take 'as needed' f(or x)", formalDefinition="If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication." )
         protected Type asNeeded;
 
         /**
          * A coded specification of the anatomic site where the medication first enters the body.
          */
-        @Child(name ="site", type={CodeableConcept.class}, order=4, min=0, max=1)
+        @Child(name = "site", type = {CodeableConcept.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Body site to administer to", formalDefinition="A coded specification of the anatomic site where the medication first enters the body." )
         protected CodeableConcept site;
 
         /**
          * A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
          */
-        @Child(name ="route", type={CodeableConcept.class}, order=5, min=0, max=1)
+        @Child(name = "route", type = {CodeableConcept.class}, order=5, min=0, max=1)
         @Description(shortDefinition="How drug should enter body", formalDefinition="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject." )
         protected CodeableConcept route;
 
         /**
          * A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.Terminologies used often pre-coordinate this term with the route and or form of administration.
          */
-        @Child(name ="method", type={CodeableConcept.class}, order=6, min=0, max=1)
+        @Child(name = "method", type = {CodeableConcept.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Technique for administering medication", formalDefinition="A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\r\rTerminologies used often pre-coordinate this term with the route and or form of administration." )
         protected CodeableConcept method;
 
         /**
          * The amount of therapeutic or other substance given at one administration event.
          */
-        @Child(name ="dose", type={Range.class, Quantity.class}, order=7, min=0, max=1)
+        @Child(name = "dose", type = {Range.class, Quantity.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Amount of medication per dose", formalDefinition="The amount of therapeutic or other substance given at one administration event." )
         protected Type dose;
 
         /**
          * Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
          */
-        @Child(name ="rate", type={Ratio.class}, order=8, min=0, max=1)
+        @Child(name = "rate", type = {Ratio.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Amount of medication per unit of time", formalDefinition="Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours." )
         protected Ratio rate;
 
         /**
          * The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.
          */
-        @Child(name ="maxDosePerPeriod", type={Ratio.class}, order=9, min=0, max=1)
+        @Child(name = "maxDosePerPeriod", type = {Ratio.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Upper limit on medication per unit of time", formalDefinition="The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours." )
         protected Ratio maxDosePerPeriod;
 
         private static final long serialVersionUID = -1523433515L;
 
+    /*
+     * Constructor
+     */
       public MedicationDispenseDosageInstructionComponent() {
         super();
       }
@@ -556,25 +560,25 @@ public class MedicationDispense extends DomainResource {
   }
 
     @Block()
-    public static class MedicationDispenseSubstitutionComponent extends BackboneElement {
+    public static class MedicationDispenseSubstitutionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A code signifying whether a different drug was dispensed from what was prescribed.
          */
-        @Child(name ="type", type={CodeableConcept.class}, order=1, min=1, max=1)
+        @Child(name = "type", type = {CodeableConcept.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Type of substitiution", formalDefinition="A code signifying whether a different drug was dispensed from what was prescribed." )
         protected CodeableConcept type;
 
         /**
          * Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
          */
-        @Child(name ="reason", type={CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "reason", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Why was substitution made", formalDefinition="Indicates the reason for the substitution of (or lack of substitution) from what was prescribed." )
         protected List<CodeableConcept> reason;
 
         /**
          * The person or organization that has primary responsibility for the substitution.
          */
-        @Child(name ="responsibleParty", type={Practitioner.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "responsibleParty", type = {Practitioner.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Who is responsible for the substitution", formalDefinition="The person or organization that has primary responsibility for the substitution." )
         protected List<Reference> responsibleParty;
         /**
@@ -585,10 +589,16 @@ public class MedicationDispense extends DomainResource {
 
         private static final long serialVersionUID = 1218245830L;
 
+    /*
+     * Constructor
+     */
       public MedicationDispenseSubstitutionComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public MedicationDispenseSubstitutionComponent(CodeableConcept type) {
         super();
         this.type = type;
@@ -774,21 +784,21 @@ public class MedicationDispense extends DomainResource {
     /**
      * Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=1)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1)
     @Description(shortDefinition="External identifier", formalDefinition="Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR." )
     protected Identifier identifier;
 
     /**
      * A code specifying the state of the set of dispense events.
      */
-    @Child(name ="status", type={CodeType.class}, order=1, min=0, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="in-progress | on-hold | completed | entered-in-error | stopped", formalDefinition="A code specifying the state of the set of dispense events." )
     protected Enumeration<MedicationDispenseStatus> status;
 
     /**
      * A link to a resource representing the person to whom the medication will be given.
      */
-    @Child(name ="patient", type={Patient.class}, order=2, min=0, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Who the dispense is for", formalDefinition="A link to a resource representing the person to whom the medication will be given." )
     protected Reference patient;
 
@@ -800,7 +810,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * The individual responsible for dispensing the medication.
      */
-    @Child(name ="dispenser", type={Practitioner.class}, order=3, min=0, max=1)
+    @Child(name = "dispenser", type = {Practitioner.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Practitioner responsible for dispensing medication", formalDefinition="The individual responsible for dispensing the medication." )
     protected Reference dispenser;
 
@@ -812,7 +822,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * Indicates the medication order that is being dispensed against.
      */
-    @Child(name ="authorizingPrescription", type={MedicationPrescription.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "authorizingPrescription", type = {MedicationPrescription.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Medication order that authorizes the dispense", formalDefinition="Indicates the medication order that is being dispensed against." )
     protected List<Reference> authorizingPrescription;
     /**
@@ -824,28 +834,28 @@ public class MedicationDispense extends DomainResource {
     /**
      * Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
      */
-    @Child(name ="type", type={CodeableConcept.class}, order=5, min=0, max=1)
+    @Child(name = "type", type = {CodeableConcept.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Trial fill, partial fill, emergency fill, etc.", formalDefinition="Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc." )
     protected CodeableConcept type;
 
     /**
      * The amount of medication that has been dispensed. Includes unit of measure.
      */
-    @Child(name ="quantity", type={Quantity.class}, order=6, min=0, max=1)
+    @Child(name = "quantity", type = {Quantity.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Amount dispensed", formalDefinition="The amount of medication that has been dispensed. Includes unit of measure." )
     protected Quantity quantity;
 
     /**
      * The amount of medication expressed as a timing amount.
      */
-    @Child(name ="daysSupply", type={Quantity.class}, order=7, min=0, max=1)
+    @Child(name = "daysSupply", type = {Quantity.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Days Supply", formalDefinition="The amount of medication expressed as a timing amount." )
     protected Quantity daysSupply;
 
     /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name ="medication", type={Medication.class}, order=8, min=0, max=1)
+    @Child(name = "medication", type = {Medication.class}, order=8, min=0, max=1)
     @Description(shortDefinition="What medication was supplied", formalDefinition="Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications." )
     protected Reference medication;
 
@@ -857,21 +867,21 @@ public class MedicationDispense extends DomainResource {
     /**
      * The time when the dispensed product was packaged and reviewed.
      */
-    @Child(name ="whenPrepared", type={DateTimeType.class}, order=9, min=0, max=1)
+    @Child(name = "whenPrepared", type = {DateTimeType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Dispense processing time", formalDefinition="The time when the dispensed product was packaged and reviewed." )
     protected DateTimeType whenPrepared;
 
     /**
      * The time the dispensed product was provided to the patient or their representative.
      */
-    @Child(name ="whenHandedOver", type={DateTimeType.class}, order=10, min=0, max=1)
+    @Child(name = "whenHandedOver", type = {DateTimeType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Handover time", formalDefinition="The time the dispensed product was provided to the patient or their representative." )
     protected DateTimeType whenHandedOver;
 
     /**
      * Identification of the facility/location where the medication was shipped to, as part of the dispense event.
      */
-    @Child(name ="destination", type={Location.class}, order=11, min=0, max=1)
+    @Child(name = "destination", type = {Location.class}, order=11, min=0, max=1)
     @Description(shortDefinition="Where the medication was sent", formalDefinition="Identification of the facility/location where the medication was shipped to, as part of the dispense event." )
     protected Reference destination;
 
@@ -883,7 +893,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.
      */
-    @Child(name ="receiver", type={Patient.class, Practitioner.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "receiver", type = {Patient.class, Practitioner.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Who collected the medication", formalDefinition="Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional." )
     protected List<Reference> receiver;
     /**
@@ -895,26 +905,29 @@ public class MedicationDispense extends DomainResource {
     /**
      * Extra information about the dispense that could not be conveyed in the other attributes.
      */
-    @Child(name ="note", type={StringType.class}, order=13, min=0, max=1)
+    @Child(name = "note", type = {StringType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Information about the dispense", formalDefinition="Extra information about the dispense that could not be conveyed in the other attributes." )
     protected StringType note;
 
     /**
      * Indicates how the medication is to be used by the patient.
      */
-    @Child(name ="dosageInstruction", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "dosageInstruction", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Medicine administration instructions to the patient/carer", formalDefinition="Indicates how the medication is to be used by the patient." )
     protected List<MedicationDispenseDosageInstructionComponent> dosageInstruction;
 
     /**
      * Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.
      */
-    @Child(name ="substitution", type={}, order=15, min=0, max=1)
+    @Child(name = "substitution", type = {}, order=15, min=0, max=1)
     @Description(shortDefinition="Deals with substitution of one medicine for another", formalDefinition="Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why." )
     protected MedicationDispenseSubstitutionComponent substitution;
 
     private static final long serialVersionUID = -217601399L;
 
+  /*
+   * Constructor
+   */
     public MedicationDispense() {
       super();
     }

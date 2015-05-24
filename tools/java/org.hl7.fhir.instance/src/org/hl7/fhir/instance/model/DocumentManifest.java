@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A manifest that defines a set of documents.
  */
@@ -132,20 +133,26 @@ public class DocumentManifest extends DomainResource {
     }
 
     @Block()
-    public static class DocumentManifestContentComponent extends BackboneElement {
+    public static class DocumentManifestContentComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.
          */
-        @Child(name ="p", type={Attachment.class, DocumentReference.class, Media.class}, order=1, min=1, max=1)
+        @Child(name = "p", type = {Attachment.class, DocumentReference.class, Media.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Contents of this set of documents", formalDefinition="The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed." )
         protected Type p;
 
         private static final long serialVersionUID = -347538500L;
 
+    /*
+     * Constructor
+     */
       public DocumentManifestContentComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public DocumentManifestContentComponent(Type p) {
         super();
         this.p = p;
@@ -227,18 +234,18 @@ public class DocumentManifest extends DomainResource {
   }
 
     @Block()
-    public static class DocumentManifestRelatedComponent extends BackboneElement {
+    public static class DocumentManifestRelatedComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
          */
-        @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=1)
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Related Identifier", formalDefinition="Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing." )
         protected Identifier identifier;
 
         /**
          * Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
          */
-        @Child(name ="ref", type={}, order=2, min=0, max=1)
+        @Child(name = "ref", type = {}, order=2, min=0, max=1)
         @Description(shortDefinition="Related Resource", formalDefinition="Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing." )
         protected Reference ref;
 
@@ -249,6 +256,9 @@ public class DocumentManifest extends DomainResource {
 
         private static final long serialVersionUID = -1670123330L;
 
+    /*
+     * Constructor
+     */
       public DocumentManifestRelatedComponent() {
         super();
       }
@@ -360,21 +370,21 @@ public class DocumentManifest extends DomainResource {
     /**
      * A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.
      */
-    @Child(name ="masterIdentifier", type={Identifier.class}, order=0, min=0, max=1)
+    @Child(name = "masterIdentifier", type = {Identifier.class}, order=0, min=0, max=1)
     @Description(shortDefinition="Unique Identifier for the set of documents", formalDefinition="A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts." )
     protected Identifier masterIdentifier;
 
     /**
      * Other identifiers associated with the document manifest, including version independent  identifiers.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Other identifiers for the manifest", formalDefinition="Other identifiers associated with the document manifest, including version independent  identifiers." )
     protected List<Identifier> identifier;
 
     /**
      * Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).
      */
-    @Child(name ="subject", type={Patient.class, Practitioner.class, Group.class, Device.class}, order=2, min=0, max=1)
+    @Child(name = "subject", type = {Patient.class, Practitioner.class, Group.class, Device.class}, order=2, min=0, max=1)
     @Description(shortDefinition="The subject of the set of documents", formalDefinition="Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case)." )
     protected Reference subject;
 
@@ -386,7 +396,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * A patient, practitioner, or organization for which this set of documents is intended.
      */
-    @Child(name ="recipient", type={Patient.class, Practitioner.class, Organization.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "recipient", type = {Patient.class, Practitioner.class, Organization.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Intended to get notified about this set of documents", formalDefinition="A patient, practitioner, or organization for which this set of documents is intended." )
     protected List<Reference> recipient;
     /**
@@ -398,14 +408,14 @@ public class DocumentManifest extends DomainResource {
     /**
      * Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.
      */
-    @Child(name ="type", type={CodeableConcept.class}, order=4, min=0, max=1)
+    @Child(name = "type", type = {CodeableConcept.class}, order=4, min=0, max=1)
     @Description(shortDefinition="What kind of document set this is", formalDefinition="Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider." )
     protected CodeableConcept type;
 
     /**
      * Identifies who is responsible for adding the information to the document.
      */
-    @Child(name ="author", type={Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "author", type = {Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Who and/or what authored the document", formalDefinition="Identifies who is responsible for adding the information to the document." )
     protected List<Reference> author;
     /**
@@ -417,51 +427,57 @@ public class DocumentManifest extends DomainResource {
     /**
      * When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).
      */
-    @Child(name ="created", type={DateTimeType.class}, order=6, min=0, max=1)
+    @Child(name = "created", type = {DateTimeType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="When this document manifest created", formalDefinition="When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc)." )
     protected DateTimeType created;
 
     /**
      * Identifies the source system, application, or software that produced the document manifest.
      */
-    @Child(name ="source", type={UriType.class}, order=7, min=0, max=1)
+    @Child(name = "source", type = {UriType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="The source system/application/software", formalDefinition="Identifies the source system, application, or software that produced the document manifest." )
     protected UriType source;
 
     /**
      * The status of this document manifest.
      */
-    @Child(name ="status", type={CodeType.class}, order=8, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=8, min=1, max=1)
     @Description(shortDefinition="current | superceded | entered-in-error", formalDefinition="The status of this document manifest." )
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
      * Human-readable description of the source document. This is sometimes known as the "title".
      */
-    @Child(name ="description", type={StringType.class}, order=9, min=0, max=1)
+    @Child(name = "description", type = {StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Human-readable description (title)", formalDefinition="Human-readable description of the source document. This is sometimes known as the 'title'." )
     protected StringType description;
 
     /**
      * The manifest list.
      */
-    @Child(name ="content", type={}, order=10, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name = "content", type = {}, order=10, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contents of the manifest", formalDefinition="The manifest list." )
     protected List<DocumentManifestContentComponent> content;
 
     /**
      * Related identifiers or resources associated with the DocumentManifest.
      */
-    @Child(name ="related", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "related", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Related things", formalDefinition="Related identifiers or resources associated with the DocumentManifest." )
     protected List<DocumentManifestRelatedComponent> related;
 
     private static final long serialVersionUID = -2056683927L;
 
+  /*
+   * Constructor
+   */
     public DocumentManifest() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public DocumentManifest(Enumeration<DocumentReferenceStatus> status) {
       super();
       this.status = status;

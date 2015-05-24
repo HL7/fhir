@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * Describes the intended objective(s) of patient care, for example, weight loss, restoring an activity of daily living, etc.
  */
@@ -202,16 +203,19 @@ public class Goal extends DomainResource {
     }
 
     @Block()
-    public static class GoalOutcomeComponent extends BackboneElement {
+    public static class GoalOutcomeComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Details of what's changed (or not changed).
          */
-        @Child(name ="result", type={CodeableConcept.class, Observation.class}, order=1, min=0, max=1)
+        @Child(name = "result", type = {CodeableConcept.class, Observation.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Code or observation that resulted from gual", formalDefinition="Details of what's changed (or not changed)." )
         protected Type result;
 
         private static final long serialVersionUID = 1994317639L;
 
+    /*
+     * Constructor
+     */
       public GoalOutcomeComponent() {
         super();
       }
@@ -294,14 +298,14 @@ public class Goal extends DomainResource {
     /**
      * This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External Ids for this goal", formalDefinition="This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
     protected List<Identifier> identifier;
 
     /**
      * Identifies the patient/subject whose intended care is described by the plan.
      */
-    @Child(name ="patient", type={Patient.class}, order=1, min=0, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=1, min=0, max=1)
     @Description(shortDefinition="The patient for whom this goal is intended for", formalDefinition="Identifies the patient/subject whose intended care is described by the plan." )
     protected Reference patient;
 
@@ -313,35 +317,35 @@ public class Goal extends DomainResource {
     /**
      * Indicates when the goal is intended to be reached.
      */
-    @Child(name ="targetDate", type={DateType.class}, order=2, min=0, max=1)
+    @Child(name = "targetDate", type = {DateType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Reach goal on or before", formalDefinition="Indicates when the goal is intended to be reached." )
     protected DateType targetDate;
 
     /**
      * Human-readable description of a specific desired objective of care.
      */
-    @Child(name ="description", type={StringType.class}, order=3, min=1, max=1)
+    @Child(name = "description", type = {StringType.class}, order=3, min=1, max=1)
     @Description(shortDefinition="What's the desired outcome?", formalDefinition="Human-readable description of a specific desired objective of care." )
     protected StringType description;
 
     /**
      * Indicates whether the goal has been reached and is still considered relevant.
      */
-    @Child(name ="status", type={CodeType.class}, order=4, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1)
     @Description(shortDefinition="proposed | planned | in-progress | achieved | sustaining | cancelled | accepted | rejected", formalDefinition="Indicates whether the goal has been reached and is still considered relevant." )
     protected Enumeration<GoalStatus> status;
 
     /**
      * Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
      */
-    @Child(name ="statusDate", type={DateType.class}, order=5, min=0, max=1)
+    @Child(name = "statusDate", type = {DateType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="When goal status took effect", formalDefinition="Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc." )
     protected DateType statusDate;
 
     /**
      * Indicates whose goal this is - patient goal, practitioner goal, etc.
      */
-    @Child(name ="author", type={Patient.class, Practitioner.class, RelatedPerson.class}, order=6, min=0, max=1)
+    @Child(name = "author", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Who's responsible for creating Goal?", formalDefinition="Indicates whose goal this is - patient goal, practitioner goal, etc." )
     protected Reference author;
 
@@ -353,14 +357,14 @@ public class Goal extends DomainResource {
     /**
      * Identifies the level of importance associated with reaching/sustaining the goal.
      */
-    @Child(name ="priority", type={CodeableConcept.class}, order=7, min=0, max=1)
+    @Child(name = "priority", type = {CodeableConcept.class}, order=7, min=0, max=1)
     @Description(shortDefinition="high | medium |low", formalDefinition="Identifies the level of importance associated with reaching/sustaining the goal." )
     protected CodeableConcept priority;
 
     /**
      * The identified conditions and other health record elements that are intended to be addressed by the goal.
      */
-    @Child(name ="concern", type={Condition.class, Observation.class, MedicationStatement.class, NutritionOrder.class, ProcedureRequest.class, RiskAssessment.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "concern", type = {Condition.class, Observation.class, MedicationStatement.class, NutritionOrder.class, ProcedureRequest.class, RiskAssessment.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Health issues this goal addresses", formalDefinition="The identified conditions and other health record elements that are intended to be addressed by the goal." )
     protected List<Reference> concern;
     /**
@@ -372,23 +376,29 @@ public class Goal extends DomainResource {
     /**
      * Any comments related to the goal.
      */
-    @Child(name ="notes", type={StringType.class}, order=9, min=0, max=1)
+    @Child(name = "notes", type = {StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Comments about the goal", formalDefinition="Any comments related to the goal." )
     protected StringType notes;
 
     /**
      * Identifies the change (or lack of change) at the point where the goal was deepmed to be cancelled or achieved.
      */
-    @Child(name ="outcome", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "outcome", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="What was end result of goal?", formalDefinition="Identifies the change (or lack of change) at the point where the goal was deepmed to be cancelled or achieved." )
     protected List<GoalOutcomeComponent> outcome;
 
     private static final long serialVersionUID = -314822558L;
 
+  /*
+   * Constructor
+   */
     public Goal() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public Goal(StringType description, Enumeration<GoalStatus> status) {
       super();
       this.description = description;

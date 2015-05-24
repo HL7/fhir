@@ -29,42 +29,49 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
  */
 @ResourceDef(name="Binary", profile="http://hl7.org/fhir/Profile/Binary")
-public class Binary extends Resource {
+public class Binary extends BaseBinary implements IBaseBinary {
 
     /**
      * MimeType of the binary content represented as a standard MimeType (BCP 13).
      */
-    @Child(name ="contentType", type={CodeType.class}, order=0, min=1, max=1)
+    @Child(name = "contentType", type = {CodeType.class}, order=0, min=1, max=1)
     @Description(shortDefinition="MimeType of the binary content", formalDefinition="MimeType of the binary content represented as a standard MimeType (BCP 13)." )
     protected CodeType contentType;
 
     /**
      * The actual content, base64 encoded.
      */
-    @Child(name ="content", type={Base64BinaryType.class}, order=1, min=1, max=1)
+    @Child(name = "content", type = {Base64BinaryType.class}, order=1, min=1, max=1)
     @Description(shortDefinition="The actual content", formalDefinition="The actual content, base64 encoded." )
     protected Base64BinaryType content;
 
     private static final long serialVersionUID = 974764407L;
 
+  /*
+   * Constructor
+   */
     public Binary() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public Binary(CodeType contentType, Base64BinaryType content) {
       super();
       this.contentType = contentType;

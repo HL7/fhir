@@ -29,10 +29,12 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.model;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 
 /**
  * Primitive type "base64Binary" in FHIR: a sequence of bytes represented in base64
  */
+@DatatypeDef(name="base64binary")
 public class Base64BinaryType extends PrimitiveType<byte[]> {
 
 	private static final long serialVersionUID = 3L;

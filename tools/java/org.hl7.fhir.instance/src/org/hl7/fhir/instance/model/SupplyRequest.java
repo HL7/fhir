@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A supply - a  request for something.
  */
@@ -148,28 +149,28 @@ public class SupplyRequest extends DomainResource {
     /**
      * Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.
      */
-    @Child(name ="kind", type={CodeableConcept.class}, order=0, min=0, max=1)
+    @Child(name = "kind", type = {CodeableConcept.class}, order=0, min=0, max=1)
     @Description(shortDefinition="The kind of supply (central, non-stock, etc)", formalDefinition="Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process." )
     protected CodeableConcept kind;
 
     /**
      * Unique identifier for this supply request.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=1)
+    @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Unique identifier", formalDefinition="Unique identifier for this supply request." )
     protected Identifier identifier;
 
     /**
      * Status of the supply request.
      */
-    @Child(name ="status", type={CodeType.class}, order=2, min=0, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="requested | completed | failed | cancelled", formalDefinition="Status of the supply request." )
     protected Enumeration<ValuesetSupplyrequestStatus> status;
 
     /**
      * The item that is requested to be supplied.
      */
-    @Child(name ="orderedItem", type={Medication.class, Substance.class, Device.class}, order=3, min=0, max=1)
+    @Child(name = "orderedItem", type = {Medication.class, Substance.class, Device.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Medication, Substance, or Device requested to be supplied", formalDefinition="The item that is requested to be supplied." )
     protected Reference orderedItem;
 
@@ -181,7 +182,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * A link to a resource representing the person whom the ordered item is for.
      */
-    @Child(name ="patient", type={Patient.class}, order=4, min=0, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Patient for whom the item is supplied", formalDefinition="A link to a resource representing the person whom the ordered item is for." )
     protected Reference patient;
 
@@ -192,6 +193,9 @@ public class SupplyRequest extends DomainResource {
 
     private static final long serialVersionUID = 1726524554L;
 
+  /*
+   * Constructor
+   */
     public SupplyRequest() {
       super();
     }

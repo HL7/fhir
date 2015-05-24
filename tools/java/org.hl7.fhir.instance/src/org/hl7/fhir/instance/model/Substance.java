@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A homogeneous material with a definite composition.
  */
@@ -46,30 +47,33 @@ import org.hl7.fhir.instance.model.annotations.Description;
 public class Substance extends DomainResource {
 
     @Block()
-    public static class SubstanceInstanceComponent extends BackboneElement {
+    public static class SubstanceInstanceComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Identifier associated with the package/container (usually a label affixed directly).
          */
-        @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=1)
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Identifier of the package/container", formalDefinition="Identifier associated with the package/container (usually a label affixed directly)." )
         protected Identifier identifier;
 
         /**
          * When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        @Child(name ="expiry", type={DateTimeType.class}, order=2, min=0, max=1)
+        @Child(name = "expiry", type = {DateTimeType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="When no longer valid to use", formalDefinition="When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry." )
         protected DateTimeType expiry;
 
         /**
          * The amount of the substance.
          */
-        @Child(name ="quantity", type={Quantity.class}, order=3, min=0, max=1)
+        @Child(name = "quantity", type = {Quantity.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Amount of substance in the package", formalDefinition="The amount of the substance." )
         protected Quantity quantity;
 
         private static final long serialVersionUID = -1474380480L;
 
+    /*
+     * Constructor
+     */
       public SubstanceInstanceComponent() {
         super();
       }
@@ -216,18 +220,18 @@ public class Substance extends DomainResource {
   }
 
     @Block()
-    public static class SubstanceIngredientComponent extends BackboneElement {
+    public static class SubstanceIngredientComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The amount of the ingredient in the substance - a concentration ratio.
          */
-        @Child(name ="quantity", type={Ratio.class}, order=1, min=0, max=1)
+        @Child(name = "quantity", type = {Ratio.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Optional amount (concentration)", formalDefinition="The amount of the ingredient in the substance - a concentration ratio." )
         protected Ratio quantity;
 
         /**
          * Another substance that is a component of this substance.
          */
-        @Child(name ="substance", type={Substance.class}, order=2, min=1, max=1)
+        @Child(name = "substance", type = {Substance.class}, order=2, min=1, max=1)
         @Description(shortDefinition="A component of the substance", formalDefinition="Another substance that is a component of this substance." )
         protected Reference substance;
 
@@ -238,10 +242,16 @@ public class Substance extends DomainResource {
 
         private static final long serialVersionUID = -1783242034L;
 
+    /*
+     * Constructor
+     */
       public SubstanceIngredientComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public SubstanceIngredientComponent(Reference substance) {
         super();
         this.substance = substance;
@@ -359,37 +369,43 @@ public class Substance extends DomainResource {
     /**
      * A code (or set of codes) that identify this substance.
      */
-    @Child(name ="type", type={CodeableConcept.class}, order=0, min=1, max=1)
+    @Child(name = "type", type = {CodeableConcept.class}, order=0, min=1, max=1)
     @Description(shortDefinition="What kind of substance this is", formalDefinition="A code (or set of codes) that identify this substance." )
     protected CodeableConcept type;
 
     /**
      * A description of the substance - its appearance, handling requirements, and other usage notes.
      */
-    @Child(name ="description", type={StringType.class}, order=1, min=0, max=1)
+    @Child(name = "description", type = {StringType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Textual description of the substance, comments", formalDefinition="A description of the substance - its appearance, handling requirements, and other usage notes." )
     protected StringType description;
 
     /**
      * Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.
      */
-    @Child(name ="instance", type={}, order=2, min=0, max=1)
+    @Child(name = "instance", type = {}, order=2, min=0, max=1)
     @Description(shortDefinition="If this describes a specific package/container of the substance", formalDefinition="Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance." )
     protected SubstanceInstanceComponent instance;
 
     /**
      * A substance can be composed of other substances.
      */
-    @Child(name ="ingredient", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "ingredient", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Composition information about the substance", formalDefinition="A substance can be composed of other substances." )
     protected List<SubstanceIngredientComponent> ingredient;
 
     private static final long serialVersionUID = 1881086620L;
 
+  /*
+   * Constructor
+   */
     public Substance() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public Substance(CodeableConcept type) {
       super();
       this.type = type;

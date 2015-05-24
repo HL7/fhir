@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -38,11 +38,13 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.
  */
 @DatatypeDef(name="Timing")
-public class Timing extends Type {
+public class Timing extends Type implements ICompositeType {
 
     public enum UnitsOfTime {
         /**
@@ -426,79 +428,83 @@ public class Timing extends Type {
       }
     }
 
-    public static class TimingRepeatComponent extends Element {
+    @Block()
+    public static class TimingRepeatComponent extends Element implements IBaseDatatypeElement {
         /**
          * Outer bounds for start and/or end limits of the timing schedule.
          */
-        @Child(name ="bounds", type={Period.class}, order=1, min=0, max=1)
+        @Child(name = "bounds", type = {Period.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Start and/or end limits", formalDefinition="Outer bounds for start and/or end limits of the timing schedule." )
         protected Period bounds;
 
         /**
          * A total count of the desired number of repetitions.
          */
-        @Child(name ="count", type={IntegerType.class}, order=2, min=0, max=1)
+        @Child(name = "count", type = {IntegerType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Number of times to repeat", formalDefinition="A total count of the desired number of repetitions." )
         protected IntegerType count;
 
         /**
          * How long this thing happens for when it happens.
          */
-        @Child(name ="duration", type={DecimalType.class}, order=3, min=0, max=1)
+        @Child(name = "duration", type = {DecimalType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="How long when it happens", formalDefinition="How long this thing happens for when it happens." )
         protected DecimalType duration;
 
         /**
          * The units of time for the duration, in UCUM units.
          */
-        @Child(name ="durationUnits", type={CodeType.class}, order=4, min=0, max=1)
+        @Child(name = "durationUnits", type = {CodeType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="s | min | h | d | wk | mo | a - unit of time (UCUM)", formalDefinition="The units of time for the duration, in UCUM units." )
         protected Enumeration<UnitsOfTime> durationUnits;
 
         /**
          * The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).
          */
-        @Child(name ="frequency", type={IntegerType.class}, order=5, min=0, max=1)
+        @Child(name = "frequency", type = {IntegerType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Event occurs frequency times per duration", formalDefinition="The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided)." )
         protected IntegerType frequency;
 
         /**
          * If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range.
          */
-        @Child(name ="frequencyMax", type={IntegerType.class}, order=6, min=0, max=1)
+        @Child(name = "frequencyMax", type = {IntegerType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Event occurs frequency times per duration", formalDefinition="If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range." )
         protected IntegerType frequencyMax;
 
         /**
          * Indicates the duration of time over which repetitions are to occur.  E.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period.
          */
-        @Child(name ="period", type={DecimalType.class}, order=7, min=0, max=1)
+        @Child(name = "period", type = {DecimalType.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Event occurs frequency times per period", formalDefinition="Indicates the duration of time over which repetitions are to occur.  E.g. to express '3 times per day', 3 would be the frequency and '1 day' would be the period." )
         protected DecimalType period;
 
         /**
          * If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.
          */
-        @Child(name ="periodMax", type={DecimalType.class}, order=8, min=0, max=1)
+        @Child(name = "periodMax", type = {DecimalType.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Upper limit of period (3-4 hours)", formalDefinition="If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as 'do this once every 3-5 days." )
         protected DecimalType periodMax;
 
         /**
          * The units of time for the period in UCUM units.
          */
-        @Child(name ="periodUnits", type={CodeType.class}, order=9, min=0, max=1)
+        @Child(name = "periodUnits", type = {CodeType.class}, order=9, min=0, max=1)
         @Description(shortDefinition="s | min | h | d | wk | mo | a - unit of time (UCUM)", formalDefinition="The units of time for the period in UCUM units." )
         protected Enumeration<UnitsOfTime> periodUnits;
 
         /**
          * A real world event that the occurrence of the event should be tied to.
          */
-        @Child(name ="when", type={CodeType.class}, order=10, min=0, max=1)
+        @Child(name = "when", type = {CodeType.class}, order=10, min=0, max=1)
         @Description(shortDefinition="Regular life events the event is tied to", formalDefinition="A real world event that the occurrence of the event should be tied to." )
         protected Enumeration<EventTiming> when;
 
         private static final long serialVersionUID = -960490812L;
 
+    /*
+     * Constructor
+     */
       public TimingRepeatComponent() {
         super();
       }
@@ -1025,26 +1031,29 @@ public class Timing extends Type {
     /**
      * Identifies specific times when the event occurs.
      */
-    @Child(name ="event", type={DateTimeType.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "event", type = {DateTimeType.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="When the event occurs", formalDefinition="Identifies specific times when the event occurs." )
     protected List<DateTimeType> event;
 
     /**
      * A set of rules that describe when the event should occur.
      */
-    @Child(name ="repeat", type={}, order=1, min=0, max=1)
+    @Child(name = "repeat", type = {}, order=1, min=0, max=1)
     @Description(shortDefinition="When the event is to occur", formalDefinition="A set of rules that describe when the event should occur." )
     protected TimingRepeatComponent repeat;
 
     /**
      * A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes.
      */
-    @Child(name ="code", type={CodeableConcept.class}, order=2, min=0, max=1)
+    @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1)
     @Description(shortDefinition="BID | TID | QID | AM | PM +", formalDefinition="A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes." )
     protected CodeableConcept code;
 
     private static final long serialVersionUID = 791565112L;
 
+  /*
+   * Constructor
+   */
     public Timing() {
       super();
     }

@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.
  */
@@ -188,18 +189,18 @@ public class DiagnosticReport extends DomainResource {
     }
 
     @Block()
-    public static class DiagnosticReportImageComponent extends BackboneElement {
+    public static class DiagnosticReportImageComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
-        @Child(name ="comment", type={StringType.class}, order=1, min=0, max=1)
+        @Child(name = "comment", type = {StringType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Comment about the image (e.g. explanation)", formalDefinition="A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features." )
         protected StringType comment;
 
         /**
          * Reference to the image source.
          */
-        @Child(name ="link", type={Media.class}, order=2, min=1, max=1)
+        @Child(name = "link", type = {Media.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Reference to the image source", formalDefinition="Reference to the image source." )
         protected Reference link;
 
@@ -210,10 +211,16 @@ public class DiagnosticReport extends DomainResource {
 
         private static final long serialVersionUID = 935791940L;
 
+    /*
+     * Constructor
+     */
       public DiagnosticReportImageComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public DiagnosticReportImageComponent(Reference link) {
         super();
         this.link = link;
@@ -356,28 +363,28 @@ public class DiagnosticReport extends DomainResource {
     /**
      * A code or name that describes this diagnostic report.
      */
-    @Child(name ="name", type={CodeableConcept.class}, order=0, min=1, max=1)
+    @Child(name = "name", type = {CodeableConcept.class}, order=0, min=1, max=1)
     @Description(shortDefinition="Name/Code for this diagnostic report", formalDefinition="A code or name that describes this diagnostic report." )
     protected CodeableConcept name;
 
     /**
      * The status of the diagnostic report as a whole.
      */
-    @Child(name ="status", type={CodeType.class}, order=1, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1)
     @Description(shortDefinition="registered | partial | final | corrected | appended | cancelled | entered-in-error", formalDefinition="The status of the diagnostic report as a whole." )
     protected Enumeration<DiagnosticReportStatus> status;
 
     /**
      * The date and/or time that this version of the report was released from the source diagnostic service.
      */
-    @Child(name ="issued", type={DateTimeType.class}, order=2, min=1, max=1)
+    @Child(name = "issued", type = {DateTimeType.class}, order=2, min=1, max=1)
     @Description(shortDefinition="Date this version was released", formalDefinition="The date and/or time that this version of the report was released from the source diagnostic service." )
     protected DateTimeType issued;
 
     /**
      * The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
      */
-    @Child(name ="subject", type={Patient.class, Group.class, Device.class, Location.class}, order=3, min=1, max=1)
+    @Child(name = "subject", type = {Patient.class, Group.class, Device.class, Location.class}, order=3, min=1, max=1)
     @Description(shortDefinition="The subject of the report, usually, but not always, the patient", formalDefinition="The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources." )
     protected Reference subject;
 
@@ -389,7 +396,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * The diagnostic service that is responsible for issuing the report.
      */
-    @Child(name ="performer", type={Practitioner.class, Organization.class}, order=4, min=1, max=1)
+    @Child(name = "performer", type = {Practitioner.class, Organization.class}, order=4, min=1, max=1)
     @Description(shortDefinition="Responsible Diagnostic Service", formalDefinition="The diagnostic service that is responsible for issuing the report." )
     protected Reference performer;
 
@@ -401,7 +408,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * The link to the health care event (encounter) when the order was made.
      */
-    @Child(name ="encounter", type={Encounter.class}, order=5, min=0, max=1)
+    @Child(name = "encounter", type = {Encounter.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Health care event when test ordered", formalDefinition="The link to the health care event (encounter) when the order was made." )
     protected Reference encounter;
 
@@ -413,14 +420,14 @@ public class DiagnosticReport extends DomainResource {
     /**
      * The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Id for external references to this report", formalDefinition="The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider." )
     protected List<Identifier> identifier;
 
     /**
      * Details concerning a test requested.
      */
-    @Child(name ="requestDetail", type={DiagnosticOrder.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "requestDetail", type = {DiagnosticOrder.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="What was requested", formalDefinition="Details concerning a test requested." )
     protected List<Reference> requestDetail;
     /**
@@ -432,21 +439,21 @@ public class DiagnosticReport extends DomainResource {
     /**
      * The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.
      */
-    @Child(name ="serviceCategory", type={CodeableConcept.class}, order=8, min=0, max=1)
+    @Child(name = "serviceCategory", type = {CodeableConcept.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Biochemistry, Hematology etc.", formalDefinition="The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI." )
     protected CodeableConcept serviceCategory;
 
     /**
      * The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
      */
-    @Child(name ="diagnostic", type={DateTimeType.class, Period.class}, order=9, min=1, max=1)
+    @Child(name = "diagnostic", type = {DateTimeType.class, Period.class}, order=9, min=1, max=1)
     @Description(shortDefinition="Physiologically Relevant time/time-period for report", formalDefinition="The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself." )
     protected Type diagnostic;
 
     /**
      * Details about the specimens on which this diagnostic report is based.
      */
-    @Child(name ="specimen", type={Specimen.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "specimen", type = {Specimen.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Specimens this report is based on", formalDefinition="Details about the specimens on which this diagnostic report is based." )
     protected List<Reference> specimen;
     /**
@@ -458,7 +465,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").
      */
-    @Child(name ="result", type={Observation.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "result", type = {Observation.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Observations - simple, or complex nested groups", formalDefinition="Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. 'atomic' results), or they can be grouping observations that include references to other members of the group (e.g. 'panels')." )
     protected List<Reference> result;
     /**
@@ -470,7 +477,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.
      */
-    @Child(name ="imagingStudy", type={ImagingStudy.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "imagingStudy", type = {ImagingStudy.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Reference to full details of imaging associated with the diagnostic report", formalDefinition="One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images." )
     protected List<Reference> imagingStudy;
     /**
@@ -482,37 +489,43 @@ public class DiagnosticReport extends DomainResource {
     /**
      * A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
      */
-    @Child(name ="image", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "image", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Key images associated with this report", formalDefinition="A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)." )
     protected List<DiagnosticReportImageComponent> image;
 
     /**
      * Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
-    @Child(name ="conclusion", type={StringType.class}, order=14, min=0, max=1)
+    @Child(name = "conclusion", type = {StringType.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Clinical Interpretation of test results", formalDefinition="Concise and clinically contextualized narrative interpretation of the diagnostic report." )
     protected StringType conclusion;
 
     /**
      * Codes for the conclusion.
      */
-    @Child(name ="codedDiagnosis", type={CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "codedDiagnosis", type = {CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Codes for the conclusion", formalDefinition="Codes for the conclusion." )
     protected List<CodeableConcept> codedDiagnosis;
 
     /**
      * Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.
      */
-    @Child(name ="presentedForm", type={Attachment.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "presentedForm", type = {Attachment.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Entire Report as issued", formalDefinition="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent." )
     protected List<Attachment> presentedForm;
 
     private static final long serialVersionUID = 140402748L;
 
+  /*
+   * Constructor
+   */
     public DiagnosticReport() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public DiagnosticReport(CodeableConcept name, Enumeration<DiagnosticReportStatus> status, DateTimeType issued, Reference subject, Reference performer, Type diagnostic) {
       super();
       this.name = name;

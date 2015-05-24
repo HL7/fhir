@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.
  */
@@ -134,77 +135,77 @@ public class Device extends DomainResource {
     /**
      * Unique instance identifiers assigned to a device by organizations like manufacturers or owners .   If the identifier identifies the type of device, Device.type should be used.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Instance id from manufacturer, owner, and others", formalDefinition="Unique instance identifiers assigned to a device by organizations like manufacturers or owners .   If the identifier identifies the type of device, Device.type should be used." )
     protected List<Identifier> identifier;
 
     /**
      * Code or identifier to identify a kind of device.
      */
-    @Child(name ="type", type={CodeableConcept.class}, order=1, min=1, max=1)
+    @Child(name = "type", type = {CodeableConcept.class}, order=1, min=1, max=1)
     @Description(shortDefinition="What kind of device this is", formalDefinition="Code or identifier to identify a kind of device." )
     protected CodeableConcept type;
 
     /**
      * Status of the Device availability.
      */
-    @Child(name ="status", type={CodeType.class}, order=2, min=0, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="available | not-available | entered-in-error", formalDefinition="Status of the Device availability." )
     protected Enumeration<Devicestatus> status;
 
     /**
      * A name of the manufacturer.
      */
-    @Child(name ="manufacturer", type={StringType.class}, order=3, min=0, max=1)
+    @Child(name = "manufacturer", type = {StringType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Name of device manufacturer", formalDefinition="A name of the manufacturer." )
     protected StringType manufacturer;
 
     /**
      * The "model" - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
      */
-    @Child(name ="model", type={StringType.class}, order=4, min=0, max=1)
+    @Child(name = "model", type = {StringType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Model id assigned by the manufacturer", formalDefinition="The 'model' - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type." )
     protected StringType model;
 
     /**
      * The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.
      */
-    @Child(name ="version", type={StringType.class}, order=5, min=0, max=1)
+    @Child(name = "version", type = {StringType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Version number (i.e. software)", formalDefinition="The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware." )
     protected StringType version;
 
     /**
      * The Date and time when the device was manufactured.
      */
-    @Child(name ="manufactureDate", type={DateTimeType.class}, order=6, min=0, max=1)
+    @Child(name = "manufactureDate", type = {DateTimeType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Manufacture date", formalDefinition="The Date and time when the device was manufactured." )
     protected DateTimeType manufactureDate;
 
     /**
      * The date and time beyond which this device is no longer valid or should not be used (if applicable).
      */
-    @Child(name ="expiry", type={DateTimeType.class}, order=7, min=0, max=1)
+    @Child(name = "expiry", type = {DateTimeType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Date and time of expiry of this device (if applicable)", formalDefinition="The date and time beyond which this device is no longer valid or should not be used (if applicable)." )
     protected DateTimeType expiry;
 
     /**
      * United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
      */
-    @Child(name ="udi", type={StringType.class}, order=8, min=0, max=1)
+    @Child(name = "udi", type = {StringType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="FDA Mandated Unique Device Identifier", formalDefinition="United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm." )
     protected StringType udi;
 
     /**
      * Lot number assigned by the manufacturer.
      */
-    @Child(name ="lotNumber", type={StringType.class}, order=9, min=0, max=1)
+    @Child(name = "lotNumber", type = {StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Lot number of manufacture", formalDefinition="Lot number assigned by the manufacturer." )
     protected StringType lotNumber;
 
     /**
      * An organization that is responsible for the provision and ongoing maintenance of the device.
      */
-    @Child(name ="owner", type={Organization.class}, order=10, min=0, max=1)
+    @Child(name = "owner", type = {Organization.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Organization responsible for device", formalDefinition="An organization that is responsible for the provision and ongoing maintenance of the device." )
     protected Reference owner;
 
@@ -216,7 +217,7 @@ public class Device extends DomainResource {
     /**
      * The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.
      */
-    @Child(name ="location", type={Location.class}, order=11, min=0, max=1)
+    @Child(name = "location", type = {Location.class}, order=11, min=0, max=1)
     @Description(shortDefinition="Where the resource is found", formalDefinition="The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. 'in/with the patient'), or a coded location." )
     protected Reference location;
 
@@ -228,7 +229,7 @@ public class Device extends DomainResource {
     /**
      * Patient information, if the resource is affixed to a person.
      */
-    @Child(name ="patient", type={Patient.class}, order=12, min=0, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=12, min=0, max=1)
     @Description(shortDefinition="If the resource is affixed to a person", formalDefinition="Patient information, if the resource is affixed to a person." )
     protected Reference patient;
 
@@ -240,23 +241,29 @@ public class Device extends DomainResource {
     /**
      * Contact details for an organization or a particular human that is responsible for the device.
      */
-    @Child(name ="contact", type={ContactPoint.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "contact", type = {ContactPoint.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Details for human/organization for support", formalDefinition="Contact details for an organization or a particular human that is responsible for the device." )
     protected List<ContactPoint> contact;
 
     /**
      * A network address on which the device may be contacted directly.
      */
-    @Child(name ="url", type={UriType.class}, order=14, min=0, max=1)
+    @Child(name = "url", type = {UriType.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Network address to contact device", formalDefinition="A network address on which the device may be contacted directly." )
     protected UriType url;
 
     private static final long serialVersionUID = -699591241L;
 
+  /*
+   * Constructor
+   */
     public Device() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public Device(CodeableConcept type) {
       super();
       this.type = type;

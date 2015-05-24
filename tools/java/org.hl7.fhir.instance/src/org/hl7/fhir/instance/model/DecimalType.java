@@ -36,12 +36,13 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.api.IBaseDecimalDatatype;
 
 /**
  * Primitive type "decimal" in FHIR: A rational number
  */
 @DatatypeDef(name = "decimal")
-public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable<DecimalType> {
+public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable<DecimalType>, IBaseDecimalDatatype {
 
 	private static final long serialVersionUID = 3L;
 
@@ -111,6 +112,7 @@ public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable
 	public Number getValueAsNumber() {
 		return getValue();
 	}
+
 	@Override
 	protected BigDecimal parse(String theValue) {
 		return new BigDecimal(theValue);

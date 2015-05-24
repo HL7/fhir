@@ -29,58 +29,65 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.
  */
 @ResourceDef(name="Parameters", profile="http://hl7.org/fhir/Profile/Parameters")
-public class Parameters extends Resource {
+public class Parameters extends Resource implements IBaseParameters {
 
     @Block()
-    public static class ParametersParameterComponent extends BackboneElement {
+    public static class ParametersParameterComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The name of the parameter (reference to the operation definition).
          */
-        @Child(name ="name", type={StringType.class}, order=1, min=1, max=1)
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Name from the definition", formalDefinition="The name of the parameter (reference to the operation definition)." )
         protected StringType name;
 
         /**
          * If the parameter is a data type.
          */
-        @Child(name ="value", type={}, order=2, min=0, max=1)
+        @Child(name = "value", type = {}, order=2, min=0, max=1)
         @Description(shortDefinition="If parameter is a data type", formalDefinition="If the parameter is a data type." )
         protected org.hl7.fhir.instance.model.Type value;
 
         /**
          * If the parameter is a whole resource.
          */
-        @Child(name ="resource", type={Resource.class}, order=3, min=0, max=1)
+        @Child(name = "resource", type = {Resource.class}, order=3, min=0, max=1)
         @Description(shortDefinition="If parameter is a whole resource", formalDefinition="If the parameter is a whole resource." )
         protected Resource resource;
 
         /**
          * A named part of a parameter. In many implementation context, a set of named parts is known as a "Tuple".
          */
-        @Child(name ="part", type={}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "part", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Named part of a parameter (e.g. Tuple)", formalDefinition="A named part of a parameter. In many implementation context, a set of named parts is known as a 'Tuple'." )
         protected List<ParametersParameterPartComponent> part;
 
         private static final long serialVersionUID = 2101270343L;
 
+    /*
+     * Constructor
+     */
       public ParametersParameterComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public ParametersParameterComponent(StringType name) {
         super();
         this.name = name;
@@ -260,34 +267,40 @@ public class Parameters extends Resource {
   }
 
     @Block()
-    public static class ParametersParameterPartComponent extends BackboneElement {
+    public static class ParametersParameterPartComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The name of the parameter (reference to the operation definition).
          */
-        @Child(name ="name", type={StringType.class}, order=1, min=1, max=1)
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Name from the definition", formalDefinition="The name of the parameter (reference to the operation definition)." )
         protected StringType name;
 
         /**
          * The value of the parameter.
          */
-        @Child(name ="value", type={}, order=2, min=0, max=1)
+        @Child(name = "value", type = {}, order=2, min=0, max=1)
         @Description(shortDefinition="Value of the part", formalDefinition="The value of the parameter." )
         protected org.hl7.fhir.instance.model.Type value;
 
         /**
          * If the parameter is a whole resource.
          */
-        @Child(name ="resource", type={Resource.class}, order=3, min=0, max=1)
+        @Child(name = "resource", type = {Resource.class}, order=3, min=0, max=1)
         @Description(shortDefinition="If part is a whole resource", formalDefinition="If the parameter is a whole resource." )
         protected Resource resource;
 
         private static final long serialVersionUID = 1120601371L;
 
+    /*
+     * Constructor
+     */
       public ParametersParameterPartComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public ParametersParameterPartComponent(StringType name) {
         super();
         this.name = name;
@@ -423,12 +436,15 @@ public class Parameters extends Resource {
     /**
      * A parameter passed to or received from the operation.
      */
-    @Child(name ="parameter", type={}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "parameter", type = {}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Operation Parameter", formalDefinition="A parameter passed to or received from the operation." )
     protected List<ParametersParameterComponent> parameter;
 
     private static final long serialVersionUID = -1495940293L;
 
+  /*
+   * Constructor
+   */
     public Parameters() {
       super();
     }

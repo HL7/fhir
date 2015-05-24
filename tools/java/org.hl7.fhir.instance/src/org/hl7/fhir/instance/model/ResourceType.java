@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 public enum ResourceType {
     Condition,
@@ -62,6 +62,7 @@ public enum ResourceType {
     MedicationAdministration,
     Encounter,
     PaymentReconciliation,
+    TestScript,
     List,
     DeviceUseStatement,
     OperationDefinition,
@@ -217,6 +218,8 @@ public enum ResourceType {
       return "encounter";
     case PaymentReconciliation:
       return "paymentreconciliation";
+    case TestScript:
+      return "testscript";
     case List:
       return "list";
     case DeviceUseStatement:

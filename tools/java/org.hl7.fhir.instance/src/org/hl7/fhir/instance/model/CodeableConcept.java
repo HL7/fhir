@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -37,28 +37,33 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
  */
 @DatatypeDef(name="CodeableConcept")
-public class CodeableConcept extends Type {
+public class CodeableConcept extends Type implements ICompositeType {
 
     /**
      * A reference to a code defined by a terminology system.
      */
-    @Child(name ="coding", type={Coding.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "coding", type = {Coding.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Code defined by a terminology system", formalDefinition="A reference to a code defined by a terminology system." )
     protected List<Coding> coding;
 
     /**
      * A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
      */
-    @Child(name ="text", type={StringType.class}, order=1, min=0, max=1)
+    @Child(name = "text", type = {StringType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Plain text representation of the concept", formalDefinition="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user." )
     protected StringType text;
 
     private static final long serialVersionUID = 760353246L;
 
+  /*
+   * Constructor
+   */
     public CodeableConcept() {
       super();
     }

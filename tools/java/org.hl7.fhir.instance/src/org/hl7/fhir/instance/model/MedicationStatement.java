@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient or another clinician.
  */
@@ -132,72 +133,75 @@ public class MedicationStatement extends DomainResource {
     }
 
     @Block()
-    public static class MedicationStatementDosageComponent extends BackboneElement {
+    public static class MedicationStatementDosageComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
          */
-        @Child(name ="text", type={StringType.class}, order=1, min=0, max=1)
+        @Child(name = "text", type = {StringType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Dosage Instructions", formalDefinition="Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication." )
         protected StringType text;
 
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
          */
-        @Child(name ="schedule", type={Timing.class}, order=2, min=0, max=1)
+        @Child(name = "schedule", type = {Timing.class}, order=2, min=0, max=1)
         @Description(shortDefinition="When/how often was medication taken?", formalDefinition="The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  'Every  8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:';  '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'." )
         protected Timing schedule;
 
         /**
          * If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.
          */
-        @Child(name ="asNeeded", type={BooleanType.class, CodeableConcept.class}, order=3, min=0, max=1)
+        @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Take 'as needed' f(or x)", formalDefinition="If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication." )
         protected Type asNeeded;
 
         /**
          * A coded specification of the anatomic site where the medication first enters the body.
          */
-        @Child(name ="site", type={CodeableConcept.class}, order=4, min=0, max=1)
+        @Child(name = "site", type = {CodeableConcept.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Where on body was medication administered?", formalDefinition="A coded specification of the anatomic site where the medication first enters the body." )
         protected CodeableConcept site;
 
         /**
          * A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
          */
-        @Child(name ="route", type={CodeableConcept.class}, order=5, min=0, max=1)
+        @Child(name = "route", type = {CodeableConcept.class}, order=5, min=0, max=1)
         @Description(shortDefinition="How did the medication enter the body?", formalDefinition="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject." )
         protected CodeableConcept route;
 
         /**
          * A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.Terminologies used often pre-coordinate this term with the route and or form of administration.
          */
-        @Child(name ="method", type={CodeableConcept.class}, order=6, min=0, max=1)
+        @Child(name = "method", type = {CodeableConcept.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Technique used to administer medication", formalDefinition="A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\r\rTerminologies used often pre-coordinate this term with the route and or form of administration." )
         protected CodeableConcept method;
 
         /**
          * The amount of therapeutic or other substance given at one administration event.
          */
-        @Child(name ="quantity", type={Quantity.class}, order=7, min=0, max=1)
+        @Child(name = "quantity", type = {Quantity.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Amount administered in one dose", formalDefinition="The amount of therapeutic or other substance given at one administration event." )
         protected Quantity quantity;
 
         /**
          * Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
          */
-        @Child(name ="rate", type={Ratio.class}, order=8, min=0, max=1)
+        @Child(name = "rate", type = {Ratio.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Dose quantity per unit of time", formalDefinition="Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours." )
         protected Ratio rate;
 
         /**
          * The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
          */
-        @Child(name ="maxDosePerPeriod", type={Ratio.class}, order=9, min=0, max=1)
+        @Child(name = "maxDosePerPeriod", type = {Ratio.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Maximum dose that was consumed per unit of time", formalDefinition="The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours." )
         protected Ratio maxDosePerPeriod;
 
         private static final long serialVersionUID = 1729854997L;
 
+    /*
+     * Constructor
+     */
       public MedicationStatementDosageComponent() {
         super();
       }
@@ -519,14 +523,14 @@ public class MedicationStatement extends DomainResource {
     /**
      * External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External Identifier", formalDefinition="External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated." )
     protected List<Identifier> identifier;
 
     /**
      * The person or animal who is /was taking the medication.
      */
-    @Child(name ="patient", type={Patient.class}, order=1, min=0, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Who was/is taking medication", formalDefinition="The person or animal who is /was taking the medication." )
     protected Reference patient;
 
@@ -538,7 +542,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * The person who provided the information about the taking of this medication.
      */
-    @Child(name ="informationSource", type={Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=0, max=1)
+    @Child(name = "informationSource", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=0, max=1)
     @Description(shortDefinition="", formalDefinition="The person who provided the information about the taking of this medication." )
     protected Reference informationSource;
 
@@ -550,56 +554,56 @@ public class MedicationStatement extends DomainResource {
     /**
      * The date when the medication statement was asserted by the information source.
      */
-    @Child(name ="dateAsserted", type={DateTimeType.class}, order=3, min=0, max=1)
+    @Child(name = "dateAsserted", type = {DateTimeType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="When the statement was asserted?", formalDefinition="The date when the medication statement was asserted by the information source." )
     protected DateTimeType dateAsserted;
 
     /**
      * A code specifying the state of the statement.  Generally this will be in-progress or completed state.
      */
-    @Child(name ="status", type={CodeType.class}, order=4, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1)
     @Description(shortDefinition="in-progress | completed | entered-in-error", formalDefinition="A code specifying the state of the statement.  Generally this will be in-progress or completed state." )
     protected Enumeration<MedicationStatementStatus> status;
 
     /**
      * Set this to true if the record is saying that the medication was NOT taken.
      */
-    @Child(name ="wasNotGiven", type={BooleanType.class}, order=5, min=0, max=1)
+    @Child(name = "wasNotGiven", type = {BooleanType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="True if medication is/was not being taken", formalDefinition="Set this to true if the record is saying that the medication was NOT taken." )
     protected BooleanType wasNotGiven;
 
     /**
      * A code indicating why the medication was not taken.
      */
-    @Child(name ="reasonNotGiven", type={CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "reasonNotGiven", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="True if asserting medication was not given", formalDefinition="A code indicating why the medication was not taken." )
     protected List<CodeableConcept> reasonNotGiven;
 
     /**
      * A reason for why the medication is being/was taken.
      */
-    @Child(name ="reasonForUse", type={CodeableConcept.class, Condition.class}, order=7, min=0, max=1)
+    @Child(name = "reasonForUse", type = {CodeableConcept.class, Condition.class}, order=7, min=0, max=1)
     @Description(shortDefinition="", formalDefinition="A reason for why the medication is being/was taken." )
     protected Type reasonForUse;
 
     /**
      * The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the 'wasNotGiven' attribute is true).
      */
-    @Child(name ="effective", type={DateTimeType.class, Period.class}, order=8, min=0, max=1)
+    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Over what period was medication consumed?", formalDefinition="The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the 'wasNotGiven' attribute is true)." )
     protected Type effective;
 
     /**
      * Provides extra information about the medication statement that is not conveyed by the other attributes.
      */
-    @Child(name ="note", type={StringType.class}, order=9, min=0, max=1)
+    @Child(name = "note", type = {StringType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Further information about the statement", formalDefinition="Provides extra information about the medication statement that is not conveyed by the other attributes." )
     protected StringType note;
 
     /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name ="medication", type={Medication.class}, order=10, min=0, max=1)
+    @Child(name = "medication", type = {Medication.class}, order=10, min=0, max=1)
     @Description(shortDefinition="What medication was taken?", formalDefinition="Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications." )
     protected Reference medication;
 
@@ -611,16 +615,22 @@ public class MedicationStatement extends DomainResource {
     /**
      * Indicates how the medication is/was used by the patient.
      */
-    @Child(name ="dosage", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "dosage", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
     protected List<MedicationStatementDosageComponent> dosage;
 
     private static final long serialVersionUID = -1525633004L;
 
+  /*
+   * Constructor
+   */
     public MedicationStatement() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public MedicationStatement(Enumeration<MedicationStatementStatus> status) {
       super();
       this.status = status;

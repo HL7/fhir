@@ -435,9 +435,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     StringBuilder setprops = new StringBuilder();
     impl.append("{ "+tn+" }\r\n\r\n");
 
-
+    boolean noSummaries = hasAnySummary(root);
+    
     for (ElementDefn e : root.getElements()) {
-      generateField(e, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", category, true, tn.equals("TFhirExtension"));
+      generateField(e, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", category, noSummaries, tn.equals("TFhirExtension"));
     }
 
     def.append("  {@Class "+tn+" : "+superClass+"\r\n");
@@ -538,6 +539,15 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
     generateParser(tn, category, !superClass.equals("TFHIRObject"), root.typeCode());
     defineList(tn, tn+"List", null, category, false);
+  }
+
+  private boolean hasAnySummary(ElementDefn elem) {
+    if (elem.isSummary())
+      return true;
+    for (ElementDefn child : elem.getElements())
+      if (hasAnySummary(child))
+        return true;
+    return false;
   }
 
   private void genTypeAbstract(ElementDefn root, String tn, String superClass, ClassCategory category) throws Exception {
@@ -1291,23 +1301,11 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "end;\r\n\r\n"
         );
 
-    if (tn.substring(5).equals("Extension")) {
-      prsrdefJ.append("    procedure Parse"+tn.substring(5)+"(jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+"); overload; {b.}\r\n");
-      prsrImpl.append("procedure TFHIRJsonParser.Parse"+tn.substring(5)+"(jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+");\r\n");
-      prsrImpl.append("var\r\n");
-      prsrImpl.append("  ex : "+tn+";\r\n");
-      prsrImpl.append("begin\r\n");
-      prsrImpl.append("  ex := Parse"+tn.substring(5)+"(jsn);\r\n");
-      prsrImpl.append("  ex.url := ctxt.tags['url']; {2}\r\n");
-      prsrImpl.append("  ctxt.add(ex);\r\n");
-      prsrImpl.append("end;\r\n\r\n");
-    } else {
-      prsrdefJ.append("    procedure Parse"+tn.substring(5)+"(jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+"); overload; {b.}\r\n");
-      prsrImpl.append("procedure TFHIRJsonParser.Parse"+tn.substring(5)+"(jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+");\r\n");
-      prsrImpl.append("begin\r\n");
-      prsrImpl.append("  ctxt.add(Parse"+tn.substring(5)+"(jsn)); {2}\r\n");
-      prsrImpl.append("end;\r\n\r\n");
-    }
+    prsrdefJ.append("    procedure Parse"+tn.substring(5)+"(jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+"); overload; {b.}\r\n");
+    prsrImpl.append("procedure TFHIRJsonParser.Parse"+tn.substring(5)+"(jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+");\r\n");
+    prsrImpl.append("begin\r\n");
+    prsrImpl.append("  ctxt.add(Parse"+tn.substring(5)+"(jsn)); {2}\r\n");
+    prsrImpl.append("end;\r\n\r\n");
 
     s = workingParserJ.toString();
     prsrImpl.append(
@@ -1454,6 +1452,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   private void generateField(ElementDefn e, StringBuilder defPriv1, StringBuilder defPriv2, StringBuilder defPub, StringBuilder impl, StringBuilder create, StringBuilder destroy, StringBuilder assign, StringBuilder getkids, StringBuilder getkidsvars, StringBuilder getprops, StringBuilder getpropsvars, StringBuilder setprops, String cn, String pt, ClassCategory category, boolean noSummaries, boolean isExtension) throws Exception {
+    
     String tn;
     if (e.getTypes().size() > 0 && e.getTypes().get(0).isUnboundGenericParam())
       tn = pt;

@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system is able to take an appropriate action.
  */
@@ -260,41 +261,47 @@ public class Subscription extends DomainResource {
     }
 
     @Block()
-    public static class SubscriptionChannelComponent extends BackboneElement {
+    public static class SubscriptionChannelComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The type of channel to send notififcations on.
          */
-        @Child(name ="type", type={CodeType.class}, order=1, min=1, max=1)
+        @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="rest-hook | websocket | email | sms | message", formalDefinition="The type of channel to send notififcations on." )
         protected Enumeration<SubscriptionChannelType> type;
 
         /**
          * The uri that describes tha actual end point to send messages to.
          */
-        @Child(name ="endpoint", type={UriType.class}, order=2, min=0, max=1)
+        @Child(name = "endpoint", type = {UriType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Where the channel points to", formalDefinition="The uri that describes tha actual end point to send messages to." )
         protected UriType endpoint;
 
         /**
          * The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.
          */
-        @Child(name ="payload", type={StringType.class}, order=3, min=1, max=1)
+        @Child(name = "payload", type = {StringType.class}, order=3, min=1, max=1)
         @Description(shortDefinition="Mimetype to send, or blank for no payload", formalDefinition="The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification." )
         protected StringType payload;
 
         /**
          * Additional headers / information to send as part of the notification.
          */
-        @Child(name ="header", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name = "header", type = {StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Usage depends on the channel type", formalDefinition="Additional headers / information to send as part of the notification." )
         protected StringType header;
 
         private static final long serialVersionUID = -279715391L;
 
+    /*
+     * Constructor
+     */
       public SubscriptionChannelComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public SubscriptionChannelComponent(Enumeration<SubscriptionChannelType> type, StringType payload) {
         super();
         this.type = type;
@@ -539,65 +546,71 @@ public class Subscription extends DomainResource {
     /**
      * The rules that the server should use to determine when to generate notifications for this subscription.
      */
-    @Child(name ="criteria", type={StringType.class}, order=0, min=1, max=1)
+    @Child(name = "criteria", type = {StringType.class}, order=0, min=1, max=1)
     @Description(shortDefinition="Rule for server push criteria", formalDefinition="The rules that the server should use to determine when to generate notifications for this subscription." )
     protected StringType criteria;
 
     /**
      * Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting.
      */
-    @Child(name ="contact", type={ContactPoint.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "contact", type = {ContactPoint.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contact details for source (e.g. troubleshooting)", formalDefinition="Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting." )
     protected List<ContactPoint> contact;
 
     /**
      * A description of why this subscription is defined.
      */
-    @Child(name ="reason", type={StringType.class}, order=2, min=1, max=1)
+    @Child(name = "reason", type = {StringType.class}, order=2, min=1, max=1)
     @Description(shortDefinition="Description of why this subscription was created", formalDefinition="A description of why this subscription is defined." )
     protected StringType reason;
 
     /**
      * The status of the subscription, which marks the server state for managing the subscription.
      */
-    @Child(name ="status", type={CodeType.class}, order=3, min=1, max=1)
+    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1)
     @Description(shortDefinition="requested | active | error | off", formalDefinition="The status of the subscription, which marks the server state for managing the subscription." )
     protected Enumeration<SubscriptionStatus> status;
 
     /**
      * A record of the last error that occurred when the server processed a notification.
      */
-    @Child(name ="error", type={StringType.class}, order=4, min=0, max=1)
+    @Child(name = "error", type = {StringType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Latest error note", formalDefinition="A record of the last error that occurred when the server processed a notification." )
     protected StringType error;
 
     /**
      * Details where to send notifications when resources are received that meet the criteria.
      */
-    @Child(name ="channel", type={}, order=5, min=1, max=1)
+    @Child(name = "channel", type = {}, order=5, min=1, max=1)
     @Description(shortDefinition="The channel on which to report matches to the criteria", formalDefinition="Details where to send notifications when resources are received that meet the criteria." )
     protected SubscriptionChannelComponent channel;
 
     /**
      * The time for the server to turn the subscription off.
      */
-    @Child(name ="end", type={InstantType.class}, order=6, min=0, max=1)
+    @Child(name = "end", type = {InstantType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="When to automatically delete the subscription", formalDefinition="The time for the server to turn the subscription off." )
     protected InstantType end;
 
     /**
      * A tag to add to any resource that matches the criteria, after the subscription is processed.
      */
-    @Child(name ="tag", type={Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "tag", type = {Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A tag to add to matching resources", formalDefinition="A tag to add to any resource that matches the criteria, after the subscription is processed." )
     protected List<Coding> tag;
 
     private static final long serialVersionUID = -1390870804L;
 
+  /*
+   * Constructor
+   */
     public Subscription() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public Subscription(StringType criteria, StringType reason, Enumeration<SubscriptionStatus> status, SubscriptionChannelComponent channel) {
       super();
       this.criteria = criteria;

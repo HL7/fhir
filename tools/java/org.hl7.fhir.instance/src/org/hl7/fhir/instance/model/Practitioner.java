@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A person who is directly or indirectly involved in the provisioning of healthcare.
  */
@@ -146,11 +147,11 @@ public class Practitioner extends DomainResource {
     }
 
     @Block()
-    public static class PractitionerPractitionerRoleComponent extends BackboneElement {
+    public static class PractitionerPractitionerRoleComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The Organization where the Practitioner performs the roles associated.
          */
-        @Child(name ="managingOrganization", type={Organization.class}, order=1, min=0, max=1)
+        @Child(name = "managingOrganization", type = {Organization.class}, order=1, min=0, max=1)
         @Description(shortDefinition="The Organization where the Practitioner performs the roles associated", formalDefinition="The Organization where the Practitioner performs the roles associated." )
         protected Reference managingOrganization;
 
@@ -162,28 +163,28 @@ public class Practitioner extends DomainResource {
         /**
          * Roles which this practitioner is authorized to perform for the organization.
          */
-        @Child(name ="role", type={CodeableConcept.class}, order=2, min=0, max=1)
+        @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Roles which this practitioner may perform", formalDefinition="Roles which this practitioner is authorized to perform for the organization." )
         protected CodeableConcept role;
 
         /**
          * Specific specialty of the practitioner.
          */
-        @Child(name ="specialty", type={CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "specialty", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Specific specialty of the practitioner", formalDefinition="Specific specialty of the practitioner." )
         protected List<CodeableConcept> specialty;
 
         /**
          * The period during which the person is authorized to act as a practitioner in these role(s) for the organization.
          */
-        @Child(name ="period", type={Period.class}, order=4, min=0, max=1)
+        @Child(name = "period", type = {Period.class}, order=4, min=0, max=1)
         @Description(shortDefinition="The period during which the practitioner is authorized to perform in these role(s)", formalDefinition="The period during which the person is authorized to act as a practitioner in these role(s) for the organization." )
         protected Period period;
 
         /**
          * The location(s) at which this practitioner provides care.
          */
-        @Child(name ="location", type={Location.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "location", type = {Location.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="The location(s) at which this practitioner provides care", formalDefinition="The location(s) at which this practitioner provides care." )
         protected List<Reference> location;
         /**
@@ -195,7 +196,7 @@ public class Practitioner extends DomainResource {
         /**
          * The list of healthcare services that this worker provides for this role's Organization/Location(s).
          */
-        @Child(name ="healthcareService", type={HealthcareService.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "healthcareService", type = {HealthcareService.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)", formalDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)." )
         protected List<Reference> healthcareService;
         /**
@@ -206,6 +207,9 @@ public class Practitioner extends DomainResource {
 
         private static final long serialVersionUID = -2146177018L;
 
+    /*
+     * Constructor
+     */
       public PractitionerPractitionerRoleComponent() {
         super();
       }
@@ -529,32 +533,32 @@ public class Practitioner extends DomainResource {
   }
 
     @Block()
-    public static class PractitionerQualificationComponent extends BackboneElement {
+    public static class PractitionerQualificationComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * An identifier that applies to this person's qualification in this role.
          */
-        @Child(name ="identifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="An identifier for this qualification for the practitioner", formalDefinition="An identifier that applies to this person's qualification in this role." )
         protected List<Identifier> identifier;
 
         /**
          * Coded representation of the qualification.
          */
-        @Child(name ="code", type={CodeableConcept.class}, order=2, min=1, max=1)
+        @Child(name = "code", type = {CodeableConcept.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Coded representation of the qualification", formalDefinition="Coded representation of the qualification." )
         protected CodeableConcept code;
 
         /**
          * Period during which the qualification is valid.
          */
-        @Child(name ="period", type={Period.class}, order=3, min=0, max=1)
+        @Child(name = "period", type = {Period.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Period during which the qualification is valid", formalDefinition="Period during which the qualification is valid." )
         protected Period period;
 
         /**
          * Organization that regulates and issues the qualification.
          */
-        @Child(name ="issuer", type={Organization.class}, order=4, min=0, max=1)
+        @Child(name = "issuer", type = {Organization.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Organization that regulates and issues the qualification", formalDefinition="Organization that regulates and issues the qualification." )
         protected Reference issuer;
 
@@ -565,10 +569,16 @@ public class Practitioner extends DomainResource {
 
         private static final long serialVersionUID = 1095219071L;
 
+    /*
+     * Constructor
+     */
       public PractitionerQualificationComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public PractitionerQualificationComponent(CodeableConcept code) {
         super();
         this.code = code;
@@ -759,75 +769,78 @@ public class Practitioner extends DomainResource {
     /**
      * An identifier that applies to this person in this role.
      */
-    @Child(name ="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A identifier for the person as this agent", formalDefinition="An identifier that applies to this person in this role." )
     protected List<Identifier> identifier;
 
     /**
      * A name associated with the person.
      */
-    @Child(name ="name", type={HumanName.class}, order=1, min=0, max=1)
+    @Child(name = "name", type = {HumanName.class}, order=1, min=0, max=1)
     @Description(shortDefinition="A name associated with the person", formalDefinition="A name associated with the person." )
     protected HumanName name;
 
     /**
      * A contact detail for the practitioner, e.g. a telephone number or an email address.
      */
-    @Child(name ="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "telecom", type = {ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A contact detail for the practitioner", formalDefinition="A contact detail for the practitioner, e.g. a telephone number or an email address." )
     protected List<ContactPoint> telecom;
 
     /**
      * The postal address where the practitioner can be found or visited or to which mail can be delivered.
      */
-    @Child(name ="address", type={Address.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "address", type = {Address.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Where practitioner can be found/visited", formalDefinition="The postal address where the practitioner can be found or visited or to which mail can be delivered." )
     protected List<Address> address;
 
     /**
      * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
      */
-    @Child(name ="gender", type={CodeType.class}, order=4, min=0, max=1)
+    @Child(name = "gender", type = {CodeType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." )
     protected Enumeration<AdministrativeGender> gender;
 
     /**
      * The date of birth for the practitioner.
      */
-    @Child(name ="birthDate", type={DateType.class}, order=5, min=0, max=1)
+    @Child(name = "birthDate", type = {DateType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="The date  of birth for the practitioner", formalDefinition="The date of birth for the practitioner." )
     protected DateType birthDate;
 
     /**
      * Image of the person.
      */
-    @Child(name ="photo", type={Attachment.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "photo", type = {Attachment.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Image of the person", formalDefinition="Image of the person." )
     protected List<Attachment> photo;
 
     /**
      * The list of Roles/Organizations that the Practitioner is associated with.
      */
-    @Child(name ="practitionerRole", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "practitionerRole", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="The list of Roles/Organizations that the Practitioner is associated with", formalDefinition="The list of Roles/Organizations that the Practitioner is associated with." )
     protected List<PractitionerPractitionerRoleComponent> practitionerRole;
 
     /**
      * Qualifications obtained by training and certification.
      */
-    @Child(name ="qualification", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "qualification", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Qualifications obtained by training and certification", formalDefinition="Qualifications obtained by training and certification." )
     protected List<PractitionerQualificationComponent> qualification;
 
     /**
      * A language the practitioner is able to use in patient communication.
      */
-    @Child(name ="communication", type={CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "communication", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A language the practitioner is able to use in patient communication", formalDefinition="A language the practitioner is able to use in patient communication." )
     protected List<CodeableConcept> communication;
 
     private static final long serialVersionUID = 781100268L;
 
+  /*
+   * Constructor
+   */
     public Practitioner() {
       super();
     }

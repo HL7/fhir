@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A set of DICOM SOP Instances of a patient, selected for some application purpose, e.g., quality assurance, teaching, conference, consulting, etc.  Objects selected can be from different studies, but must be of the same patient.
  */
@@ -46,34 +47,40 @@ import org.hl7.fhir.instance.model.annotations.Description;
 public class ImagingObjectSelection extends DomainResource {
 
     @Block()
-    public static class StudyComponent extends BackboneElement {
+    public static class StudyComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Study instance uid of the SOP instances in the selection.
          */
-        @Child(name ="uid", type={OidType.class}, order=1, min=1, max=1)
+        @Child(name = "uid", type = {OidType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Study instance uid", formalDefinition="Study instance uid of the SOP instances in the selection." )
         protected OidType uid;
 
         /**
          * WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.
          */
-        @Child(name ="url", type={UriType.class}, order=2, min=0, max=1)
+        @Child(name = "url", type = {UriType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Retrieve URL", formalDefinition="WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection." )
         protected UriType url;
 
         /**
          * Series indetity and locating information of the DICOM SOP instances in the selection.
          */
-        @Child(name ="series", type={}, order=3, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name = "series", type = {}, order=3, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Series identity of the selected instances", formalDefinition="Series indetity and locating information of the DICOM SOP instances in the selection." )
         protected List<SeriesComponent> series;
 
         private static final long serialVersionUID = -1632673574L;
 
+    /*
+     * Constructor
+     */
       public StudyComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public StudyComponent(OidType uid) {
         super();
         this.uid = uid;
@@ -262,30 +269,33 @@ public class ImagingObjectSelection extends DomainResource {
   }
 
     @Block()
-    public static class SeriesComponent extends BackboneElement {
+    public static class SeriesComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Series instance uid of the SOP instances in the selection.
          */
-        @Child(name ="uid", type={OidType.class}, order=1, min=0, max=1)
+        @Child(name = "uid", type = {OidType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Series instance uid", formalDefinition="Series instance uid of the SOP instances in the selection." )
         protected OidType uid;
 
         /**
          * WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.
          */
-        @Child(name ="url", type={UriType.class}, order=2, min=0, max=1)
+        @Child(name = "url", type = {UriType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Retrieve URL", formalDefinition="WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection." )
         protected UriType url;
 
         /**
          * Identity and locating information of the selected DICOM SOP instances.
          */
-        @Child(name ="instance", type={}, order=3, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name = "instance", type = {}, order=3, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="The selected instance", formalDefinition="Identity and locating information of the selected DICOM SOP instances." )
         protected List<InstanceComponent> instance;
 
         private static final long serialVersionUID = 229247770L;
 
+    /*
+     * Constructor
+     */
       public SeriesComponent() {
         super();
       }
@@ -477,41 +487,47 @@ public class ImagingObjectSelection extends DomainResource {
   }
 
     @Block()
-    public static class InstanceComponent extends BackboneElement {
+    public static class InstanceComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * SOP class uid of the selected instance.
          */
-        @Child(name ="sopClass", type={OidType.class}, order=1, min=1, max=1)
+        @Child(name = "sopClass", type = {OidType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="SOP class uid of instance", formalDefinition="SOP class uid of the selected instance." )
         protected OidType sopClass;
 
         /**
          * SOP Instance uid of the selected instance.
          */
-        @Child(name ="uid", type={OidType.class}, order=2, min=1, max=1)
+        @Child(name = "uid", type = {OidType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Uid of the selected instance", formalDefinition="SOP Instance uid of the selected instance." )
         protected OidType uid;
 
         /**
          * WADO-RS URL to retrieve the DICOM SOP Instance.
          */
-        @Child(name ="url", type={UriType.class}, order=3, min=1, max=1)
+        @Child(name = "url", type = {UriType.class}, order=3, min=1, max=1)
         @Description(shortDefinition="Retrieve URL", formalDefinition="WADO-RS URL to retrieve the DICOM SOP Instance." )
         protected UriType url;
 
         /**
          * Identity and location information of the frames in the selected instance.
          */
-        @Child(name ="frames", type={}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "frames", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="The frame set", formalDefinition="Identity and location information of the frames in the selected instance." )
         protected List<FramesComponent> frames;
 
         private static final long serialVersionUID = 1641180916L;
 
+    /*
+     * Constructor
+     */
       public InstanceComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public InstanceComponent(OidType sopClass, OidType uid, UriType url) {
         super();
         this.sopClass = sopClass;
@@ -746,27 +762,33 @@ public class ImagingObjectSelection extends DomainResource {
   }
 
     @Block()
-    public static class FramesComponent extends BackboneElement {
+    public static class FramesComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The frame numbers in the frame set.
          */
-        @Child(name ="frameNumbers", type={UnsignedIntType.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name = "frameNumbers", type = {UnsignedIntType.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Frame numbers", formalDefinition="The frame numbers in the frame set." )
         protected List<UnsignedIntType> frameNumbers;
 
         /**
          * WADO-RS URL to retrieve the DICOM frames.
          */
-        @Child(name ="url", type={UriType.class}, order=2, min=1, max=1)
+        @Child(name = "url", type = {UriType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Retrieve URL", formalDefinition="WADO-RS URL to retrieve the DICOM frames." )
         protected UriType url;
 
         private static final long serialVersionUID = -2068206970L;
 
+    /*
+     * Constructor
+     */
       public FramesComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public FramesComponent(UriType url) {
         super();
         this.url = url;
@@ -919,14 +941,14 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * Instance UID of the DICOM KOS SOP Instances represenetd in this resource.
      */
-    @Child(name ="uid", type={OidType.class}, order=0, min=1, max=1)
+    @Child(name = "uid", type = {OidType.class}, order=0, min=1, max=1)
     @Description(shortDefinition="Instance UID", formalDefinition="Instance UID of the DICOM KOS SOP Instances represenetd in this resource." )
     protected OidType uid;
 
     /**
      * A patient resource reference which is the patient subject of all DICOM SOP Instances in this key object selection.
      */
-    @Child(name ="patient", type={Patient.class}, order=1, min=1, max=1)
+    @Child(name = "patient", type = {Patient.class}, order=1, min=1, max=1)
     @Description(shortDefinition="Patient of the selected objects", formalDefinition="A patient resource reference which is the patient subject of all DICOM SOP Instances in this key object selection." )
     protected Reference patient;
 
@@ -938,21 +960,21 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * The reason for, or significance of, the selection of objects referenced in the resource.
      */
-    @Child(name ="title", type={CodeableConcept.class}, order=2, min=1, max=1)
+    @Child(name = "title", type = {CodeableConcept.class}, order=2, min=1, max=1)
     @Description(shortDefinition="Reason for selection", formalDefinition="The reason for, or significance of, the selection of objects referenced in the resource." )
     protected CodeableConcept title;
 
     /**
      * Text description of the DICOM SOP instances selected in the key object selection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.
      */
-    @Child(name ="description", type={StringType.class}, order=3, min=0, max=1)
+    @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Description text", formalDefinition="Text description of the DICOM SOP instances selected in the key object selection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection." )
     protected StringType description;
 
     /**
      * Author of key object selection. It can be a human authtor or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attached in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.
      */
-    @Child(name ="author", type={Practitioner.class, Device.class, Organization.class, Patient.class, RelatedPerson.class}, order=4, min=0, max=1)
+    @Child(name = "author", type = {Practitioner.class, Device.class, Organization.class, Patient.class, RelatedPerson.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Author (human or machine)", formalDefinition="Author of key object selection. It can be a human authtor or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attached in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion." )
     protected Reference author;
 
@@ -964,23 +986,29 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * Date and time when the key object selection was authored. Note that this is the date and time the DICOM SOP instances in the selection were selected (selection decision making). It is different from the creation date and time of the selection resource.
      */
-    @Child(name ="authoringTime", type={DateTimeType.class}, order=5, min=0, max=1)
+    @Child(name = "authoringTime", type = {DateTimeType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Authoring time of the selection", formalDefinition="Date and time when the key object selection was authored. Note that this is the date and time the DICOM SOP instances in the selection were selected (selection decision making). It is different from the creation date and time of the selection resource." )
     protected DateTimeType authoringTime;
 
     /**
      * Study identity and locating information of the DICOM SOP instances in the selection.
      */
-    @Child(name ="study", type={}, order=6, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name = "study", type = {}, order=6, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Study identity of the selected instances", formalDefinition="Study identity and locating information of the DICOM SOP instances in the selection." )
     protected List<StudyComponent> study;
 
     private static final long serialVersionUID = -1961832713L;
 
+  /*
+   * Constructor
+   */
     public ImagingObjectSelection() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public ImagingObjectSelection(OidType uid, Reference patient, CodeableConcept title) {
       super();
       this.uid = uid;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -7263,9 +7263,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("quantity"))
       res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
     if (json.has("rate"))
-      res.setRate(parseRatio(json.getAsJsonObject("rate")));
+      res.setRate(parseQuantity(json.getAsJsonObject("rate")));
     if (json.has("rateAdjustment"))
-      res.setRateAdjustment(parseQuantity(json.getAsJsonObject("rateAdjustment")));
+      res.setRateAdjustment(parseRatio(json.getAsJsonObject("rateAdjustment")));
     if (json.has("maxVolumeToDeliver"))
       res.setMaxVolumeToDeliver(parseQuantity(json.getAsJsonObject("maxVolumeToDeliver")));
     return res;
@@ -9605,59 +9605,368 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-//  protected SupplyDelivery parseSupplyDelivery(JsonObject json) throws Exception {
-//    SupplyDelivery res = new SupplyDelivery();
-//    parseDomainResourceProperties(json, res);
-//    if (json.has("identifier"))
-//      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
-//    if (json.has("status"))
-//      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), SupplyDelivery.ValuesetSupplydeliveryStatus.NULL, new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory()));
-//    if (json.has("_status"))
-//      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
-//    if (json.has("patient"))
-//      res.setPatient(parseReference(json.getAsJsonObject("patient")));
-//    if (json.has("type"))
-//      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
-//    if (json.has("quantity"))
-//      res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
-//    if (json.has("suppliedItem"))
-//      res.setSuppliedItem(parseReference(json.getAsJsonObject("suppliedItem")));
-//    if (json.has("supplier"))
-//      res.setSupplier(parseReference(json.getAsJsonObject("supplier")));
-//    if (json.has("whenPrepared"))
-//      res.setWhenPrepared(parsePeriod(json.getAsJsonObject("whenPrepared")));
-//    if (json.has("time"))
-//      res.setTimeElement(parseDateTime(json.get("time").getAsString()));
-//    if (json.has("_time"))
-//      parseElementProperties(json.getAsJsonObject("_time"), res.getTimeElement());
-//    if (json.has("destination"))
-//      res.setDestination(parseReference(json.getAsJsonObject("destination")));
-//    if (json.has("receiver")) {
-//      JsonArray array = json.getAsJsonArray("receiver");
-//      for (int i = 0; i < array.size(); i++) {
-//        res.getReceiver().add(parseReference(array.get(i).getAsJsonObject()));
-//      }
-//    };
-//    return res;
-//  }
+  protected SupplyDelivery parseSupplyDelivery(JsonObject json) throws Exception {
+    SupplyDelivery res = new SupplyDelivery();
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), SupplyDelivery.ValuesetSupplydeliveryStatus.NULL, new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("quantity"))
+      res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
+    if (json.has("suppliedItem"))
+      res.setSuppliedItem(parseReference(json.getAsJsonObject("suppliedItem")));
+    if (json.has("supplier"))
+      res.setSupplier(parseReference(json.getAsJsonObject("supplier")));
+    if (json.has("whenPrepared"))
+      res.setWhenPrepared(parsePeriod(json.getAsJsonObject("whenPrepared")));
+    if (json.has("time"))
+      res.setTimeElement(parseDateTime(json.get("time").getAsString()));
+    if (json.has("_time"))
+      parseElementProperties(json.getAsJsonObject("_time"), res.getTimeElement());
+    if (json.has("destination"))
+      res.setDestination(parseReference(json.getAsJsonObject("destination")));
+    if (json.has("receiver")) {
+      JsonArray array = json.getAsJsonArray("receiver");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReceiver().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    return res;
+  }
 
-//  protected SupplyRequest parseSupplyRequest(JsonObject json) throws Exception {
-//    SupplyRequest res = new SupplyRequest();
-//    parseDomainResourceProperties(json, res);
-//    if (json.has("kind"))
-//      res.setKind(parseCodeableConcept(json.getAsJsonObject("kind")));
-//    if (json.has("identifier"))
-//      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
-//    if (json.has("status"))
-//      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), SupplyRequest.ValuesetSupplyrequestStatus.NULL, new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory()));
-//    if (json.has("_status"))
-//      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
-//    if (json.has("orderedItem"))
-//      res.setOrderedItem(parseReference(json.getAsJsonObject("orderedItem")));
-//    if (json.has("patient"))
-//      res.setPatient(parseReference(json.getAsJsonObject("patient")));
-//    return res;
-//  }
+  protected SupplyRequest parseSupplyRequest(JsonObject json) throws Exception {
+    SupplyRequest res = new SupplyRequest();
+    parseDomainResourceProperties(json, res);
+    if (json.has("kind"))
+      res.setKind(parseCodeableConcept(json.getAsJsonObject("kind")));
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), SupplyRequest.ValuesetSupplyrequestStatus.NULL, new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("orderedItem"))
+      res.setOrderedItem(parseReference(json.getAsJsonObject("orderedItem")));
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    return res;
+  }
+
+  protected TestScript parseTestScript(JsonObject json) throws Exception {
+    TestScript res = new TestScript();
+    parseDomainResourceProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("multiserver"))
+      res.setMultiserverElement(parseBoolean(json.get("multiserver").getAsBoolean()));
+    if (json.has("_multiserver"))
+      parseElementProperties(json.getAsJsonObject("_multiserver"), res.getMultiserverElement());
+    if (json.has("fixture")) {
+      JsonArray array = json.getAsJsonArray("fixture");
+      for (int i = 0; i < array.size(); i++) {
+        res.getFixture().add(parseTestScriptTestScriptFixtureComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("setup"))
+      res.setSetup(parseTestScriptTestScriptSetupComponent(json.getAsJsonObject("setup"), res));
+    if (json.has("test")) {
+      JsonArray array = json.getAsJsonArray("test");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTest().add(parseTestScriptTestScriptTestComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("teardown"))
+      res.setTeardown(parseTestScriptTestScriptTeardownComponent(json.getAsJsonObject("teardown"), res));
+    return res;
+  }
+
+  protected TestScript.TestScriptFixtureComponent parseTestScriptTestScriptFixtureComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptFixtureComponent res = new TestScript.TestScriptFixtureComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("uri"))
+      res.setUriElement(parseUri(json.get("uri").getAsString()));
+    if (json.has("_uri"))
+      parseElementProperties(json.getAsJsonObject("_uri"), res.getUriElement());
+    if (json.has("resource"))
+      res.setResource(parseResource(json.getAsJsonObject("resource")));
+    if (json.has("autocreate"))
+      res.setAutocreateElement(parseBoolean(json.get("autocreate").getAsBoolean()));
+    if (json.has("_autocreate"))
+      parseElementProperties(json.getAsJsonObject("_autocreate"), res.getAutocreateElement());
+    if (json.has("autodelete"))
+      res.setAutodeleteElement(parseBoolean(json.get("autodelete").getAsBoolean()));
+    if (json.has("_autodelete"))
+      parseElementProperties(json.getAsJsonObject("_autodelete"), res.getAutodeleteElement());
+    return res;
+  }
+
+  protected TestScript.TestScriptSetupComponent parseTestScriptTestScriptSetupComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptSetupComponent res = new TestScript.TestScriptSetupComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("operation")) {
+      JsonArray array = json.getAsJsonArray("operation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOperation().add(parseTestScriptTestScriptSetupOperationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  protected TestScript.TestScriptSetupOperationComponent parseTestScriptTestScriptSetupOperationComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptSetupOperationComponent res = new TestScript.TestScriptSetupOperationComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), TestScript.TestOperationCodes.NULL, new TestScript.TestOperationCodesEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("source"))
+      res.setSourceElement(parseId(json.get("source").getAsString()));
+    if (json.has("_source"))
+      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
+    if (json.has("target"))
+      res.setTargetElement(parseId(json.get("target").getAsString()));
+    if (json.has("_target"))
+      parseElementProperties(json.getAsJsonObject("_target"), res.getTargetElement());
+    if (json.has("destination"))
+      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
+    if (json.has("_destination"))
+      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
+    if (json.has("parameter")) {
+      JsonArray array = json.getAsJsonArray("parameter");
+      for (int i = 0; i < array.size(); i++) {
+        res.getParameter().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_parameter")) {
+      JsonArray array = json.getAsJsonArray("_parameter");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getParameter().size())
+          res.getParameter().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getParameter().get(i));
+      }
+    };
+    if (json.has("responseId"))
+      res.setResponseIdElement(parseId(json.get("responseId").getAsString()));
+    if (json.has("_responseId"))
+      parseElementProperties(json.getAsJsonObject("_responseId"), res.getResponseIdElement());
+    if (json.has("contentType"))
+      res.setContentTypeElement(parseEnumeration(json.get("contentType").getAsString(), TestScript.ContentType.NULL, new TestScript.ContentTypeEnumFactory()));
+    if (json.has("_contentType"))
+      parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeElement());
+    return res;
+  }
+
+  protected TestScript.TestScriptTestComponent parseTestScriptTestScriptTestComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTestComponent res = new TestScript.TestScriptTestComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("metadata"))
+      res.setMetadata(parseTestScriptTestScriptTestMetadataComponent(json.getAsJsonObject("metadata"), owner));
+    if (json.has("operation")) {
+      JsonArray array = json.getAsJsonArray("operation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOperation().add(parseTestScriptTestScriptTestOperationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  protected TestScript.TestScriptTestMetadataComponent parseTestScriptTestScriptTestMetadataComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTestMetadataComponent res = new TestScript.TestScriptTestMetadataComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("link")) {
+      JsonArray array = json.getAsJsonArray("link");
+      for (int i = 0; i < array.size(); i++) {
+        res.getLink().add(parseTestScriptTestScriptTestMetadataLinkComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("requires")) {
+      JsonArray array = json.getAsJsonArray("requires");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRequires().add(parseTestScriptTestScriptTestMetadataRequiresComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("validates")) {
+      JsonArray array = json.getAsJsonArray("validates");
+      for (int i = 0; i < array.size(); i++) {
+        res.getValidates().add(parseTestScriptTestScriptTestMetadataValidatesComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  protected TestScript.TestScriptTestMetadataLinkComponent parseTestScriptTestScriptTestMetadataLinkComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTestMetadataLinkComponent res = new TestScript.TestScriptTestMetadataLinkComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    return res;
+  }
+
+  protected TestScript.TestScriptTestMetadataRequiresComponent parseTestScriptTestScriptTestMetadataRequiresComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTestMetadataRequiresComponent res = new TestScript.TestScriptTestMetadataRequiresComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseCode(json.get("type").getAsString()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("operations"))
+      res.setOperationsElement(parseString(json.get("operations").getAsString()));
+    if (json.has("_operations"))
+      parseElementProperties(json.getAsJsonObject("_operations"), res.getOperationsElement());
+    if (json.has("destination"))
+      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
+    if (json.has("_destination"))
+      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
+    return res;
+  }
+
+  protected TestScript.TestScriptTestMetadataValidatesComponent parseTestScriptTestScriptTestMetadataValidatesComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTestMetadataValidatesComponent res = new TestScript.TestScriptTestMetadataValidatesComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseCode(json.get("type").getAsString()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("operations"))
+      res.setOperationsElement(parseString(json.get("operations").getAsString()));
+    if (json.has("_operations"))
+      parseElementProperties(json.getAsJsonObject("_operations"), res.getOperationsElement());
+    if (json.has("destination"))
+      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
+    if (json.has("_destination"))
+      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
+    return res;
+  }
+
+  protected TestScript.TestScriptTestOperationComponent parseTestScriptTestScriptTestOperationComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTestOperationComponent res = new TestScript.TestScriptTestOperationComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), TestScript.TestOperationCodes.NULL, new TestScript.TestOperationCodesEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("source"))
+      res.setSourceElement(parseId(json.get("source").getAsString()));
+    if (json.has("_source"))
+      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
+    if (json.has("target"))
+      res.setTargetElement(parseId(json.get("target").getAsString()));
+    if (json.has("_target"))
+      parseElementProperties(json.getAsJsonObject("_target"), res.getTargetElement());
+    if (json.has("destination"))
+      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
+    if (json.has("_destination"))
+      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
+    if (json.has("parameter")) {
+      JsonArray array = json.getAsJsonArray("parameter");
+      for (int i = 0; i < array.size(); i++) {
+        res.getParameter().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_parameter")) {
+      JsonArray array = json.getAsJsonArray("_parameter");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getParameter().size())
+          res.getParameter().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getParameter().get(i));
+      }
+    };
+    if (json.has("responseId"))
+      res.setResponseIdElement(parseId(json.get("responseId").getAsString()));
+    if (json.has("_responseId"))
+      parseElementProperties(json.getAsJsonObject("_responseId"), res.getResponseIdElement());
+    if (json.has("contentType"))
+      res.setContentTypeElement(parseEnumeration(json.get("contentType").getAsString(), TestScript.ContentType.NULL, new TestScript.ContentTypeEnumFactory()));
+    if (json.has("_contentType"))
+      parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeElement());
+    return res;
+  }
+
+  protected TestScript.TestScriptTeardownComponent parseTestScriptTestScriptTeardownComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTeardownComponent res = new TestScript.TestScriptTeardownComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("operation")) {
+      JsonArray array = json.getAsJsonArray("operation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOperation().add(parseTestScriptTestScriptTeardownOperationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  protected TestScript.TestScriptTeardownOperationComponent parseTestScriptTestScriptTeardownOperationComponent(JsonObject json, TestScript owner) throws Exception {
+    TestScript.TestScriptTeardownOperationComponent res = new TestScript.TestScriptTeardownOperationComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), TestScript.TestOperationCodes.NULL, new TestScript.TestOperationCodesEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("source"))
+      res.setSourceElement(parseId(json.get("source").getAsString()));
+    if (json.has("_source"))
+      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
+    if (json.has("target"))
+      res.setTargetElement(parseId(json.get("target").getAsString()));
+    if (json.has("_target"))
+      parseElementProperties(json.getAsJsonObject("_target"), res.getTargetElement());
+    if (json.has("destination"))
+      res.setDestinationElement(parseInteger(json.get("destination").getAsLong()));
+    if (json.has("_destination"))
+      parseElementProperties(json.getAsJsonObject("_destination"), res.getDestinationElement());
+    if (json.has("parameter")) {
+      JsonArray array = json.getAsJsonArray("parameter");
+      for (int i = 0; i < array.size(); i++) {
+        res.getParameter().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_parameter")) {
+      JsonArray array = json.getAsJsonArray("_parameter");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getParameter().size())
+          res.getParameter().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getParameter().get(i));
+      }
+    };
+    if (json.has("responseId"))
+      res.setResponseIdElement(parseId(json.get("responseId").getAsString()));
+    if (json.has("_responseId"))
+      parseElementProperties(json.getAsJsonObject("_responseId"), res.getResponseIdElement());
+    if (json.has("contentType"))
+      res.setContentTypeElement(parseEnumeration(json.get("contentType").getAsString(), TestScript.ContentType.NULL, new TestScript.ContentTypeEnumFactory()));
+    if (json.has("_contentType"))
+      parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeElement());
+    return res;
+  }
 
   protected ValueSet parseValueSet(JsonObject json) throws Exception {
     ValueSet res = new ValueSet();
@@ -10269,10 +10578,12 @@ public class JsonParser extends JsonParserBase {
       return parseSubstance(json);
     else if (t.equals("Supply"))
       return parseSupply(json);
-//    else if (t.equals("SupplyDelivery"))
-//      return parseSupplyDelivery(json);
-//    else if (t.equals("SupplyRequest"))
-//      return parseSupplyRequest(json);
+    else if (t.equals("SupplyDelivery"))
+      return parseSupplyDelivery(json);
+    else if (t.equals("SupplyRequest"))
+      return parseSupplyRequest(json);
+    else if (t.equals("TestScript"))
+      return parseTestScript(json);
     else if (t.equals("ValueSet"))
       return parseValueSet(json);
     else if (t.equals("VisionPrescription"))
@@ -10698,6 +11009,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"SupplyDelivery"))
       return true;
     if (json.has(prefix+"SupplyRequest"))
+      return true;
+    if (json.has(prefix+"TestScript"))
       return true;
     if (json.has(prefix+"ValueSet"))
       return true;
@@ -19906,10 +20219,10 @@ public class JsonParser extends JsonParserBase {
         composeQuantity("quantity", element.getQuantity());
       }
       if (element.hasRate()) {
-        composeRatio("rate", element.getRate());
+        composeQuantity("rate", element.getRate());
       }
       if (element.hasRateAdjustment()) {
-        composeQuantity("rateAdjustment", element.getRateAdjustment());
+        composeRatio("rateAdjustment", element.getRateAdjustment());
       }
       if (element.hasMaxVolumeToDeliver()) {
         composeQuantity("maxVolumeToDeliver", element.getMaxVolumeToDeliver());
@@ -22813,81 +23126,458 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-//  protected void composeSupplyDelivery(String name, SupplyDelivery element) throws Exception {
-//    if (element != null) {
-//      prop("resourceType", name);
-//      composeSupplyDeliveryInner(element);
-//    }
-//  }
-//
-//  protected void composeSupplyDeliveryInner(SupplyDelivery element) throws Exception {
-//      composeDomainResourceElements(element);
-//      if (element.hasIdentifier()) {
-//        composeIdentifier("identifier", element.getIdentifier());
-//      }
-//      if (element.hasStatusElement()) {
-//        composeEnumerationCore("status", element.getStatusElement(), new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory(), false);
-//        composeEnumerationExtras("status", element.getStatusElement(), new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory(), false);
-//      }
-//      if (element.hasPatient()) {
-//        composeReference("patient", element.getPatient());
-//      }
-//      if (element.hasType()) {
-//        composeCodeableConcept("type", element.getType());
-//      }
-//      if (element.hasQuantity()) {
-//        composeQuantity("quantity", element.getQuantity());
-//      }
-//      if (element.hasSuppliedItem()) {
-//        composeReference("suppliedItem", element.getSuppliedItem());
-//      }
-//      if (element.hasSupplier()) {
-//        composeReference("supplier", element.getSupplier());
-//      }
-//      if (element.hasWhenPrepared()) {
-//        composePeriod("whenPrepared", element.getWhenPrepared());
-//      }
-//      if (element.hasTimeElement()) {
-//        composeDateTimeCore("time", element.getTimeElement(), false);
-//        composeDateTimeExtras("time", element.getTimeElement(), false);
-//      }
-//      if (element.hasDestination()) {
-//        composeReference("destination", element.getDestination());
-//      }
-//      if (element.hasReceiver()) {
-//        openArray("receiver");
-//        for (Reference e : element.getReceiver()) 
-//          composeReference(null, e);
-//        closeArray();
-//      };
-//  }
-//
-//  protected void composeSupplyRequest(String name, SupplyRequest element) throws Exception {
-//    if (element != null) {
-//      prop("resourceType", name);
-//      composeSupplyRequestInner(element);
-//    }
-//  }
-//
-//  protected void composeSupplyRequestInner(SupplyRequest element) throws Exception {
-//      composeDomainResourceElements(element);
-//      if (element.hasKind()) {
-//        composeCodeableConcept("kind", element.getKind());
-//      }
-//      if (element.hasIdentifier()) {
-//        composeIdentifier("identifier", element.getIdentifier());
-//      }
-//      if (element.hasStatusElement()) {
-//        composeEnumerationCore("status", element.getStatusElement(), new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory(), false);
-//        composeEnumerationExtras("status", element.getStatusElement(), new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory(), false);
-//      }
-//      if (element.hasOrderedItem()) {
-//        composeReference("orderedItem", element.getOrderedItem());
-//      }
-//      if (element.hasPatient()) {
-//        composeReference("patient", element.getPatient());
-//      }
-//  }
+  protected void composeSupplyDelivery(String name, SupplyDelivery element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeSupplyDeliveryInner(element);
+    }
+  }
+
+  protected void composeSupplyDeliveryInner(SupplyDelivery element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new SupplyDelivery.ValuesetSupplydeliveryStatusEnumFactory(), false);
+      }
+      if (element.hasPatient()) {
+        composeReference("patient", element.getPatient());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasQuantity()) {
+        composeQuantity("quantity", element.getQuantity());
+      }
+      if (element.hasSuppliedItem()) {
+        composeReference("suppliedItem", element.getSuppliedItem());
+      }
+      if (element.hasSupplier()) {
+        composeReference("supplier", element.getSupplier());
+      }
+      if (element.hasWhenPrepared()) {
+        composePeriod("whenPrepared", element.getWhenPrepared());
+      }
+      if (element.hasTimeElement()) {
+        composeDateTimeCore("time", element.getTimeElement(), false);
+        composeDateTimeExtras("time", element.getTimeElement(), false);
+      }
+      if (element.hasDestination()) {
+        composeReference("destination", element.getDestination());
+      }
+      if (element.hasReceiver()) {
+        openArray("receiver");
+        for (Reference e : element.getReceiver()) 
+          composeReference(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSupplyRequest(String name, SupplyRequest element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeSupplyRequestInner(element);
+    }
+  }
+
+  protected void composeSupplyRequestInner(SupplyRequest element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.hasKind()) {
+        composeCodeableConcept("kind", element.getKind());
+      }
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new SupplyRequest.ValuesetSupplyrequestStatusEnumFactory(), false);
+      }
+      if (element.hasOrderedItem()) {
+        composeReference("orderedItem", element.getOrderedItem());
+      }
+      if (element.hasPatient()) {
+        composeReference("patient", element.getPatient());
+      }
+  }
+
+  protected void composeTestScript(String name, TestScript element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeTestScriptInner(element);
+    }
+  }
+
+  protected void composeTestScriptInner(TestScript element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasMultiserverElement()) {
+        composeBooleanCore("multiserver", element.getMultiserverElement(), false);
+        composeBooleanExtras("multiserver", element.getMultiserverElement(), false);
+      }
+      if (element.hasFixture()) {
+        openArray("fixture");
+        for (TestScript.TestScriptFixtureComponent e : element.getFixture()) 
+          composeTestScriptTestScriptFixtureComponent(null, e);
+        closeArray();
+      };
+      if (element.hasSetup()) {
+        composeTestScriptTestScriptSetupComponent("setup", element.getSetup());
+      }
+      if (element.hasTest()) {
+        openArray("test");
+        for (TestScript.TestScriptTestComponent e : element.getTest()) 
+          composeTestScriptTestScriptTestComponent(null, e);
+        closeArray();
+      };
+      if (element.hasTeardown()) {
+        composeTestScriptTestScriptTeardownComponent("teardown", element.getTeardown());
+      }
+  }
+
+  protected void composeTestScriptTestScriptFixtureComponent(String name, TestScript.TestScriptFixtureComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptFixtureComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptFixtureComponentInner(TestScript.TestScriptFixtureComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasUriElement()) {
+        composeUriCore("uri", element.getUriElement(), false);
+        composeUriExtras("uri", element.getUriElement(), false);
+      }
+        if (element.hasResource()) {
+          open("resource");
+          composeResource(element.getResource());
+          close();
+        }
+      if (element.hasAutocreateElement()) {
+        composeBooleanCore("autocreate", element.getAutocreateElement(), false);
+        composeBooleanExtras("autocreate", element.getAutocreateElement(), false);
+      }
+      if (element.hasAutodeleteElement()) {
+        composeBooleanCore("autodelete", element.getAutodeleteElement(), false);
+        composeBooleanExtras("autodelete", element.getAutodeleteElement(), false);
+      }
+  }
+
+  protected void composeTestScriptTestScriptSetupComponent(String name, TestScript.TestScriptSetupComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptSetupComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptSetupComponentInner(TestScript.TestScriptSetupComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasOperation()) {
+        openArray("operation");
+        for (TestScript.TestScriptSetupOperationComponent e : element.getOperation()) 
+          composeTestScriptTestScriptSetupOperationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeTestScriptTestScriptSetupOperationComponent(String name, TestScript.TestScriptSetupOperationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptSetupOperationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptSetupOperationComponentInner(TestScript.TestScriptSetupOperationComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasTypeElement()) {
+        composeEnumerationCore("type", element.getTypeElement(), new TestScript.TestOperationCodesEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new TestScript.TestOperationCodesEnumFactory(), false);
+      }
+      if (element.hasSourceElement()) {
+        composeIdCore("source", element.getSourceElement(), false);
+        composeIdExtras("source", element.getSourceElement(), false);
+      }
+      if (element.hasTargetElement()) {
+        composeIdCore("target", element.getTargetElement(), false);
+        composeIdExtras("target", element.getTargetElement(), false);
+      }
+      if (element.hasDestinationElement()) {
+        composeIntegerCore("destination", element.getDestinationElement(), false);
+        composeIntegerExtras("destination", element.getDestinationElement(), false);
+      }
+      if (element.hasParameter()) {
+        openArray("parameter");
+        for (StringType e : element.getParameter()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getParameter())) {
+          openArray("_parameter");
+          for (StringType e : element.getParameter()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasResponseIdElement()) {
+        composeIdCore("responseId", element.getResponseIdElement(), false);
+        composeIdExtras("responseId", element.getResponseIdElement(), false);
+      }
+      if (element.hasContentTypeElement()) {
+        composeEnumerationCore("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+        composeEnumerationExtras("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+      }
+  }
+
+  protected void composeTestScriptTestScriptTestComponent(String name, TestScript.TestScriptTestComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptTestComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptTestComponentInner(TestScript.TestScriptTestComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasMetadata()) {
+        composeTestScriptTestScriptTestMetadataComponent("metadata", element.getMetadata());
+      }
+      if (element.hasOperation()) {
+        openArray("operation");
+        for (TestScript.TestScriptTestOperationComponent e : element.getOperation()) 
+          composeTestScriptTestScriptTestOperationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeTestScriptTestScriptTestMetadataComponent(String name, TestScript.TestScriptTestMetadataComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptTestMetadataComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptTestMetadataComponentInner(TestScript.TestScriptTestMetadataComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasLink()) {
+        openArray("link");
+        for (TestScript.TestScriptTestMetadataLinkComponent e : element.getLink()) 
+          composeTestScriptTestScriptTestMetadataLinkComponent(null, e);
+        closeArray();
+      };
+      if (element.hasRequires()) {
+        openArray("requires");
+        for (TestScript.TestScriptTestMetadataRequiresComponent e : element.getRequires()) 
+          composeTestScriptTestScriptTestMetadataRequiresComponent(null, e);
+        closeArray();
+      };
+      if (element.hasValidates()) {
+        openArray("validates");
+        for (TestScript.TestScriptTestMetadataValidatesComponent e : element.getValidates()) 
+          composeTestScriptTestScriptTestMetadataValidatesComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeTestScriptTestScriptTestMetadataLinkComponent(String name, TestScript.TestScriptTestMetadataLinkComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptTestMetadataLinkComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptTestMetadataLinkComponentInner(TestScript.TestScriptTestMetadataLinkComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasUrlElement()) {
+        composeUriCore("url", element.getUrlElement(), false);
+        composeUriExtras("url", element.getUrlElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+  }
+
+  protected void composeTestScriptTestScriptTestMetadataRequiresComponent(String name, TestScript.TestScriptTestMetadataRequiresComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptTestMetadataRequiresComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptTestMetadataRequiresComponentInner(TestScript.TestScriptTestMetadataRequiresComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasTypeElement()) {
+        composeCodeCore("type", element.getTypeElement(), false);
+        composeCodeExtras("type", element.getTypeElement(), false);
+      }
+      if (element.hasOperationsElement()) {
+        composeStringCore("operations", element.getOperationsElement(), false);
+        composeStringExtras("operations", element.getOperationsElement(), false);
+      }
+      if (element.hasDestinationElement()) {
+        composeIntegerCore("destination", element.getDestinationElement(), false);
+        composeIntegerExtras("destination", element.getDestinationElement(), false);
+      }
+  }
+
+  protected void composeTestScriptTestScriptTestMetadataValidatesComponent(String name, TestScript.TestScriptTestMetadataValidatesComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptTestMetadataValidatesComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptTestMetadataValidatesComponentInner(TestScript.TestScriptTestMetadataValidatesComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasTypeElement()) {
+        composeCodeCore("type", element.getTypeElement(), false);
+        composeCodeExtras("type", element.getTypeElement(), false);
+      }
+      if (element.hasOperationsElement()) {
+        composeStringCore("operations", element.getOperationsElement(), false);
+        composeStringExtras("operations", element.getOperationsElement(), false);
+      }
+      if (element.hasDestinationElement()) {
+        composeIntegerCore("destination", element.getDestinationElement(), false);
+        composeIntegerExtras("destination", element.getDestinationElement(), false);
+      }
+  }
+
+  protected void composeTestScriptTestScriptTestOperationComponent(String name, TestScript.TestScriptTestOperationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptTestOperationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptTestOperationComponentInner(TestScript.TestScriptTestOperationComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasTypeElement()) {
+        composeEnumerationCore("type", element.getTypeElement(), new TestScript.TestOperationCodesEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new TestScript.TestOperationCodesEnumFactory(), false);
+      }
+      if (element.hasSourceElement()) {
+        composeIdCore("source", element.getSourceElement(), false);
+        composeIdExtras("source", element.getSourceElement(), false);
+      }
+      if (element.hasTargetElement()) {
+        composeIdCore("target", element.getTargetElement(), false);
+        composeIdExtras("target", element.getTargetElement(), false);
+      }
+      if (element.hasDestinationElement()) {
+        composeIntegerCore("destination", element.getDestinationElement(), false);
+        composeIntegerExtras("destination", element.getDestinationElement(), false);
+      }
+      if (element.hasParameter()) {
+        openArray("parameter");
+        for (StringType e : element.getParameter()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getParameter())) {
+          openArray("_parameter");
+          for (StringType e : element.getParameter()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasResponseIdElement()) {
+        composeIdCore("responseId", element.getResponseIdElement(), false);
+        composeIdExtras("responseId", element.getResponseIdElement(), false);
+      }
+      if (element.hasContentTypeElement()) {
+        composeEnumerationCore("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+        composeEnumerationExtras("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+      }
+  }
+
+  protected void composeTestScriptTestScriptTeardownComponent(String name, TestScript.TestScriptTeardownComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptTeardownComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptTeardownComponentInner(TestScript.TestScriptTeardownComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasOperation()) {
+        openArray("operation");
+        for (TestScript.TestScriptTeardownOperationComponent e : element.getOperation()) 
+          composeTestScriptTestScriptTeardownOperationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeTestScriptTestScriptTeardownOperationComponent(String name, TestScript.TestScriptTeardownOperationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeTestScriptTestScriptTeardownOperationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeTestScriptTestScriptTeardownOperationComponentInner(TestScript.TestScriptTeardownOperationComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasTypeElement()) {
+        composeEnumerationCore("type", element.getTypeElement(), new TestScript.TestOperationCodesEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new TestScript.TestOperationCodesEnumFactory(), false);
+      }
+      if (element.hasSourceElement()) {
+        composeIdCore("source", element.getSourceElement(), false);
+        composeIdExtras("source", element.getSourceElement(), false);
+      }
+      if (element.hasTargetElement()) {
+        composeIdCore("target", element.getTargetElement(), false);
+        composeIdExtras("target", element.getTargetElement(), false);
+      }
+      if (element.hasDestinationElement()) {
+        composeIntegerCore("destination", element.getDestinationElement(), false);
+        composeIntegerExtras("destination", element.getDestinationElement(), false);
+      }
+      if (element.hasParameter()) {
+        openArray("parameter");
+        for (StringType e : element.getParameter()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getParameter())) {
+          openArray("_parameter");
+          for (StringType e : element.getParameter()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasResponseIdElement()) {
+        composeIdCore("responseId", element.getResponseIdElement(), false);
+        composeIdExtras("responseId", element.getResponseIdElement(), false);
+      }
+      if (element.hasContentTypeElement()) {
+        composeEnumerationCore("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+        composeEnumerationExtras("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory(), false);
+      }
+  }
 
   protected void composeValueSet(String name, ValueSet element) throws Exception {
     if (element != null) {
@@ -23585,10 +24275,12 @@ public class JsonParser extends JsonParserBase {
       composeSubstance("Substance", (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply("Supply", (Supply)resource);
-//    else if (resource instanceof SupplyDelivery)
-//      composeSupplyDelivery("SupplyDelivery", (SupplyDelivery)resource);
-//    else if (resource instanceof SupplyRequest)
-//      composeSupplyRequest("SupplyRequest", (SupplyRequest)resource);
+    else if (resource instanceof SupplyDelivery)
+      composeSupplyDelivery("SupplyDelivery", (SupplyDelivery)resource);
+    else if (resource instanceof SupplyRequest)
+      composeSupplyRequest("SupplyRequest", (SupplyRequest)resource);
+    else if (resource instanceof TestScript)
+      composeTestScript("TestScript", (TestScript)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof VisionPrescription)
@@ -23776,10 +24468,12 @@ public class JsonParser extends JsonParserBase {
       composeSubstance(name, (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply(name, (Supply)resource);
-//    else if (resource instanceof SupplyDelivery)
-//      composeSupplyDelivery(name, (SupplyDelivery)resource);
-//    else if (resource instanceof SupplyRequest)
-//      composeSupplyRequest(name, (SupplyRequest)resource);
+    else if (resource instanceof SupplyDelivery)
+      composeSupplyDelivery(name, (SupplyDelivery)resource);
+    else if (resource instanceof SupplyRequest)
+      composeSupplyRequest(name, (SupplyRequest)resource);
+    else if (resource instanceof TestScript)
+      composeTestScript(name, (TestScript)resource);
     else if (resource instanceof ValueSet)
       composeValueSet(name, (ValueSet)resource);
     else if (resource instanceof VisionPrescription)

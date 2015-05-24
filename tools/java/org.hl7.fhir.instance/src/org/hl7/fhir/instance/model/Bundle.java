@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -37,14 +37,15 @@ import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A container for a collection of resources.
  */
 @ResourceDef(name="Bundle", profile="http://hl7.org/fhir/Profile/Bundle")
-public class Bundle extends Resource {
+public class Bundle extends Resource implements IBaseBundle {
 
     public enum BundleType {
         /**
@@ -361,27 +362,33 @@ public class Bundle extends Resource {
     }
 
     @Block()
-    public static class BundleLinkComponent extends BackboneElement {
+    public static class BundleLinkComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].
          */
-        @Child(name ="relation", type={StringType.class}, order=1, min=1, max=1)
+        @Child(name = "relation", type = {StringType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="http://www.iana.org/assignments/link-relations/link-relations.xhtml", formalDefinition="A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]]." )
         protected StringType relation;
 
         /**
          * The reference details for the link.
          */
-        @Child(name ="url", type={UriType.class}, order=2, min=1, max=1)
+        @Child(name = "url", type = {UriType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Reference details for the link", formalDefinition="The reference details for the link." )
         protected UriType url;
 
         private static final long serialVersionUID = -1010386066L;
 
+    /*
+     * Constructor
+     */
       public BundleLinkComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public BundleLinkComponent(StringType relation, UriType url) {
         super();
         this.relation = relation;
@@ -520,51 +527,54 @@ public class Bundle extends Resource {
   }
 
     @Block()
-    public static class BundleEntryComponent extends BackboneElement {
+    public static class BundleEntryComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The Base URL for the resource, if different to the base URL specified for the bundle as a whole.
          */
-        @Child(name ="base", type={UriType.class}, order=1, min=0, max=1)
+        @Child(name = "base", type = {UriType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Base URL, if different to bundle base", formalDefinition="The Base URL for the resource, if different to the base URL specified for the bundle as a whole." )
         protected UriType base;
 
         /**
          * A series of links that provide context to this entry.
          */
-        @Child(name ="link", type={BundleLinkComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "link", type = {BundleLinkComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Links related to this entry", formalDefinition="A series of links that provide context to this entry." )
         protected List<BundleLinkComponent> link;
 
         /**
          * The Resources for the entry.
          */
-        @Child(name ="resource", type={Resource.class}, order=3, min=0, max=1)
+        @Child(name = "resource", type = {Resource.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Resources in this bundle", formalDefinition="The Resources for the entry." )
         protected Resource resource;
 
         /**
          * Information about the search process that lead to the creation of this entry.
          */
-        @Child(name ="search", type={}, order=4, min=0, max=1)
+        @Child(name = "search", type = {}, order=4, min=0, max=1)
         @Description(shortDefinition="Search related information", formalDefinition="Information about the search process that lead to the creation of this entry." )
         protected BundleEntrySearchComponent search;
 
         /**
          * Additional information about how this entry should be processed as part of a transaction.
          */
-        @Child(name ="transaction", type={}, order=5, min=0, max=1)
+        @Child(name = "transaction", type = {}, order=5, min=0, max=1)
         @Description(shortDefinition="Transaction Related Information", formalDefinition="Additional information about how this entry should be processed as part of a transaction." )
         protected BundleEntryTransactionComponent transaction;
 
         /**
          * Additional information about how this entry should be processed as part of a transaction.
          */
-        @Child(name ="transactionResponse", type={}, order=6, min=0, max=1)
+        @Child(name = "transactionResponse", type = {}, order=6, min=0, max=1)
         @Description(shortDefinition="Transaction Related Information", formalDefinition="Additional information about how this entry should be processed as part of a transaction." )
         protected BundleEntryTransactionResponseComponent transactionResponse;
 
         private static final long serialVersionUID = -1846898377L;
 
+    /*
+     * Constructor
+     */
       public BundleEntryComponent() {
         super();
       }
@@ -806,23 +816,26 @@ public class Bundle extends Resource {
   }
 
     @Block()
-    public static class BundleEntrySearchComponent extends BackboneElement {
+    public static class BundleEntrySearchComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Why this entry is in the result set - whether it's included as a match or because of an _include requirement.
          */
-        @Child(name ="mode", type={CodeType.class}, order=1, min=0, max=1)
+        @Child(name = "mode", type = {CodeType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="match | include - why this is in the result set", formalDefinition="Why this entry is in the result set - whether it's included as a match or because of an _include requirement." )
         protected Enumeration<SearchEntryMode> mode;
 
         /**
          * When searching, the server's search ranking score for the entry.
          */
-        @Child(name ="score", type={DecimalType.class}, order=2, min=0, max=1)
+        @Child(name = "score", type = {DecimalType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Search ranking (between 0 and 1)", formalDefinition="When searching, the server's search ranking score for the entry." )
         protected DecimalType score;
 
         private static final long serialVersionUID = 837739866L;
 
+    /*
+     * Constructor
+     */
       public BundleEntrySearchComponent() {
         super();
       }
@@ -967,55 +980,61 @@ public class Bundle extends Resource {
   }
 
     @Block()
-    public static class BundleEntryTransactionComponent extends BackboneElement {
+    public static class BundleEntryTransactionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The HTTP verb for this entry in either a update history, or a transaction/ transaction response.
          */
-        @Child(name ="method", type={CodeType.class}, order=1, min=1, max=1)
+        @Child(name = "method", type = {CodeType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="GET | POST | PUT | DELETE", formalDefinition="The HTTP verb for this entry in either a update history, or a transaction/ transaction response." )
         protected Enumeration<HttpVerb> method;
 
         /**
          * A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).
          */
-        @Child(name ="url", type={UriType.class}, order=2, min=1, max=1)
+        @Child(name = "url", type = {UriType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="The URL for the transaction", formalDefinition="A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation)." )
         protected UriType url;
 
         /**
          * If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.
          */
-        @Child(name ="ifNoneMatch", type={StringType.class}, order=3, min=0, max=1)
+        @Child(name = "ifNoneMatch", type = {StringType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="For managing cache currency", formalDefinition="If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation." )
         protected StringType ifNoneMatch;
 
         /**
          * Only perform the operation if the Etag value matches. For more information, see the API section "Managing Resource Contention".
          */
-        @Child(name ="ifMatch", type={StringType.class}, order=4, min=0, max=1)
+        @Child(name = "ifMatch", type = {StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="For managing update contention", formalDefinition="Only perform the operation if the Etag value matches. For more information, see the API section 'Managing Resource Contention'." )
         protected StringType ifMatch;
 
         /**
          * Only perform the operation if the last updated date matches. For more information, see the API section "Managing Resource Contention".
          */
-        @Child(name ="ifModifiedSince", type={InstantType.class}, order=5, min=0, max=1)
+        @Child(name = "ifModifiedSince", type = {InstantType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="For managing update contention", formalDefinition="Only perform the operation if the last updated date matches. For more information, see the API section 'Managing Resource Contention'." )
         protected InstantType ifModifiedSince;
 
         /**
          * Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".
          */
-        @Child(name ="ifNoneExist", type={StringType.class}, order=6, min=0, max=1)
+        @Child(name = "ifNoneExist", type = {StringType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="For conditional creates", formalDefinition="Instruct the server not to perform the create if a specified resource already exists. For further information, see 'Conditional Create'." )
         protected StringType ifNoneExist;
 
         private static final long serialVersionUID = -769185862L;
 
+    /*
+     * Constructor
+     */
       public BundleEntryTransactionComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public BundleEntryTransactionComponent(Enumeration<HttpVerb> method, UriType url) {
         super();
         this.method = method;
@@ -1364,41 +1383,47 @@ public class Bundle extends Resource {
   }
 
     @Block()
-    public static class BundleEntryTransactionResponseComponent extends BackboneElement {
+    public static class BundleEntryTransactionResponseComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The status code returned by processing this entry.
          */
-        @Child(name ="status", type={StringType.class}, order=1, min=1, max=1)
+        @Child(name = "status", type = {StringType.class}, order=1, min=1, max=1)
         @Description(shortDefinition="Status return code for entry", formalDefinition="The status code returned by processing this entry." )
         protected StringType status;
 
         /**
          * The location header created by processing this operation.
          */
-        @Child(name ="location", type={UriType.class}, order=2, min=0, max=1)
+        @Child(name = "location", type = {UriType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="The location, if the operation returns a location", formalDefinition="The location header created by processing this operation." )
         protected UriType location;
 
         /**
          * The etag for the resource, it the operation for the entry produced a versioned resource.
          */
-        @Child(name ="etag", type={StringType.class}, order=3, min=0, max=1)
+        @Child(name = "etag", type = {StringType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="The etag for the resource (if relevant)", formalDefinition="The etag for the resource, it the operation for the entry produced a versioned resource." )
         protected StringType etag;
 
         /**
          * The date/time that the resource was modified on the server.
          */
-        @Child(name ="lastModified", type={InstantType.class}, order=4, min=0, max=1)
+        @Child(name = "lastModified", type = {InstantType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Server's date time modified", formalDefinition="The date/time that the resource was modified on the server." )
         protected InstantType lastModified;
 
         private static final long serialVersionUID = -1526413234L;
 
+    /*
+     * Constructor
+     */
       public BundleEntryTransactionResponseComponent() {
         super();
       }
 
+    /*
+     * Constructor
+     */
       public BundleEntryTransactionResponseComponent(StringType status) {
         super();
         this.status = status;
@@ -1646,51 +1671,57 @@ public class Bundle extends Resource {
     /**
      * Indicates the purpose of this bundle- how it was intended to be used.
      */
-    @Child(name ="type", type={CodeType.class}, order=0, min=1, max=1)
+    @Child(name = "type", type = {CodeType.class}, order=0, min=1, max=1)
     @Description(shortDefinition="document | message | transaction | transaction-response | history | searchset | collection", formalDefinition="Indicates the purpose of this bundle- how it was intended to be used." )
     protected Enumeration<BundleType> type;
 
     /**
      * The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).
      */
-    @Child(name ="base", type={UriType.class}, order=1, min=0, max=1)
+    @Child(name = "base", type = {UriType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Stated Base URL", formalDefinition="The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base)." )
     protected UriType base;
 
     /**
      * If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).
      */
-    @Child(name ="total", type={UnsignedIntType.class}, order=2, min=0, max=1)
+    @Child(name = "total", type = {UnsignedIntType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="If search, the total number of matches", formalDefinition="If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle)." )
     protected UnsignedIntType total;
 
     /**
      * A series of links that provide context to this bundle.
      */
-    @Child(name ="link", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "link", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Links related to this Bundle", formalDefinition="A series of links that provide context to this bundle." )
     protected List<BundleLinkComponent> link;
 
     /**
      * An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).
      */
-    @Child(name ="entry", type={}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name = "entry", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Entry in the bundle - will have a resource, or information", formalDefinition="An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only)." )
     protected List<BundleEntryComponent> entry;
 
     /**
      * XML Digital Signature - base64 encoded.
      */
-    @Child(name ="signature", type={Base64BinaryType.class}, order=5, min=0, max=1)
+    @Child(name = "signature", type = {Base64BinaryType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="XML Digital Signature (base64 encoded)", formalDefinition="XML Digital Signature - base64 encoded." )
     protected Base64BinaryType signature;
 
     private static final long serialVersionUID = -1380125450L;
 
+  /*
+   * Constructor
+   */
     public Bundle() {
       super();
     }
 
+  /*
+   * Constructor
+   */
     public Bundle(Enumeration<BundleType> type) {
       super();
       this.type = type;

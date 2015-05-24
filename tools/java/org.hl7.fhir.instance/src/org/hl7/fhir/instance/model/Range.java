@@ -29,35 +29,40 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Apr 28, 2015 14:40+1000 for FHIR v0.5.0
+// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A set of ordered Quantities defined by a low and high limit.
  */
 @DatatypeDef(name="Range")
-public class Range extends Type {
+public class Range extends Type implements ICompositeType {
 
     /**
      * The low limit. The boundary is inclusive.
      */
-    @Child(name ="low", type={Quantity.class}, order=0, min=0, max=1)
+    @Child(name = "low", type = {Quantity.class}, order=0, min=0, max=1)
     @Description(shortDefinition="Low limit", formalDefinition="The low limit. The boundary is inclusive." )
     protected Quantity low;
 
     /**
      * The high limit. The boundary is inclusive.
      */
-    @Child(name ="high", type={Quantity.class}, order=1, min=0, max=1)
+    @Child(name = "high", type = {Quantity.class}, order=1, min=0, max=1)
     @Description(shortDefinition="High limit", formalDefinition="The high limit. The boundary is inclusive." )
     protected Quantity high;
 
     private static final long serialVersionUID = -474933350L;
 
+  /*
+   * Constructor
+   */
     public Range() {
       super();
     }
