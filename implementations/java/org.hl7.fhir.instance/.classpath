@@ -24,5 +24,7 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/txtmark-0.11.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/rhino-1.7R4.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/saxon-dom-8.7.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jackson-core-2.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jackson-databind-2.5.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

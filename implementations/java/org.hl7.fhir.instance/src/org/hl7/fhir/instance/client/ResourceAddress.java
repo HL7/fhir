@@ -195,8 +195,8 @@ public class ResourceAddress {
 			return res;
 	}
 	
-	public URI resolveMetadataUri() {
-		return baseServiceUri.resolve("metadata");
+	public URI resolveMetadataUri(boolean quick) {
+		return baseServiceUri.resolve(quick ? "metadata?params=0" : "metadata");
 	}
 	
 	/**

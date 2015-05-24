@@ -1,4 +1,4 @@
-package org.hl7.fhir.instance.utils;
+package org.hl7.fhir.instance.terminologies;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -29,6 +29,8 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.terminologies.ITerminologyServices.ValidationResult;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
 public class FHIRTerminologyServices implements ITerminologyServices {

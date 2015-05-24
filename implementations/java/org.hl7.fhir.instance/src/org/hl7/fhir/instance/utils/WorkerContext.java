@@ -30,6 +30,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.terminologies.ITerminologyServices;
 import org.hl7.fhir.utilities.CSFileInputStream;
 
 /*
@@ -375,6 +376,16 @@ public class WorkerContext {
 
 		@Override
     public <T extends Resource> Parameters operateType(Class<T> resourceClass, String name, Parameters params) {
+      throw new Error("call to NullClient");
+    }
+
+    @Override
+    public Conformance getConformanceStatementQuick() {
+      throw new Error("call to NullClient");
+    }
+
+    @Override
+    public Conformance getConformanceStatementQuick(boolean useOptionsVerb) {
       throw new Error("call to NullClient");
     }
 

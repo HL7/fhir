@@ -1,4 +1,4 @@
-package org.hl7.fhir.instance.utils;
+package org.hl7.fhir.instance.terminologies;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,6 +19,7 @@ import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Meta;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;

@@ -42,9 +42,9 @@ import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -1802,7 +1802,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private boolean checkCode(List<ValidationMessage> errors, WrapperElement element, String path, String code, String system, String display) {
     if (context.getTerminologyServices() != null && context.getTerminologyServices().verifiesSystem(system)) {
-      org.hl7.fhir.instance.utils.ITerminologyServices.ValidationResult s = context.getTerminologyServices().validateCode(system, code, display);
+      org.hl7.fhir.instance.terminologies.ITerminologyServices.ValidationResult s = context.getTerminologyServices().validateCode(system, code, display);
       if (s == null)
         return true;
       if (s.getSeverity() == IssueSeverity.INFORMATION)

@@ -924,6 +924,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Impossible de résourdre la référence locale à la ressource %s</translation>
         <translation lang="ru">Невозможно определить локальную ссылку на ресурс %s</translation>
     </item>
+    <item id="MSG_NO_MATCH">
+        <translation lang="en">No Resource found matching the query "%s"</translation>
+    </item>
     <item id="MSG_NO_EXIST">
         <translation lang="en">Resource Id "%s" does not exist</translation>
         <translation lang="it">La risorsa con Id "%s" non esiste</translation>

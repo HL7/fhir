@@ -1,4 +1,4 @@
-package org.hl7.fhir.instance.utils;
+package org.hl7.fhir.instance.terminologies;
 
 /*
 Copyright (c) 2011+, HL7, Inc
@@ -41,7 +41,9 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 

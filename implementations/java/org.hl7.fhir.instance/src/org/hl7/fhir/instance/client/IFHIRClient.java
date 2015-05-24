@@ -156,6 +156,21 @@ public interface IFHIRClient {
 	 */
 	public Conformance getConformanceStatement(boolean useOptionsVerb);
 	
+  /**
+   * Method returns a conformance statement for the system queried.
+   * @return
+   */
+  public Conformance getConformanceStatementQuick();
+  
+  /**
+   * Method returns a conformance statement for the system queried.
+   * 
+   * @param useOptionsVerb If 'true', use OPTION rather than GET.
+   * 
+   * @return
+   */
+  public Conformance getConformanceStatementQuick(boolean useOptionsVerb);
+  
 	/**
 	 * Read the current state of a resource.
 	 * 
