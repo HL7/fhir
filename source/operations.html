@@ -188,13 +188,20 @@ they will have no id property.
 
 <!-- todo: add async/sync to the operation definition -->
 
-<h3>Executing an Operation Asynchronously</h3>
+<h3>Executing an Operation Asynchronously using Messages</h3>
 
 <p>
-Operations can also be executed asynchronously. In this case, the
-requester sends a message requesting that an operation be executed,
+Operations can also be executed asynchronously using messages. 
+In this case, the requester sends a message requesting that an operation be executed,
 and the destination system subsequently sends a message back with
 the results of the operation.
+</p>
+<p>
+Note: This section describe how to execute operations asynchronously
+using messages. Other patterns could be used, including ones more naturally
+suited for use with the RESTful interface, and we plan to develop these in
+a future version. See here for ongoing 
+<a href="http://wiki.hl7.org/index.php?title=FHIR_Asynchronous_Exchange">Discussion</a>.
 </p>
 <p>
 Given the increased complexity of the asynchronous use case, the

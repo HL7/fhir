@@ -14,32 +14,52 @@
 	<status value="draft"/>
 	<compose>
 		<include>
-			<!-- the children of SNOMED CT Concepts from SCTIDs 404684003 Clinical finding (finding), 410607006 Organism (organism),362981000 Qualifier value (qualifier value), 105590001 Substance (substance), and 123037004 Body structure (body structure)..-->
 			<system value="http://snomed.info/sct"/>
+			<!-- the children of SNOMED CT Concepts from SCTIDs 404684003 Clinical finding (finding), 410607006 Organism (organism),362981000 Qualifier value (qualifier value), 105590001 Substance (substance), and 123037004 Body structure (body structure)..-->
 			<filter>
 				<!--  the children of SNOMED CT Concepts from SCTIDs 404684003 Clinical finding (finding);  -->
 				<property value="concept"/>
 				<op value="is-a"/>
 				<value value="404684003"/>
 			</filter>
+		</include>
+	</compose>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
 			<filter>
 				<!--  the children of SNOMED CT Concepts from SCTID 410607006 Organism (organism)  -->
 				<property value="concept"/>
 				<op value="is-a"/>
 				<value value="410607006"/>
 			</filter>
+		</include>
+	</compose>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
 			<filter>
 				<!-- the children of SNOMED CT Concepts from SCTID 362981000 Qualifier value (qualifier value) -->
 				<property value="concept"/>
 				<op value="is-a"/>
 				<value value="362981000"/>
 			</filter>
+		</include>
+	</compose>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
 			<filter>
 				<!--the children of SNOMED CT Concepts from SCTID 105590001 Substance (substance) -->
 				<property value="concept"/>
 				<op value="is-a"/>
 				<value value="105590001"/>
 			</filter>
+		</include>
+	</compose>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
 			<filter>
 				<!--  the children of SNOMED CT Concepts from SCTID 123037004 Body structure (body structure).  -->
 				<property value="concept"/>

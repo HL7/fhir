@@ -38,7 +38,7 @@
  <tr><td>Pre-Authorization</td><td>Claim (type={discipline}, use=proposed)</td><td>ClaimResponse</td></tr>
  <tr><td>Reversal</td><td>ProcessRequest (action=cancel, nullify=false)</td><td>ClaimResponse</td></tr>
  <tr><td>Nullify</td><td>ProcessRequest (action=cancel, nullify=true)</td><td>ClaimResponse</td></tr>
- <tr><td>Re-adjudication</td><td>Readjudication</td><td>ClaimResponse</td></tr>
+ <tr><td>Re-adjudication</td><td>ProcessRequest (action=reprocess)</td><td>ClaimResponse</td></tr>
  <tr><td>Status Check</td><td>ProcessRequest (action=status)</td><td>ProcessResponse</td></tr>
  <tr><td>Pended Check (Polling)</td><td>ProcessRequest (action=poll)</td><td>{Resource} or ProcessResponse</td></tr>
  <tr><td>Payment Notice</td><td>PaymentNotice</td><td>ProcessResponse</td></tr>
