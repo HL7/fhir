@@ -126,7 +126,9 @@ public class LoincToDEConvertor {
 
 	private void saveBundle() throws Exception {
 		XmlParser xml = new XmlParser();
-		xml.compose(new FileOutputStream(dest), bundle, true);
+		FileOutputStream s = new FileOutputStream(dest);
+    xml.compose(s, bundle, true);
+    s.close();
 	}
 
 	private String col(Element row, String name) {

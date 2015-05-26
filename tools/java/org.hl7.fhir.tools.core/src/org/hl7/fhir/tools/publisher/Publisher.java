@@ -92,7 +92,7 @@ import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -128,6 +128,7 @@ import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptEquivalence;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapContactComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
 import org.hl7.fhir.instance.model.Conformance;
@@ -139,6 +140,7 @@ import org.hl7.fhir.instance.model.Conformance.RestfulConformanceMode;
 import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
+import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -173,6 +175,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
@@ -950,15 +953,20 @@ public class Publisher implements URIResolver {
       generateConformanceStatement(true, "base");
       generateConformanceStatement(false, "base2");
     }
-    generateCodeSystemsPart1();
     generateValueSetsPart1();
     if (page.hasIG())
       generateIGValueSetsPart1();
-    for (BindingSpecification cd : page.getDefinitions().getBindings().values()) {
-      if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference()) && cd.getReference().startsWith("http://hl7.org/fhir")) {
-        if (!page.getDefinitions().getValuesets().containsKey(cd.getReference()))
-          throw new Exception(cd.getUsageContext() + " Binding " + cd.getName() + ", Reference " + cd.getReference() + " cannot be resolved");
-        cd.setReferredValueSet(page.getDefinitions().getValuesets().get(cd.getReference()));
+    for (BindingSpecification cd : page.getDefinitions().getUnresolvedBindings()) {
+      String ref = cd.getReference();
+      if (ref.startsWith("http://hl7.org/fhir")) {
+        // we expect to be able to resolve this
+        ValueSet vs = page.getDefinitions().getValuesets().get(ref);
+        if (vs == null) {
+          if (page.getDefinitions().getBoundValueSets().containsKey(ref))
+            throw new Exception("Unable to resolve the value set reference "+ref+" but found it in load list");
+          throw new Exception("Unable to resolve the value set reference "+ref);
+        }
+        cd.setValueSet(vs);
       }
     }
   }
@@ -971,7 +979,6 @@ public class Publisher implements URIResolver {
       produceResource2(r, false, null);
     }
     page.log(" ...vocab #2", LogMessageType.Process);
-    generateCodeSystemsPart2();
     generateValueSetsPart2();
     if (page.hasIG())
       generateIGValueSetsPart2();
@@ -1081,9 +1088,13 @@ public class Publisher implements URIResolver {
 
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(conf);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".xml"), conf);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".xml");
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conf);
+    s.close();
     cloneToXhtml("conformance-" + name + "", "Basic Conformance Statement", true, "resource-instance:Conformance", "Conformance Statement");
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".json"), conf);
+    s = new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".json");
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conf);
+    s.close();
 
     jsonToXhtml("conformance-" + name, "Base Conformance Statement", resource2Json(conf), "resource-instance:Conformance", "Conformance Statement");
 
@@ -1142,8 +1153,8 @@ public class Publisher implements URIResolver {
   private IniFile ini;
 
   private void defineSpecialValues() throws Exception {
-    for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
-      if (bs.getBinding() == Binding.Special) {
+    for (BindingSpecification bs : page.getDefinitions().getCommonBindings().values()) {
+      if (bs.getBinding() == BindingMethod.Special) {
         if (bs.getName().equals("DataType") || bs.getName().equals("FHIRDefinedType")) {
           List<String> codes = new ArrayList<String>();
           for (TypeRef t : page.getDefinitions().getKnownTypes())
@@ -1208,7 +1219,9 @@ public class Publisher implements URIResolver {
     options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_XML_VERSION, "1.0");
 
     resource.getContents().add(eCoreDefinitions);
-    resource.save(new FileOutputStream(filename), options);
+    FileOutputStream s = new FileOutputStream(filename);
+    resource.save(s, options);
+    s.close();
   }
 
   private void registerReferencePlatforms() {
@@ -1309,10 +1322,6 @@ public class Publisher implements URIResolver {
     for (String n : page.getDefinitions().sortedResourceNames())
       if (hasBuildFlag("page-" + n.toLowerCase()))
         validationErrors.addAll(val.check(n, page.getDefinitions().getResources().get(n)));
-    if (hasBuildFlag("all"))
-      for (String n : page.getDefinitions().getBindings().keySet())
-        validationErrors.addAll(val.check(n, page.getDefinitions().getBindingByName(n)));
-    validationErrors.addAll(val.checkBindings(page.getDefinitions().getBindings()));
 
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
@@ -1806,10 +1815,18 @@ public class Publisher implements URIResolver {
 
       page.log(" ...collections ", LogMessageType.Process);
 
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed);
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed);
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml"), typeFeed);
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.json"), typeFeed);
+      FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileFeed);
+      s.close();
+      s = new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileFeed);
+      s.close();
+      s = new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, typeFeed);
+      s.close();
+      s = new FileOutputStream(page.getFolders().dstDir + "profiles-types.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, typeFeed);
+      s.close();
 
       Bundle extensionsFeed = new Bundle();
       extensionsFeed.setId("extensions");
@@ -1823,8 +1840,12 @@ public class Publisher implements URIResolver {
           extensionsFeed.getEntry().add(new BundleEntryComponent().setResource(ed));
         }
       }
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.xml"), extensionsFeed);
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.json"), extensionsFeed);
+      s = new FileOutputStream(page.getFolders().dstDir + "extension-definitions.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, extensionsFeed);
+      s.close();
+      s = new FileOutputStream(page.getFolders().dstDir + "extension-definitions.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, extensionsFeed);
+      s.close();
       Utilities.copyFile(page.getFolders().dstDir + "extension-definitions.xml", page.getFolders().dstDir + "examples" + File.separator + "extension-definitions.xml");
 
       Bundle searchParamsFeed = new Bundle();
@@ -1840,8 +1861,12 @@ public class Publisher implements URIResolver {
         if (page.getDefinitions().doPublish(cp.getCategory()))
           addSearchParams(searchParamsFeed, cp);
       }
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "search-parameters.xml"), searchParamsFeed);
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "search-parameters.json"), searchParamsFeed);
+      s = new FileOutputStream(page.getFolders().dstDir + "search-parameters.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, searchParamsFeed);
+      s.close();
+      s = new FileOutputStream(page.getFolders().dstDir + "search-parameters.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, searchParamsFeed);
+      s.close();
       Utilities.copyFile(page.getFolders().dstDir + "search-parameters.xml", page.getFolders().dstDir + "examples" + File.separator + "search-parameters.xml");
 
       Bundle profileOthersFeed = new Bundle();
@@ -1855,8 +1880,12 @@ public class Publisher implements URIResolver {
         if (page.getDefinitions().doPublish(cp.getCategory()))
           addOtherProfiles(profileOthersFeed, cp);
       }
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-others.xml"), profileOthersFeed);
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-others.json"), profileOthersFeed);
+      s = new FileOutputStream(page.getFolders().dstDir + "profiles-others.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileOthersFeed);
+      s.close();
+      s = new FileOutputStream(page.getFolders().dstDir + "profiles-others.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileOthersFeed);
+      s.close();
       Utilities.copyFile(page.getFolders().dstDir + "profiles-others.xml", page.getFolders().dstDir + "examples" + File.separator + "profiles-others.xml");
             // todo-bundle - should this be checked?
 //      int ec = 0;
@@ -1870,22 +1899,38 @@ public class Publisher implements URIResolver {
 //      if (ec > 0)
 //        throw new Exception("Cannot continue due to value set mis-identification");
 
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.xml"), valueSetsFeed);
+      s = new FileOutputStream(page.getFolders().dstDir + "valuesets.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, valueSetsFeed);
+      s.close();
       Utilities.copyFile(page.getFolders().dstDir + "valuesets.xml", page.getFolders().dstDir + "examples" + File.separator + "valuesets.xml");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed);
+      s = new FileOutputStream(page.getFolders().dstDir + "valuesets.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, valueSetsFeed);
+      s.close();
 
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "conceptmaps.xml"), conceptMapsFeed);
+      s = new FileOutputStream(page.getFolders().dstDir + "conceptmaps.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conceptMapsFeed);
+      s.close();
       Utilities.copyFile(page.getFolders().dstDir + "conceptmaps.xml", page.getFolders().dstDir + "examples" + File.separator + "conceptmaps.xml");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "conceptmaps.json"), conceptMapsFeed);
+      s = new FileOutputStream(page.getFolders().dstDir + "conceptmaps.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conceptMapsFeed);
+      s.close();
 //      if (delphiReferencePlatform.canSign())
 //        delphiReferencePlatform.sign(page.getFolders().dstDir + "conceptmaps.xml", true, "dsa");
 
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets);
+      s = new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v2Valuesets);
+      s.close();
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples" + File.separator + "v2-tables.xml");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets);
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml"), v3Valuesets);
+      s = new FileOutputStream(page.getFolders().dstDir + "v2-tables.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v2Valuesets);
+      s.close();
+      s = new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
+      s.close();
       Utilities.copyFile(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().dstDir + "examples" + File.separator + "v3-codesystems.xml");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets);
+      s = new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
+      s.close();
 
       page.log("....validator", LogMessageType.Process);
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.zip");
@@ -2141,8 +2186,12 @@ public class Publisher implements URIResolver {
   private void produceExtensionDefinition(StructureDefinition ed) throws FileNotFoundException, Exception {
     String filename = "extension-"+ed.getUrl().substring(40).toLowerCase();
     ed.setUserData("filename", filename);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + filename+".xml"), ed);
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + filename+".json"), ed);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + filename+".xml");
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, ed);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + filename+".json");
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, ed);
+    s.close();
     cloneToXhtml(filename, ed.getName(), false, "summary-instance", "Extension");
     jsonToXhtml(filename, ed.getName(), resource2Json(ed), "extension", "Extension");
 
@@ -2160,7 +2209,7 @@ public class Publisher implements URIResolver {
 
     bytes = new ByteArrayOutputStream();
     TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(bytes, page);
-    tgen.generateExtension(ed, page.getDefinitions().getBindings());
+    tgen.generateExtension(ed);
     tgen.close();
     String tx = bytes.toString();
 
@@ -2239,6 +2288,7 @@ public class Publisher implements URIResolver {
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.setSuppressXhtml("Snipped for Brevity");
     json.compose(bytes, profileFeed);
+    bytes.close();
     return new String(bytes.toByteArray());
   }
 
@@ -2247,6 +2297,7 @@ public class Publisher implements URIResolver {
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.setSuppressXhtml("Snipped for Brevity");
     json.compose(bytes, r);
+    bytes.close();
     return new String(bytes.toByteArray());
   }
 
@@ -2819,8 +2870,12 @@ public class Publisher implements URIResolver {
     String fn = pt.getName().toLowerCase() + ".profile.xml";
     StructureDefinition rp = pt.getProfile();
 
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + fn), rp);
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + fn);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json"));
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, typeFeed, (fn));
@@ -2833,8 +2888,12 @@ public class Publisher implements URIResolver {
     String fn = type.getCode().toLowerCase() + ".profile.xml";
     StructureDefinition rp = type.getProfile();
 
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + fn), rp);
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + fn);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json"));
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, typeFeed, (fn));
@@ -2862,8 +2921,12 @@ public class Publisher implements URIResolver {
     String fn = type.getName().toLowerCase() + ".profile.xml";
     StructureDefinition rp = type.getProfile();
 
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + fn), rp);
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + fn);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json"));
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, typeFeed, fn);
@@ -2984,7 +3047,7 @@ public class Publisher implements URIResolver {
     String json = jsons.get(n);
 
     TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
-    tgen.generate(resource.getRoot(), page.getDefinitions().getBindings());
+    tgen.generate(resource.getRoot());
     tgen.close();
     String tx = TextFile.fileToString(tmp.getAbsolutePath());
 
@@ -3174,9 +3237,13 @@ public class Publisher implements URIResolver {
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(opd);
 
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".xml"), opd);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".xml");
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, opd);
+    s.close();
     cloneToXhtml("operation-" + name + "", "Operation Definition", true, "resource-instance:OperationDefinition", "Operation definition");
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".json"), opd);
+    s = new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".json");
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, opd);
+    s.close();
     jsonToXhtml("operation-" + name, "Operation Definition", resource2Json(opd), "resource-instance:OperationDefinition", "Operation definition");
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + "operation-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "operation-" + name + ".xml"));
     if (buildFlags.get("all"))
@@ -3243,8 +3310,12 @@ public class Publisher implements URIResolver {
     qb.build();
     Questionnaire q = qb.getQuestionnaire();
 
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.json"), q);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml"), q);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.json");
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, q);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml");
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, q);
+    s.close();
 
     String json = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+resource.getName()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(q)) + "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
@@ -3475,9 +3546,13 @@ public class Publisher implements URIResolver {
     conv.setDefinitions(Utilities.path(page.getFolders().srcDir, "loinc", "loincS.xml"));
     conv.process();
     IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-    xml.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, filename+".xml")), conv.getBundle());
+    FileOutputStream s = new FileOutputStream(Utilities.path(page.getFolders().dstDir, filename+".xml"));
+    xml.compose(s, conv.getBundle());
+    s.close();
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-    json.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, filename+".json")), conv.getBundle());
+    s = new FileOutputStream(Utilities.path(page.getFolders().dstDir, filename+".json"));
+    json.compose(s, conv.getBundle());
+    s.close();
     return "Loinc Narrative";
   }
 
@@ -3485,8 +3560,12 @@ public class Publisher implements URIResolver {
     StructureDefinition rp = root.getProfile();
     page.getProfiles().put("http://hl7.org/fhir/StructureDefinition/"+root.getName(), rp);
     page.getProfiles().put(root.getName(), rp);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp);
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml");
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + n + ".profile.json");
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, rp);
+    s.close();
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + n + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + n
         + ".profile.xml"));
@@ -3639,9 +3718,13 @@ public class Publisher implements URIResolver {
     sp.setUserData("pack", pack.getId());
 
     XmlParser comp = new XmlParser();
-    comp.setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + title + ".xml"), sp);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + title + ".xml");
+    comp.setOutputStyle(OutputStyle.PRETTY).compose(s, sp);
+    s.close();
     JsonParser jcomp = new JsonParser();
-    jcomp.setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + title + ".json"), sp);
+    s = new FileOutputStream(page.getFolders().dstDir + title + ".json");
+    jcomp.setOutputStyle(OutputStyle.PRETTY).compose(s, sp);
+    s.close();
 
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-search-parameter.html");
     src = page.processPageIncludes(sp.getId()+".html", src, "search-parameter:"+resourceName+"/"+pack.getId()+"/"+sp.getId(), null, sp, null, "Search Parameter");
@@ -3679,13 +3762,17 @@ public class Publisher implements URIResolver {
     String json = new String(bs.toByteArray());
 
     XmlParser comp = new XmlParser();
-    comp.setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.xml"), profile.getResource());
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + title + ".profile.xml");
+    comp.setOutputStyle(OutputStyle.PRETTY).compose(s, profile.getResource());
+    s.close();
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + title + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + title+ ".profile.xml"));
     JsonParser jcomp = new JsonParser();
-    jcomp.setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.json"), profile.getResource());
+    s = new FileOutputStream(page.getFolders().dstDir + title + ".profile.json");
+    jcomp.setOutputStyle(OutputStyle.PRETTY).compose(s, profile.getResource());
+    s.close();
 
     TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
-    tgen.generate(profile, page.getDefinitions().getBindings());
+    tgen.generate(profile);
     tgen.close();
     String tx = TextFile.fileToString(tmp.getAbsolutePath());
 
@@ -3852,10 +3939,14 @@ public class Publisher implements URIResolver {
     cachePage(file+".html", src, file);
 
     xml.setOutputStyle(OutputStyle.PRETTY);
-    xml.compose(new FileOutputStream(page.getFolders().dstDir + file+".xml"), dict);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + file+".xml");
+    xml.compose(s, dict);
+    s.close();
     cloneToXhtml(file, "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), false, "dict-instance", "Dictionary");
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-    json.compose(new FileOutputStream(page.getFolders().dstDir+file+ ".json"), dict);
+    s = new FileOutputStream(page.getFolders().dstDir+file+ ".json");
+    json.compose(s, dict);
+    s.close();
     jsonToXhtml(file, "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), resource2Json(dict), "dict-instance", "Dictionary");
     for (BundleEntryComponent e : dict.getEntry()) {
       produceDictionaryProfile(file, (DataElement) e.getResource());
@@ -3924,10 +4015,14 @@ public class Publisher implements URIResolver {
 
     // now, save the profile and generate equivalents
     xml.setOutputStyle(OutputStyle.PRETTY);
-    xml.compose(new FileOutputStream(page.getFolders().dstDir + file+".profile.xml"), p);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + file+".profile.xml");
+    xml.compose(s, p);
+    s.close();
     cloneToXhtml(file+".profile", "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), false, "dict-instance", "Profile");
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-    json.compose(new FileOutputStream(page.getFolders().dstDir+file+ ".profile.json"), p);
+    s = new FileOutputStream(page.getFolders().dstDir+file+ ".profile.json");
+    json.compose(s, p);
+    s.close();
     jsonToXhtml(file+".profile", "Source for Dictionary based StructureDefinition" + page.getDefinitions().getDictionaries().get(file), resource2Json(p), "dict-instance", "Profile");
     new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + file+ "-review.xls", "HL7 FHIR Project", page.getGenDate(), p);
   }
@@ -4555,20 +4650,6 @@ public class Publisher implements URIResolver {
       }
     }
   }
-  private void generateValueSetsPart1() throws Exception {
-    page.log(" ...value sets", LogMessageType.Process);
-    for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
-      if (Utilities.noString(bs.getCsOid()) && Utilities.noString(bs.getVsOid())) {
-        bs.setVsOid(BindingSpecification.DEFAULT_OID_VS + page.getRegistry().idForName(bs.getName()));
-      }
-      if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
-        generateValueSetPart1(bs.getReference(), bs);
-    }
-    for (String n : page.getDefinitions().getExtraValuesets().keySet()) {
-      ValueSet vs = page.getDefinitions().getExtraValuesets().get(n);
-      generateValueSetPart1(n, vs, n, null, page.getRegistry().idForName(n));
-    }
-  }
 
   private void generateIGValueSetsPart2() throws Exception {
     for (Resource ae : page.getIgResources().values()) {
@@ -4594,9 +4675,13 @@ public class Publisher implements URIResolver {
         page.setId(null);
 
         IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-        json.compose(new FileOutputStream(page.getFolders().dstDir+name + ".json"), vs);
+        FileOutputStream s = new FileOutputStream(page.getFolders().dstDir+name + ".json");
+        json.compose(s, vs);
+        s.close();
         IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-        xml.compose(new FileOutputStream(page.getFolders().dstDir+name + ".xml"), vs);
+        s = new FileOutputStream(page.getFolders().dstDir+name + ".xml");
+        xml.compose(s, vs);
+        s.close();
         cloneToXhtml(name, "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set");
         jsonToXhtml(name, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set");
       }
@@ -4605,221 +4690,112 @@ public class Publisher implements URIResolver {
 
   private void generateValueSetsPart2() throws Exception {
     page.log(" ...value sets (2)", LogMessageType.Process);
-    for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
-      if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
-        generateValueSetPart2(bs.getReference(), bs.getName(), bs.getVsOid());
+    for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
+        generateValueSetPart2(vs);
     }
-    for (String n : page.getDefinitions().getExtraValuesets().keySet())
-      generateValueSetPart2(n, n, page.getRegistry().idForName(n));
+    for (ValueSet vs : page.getDefinitions().getExtraValuesets().values())
+      generateValueSetPart2(vs);
   }
 
-  private void generateValueSetPart1(String name, BindingSpecification cd) throws Exception {
-    String n;
-    if (name.startsWith("valueset-"))
-      n = name.substring(9);
-    else
-      n = name;
-    cd.getReferredValueSet().setUrl("http://hl7.org/fhir/vs/" + n);
-    ValueSet vs = cd.getReferredValueSet();
-    generateValueSetPart1(n, vs, name, cd.getCsOid(), cd.getVsOid());
-  }
-
-  private void generateValueSetPart1(String name, ValueSet vs, String path, String csOid, String vsOid) throws Exception {
-    if (!vs.hasText()) {
-      vs.setText(new Narrative());
-      vs.getText().setStatus(NarrativeStatus.EMPTY);
-    }
-    if (!vs.getText().hasDiv()) {
-      vs.getText().setDiv(new XhtmlNode(NodeType.Element));
-      vs.getText().getDiv().setName("div");
-    }
-
-    ToolingExtensions.setOID(vs, "urn:oid:"+vsOid);
-    if (vs.hasDefine())
-      ToolingExtensions.setOID(vs.getDefine(), "urn:oid:"+csOid);
-    vs.setUserData("path", path + ".html");
-    page.getValueSets().put(vs.getUrl(), vs);
-    page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-    if (vs.hasDefine()) {
-      page.getCodeSystems().put(vs.getDefine().getSystem(), vs);
-      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
-    }
-  }
-
-  private void generateValueSetPart2(String name, String title, String id) throws Exception {
-    String n;
-    if (name.startsWith("valueset-"))
-      n = name.substring(9);
-    else
-      n = name;
-    ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/vs/" + n);
+  
+  private void generateValueSetPart2(ValueSet vs) throws Exception { 
+    String n = vs.getUserString("filename");
+    if (n == null)
+      n = vs.getId();
 
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
       new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, name, vs, true, false);
+    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, n, vs, true, false);
 
     if (isGenerate) {
       addToResourceFeed(vs, valueSetsFeed, null);
 
-      vs.setUserData("path", name + ".html");
-      page.setId(id);
-      String sf = page.processPageIncludes(title + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "valueSet", null, name+".html", null, null, "Value Set");
-      sf = addSectionNumbers(title + ".html", "template-valueset", sf, Utilities.oidTail(id));
+      vs.setUserData("path", n + ".html");
+      page.setId(vs.getId());
+      String sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "valueSet", null, n+".html", vs, null, "Value Set");
+      sf = addSectionNumbers(n + ".html", "template-valueset", sf, Utilities.oidTail(ToolingExtensions.getOID(vs)));
 
-      TextFile.stringToFile(sf, page.getFolders().dstDir + name + ".html");
-      String src = page.processPageIncludesForBook(title + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-book.html"), "valueSet", null);
-      cachePage(name + ".html", src, "Value Set " + title);
+      TextFile.stringToFile(sf, page.getFolders().dstDir + n + ".html");
+      String src = page.processPageIncludesForBook(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-book.html"), "valueSet", vs);
+      cachePage(n + ".html", src, "Value Set " + n);
       page.setId(null);
 
       IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-      json.compose(new FileOutputStream(page.getFolders().dstDir + name + ".json"), vs);
+      FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + n + ".json");
+      json.compose(s, vs);
+      s.close();
       IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-      xml.compose(new FileOutputStream(page.getFolders().dstDir + name + ".xml"), vs);
-      cloneToXhtml(name, "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set");
-      jsonToXhtml(name, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set");
+      s = new FileOutputStream(page.getFolders().dstDir + n + ".xml");
+      xml.compose(s, vs);
+      s.close();
+//      System.out.println(vs.getUrl());
+      cloneToXhtml(n, "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set");
+      jsonToXhtml(n, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set");
     }
-  }
-
-  private void generateCodeSystemsPart1() throws Exception {
-    page.log(" ...code lists", LogMessageType.Process);
-    for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
-      if (Utilities.noString(bs.getCsOid()) && Utilities.noString(bs.getVsOid())) {
-        if (bs.hasInternalCodes())
-          bs.setCsOid(BindingSpecification.DEFAULT_OID_CS + page.getRegistry().idForName(bs.getName()));
-        bs.setVsOid(BindingSpecification.DEFAULT_OID_VS + page.getRegistry().idForName(bs.getName()));
-      }
-      if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
-        generateCodeSystemPart1(bs.getReference().substring(1) + ".html", bs);
-    }
-  }
-
-  private void generateCodeSystemsPart2() throws Exception {
-    page.log(" ...code lists (2)", LogMessageType.Process);
-    for (BindingSpecification bs : page.getDefinitions().getBindings().values())
-      if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
-        generateCodeSystemPart2(bs.getReference().substring(1) + ".html", bs);
-  }
-
-  private void generateCodeSystemPart1(String filename, BindingSpecification cd) throws Exception {
-    ValueSet vs = new ValueSet();
-    ValueSetUtilities.makeShareable(vs);
-    vs.setUserData("filename", filename);
-    vs.setId(FormatUtilities.makeId(Utilities.fileTitle(filename)));
-    if (Utilities.noString(cd.getUri()))
-      vs.setUrl("http://hl7.org/fhir/vs/" + Utilities.fileTitle(filename));
-    else
-      vs.setUrl(cd.getUri());
-    vs.setVersion(page.getVersion());
-    vs.setExperimental(false);
-    vs.setName(cd.getName());
-    vs.setPublisher("HL7 (FHIR Project)");
-    vs.addContact().getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
-    vs.getContact().get(0).getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
-    vs.setDescription(Utilities.noString(cd.getDescription()) ? cd.getDefinition() : cd.getDefinition() + "\r\n\r\n" + cd.getDescription());
-    if (!Utilities.noString(cd.getCopyright()))
-      vs.setCopyright(cd.getCopyright());
-
-    vs.setStatus(cd.getStatus() != null ? cd.getStatus() : ConformanceResourceStatus.DRAFT); // until we publish DSTU, then .review
-    vs.setDate(page.getGenDate().getTime());
-
-    for (String n : cd.getVSSources()) {
-      if (Utilities.noString(n)) {
-        if (!vs.hasDefine()) {
-          vs.setDefine(new ValueSet.ValueSetDefineComponent());
-          vs.getDefine().setCaseSensitive(true);
-          vs.getDefine().setSystem("http://hl7.org/fhir/" + Utilities.fileTitle(filename));
-        }
-        for (DefinedCode c : cd.getChildCodes()) {
-          if (Utilities.noString(c.getSystem()))
-            addCode(vs, vs.getDefine().getConcept(), c);
-        }
-      } else {
-        if (!vs.hasCompose())
-          vs.setCompose(new ValueSet.ValueSetComposeComponent());
-        ConceptSetComponent cc = new ValueSet.ConceptSetComponent();
-        vs.getCompose().getInclude().add(cc);
-        cc.setSystem(n);
-        for (DefinedCode c : cd.getCodes()) {
-          if (n.equals(c.getSystem())) {
-            ConceptReferenceComponent concept = cc.addConcept();
-            concept.setCode(c.getCode()).setDisplay(c.getDisplay());
-            if (!Utilities.noString(c.getComment()))
-              ToolingExtensions.addComment(concept, c.getComment());
-            if (!Utilities.noString(c.getDefinition()))
-              ToolingExtensions.addDefinition(concept, c.getDefinition());
-          }
-        }
-      }
-    }
-
-    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, filename, vs, true, false);
-    cd.setReferredValueSet(vs);
-
-    vs.setUserData("path", Utilities.changeFileExt(filename, ".html"));
-    ToolingExtensions.setOID(vs, "urn:oid:"+cd.getVsOid());
-
-    if (vs.hasDefine()) {
-      ToolingExtensions.setOID(vs.getDefine(), "urn:oid:"+cd.getCsOid());
-      page.getCodeSystems().put(vs.getDefine().getSystem(), vs);
-    }
-    page.getValueSets().put(vs.getUrl(), vs);
-    page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
     if (vs.hasDefine())
-      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+      generateCodeSystemPart2(vs);
+
   }
 
-  private void generateConceptMapV2(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
+  private void generateValueSetsPart1() throws Exception {
+    page.log(" ...value sets", LogMessageType.Process);
+    for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
+      if (!vs.hasText()) {
+        vs.setText(new Narrative());
+        vs.getText().setStatus(NarrativeStatus.EMPTY);
+      }
+      if (!vs.getText().hasDiv()) {
+        vs.getText().setDiv(new XhtmlNode(NodeType.Element));
+        vs.getText().getDiv().setName("div");
+      }
+      if (ToolingExtensions.getOID(vs) == null)
+        throw new Exception("No OID on value set "+vs.getUrl());
+      if (vs.hasDefine()) {
+        if (ToolingExtensions.getOID(vs.getDefine()) == null && !Utilities.noString(vs.getUserString("csoid")))
+          ToolingExtensions.setOID(vs.getDefine(), "urn:oid:"+vs.getUserString("csoid"));          
+        if (ToolingExtensions.getOID(vs.getDefine()) == null)
+          throw new Exception("No OID on value set define for "+vs.getUrl());
+      }
+      new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, vs.getUserString("filename"), vs, true, false);
+
+      page.getValueSets().put(vs.getUrl(), vs);
+      page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
+      if (vs.hasDefine()) {
+        page.getCodeSystems().put(vs.getDefine().getSystem(), vs);
+        page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+      }
+
+//    for (String n : page.getDefinitions().getExtraValuesets().keySet()) {
+//      ValueSet vs = page.getDefinitions().getExtraValuesets().get(n);
+//      generateValueSetPart1(n, vs, n, null, page.getRegistry().idForName(n));
+      
+    }
+  }
+  
+  private void generateConceptMapV2(ValueSet vs, String filename, String src, String srcCS) throws Exception {
     ConceptMap cm = new ConceptMap();
     cm.setId("v2-"+FormatUtilities.makeId(Utilities.fileTitle(filename)));
     cm.setUrl("http://hl7.org/fhir/cm/v2/" + Utilities.fileTitle(filename));
     // no version?? vs.setVersion(...
-    cm.setName("v2 map for " + cd.getName());
+    cm.setName("v2 map for " + vs.getName());
     cm.setPublisher("HL7 (FHIR Project)");
-    cm.addContact().getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
-    cm.getContact().get(0).getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
-    if (!Utilities.noString(cd.getCopyright()))
-      cm.setCopyright(cd.getCopyright());
+    for (ValueSetContactComponent cs : vs.getContact()) {
+      ConceptMapContactComponent cd = cm.addContact();
+      cd.setName(cs.getName());
+      for (ContactPoint ccs : cs.getTelecom())
+        cd.addTelecom(ccs.copy());
+    }
+    cm.setCopyright(vs.getCopyright());
 
     Set<String> tbls = new HashSet<String>();
     cm.setStatus(ConformanceResourceStatus.DRAFT); // until we publish
     // DSTU, then .review
     cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
-    cm.setTarget(Factory.makeReference(cd.getV2Map()));
-    for (DefinedCode c : cd.getCodes()) {
-      if (!Utilities.noString(c.getV2Map())) {
-        for (String m : c.getV2Map().split(",")) {
-          ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
-          cc.setCodeSystem(srcCS);
-          cc.setCode(c.getCode());
-          ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
-          cc.getMap().add(map);
-          cm.getElement().add(cc);
-          String[] n = m.split("\\(");
-          if (n.length > 1)
-            map.setComments(n[1].substring(0, n[1].length() - 1));
-          n = n[0].split("\\.");
-          tbls.add(n[0].substring(1));
-          map.setCodeSystem("http://hl7.org/fhir/v2/" + n[0].substring(1));
-          map.setCode(n[1].trim());
-          if (n[0].charAt(0) == '=')
-            map.setEquivalence(ConceptEquivalence.EQUAL);
-          if (n[0].charAt(0) == '~')
-            map.setEquivalence(ConceptEquivalence.EQUIVALENT);
-          if (n[0].charAt(0) == '>')
-            map.setEquivalence(ConceptEquivalence.WIDER);
-          if (n[0].charAt(0) == '<') {
-            map.setEquivalence(ConceptEquivalence.NARROWER);
-            if (!map.hasComments())
-              throw new Exception("Missing comments for narrower match on "+cd.getName()+"/"+c.getCode());
-          }
-        }
-      }
+    cm.setTarget(Factory.makeReference(vs.getUserString("v2map")));
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+      genV2MapItems(vs, srcCS, cm, tbls, c);
     }
     StringBuilder b = new StringBuilder();
     boolean first = false;
@@ -4834,15 +4810,23 @@ public class Publisher implements URIResolver {
     gen.generate(cm);
 
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-    json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.json")), cm);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.json"));
+    json.compose(s, cm);
+    s.close();
     json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
-    json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.canonical.json")), cm);
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.canonical.json"));
+    json.compose(s, cm);
+    s.close();
     String n = Utilities.changeFileExt(filename, "-map-v2");
     jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance", "Concept Map");
     IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-    xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.xml")), cm);
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.xml"));
+    xml.compose(s, cm);
+    s.close();
     xml = new XmlParser().setOutputStyle(OutputStyle.CANONICAL);
-    xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.canonical.xml")), cm);
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.canonical.xml"));
+    xml.compose(s, cm);
+    s.close();
     cloneToXhtml(n, cm.getName(), false, "conceptmap-instance", "Concept Map");
 
     // now, we create an html page from the narrative
@@ -4859,62 +4843,63 @@ public class Publisher implements URIResolver {
     page.getEpub().registerFile(n + ".xml.html", cm.getName(), EPubManager.XHTML_TYPE);
   }
 
-  private void generateConceptMapV3(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
+  private void genV2MapItems(ValueSet vs, String srcCS, ConceptMap cm, Set<String> tbls, ConceptDefinitionComponent c) throws Exception {
+    if (!Utilities.noString(c.getUserString("v2"))) {
+      for (String m : c.getUserString("v2").split(",")) {
+        ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
+        cc.setCodeSystem(srcCS);
+        cc.setCode(c.getCode());
+        ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
+        cc.getMap().add(map);
+        cm.getElement().add(cc);
+        String[] n = m.split("\\(");
+        if (n.length > 1)
+          map.setComments(n[1].substring(0, n[1].length() - 1));
+        n = n[0].split("\\.");
+        tbls.add(n[0].substring(1));
+        map.setCodeSystem("http://hl7.org/fhir/v2/" + n[0].substring(1));
+        map.setCode(n[1].trim());
+        if (n[0].charAt(0) == '=')
+          map.setEquivalence(ConceptEquivalence.EQUAL);
+        if (n[0].charAt(0) == '~')
+          map.setEquivalence(ConceptEquivalence.EQUIVALENT);
+        if (n[0].charAt(0) == '>')
+          map.setEquivalence(ConceptEquivalence.WIDER);
+        if (n[0].charAt(0) == '<') {
+          map.setEquivalence(ConceptEquivalence.NARROWER);
+          if (!map.hasComments())
+            throw new Exception("Missing comments for narrower match on "+vs.getName()+"/"+c.getCode());
+        }
+      }
+    }
+    for (ConceptDefinitionComponent cc : c.getConcept()) {
+      genV2MapItems(vs, srcCS, cm, tbls, cc);
+    }
+  }
+
+  private void generateConceptMapV3(ValueSet vs, String filename, String src, String srcCS) throws Exception {
     ConceptMap cm = new ConceptMap();
     cm.setId("v3-"+FormatUtilities.makeId(Utilities.fileTitle(filename)));
     cm.setUrl("http://hl7.org/fhir/cm/v3/" + Utilities.fileTitle(filename));
     // no version?? vs.setVersion(...
-    cm.setName("v3 map for " + cd.getName());
+    cm.setName("v3 map for " + vs.getName());
     cm.setPublisher("HL7 (FHIR Project)");
-    cm.addContact().getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
-    cm.getContact().get(0).getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
-    if (!Utilities.noString(cd.getCopyright()))
-      cm.setCopyright(cd.getCopyright());
+    for (ValueSetContactComponent cs : vs.getContact()) {
+      ConceptMapContactComponent cd = cm.addContact();
+      cd.setName(cs.getName());
+      for (ContactPoint ccs : cs.getTelecom())
+        cd.addTelecom(ccs.copy());
+    }
+    cm.setCopyright(vs.getCopyright());
 
     Set<String> tbls = new HashSet<String>();
     cm.setStatus(ConformanceResourceStatus.DRAFT); // until we publish
     // DSTU, then .review
     cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
-    cm.setTarget(Factory.makeReference("http://hl7.org/fhir/v3/vs/"+cd.getV3Map()));
-    for (DefinedCode c : cd.getCodes()) {
-      if (!Utilities.noString(c.getV3Map())) {
-        for (String m : c.getV3Map().split(",")) {
-          ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
-          cc.setCodeSystem(srcCS);
-          cc.setCode(c.getCode());
-          ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
-          cc.getMap().add(map);
-          cm.getElement().add(cc);
-          String[] n = m.split("\\(");
-          if (n.length > 1)
-            map.setComments(n[1].substring(0, n[1].length() - 1));
-          n = n[0].split("\\.");
-          if (n.length != 2)
-            throw new Exception("Error processing v3 map value for "+cd.getName()+"."+c.getCode()+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
-          String codesystem = n[0].substring(1);
-          if (n[0].charAt(0) == '=')
-            map.setEquivalence(ConceptEquivalence.EQUAL);
-          else if (n[0].charAt(0) == '~')
-            map.setEquivalence(ConceptEquivalence.EQUIVALENT);
-          else if (n[0].charAt(0) == '>') {
-            map.setEquivalence(ConceptEquivalence.NARROWER);
-            if (!map.hasComments())
-              throw new Exception("Missing comments for narrower match on "+cd.getName()+"/"+c.getCode());
-
-          } else if (n[0].charAt(0) == '<')
-            map.setEquivalence(ConceptEquivalence.WIDER);
-          else {
-            map.setEquivalence(ConceptEquivalence.EQUAL);
-            codesystem = n[0];
-          }
-          tbls.add(codesystem);
-          map.setCodeSystem("http://hl7.org/fhir/v3/" + codesystem);
-          map.setCode(n[1]);
-        }
-      }
+    cm.setTarget(Factory.makeReference("http://hl7.org/fhir/v3/vs/"+vs.getUserString("v2map")));
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+      genV3MapItems(vs, srcCS, cm, tbls, c);
     }
     StringBuilder b = new StringBuilder();
     boolean first = false;
@@ -4928,15 +4913,23 @@ public class Publisher implements URIResolver {
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(cm);
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-    json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json")), cm);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json"));
+    json.compose(s, cm);
+    s.close();
     json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
-    json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.json")), cm);
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.json"));
+    json.compose(s, cm);
+    s.close();
     String n = Utilities.changeFileExt(filename, "-map-v3");
     jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance", "Concept Map");
     IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-    xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.xml")), cm);
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.xml"));
+    xml.compose(s, cm);
+    s.close();
     xml = new XmlParser().setOutputStyle(OutputStyle.CANONICAL);
-    xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.xml")), cm);
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.xml"));
+    xml.compose(s, cm);
+    s.close();
     cloneToXhtml(n, cm.getName(), false, "conceptmap-instance", "Concept Map");
 
     // now, we create an html page from the narrative
@@ -4953,44 +4946,82 @@ public class Publisher implements URIResolver {
     page.getEpub().registerFile(n + ".xml.html", cm.getName(), EPubManager.XHTML_TYPE);
   }
 
-  private void generateCodeSystemPart2(String filename, BindingSpecification cd) throws Exception {
-    ValueSet vs = null;
-    if (Utilities.noString(cd.getUri()))
-      vs = page.getValueSets().get("http://hl7.org/fhir/vs/" + Utilities.fileTitle(filename));
-    else
-      vs = page.getValueSets().get(cd.getUri());
+  private void genV3MapItems(ValueSet vs, String srcCS, ConceptMap cm, Set<String> tbls, ConceptDefinitionComponent c) throws Exception {
+    if (!Utilities.noString(c.getUserString("v3"))) {
+      for (String m : c.getUserString("v3").split(",")) {
+        ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
+        cc.setCodeSystem(srcCS);
+        cc.setCode(c.getCode());
+        ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
+        cc.getMap().add(map);
+        cm.getElement().add(cc);
+        String[] n = m.split("\\(");
+        if (n.length > 1)
+          map.setComments(n[1].substring(0, n[1].length() - 1));
+        n = n[0].split("\\.");
+        if (n.length != 2)
+          throw new Exception("Error processing v3 map value for "+vs.getName()+"."+c.getCode()+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
+        String codesystem = n[0].substring(1);
+        if (n[0].charAt(0) == '=')
+          map.setEquivalence(ConceptEquivalence.EQUAL);
+        else if (n[0].charAt(0) == '~')
+          map.setEquivalence(ConceptEquivalence.EQUIVALENT);
+        else if (n[0].charAt(0) == '>') {
+          map.setEquivalence(ConceptEquivalence.NARROWER);
+          if (!map.hasComments())
+            throw new Exception("Missing comments for narrower match on "+vs.getName()+"/"+c.getCode());
 
-    if (!Utilities.noString(cd.getV2Map()))
-      generateConceptMapV2(cd, filename, vs.getUrl(), "http://hl7.org/fhir/" + Utilities.fileTitle(filename));
-    if (!Utilities.noString(cd.getV3Map()))
-      generateConceptMapV3(cd, filename, vs.getUrl(), "http://hl7.org/fhir/" + Utilities.fileTitle(filename));
-
-    new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
-
-    if (isGenerate) {
-      addToResourceFeed(vs, valueSetsFeed, filename);
-
-      String sf;
-      if (cd.hasInternalCodes() && cd.getReferredValueSet() != null)
-        sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx.html"), "codeSystem", null, null, null, "Value Set");
-      else {
-        cd.getReferredValueSet().setUserData("filename", filename);
-        sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "codeSystem", null, cd.getReferredValueSet(), null, "Value Set");
+        } else if (n[0].charAt(0) == '<')
+          map.setEquivalence(ConceptEquivalence.WIDER);
+        else {
+          map.setEquivalence(ConceptEquivalence.EQUAL);
+          codesystem = n[0];
+        }
+        tbls.add(codesystem);
+        map.setCodeSystem("http://hl7.org/fhir/v3/" + codesystem);
+        map.setCode(n[1]);
       }
-      if (cd.getVsOid() == null)
-        throw new Error("no oid for value set "+vs.getName()+" ("+vs.getUrl()+")");
-      sf = addSectionNumbers(filename + ".html", "template-valueset", sf, Utilities.oidTail(cd.getVsOid()));
-      TextFile.stringToFile(sf, page.getFolders().dstDir + filename);
-      String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx-book.html"), "codeSystem", null);
-      cachePage(filename, src, "Code System " + vs.getName());
-
-      IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-      json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".json")), vs);
-      IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
-      xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".xml")), vs);
-      cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set");
-      jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set");
     }
+    for (ConceptDefinitionComponent cc : c.getConcept()) {
+      genV3MapItems(vs, srcCS, cm, tbls, cc);
+    }
+  }
+
+  private void generateCodeSystemPart2(ValueSet vs) throws Exception {
+
+    if (!Utilities.noString(vs.getUserString("v2map")))
+      generateConceptMapV2(vs, vs.getId(), vs.getUrl(), "http://hl7.org/fhir/" + vs.getId());
+    if (!Utilities.noString(vs.getUserString("v3map")))
+      generateConceptMapV3(vs, vs.getId(), vs.getUrl(), "http://hl7.org/fhir/" + vs.getId());
+
+//    new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
+//
+//      addToResourceFeed(vs, valueSetsFeed, vs.getId());
+//
+//      String sf;
+//      if (cd.hasInternalCodes() && cd.getReferredValueSet() != null)
+//        sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx.html"), "codeSystem", null, null, null, "Value Set");
+//      else {
+//        cd.getReferredValueSet().setUserData("filename", filename);
+//        sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "codeSystem", null, cd.getReferredValueSet(), null, "Value Set");
+//      }
+//      if (cd.getVsOid() == null)
+//        throw new Error("no oid for value set "+vs.getName()+" ("+vs.getUrl()+")");
+//      sf = addSectionNumbers(filename + ".html", "template-valueset", sf, Utilities.oidTail(cd.getVsOid()));
+//      TextFile.stringToFile(sf, page.getFolders().dstDir + filename);
+//      String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx-book.html"), "codeSystem", null);
+//      cachePage(filename, src, "Code System " + vs.getName());
+//
+//      IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+//      FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".json"));
+//      json.compose(s, vs);
+//      s.close();
+//      IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+//      s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".xml"));
+//      xml.compose(s, vs);
+//      s.close();
+//      cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set");
+//      jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set");
   }
 
   private void addCode(ValueSet vs, List<ConceptDefinitionComponent> list, DefinedCode c) {
@@ -5040,6 +5071,7 @@ public class Publisher implements URIResolver {
       }
       ByteArrayOutputStream bytes = new ByteArrayOutputStream();
       new XmlParser().compose(bytes, vs, false);
+      bytes.close();
       return new StreamSource(new ByteArrayInputStream(bytes.toByteArray()));
     } catch (Exception e) {
       throw new TransformerException(e);

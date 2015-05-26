@@ -112,7 +112,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
     writer.setPretty(style == OutputStyle.PRETTY);
     writer.start();
     compose(writer, resource, writer.isPretty());
-    writer.close();
+    writer.end();
   }
 
   /**
@@ -123,7 +123,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
     writer.setPretty(style == OutputStyle.PRETTY);
     writer.start();
     compose(writer, resource, htmlPretty);
-    writer.close();
+    writer.end();
   }
 
   
@@ -136,7 +136,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
     xml.start();
     xml.setDefaultNamespace(FHIR_NS);
     composeType(Utilities.noString(rootName) ? "value" : rootName, type);
-    xml.close();
+    xml.end();
   }
 
   @Override
@@ -146,7 +146,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
     xml.start();
     xml.setDefaultNamespace(FHIR_NS);
     composeType(Utilities.noString(rootName) ? "value" : rootName, type);
-    xml.close();
+    xml.end();
   }
 
 
@@ -320,9 +320,9 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 
 	protected void composeXhtml(String name, XhtmlNode html) throws Exception {
     if (!Utilities.noString(xhtmlMessage)) {
-      xml.open(XhtmlComposer.XHTML_NS, name);
+      xml.enter(XhtmlComposer.XHTML_NS, name);
       xml.comment(xhtmlMessage, false);
-      xml.close(XhtmlComposer.XHTML_NS, name);
+      xml.exit(XhtmlComposer.XHTML_NS, name);
     } else {
 		XhtmlComposer comp = new XhtmlComposer();
 		// name is also found in the html and should the same
@@ -346,9 +346,9 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 
 	
   protected void composeDomainResource(String name, DomainResource res) throws Exception {
-    xml.open(FHIR_NS, name);
+    xml.enter(FHIR_NS, name);
     composeResource(res.getResourceType().toString(), res);
-    xml.close(FHIR_NS, name);
+    xml.exit(FHIR_NS, name);
   }
 
 	protected abstract void composeResource(String name, Resource res) throws Exception;

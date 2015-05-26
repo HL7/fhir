@@ -84,7 +84,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		return typeNames;
 	}
 
-	public void generate(ElementDefn root, String name, Map<String, BindingSpecification> conceptDomains, JavaGenClass clss, ProfiledType cd, Date genDate, String version, boolean isAbstract, Map<String, SearchParameterDefn> map) throws Exception {
+	public void generate(ElementDefn root, String name, JavaGenClass clss, ProfiledType cd, Date genDate, String version, boolean isAbstract, Map<String, SearchParameterDefn> map) throws Exception {
 		typeNames.clear();
 		typeNameStrings.clear();
 		enums.clear();
@@ -204,10 +204,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
 		if (clss != JavaGenClass.Constraint) {
 			for (ElementDefn e : root.getElements()) {
-  			scanNestedTypes(root, root.getName(), e, conceptDomains);
+  			scanNestedTypes(root, root.getName(), e);
 			}
 			for (ElementDefn e : enums) {
-				generateEnum(e, conceptDomains);
+				generateEnum(e);
 			}
 			for (ElementDefn e : strucs) {
 				generateType(e, clss == JavaGenClass.Resource ? JavaGenClass.BackboneElement : JavaGenClass.Structure);
@@ -451,7 +451,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private boolean hasSharedEnums(ElementDefn root) {
     for (ElementDefn e : root.getElements()) {
-      if (isSharedEnum(e.getBindingName()) || hasSharedEnums(e))
+      if ((e.getBinding() != null && isSharedEnum(e.getBinding())) || hasSharedEnums(e))
         return true;
     } 
     return false;
@@ -492,12 +492,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     return false;
   }
 
-	private void generateEnum(ElementDefn e, Map<String, BindingSpecification> conceptDomains) throws Exception {
+	private void generateEnum(ElementDefn e) throws Exception {
 		String tn = typeNames.get(e);
 		String tns = tn.substring(tn.indexOf("<")+1);
 		tns = tns.substring(0, tns.length()-1);
-		BindingSpecification cd = getConceptDomain(conceptDomains, e.getBindingName());
-		if (isSharedEnum(cd.getName()))
+		BindingSpecification cd = e.getBinding();
+		if (isSharedEnum(cd))
 		  return;
 
 		write("    public enum "+tns+" {\r\n");
@@ -802,11 +802,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("      }\r\n\r\n");
   }
 
-  private void scanNestedTypes(ElementDefn root, String path, ElementDefn e, Map<String, BindingSpecification> conceptDomains) throws Exception {
+  private void scanNestedTypes(ElementDefn root, String path, ElementDefn e) throws Exception {
 		String tn = null;
 		if (e.typeCode().equals("code") && e.hasBinding()) {
-			BindingSpecification cd = getConceptDomain(conceptDomains, e.getBindingName());
-			if (cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
+			BindingSpecification cd = e.getBinding();
+			if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
 				tn = getCodeListType(cd.getReference().substring(1));
 				if (!enumNames.contains(tn)) {
 					enumNames.add(tn);
@@ -875,7 +875,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 					typeNames.put(e,  tn);
 					typeNameStrings.add(tn);
 					for (ElementDefn c : e.getElements()) {
-						scanNestedTypes(root, path+getTitle(e.getName()), c, conceptDomains);
+						scanNestedTypes(root, path+getTitle(e.getName()), c);
 					}
 				}
 			}
@@ -918,12 +918,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		return b.toString();
 	}
 
-	private BindingSpecification getConceptDomain(Map<String, BindingSpecification> conceptDomains, String conceptDomain) {
-		for (BindingSpecification cd : conceptDomains.values())
-			if (cd.getName().equals(conceptDomain))
-				return cd;
-		return null;
-	}
 
 	private void generateField(ElementDefn root, ElementDefn e, String indent, int order) throws Exception {
 		String tn = typeNames.get(e);

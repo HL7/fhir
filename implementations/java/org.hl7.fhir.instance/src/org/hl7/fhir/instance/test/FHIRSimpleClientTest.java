@@ -32,7 +32,7 @@ import org.hl7.fhir.instance.model.Observation;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Patient;
-import org.hl7.fhir.instance.model.Patient.AdministrativeGender;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.junit.After;

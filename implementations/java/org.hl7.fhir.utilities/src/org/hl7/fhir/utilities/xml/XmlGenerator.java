@@ -52,9 +52,10 @@ public class XmlGenerator {
 		xml.start();
 		xml.setDefaultNamespace(defaultNamespace);
 
-		xml.open(defaultNamespace, elementName);
+		xml.enter(defaultNamespace, elementName);
 		processContents(element);
-		xml.close();
+		xml.exit();
+		xml.end();
 		xml.flush();
 	}
 	
@@ -74,7 +75,7 @@ public class XmlGenerator {
 		xml.start();
 		xml.setDefaultNamespace(element.getNamespaceURI());
 		processElement(element);
-		xml.flush();
+		xml.end();
 	}
 	
 	private void processContents(Element element) throws Exception {
@@ -107,11 +108,11 @@ public class XmlGenerator {
 			xml.setDefaultNamespace(element.getNamespaceURI());
 
 		processAttributes(element);
-		xml.open(element.getNamespaceURI(), element.getLocalName());
+		xml.enter(element.getNamespaceURI(), element.getLocalName());
 	
 		processContents(element);
 		
-		xml.close();
+		xml.exit();
 	}
 
 	private void processText(Node node) throws Exception {

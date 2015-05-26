@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -486,16 +486,16 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       section.triple("fhir:"+tn+"."+en, "rdfs:range", "fhir:"+r.getDeclaredTypeName());        
     } else {
       if (e.hasBinding()) {
-        BindingSpecification bs = definitions.getBindingByName(e.getBindingName());
-        if (bs.getReferredValueSet() != null) {
-          String bn = getPNameForUri(bs.getReferredValueSet().getUrl());
-          if (bs.getStrength() == BindingStrength.REQUIRED && bs.getBinding() == Binding.CodeList && tr.getName().equals("code") && bs.getReferredValueSet().hasDefine())
-            section.triple("fhir:"+tn+"."+en, "rdfs:range", getPNameForUri(bs.getReferredValueSet().getDefine().getSystem()));
+        BindingSpecification bs = e.getBinding();
+        if (bs.getValueSet() != null) {
+          String bn = getPNameForUri(bs.getValueSet().getUrl());
+          if (bs.getStrength() == BindingStrength.REQUIRED && bs.getBinding() == BindingMethod.CodeList && tr.getName().equals("code") && bs.getValueSet().hasDefine())
+            section.triple("fhir:"+tn+"."+en, "rdfs:range", getPNameForUri(bs.getValueSet().getDefine().getSystem()));
           else
             section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
           section.triple("fhir:"+tn+"."+en, "fhir:binding", bn);
           if (!bn.startsWith("vs:")) // a v3 valueset
-          valuesets.put(bn, bs.getReferredValueSet());
+          valuesets.put(bn, bs.getValueSet());
         } else if (!Utilities.noString(bs.getReference())) {
           section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
           section.triple("fhir:"+tn+"."+en, "fhir:binding", "<"+bs.getReference()+">");

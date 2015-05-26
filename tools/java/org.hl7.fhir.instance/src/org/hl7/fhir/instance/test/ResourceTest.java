@@ -64,6 +64,7 @@ public class ResourceTest {
     JsonParser json1 = new JsonParser();
     json1.setOutputStyle(OutputStyle.PRETTY);
     json1.compose(out, rf);
+    out.close();
 
     JsonParser json = new JsonParser();
     rf = json.parse(new FileInputStream(source.getAbsoluteFile()+".out.json"));
@@ -72,6 +73,7 @@ public class ResourceTest {
     XmlParser atom = new XmlParser(); 
     atom.setOutputStyle(OutputStyle.PRETTY);
     atom.compose(out, rf, true);
+    out.close();
     
   }
 

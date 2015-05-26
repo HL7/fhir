@@ -38,7 +38,7 @@ public class EMFStructureGenerator extends EMFBase {
 		return typeNames;
 	}
 
-	public void generate(ElementDefn root, String name, Map<String, BindingSpecification> conceptDomains, OOGenClass clss, ProfiledType cd) throws Exception {
+	public void generate(ElementDefn root, String name, OOGenClass clss, ProfiledType cd) throws Exception {
 		typeNames.clear();
 		typeNameStrings.clear();
 		enums.clear();
@@ -62,10 +62,10 @@ public class EMFStructureGenerator extends EMFBase {
 		if (clss != OOGenClass.Constraint) {
 			for (ElementDefn e : root.getElements()) {
 				if (clss != OOGenClass.Resource || (!e.getName().equals("extension") && !e.getName().equals("text")))
-					scanNestedTypes(root, root.getName(), e, conceptDomains);
+					scanNestedTypes(root, root.getName(), e);
 			}
 			for (ElementDefn e : enums) {
-				generateEnum(e, conceptDomains);
+				generateEnum(e);
 			}
 			for (ElementDefn e : strucs) {
 				generateType(e, clss == OOGenClass.Resource ? OOGenClass.BackboneElement : OOGenClass.Structure);
@@ -85,10 +85,10 @@ public class EMFStructureGenerator extends EMFBase {
 		return name.substring(0,1).toUpperCase()+name.substring(1);
 	}
 
-	private void generateEnum(ElementDefn e, Map<String, BindingSpecification> conceptDomains) throws Exception {
+	private void generateEnum(ElementDefn e) throws Exception {
 		String tn = typeNames.get(e);
 		String tns = tn.substring(tn.indexOf("<")+1);
-		BindingSpecification cd = getConceptDomain(conceptDomains, e.getBindingName());
+		BindingSpecification cd = e.getBinding();
 
 		write("    enum "+tns+" {", cd.getDefinition());
     write("      0 : Null = \"Missing in instance\";");
@@ -144,11 +144,11 @@ public class EMFStructureGenerator extends EMFBase {
     write("");
 	}
 
-  private void scanNestedTypes(ElementDefn root, String path, ElementDefn e, Map<String, BindingSpecification> conceptDomains) throws Exception {
+  private void scanNestedTypes(ElementDefn root, String path, ElementDefn e) throws Exception {
 		String tn = null;
 		if (e.typeCode().equals("code") && e.hasBinding()) {
-			BindingSpecification cd = getConceptDomain(conceptDomains, e.getBindingName());
-			if (cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
+			BindingSpecification cd = e.getBinding();
+			if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
 				tn = getCodeListType(cd.getReference().substring(1));
 				if (!enumNames.contains(tn)) {
 					enumNames.add(tn);
@@ -193,7 +193,7 @@ public class EMFStructureGenerator extends EMFBase {
 					typeNames.put(e,  tn);
 					typeNameStrings.add(tn);
 					for (ElementDefn c : e.getElements()) {
-						scanNestedTypes(root, path+getTitle(e.getName()), c, conceptDomains);
+						scanNestedTypes(root, path+getTitle(e.getName()), c);
 					}
 				}
 			}

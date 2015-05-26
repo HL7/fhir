@@ -7002,7 +7002,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of a parameter</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">operation-definition-parameter-type</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-operation-parameter-type</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>

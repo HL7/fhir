@@ -55,7 +55,7 @@ public class ElementDefn {
 
 	private Map<String, String> mappings = new HashMap<String, String>();
 	// private String id;
-	private String bindingName;
+	private BindingSpecification binding;
 	private String umlDir;
   private boolean umlBreak;
   private int svgLeft;
@@ -88,6 +88,8 @@ public class ElementDefn {
 	private boolean isCoveredByExample; // true if an example has hit this
 	private String displayHint; // hits for generated narrative
 	private String w5;
+	private boolean noBindingAllowed; // note to validator 
+	
 	public ElementDefn() {
 		super();
 	  svgLeft = MAX_NEG;
@@ -108,7 +110,7 @@ public class ElementDefn {
 		mustSupport = pattern.mustSupport;
 
 		
-		bindingName = pattern.bindingName;
+		binding = pattern.binding;
 		name = pattern.name;
 		shortDefn = pattern.shortDefn;
 		definition = pattern.definition;
@@ -314,12 +316,12 @@ public class ElementDefn {
 		return null;
 	}
 
-	public String getBindingName() {
-		return bindingName;
+	public BindingSpecification getBinding() {
+		return binding;
 	}
 
-	public void setBindingName(String conceptDomain) {
-		this.bindingName = conceptDomain;
+	public void setBinding(BindingSpecification binding) {
+		this.binding = binding;
 	}
 
 	// public String getId() {
@@ -378,11 +380,7 @@ public class ElementDefn {
 	}
 
   public boolean hasBinding() {
-    return bindingName != null && !bindingName.equals("") && !bindingName.equals("!");
-  }
-
-  public boolean hasBindingOrOk() {
-    return bindingName != null && !bindingName.equals("");
+    return binding != null;
   }
 
 	// If an element with children explicitly declares a typename
@@ -636,10 +634,6 @@ public class ElementDefn {
       return comments != null && !"".equals(comments);
     }
 
-    public boolean hasBindingName() {
-      return bindingName != null && !"".equals(bindingName);
-    }
-
     public boolean hasMapping(String name) {
       return mappings.containsKey(name);
     }
@@ -841,6 +835,14 @@ public class ElementDefn {
 
   public boolean getMustSupport() {
     return mustSupport == null ? false: mustSupport;
+  }
+
+  public boolean isNoBindingAllowed() {
+    return noBindingAllowed;
+  }
+
+  public void setNoBindingAllowed(boolean noBindingAllowed) {
+    this.noBindingAllowed = noBindingAllowed;
   }	
   
 }

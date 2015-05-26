@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-12-05T02:47:57Z</LastSaved>
+  <LastSaved>2015-05-25T02:22:25Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,7 +24,7 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3939,7 +3939,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7930,19 +7929,19 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">ConditionKind</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Identification of the Condition or diagnosis. </Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">http://hl7.org/fhir/vs/condition-code</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s153"/>
@@ -8333,6 +8332,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8353,7 +8353,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8366,7 +8366,7 @@
    <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C4:R30C4</Range>
+   <Range>R4C4,R6C4:R30C4</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y&quot;</Value>
@@ -8382,7 +8382,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C1:R30C13,R2C3,R3C1:R3C3,R2C5:R3C13</Range>
+   <Range>R4C1:R4C13,R2C3,R3C1:R3C3,R2C5:R3C13,R6C1:R30C13,R5C1:R5C3,R5C5:R5C13</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8424,7 +8424,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C1:R30C13,R2C3,R3C1:R3C3,R2C5:R3C13</Range>
+   <Range>R4C1:R4C13,R2C3,R3C1:R3C3,R2C5:R3C13,R6C1:R30C13,R5C1:R5C3,R5C5:R5C13</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>

@@ -220,10 +220,10 @@ public class XhtmlComposer {
   private void composeElement(IXMLWriter xml, XhtmlNode node) throws Exception {
     for (String n : node.getAttributes().keySet())
       xml.attribute(n, node.getAttributes().get(n));
-    xml.open(XHTML_NS, node.getName());
+    xml.enter(XHTML_NS, node.getName());
     for (XhtmlNode n : node.getChildNodes())
       compose(xml, n);
-    xml.close(XHTML_NS, node.getName());
+    xml.exit(XHTML_NS, node.getName());
   }
 
   public String composePlainText(XhtmlNode x) {

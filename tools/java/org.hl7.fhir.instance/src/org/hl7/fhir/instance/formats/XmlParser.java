@@ -10103,9 +10103,9 @@ public class XmlParser extends XmlParserBase {
       if (value.getValue() != null) 
         xml.attribute("value", e.toCode(value.getValue()));
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10115,9 +10115,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10127,9 +10127,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10139,9 +10139,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10151,9 +10151,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10163,9 +10163,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10175,9 +10175,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10187,9 +10187,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10199,9 +10199,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10211,9 +10211,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10223,9 +10223,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10235,9 +10235,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10247,9 +10247,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10259,9 +10259,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10271,9 +10271,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10283,9 +10283,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10295,9 +10295,9 @@ public class XmlParser extends XmlParserBase {
       if (value.asStringValue() != null) 
         xml.attribute("value", value.asStringValue());
         
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(value);
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }    
   }    
 
@@ -10306,32 +10306,32 @@ public class XmlParser extends XmlParserBase {
       composeElementAttributes(element);
       if (element.hasUrlElement())
         xml.attribute("url", element.getUrlElement().getValue());
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasValue()) {
         composeType("value", element.getValue());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNarrative(String name, Narrative element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new Narrative.NarrativeStatusEnumFactory());
       if (element.hasDiv()) {
         composeXhtml("div", element.getDiv());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePeriod(String name, Period element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasStartElement()) {
         composeDateTime("start", element.getStartElement());
@@ -10339,14 +10339,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEndElement()) {
         composeDateTime("end", element.getEndElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCoding(String name, Coding element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -10363,14 +10363,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPrimaryElement()) {
         composeBoolean("primary", element.getPrimaryElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeRange(String name, Range element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasLow()) {
         composeQuantity("low", element.getLow());
@@ -10378,14 +10378,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasHigh()) {
         composeQuantity("high", element.getHigh());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeQuantity(String name, Quantity element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
@@ -10401,14 +10401,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAttachment(String name, Attachment element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasContentTypeElement()) {
         composeCode("contentType", element.getContentTypeElement());
@@ -10434,14 +10434,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCreationElement()) {
         composeDateTime("creation", element.getCreationElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeRatio(String name, Ratio element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasNumerator()) {
         composeQuantity("numerator", element.getNumerator());
@@ -10449,14 +10449,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDenominator()) {
         composeQuantity("denominator", element.getDenominator());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSampledData(String name, SampledData element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasOrigin()) {
         composeQuantity("origin", element.getOrigin());
@@ -10479,14 +10479,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDataElement()) {
         composeString("data", element.getDataElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeReference(String name, Reference element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasReferenceElement()) {
         composeString("reference", element.getReferenceElement());
@@ -10494,14 +10494,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDisplayElement()) {
         composeString("display", element.getDisplayElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCodeableConcept(String name, CodeableConcept element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasCoding()) { 
         for (Coding e : element.getCoding()) 
@@ -10510,14 +10510,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeIdentifier(String name, Identifier element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasUseElement())
         composeEnumeration("use", element.getUseElement(), new Identifier.IdentifierUseEnumFactory());
@@ -10536,14 +10536,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAssigner()) {
         composeReference("assigner", element.getAssigner());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSignature(String name, Signature element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasType()) { 
         for (Coding e : element.getType()) 
@@ -10557,14 +10557,14 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasBlobElement()) {
         composeBase64Binary("blob", element.getBlobElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAge(String name, Age element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
@@ -10580,14 +10580,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCount(String name, Count element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
@@ -10603,14 +10603,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMoney(String name, Money element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
@@ -10626,14 +10626,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDistance(String name, Distance element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
@@ -10649,14 +10649,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDuration(String name, Duration element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
@@ -10672,14 +10672,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeElementDefinition(String name, ElementDefinition element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasPathElement()) {
         composeString("path", element.getPathElement());
@@ -10767,14 +10767,14 @@ public class XmlParser extends XmlParserBase {
         for (ElementDefinition.ElementDefinitionMappingComponent e : element.getMapping()) 
           composeElementDefinitionElementDefinitionMappingComponent("mapping", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeElementDefinitionElementDefinitionSlicingComponent(String name, ElementDefinition.ElementDefinitionSlicingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasDiscriminator()) { 
         for (StringType e : element.getDiscriminator()) 
@@ -10788,14 +10788,14 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRulesElement())
         composeEnumeration("rules", element.getRulesElement(), new ElementDefinition.ResourceSlicingRulesEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeElementDefinitionTypeRefComponent(String name, ElementDefinition.TypeRefComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
@@ -10806,14 +10806,14 @@ public class XmlParser extends XmlParserBase {
         if (element.hasAggregation()) 
           for (Enumeration<ElementDefinition.ResourceAggregationMode> e : element.getAggregation()) 
             composeEnumeration("aggregation", e, new ElementDefinition.ResourceAggregationModeEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeElementDefinitionElementDefinitionConstraintComponent(String name, ElementDefinition.ElementDefinitionConstraintComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasKeyElement()) {
         composeId("key", element.getKeyElement());
@@ -10829,14 +10829,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasXpathElement()) {
         composeString("xpath", element.getXpathElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeElementDefinitionElementDefinitionBindingComponent(String name, ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -10848,14 +10848,14 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasValueSet()) {
         composeType("valueSet", element.getValueSet());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeElementDefinitionElementDefinitionMappingComponent(String name, ElementDefinition.ElementDefinitionMappingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasIdentityElement()) {
         composeId("identity", element.getIdentityElement());
@@ -10866,14 +10866,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMapElement()) {
         composeString("map", element.getMapElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTiming(String name, Timing element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasEvent()) { 
         for (DateTimeType e : element.getEvent()) 
@@ -10885,14 +10885,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTimingTimingRepeatComponent(String name, Timing.TimingRepeatComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasBounds()) {
         composePeriod("bounds", element.getBounds());
@@ -10921,14 +10921,14 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("periodUnits", element.getPeriodUnitsElement(), new Timing.UnitsOfTimeEnumFactory());
       if (element.hasWhenElement())
         composeEnumeration("when", element.getWhenElement(), new Timing.EventTimingEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAddress(String name, Address element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasUseElement())
         composeEnumeration("use", element.getUseElement(), new Address.AddressUseEnumFactory());
@@ -10954,14 +10954,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeHumanName(String name, HumanName element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasUseElement())
         composeEnumeration("use", element.getUseElement(), new HumanName.NameUseEnumFactory());
@@ -10987,14 +10987,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMeta(String name, Meta element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasVersionIdElement()) {
         composeId("versionId", element.getVersionIdElement());
@@ -11014,14 +11014,14 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getTag()) 
           composeCoding("tag", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContactPoint(String name, ContactPoint element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasSystemElement())
         composeEnumeration("system", element.getSystemElement(), new ContactPoint.ContactPointSystemEnumFactory());
@@ -11033,27 +11033,27 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeParameters(String name, Parameters element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeResourceElements(element);
       if (element.hasParameter()) { 
         for (Parameters.ParametersParameterComponent e : element.getParameter()) 
           composeParametersParametersParameterComponent("parameter", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeParametersParametersParameterComponent(String name, Parameters.ParametersParameterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -11061,22 +11061,22 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValue()) {
         composeType("value", element.getValue());
       }      if (element.hasResource()) {
-        xml.open(FHIR_NS, "resource");
+        xml.enter(FHIR_NS, "resource");
         composeResource(element.getResource());
-        xml.close(FHIR_NS, "resource");
+        xml.exit(FHIR_NS, "resource");
       }
       if (element.hasPart()) { 
         for (Parameters.ParametersParameterPartComponent e : element.getPart()) 
           composeParametersParametersParameterPartComponent("part", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeParametersParametersParameterPartComponent(String name, Parameters.ParametersParameterPartComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -11084,11 +11084,11 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValue()) {
         composeType("value", element.getValue());
       }      if (element.hasResource()) {
-        xml.open(FHIR_NS, "resource");
+        xml.enter(FHIR_NS, "resource");
         composeResource(element.getResource());
-        xml.close(FHIR_NS, "resource");
+        xml.exit(FHIR_NS, "resource");
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
@@ -11122,9 +11122,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasContained()) { 
         for (Resource e : element.getContained()) 
         {
-          xml.open(FHIR_NS, "contained");
+          xml.enter(FHIR_NS, "contained");
           composeResource(e);
-          xml.close(FHIR_NS, "contained");
+          xml.exit(FHIR_NS, "contained");
         }
       }
       if (element.hasExtension()) 
@@ -11139,7 +11139,7 @@ public class XmlParser extends XmlParserBase {
   protected void composeAllergyIntolerance(String name, AllergyIntolerance element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -11178,14 +11178,14 @@ public class XmlParser extends XmlParserBase {
         for (AllergyIntolerance.AllergyIntoleranceEventComponent e : element.getEvent()) 
           composeAllergyIntoleranceAllergyIntoleranceEventComponent("event", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAllergyIntoleranceAllergyIntoleranceEventComponent(String name, AllergyIntolerance.AllergyIntoleranceEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSubstance()) {
         composeCodeableConcept("substance", element.getSubstance());
@@ -11213,14 +11213,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentElement()) {
         composeString("comment", element.getCommentElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAppointment(String name, Appointment element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -11260,14 +11260,14 @@ public class XmlParser extends XmlParserBase {
         for (Appointment.AppointmentParticipantComponent e : element.getParticipant()) 
           composeAppointmentAppointmentParticipantComponent("participant", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAppointmentAppointmentParticipantComponent(String name, Appointment.AppointmentParticipantComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) { 
         for (CodeableConcept e : element.getType()) 
@@ -11280,14 +11280,14 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("required", element.getRequiredElement(), new Appointment.ParticipantrequiredEnumFactory());
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new Appointment.ParticipationstatusEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAppointmentResponse(String name, AppointmentResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -11314,14 +11314,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEndElement()) {
         composeInstant("end", element.getEndElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAuditEvent(String name, AuditEvent element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasEvent()) {
         composeAuditEventAuditEventEventComponent("event", element.getEvent());
@@ -11337,14 +11337,14 @@ public class XmlParser extends XmlParserBase {
         for (AuditEvent.AuditEventObjectComponent e : element.getObject()) 
           composeAuditEventAuditEventObjectComponent("object", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAuditEventAuditEventEventComponent(String name, AuditEvent.AuditEventEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -11367,14 +11367,14 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getPurposeOfEvent()) 
           composeCoding("purposeOfEvent", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAuditEventAuditEventParticipantComponent(String name, AuditEvent.AuditEventParticipantComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasRole()) { 
         for (CodeableConcept e : element.getRole()) 
@@ -11412,28 +11412,28 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getPurposeOfUse()) 
           composeCoding("purposeOfUse", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAuditEventAuditEventParticipantNetworkComponent(String name, AuditEvent.AuditEventParticipantNetworkComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifierElement()) {
         composeString("identifier", element.getIdentifierElement());
       }
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new AuditEvent.NetworkTypeEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAuditEventAuditEventSourceComponent(String name, AuditEvent.AuditEventSourceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSiteElement()) {
         composeString("site", element.getSiteElement());
@@ -11445,14 +11445,14 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getType()) 
           composeCoding("type", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAuditEventAuditEventObjectComponent(String name, AuditEvent.AuditEventObjectComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -11482,14 +11482,14 @@ public class XmlParser extends XmlParserBase {
         for (AuditEvent.AuditEventObjectDetailComponent e : element.getDetail()) 
           composeAuditEventAuditEventObjectDetailComponent("detail", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeAuditEventAuditEventObjectDetailComponent(String name, AuditEvent.AuditEventObjectDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement()) {
         composeString("type", element.getTypeElement());
@@ -11497,14 +11497,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeBase64Binary("value", element.getValueElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeBasic(String name, Basic element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -11522,14 +11522,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCreatedElement()) {
         composeDate("created", element.getCreatedElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeBinary(String name, Binary element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeResourceElements(element);
       if (element.hasContentTypeElement()) {
         composeCode("contentType", element.getContentTypeElement());
@@ -11537,14 +11537,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasContentElement()) {
         composeBase64Binary("content", element.getContentElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeBodySite(String name, BodySite element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
@@ -11567,14 +11567,14 @@ public class XmlParser extends XmlParserBase {
         for (Attachment e : element.getImage()) 
           composeAttachment("image", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeBundle(String name, Bundle element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeResourceElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new Bundle.BundleTypeEnumFactory());
@@ -11595,14 +11595,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSignatureElement()) {
         composeBase64Binary("signature", element.getSignatureElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeBundleBundleLinkComponent(String name, Bundle.BundleLinkComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasRelationElement()) {
         composeString("relation", element.getRelationElement());
@@ -11610,14 +11610,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeBundleBundleEntryComponent(String name, Bundle.BundleEntryComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasBaseElement()) {
         composeUri("base", element.getBaseElement());
@@ -11627,9 +11627,9 @@ public class XmlParser extends XmlParserBase {
           composeBundleBundleLinkComponent("link", e);
       }
       if (element.hasResource()) {
-        xml.open(FHIR_NS, "resource");
+        xml.enter(FHIR_NS, "resource");
         composeResource(element.getResource());
-        xml.close(FHIR_NS, "resource");
+        xml.exit(FHIR_NS, "resource");
       }
       if (element.hasSearch()) {
         composeBundleBundleEntrySearchComponent("search", element.getSearch());
@@ -11640,28 +11640,28 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTransactionResponse()) {
         composeBundleBundleEntryTransactionResponseComponent("transactionResponse", element.getTransactionResponse());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeBundleBundleEntrySearchComponent(String name, Bundle.BundleEntrySearchComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasModeElement())
         composeEnumeration("mode", element.getModeElement(), new Bundle.SearchEntryModeEnumFactory());
       if (element.hasScoreElement()) {
         composeDecimal("score", element.getScoreElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeBundleBundleEntryTransactionComponent(String name, Bundle.BundleEntryTransactionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasMethodElement())
         composeEnumeration("method", element.getMethodElement(), new Bundle.HttpVerbEnumFactory());
@@ -11680,14 +11680,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIfNoneExistElement()) {
         composeString("ifNoneExist", element.getIfNoneExistElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeBundleBundleEntryTransactionResponseComponent(String name, Bundle.BundleEntryTransactionResponseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasStatusElement()) {
         composeString("status", element.getStatusElement());
@@ -11701,14 +11701,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLastModifiedElement()) {
         composeInstant("lastModified", element.getLastModifiedElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCarePlan(String name, CarePlan element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -11756,14 +11756,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNotesElement()) {
         composeString("notes", element.getNotesElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCarePlanCarePlanParticipantComponent(String name, CarePlan.CarePlanParticipantComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasRole()) {
         composeCodeableConcept("role", element.getRole());
@@ -11771,14 +11771,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMember()) {
         composeReference("member", element.getMember());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCarePlanCarePlanActivityComponent(String name, CarePlan.CarePlanActivityComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasActionResulting()) { 
         for (Reference e : element.getActionResulting()) 
@@ -11793,14 +11793,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDetail()) {
         composeCarePlanCarePlanActivityDetailComponent("detail", element.getDetail());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCarePlanCarePlanActivityDetailComponent(String name, CarePlan.CarePlanActivityDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCategoryElement())
         composeEnumeration("category", element.getCategoryElement(), new CarePlan.CarePlanActivityCategoryEnumFactory());
@@ -11842,14 +11842,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNoteElement()) {
         composeString("note", element.getNoteElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaim(String name, Claim element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new Claim.TypeLinkEnumFactory());
@@ -11945,14 +11945,14 @@ public class XmlParser extends XmlParserBase {
         for (Claim.MissingTeethComponent e : element.getMissingTeeth()) 
           composeClaimMissingTeethComponent("missingTeeth", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimPayeeComponent(String name, Claim.PayeeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCoding("type", element.getType());
@@ -11966,14 +11966,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPerson()) {
         composeReference("person", element.getPerson());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimDiagnosisComponent(String name, Claim.DiagnosisComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceElement()) {
         composePositiveInt("sequence", element.getSequenceElement());
@@ -11981,14 +11981,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDiagnosis()) {
         composeCoding("diagnosis", element.getDiagnosis());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimCoverageComponent(String name, Claim.CoverageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceElement()) {
         composePositiveInt("sequence", element.getSequenceElement());
@@ -12015,14 +12015,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasOriginalRuleset()) {
         composeCoding("originalRuleset", element.getOriginalRuleset());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimItemsComponent(String name, Claim.ItemsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceElement()) {
         composePositiveInt("sequence", element.getSequenceElement());
@@ -12079,14 +12079,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasProsthesis()) {
         composeClaimProsthesisComponent("prosthesis", element.getProsthesis());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimDetailComponent(String name, Claim.DetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceElement()) {
         composePositiveInt("sequence", element.getSequenceElement());
@@ -12119,14 +12119,14 @@ public class XmlParser extends XmlParserBase {
         for (Claim.SubDetailComponent e : element.getSubDetail()) 
           composeClaimSubDetailComponent("subDetail", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimSubDetailComponent(String name, Claim.SubDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceElement()) {
         composePositiveInt("sequence", element.getSequenceElement());
@@ -12155,14 +12155,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUdi()) {
         composeCoding("udi", element.getUdi());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimProsthesisComponent(String name, Claim.ProsthesisComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasInitialElement()) {
         composeBoolean("initial", element.getInitialElement());
@@ -12173,14 +12173,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPriorMaterial()) {
         composeCoding("priorMaterial", element.getPriorMaterial());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimMissingTeethComponent(String name, Claim.MissingTeethComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTooth()) {
         composeCoding("tooth", element.getTooth());
@@ -12191,14 +12191,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExtractionDateElement()) {
         composeDate("extractionDate", element.getExtractionDateElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponse(String name, ClaimResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -12283,14 +12283,14 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.CoverageComponent e : element.getCoverage()) 
           composeClaimResponseCoverageComponent("coverage", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseItemsComponent(String name, ClaimResponse.ItemsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceLinkIdElement()) {
         composePositiveInt("sequenceLinkId", element.getSequenceLinkIdElement());
@@ -12307,14 +12307,14 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.ItemDetailComponent e : element.getDetail()) 
           composeClaimResponseItemDetailComponent("detail", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseItemAdjudicationComponent(String name, ClaimResponse.ItemAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -12325,14 +12325,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseItemDetailComponent(String name, ClaimResponse.ItemDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceLinkIdElement()) {
         composePositiveInt("sequenceLinkId", element.getSequenceLinkIdElement());
@@ -12345,14 +12345,14 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.SubDetailComponent e : element.getSubDetail()) 
           composeClaimResponseSubDetailComponent("subDetail", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseDetailAdjudicationComponent(String name, ClaimResponse.DetailAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -12363,14 +12363,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseSubDetailComponent(String name, ClaimResponse.SubDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceLinkIdElement()) {
         composePositiveInt("sequenceLinkId", element.getSequenceLinkIdElement());
@@ -12379,14 +12379,14 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.SubdetailAdjudicationComponent e : element.getAdjudication()) 
           composeClaimResponseSubdetailAdjudicationComponent("adjudication", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseSubdetailAdjudicationComponent(String name, ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -12397,14 +12397,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseAddedItemComponent(String name, ClaimResponse.AddedItemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceLinkId()) { 
         for (PositiveIntType e : element.getSequenceLinkId()) 
@@ -12428,14 +12428,14 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.AddedItemsDetailComponent e : element.getDetail()) 
           composeClaimResponseAddedItemsDetailComponent("detail", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseAddedItemAdjudicationComponent(String name, ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -12446,14 +12446,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseAddedItemsDetailComponent(String name, ClaimResponse.AddedItemsDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasService()) {
         composeCoding("service", element.getService());
@@ -12465,14 +12465,14 @@ public class XmlParser extends XmlParserBase {
         for (ClaimResponse.AddedItemDetailAdjudicationComponent e : element.getAdjudication()) 
           composeClaimResponseAddedItemDetailAdjudicationComponent("adjudication", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseAddedItemDetailAdjudicationComponent(String name, ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -12483,14 +12483,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDecimal("value", element.getValueElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseErrorsComponent(String name, ClaimResponse.ErrorsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceLinkIdElement()) {
         composePositiveInt("sequenceLinkId", element.getSequenceLinkIdElement());
@@ -12504,14 +12504,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseNotesComponent(String name, ClaimResponse.NotesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNumberElement()) {
         composePositiveInt("number", element.getNumberElement());
@@ -12522,14 +12522,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClaimResponseCoverageComponent(String name, ClaimResponse.CoverageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceElement()) {
         composePositiveInt("sequence", element.getSequenceElement());
@@ -12556,14 +12556,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasOriginalRuleset()) {
         composeCoding("originalRuleset", element.getOriginalRuleset());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClinicalImpression(String name, ClinicalImpression element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
@@ -12621,14 +12621,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getAction()) 
           composeReference("action", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClinicalImpressionClinicalImpressionInvestigationsComponent(String name, ClinicalImpression.ClinicalImpressionInvestigationsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -12637,14 +12637,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getItem()) 
           composeReference("item", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClinicalImpressionClinicalImpressionFindingComponent(String name, ClinicalImpression.ClinicalImpressionFindingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasItem()) {
         composeCodeableConcept("item", element.getItem());
@@ -12652,14 +12652,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCauseElement()) {
         composeString("cause", element.getCauseElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeClinicalImpressionClinicalImpressionRuledOutComponent(String name, ClinicalImpression.ClinicalImpressionRuledOutComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasItem()) {
         composeCodeableConcept("item", element.getItem());
@@ -12667,14 +12667,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReasonElement()) {
         composeString("reason", element.getReasonElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCommunication(String name, Communication element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -12716,25 +12716,25 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCommunicationCommunicationPayloadComponent(String name, Communication.CommunicationPayloadComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCommunicationRequest(String name, CommunicationRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -12782,25 +12782,25 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPriority()) {
         composeCodeableConcept("priority", element.getPriority());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCommunicationRequestCommunicationRequestPayloadComponent(String name, CommunicationRequest.CommunicationRequestPayloadComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeComposition(String name, Composition element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -12847,14 +12847,14 @@ public class XmlParser extends XmlParserBase {
         for (Composition.SectionComponent e : element.getSection()) 
           composeCompositionSectionComponent("section", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCompositionCompositionAttesterComponent(String name, Composition.CompositionAttesterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
         if (element.hasMode()) 
           for (Enumeration<Composition.CompositionAttestationMode> e : element.getMode()) 
@@ -12865,14 +12865,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasParty()) {
         composeReference("party", element.getParty());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCompositionCompositionEventComponent(String name, Composition.CompositionEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) { 
         for (CodeableConcept e : element.getCode()) 
@@ -12885,14 +12885,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getDetail()) 
           composeReference("detail", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCompositionSectionComponent(String name, Composition.SectionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTitleElement()) {
         composeString("title", element.getTitleElement());
@@ -12907,14 +12907,14 @@ public class XmlParser extends XmlParserBase {
         for (Composition.SectionComponent e : element.getSection()) 
           composeCompositionSectionComponent("section", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConceptMap(String name, ConceptMap element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
@@ -12964,14 +12964,14 @@ public class XmlParser extends XmlParserBase {
         for (ConceptMap.ConceptMapElementComponent e : element.getElement()) 
           composeConceptMapConceptMapElementComponent("element", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConceptMapConceptMapContactComponent(String name, ConceptMap.ConceptMapContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -12980,14 +12980,14 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConceptMapConceptMapElementComponent(String name, ConceptMap.ConceptMapElementComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCodeSystemElement()) {
         composeUri("codeSystem", element.getCodeSystemElement());
@@ -13003,14 +13003,14 @@ public class XmlParser extends XmlParserBase {
         for (ConceptMap.ConceptMapElementMapComponent e : element.getMap()) 
           composeConceptMapConceptMapElementMapComponent("map", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConceptMapOtherElementComponent(String name, ConceptMap.OtherElementComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasElementElement()) {
         composeUri("element", element.getElementElement());
@@ -13021,14 +13021,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeString("code", element.getCodeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConceptMapConceptMapElementMapComponent(String name, ConceptMap.ConceptMapElementMapComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCodeSystemElement()) {
         composeUri("codeSystem", element.getCodeSystemElement());
@@ -13045,14 +13045,14 @@ public class XmlParser extends XmlParserBase {
         for (ConceptMap.OtherElementComponent e : element.getProduct()) 
           composeConceptMapOtherElementComponent("product", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCondition(String name, Condition element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -13107,14 +13107,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNotesElement()) {
         composeString("notes", element.getNotesElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConditionConditionStageComponent(String name, Condition.ConditionStageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSummary()) {
         composeCodeableConcept("summary", element.getSummary());
@@ -13123,14 +13123,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getAssessment()) 
           composeReference("assessment", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConditionConditionEvidenceComponent(String name, Condition.ConditionEvidenceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -13139,25 +13139,25 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getDetail()) 
           composeReference("detail", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConditionConditionLocationComponent(String name, Condition.ConditionLocationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSite()) {
         composeType("site", element.getSite());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConditionConditionDueToComponent(String name, Condition.ConditionDueToComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -13165,14 +13165,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConditionConditionOccurredFollowingComponent(String name, Condition.ConditionOccurredFollowingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -13180,14 +13180,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformance(String name, Conformance element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
@@ -13254,14 +13254,14 @@ public class XmlParser extends XmlParserBase {
         for (Conformance.ConformanceDocumentComponent e : element.getDocument()) 
           composeConformanceConformanceDocumentComponent("document", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceContactComponent(String name, Conformance.ConformanceContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -13270,14 +13270,14 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceSoftwareComponent(String name, Conformance.ConformanceSoftwareComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -13288,14 +13288,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReleaseDateElement()) {
         composeDateTime("releaseDate", element.getReleaseDateElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceImplementationComponent(String name, Conformance.ConformanceImplementationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
@@ -13303,14 +13303,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceRestComponent(String name, Conformance.ConformanceRestComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasModeElement())
         composeEnumeration("mode", element.getModeElement(), new Conformance.RestfulConformanceModeEnumFactory());
@@ -13340,14 +13340,14 @@ public class XmlParser extends XmlParserBase {
         for (UriType e : element.getCompartment()) 
           composeUri("compartment", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceRestSecurityComponent(String name, Conformance.ConformanceRestSecurityComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCorsElement()) {
         composeBoolean("cors", element.getCorsElement());
@@ -13363,14 +13363,14 @@ public class XmlParser extends XmlParserBase {
         for (Conformance.ConformanceRestSecurityCertificateComponent e : element.getCertificate()) 
           composeConformanceConformanceRestSecurityCertificateComponent("certificate", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceRestSecurityCertificateComponent(String name, Conformance.ConformanceRestSecurityCertificateComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement()) {
         composeCode("type", element.getTypeElement());
@@ -13378,14 +13378,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasBlobElement()) {
         composeBase64Binary("blob", element.getBlobElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceRestResourceComponent(String name, Conformance.ConformanceRestResourceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement()) {
         composeCode("type", element.getTypeElement());
@@ -13422,28 +13422,28 @@ public class XmlParser extends XmlParserBase {
         for (Conformance.ConformanceRestResourceSearchParamComponent e : element.getSearchParam()) 
           composeConformanceConformanceRestResourceSearchParamComponent("searchParam", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceResourceInteractionComponent(String name, Conformance.ResourceInteractionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCodeElement())
         composeEnumeration("code", element.getCodeElement(), new Conformance.TypeRestfulInteractionEnumFactory());
       if (element.hasDocumentationElement()) {
         composeString("documentation", element.getDocumentationElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceRestResourceSearchParamComponent(String name, Conformance.ConformanceRestResourceSearchParamComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -13464,28 +13464,28 @@ public class XmlParser extends XmlParserBase {
         for (StringType e : element.getChain()) 
           composeString("chain", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceSystemInteractionComponent(String name, Conformance.SystemInteractionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCodeElement())
         composeEnumeration("code", element.getCodeElement(), new Conformance.SystemRestfulInteractionEnumFactory());
       if (element.hasDocumentationElement()) {
         composeString("documentation", element.getDocumentationElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceRestOperationComponent(String name, Conformance.ConformanceRestOperationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -13493,14 +13493,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDefinition()) {
         composeReference("definition", element.getDefinition());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceMessagingComponent(String name, Conformance.ConformanceMessagingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasEndpointElement()) {
         composeUri("endpoint", element.getEndpointElement());
@@ -13515,14 +13515,14 @@ public class XmlParser extends XmlParserBase {
         for (Conformance.ConformanceMessagingEventComponent e : element.getEvent()) 
           composeConformanceConformanceMessagingEventComponent("event", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceMessagingEventComponent(String name, Conformance.ConformanceMessagingEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -13547,14 +13547,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDocumentationElement()) {
         composeString("documentation", element.getDocumentationElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeConformanceConformanceDocumentComponent(String name, Conformance.ConformanceDocumentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasModeElement())
         composeEnumeration("mode", element.getModeElement(), new Conformance.DocumentModeEnumFactory());
@@ -13564,14 +13564,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasProfile()) {
         composeReference("profile", element.getProfile());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContract(String name, Contract element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -13639,14 +13639,14 @@ public class XmlParser extends XmlParserBase {
         for (Contract.ComputableLanguageComponent e : element.getRule()) 
           composeContractComputableLanguageComponent("rule", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContractActorComponent(String name, Contract.ActorComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasEntity()) {
         composeReference("entity", element.getEntity());
@@ -13655,14 +13655,14 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getRole()) 
           composeCodeableConcept("role", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContractValuedItemComponent(String name, Contract.ValuedItemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasEntity()) {
         composeType("entity", element.getEntity());
@@ -13687,14 +13687,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNet()) {
         composeMoney("net", element.getNet());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContractSignatoryComponent(String name, Contract.SignatoryComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCoding("type", element.getType());
@@ -13705,14 +13705,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSignatureElement()) {
         composeString("signature", element.getSignatureElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContractTermComponent(String name, Contract.TermComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -13755,14 +13755,14 @@ public class XmlParser extends XmlParserBase {
         for (Contract.TermComponent e : element.getGroup()) 
           composeContractTermComponent("group", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContractTermActorComponent(String name, Contract.TermActorComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasEntity()) {
         composeReference("entity", element.getEntity());
@@ -13771,14 +13771,14 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getRole()) 
           composeCodeableConcept("role", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContractTermValuedItemComponent(String name, Contract.TermValuedItemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasEntity()) {
         composeType("entity", element.getEntity());
@@ -13803,47 +13803,47 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNet()) {
         composeMoney("net", element.getNet());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContractFriendlyLanguageComponent(String name, Contract.FriendlyLanguageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContractLegalLanguageComponent(String name, Contract.LegalLanguageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContractComputableLanguageComponent(String name, Contract.ComputableLanguageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContraindication(String name, Contraindication element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
@@ -13877,14 +13877,14 @@ public class XmlParser extends XmlParserBase {
         for (Contraindication.ContraindicationMitigationComponent e : element.getMitigation()) 
           composeContraindicationContraindicationMitigationComponent("mitigation", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeContraindicationContraindicationMitigationComponent(String name, Contraindication.ContraindicationMitigationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasAction()) {
         composeCodeableConcept("action", element.getAction());
@@ -13895,14 +13895,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAuthor()) {
         composeReference("author", element.getAuthor());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeCoverage(String name, Coverage element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIssuer()) {
         composeReference("issuer", element.getIssuer());
@@ -13948,14 +13948,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getContract()) 
           composeReference("contract", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDataElement(String name, DataElement element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
@@ -14001,14 +14001,14 @@ public class XmlParser extends XmlParserBase {
         for (ElementDefinition e : element.getElement()) 
           composeElementDefinition("element", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDataElementDataElementContactComponent(String name, DataElement.DataElementContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -14017,14 +14017,14 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDataElementDataElementMappingComponent(String name, DataElement.DataElementMappingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentityElement()) {
         composeId("identity", element.getIdentityElement());
@@ -14038,14 +14038,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentsElement()) {
         composeString("comments", element.getCommentsElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDevice(String name, Device element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -14093,14 +14093,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDeviceComponent(String name, DeviceComponent element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -14133,14 +14133,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLanguageCode()) {
         composeCodeableConcept("languageCode", element.getLanguageCode());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDeviceComponentDeviceComponentProductionSpecificationComponent(String name, DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSpecType()) {
         composeCodeableConcept("specType", element.getSpecType());
@@ -14151,14 +14151,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasProductionSpecElement()) {
         composeString("productionSpec", element.getProductionSpecElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDeviceMetric(String name, DeviceMetric element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -14188,14 +14188,14 @@ public class XmlParser extends XmlParserBase {
         for (DeviceMetric.DeviceMetricCalibrationComponent e : element.getCalibration()) 
           composeDeviceMetricDeviceMetricCalibrationComponent("calibration", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDeviceMetricDeviceMetricCalibrationComponent(String name, DeviceMetric.DeviceMetricCalibrationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new DeviceMetric.MetricCalibrationTypeEnumFactory());
@@ -14204,14 +14204,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTimeElement()) {
         composeInstant("time", element.getTimeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDeviceUseRequest(String name, DeviceUseRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasBodySite()) {
         composeType("bodySite", element.getBodySite());
@@ -14252,14 +14252,14 @@ public class XmlParser extends XmlParserBase {
         composeType("timing", element.getTiming());
       }      if (element.hasPriorityElement())
         composeEnumeration("priority", element.getPriorityElement(), new DeviceUseRequest.DeviceUseRequestPriorityEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDeviceUseStatement(String name, DeviceUseStatement element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasBodySite()) {
         composeType("bodySite", element.getBodySite());
@@ -14289,14 +14289,14 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasTiming()) {
         composeType("timing", element.getTiming());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDiagnosticOrder(String name, DiagnosticOrder element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
@@ -14334,14 +14334,14 @@ public class XmlParser extends XmlParserBase {
         for (DiagnosticOrder.DiagnosticOrderItemComponent e : element.getItem()) 
           composeDiagnosticOrderDiagnosticOrderItemComponent("item", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDiagnosticOrderDiagnosticOrderEventComponent(String name, DiagnosticOrder.DiagnosticOrderEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory());
@@ -14354,14 +14354,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasActor()) {
         composeReference("actor", element.getActor());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDiagnosticOrderDiagnosticOrderItemComponent(String name, DiagnosticOrder.DiagnosticOrderItemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -14378,14 +14378,14 @@ public class XmlParser extends XmlParserBase {
         for (DiagnosticOrder.DiagnosticOrderEventComponent e : element.getEvent()) 
           composeDiagnosticOrderDiagnosticOrderEventComponent("event", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDiagnosticReport(String name, DiagnosticReport element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasName()) {
         composeCodeableConcept("name", element.getName());
@@ -14444,14 +14444,14 @@ public class XmlParser extends XmlParserBase {
         for (Attachment e : element.getPresentedForm()) 
           composeAttachment("presentedForm", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDiagnosticReportDiagnosticReportImageComponent(String name, DiagnosticReport.DiagnosticReportImageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCommentElement()) {
         composeString("comment", element.getCommentElement());
@@ -14459,14 +14459,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLink()) {
         composeReference("link", element.getLink());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDocumentManifest(String name, DocumentManifest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasMasterIdentifier()) {
         composeIdentifier("masterIdentifier", element.getMasterIdentifier());
@@ -14508,25 +14508,25 @@ public class XmlParser extends XmlParserBase {
         for (DocumentManifest.DocumentManifestRelatedComponent e : element.getRelated()) 
           composeDocumentManifestDocumentManifestRelatedComponent("related", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDocumentManifestDocumentManifestContentComponent(String name, DocumentManifest.DocumentManifestContentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasP()) {
         composeType("p", element.getP());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDocumentManifestDocumentManifestRelatedComponent(String name, DocumentManifest.DocumentManifestRelatedComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -14534,14 +14534,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRef()) {
         composeReference("ref", element.getRef());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDocumentReference(String name, DocumentReference element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasMasterIdentifier()) {
         composeIdentifier("masterIdentifier", element.getMasterIdentifier());
@@ -14602,28 +14602,28 @@ public class XmlParser extends XmlParserBase {
       if (element.hasContext()) {
         composeDocumentReferenceDocumentReferenceContextComponent("context", element.getContext());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDocumentReferenceDocumentReferenceRelatesToComponent(String name, DocumentReference.DocumentReferenceRelatesToComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCodeElement())
         composeEnumeration("code", element.getCodeElement(), new DocumentReference.DocumentRelationshipTypeEnumFactory());
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDocumentReferenceDocumentReferenceContextComponent(String name, DocumentReference.DocumentReferenceContextComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasEvent()) { 
         for (CodeableConcept e : element.getEvent()) 
@@ -14645,14 +14645,14 @@ public class XmlParser extends XmlParserBase {
         for (DocumentReference.DocumentReferenceContextRelatedComponent e : element.getRelated()) 
           composeDocumentReferenceDocumentReferenceContextRelatedComponent("related", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeDocumentReferenceDocumentReferenceContextRelatedComponent(String name, DocumentReference.DocumentReferenceContextRelatedComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -14660,14 +14660,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRef()) {
         composeReference("ref", element.getRef());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEligibilityRequest(String name, EligibilityRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -14691,14 +14691,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasOrganization()) {
         composeReference("organization", element.getOrganization());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEligibilityResponse(String name, EligibilityResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -14730,14 +14730,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRequestOrganization()) {
         composeReference("requestOrganization", element.getRequestOrganization());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEncounter(String name, Encounter element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -14802,28 +14802,28 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPartOf()) {
         composeReference("partOf", element.getPartOf());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEncounterEncounterStatusHistoryComponent(String name, Encounter.EncounterStatusHistoryComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new Encounter.EncounterStateEnumFactory());
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEncounterEncounterParticipantComponent(String name, Encounter.EncounterParticipantComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) { 
         for (CodeableConcept e : element.getType()) 
@@ -14835,14 +14835,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIndividual()) {
         composeReference("individual", element.getIndividual());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEncounterEncounterHospitalizationComponent(String name, Encounter.EncounterHospitalizationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasPreAdmissionIdentifier()) {
         composeIdentifier("preAdmissionIdentifier", element.getPreAdmissionIdentifier());
@@ -14876,14 +14876,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReAdmissionElement()) {
         composeBoolean("reAdmission", element.getReAdmissionElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEncounterEncounterLocationComponent(String name, Encounter.EncounterLocationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLocation()) {
         composeReference("location", element.getLocation());
@@ -14893,14 +14893,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEnrollmentRequest(String name, EnrollmentRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -14933,14 +14933,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRelationship()) {
         composeCoding("relationship", element.getRelationship());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEnrollmentResponse(String name, EnrollmentResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -14972,14 +14972,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRequestOrganization()) {
         composeReference("requestOrganization", element.getRequestOrganization());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEpisodeOfCare(String name, EpisodeOfCare element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -15019,28 +15019,28 @@ public class XmlParser extends XmlParserBase {
         for (EpisodeOfCare.EpisodeOfCareCareTeamComponent e : element.getCareTeam()) 
           composeEpisodeOfCareEpisodeOfCareCareTeamComponent("careTeam", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEpisodeOfCareEpisodeOfCareStatusHistoryComponent(String name, EpisodeOfCare.EpisodeOfCareStatusHistoryComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new EpisodeOfCare.EpisodeOfCareStatusEnumFactory());
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeEpisodeOfCareEpisodeOfCareCareTeamComponent(String name, EpisodeOfCare.EpisodeOfCareCareTeamComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasMember()) {
         composeReference("member", element.getMember());
@@ -15052,14 +15052,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeExplanationOfBenefit(String name, ExplanationOfBenefit element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -15091,14 +15091,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRequestOrganization()) {
         composeReference("requestOrganization", element.getRequestOrganization());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeFamilyMemberHistory(String name, FamilyMemberHistory element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -15131,14 +15131,14 @@ public class XmlParser extends XmlParserBase {
         for (FamilyMemberHistory.FamilyMemberHistoryConditionComponent e : element.getCondition()) 
           composeFamilyMemberHistoryFamilyMemberHistoryConditionComponent("condition", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeFamilyMemberHistoryFamilyMemberHistoryConditionComponent(String name, FamilyMemberHistory.FamilyMemberHistoryConditionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -15151,14 +15151,14 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasNoteElement()) {
         composeString("note", element.getNoteElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeFlag(String name, Flag element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -15181,14 +15181,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeGoal(String name, Goal element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -15225,25 +15225,25 @@ public class XmlParser extends XmlParserBase {
         for (Goal.GoalOutcomeComponent e : element.getOutcome()) 
           composeGoalGoalOutcomeComponent("outcome", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeGoalGoalOutcomeComponent(String name, Goal.GoalOutcomeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasResult()) {
         composeType("result", element.getResult());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeGroup(String name, Group element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -15270,14 +15270,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getMember()) 
           composeReference("member", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeGroupGroupCharacteristicComponent(String name, Group.GroupCharacteristicComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -15287,14 +15287,14 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasExcludeElement()) {
         composeBoolean("exclude", element.getExcludeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeHealthcareService(String name, HealthcareService element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -15372,14 +15372,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAvailabilityExceptionsElement()) {
         composeString("availabilityExceptions", element.getAvailabilityExceptionsElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeHealthcareServiceServiceTypeComponent(String name, HealthcareService.ServiceTypeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -15388,14 +15388,14 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getSpecialty()) 
           composeCodeableConcept("specialty", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeHealthcareServiceHealthcareServiceAvailableTimeComponent(String name, HealthcareService.HealthcareServiceAvailableTimeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
         if (element.hasDaysOfWeek()) 
           for (Enumeration<HealthcareService.DaysOfWeek> e : element.getDaysOfWeek()) 
@@ -15409,14 +15409,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAvailableEndTimeElement()) {
         composeTime("availableEndTime", element.getAvailableEndTimeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeHealthcareServiceHealthcareServiceNotAvailableComponent(String name, HealthcareService.HealthcareServiceNotAvailableComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
@@ -15424,14 +15424,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDuring()) {
         composePeriod("during", element.getDuring());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImagingObjectSelection(String name, ImagingObjectSelection element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasUidElement()) {
         composeOid("uid", element.getUidElement());
@@ -15455,14 +15455,14 @@ public class XmlParser extends XmlParserBase {
         for (ImagingObjectSelection.StudyComponent e : element.getStudy()) 
           composeImagingObjectSelectionStudyComponent("study", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImagingObjectSelectionStudyComponent(String name, ImagingObjectSelection.StudyComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasUidElement()) {
         composeOid("uid", element.getUidElement());
@@ -15474,14 +15474,14 @@ public class XmlParser extends XmlParserBase {
         for (ImagingObjectSelection.SeriesComponent e : element.getSeries()) 
           composeImagingObjectSelectionSeriesComponent("series", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImagingObjectSelectionSeriesComponent(String name, ImagingObjectSelection.SeriesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasUidElement()) {
         composeOid("uid", element.getUidElement());
@@ -15493,14 +15493,14 @@ public class XmlParser extends XmlParserBase {
         for (ImagingObjectSelection.InstanceComponent e : element.getInstance()) 
           composeImagingObjectSelectionInstanceComponent("instance", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImagingObjectSelectionInstanceComponent(String name, ImagingObjectSelection.InstanceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSopClassElement()) {
         composeOid("sopClass", element.getSopClassElement());
@@ -15515,14 +15515,14 @@ public class XmlParser extends XmlParserBase {
         for (ImagingObjectSelection.FramesComponent e : element.getFrames()) 
           composeImagingObjectSelectionFramesComponent("frames", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImagingObjectSelectionFramesComponent(String name, ImagingObjectSelection.FramesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasFrameNumbers()) { 
         for (UnsignedIntType e : element.getFrameNumbers()) 
@@ -15531,14 +15531,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImagingStudy(String name, ImagingStudy element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasStartedElement()) {
         composeDateTime("started", element.getStartedElement());
@@ -15594,14 +15594,14 @@ public class XmlParser extends XmlParserBase {
         for (ImagingStudy.ImagingStudySeriesComponent e : element.getSeries()) 
           composeImagingStudyImagingStudySeriesComponent("series", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImagingStudyImagingStudySeriesComponent(String name, ImagingStudy.ImagingStudySeriesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNumberElement()) {
         composeUnsignedInt("number", element.getNumberElement());
@@ -15635,14 +15635,14 @@ public class XmlParser extends XmlParserBase {
         for (ImagingStudy.ImagingStudySeriesInstanceComponent e : element.getInstance()) 
           composeImagingStudyImagingStudySeriesInstanceComponent("instance", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImagingStudyImagingStudySeriesInstanceComponent(String name, ImagingStudy.ImagingStudySeriesInstanceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNumberElement()) {
         composeUnsignedInt("number", element.getNumberElement());
@@ -15663,14 +15663,14 @@ public class XmlParser extends XmlParserBase {
         for (Attachment e : element.getContent()) 
           composeAttachment("content", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImmunization(String name, Immunization element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -15732,14 +15732,14 @@ public class XmlParser extends XmlParserBase {
         for (Immunization.ImmunizationVaccinationProtocolComponent e : element.getVaccinationProtocol()) 
           composeImmunizationImmunizationVaccinationProtocolComponent("vaccinationProtocol", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImmunizationImmunizationExplanationComponent(String name, Immunization.ImmunizationExplanationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasReason()) { 
         for (CodeableConcept e : element.getReason()) 
@@ -15749,14 +15749,14 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getReasonNotGiven()) 
           composeCodeableConcept("reasonNotGiven", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImmunizationImmunizationReactionComponent(String name, Immunization.ImmunizationReactionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasDateElement()) {
         composeDateTime("date", element.getDateElement());
@@ -15767,14 +15767,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReportedElement()) {
         composeBoolean("reported", element.getReportedElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImmunizationImmunizationVaccinationProtocolComponent(String name, Immunization.ImmunizationVaccinationProtocolComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasDoseSequenceElement()) {
         composePositiveInt("doseSequence", element.getDoseSequenceElement());
@@ -15800,14 +15800,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDoseStatusReason()) {
         composeCodeableConcept("doseStatusReason", element.getDoseStatusReason());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImmunizationRecommendation(String name, ImmunizationRecommendation element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -15820,14 +15820,14 @@ public class XmlParser extends XmlParserBase {
         for (ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent e : element.getRecommendation()) 
           composeImmunizationRecommendationImmunizationRecommendationRecommendationComponent("recommendation", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasDateElement()) {
         composeDateTime("date", element.getDateElement());
@@ -15856,14 +15856,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getSupportingPatientInformation()) 
           composeReference("supportingPatientInformation", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -15871,14 +15871,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeDateTime("value", element.getValueElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasDoseSequenceElement()) {
         composeInteger("doseSequence", element.getDoseSequenceElement());
@@ -15892,14 +15892,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSeriesElement()) {
         composeString("series", element.getSeriesElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeList_(String name, List_ element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -15937,14 +15937,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEmptyReason()) {
         composeCodeableConcept("emptyReason", element.getEmptyReason());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeList_ListEntryComponent(String name, List_.ListEntryComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasFlag()) { 
         for (CodeableConcept e : element.getFlag()) 
@@ -15959,14 +15959,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasItem()) {
         composeReference("item", element.getItem());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeLocation(String name, Location element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -16004,14 +16004,14 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new Location.LocationStatusEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeLocationLocationPositionComponent(String name, Location.LocationPositionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLongitudeElement()) {
         composeDecimal("longitude", element.getLongitudeElement());
@@ -16022,14 +16022,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAltitudeElement()) {
         composeDecimal("altitude", element.getAltitudeElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedia(String name, Media element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new Media.DigitalMediaTypeEnumFactory());
@@ -16067,14 +16067,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasContent()) {
         composeAttachment("content", element.getContent());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedication(String name, Medication element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -16096,14 +16096,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPackage()) {
         composeMedicationMedicationPackageComponent("package", element.getPackage());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationMedicationProductComponent(String name, Medication.MedicationProductComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasForm()) {
         composeCodeableConcept("form", element.getForm());
@@ -16116,14 +16116,14 @@ public class XmlParser extends XmlParserBase {
         for (Medication.MedicationProductBatchComponent e : element.getBatch()) 
           composeMedicationMedicationProductBatchComponent("batch", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationMedicationProductIngredientComponent(String name, Medication.MedicationProductIngredientComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasItem()) {
         composeReference("item", element.getItem());
@@ -16131,14 +16131,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAmount()) {
         composeRatio("amount", element.getAmount());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationMedicationProductBatchComponent(String name, Medication.MedicationProductBatchComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLotNumberElement()) {
         composeString("lotNumber", element.getLotNumberElement());
@@ -16146,14 +16146,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExpirationDateElement()) {
         composeDateTime("expirationDate", element.getExpirationDateElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationMedicationPackageComponent(String name, Medication.MedicationPackageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasContainer()) {
         composeCodeableConcept("container", element.getContainer());
@@ -16162,14 +16162,14 @@ public class XmlParser extends XmlParserBase {
         for (Medication.MedicationPackageContentComponent e : element.getContent()) 
           composeMedicationMedicationPackageContentComponent("content", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationMedicationPackageContentComponent(String name, Medication.MedicationPackageContentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasItem()) {
         composeReference("item", element.getItem());
@@ -16177,14 +16177,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAmount()) {
         composeQuantity("amount", element.getAmount());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationAdministration(String name, MedicationAdministration element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -16230,14 +16230,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDosage()) {
         composeMedicationAdministrationMedicationAdministrationDosageComponent("dosage", element.getDosage());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationAdministrationMedicationAdministrationDosageComponent(String name, MedicationAdministration.MedicationAdministrationDosageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
@@ -16257,14 +16257,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRate()) {
         composeRatio("rate", element.getRate());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationDispense(String name, MedicationDispense element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -16316,14 +16316,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSubstitution()) {
         composeMedicationDispenseMedicationDispenseSubstitutionComponent("substitution", element.getSubstitution());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationDispenseMedicationDispenseDosageInstructionComponent(String name, MedicationDispense.MedicationDispenseDosageInstructionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasAdditionalInstructions()) {
         composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
@@ -16349,14 +16349,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationDispenseMedicationDispenseSubstitutionComponent(String name, MedicationDispense.MedicationDispenseSubstitutionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -16369,14 +16369,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getResponsibleParty()) 
           composeReference("responsibleParty", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationPrescription(String name, MedicationPrescription element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -16414,14 +16414,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSubstitution()) {
         composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponent("substitution", element.getSubstitution());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(String name, MedicationPrescription.MedicationPrescriptionDosageInstructionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
@@ -16450,14 +16450,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationPrescriptionMedicationPrescriptionDispenseComponent(String name, MedicationPrescription.MedicationPrescriptionDispenseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasMedication()) {
         composeReference("medication", element.getMedication());
@@ -16474,14 +16474,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExpectedSupplyDuration()) {
         composeDuration("expectedSupplyDuration", element.getExpectedSupplyDuration());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponent(String name, MedicationPrescription.MedicationPrescriptionSubstitutionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -16489,14 +16489,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReason()) {
         composeCodeableConcept("reason", element.getReason());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationStatement(String name, MedicationStatement element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -16534,14 +16534,14 @@ public class XmlParser extends XmlParserBase {
         for (MedicationStatement.MedicationStatementDosageComponent e : element.getDosage()) 
           composeMedicationStatementMedicationStatementDosageComponent("dosage", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMedicationStatementMedicationStatementDosageComponent(String name, MedicationStatement.MedicationStatementDosageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
@@ -16569,14 +16569,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMessageHeader(String name, MessageHeader element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifierElement()) {
         composeId("identifier", element.getIdentifierElement());
@@ -16616,14 +16616,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getData()) 
           composeReference("data", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMessageHeaderMessageHeaderResponseComponent(String name, MessageHeader.MessageHeaderResponseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifierElement()) {
         composeId("identifier", element.getIdentifierElement());
@@ -16633,14 +16633,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDetails()) {
         composeReference("details", element.getDetails());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMessageHeaderMessageSourceComponent(String name, MessageHeader.MessageSourceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -16657,14 +16657,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEndpointElement()) {
         composeUri("endpoint", element.getEndpointElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeMessageHeaderMessageDestinationComponent(String name, MessageHeader.MessageDestinationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -16675,14 +16675,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEndpointElement()) {
         composeUri("endpoint", element.getEndpointElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNamingSystem(String name, NamingSystem element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new NamingSystem.NamingsystemTypeEnumFactory());
@@ -16723,14 +16723,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReplacedBy()) {
         composeReference("replacedBy", element.getReplacedBy());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNamingSystemNamingSystemUniqueIdComponent(String name, NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new NamingSystem.NamingsystemIdentifierTypeEnumFactory());
@@ -16743,14 +16743,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNamingSystemNamingSystemContactComponent(String name, NamingSystem.NamingSystemContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -16759,14 +16759,14 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNutritionOrder(String name, NutritionOrder element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
@@ -16808,14 +16808,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasEnteralFormula()) {
         composeNutritionOrderNutritionOrderEnteralFormulaComponent("enteralFormula", element.getEnteralFormula());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNutritionOrderNutritionOrderOralDietComponent(String name, NutritionOrder.NutritionOrderOralDietComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) { 
         for (CodeableConcept e : element.getType()) 
@@ -16839,14 +16839,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasInstructionElement()) {
         composeString("instruction", element.getInstructionElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNutritionOrderNutritionOrderOralDietNutrientComponent(String name, NutritionOrder.NutritionOrderOralDietNutrientComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasModifier()) {
         composeCodeableConcept("modifier", element.getModifier());
@@ -16854,14 +16854,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAmount()) {
         composeQuantity("amount", element.getAmount());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNutritionOrderNutritionOrderOralDietTextureComponent(String name, NutritionOrder.NutritionOrderOralDietTextureComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasModifier()) {
         composeCodeableConcept("modifier", element.getModifier());
@@ -16869,14 +16869,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasFoodType()) {
         composeCodeableConcept("foodType", element.getFoodType());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNutritionOrderNutritionOrderSupplementComponent(String name, NutritionOrder.NutritionOrderSupplementComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -16893,14 +16893,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasInstructionElement()) {
         composeString("instruction", element.getInstructionElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeNutritionOrderNutritionOrderEnteralFormulaComponent(String name, NutritionOrder.NutritionOrderEnteralFormulaComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasAdministrationInstructionsElement()) {
         composeString("administrationInstructions", element.getAdministrationInstructionsElement());
@@ -16938,14 +16938,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMaxVolumeToDeliver()) {
         composeQuantity("maxVolumeToDeliver", element.getMaxVolumeToDeliver());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeObservation(String name, Observation element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -17003,14 +17003,14 @@ public class XmlParser extends XmlParserBase {
         for (Observation.ObservationRelatedComponent e : element.getRelated()) 
           composeObservationObservationRelatedComponent("related", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeObservationObservationReferenceRangeComponent(String name, Observation.ObservationReferenceRangeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLow()) {
         composeQuantity("low", element.getLow());
@@ -17027,28 +17027,28 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeObservationObservationRelatedComponent(String name, Observation.ObservationRelatedComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new Observation.ObservationRelationshiptypesEnumFactory());
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOperationDefinition(String name, OperationDefinition element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
@@ -17108,14 +17108,14 @@ public class XmlParser extends XmlParserBase {
         for (OperationDefinition.OperationDefinitionParameterComponent e : element.getParameter()) 
           composeOperationDefinitionOperationDefinitionParameterComponent("parameter", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOperationDefinitionOperationDefinitionContactComponent(String name, OperationDefinition.OperationDefinitionContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -17124,14 +17124,14 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOperationDefinitionOperationDefinitionParameterComponent(String name, OperationDefinition.OperationDefinitionParameterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeCode("name", element.getNameElement());
@@ -17157,14 +17157,14 @@ public class XmlParser extends XmlParserBase {
         for (OperationDefinition.OperationDefinitionParameterPartComponent e : element.getPart()) 
           composeOperationDefinitionOperationDefinitionParameterPartComponent("part", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOperationDefinitionOperationDefinitionParameterPartComponent(String name, OperationDefinition.OperationDefinitionParameterPartComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeCode("name", element.getNameElement());
@@ -17184,27 +17184,27 @@ public class XmlParser extends XmlParserBase {
       if (element.hasProfile()) {
         composeReference("profile", element.getProfile());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOperationOutcome(String name, OperationOutcome element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIssue()) { 
         for (OperationOutcome.OperationOutcomeIssueComponent e : element.getIssue()) 
           composeOperationOutcomeOperationOutcomeIssueComponent("issue", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOperationOutcomeOperationOutcomeIssueComponent(String name, OperationOutcome.OperationOutcomeIssueComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSeverityElement())
         composeEnumeration("severity", element.getSeverityElement(), new OperationOutcome.IssueSeverityEnumFactory());
@@ -17218,14 +17218,14 @@ public class XmlParser extends XmlParserBase {
         for (StringType e : element.getLocation()) 
           composeString("location", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOrder(String name, Order element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17255,14 +17255,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getDetail()) 
           composeReference("detail", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOrderOrderWhenComponent(String name, Order.OrderWhenComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -17270,14 +17270,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSchedule()) {
         composeTiming("schedule", element.getSchedule());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOrderResponse(String name, OrderResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17303,14 +17303,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getFulfillment()) 
           composeReference("fulfillment", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOrganization(String name, Organization element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17340,14 +17340,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasActiveElement()) {
         composeBoolean("active", element.getActiveElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeOrganizationOrganizationContactComponent(String name, Organization.OrganizationContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasPurpose()) {
         composeCodeableConcept("purpose", element.getPurpose());
@@ -17362,14 +17362,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAddress()) {
         composeAddress("address", element.getAddress());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePatient(String name, Patient element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17428,14 +17428,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasActiveElement()) {
         composeBoolean("active", element.getActiveElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePatientContactComponent(String name, Patient.ContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasRelationship()) { 
         for (CodeableConcept e : element.getRelationship()) 
@@ -17459,14 +17459,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePatientAnimalComponent(String name, Patient.AnimalComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSpecies()) {
         composeCodeableConcept("species", element.getSpecies());
@@ -17477,14 +17477,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasGenderStatus()) {
         composeCodeableConcept("genderStatus", element.getGenderStatus());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePatientPatientCommunicationComponent(String name, Patient.PatientCommunicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLanguage()) {
         composeCodeableConcept("language", element.getLanguage());
@@ -17492,28 +17492,28 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPreferredElement()) {
         composeBoolean("preferred", element.getPreferredElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePatientPatientLinkComponent(String name, Patient.PatientLinkComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasOther()) {
         composeReference("other", element.getOther());
       }
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new Patient.LinkTypeEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePaymentNotice(String name, PaymentNotice element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17546,14 +17546,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPaymentStatus()) {
         composeCoding("paymentStatus", element.getPaymentStatus());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePaymentReconciliation(String name, PaymentReconciliation element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17602,14 +17602,14 @@ public class XmlParser extends XmlParserBase {
         for (PaymentReconciliation.NotesComponent e : element.getNote()) 
           composePaymentReconciliationNotesComponent("note", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePaymentReconciliationDetailsComponent(String name, PaymentReconciliation.DetailsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCoding("type", element.getType());
@@ -17632,14 +17632,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAmount()) {
         composeMoney("amount", element.getAmount());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePaymentReconciliationNotesComponent(String name, PaymentReconciliation.NotesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCoding("type", element.getType());
@@ -17647,14 +17647,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePerson(String name, Person element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17690,28 +17690,28 @@ public class XmlParser extends XmlParserBase {
         for (Person.PersonLinkComponent e : element.getLink()) 
           composePersonPersonLinkComponent("link", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePersonPersonLinkComponent(String name, Person.PersonLinkComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
       if (element.hasAssuranceElement())
         composeEnumeration("assurance", element.getAssuranceElement(), new Person.IdentityAssuranceLevelEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePractitioner(String name, Practitioner element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17749,14 +17749,14 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getCommunication()) 
           composeCodeableConcept("communication", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePractitionerPractitionerPractitionerRoleComponent(String name, Practitioner.PractitionerPractitionerRoleComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasManagingOrganization()) {
         composeReference("managingOrganization", element.getManagingOrganization());
@@ -17779,14 +17779,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getHealthcareService()) 
           composeReference("healthcareService", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composePractitionerPractitionerQualificationComponent(String name, Practitioner.PractitionerQualificationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17801,14 +17801,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIssuer()) {
         composeReference("issuer", element.getIssuer());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcedure(String name, Procedure element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17875,25 +17875,25 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getUsed()) 
           composeReference("used", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcedureProcedureBodySiteComponent(String name, Procedure.ProcedureBodySiteComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSite()) {
         composeType("site", element.getSite());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcedureProcedurePerformerComponent(String name, Procedure.ProcedurePerformerComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasPerson()) {
         composeReference("person", element.getPerson());
@@ -17901,28 +17901,28 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRole()) {
         composeCodeableConcept("role", element.getRole());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcedureProcedureRelatedItemComponent(String name, Procedure.ProcedureRelatedItemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new Procedure.ProcedureRelationshipTypeEnumFactory());
       if (element.hasTarget()) {
         composeReference("target", element.getTarget());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcedureProcedureDeviceComponent(String name, Procedure.ProcedureDeviceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasAction()) {
         composeCodeableConcept("action", element.getAction());
@@ -17930,14 +17930,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasManipulated()) {
         composeReference("manipulated", element.getManipulated());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcedureRequest(String name, ProcedureRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -17981,25 +17981,25 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasPriorityElement())
         composeEnumeration("priority", element.getPriorityElement(), new ProcedureRequest.ProcedureRequestPriorityEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcedureRequestProcedureRequestBodySiteComponent(String name, ProcedureRequest.ProcedureRequestBodySiteComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSite()) {
         composeType("site", element.getSite());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcessRequest(String name, ProcessRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasActionElement())
         composeEnumeration("action", element.getActionElement(), new ProcessRequest.ActionlistEnumFactory());
@@ -18052,26 +18052,26 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcessRequestItemsComponent(String name, ProcessRequest.ItemsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSequenceLinkIdElement()) {
         composeInteger("sequenceLinkId", element.getSequenceLinkIdElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcessResponse(String name, ProcessResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -18115,14 +18115,14 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getError()) 
           composeCoding("error", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProcessResponseProcessResponseNotesComponent(String name, ProcessResponse.ProcessResponseNotesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasType()) {
         composeCoding("type", element.getType());
@@ -18130,14 +18130,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTextElement()) {
         composeString("text", element.getTextElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProvenance(String name, Provenance element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasTarget()) { 
         for (Reference e : element.getTarget()) 
@@ -18171,14 +18171,14 @@ public class XmlParser extends XmlParserBase {
         for (Signature e : element.getSignature()) 
           composeSignature("signature", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProvenanceProvenanceAgentComponent(String name, Provenance.ProvenanceAgentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasRole()) {
         composeCoding("role", element.getRole());
@@ -18191,14 +18191,14 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasDisplayElement()) {
         composeString("display", element.getDisplayElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeProvenanceProvenanceEntityComponent(String name, Provenance.ProvenanceEntityComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasRoleElement())
         composeEnumeration("role", element.getRoleElement(), new Provenance.ProvenanceEntityRoleEnumFactory());
@@ -18214,14 +18214,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAgent()) {
         composeProvenanceProvenanceAgentComponent("agent", element.getAgent());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeQuestionnaire(String name, Questionnaire element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -18245,14 +18245,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasGroup()) {
         composeQuestionnaireGroupComponent("group", element.getGroup());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeQuestionnaireGroupComponent(String name, Questionnaire.GroupComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLinkIdElement()) {
         composeString("linkId", element.getLinkIdElement());
@@ -18281,14 +18281,14 @@ public class XmlParser extends XmlParserBase {
         for (Questionnaire.QuestionComponent e : element.getQuestion()) 
           composeQuestionnaireQuestionComponent("question", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeQuestionnaireQuestionComponent(String name, Questionnaire.QuestionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLinkIdElement()) {
         composeString("linkId", element.getLinkIdElement());
@@ -18315,14 +18315,14 @@ public class XmlParser extends XmlParserBase {
         for (Questionnaire.GroupComponent e : element.getGroup()) 
           composeQuestionnaireGroupComponent("group", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeQuestionnaireAnswers(String name, QuestionnaireAnswers element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -18350,14 +18350,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasGroup()) {
         composeQuestionnaireAnswersGroupComponent("group", element.getGroup());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeQuestionnaireAnswersGroupComponent(String name, QuestionnaireAnswers.GroupComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLinkIdElement()) {
         composeString("linkId", element.getLinkIdElement());
@@ -18379,14 +18379,14 @@ public class XmlParser extends XmlParserBase {
         for (QuestionnaireAnswers.QuestionComponent e : element.getQuestion()) 
           composeQuestionnaireAnswersQuestionComponent("question", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeQuestionnaireAnswersQuestionComponent(String name, QuestionnaireAnswers.QuestionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLinkIdElement()) {
         composeString("linkId", element.getLinkIdElement());
@@ -18402,25 +18402,25 @@ public class XmlParser extends XmlParserBase {
         for (QuestionnaireAnswers.GroupComponent e : element.getGroup()) 
           composeQuestionnaireAnswersGroupComponent("group", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeQuestionnaireAnswersQuestionAnswerComponent(String name, QuestionnaireAnswers.QuestionAnswerComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasValue()) {
         composeType("value", element.getValue());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeReferralRequest(String name, ReferralRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new ReferralRequest.ReferralstatusEnumFactory());
@@ -18470,14 +18470,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasFulfillmentTime()) {
         composePeriod("fulfillmentTime", element.getFulfillmentTime());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeRelatedPerson(String name, RelatedPerson element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -18508,14 +18508,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeRiskAssessment(String name, RiskAssessment element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
@@ -18546,14 +18546,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMitigationElement()) {
         composeString("mitigation", element.getMitigationElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeRiskAssessmentRiskAssessmentPredictionComponent(String name, RiskAssessment.RiskAssessmentPredictionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasOutcome()) {
         composeCodeableConcept("outcome", element.getOutcome());
@@ -18568,14 +18568,14 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasRationaleElement()) {
         composeString("rationale", element.getRationaleElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSchedule(String name, Schedule element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -18594,14 +18594,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentElement()) {
         composeString("comment", element.getCommentElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSearchParameter(String name, SearchParameter element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
@@ -18642,14 +18642,14 @@ public class XmlParser extends XmlParserBase {
         for (CodeType e : element.getTarget()) 
           composeCode("target", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSearchParameterSearchParameterContactComponent(String name, SearchParameter.SearchParameterContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -18658,14 +18658,14 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSlot(String name, Slot element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -18691,14 +18691,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentElement()) {
         composeString("comment", element.getCommentElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSpecimen(String name, Specimen element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -18731,14 +18731,14 @@ public class XmlParser extends XmlParserBase {
         for (Specimen.SpecimenContainerComponent e : element.getContainer()) 
           composeSpecimenSpecimenContainerComponent("container", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSpecimenSpecimenCollectionComponent(String name, Specimen.SpecimenCollectionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCollector()) {
         composeReference("collector", element.getCollector());
@@ -18757,14 +18757,14 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasBodySite()) {
         composeType("bodySite", element.getBodySite());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSpecimenSpecimenTreatmentComponent(String name, Specimen.SpecimenTreatmentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
@@ -18776,14 +18776,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getAdditive()) 
           composeReference("additive", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSpecimenSpecimenContainerComponent(String name, Specimen.SpecimenContainerComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -18803,14 +18803,14 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasAdditive()) {
         composeType("additive", element.getAdditive());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeStructureDefinition(String name, StructureDefinition element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
@@ -18887,14 +18887,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDifferential()) {
         composeStructureDefinitionStructureDefinitionDifferentialComponent("differential", element.getDifferential());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeStructureDefinitionStructureDefinitionContactComponent(String name, StructureDefinition.StructureDefinitionContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -18903,14 +18903,14 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeStructureDefinitionStructureDefinitionMappingComponent(String name, StructureDefinition.StructureDefinitionMappingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentityElement()) {
         composeId("identity", element.getIdentityElement());
@@ -18924,40 +18924,40 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCommentsElement()) {
         composeString("comments", element.getCommentsElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeStructureDefinitionStructureDefinitionSnapshotComponent(String name, StructureDefinition.StructureDefinitionSnapshotComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasElement()) { 
         for (ElementDefinition e : element.getElement()) 
           composeElementDefinition("element", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeStructureDefinitionStructureDefinitionDifferentialComponent(String name, StructureDefinition.StructureDefinitionDifferentialComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasElement()) { 
         for (ElementDefinition e : element.getElement()) 
           composeElementDefinition("element", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSubscription(String name, Subscription element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasCriteriaElement()) {
         composeString("criteria", element.getCriteriaElement());
@@ -18984,14 +18984,14 @@ public class XmlParser extends XmlParserBase {
         for (Coding e : element.getTag()) 
           composeCoding("tag", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSubscriptionSubscriptionChannelComponent(String name, Subscription.SubscriptionChannelComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new Subscription.SubscriptionChannelTypeEnumFactory());
@@ -19004,14 +19004,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasHeaderElement()) {
         composeString("header", element.getHeaderElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSubstance(String name, Substance element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -19026,14 +19026,14 @@ public class XmlParser extends XmlParserBase {
         for (Substance.SubstanceIngredientComponent e : element.getIngredient()) 
           composeSubstanceSubstanceIngredientComponent("ingredient", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSubstanceSubstanceInstanceComponent(String name, Substance.SubstanceInstanceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -19044,14 +19044,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasQuantity()) {
         composeQuantity("quantity", element.getQuantity());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSubstanceSubstanceIngredientComponent(String name, Substance.SubstanceIngredientComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasQuantity()) {
         composeRatio("quantity", element.getQuantity());
@@ -19059,14 +19059,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSubstance()) {
         composeReference("substance", element.getSubstance());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSupply(String name, Supply element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasKind()) {
         composeCodeableConcept("kind", element.getKind());
@@ -19086,14 +19086,14 @@ public class XmlParser extends XmlParserBase {
         for (Supply.SupplyDispenseComponent e : element.getDispense()) 
           composeSupplySupplyDispenseComponent("dispense", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSupplySupplyDispenseComponent(String name, Supply.SupplyDispenseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -19125,14 +19125,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getReceiver()) 
           composeReference("receiver", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSupplyDelivery(String name, SupplyDelivery element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -19167,14 +19167,14 @@ public class XmlParser extends XmlParserBase {
         for (Reference e : element.getReceiver()) 
           composeReference("receiver", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeSupplyRequest(String name, SupplyRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasKind()) {
         composeCodeableConcept("kind", element.getKind());
@@ -19190,14 +19190,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScript(String name, TestScript element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -19222,22 +19222,22 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTeardown()) {
         composeTestScriptTestScriptTeardownComponent("teardown", element.getTeardown());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptFixtureComponent(String name, TestScript.TestScriptFixtureComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasUriElement()) {
         composeUri("uri", element.getUriElement());
       }
       if (element.hasResource()) {
-        xml.open(FHIR_NS, "resource");
+        xml.enter(FHIR_NS, "resource");
         composeResource(element.getResource());
-        xml.close(FHIR_NS, "resource");
+        xml.exit(FHIR_NS, "resource");
       }
       if (element.hasAutocreateElement()) {
         composeBoolean("autocreate", element.getAutocreateElement());
@@ -19245,27 +19245,27 @@ public class XmlParser extends XmlParserBase {
       if (element.hasAutodeleteElement()) {
         composeBoolean("autodelete", element.getAutodeleteElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptSetupComponent(String name, TestScript.TestScriptSetupComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasOperation()) { 
         for (TestScript.TestScriptSetupOperationComponent e : element.getOperation()) 
           composeTestScriptTestScriptSetupOperationComponent("operation", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptSetupOperationComponent(String name, TestScript.TestScriptSetupOperationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new TestScript.TestOperationCodesEnumFactory());
@@ -19287,14 +19287,14 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasContentTypeElement())
         composeEnumeration("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptTestComponent(String name, TestScript.TestScriptTestComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -19309,14 +19309,14 @@ public class XmlParser extends XmlParserBase {
         for (TestScript.TestScriptTestOperationComponent e : element.getOperation()) 
           composeTestScriptTestScriptTestOperationComponent("operation", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptTestMetadataComponent(String name, TestScript.TestScriptTestMetadataComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLink()) { 
         for (TestScript.TestScriptTestMetadataLinkComponent e : element.getLink()) 
@@ -19330,14 +19330,14 @@ public class XmlParser extends XmlParserBase {
         for (TestScript.TestScriptTestMetadataValidatesComponent e : element.getValidates()) 
           composeTestScriptTestScriptTestMetadataValidatesComponent("validates", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptTestMetadataLinkComponent(String name, TestScript.TestScriptTestMetadataLinkComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
@@ -19345,14 +19345,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptTestMetadataRequiresComponent(String name, TestScript.TestScriptTestMetadataRequiresComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement()) {
         composeCode("type", element.getTypeElement());
@@ -19363,14 +19363,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDestinationElement()) {
         composeInteger("destination", element.getDestinationElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptTestMetadataValidatesComponent(String name, TestScript.TestScriptTestMetadataValidatesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement()) {
         composeCode("type", element.getTypeElement());
@@ -19381,14 +19381,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDestinationElement()) {
         composeInteger("destination", element.getDestinationElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptTestOperationComponent(String name, TestScript.TestScriptTestOperationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new TestScript.TestOperationCodesEnumFactory());
@@ -19410,27 +19410,27 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasContentTypeElement())
         composeEnumeration("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptTeardownComponent(String name, TestScript.TestScriptTeardownComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasOperation()) { 
         for (TestScript.TestScriptTeardownOperationComponent e : element.getOperation()) 
           composeTestScriptTestScriptTeardownOperationComponent("operation", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeTestScriptTestScriptTeardownOperationComponent(String name, TestScript.TestScriptTeardownOperationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasTypeElement())
         composeEnumeration("type", element.getTypeElement(), new TestScript.TestOperationCodesEnumFactory());
@@ -19452,14 +19452,14 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasContentTypeElement())
         composeEnumeration("contentType", element.getContentTypeElement(), new TestScript.ContentTypeEnumFactory());
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSet(String name, ValueSet element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
@@ -19519,14 +19519,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExpansion()) {
         composeValueSetValueSetExpansionComponent("expansion", element.getExpansion());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetValueSetContactComponent(String name, ValueSet.ValueSetContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
@@ -19535,14 +19535,14 @@ public class XmlParser extends XmlParserBase {
         for (ContactPoint e : element.getTelecom()) 
           composeContactPoint("telecom", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetValueSetDefineComponent(String name, ValueSet.ValueSetDefineComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -19557,14 +19557,14 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptDefinitionComponent e : element.getConcept()) 
           composeValueSetConceptDefinitionComponent("concept", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetConceptDefinitionComponent(String name, ValueSet.ConceptDefinitionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
@@ -19586,14 +19586,14 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptDefinitionComponent e : element.getConcept()) 
           composeValueSetConceptDefinitionComponent("concept", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetConceptDefinitionDesignationComponent(String name, ValueSet.ConceptDefinitionDesignationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasLanguageElement()) {
         composeCode("language", element.getLanguageElement());
@@ -19604,14 +19604,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeString("value", element.getValueElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetValueSetComposeComponent(String name, ValueSet.ValueSetComposeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasImport()) { 
         for (UriType e : element.getImport()) 
@@ -19625,14 +19625,14 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptSetComponent e : element.getExclude()) 
           composeValueSetConceptSetComponent("exclude", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetConceptSetComponent(String name, ValueSet.ConceptSetComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -19648,14 +19648,14 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptSetFilterComponent e : element.getFilter()) 
           composeValueSetConceptSetFilterComponent("filter", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetConceptReferenceComponent(String name, ValueSet.ConceptReferenceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());
@@ -19667,14 +19667,14 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ConceptDefinitionDesignationComponent e : element.getDesignation()) 
           composeValueSetConceptDefinitionDesignationComponent("designation", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetConceptSetFilterComponent(String name, ValueSet.ConceptSetFilterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasPropertyElement()) {
         composeCode("property", element.getPropertyElement());
@@ -19684,14 +19684,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasValueElement()) {
         composeCode("value", element.getValueElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetValueSetExpansionComponent(String name, ValueSet.ValueSetExpansionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasIdentifierElement()) {
         composeUri("identifier", element.getIdentifierElement());
@@ -19707,28 +19707,28 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ValueSetExpansionContainsComponent e : element.getContains()) 
           composeValueSetValueSetExpansionContainsComponent("contains", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetValueSetExpansionParameterComponent(String name, ValueSet.ValueSetExpansionParameterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
       }
       if (element.hasValue()) {
         composeType("value", element.getValue());
-      }      xml.close(FHIR_NS, name);
+      }      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeValueSetValueSetExpansionContainsComponent(String name, ValueSet.ValueSetExpansionContainsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -19749,14 +19749,14 @@ public class XmlParser extends XmlParserBase {
         for (ValueSet.ValueSetExpansionContainsComponent e : element.getContains()) 
           composeValueSetValueSetExpansionContainsComponent("contains", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeVisionPrescription(String name, VisionPrescription element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
@@ -19780,14 +19780,14 @@ public class XmlParser extends XmlParserBase {
         for (VisionPrescription.VisionPrescriptionDispenseComponent e : element.getDispense()) 
           composeVisionPrescriptionVisionPrescriptionDispenseComponent("dispense", e);
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 
   protected void composeVisionPrescriptionVisionPrescriptionDispenseComponent(String name, VisionPrescription.VisionPrescriptionDispenseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
+      xml.enter(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.hasProduct()) {
         composeCoding("product", element.getProduct());
@@ -19832,7 +19832,7 @@ public class XmlParser extends XmlParserBase {
       if (element.hasNotesElement()) {
         composeString("notes", element.getNotesElement());
       }
-      xml.close(FHIR_NS, name);
+      xml.exit(FHIR_NS, name);
     }
   }
 

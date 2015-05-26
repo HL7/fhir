@@ -36,7 +36,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -308,61 +308,21 @@ public class ResourceValidator extends BaseValidator {
 //				"Must have a binding if type is 'code'");
 
     rule(errors, "structure", path, !"uuid".equals(e.typeCode()), "The type uuid is illegal");
-		if (e.typeCode().equals("code") && parent != null) {
-		  rule(errors, "structure", path, e.hasBindingOrOk(), "An element of type code must have a binding");
+		if (e.typeCode().equals("code") && parent != null && !e.isNoBindingAllowed()) {
+		  rule(errors, "structure", path, e.hasBinding(), "An element of type code must have a binding");
 		}
     if ((e.usesType("Coding") && !parentName.equals("CodeableConcept")) || e.usesType("CodeableConcept")) {
-      warning(errors, "structure", path, e.hasBindingOrOk(), "An element of type CodeableConcept or Coding must have a binding");
+      warning(errors, "structure", path, e.hasBinding(), "An element of type CodeableConcept or Coding must have a binding");
     }
 		
 		if (e.hasBinding()) {
 		  rule(errors, "structure", path, e.typeCode().equals("code") || e.typeCode().contains("Coding") 
 				  || e.typeCode().contains("CodeableConcept") || e.typeCode().equals("uri"), "Can only specify bindings for coded data types");
-      rule(errors, "structure", path, !e.getBindingName().toLowerCase().contains("code"), "Binding name " + e.getBindingName()+" is invalid - contains 'code'");
-			BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
-			rule(errors, "structure", path, cd != null, "Unable to resolve binding name " + e.getBindingName());
+      rule(errors, "structure", path, !e.getBinding().getName().toLowerCase().contains("code"), "Binding name " + e.getBinding().getName()+" is invalid - contains 'code'");
+			BindingSpecification cd = e.getBinding();
 			
 			if (cd != null) {
-			  if (cd.getBinding() == Binding.CodeList) {
-			    if (path.toLowerCase().endsWith("status")) {
-			      if (rule(errors, "structure", path, definitions.getStatusCodes().containsKey(path), "Status element not registered in status-codes.xml")) {
-			        for (DefinedCode c : cd.getCodes()) {
-			          boolean ok = false;
-			          for (String s : definitions.getStatusCodes().get(path)) {
-			            String[] parts = s.split("\\,");
-			            for (String p : parts)
-			              if (p.trim().equals(c.getCode()))
-			                ok = true;
-			          }
-			          rule(errors, "structure", path, ok, "Status element code \""+c.getCode()+"\" not found in status-codes.xml");
-			        }
-			      }
-			    }
-			    if (sd.contains("|")) {
-			      StringBuilder b = new StringBuilder();
-            for (DefinedCode c : cd.getCodes()) {
-              b.append(" | ").append(c.getCode());
-            }
-            String esd = b.substring(3);
-            rule(errors, "structure", path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
-			    } else
-			      rule(errors, "structure", path, cd.getStrength() != BindingStrength.REQUIRED || cd.getCodes().size() > 20 || cd.getCodes().size() == 1 || !hasGoodCode(cd.getCodes()) || isExemptFromCodeList(path), "The short description of an element with a code list should have the format code | code | etc");
-			  }
-			  boolean isComplex = !e.typeCode().equals("code");
-//      quality scan for heather:			  
-//			  if (isComplex && cd.getReferredValueSet() != null && cd.getReferredValueSet().getDefine() != null && !cd.isExample() &&
-//			      !cd.getReferredValueSet().getIdentifierSimple().contains("/v2/") && !cd.getReferredValueSet().getIdentifierSimple().contains("/v3/"))
-//			    System.out.println("Complex value set defines codes @ "+path+": "+cd.getReferredValueSet().getIdentifierSimple());
-			  if (cd.getElementType() == ElementType.Unknown) {
-			    if (isComplex)
-			      cd.setElementType(ElementType.Complex);
-			    else
-            cd.setElementType(ElementType.Simple);
-			  } else if (cd.getBinding() != Binding.Reference)
-          if (isComplex)
-            rule(errors, "structure", path, cd.getElementType() == ElementType.Complex, "Cannot use a binding from both code and Coding/CodeableConcept elements");
-          else
-            rule(errors, "structure", path, cd.getElementType() == ElementType.Simple, "Cannot use a binding from both code and Coding/CodeableConcept elements");
+			  check(errors, path, cd, sd, e);
 			}
 		}
 
@@ -521,13 +481,13 @@ public class ResourceValidator extends BaseValidator {
 	}
 
 	
-  public List<ValidationMessage> check(String n, BindingSpecification cd) throws Exception {
-    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-    check(errors, n, cd);
-    return errors;
-  }
+//	private List<ValidationMessage> check(String n, BindingSpecification cd) throws Exception {
+//    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
+//    check(errors, n, cd);
+//    return errors;
+//  }
   
-	public void check(List<ValidationMessage> errors, String n, BindingSpecification cd) throws Exception {
+	private void check(List<ValidationMessage> errors, String path, BindingSpecification cd, String sd, ElementDefn e)  {
     // basic integrity checks
     for (DefinedCode c : cd.getCodes()) {
       String d = c.getCode();
@@ -539,19 +499,61 @@ public class ResourceValidator extends BaseValidator {
         d = c.getDisplay();
       
       if (Utilities.noString(c.getSystem()))
-        warning(errors, "structure", "Binding "+n, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
-      warning(errors, "structure", "Binding "+n, !(Utilities.noString(c.getId()) && Utilities.noString(c.getSystem())) , "Code "+d+" must have a id or a system");
+        warning(errors, "structure", "Binding @ "+path, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
+      warning(errors, "structure", "Binding @ "+path, !(Utilities.noString(c.getId()) && Utilities.noString(c.getSystem())) , "Code "+d+" must have a id or a system");
     }
     
     // trigger processing into a Heirachical set if necessary
-    rule(errors, "structure", "Binding "+n, !cd.isHeirachical() || (cd.getChildCodes().size() < cd.getCodes().size()), "Logic error processing Hirachical code set");
+//    rule(errors, "structure", "Binding @ "+path, !cd.isHeirachical() || (cd.getChildCodes().size() < cd.getCodes().size()), "Logic error processing Hirachical code set");
 
     // now, rules for the source
-    warning(errors, "structure", "Binding "+n, cd.getBinding() != Binding.Unbound, "Need to provide a binding");
-    rule(errors, "structure", "Binding "+n, cd.getElementType() != ElementType.Simple || cd.getBinding() != Binding.Unbound, "Need to provide a binding for code elements");
-    rule(errors, "structure", "Binding "+n, (cd.getElementType() != ElementType.Simple || cd.getStrength() == BindingStrength.REQUIRED), "Must be a required binding if bound to a code instead of a Coding/CodeableConcept");
-    rule(errors, "structure", "Binding "+n, Utilities.noString(cd.getDefinition())  || (cd.getDefinition().charAt(0) == cd.getDefinition().toUpperCase().charAt(0)), "Definition cannot start with a lowercase letter");
+    warning(errors, "structure", "Binding @ "+path, cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding");
+    rule(errors, "structure", "Binding @ "+path, cd.getElementType() != ElementType.Simple || cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding for code elements");
+    rule(errors, "structure", "Binding @ "+path, (cd.getElementType() != ElementType.Simple || cd.getStrength() == BindingStrength.REQUIRED), "Must be a required binding if bound to a code instead of a Coding/CodeableConcept");
+    rule(errors, "structure", "Binding @ "+path, Utilities.noString(cd.getDefinition())  || (cd.getDefinition().charAt(0) == cd.getDefinition().toUpperCase().charAt(0)), "Definition cannot start with a lowercase letter");
+    if (cd.getBinding() == BindingMethod.CodeList) {
+      if (path.toLowerCase().endsWith("status")) {
+        if (rule(errors, "structure", path, definitions.getStatusCodes().containsKey(path), "Status element not registered in status-codes.xml")) {
+          for (DefinedCode c : cd.getCodes()) {
+            boolean ok = false;
+            for (String s : definitions.getStatusCodes().get(path)) {
+              String[] parts = s.split("\\,");
+              for (String p : parts)
+                if (p.trim().equals(c.getCode()))
+                  ok = true;
+            }
+            rule(errors, "structure", path, ok, "Status element code \""+c.getCode()+"\" not found in status-codes.xml");
+          }
+        }
+      }
+      if (sd.contains("|")) {
+        StringBuilder b = new StringBuilder();
+        for (DefinedCode c : cd.getCodes()) {
+          b.append(" | ").append(c.getCode());
+        }
+        String esd = b.substring(3);
+        rule(errors, "structure", path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
+      } else
+        rule(errors, "structure", path, cd.getStrength() != BindingStrength.REQUIRED || cd.getCodes().size() > 20 || cd.getCodes().size() == 1 || !hasGoodCode(cd.getCodes()) || isExemptFromCodeList(path), "The short description of an element with a code list should have the format code | code | etc");
+    }
+    boolean isComplex = !e.typeCode().equals("code");
+//  quality scan for heather:       
+//    if (isComplex && cd.getReferredValueSet() != null && cd.getReferredValueSet().getDefine() != null && !cd.isExample() &&
+//        !cd.getReferredValueSet().getIdentifierSimple().contains("/v2/") && !cd.getReferredValueSet().getIdentifierSimple().contains("/v3/"))
+//      System.out.println("Complex value set defines codes @ "+path+": "+cd.getReferredValueSet().getIdentifierSimple());
+    if (cd.getElementType() == ElementType.Unknown) {
+      if (isComplex)
+        cd.setElementType(ElementType.Complex);
+      else
+        cd.setElementType(ElementType.Simple);
+    } else if (cd.getBinding() != BindingMethod.Reference)
+      if (isComplex)
+        rule(errors, "structure", path, cd.getElementType() == ElementType.Complex, "Cannot use a binding from both code and Coding/CodeableConcept elements");
+      else
+        rule(errors, "structure", path, cd.getElementType() == ElementType.Simple, "Cannot use a binding from both code and Coding/CodeableConcept elements");
   }
+    
+  
 
   public void dumpParams() {
 //    for (String s : usages.keySet()) {
@@ -577,15 +579,4 @@ public class ResourceValidator extends BaseValidator {
 //    System.out.println("total = "+Integer.toString(total));
   }
 
-  public List<ValidationMessage> checkBindings(Map<String, BindingSpecification> bindings) {
-    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-    Set<String> names = new HashSet<String>();
-    for (BindingSpecification b : bindings.values()) {
-      if (names.contains(b.getName())) 
-        errors.add(new ValidationMessage(source, "structure", -1, -1, "binding "+b.getName(), "Duplicate Binding Name "+b.getName(), IssueSeverity.ERROR));        
-      else
-        names.add(b.getName());
-    }
-    return errors;
-  }
 }

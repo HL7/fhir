@@ -1,0 +1,47 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains site of administration concepts.</p>
+      <p>Possible sources include:</p>
+      <ul>
+        <li>SNOMED CT - selected children of SCTID:91723000 "anatomical structure" (note: there would need to be considerable selection 
+          of concepts as the full child subset would be too big and too detailed for use)</li>
+        <li>ISO 11239 - Intended site</li>
+        <li>NCIt - selected children of NCIt concept C74444456 "anatomical location" (note: this is the SDTM location concepts; 
+          it would also need subsetting to provide a useable set of medication administration)
+          Note: to avoid confusion with other attributes in this resource concepts that are pre-coordinated with method and/or 
+          route of administration (e.g.  "rub into left hand" where "rub in" is the method or "IV into left subclavian vein" where "IV" is the route) should not be used in this value set</li>
+      </ul>
+      <p>SNOMED CT is being used here as the example terminology.</p>
+      <p>Note: to avoid confusion with other attributes in this resource concepts that are pre-coordinated with method and/or 
+        route of administration (e.g.  "rub into left hand" where "rub in" is the method or "IV into left subclavian vein" where "IV" is the route) should not be used in this value set
+      </p>
+      <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p>  
+    </div>
+  </text>
+  <name value="SNOMED CT Anatomical Structure for Administration Site Codes"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+  <description value="This value set includes Anatomical Structure codes from SNOMED CT - provided as an exemplar"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <!-- SNOMED CT - selected children of SCTID:91723000 "anatomical structure" -->
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="91723000"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
+

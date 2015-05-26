@@ -38,7 +38,7 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -59,7 +59,7 @@ public class XSDBaseGenerator {
   private List<String> typenames = new ArrayList<String>();
   // private List<TypeDefn> datatypes = new ArrayList<TypeDefn>();
   // private Map<String, ConceptDomain> tx;
-  private List<String> enums = new ArrayList<String>();
+  private List<BindingSpecification> enums = new ArrayList<BindingSpecification>();
   private Map<String, String> enumDefs = new HashMap<String, String>();
 
   private List<String> genEnums = new ArrayList<String>();
@@ -118,9 +118,10 @@ public class XSDBaseGenerator {
         
       }
     }
-    for (BindingSpecification b : definitions.getBindings().values())
-      if ((b.getUseContexts().size() > 1 && b.getBinding() == Binding.CodeList) || definitions.getCommonBindings().contains(b))
-        generateEnum(b.getName());
+    // todo: what to do about this? 
+//    for (BindingSpecification b : definitions.getBindings().values())
+//      if ((b.getUseContexts().size() > 1 && b.getBinding() == Binding.CodeList) || definitions.getCommonBindings().contains(b))
+//        generateEnum(b.getName());
     if (outer) { 
       write("</xs:schema>\r\n");
       writer.flush();
@@ -348,7 +349,7 @@ public class XSDBaseGenerator {
       structures.remove(s);
     }
 
-    for (String en : enums) {
+    for (BindingSpecification en : enums) {
       generateEnum(en);
     }
 
@@ -410,7 +411,7 @@ public class XSDBaseGenerator {
       structures.remove(s);
     }
 
-    for (String en : enums) {
+    for (BindingSpecification en : enums) {
       generateEnum(en);
     }
     genRegex();
@@ -468,7 +469,7 @@ public class XSDBaseGenerator {
       structures.remove(s);
     }
 
-    for (String en : enums) {
+    for (BindingSpecification en : enums) {
       generateEnum(en);
     }
 
@@ -507,20 +508,21 @@ public class XSDBaseGenerator {
       structures.remove(s);
     }
 
-    for (String en : enums) {
+    for (BindingSpecification en : enums) {
       generateEnum(en);
     }
 
     genRegex();
   }
 
-  private void generateEnum(String en) throws IOException {
+  private void generateEnum(BindingSpecification bs) throws IOException {
+    String en = bs.getName();
     if (genEnums.contains(en))
       return;
 
     write("  <xs:simpleType name=\"" + en + "-list\">\r\n");
     write("    <xs:restriction base=\"xs:string\">\r\n");
-    for (DefinedCode c : definitions.getBindingByName(en).getCodes()) {
+    for (DefinedCode c : bs.getCodes()) {
       write("      <xs:enumeration value=\""
           + Utilities.escapeXml(c.getCode()) + "\">\r\n");
       write("        <xs:annotation>\r\n");
@@ -698,10 +700,10 @@ public class XSDBaseGenerator {
     else if (type.getName().equals("code")) {
       String en = null;
       if (e.hasBinding()) {
-        BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
-        if (cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
+        BindingSpecification cd = e.getBinding();
+        if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
           en = cd.getName();
-          enums.add(en);
+          enums.add(cd);
           enumDefs.put(en, cd.getDefinition());
           return en;
         }

@@ -140,6 +140,8 @@ public class ToolingExtensions {
     Extension ex = ExtensionHelper.getExtension(c, uri);
     if (ex == null)
       return null;
+    if (ex.getValue() instanceof UriType)
+      return ((UriType) ex.getValue()).getValue();
     if (!(ex.getValue() instanceof StringType))
       return null;
     return ((StringType) ex.getValue()).getValue();

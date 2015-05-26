@@ -20,7 +20,7 @@
   <WindowWidth>4080</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -905,6 +905,11 @@
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s313" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
    <Interior/>
   </Style>
  </Styles>
@@ -3579,7 +3584,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6804,6 +6808,23 @@
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s144"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s106"><Data ss:Type="String">YesNo</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">The set of values to indicate affirmative or negative</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s313" ss:HRef="http://hl7.org/fhir/v2/vs/0136"><Data
+      ss:Type="String">http://hl7.org/fhir/v2/vs/0136</Data></Cell>
+    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s144"/>
+   </Row>
    <Row ss:Index="13" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s109"/>
@@ -7059,6 +7080,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7079,7 +7101,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>6</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7156,7 +7178,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R13C1:R27C14,R7C2:R7C6,R8C2:R9C7</Range>
+   <Range>R13C1:R27C14,R8C2:R9C7,R7C1:R7C6</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -7307,7 +7329,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C8:R4C14,R6C8:R7C14</Range>
+   <Range>R4C8:R4C14,R6C8:R7C14,R10C7</Range>
    <Condition>
     <Value1>AND(#REF!=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7342,7 +7364,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C2:R10C5</Range>
+   <Range>R10C2:R10C5,R10C7</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7367,20 +7389,6 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C7</Range>
-   <Condition>
-    <Value1>AND(#REF!=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C7</Range>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R7C1</Range>
    <Condition>
     <Value1>RC6=&quot;0..0&quot;</Value1>
@@ -7389,13 +7397,6 @@
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>

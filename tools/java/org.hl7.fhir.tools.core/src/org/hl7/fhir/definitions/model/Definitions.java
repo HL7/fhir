@@ -31,8 +31,10 @@ package org.hl7.fhir.definitions.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -57,10 +59,11 @@ public class Definitions {
   public static final String LOINC_MAPPING = "http://loinc.org";
   public static final String SNOMED_MAPPING = "http://snomed.info";
   
-  // todo: these binding registries that create global name uniqueness requirement need to be removed?
-  // but global name uniqueness is still required? 
-  private Map<String, BindingSpecification> bindings = new HashMap<String, BindingSpecification>();
-  private List<BindingSpecification> commonBindings = new ArrayList<BindingSpecification>();
+  /// value sets
+  private Map<String, BindingSpecification> commonBindings = new HashMap<String, BindingSpecification>();
+  private Map<String, ValueSet> boundValueSets = new HashMap<String, ValueSet>(); // indexed by ValueSet.url
+  private Set<BindingSpecification> unresolvedBindings = new HashSet<BindingSpecification>();
+  private List<BindingSpecification> allBindings = new ArrayList<BindingSpecification>();
 
   // base definitions - types and resources of various kinds
   private Map<String, DefinedCode> primitives = new HashMap<String, DefinedCode>();
@@ -140,17 +143,17 @@ public class Definitions {
     return root != null;
   }
 
-	// Returns a list of Bindings as found on the "Bindings" tab in
-	// terminologies/bindings.xml and the "Binding" column on
-	// CompositeTypes and Resources.
-	public Map<String, BindingSpecification> getBindings() {
-		return bindings;
-	}
-
-
-	public BindingSpecification getBindingByName(String name) {
-		return bindings.get(name);
-	}
+//	// Returns a list of Bindings as found on the "Bindings" tab in
+//	// terminologies/bindings.xml and the "Binding" column on
+//	// CompositeTypes and Resources.
+//	public Map<String, BindingSpecification> getBindings() {
+//		return bindings;
+//	}
+//
+//
+//	public BindingSpecification getBindingByName(String name) {
+//		return bindings.get(name);
+//	}
 	
 	// Returns all PrimitiveTypes (both imported and with a
 	// restriction pattern as found in the primitives.xls
@@ -244,22 +247,22 @@ public class Definitions {
 		return packs;
 	}
 
-  public BindingSpecification getBindingByReference(String ref, BindingSpecification other) {
-    for (BindingSpecification b : bindings.values()) {
-      if (ref.equals(b.getReference()) && other != b)
-        return b;
-    }
-    return null;
-  }
-  
-  public BindingSpecification getBindingByReference(String ref) {
-    for (BindingSpecification b : bindings.values()) {
-      if (ref.equals(b.getReference()))
-        return b;
-    }
-    return null;
-  }
-  
+//  public BindingSpecification getBindingByReference(String ref, BindingSpecification other) {
+//    for (BindingSpecification b : bindings.values()) {
+//      if (ref.equals(b.getReference()) && other != b)
+//        return b;
+//    }
+//    return null;
+//  }
+//  
+//  public BindingSpecification getBindingByReference(String ref) {
+//    for (BindingSpecification b : bindings.values()) {
+//      if (ref.equals(b.getReference()))
+//        return b;
+//    }
+//    return null;
+//  }
+//  
   public boolean dataTypeIsSharedInfo(String name)  {
     try {
       return hasElementDefn(name) && getElementDefn(name).typeCode().equals("SharedDefinition");
@@ -281,7 +284,7 @@ public class Definitions {
     return baseResources;
   }
 
-  public List<BindingSpecification> getCommonBindings() {
+  public Map<String, BindingSpecification> getCommonBindings() {
     return commonBindings;
   }
 
@@ -525,4 +528,17 @@ public class Definitions {
     return ig.isBallot();
   }
 
+  public Map<String, ValueSet> getBoundValueSets() {
+    return boundValueSets;
+  }
+
+  public Set<BindingSpecification> getUnresolvedBindings() {
+    return unresolvedBindings;
+  }
+
+  public List<BindingSpecification> getAllBindings() {
+    return allBindings;
+  }
+
+  
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
@@ -33,13 +33,24 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   private Definitions definitions;
   private PageProcessor page;
 
-  public JsonSpecGenerator(OutputStream out, String defPage, String dtRoot,
-      PageProcessor page) throws UnsupportedEncodingException {
+  public JsonSpecGenerator(OutputStream out, String defPage, String dtRoot, PageProcessor page) throws UnsupportedEncodingException {
     super(out, "UTF-8");
     this.defPage = defPage;
     this.dtRoot = dtRoot == null ? "" : dtRoot;
     this.definitions = page.getDefinitions();
     this.page = page;
+  }
+
+  protected String getBindingLink(ElementDefn e) throws Exception {
+    BindingSpecification bs = e.getBinding();
+    if (bs == null)
+      return "n/a";
+    if (bs.getValueSet() != null) 
+      return bs.getValueSet().getUserString("path");
+    else if (bs.getReference() != null)
+      return bs.getReference();      
+    else 
+      return "(unbound)";
   }
 
   public void generate(ElementDefn root, boolean resource, boolean isAbstract) throws Exception {
@@ -295,31 +306,29 @@ public class JsonSpecGenerator extends OutputStreamWriter {
             + Utilities.escapeXml(elem.getShortDefn())
             + "</span></a>");
       } else {
-        BindingSpecification bs = definitions.getBindingByName(elem.getBindingName());
-        if (bs != null && bs.getBinding() != Binding.Unbound && !Utilities.noString(bs.getReference())) { 
-          if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
-            write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+bs.getReference().substring(1)+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
-          else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
-            if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
-              ValueSet vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build
-              String pp = (String) vs.getUserData("path");
-              write("<a href=\""+(vs == null ? "??" : pp.replace(File.separatorChar, '/'))+"\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
-            } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
-              ValueSet vs = page.getValueSets().get(bs.getReference());
-              String pp = (String) vs.getUserData("path");
-              write("<a href=\""+(vs == null ? "??" : pp.replace(File.separatorChar, '/'))+"\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn())+ "</a>");
-            } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
-              BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);
-              if (bs1 != null)
-                write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
-              else
-                write("<a href=\"valueset-"+bs.getReference().substring(23)+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
-            } else
-              throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
-          } else
-            write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+bs.getReference()+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");				  
-        } else
-          write("<span style=\"color: navy; opacity: 0.8\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShortDefn()) + "</span>");
+        String ref = getBindingLink(elem);
+        write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+ref+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
+//          else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
+//            if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
+//              ValueSet vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build
+//              String pp = (String) vs.getUserData("path");
+//              write("<a href=\""+(vs == null ? "??" : pp.replace(File.separatorChar, '/'))+"\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
+//            } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
+//              ValueSet vs = page.getValueSets().get(bs.getReference());
+//              String pp = (String) vs.getUserData("path");
+//              write("<a href=\""+(vs == null ? "??" : pp.replace(File.separatorChar, '/'))+"\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn())+ "</a>");
+//            } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
+//              BindingSpecification bs1 = page.getDefinitions().getBindingByURL(bs.getReference());
+//              if (bs1 != null)
+//                write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
+//              else
+//                write("<a href=\"valueset-"+bs.getReference().substring(23)+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
+//            } else
+//              throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
+//          } else
+//            write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+bs.getReference()+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");				  
+//        } else
+//          write("<span style=\"color: navy; opacity: 0.8\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShortDefn()) + "</span>");
       }
     }
     if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 

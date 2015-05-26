@@ -482,8 +482,8 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 	 * @see org.eclipse.ohf.utilities.xml.IXMLWriter#open(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void open(String namespace, String name) throws IOException {
-		open(namespace, name, null);
+	public void enter(String namespace, String name) throws IOException {
+		enter(namespace, name, null);
 	}
 
 
@@ -491,7 +491,7 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 	 * @see org.eclipse.ohf.utilities.xml.IXMLWriter#open(java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void open(String namespace, String name, String comment) throws IOException {
+	public void enter(String namespace, String name, String comment) throws IOException {
 		if (name == null)
 			throw new Error("name == null");
 		if (!XMLUtil.isNMToken(name))
@@ -530,20 +530,20 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 	 * @see org.eclipse.ohf.utilities.xml.IXMLWriter#close(java.lang.String)
 	 */
 	@Override
-	public void close(String name) throws IOException {
+	public void exit(String name) throws IOException {
 		checkStarted();
 		if (levels.empty())
 			throw new IOException("Unable to close null|"+name+", nothing to close");
 		if (levels.current().getNamespace() != null || !levels.current().getName().equals(name))
 			throw new IOException("Unable to close null|"+name+", found "+levels.current().getNamespace()+"|"+levels.current().getName());
-		close();
+		exit();
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.utilities.xml.IXMLWriter#close(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void close(String namespace, String name) throws IOException {
+	public void exit(String namespace, String name) throws IOException {
 		checkStarted();
 		if (levels.empty())
 			throw new IOException("Unable to close "+namespace+"|"+name+", nothing to close");
@@ -561,27 +561,43 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 			throw new Error("namespace = null");
 		if (!levels.current().getNamespace().equals(namespace) || !levels.current().getName().equals(name))
 			throw new IOException("Unable to close "+namespace+"|"+name+", found "+levels.current().getNamespace()+"|"+levels.current().getName());
-		close();
+		exit();
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.utilities.xml.IXMLWriter#closeToLevel(int)
 	 */
 	@Override
-	public void closeToLevel(int count) throws IOException {
+	public void exitToLevel(int count) throws IOException {
+    checkStarted();
 		while (levels.size() > count)
-			close();		
+			exit();		
 	}
 
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.utilities.xml.IXMLWriter#close()
 	 */
+  @Override
+  public void close() throws IOException {
+    checkStarted();
+    if (!levels.empty()) 
+      throw new IOException("Called close before exiting all opened elements");
+     super.close();
+  }
+    
+  @Override
+  public void end() throws IOException {
+    checkStarted();
+    if (!levels.empty()) 
+      throw new IOException("Called end() before exiting all opened elements");
+     flush();
+  }
 	@Override
-	public void close() throws IOException {
+	public void exit() throws IOException {
 		checkStarted();
 		if (levels.empty()) {
-			super.close();
+			throw new IOException("Called exit one too many times");
 		} else {
 			if (pendingClose) { 
 				write("/>");
@@ -605,8 +621,8 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 	 * @see org.eclipse.ohf.utilities.xml.IXMLWriter#open(java.lang.String)
 	 */
 	@Override
-	public void open(String name) throws IOException {
-		open(null, name);
+	public void enter(String name) throws IOException {
+		enter(null, name);
 	}
 
 
@@ -626,9 +642,9 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 	public void element(String namespace, String name, String content, String comment) throws IOException {
 		if (!XMLUtil.isNMToken(name))
 			throw new IOException("XML name "+name+" is not valid");
-		open(namespace, name, comment);
+		enter(namespace, name, comment);
 		text(content);
-		close();
+		exit();
 	}
 	
 	/* (non-Javadoc)
@@ -638,9 +654,9 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 	public void element(String namespace, String name, String content) throws IOException {
 		if (!XMLUtil.isNMToken(name))
 			throw new IOException("XML name "+name+" is not valid");
-		open(namespace, name);
+		enter(namespace, name);
 		text(content);
-		close();
+		exit();
 	}
 
 	/* (non-Javadoc)

@@ -34,7 +34,9 @@ public class NarrativeGeneratorTests {
 	  XmlParser p = new XmlParser();
 	  DomainResource r = (DomainResource) p.parse(new FileInputStream(path));
 	  gen.generate(r);
-	  new XmlParser().compose(new FileOutputStream("c:\\temp\\gen.xml"), r, true);
+	  FileOutputStream s = new FileOutputStream("c:\\temp\\gen.xml");
+    new XmlParser().compose(s, r, true);
+    s.close();
 	  
   }
 

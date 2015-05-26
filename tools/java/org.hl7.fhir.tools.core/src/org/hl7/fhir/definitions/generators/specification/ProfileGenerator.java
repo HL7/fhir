@@ -38,7 +38,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -632,8 +632,7 @@ public class ProfileGenerator {
     return b.toString();
   }
 
-  private ElementDefinitionBindingComponent generateBinding(String bn) throws Exception {
-    BindingSpecification src = definitions.getBindingByName(bn);
+  private ElementDefinitionBindingComponent generateBinding(BindingSpecification src) throws Exception {
     if (src == null)
       return null;
 
@@ -641,7 +640,7 @@ public class ProfileGenerator {
     dst.setName(src.getName());
     dst.setStrength(src.getStrength());    
     dst.setDescription(src.getDefinition());
-    if (src.getBinding() != Binding.Unbound)
+    if (src.getBinding() != BindingMethod.Unbound)
       dst.setValueSet(buildReference(src));    
     return dst;
   }
@@ -832,9 +831,9 @@ public class ProfileGenerator {
     }
     // we don't have anything to say about constraints on resources
 
-    if (!Utilities.noString(e.getBindingName())) {
-      ce.setBinding(generateBinding(e.getBindingName()));
-      bindings.add(e.getBindingName());
+    if (e.hasBinding()) {
+      ce.setBinding(generateBinding(e.getBinding()));
+      bindings.add(e.getBinding().getName());
     }
 
     if (snapshot != SnapShotMode.None && !e.getElements().isEmpty()) {    
@@ -1083,8 +1082,8 @@ public class ProfileGenerator {
         addMapping(ed, dst, mu, src.getMapping(mu), null);
       }
     }
-    if (!Utilities.noString(src.getBindingName()))
-      dst.setBinding(generateBinding(src.getBindingName()));
+    if (src.hasBinding())
+      dst.setBinding(generateBinding(src.getBinding()));
     if (src.getElements().isEmpty()) {
       if (path == null)
         throw new Exception("?error parsing extension");

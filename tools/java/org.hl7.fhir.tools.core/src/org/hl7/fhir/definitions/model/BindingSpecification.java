@@ -51,7 +51,7 @@ public class BindingSpecification {
   public static final String DEFAULT_OID_CS = "2.16.840.1.113883.4.642.1.";
   public static final String DEFAULT_OID_VS = "2.16.840.1.113883.4.642.2.";
   
-  public enum Binding {
+  public enum BindingMethod {
     Unbound,
     CodeList, 
     ValueSet,
@@ -59,24 +59,35 @@ public class BindingSpecification {
     Special
   }
   
+  // for common bindings - make sure binding doesn't cross code / Coding boundary
   public enum ElementType {
     Unknown,
     Simple,
     Complex
   }
 
-  // properties
+  // use tracking
+  private ElementType elementType = ElementType.Unknown;
   private String usageContext;
-  private String id; // to generate the OID
-  private String name;
-	private String definition;
-	private Binding binding;
-  private String reference;
-  private String description;
+  private List<String> useContexts = new ArrayList<String>(); // slated for removal
+  private BindingMethod binding;
+  private String source; // for useful error messages during build
+  private String v2Map;
+  private String v3Map;
 
-  // for profiles:
+  // in ElementDefinition.binding 
+  private String name;
+  private BindingStrength strength;
+  private String description;
+  private String reference;
+  private ValueSet valueSet;
   
-  // allow ability to override metadata defaults
+  
+  // to get rid of:
+  private String id; // to generate the OID
+  
+  // to move into valueset 
+	private String definition;
   private String uri; // used as the official value set identifier if provided, else one will be synthesized. For when code list is actually a value set defined elsewhere
   private String webSite;
   private String email;
@@ -84,21 +95,15 @@ public class BindingSpecification {
   private List<DefinedCode> codes = new ArrayList<DefinedCode>();
   private String csOid;
   private String vsOid;
-	
-	// these are implied by the use of the binding at the specification level
-  private BindingStrength strength;
-
-  // analysis during run time
-  private ElementType elementType = ElementType.Unknown;
-	private String source; // for useful error messages during build
-	private List<String> useContexts = new ArrayList<String>();
-	private ValueSet referredValueSet;
   private List<DefinedCode> childCodes;
-
-  private String v2Map;
-  private String v3Map;
   private ConformanceResourceStatus status;
+  private ValueSet referredValueSet;
+
   
+  
+  
+  // analysis during run time
+
   
   public BindingSpecification(String usageContext) {
     super();
@@ -133,11 +138,11 @@ public class BindingSpecification {
     this.definition = definition;
   }
 
-  public Binding getBinding() {
+  public BindingMethod getBinding() {
     return binding;
   }
 
-  public void setBinding(Binding binding) {
+  public void setBindingMethod(BindingMethod binding) {
     this.binding = binding;
   }
 
@@ -145,8 +150,9 @@ public class BindingSpecification {
     return reference;
   }
 
-  public void setReference(String reference) {
+  public BindingSpecification setReference(String reference) {
     this.reference = reference;
+    return this;
   }
 
   public String getDescription() {
@@ -356,5 +362,14 @@ public class BindingSpecification {
   public void setStatus(ConformanceResourceStatus status) {
     this.status = status;
   }
+
+  public ValueSet getValueSet() {
+    return valueSet;
+  }
+
+  public void setValueSet(ValueSet valueSet) {
+    this.valueSet = valueSet;
+  }
+
   
 }

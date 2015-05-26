@@ -71,7 +71,7 @@ public class SchemaGenerator {
       ResourceDefn root = definitions.getResources().get(name);
 		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd"))), definitions);
 		  sgen.setDataTypes(definitions.getKnownTypes());
-		  sgen.generate(root.getRoot(), definitions.getBindings(), version, genDate, true);
+		  sgen.generate(root.getRoot(), version, genDate, true);
 		  sgen.getWriter().close();
 	  }
 
@@ -114,7 +114,7 @@ public class SchemaGenerator {
       ResourceDefn root = definitions.getResources().get(name);
       XSDGenerator sgen = new XSDGenerator(single, definitions);
       sgen.setDataTypes(definitions.getKnownTypes());
-      sgen.generate(root.getRoot(), definitions.getBindings(), version, genDate, false);
+      sgen.generate(root.getRoot(), version, genDate, false);
     }
 
     single.write("</xs:schema>\r\n");
@@ -198,7 +198,8 @@ public class SchemaGenerator {
         if (com[1].equals("resource")) {
           values = definitions.getKnownResources().values();          
         } else {
-          values = definitions.getBindingByName(com[1]).getCodes();
+          throw new Error("fix this");
+//          values = definitions.getBindingByName(com[1]).getCodes();
         }
         StringBuilder enums = new StringBuilder();
         for (DefinedCode c : values) {

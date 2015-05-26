@@ -382,6 +382,7 @@ public class ClientUtils {
 			}
       parser.setOutputStyle(pretty ? OutputStyle.PRETTY : OutputStyle.NORMAL);
 			parser.compose(baos, resource);
+			baos.close();
 			byteArray =  baos.toByteArray();
 			baos.close();
 		} catch (Exception e) {
@@ -408,6 +409,7 @@ public class ClientUtils {
 			}
       parser.setOutputStyle(pretty ? OutputStyle.PRETTY : OutputStyle.NORMAL);
 			parser.compose(baos, feed);
+			baos.close();
 			byteArray =  baos.toByteArray();
 			baos.close();
 		} catch (Exception e) {
@@ -492,6 +494,7 @@ public class ClientUtils {
     JsonParser json = new JsonParser();
     json.setOutputStyle(OutputStyle.NORMAL);
     json.compose(b, resource);
+    b.close();
     w = new OutputStreamWriter(b, "UTF-8");  
     w.write("\r\n--");
     w.write(boundary);

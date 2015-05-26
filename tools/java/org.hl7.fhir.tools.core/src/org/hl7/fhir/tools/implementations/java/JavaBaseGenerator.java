@@ -31,6 +31,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
+import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
@@ -53,11 +54,9 @@ public class JavaBaseGenerator extends OutputStreamWriter {
     return definitions.hasPrimitiveType(name) || (name.endsWith("Type") && definitions.getPrimitives().containsKey(name.substring(0, name.length()-4)));
   }
 
-  protected boolean isSharedEnum(String tc) {
-    return tc.equals("ConformanceResourceStatus");
+  protected boolean isSharedEnum(BindingSpecification bs) {
+    return definitions.getCommonBindings().containsValue(bs);
   }
-
-
 
 	protected String getElementName(String name, boolean alone) {
 	  if (name.equals("[type]"))

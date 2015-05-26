@@ -38,7 +38,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
@@ -253,15 +252,16 @@ public class BookMaker {
           if (n.getLink().equals("[codes]")) {
             lvl.l2--;
             List<String> names = new ArrayList<String>();
-            for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
-              if (bs.getBinding() == Binding.CodeList) 
-                names.add(bs.getReference());
-            }
-            Collections.sort(names);
-            for (String l : names) { 
-              addPageContent(lvl, divS, l.substring(1), page.getDefinitions().getBindingByReference(l).getName());
-//              links.add(l.substring(1));
-            }
+            throw new Error("fix this");
+//            for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
+//              if (bs.getBinding() == Binding.CodeList) 
+//                names.add(bs.getReference());
+//            }
+//            Collections.sort(names);
+//            for (String l : names) { 
+//              addPageContent(lvl, divS, l.substring(1), page.getDefinitions().getBindingByReference(l).getName());
+////              links.add(l.substring(1));
+//            }
           }
           else {
             addPageContent(lvl, divS, n.getLink(), n.getName());

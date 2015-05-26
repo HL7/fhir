@@ -13,4 +13,14 @@ public class ValueSetUtilities {
     return vs;
   }
 
+  public static void checkShareable(ValueSet vs) {
+    if (!vs.hasMeta())
+      throw new Error("ValueSet "+vs.getUrl()+" is not shareable");
+    for (UriType t : vs.getMeta().getProfile()) {
+      if (t.getValue().equals("http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"))
+        return;
+    }
+    throw new Error("ValueSet "+vs.getUrl()+" is not shareable");    
+  }
+
 }

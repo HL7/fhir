@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
@@ -82,14 +82,14 @@ public class QaTracker {
     for (ElementDefn e : definitions.getInfrastructure().values())
       countPaths(e);
     
-    current.bindings = definitions.getBindings().size();
-    for (BindingSpecification bs : definitions.getBindings().values())
-      if (bs.getBinding() == Binding.CodeList) {
-        current.codelists++;
-        current.codes = current.codes + bs.getCodes().size();
-      }
-      else if (bs.getBinding() == Binding.ValueSet)
-        current.valuesets++;
+//    current.bindings = definitions.getBindings().size();
+//    for (BindingSpecification bs : definitions.getBindings().values())
+//      if (bs.getBinding() == Binding.CodeList) {
+//        current.codelists++;
+//        current.codes = current.codes + bs.getCodes().size();
+//      }
+//      else if (bs.getBinding() == Binding.ValueSet)
+//        current.valuesets++;
   }
 
   private void countPaths(ElementDefn e) {

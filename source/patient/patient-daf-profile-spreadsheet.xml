@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Brett A Marquard</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-31T13:48:44Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2015-05-25T19:49:38Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4360,7 +4360,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4433,7 +4432,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C24,R29C1:R29C10,R29C12:R29C24,R30C1:R32C24,R43C1:R43C7,R43C9:R43C24,R33C1:R38C3,R33C11:R37C24,R44C1:R114C24,R24C1:R28C24,R23C1:R23C9,R23C11:R23C24,R3C13:R4C24,R3C1:R4C11,R42C1:R42C24,R39C1:R39C24,R40C1:R41C7,R40C9:R41C24,R38C11:R38C14,R38C16:R38C24,R5C1:R8C24,R10C1:R22C24,R9C1:R9C14,R9C16:R9C24</Range>
+   <Range>R2C1:R2C24,R29C1:R29C10,R29C12:R29C24,R30C1:R32C24,R43C1:R43C7,R43C9:R43C24,R33C1:R38C3,R33C11:R37C24,R44C1:R114C24,R24C1:R28C24,R23C1:R23C9,R23C11:R23C24,R3C13:R4C24,R3C1:R4C11,R42C1:R42C24,R39C1:R39C24,R40C1:R41C7,R40C9:R41C24,R38C11:R38C14,R38C16:R38C24,R5C1:R22C24</Range>
    <Condition>
     <Value1>RC6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -4479,14 +4478,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C15:R8C16,R39C15:R114C16,R38C16,R10C15:R37C16,R9C16</Range>
+   <Range>R39C15:R114C16,R38C16,R2C15:R37C16</Range>
    <Condition>
     <Value1>AND(RC15&lt;&gt;&quot;&quot;,RC15=RC16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C24,R29C1:R29C10,R29C12:R29C24,R30C1:R32C24,R43C1:R43C7,R43C9:R43C24,R33C1:R38C3,R33C11:R37C24,R44C1:R114C24,R24C1:R28C24,R23C1:R23C9,R23C11:R23C24,R3C13:R4C24,R3C1:R4C11,R42C1:R42C24,R39C1:R39C24,R40C1:R41C7,R40C9:R41C24,R38C11:R38C14,R38C16:R38C24,R5C1:R8C24,R10C1:R22C24,R9C1:R9C14,R9C16:R9C24</Range>
+   <Range>R2C1:R2C24,R29C1:R29C10,R29C12:R29C24,R30C1:R32C24,R43C1:R43C7,R43C9:R43C24,R33C1:R38C3,R33C11:R37C24,R44C1:R114C24,R24C1:R28C24,R23C1:R23C9,R23C11:R23C24,R3C13:R4C24,R3C1:R4C11,R42C1:R42C24,R39C1:R39C24,R40C1:R41C7,R40C9:R41C24,R38C11:R38C14,R38C16:R38C24,R5C1:R22C24</Range>
    <Condition>
     <Value1>LEFT(RC4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -4500,7 +4499,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R22C4,R15C4:R16C4,R42C4,R10C4</Range>
+   <Range>R22C4,R15C4:R16C4,R42C4,R9C4:R10C4</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-2]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -4602,38 +4601,6 @@
    <Range>R41C8</Range>
    <Condition>
     <Value1>LEFT(R[-1]C4,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C4</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-2]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C15</Range>
-   <Condition>
-    <Value1>RC6=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC4=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C15</Range>
-   <Condition>
-    <Value1>AND(RC15&lt;&gt;&quot;&quot;,RC15=RC16)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C15</Range>
-   <Condition>
-    <Value1>LEFT(RC4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
@@ -10849,6 +10816,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -10869,8 +10837,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

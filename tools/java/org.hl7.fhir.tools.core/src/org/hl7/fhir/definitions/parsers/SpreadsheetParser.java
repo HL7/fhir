@@ -40,11 +40,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -67,6 +68,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.FormatUtilities;
+import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Base64BinaryType;
@@ -98,6 +100,7 @@ import org.hl7.fhir.instance.model.UuidType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.CSFile;
@@ -129,7 +132,7 @@ public class SpreadsheetParser {
   private WorkerContext context;
   private Calendar genDate;
   private boolean isAbstract;
-  private Map<String, BindingSpecification> bindings; // when parsing profiles
+  private Map<String, BindingSpecification> bindings; 
   private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   private ProfileKnowledgeProvider pkp;
   
@@ -181,9 +184,8 @@ public class SpreadsheetParser {
 		parseEnteredInError(resource);
 		
 		Sheet sheet = loadSheet("Bindings");
-		Map<String, BindingSpecification> typeLocalBindings = null;
 		if (sheet != null)
-			typeLocalBindings = readBindings(sheet);
+			bindings = readBindings(sheet);
 			
 		sheet = loadSheet("Invariants");
 		Map<String,Invariant> invariants = null;
@@ -216,8 +218,8 @@ public class SpreadsheetParser {
 		
 		//TODO: Will fail if type has no root. - GG: so? when could that be
 		// EK: Future types. But those won't get there.
-		if( typeLocalBindings != null)
-			resource.getRoot().getNestedBindings().putAll(typeLocalBindings);
+		if( bindings != null)
+			resource.getRoot().getNestedBindings().putAll(bindings);
 		
 		scanNestedTypes(resource, resource.getRoot(), resource.getName());
 		
@@ -734,6 +736,8 @@ public class SpreadsheetParser {
 	private Map<String, BindingSpecification> readBindings(Sheet sheet) throws Exception {
 		Map<String, BindingSpecification> result = new HashMap<String,BindingSpecification>();
 	
+		ValueSetGenerator vsGen = new ValueSetGenerator(definitions, version, genDate);
+		
 		for (int row = 0; row < sheet.rows.size(); row++) {
 		  String bindingName = sheet.getColumn(row, "Binding Name"); 
 		  
@@ -741,13 +745,49 @@ public class SpreadsheetParser {
 		  if (Utilities.noString(bindingName) || bindingName.startsWith("!")) continue;
 	      
 			BindingSpecification cd = new BindingSpecification(usageContext);
+      definitions.getAllBindings().add(cd);
 
 			cd.setName(bindingName);
 			cd.setDefinition(sheet.getColumn(row, "Definition"));
-			cd.setBinding(BindingsParser.readBinding(sheet.getColumn(row, "Binding")));
-			cd.setReference(sheet.getColumn(row, "Reference"));
-	     if (!cd.getBinding().equals(Binding.Unbound) && Utilities.noString(cd.getReference())) 
-         throw new Exception("binding "+cd.getName()+" is missing a reference");
+			
+			cd.setBindingMethod(BindingsParser.readBinding(sheet.getColumn(row, "Binding")));
+      String ref = sheet.getColumn(row, "Reference");
+      if (!cd.getBinding().equals(BindingMethod.Unbound) && Utilities.noString(ref)) 
+        throw new Exception("binding "+cd.getName()+" is missing a reference");
+      if (cd.getBinding() == BindingMethod.CodeList) {
+        cd.setValueSet(new ValueSet());
+        cd.getValueSet().setId(ref.substring(1));
+        cd.getValueSet().setUrl("http://hl7.org/fhir/vs/"+ref.substring(1));
+        if (!ref.startsWith("#"))
+          throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' must started with '#'");
+        Sheet cs = xls.getSheets().get(ref.substring(1));
+        if (cs == null)
+          throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version).execute();
+      } else if (cd.getBinding() == BindingMethod.ValueSet) {
+        if (ref.startsWith("http:"))
+          cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
+        else
+          cd.setValueSet(loadValueSet(ref));
+      } else if (cd.getBinding() == BindingMethod.Special) {
+        throw new Exception("Special bindings are only allowed in bindings.xml");
+      } else if (cd.getBinding() == BindingMethod.Reference) { 
+        cd.setReference(sheet.getColumn(row, "Reference"));
+      }			
+      cd.setReference(sheet.getColumn(row, "Reference")); // do this anyway in the short term
+      
+      cd.setId(registry.idForName(cd.getName()));
+      if (cd.getValueSet() != null) {
+        ValueSet vs = cd.getValueSet();
+        ValueSetUtilities.makeShareable(vs);
+        vs.setUserData("filename", vs.getId());
+        vs.setUserData("path", vs.getId()+".html");
+        ToolingExtensions.setOID(vs, BindingSpecification.DEFAULT_OID_VS + cd.getId());
+        vs.setUserData("csoid", BindingSpecification.DEFAULT_OID_CS + cd.getId());
+        definitions.getBoundValueSets().put(vs.getUrl(), vs);
+      } else if (cd.getReference() != null && cd.getReference().startsWith("http:")) {
+        definitions.getUnresolvedBindings().add(cd);
+      }
 
       cd.setDescription(sheet.getColumn(row, "Description"));
       if (parseBoolean(sheet.getColumn(row, "Example"), row, false))
@@ -757,7 +797,6 @@ public class SpreadsheetParser {
       else 
         cd.setStrength(BindingsParser.readBindingStrength(sheet.getColumn(row, "Conformance")));
         
-			cd.setId(registry.idForName(cd.getName()));
 			cd.setSource(name);
       cd.setUri(sheet.getColumn(row, "Uri"));
       String oid = sheet.getColumn(row, "Oid");
@@ -770,7 +809,7 @@ public class SpreadsheetParser {
       cd.setV2Map(sheet.getColumn(row, "v2"));
       cd.setV3Map(checkV3Mapping(sheet.getColumn(row, "v3")));
 
-			if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
+			if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
 				Sheet codes = xls.getSheets().get(
 						cd.getReference().substring(1));
 				if (codes == null)
@@ -778,7 +817,7 @@ public class SpreadsheetParser {
 				parseCodes(cd.getCodes(), codes);
 			}
 			
-			if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())) {
+			if (cd.getBinding() == BindingMethod.ValueSet && !Utilities.noString(cd.getReference())) {
 			  try {
 			    if (cd.getReference().startsWith("http://hl7.org/fhir")) {
 			    // ok, it's a reference to a value set defined within this build. Since it's an absolute 
@@ -822,20 +861,48 @@ public class SpreadsheetParser {
             cd.getReferredValueSet().setVersion(version);
 			  }
 			}
-			if (definitions.getBindingByName(cd.getName()) != null) {
-				throw new Exception("Definition of binding '"
-						+ cd.getName()
-						+ "' in "
-						+ name
-						+ " clashes with previous definition in "
-						+ definitions.getBindingByName(cd.getName())
-								.getSource());
-			}
-			definitions.getBindings().put(cd.getName(), cd);
 			result.put(cd.getName(), cd);
+	    if (cd.getValueSet() != null) {
+	      ValueSet vs = cd.getValueSet();
+	      vsGen.updateHeader(cd, cd.getValueSet());
+	    }
 		}
 		
 		return result;
+	}
+
+	private ValueSet loadValueSet(String ref) throws Exception {
+	  if (!ref.startsWith("valueset-"))
+	    throw new Exception("Value set file names must start with 'valueset-'");
+	  
+	  IParser p;
+	  FileInputStream input;
+	  if (new File(Utilities.path(folder, ref+".xml")).exists()) {
+	    p = new XmlParser();
+	    input = new FileInputStream(Utilities.path(folder, ref+".xml"));
+	  } else if (new File(Utilities.path(folder, ref+".json")).exists()) {
+	    p = new JsonParser();
+	    input = new FileInputStream(Utilities.path(folder, ref+".json"));
+	  } else if (new File(Utilities.path(dataTypesFolder, ref+".xml")).exists()) {
+      p = new XmlParser();
+      input = new FileInputStream(Utilities.path(dataTypesFolder, ref+".xml"));
+    } else if (new File(Utilities.path(dataTypesFolder, ref+".json")).exists()) {
+      p = new JsonParser();
+      input = new FileInputStream(Utilities.path(dataTypesFolder, ref+".json"));
+    } else 
+	    throw new Exception("Unable to find source for "+ref+" in "+folder+" ("+Utilities.path(folder, ref+".xml/json)"));
+
+	  try {
+	    ValueSet result = ValueSetUtilities.makeShareable((ValueSet) p.parse(input));
+	    result.setId(ref);
+	    result.setExperimental(true);
+	    if (!result.hasVersion())
+	      result.setVersion(version);
+	    result.setUrl("http://hl7.org/fhir/vs/"+ref.substring(9));
+	    return result;
+	  } finally {
+	    IOUtils.closeQuietly(input);
+	  }
 	}
 
 	private String checkV3Mapping(String value) {
@@ -1254,12 +1321,21 @@ public class SpreadsheetParser {
 			throw new Exception("Column 'Concept Domain' has been retired in "
 					+ path);
 
-		e.setBindingName(sheet.getColumn(row, "Binding"));
-		if (e.hasBindingName()) { 
-		  BindingSpecification binding = definitions.getBindingByName(e.getBindingName());
-      if (binding != null && !binding.getUseContexts().contains(name))
-        binding.getUseContexts().add(name);
-	    }
+		String bindingName = sheet.getColumn(row, "Binding");
+		if (!Utilities.noString(bindingName)) { 
+		  BindingSpecification binding = bindings.get(bindingName);
+		  if (binding == null)
+		    binding = definitions.getCommonBindings().get(bindingName);
+		  if (binding == null) {
+		    if (bindingName.startsWith("!"))
+		      e.setNoBindingAllowed(true); 
+		    else
+	        throw new Exception("Binding name "+bindingName+" could not be resolved in local spreadsheet");
+		  }
+		  e.setBinding(binding);
+		  if (binding != null && !binding.getUseContexts().contains(name))
+		    binding.getUseContexts().add(name);
+		}
     if (!Utilities.noString(sheet.getColumn(row, "Short Label")))
       e.setShortDefn(sheet.getColumn(row, "Short Label"));
     else // todo: make this a warning when a fair chunk of the spreadsheets have been converted 
@@ -1491,7 +1567,22 @@ public class SpreadsheetParser {
       ElementDefn exv = new ElementDefn();
       exv.setName("value[x]");
       exe.getElements().add(exv);
-      exv.setBindingName(sheet.getColumn(row, "Binding"));
+      String bindingName = sheet.getColumn(row, "Binding");
+      if (!Utilities.noString(bindingName)) {
+        BindingSpecification binding = bindings.get(bindingName);
+        if (binding == null)
+          binding = definitions.getCommonBindings().get(bindingName);
+        if (binding == null) {
+          if (bindingName.startsWith("!"))
+            exv.setNoBindingAllowed(true); 
+          else
+            throw new Exception("Binding name "+bindingName+" could not be resolved in local spreadsheet");
+        }
+        exv.setBinding(binding);
+        if (binding != null && !binding.getUseContexts().contains(name))
+          binding.getUseContexts().add(name);
+      }
+      // exv.setBinding();
       exv.setMaxLength(sheet.getColumn(row, "Max Length"));
       exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, definitions));
       exv.setExample(processValue(sheet, row, "Example", exv));

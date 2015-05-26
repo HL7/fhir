@@ -388,7 +388,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   public void generate(ElementDefn root) throws Exception
 	{
 		write("<table class=\"dict\">\r\n");
-		writeEntry(root.getName(), "1..1", "", "", root);
+		writeEntry(root.getName(), "1..1", "", null, root);
 		for (ElementDefn e : root.getElements()) {
 		   generateElement(root.getName(), e);
 		}
@@ -399,13 +399,13 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	}
 
 	private void generateElement(String name, ElementDefn e) throws Exception {
-		writeEntry(name+"."+e.getName(), e.describeCardinality(), describeType(e), e.getBindingName(), e);
+		writeEntry(name+"."+e.getName(), e.describeCardinality(), describeType(e), e.getBinding(), e);
 		for (ElementDefn c : e.getElements())	{
 		   generateElement(name+"."+e.getName(), c);
 		}
 	}
 
-	private void writeEntry(String path, String cardinality, String type, String conceptDomain, ElementDefn e) throws Exception {
+	private void writeEntry(String path, String cardinality, String type, BindingSpecification bs, ElementDefn e) throws Exception {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"> </a><b>"+path+"</b></td></tr>\r\n");
 		tableRowNE("Definition", null, page.processMarkdown(e.getDefinition()));
     tableRowNE("Note", null, businessIdWarning(e.getName()));
@@ -456,7 +456,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	    return null;
 	  
 	  StringBuilder b = new StringBuilder();
-	  BindingSpecification cd =  definitions.getBindingByName(e.getBindingName());
+	  BindingSpecification cd =  e.getBinding();
     b.append(cd.getName()+": ");
     b.append(TerminologyNotesGenerator.describeBinding(cd, page));
 //    if (cd.getBinding() == Binding.Unbound)

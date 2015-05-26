@@ -36,78 +36,41 @@ import java.io.IOException;
  */
 public interface IXMLWriter {
 	
-	public abstract void start() throws IOException;
+  public abstract void start() throws IOException;
+  public abstract void end() throws IOException;
 
-	public abstract void attribute(String namespace, String name, String value,
-			boolean onlyIfNotEmpty) throws IOException;
-
-	public abstract void attribute(String namespace, String name, String value)
-			throws IOException;
-
-	public abstract void attribute(String name, String value,
-			boolean onlyIfNotEmpty) throws IOException;
-
-	public abstract void attribute(String name, String value)
-			throws IOException;
-
-	public abstract void attributeNoLines(String name, String value)
-			throws IOException;
-
-//	public abstract XMLNamespace findByNamespace(String namespace);
+	public abstract void attribute(String namespace, String name, String value, boolean onlyIfNotEmpty) throws IOException;
+	public abstract void attribute(String namespace, String name, String value) throws IOException;
+	public abstract void attribute(String name, String value, boolean onlyIfNotEmpty) throws IOException;
+	public abstract void attribute(String name, String value) throws IOException;
+	public abstract void attributeNoLines(String name, String value) throws IOException;
 
 	public abstract boolean namespaceDefined(String namespace);
-
-//	public abstract XMLNamespace findByAbbreviation(String abbreviation);
-
 	public abstract boolean abbreviationDefined(String abbreviation);
-
-//	public abstract XMLNamespace findDefaultNamespace();
-
 	public abstract String getDefaultNamespace();
-
 	public abstract void namespace(String namespace) throws IOException;
-
 	public abstract void setDefaultNamespace(String namespace) throws IOException;
+	public abstract void namespace(String namespace, String abbreviation) throws IOException;
+	
+	public abstract void comment(String comment, boolean doPretty) throws IOException;
 
-	public abstract void namespace(String namespace, String abbreviation)
-			throws IOException;
+  public abstract void enter(String name) throws IOException;
+	public abstract void enter(String namespace, String name) throws IOException;
+	public abstract void enter(String namespace, String name, String comment) throws IOException;
+	
+  public abstract void exit() throws IOException;
+	public abstract void exit(String name) throws IOException;
+	public abstract void exit(String namespace, String name) throws IOException;
+	public abstract void exitToLevel(int count) throws IOException;
 
-	public abstract void comment(String comment, boolean doPretty)
-			throws IOException;
 
-	public abstract void open(String namespace, String name) throws IOException;
-
-	public abstract void open(String namespace, String name, String comment)
-			throws IOException;
-
-	public abstract void close(String name) throws IOException;
-
-	public abstract void close(String namespace, String name)
-			throws IOException;
-
-	public abstract void closeToLevel(int count) throws IOException;
-
-	public abstract void close() throws IOException;
-
-	public abstract void open(String name) throws IOException;
-
-	public abstract void element(String namespace, String name, String content,
-			boolean onlyIfNotEmpty) throws IOException;
-
-	public abstract void element(String namespace, String name, String content,
-			String comment) throws IOException;
-
-	public abstract void element(String namespace, String name, String content)
-			throws IOException;
-
-	public abstract void element(String name, String content,
-			boolean onlyIfNotEmpty) throws IOException;
-
-	public abstract void element(String name, String content)
-			throws IOException;
+	public abstract void element(String namespace, String name, String content,	boolean onlyIfNotEmpty) throws IOException;
+	public abstract void element(String namespace, String name, String content,	String comment) throws IOException;
+	public abstract void element(String namespace, String name, String content)	throws IOException;
+	public abstract void element(String name, String content,	boolean onlyIfNotEmpty) throws IOException;
+	public abstract void element(String name, String content)	throws IOException;
 
 	public abstract void text(String content) throws IOException;
-	
 	public abstract void text(String content, boolean dontEscape) throws IOException;
 
 	public abstract void cData(String text) throws IOException;
@@ -115,7 +78,6 @@ public interface IXMLWriter {
 	public abstract void writeBytes(byte[] bytes) throws IOException;
 
 	public abstract boolean isPretty() throws IOException;
-
 	public abstract void setPretty(boolean pretty) throws IOException;
 
 	/**
@@ -126,7 +88,6 @@ public interface IXMLWriter {
 	 * @throws IOException 
 	 */
 	public abstract void startCommentBlock() throws IOException;
-
 	public abstract void endCommentBlock() throws IOException;
 
 }

@@ -10,7 +10,7 @@
   <LastAuthor>Claude Nanjo</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-08T18:36:13Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>18030</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -827,15 +827,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s155">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
-  </Style>
   <Style ss:ID="s156">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
@@ -910,6 +901,15 @@
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s240">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
   </Style>
@@ -2863,7 +2863,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6788,14 +6787,14 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s240"><Data ss:Type="String">QICoreVaccineTypeCVX</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">This identifies the CVX code system</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">http://hl7.org/fhir/vs/daf-cvx</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">This value set binds to the CDC  Vaccines administered (CVX) 2.16.840.1.113883.12.292 code system.</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">2.16.840.1.113883.3.88.12.80.22</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -7249,6 +7248,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7268,9 +7268,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R14</RangeSelection>
+     <RangeSelection>R2C1:R2C14</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

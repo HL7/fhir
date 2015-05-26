@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>885</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -909,6 +909,18 @@
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s323">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s324">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
@@ -7698,7 +7710,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -10779,12 +10790,12 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">11/17/2014 EH maps to  see use cases  New, addon ( New) ,  cancel by provider, cancel by lab, oral request</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s324"><Data ss:Type="String">USLabObservationName</Data></Cell>
+    <Cell ss:StyleID="s323"><Data ss:Type="String">LOINC codes</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">http://hl7.org/fhir/vs/obs-uslab-codes</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
@@ -11240,6 +11251,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -11259,7 +11271,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
+     <RangeSelection>R3C1:R3C14</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

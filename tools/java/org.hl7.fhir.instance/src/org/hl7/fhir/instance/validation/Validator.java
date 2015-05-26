@@ -112,7 +112,9 @@ public class Validator {
           else
             System.out.println(" ...failure");
         } else {
-          new XmlParser().compose(new FileOutputStream(output), exe.engine.getOutcome(), true);
+          FileOutputStream s = new FileOutputStream(output);
+          new XmlParser().compose(s, exe.engine.getOutcome(), true);
+          s.close();
         }
       }
     }
@@ -197,6 +199,7 @@ public class Validator {
   public String getOutcome() throws Exception {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     new XmlParser().compose(b, engine.getOutcome(), true); 
+    b.close();
     return b.toString();
   }
 

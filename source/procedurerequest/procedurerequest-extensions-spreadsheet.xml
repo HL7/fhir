@@ -4387,7 +4387,7 @@
     <Cell><Data ss:Type="String">Reference(BodySite)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">ProcedureApproachBodySite</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">!ProcedureApproachBodySite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>

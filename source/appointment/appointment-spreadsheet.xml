@@ -20,7 +20,7 @@
   <WindowWidth>14730</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3929,7 +3929,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3951,8 +3950,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6966,7 +6965,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s113" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s113" ss:Width="115.5"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="274.5"/>
@@ -6993,7 +6992,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">How is the set of codes defined?</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Example</Data><Comment
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Conformance</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Y = example, blank = incomplete.  Only relevant if binding is &quot;value set&quot;</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7110,11 +7109,12 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">DocumentC80PracticeSetting</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Additional details about where the content was created (e.g. clinical specialty)</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">Preferred</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/c80-practice-codes</Data></Cell>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -7123,13 +7123,16 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">ParticipantType</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Role of participant in encounter</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/encounter-participant-type</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -7468,6 +7471,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7487,9 +7491,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R7</RangeSelection>
+     <RangeSelection>R8</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

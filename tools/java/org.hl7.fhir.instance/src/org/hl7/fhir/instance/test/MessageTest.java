@@ -21,6 +21,7 @@ public class MessageTest {
 		IParser comp = new JsonParser();
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
 		comp.compose(os, feed);
+		os.close();
 		String json = os.toString();
 		
 		// Deserialize Atom Feed

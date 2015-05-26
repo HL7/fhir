@@ -1,7 +1,7 @@
 package org.hl7.fhir.definitions.generators.specification;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
@@ -106,12 +106,12 @@ public class TableGenerator extends BaseGenerator {
       cc.getPieces().add(gen.new Piece(null, e.getTypes().get(0).getProfile(), null));
     }
     
-    if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()) != null && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {
+    if (e.hasBinding() && e.getBinding() != null && e.getBinding().getBinding() != BindingMethod.Unbound) {
       if (cc.getPieces().size() == 1)
         cc.addPiece(gen.new Piece("br"));
-      cc.getPieces().add(gen.new Piece(getBindingLink(e), e.getBindingName(), definitions.getBindingByName(e.getBindingName()).getDefinition()));
+      cc.getPieces().add(gen.new Piece(getBindingLink(e), e.getBinding().getName(), e.getBinding().getDefinition()));
       cc.getPieces().add(gen.new Piece(null, " (", null));
-      BindingSpecification b = definitions.getBindingByName(e.getBindingName());
+      BindingSpecification b = e.getBinding();
       cc.getPieces().add(gen.new Piece("terminologies.html#"+b.getStrength().toCode(), b.getStrength().getDisplay(),  b.getStrength().getDefinition()));
       cc.getPieces().add(gen.new Piece(null, ")", null));
     }

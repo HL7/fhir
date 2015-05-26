@@ -249,7 +249,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
     xml.setPretty(true);
     xml.start();
     xml.comment("the build tool builds these from the designated snomed server, when it can", true);
-    xml.open("snomed");
+    xml.enter("snomed");
     
     List<String> ids = new ArrayList<String>();
     ids.addAll(snomedCodes.keySet());
@@ -261,16 +261,16 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
       if (c.displays.size() == 0)
         xml.element("concept", null);
       else {
-        xml.open("concept");
+        xml.enter("concept");
         for (String d : c.displays) {
           xml.attribute("value", d);
           xml.element("display", null);
         }
-        xml.close("concept");
+        xml.exit("concept");
       }
     }
-    xml.close("snomed");
-    xml.close();
+    xml.exit("snomed");
+    xml.end();
   }
   
   public void loadLoinc(String filename) throws Exception {
@@ -294,6 +294,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
     JsonParser parser = new JsonParser();
     parser.setOutputStyle(OutputStyle.NORMAL);
     parser.compose(b, vs);
+    b.close();
     String hash = Integer.toString(new String(b.toByteArray()).hashCode());
     String fn = Utilities.path(cache, hash+".json");
     if (new File(fn).exists()) {
@@ -317,11 +318,17 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
         params.put("limit", "500");
         ValueSet result = client.expandValueset(vs);
         serverOk = true;
-        parser.compose(new FileOutputStream(fn), result);
+        FileOutputStream s = new FileOutputStream(fn);
+        parser.compose(s, result);
+        s.close();
+
         return result;
       } catch (EFhirClientException e) {
         serverOk = true;
-        parser.compose(new FileOutputStream(fn), e.getServerErrors().get(0));
+        FileOutputStream s = new FileOutputStream(fn);
+        parser.compose(s, e.getServerErrors().get(0));
+        s.close();
+
         throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
       } catch (Exception e) {
         serverOk = false;
@@ -360,6 +367,7 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
     JsonParser parser = new JsonParser();
     parser.setOutputStyle(OutputStyle.NORMAL);
     parser.compose(b, vs);
+    b.close();
     String hash = Integer.toString(new String(b.toByteArray()).hashCode())+"-vs-check";
     String fn = Utilities.path(cache, hash+".json");
     if (new File(fn).exists()) {
@@ -384,11 +392,15 @@ public class SpecificationTerminologyServices implements ITerminologyServices {
         params.put("code", code);
         Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
-        parser.compose(new FileOutputStream(fn), result);
+        FileOutputStream s = new FileOutputStream(fn);
+        parser.compose(s, result);
+        s.close();
         return ((OperationOutcome) result.getEntry().get(0).getResource());
       } catch (EFhirClientException e) {
         serverOk = true;
-        parser.compose(new FileOutputStream(fn), e.getServerErrors().get(0));
+        FileOutputStream s = new FileOutputStream(fn);
+        parser.compose(s, e.getServerErrors().get(0));
+        s.close();
         throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
       } catch (Exception e) {
         serverOk = false;

@@ -61,18 +61,22 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	  	  // well, we'll see if the designated server can expand it, and if it can, we'll cache it locally
 	  	  try {
 	  	    vso = new ValueSetExpansionOutcome(context.getClient().expandValueset(source), null);
-	  	    new XmlParser().compose(new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl()))), vso.getValueset(), true);
+	  	    FileOutputStream s = new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl())));
+	  	    new XmlParser().compose(s, vso.getValueset(), true);
+	  	    s.close();
 	  	  } catch (EFhirClientException e) {
-          try {
-            if (!e.getServerErrors().isEmpty()) {
-              OperationOutcome oo = e.getServerErrors().get(0);
-            ToolingExtensions.setStringExtension(oo, VS_ID_EXT, source.getUrl());
-            new XmlParser().compose(new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl()))), oo, true);
-            }
-            vso = new ValueSetExpansionOutcome(vso.getService(), e.getMessage());
-          } catch (Exception e1) {
-          }
-        } catch (Exception e) {
+	  	    try {
+	  	      if (!e.getServerErrors().isEmpty()) {
+	  	        OperationOutcome oo = e.getServerErrors().get(0);
+	  	        ToolingExtensions.setStringExtension(oo, VS_ID_EXT, source.getUrl());
+	  	        FileOutputStream s = new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl())));
+	  	        new XmlParser().compose(s, oo, true);
+	  	        s.close();
+	  	      }
+	  	      vso = new ValueSetExpansionOutcome(vso.getService(), e.getMessage());
+	  	    } catch (Exception e1) {
+	  	    }
+	  	  } catch (Exception e) {
 	  	  }
 	  	}
 	  	expansions.put(source.getUrl(), vso);

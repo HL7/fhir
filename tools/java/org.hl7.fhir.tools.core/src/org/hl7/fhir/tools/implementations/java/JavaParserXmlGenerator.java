@@ -431,11 +431,11 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       write("        res.set"+upFirst(getElementName(en, false))+"(parseType(\""+en+"\", xpp));\r\n");
     } else {
       String prsr = null;
-      BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
-      if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
+      BindingSpecification cd = e.getBinding();
+      if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
         String en = typeNames.get(e); // getCodeListType(cd.getBinding());
-        if (isSharedEnum(e.getBindingName()))
-          en = "Enumerations."+e.getBindingName();
+        if (isSharedEnum(e.getBinding()))
+          en = "Enumerations."+e.getBinding().getName();
         prsr = "parseEnumeration(xpp, "+en+".NULL, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
         // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative.NarrativeStatusEnumFactory())
       } else {   
@@ -553,8 +553,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void scanNestedTypes(ElementDefn root, String path, ElementDefn e) throws Exception {
     String tn = null;
     if (e.typeCode().equals("code") && e.hasBinding()) {
-      BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
-      if (cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
+      BindingSpecification cd = e.getBinding();
+      if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
         tn = getCodeListType(cd.getReference());
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
@@ -609,8 +609,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void scanNestedTypesComposer(ElementDefn root, String path, ElementDefn e) throws Exception {
     String tn = null;
     if (e.typeCode().equals("code") && e.hasBinding()) {
-      BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
-      if (cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
+      BindingSpecification cd = e.getBinding();
+      if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
         tn = getCodeListType(cd.getReference());
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
@@ -796,9 +796,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("      if (value.getValue() != null) \r\n");
     write("        xml.attribute(\"value\", e.toCode(value.getValue()));\r\n");
     write("        \r\n");
-    write("      xml.open(FHIR_NS, name);\r\n");
+    write("      xml.enter(FHIR_NS, name);\r\n");
     write("      composeElementElements(value);\r\n");
-    write("      xml.close(FHIR_NS, name);\r\n");
+    write("      xml.exit(FHIR_NS, name);\r\n");
     write("    }    \r\n");
     write("  }    \r\n");
     write("\r\n");
@@ -818,9 +818,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("      if (value.asStringValue() != null) \r\n");
     write("        xml.attribute(\"value\", value.asStringValue());\r\n");
     write("        \r\n");
-    write("      xml.open(FHIR_NS, name);\r\n");
+    write("      xml.enter(FHIR_NS, name);\r\n");
     write("      composeElementElements(value);\r\n");
-    write("      xml.close(FHIR_NS, name);\r\n");
+    write("      xml.exit(FHIR_NS, name);\r\n");
     write("    }    \r\n");
     write("  }    \r\n");
     write("\r\n");
@@ -917,7 +917,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         write("        xml.attribute(\""+e.getName()+"\", element.get"+upFirst(getElementName(e.getName(), true))+"Element().getValue());\r\n");
       }
     }
-    write("      xml.open(FHIR_NS, name);\r\n");
+    write("      xml.enter(FHIR_NS, name);\r\n");
     if (type == JavaGenClass.Resource) 
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
     else if (type == JavaGenClass.BackboneElement) 
@@ -929,7 +929,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       if (!e.typeCode().equals("xml:lang") && !e.isXmlAttribute()) 
         genElement(n, e, type);
     }
-    write("      xml.close(FHIR_NS, name);\r\n");
+    write("      xml.exit(FHIR_NS, name);\r\n");
     write("    }\r\n");    
     write("  }\r\n\r\n");    
   }
@@ -971,9 +971,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     } else {
       String comp = null;
       String en = null;
-      BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
+      BindingSpecification cd = e.getBinding();
       String tn = typeName(root, e, type, false);
-      if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
+      if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
         en = typeNames.get(e); // getCodeListType(cd.getBinding());
         comp = null;
       } else {   
@@ -1019,9 +1019,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
           write("        for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
           if (e.typeCode().equals("Resource")) { 
             write("        {\r\n");
-            write("          xml.open(FHIR_NS, \""+name+"\");\r\n");
+            write("          xml.enter(FHIR_NS, \""+name+"\");\r\n");
             write("          "+comp+"(e);\r\n");
-            write("          xml.close(FHIR_NS, \""+name+"\");\r\n");
+            write("          xml.exit(FHIR_NS, \""+name+"\");\r\n");
             write("        }\r\n");            
           } else {
             write("          "+comp+"(\""+name+"\", e);\r\n");
@@ -1035,7 +1035,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         }
       } else if (en != null) {
         write("      if (element.has"+upFirst(getElementName(name, false))+"Element())\r\n"); 
-        if (isSharedEnum(e.getBindingName()))
+        if (isSharedEnum(e.getBinding()))
           write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new Enumerations."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
         else
           write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
@@ -1046,9 +1046,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         write("      }\r\n");
       } else if (e.typeCode().equals("Resource")) {
         write("      if (element.has"+upFirst(getElementName(name, false))+"()) {\r\n");
-        write("        xml.open(FHIR_NS, \""+name+"\");\r\n");
+        write("        xml.enter(FHIR_NS, \""+name+"\");\r\n");
         write("        "+comp+"(element.get"+upFirst(getElementName(name, false))+"());\r\n");
-        write("        xml.close(FHIR_NS, \""+name+"\");\r\n");
+        write("        xml.exit(FHIR_NS, \""+name+"\");\r\n");
         write("      }\r\n");
       } else {
         write("      if (element.has"+upFirst(getElementName(name, false))+"()) {\r\n");

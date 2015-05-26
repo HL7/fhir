@@ -45,32 +45,32 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
     for (String n : definitions.getInfrastructure().keySet()) {
       ElementDefn root = definitions.getInfrastructure().get(n); 
       EMFStructureGenerator jgen = new EMFStructureGenerator(w, definitions);
-      jgen.generate(root, root.getName(), definitions.getBindings(), OOGenClass.Structure, null);
+      jgen.generate(root, root.getName(), OOGenClass.Structure, null);
     }
     
     for (String n : definitions.getTypes().keySet()) {
       ElementDefn root = definitions.getTypes().get(n); 
       EMFStructureGenerator jgen = new EMFStructureGenerator(w, definitions);
-      jgen.generate(root, root.getName(), definitions.getBindings(), OOGenClass.Type, null);
+      jgen.generate(root, root.getName(), OOGenClass.Type, null);
     }
     
     for (ProfiledType cd : definitions.getConstraints().values()) {
       ElementDefn root = definitions.getTypes().get(cd.getBaseType()); 
       EMFStructureGenerator jgen = new EMFStructureGenerator(w, definitions);
-      jgen.generate(root, cd.getName(), definitions.getBindings(), OOGenClass.Constraint, cd);
+      jgen.generate(root, cd.getName(), OOGenClass.Constraint, cd);
     }
     
     for (String n : definitions.getStructures().keySet()) {
       ElementDefn root = definitions.getStructures().get(n); 
       EMFStructureGenerator jgen = new EMFStructureGenerator(w, definitions);
-      jgen.generate(root, root.getName(), definitions.getBindings(), OOGenClass.Type, null);
+      jgen.generate(root, root.getName(), OOGenClass.Type, null);
     }
     
     
     for (String n : definitions.sortedResourceNames()) {
       ResourceDefn root = definitions.getResourceByName(n); 
       EMFStructureGenerator jrg = new EMFStructureGenerator(w, definitions);
-      jrg.generate(root.getRoot(), root.getName(), definitions.getBindings(), OOGenClass.Resource, null);
+      jrg.generate(root.getRoot(), root.getName(), OOGenClass.Resource, null);
     }
     w.write("}");
     w.close();

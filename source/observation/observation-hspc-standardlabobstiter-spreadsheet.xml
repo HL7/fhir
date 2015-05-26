@@ -6924,7 +6924,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">hspc-TiterLabCodes</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">valueset-hspc-TiterLabCodes</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -6935,12 +6935,28 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">hspc-abnInt-NumericNom</Data></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">The set of codes that describe in what way a lab value is abnormal</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/hspc-abnInt-NumericNom</Data></Cell>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s108"><Data ss:Type="String">hspc-deltaFlag-numericNom</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The set of codes that describe the significant changes in test values</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/hspc-deltaFlag-numericNom</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -6951,28 +6967,12 @@
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s86"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s139"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">hspc-LabNullFlavor</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The list of reasons a lab value may be missing</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/hspc-LabNullFlavor</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -7417,9 +7417,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R5</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

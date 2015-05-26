@@ -10,7 +10,7 @@
   <LastAuthor>nbashyam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-12-06T20:24:26Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5962,7 +5962,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6862,20 +6861,20 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"/>
-    <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">DAFProblemCode</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Valueset to describe the actual problem experienced by the patient</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/daf-problem</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Value set to identify the actual problem</Data></Cell>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"/>
@@ -7339,6 +7338,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7358,7 +7358,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

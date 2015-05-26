@@ -20,7 +20,7 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -891,6 +891,13 @@
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s300" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
   </Style>
@@ -3829,7 +3836,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6928,12 +6934,13 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"/>
-    <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">EventPurposeOfUse</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Indicates the why the event occurred</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s300" ss:HRef="http://hl7.org/fhir/v3/vs/PurposeOfUse"><Data
+      ss:Type="String">http://hl7.org/fhir/v3/vs/PurposeOfUse</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -7405,12 +7412,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -7418,14 +7426,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -986,7 +986,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   private void generateEnum(ElementDefn e) throws Exception {
     String tn = typeNames.get(e);
-    BindingSpecification cd = getConceptDomain(e.getBindingName());
+    BindingSpecification cd = e.getBinding();
     enumSizes.put(tn, cd.getCodes().size());
 
 
@@ -1376,8 +1376,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     
     String tn = null;
     if (e.typeCode().equals("code") && e.hasBinding()) {
-      BindingSpecification cd = getConceptDomain(e.getBindingName());
-      if (cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
+      BindingSpecification cd = e.getBinding();
+      if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
         tn = "TFhir"+enumName(getTitle(getCodeList(cd.getReference()).substring(1)));
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
@@ -1442,13 +1442,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         b.append(ch);
     }
     return b.toString();
-  }
-
-  private BindingSpecification getConceptDomain(String conceptDomain) {
-    for (BindingSpecification cd : definitions.getBindings().values())
-      if (cd.getName().equals(conceptDomain))
-        return cd;
-    return null;
   }
 
   private void generateField(ElementDefn e, StringBuilder defPriv1, StringBuilder defPriv2, StringBuilder defPub, StringBuilder impl, StringBuilder create, StringBuilder destroy, StringBuilder assign, StringBuilder getkids, StringBuilder getkidsvars, StringBuilder getprops, StringBuilder getpropsvars, StringBuilder setprops, String cn, String pt, ClassCategory category, boolean noSummaries, boolean isExtension) throws Exception {

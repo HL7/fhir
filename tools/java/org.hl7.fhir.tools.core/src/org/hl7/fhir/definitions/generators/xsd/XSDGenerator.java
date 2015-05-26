@@ -68,7 +68,7 @@ public class XSDGenerator  {
 		datatypes.addAll(types);
 	}
 
-	public void generate(ElementDefn root, Map<String, BindingSpecification> tx, String version, String genDate, boolean outer) throws Exception
+	public void generate(ElementDefn root, String version, String genDate, boolean outer) throws Exception
 	{
 		this.tx = tx;
 		enums.clear();
@@ -282,10 +282,10 @@ public class XSDGenerator  {
 		else if (type.getName().equals("code")) {
 			String en = null;
 			if (e.hasBinding()) {
-				BindingSpecification cd = getConceptDomainByName(tx, e.getBindingName());
-				if (cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList ) {
+				BindingSpecification cd = e.getBinding();
+				if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList ) {
 					en = cd.getName();
-					if (!definitions.getCommonBindings().contains(cd) && cd.getUseContexts().size() <= 1) {
+					if (!definitions.getCommonBindings().containsKey(cd.getName()) && cd.getUseContexts().size() <= 1) {
 						enums.put(en, cd.getCodes());
 						enumDefs.put(en, cd.getDefinition());
 					}

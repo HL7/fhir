@@ -245,7 +245,7 @@ public class SpecificationConceptLocator implements ConceptLocator {
     xml.setPretty(true);
     xml.start();
     xml.comment("the build tool builds these from the designated snomed server, when it can", true);
-    xml.open("snomed");
+    xml.enter("snomed");
     
     List<String> ids = new ArrayList<String>();
     ids.addAll(snomedCodes.keySet());
@@ -257,16 +257,16 @@ public class SpecificationConceptLocator implements ConceptLocator {
       if (c.displays.size() == 0)
         xml.element("concept", null);
       else {
-        xml.open("concept");
+        xml.enter("concept");
         for (String d : c.displays) {
           xml.attribute("value", d);
           xml.element("display", null);
         }
-        xml.close("concept");
+        xml.exit("concept");
       }
     }
-    xml.close("snomed");
-    xml.close();
+    xml.exit("snomed");
+    xml.exit();
   }
   
   public void loadLoinc(String filename) throws Exception {
@@ -292,6 +292,7 @@ public class SpecificationConceptLocator implements ConceptLocator {
     vs.getCompose().getInclude().add(inc);
     ByteArrayOutputStream b = new  ByteArrayOutputStream();
     new JsonParser().compose(b, vs);
+    b.close();
     String hash = Integer.toString(new String(b.toByteArray()).hashCode());
     String fn = Utilities.path(cache, hash+".json");
     if (new File(fn).exists()) {
@@ -315,11 +316,15 @@ public class SpecificationConceptLocator implements ConceptLocator {
         params.put("limit", "500");
         Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
-        new JsonParser().compose(new FileOutputStream(fn), result);
+        FileOutputStream s = new FileOutputStream(fn);
+        new JsonParser().compose(s, result);
+        s.close();
         return ((ValueSet) result.getEntry().get(0).getResource()).getExpansion().getContains();
       } catch (EFhirClientException e) {
         serverOk = true;
-        new JsonParser().compose(new FileOutputStream(fn), e.getServerErrors().get(0));
+        FileOutputStream s = new FileOutputStream(fn);
+        new JsonParser().compose(s, e.getServerErrors().get(0));
+        s.close();
         throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
       } catch (Exception e) {
         serverOk = false;

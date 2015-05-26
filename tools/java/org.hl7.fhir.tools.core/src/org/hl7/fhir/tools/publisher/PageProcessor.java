@@ -62,7 +62,6 @@ import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerat
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
@@ -119,6 +118,7 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
@@ -288,7 +288,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 		  throw new Exception("unable to find definition for "+ dt);
 	  } 
 	  else {
-		  gen.generate(e, definitions.getBindings());
+		  gen.generate(e);
 		  gen.close();
 	  }
 	  String val = TextFile.fileToString(tmp.getAbsolutePath())+"\r\n";
@@ -488,11 +488,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //      else if (com[0].equals("atomheader"))
 //        src = s1+atomHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist(name, com.length > 1 ? com[1] : null, false)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, false)+s3;
       else if (com[0].equals("linkcodelist"))
-        src = s1+codelist(name, com.length > 1 ? com[1] : null, true)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true)+s3;
       else if (com[0].equals("codetoc"))
-        src = s1+codetoc(name, com.length > 1 ? com[1] : null)+s3;
+        src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("resheader"))
         src = s1+resHeader("document", "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("aresheader"))
@@ -524,15 +524,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("conceptmaplistv3"))
         src = s1 + conceptmaplist("http://hl7.org/fhir/v3/vs/"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
       else if (com[0].equals("conceptmaplistvs")) {
-        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        ValueSet vs = (ValueSet) resource;
         String ref;
-        if (bs == null) {
+        if (vs == null) {
           ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
         } else {
-          ref = bs.getReference();
-          if (ref.startsWith("valueset-"))
-            ref = ref.substring(9);
-          ref = "http://hl7.org/fhir/vs/"+ref;
+          ref = vs.getUrl();
         }
         src = s1 + conceptmaplist(ref, com[1]) + s3;
       } else if (com[0].equals("settitle")) {
@@ -617,10 +614,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genDTCodes() + s3;
       else if (com[0].equals("allparams"))
         src = s1 + allParamlist() + s3;      
-      else if (com[0].equals("bindingtable-codelists"))
-        src = s1 + genBindingTable(true) + s3;
-      else if (com[0].equals("bindingtable"))
-        src = s1 + genBindingsTable() + s3;
+//      else if (com[0].equals("bindingtable-codelists"))
+//        src = s1 + genBindingTable(true) + s3;
+//      else if (com[0].equals("bindingtable"))
+//        src = s1 + genBindingsTable() + s3;
       else if (com[0].equals("codeslist"))
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
@@ -631,8 +628,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genIGValueSetsTable() + s3;
       else if (com[0].equals("conceptmapslist"))
         src = s1 + genConceptMapsTable() + s3;
-      else if (com[0].equals("bindingtable-others"))
-        src = s1 + genBindingTable(false) + s3;
+//      else if (com[0].equals("bindingtable-others"))
+//        src = s1 + genBindingTable(false) + s3;
       else if (com[0].equals("resimplall"))
           src = s1 + genResImplList() + s3;
       else if (com[0].equals("impllist"))
@@ -645,15 +642,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (resource != null)
           src = s1 + ((ValueSet) resource).getUrl() + s3;
         else {
-        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
-        if (bs == null) {
-          src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
-        } else {
-          String reference = bs.getReference();
-          if (reference.startsWith("valueset-"))
-            reference = reference.substring(9);
-          src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
-        }
+          throw new Error("fix this");
+//          BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+//          if (bs == null) {
+//            src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+//          } else {
+//            String reference = bs.getReference();
+//            if (reference.startsWith("valueset-"))
+//              reference = reference.substring(9);
+//            src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+//          }
         }
       } else if (com[0].equals("toc"))
         src = s1 + generateToc() + s3;
@@ -664,9 +662,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsdef"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) : generateValueSetDefinition(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txoid"))
-        src = s1 + generateOID(Utilities.fileTitle(file), false) + s3;
+        src = s1 + generateOID((ValueSet) resource, false) + s3;
       else if (com[0].equals("vsoid"))
-        src = s1 + generateOID(Utilities.fileTitle(file), true) + s3;
+        src = s1 + generateOID((ValueSet) resource, true) + s3;
       else if (com[0].equals("txname"))
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsname"))
@@ -675,20 +673,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (resource != null)
           src = s1 + Utilities.fileTitle((String) resource.getUserData("filename")) + s3;
         else {
-        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
-        if (bs == null)
-          src = s1 + Utilities.fileTitle(file) + s3;
-        else
-          src = s1 + bs.getReference() + s3;
+          throw new Error("fix this");
+//        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+//        if (bs == null)
+//          src = s1 + Utilities.fileTitle(file) + s3;
+//        else
+//          src = s1 + bs.getReference() + s3;
         }
       } else if (com[0].equals("txdesc"))
-        src = s1 + generateDesc(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateDesc((ValueSet) resource) + s3;
       else if (com[0].equals("vsdesc"))
         src = s1 + (resource != null ? new XhtmlComposer().compose(((ValueSet) resource).getText().getDiv()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
-        src = s1 + generateBSUsage(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateBSUsage((ValueSet) resource) + s3;
       else if (com[0].equals("vsusage"))
-        src = s1 + generateBSUsage(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateBSUsage((ValueSet) resource) + s3;
       else if (com[0].equals("txsummary"))
         src = s1 + generateCodeTable(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vssummary"))
@@ -722,7 +721,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;
       else if (com[0].equals("vssource"))
-        src = s1 + vsSource(Utilities.fileTitle(file)) + s3;      
+        src = s1 + vsSource((ValueSet) resource) + s3;      
       else if (com[0].equals("vsxref"))
         src = s1 + xreferencesForFhir(name) + s3;      
       else if (com[0].equals("vsexpansion"))
@@ -848,12 +847,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return s.toString();
   }
 
-  private String vsSource(String name) {
-    BindingSpecification cd = definitions.getBindingByReference("#"+name);
-    if (cd == null)
+  private String vsSource(ValueSet vs) {
+    if (vs == null)
       return "by the FHIR project";
-    
-    ValueSet vs = cd.getReferredValueSet();    
     if (vs == null || vs.getContact().isEmpty() || vs.getContact().get(0).getTelecom().isEmpty() || vs.getContact().get(0).getTelecom().get(0).getSystem() != ContactPointSystem.URL || vs.getContact().get(0).getTelecom().get(0).getValue().startsWith("http://hl7.org/fhir"))
       return "by the FHIR project";
     return " at <a href=\""+vs.getContact().get(0).getTelecom().get(0).getValue()+"\">"+vs.getContact().get(0).getTelecom().get(0).getValue()+"</a>";
@@ -1717,71 +1713,48 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return /*b.toString()+*/new XhtmlComposer().compose(gen.generate(model));
   }
 
-  private String generateBSUsage(String name) throws Exception {
-    BindingSpecification cd = definitions.getBindingByReference("#"+name);
-    if (cd == null)
-      cd = definitions.getBindingByName(name);
-    
-    String csn = null;
-    String vsn = null;
-    
+  private String generateBSUsage(ValueSet vs) throws Exception {        
     StringBuilder b = new StringBuilder();
-    if (cd != null) {
-      if (cd.getReferredValueSet() != null) {
-        if (cd.getReferredValueSet().hasDefine())
-            csn = cd.getReferredValueSet().getDefine().getSystem();
-        vsn = cd.getReferredValueSet().getUrl();
-      }
-      for (ResourceDefn r : definitions.getResources().values()) {
-        scanForUsage(b, cd, r.getRoot(), r.getName().toLowerCase()+".html#def");
-        scanForProfileUsage(b, cd, r);
-      }
-      for (ElementDefn e : definitions.getInfrastructure().values()) {
-        if (e.getName().equals("Reference")) {
-          scanForUsage(b, cd, e, "references.html#"+e.getName());
-        } else if (e.getName().equals("Extension")) {
-          scanForUsage(b, cd, e, "extensibility.html#"+e.getName());
-        } else if (e.getName().equals("Narrative")) {
-          scanForUsage(b, cd, e, "narrative.html#"+e.getName());
-        } else {
-          scanForUsage(b, cd, e, "formats.html#"+e.getName());
-        }
-      }
-      for (ElementDefn e : definitions.getTypes().values())
-        if (!definitions.dataTypeIsSharedInfo(e.getName())) {
-          if (e.getName().equals("Reference")) 
-            scanForUsage(b, cd, e, "references.html#"+e.getName());
-          else
-            scanForUsage(b, cd, e, "datatypes.html#"+e.getName());
-        }
-      for (ElementDefn e : definitions.getStructures().values())
-        if (!e.getName().equals("DocumentInformation"))
-          if (!definitions.dataTypeIsSharedInfo(e.getName()))
-            scanForUsage(b, cd, e, "datatypes.html#"+e.getName());
-    } else {
-      for (ValueSet ae : valueSets.values()) {
-        if ((name+".html").equals(ae.getUserData("path"))) {
-          ValueSet vs = ae;
-            if (vs.hasDefine())
-                csn = vs.getDefine().getSystem();
-            vsn = vs.getUrl();         
-        }
+    for (ResourceDefn r : definitions.getResources().values()) {
+      scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def");
+      scanForProfileUsage(b, vs, r);
+    }
+    for (ElementDefn e : definitions.getInfrastructure().values()) {
+      if (e.getName().equals("Reference")) {
+        scanForUsage(b, vs, e, "references.html#"+e.getName());
+      } else if (e.getName().equals("Extension")) {
+        scanForUsage(b, vs, e, "extensibility.html#"+e.getName());
+      } else if (e.getName().equals("Narrative")) {
+        scanForUsage(b, vs, e, "narrative.html#"+e.getName());
+      } else {
+        scanForUsage(b, vs, e, "formats.html#"+e.getName());
       }
     }
+    for (ElementDefn e : definitions.getTypes().values())
+      if (!definitions.dataTypeIsSharedInfo(e.getName())) {
+        if (e.getName().equals("Reference")) 
+          scanForUsage(b, vs, e, "references.html#"+e.getName());
+        else
+          scanForUsage(b, vs, e, "datatypes.html#"+e.getName());
+      }
+    for (ElementDefn e : definitions.getStructures().values())
+      if (!e.getName().equals("DocumentInformation"))
+        if (!definitions.dataTypeIsSharedInfo(e.getName()))
+          scanForUsage(b, vs, e, "datatypes.html#"+e.getName());
 
-    for (ValueSet vs : valueSets.values()) {
-      String path = (String) vs.getUserData("path");
+    for (ValueSet vsi : valueSets.values()) {
+      String path = (String) vsi.getUserData("path");
       if (vs.hasCompose()) {
         for (UriType t : vs.getCompose().getImport()) {
-          if (t.getValue().equals(vsn)) 
+          if (t.getValue().equals(vs.getUrl())) 
             b.append(" <li>Imported into Valueset <a href=\"").append(path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
         }
-        for (ConceptSetComponent t : vs.getCompose().getInclude()) {
-          if (t.getSystem().equals(csn)) 
+        for (ConceptSetComponent t : vsi.getCompose().getInclude()) {
+          if (vs.hasDefine() && t.getSystem().equals(vs.getDefine().getSystem())) 
             b.append(" <li>Included in Valueset <a href=\"").append(path.startsWith("valueset-") ? path : /* "valueset-" +*/ path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
         }
-        for (ConceptSetComponent t : vs.getCompose().getExclude()) {
-          if (t.getSystem().equals(csn)) 
+        for (ConceptSetComponent t : vsi.getCompose().getExclude()) {
+          if (vs.hasDefine() && t.getSystem().equals(vs.getDefine().getSystem())) 
             b.append(" <li>Excluded in Valueset <a href=\"").append(path.startsWith("valueset-") ? path :/* "valueset-" + */path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
         }
       }
@@ -1792,13 +1765,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "<p>\r\nThis value set is used in the following places:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
   }
 
-  private void scanForProfileUsage(StringBuilder b, BindingSpecification cd, ResourceDefn r) {
+  private void scanForProfileUsage(StringBuilder b, ValueSet vs, ResourceDefn r) {
     for (Profile ap : r.getConformancePackages()) {
       if (definitions.doPublish(ap.getCategory())) {
         for (ConstraintStructure p : ap.getProfiles()) {
           for (ElementDefinition ed : p.getResource().getSnapshot().getElement()) {
             if (ed.hasBinding()) {
-              if (ed.getBinding().getName().equals(cd.getName()))
+              if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
                 b.append(" <li><a href=\"").append(p.getId()).append(".html\">StructureDefinition ")
                 .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ").append(getBindingTypeDesc(ed.getBinding())).append("</li>\r\n");
             }
@@ -1808,6 +1781,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
+  private boolean isValueSetMatch(Type ref, ValueSet vs) {
+    if (ref == null)
+      return false;
+    if (ref instanceof UriType)
+      return ((UriType) ref).getValue().equals(vs.getUrl());
+    return ((Reference) ref).hasReference() && ((Reference) ref).getReference().endsWith("/"+vs.getId());
+  }
+
   private String getBindingTypeDesc(ElementDefinitionBindingComponent binding) {
     if (binding.getStrength() == null)
       return "";
@@ -1815,18 +1796,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return binding.getStrength().getDisplay();
   }
 
-  private void scanForUsage(StringBuilder b, BindingSpecification cd, ElementDefn e, String ref) {
-    scanForUsage(b, cd, e, "", ref);
+  private void scanForUsage(StringBuilder b, ValueSet vs, ElementDefn e, String ref) {
+    scanForUsage(b, vs, e, "", ref);
     
   }
 
-  private void scanForUsage(StringBuilder b, BindingSpecification cd, ElementDefn e, String path, String ref) {
+  private void scanForUsage(StringBuilder b, ValueSet vs, ElementDefn e, String path, String ref) {
     path = path.equals("") ? e.getName() : path+"."+e.getName();
-    if (e.hasBinding() && e.getBindingName() != null && e.getBindingName().equals(cd.getName())) {
-      b.append(" <li><a href=\"").append(ref).append("\">").append(path).append("</a> ").append(getBSTypeDesc(cd)).append("</li>\r\n");
+    if (e.hasBinding() && e.getBinding().getName() != null && e.getBinding().getValueSet() == vs) {
+      b.append(" <li><a href=\"").append(ref).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding())).append("</li>\r\n");
     }
     for (ElementDefn c : e.getElements()) {
-      scanForUsage(b, cd, c, path, ref);
+      scanForUsage(b, vs, c, path, ref);
     }
   }
 
@@ -1837,79 +1818,82 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String generateCodeDefinition(String name) {
-    BindingSpecification cd = definitions.getBindingByReference("#"+name);
-    return Utilities.escapeXml(cd.getDefinition());
+    throw new Error("fix this");
+//    BindingSpecification cd = definitions.getBindingByURL("#"+name);
+//    return Utilities.escapeXml(cd.getDefinition());
   }
 
   private String generateValueSetDefinition(String name) {
-    BindingSpecification cd = definitions.getBindingByName(name);
-    if (cd == null)
-      return definitions.getExtraValuesets().get(name).getDescription();
-    else
-      return Utilities.escapeXml(cd.getDefinition());
+    throw new Error("fix this");
+//    BindingSpecification cd = definitions.getBindingByURL(name);
+//    if (cd == null)
+//      return definitions.getExtraValuesets().get(name).getDescription();
+//    else
+//      return Utilities.escapeXml(cd.getDefinition());
   }
 
   private String generateCodeTable(String name) throws Exception {
-    BindingSpecification cd = definitions.getBindingByReference("#"+name);
-    if (cd.getReferredValueSet() != null) {
-      return new XhtmlComposer().compose(cd.getReferredValueSet().getText().getDiv());
-    } else {
-      List<String> langs = new ArrayList<String>();
-      StringBuilder s = new StringBuilder();
-      s.append("    <table class=\"codes\">\r\n");
-      boolean hasComment = false;
-      boolean hasDefinition = false;
-      boolean hasParent = false;
-      boolean hasSource = false;
-      boolean hasId = false;
-      for (DefinedCode c : cd.getCodes()) {
-        hasComment = hasComment || c.hasComment();
-        hasDefinition = hasDefinition || c.hasDefinition();
-        hasParent = hasParent || c.hasParent();
-        hasSource = hasSource || !Utilities.noString(c.getSystem());
-        hasId = hasId || !Utilities.noString(c.getId());
-      }
-      String src = "";
-      if (hasId) 
-        src = src + "<td><b>Id</b></td>";
-      if (hasSource) 
-        src = src + "<td><b>Source</b></td>";
-
-      String lvl = hasParent ?  "<td><b>Level</b></td>" : "";
-      if (hasComment)
-        s.append("    <tr>"+src+lvl+"<td><b>Code</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr>");
-      else if (hasDefinition)
-        s.append("    <tr>"+src+lvl+"<td><b>Code</b></td><td colspan=\"2\"><b>Definition</b></td></tr>");
-      else
-        s.append("    <tr>"+src+lvl+"<td colspan=\"3\"><b>Code</b></td></tr>");
-
-      for (DefinedCode c : cd.getChildCodes()) {
-        generateCode(cd, s, hasSource, hasId, hasComment, hasDefinition, hasParent, 1, c);
-        for (String lang : c.getLangs().keySet())
-          if (!langs.contains(lang))
-            langs.add(lang);
-      }
-      s.append("    </table>\r\n");
-      if (langs.size() > 0) {
-        Collections.sort(langs);
-        s.append("<p><b>Additional Language Displays</b></p>\r\n");
-        s.append("<table class=\"codes\">\r\n");
-        s.append("<tr><td><b>Code</b></td>");
-        for (String lang : langs)
-          s.append("<td><b>"+lang+"</b>");
-        s.append("</tr>\r\n");
-        for (DefinedCode c : cd.getCodes()) {
-          s.append("<tr><td>"+c.getCode()+"</td>");
-          for (String lang : langs) {
-            String disp = c.getLangs().get(lang);
-            s.append("<td>"+(disp == null ? "" : disp)+"</b>");
-          }
-          s.append("</tr>\r\n");
-        }
-        s.append("    </table>\r\n");
-      }
-      return s.toString();
-    }
+    throw new Error("fix this");
+//    BindingSpecification cd = definitions.getBindingByURL("#"+name);
+//    if (cd.getReferredValueSet() != null) {
+//      return new XhtmlComposer().compose(cd.getReferredValueSet().getText().getDiv());
+//    } else {
+//      List<String> langs = new ArrayList<String>();
+//      StringBuilder s = new StringBuilder();
+//      s.append("    <table class=\"codes\">\r\n");
+//      boolean hasComment = false;
+//      boolean hasDefinition = false;
+//      boolean hasParent = false;
+//      boolean hasSource = false;
+//      boolean hasId = false;
+//      for (DefinedCode c : cd.getCodes()) {
+//        hasComment = hasComment || c.hasComment();
+//        hasDefinition = hasDefinition || c.hasDefinition();
+//        hasParent = hasParent || c.hasParent();
+//        hasSource = hasSource || !Utilities.noString(c.getSystem());
+//        hasId = hasId || !Utilities.noString(c.getId());
+//      }
+//      String src = "";
+//      if (hasId) 
+//        src = src + "<td><b>Id</b></td>";
+//      if (hasSource) 
+//        src = src + "<td><b>Source</b></td>";
+//
+//      String lvl = hasParent ?  "<td><b>Level</b></td>" : "";
+//      if (hasComment)
+//        s.append("    <tr>"+src+lvl+"<td><b>Code</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr>");
+//      else if (hasDefinition)
+//        s.append("    <tr>"+src+lvl+"<td><b>Code</b></td><td colspan=\"2\"><b>Definition</b></td></tr>");
+//      else
+//        s.append("    <tr>"+src+lvl+"<td colspan=\"3\"><b>Code</b></td></tr>");
+//
+//      for (DefinedCode c : cd.getChildCodes()) {
+//        generateCode(cd, s, hasSource, hasId, hasComment, hasDefinition, hasParent, 1, c);
+//        for (String lang : c.getLangs().keySet())
+//          if (!langs.contains(lang))
+//            langs.add(lang);
+//      }
+//      s.append("    </table>\r\n");
+//      if (langs.size() > 0) {
+//        Collections.sort(langs);
+//        s.append("<p><b>Additional Language Displays</b></p>\r\n");
+//        s.append("<table class=\"codes\">\r\n");
+//        s.append("<tr><td><b>Code</b></td>");
+//        for (String lang : langs)
+//          s.append("<td><b>"+lang+"</b>");
+//        s.append("</tr>\r\n");
+//        for (DefinedCode c : cd.getCodes()) {
+//          s.append("<tr><td>"+c.getCode()+"</td>");
+//          for (String lang : langs) {
+//            String disp = c.getLangs().get(lang);
+//            s.append("<td>"+(disp == null ? "" : disp)+"</b>");
+//          }
+//          s.append("</tr>\r\n");
+//        }
+//        s.append("    </table>\r\n");
+//      }
+//      return s.toString();
+//    }
   }
 
   private void generateCode(BindingSpecification cd, StringBuilder s, boolean hasSource, boolean hasId, boolean hasComment, boolean hasDefinition, boolean hasParent, int level, DefinedCode c) {
@@ -2358,44 +2342,55 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    return b.toString();
 //  }
 
-  private String codelist(String n, String mode, boolean links) throws Exception {
-    BindingSpecification bs = definitions.getBindingByName(mode);
-    if (bs == null)
-      throw new Exception("Unable to find code list '"+mode+"'");
-    if (bs.getCodes().size() == 0)
+  private String codelist(ValueSet vs, String mode, boolean links) throws Exception {
+    if (vs == null)
+      return "No ValueSet?";
+    if (!vs.hasDefine())
       throw new Exception("Code list '"+mode+"' is empty/not defined");
     boolean hasComments = false;
-    for (DefinedCode c : bs.getCodes())
-      hasComments = hasComments || c.hasComment();
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept())
+      hasComments = hasComments || checkHasComment(c);
     
     StringBuilder b = new StringBuilder();
-    if (!Utilities.noString(bs.getDescription()))
-      b.append("<h3>"+bs.getDescription()+"</h3>\r\n");
+    if (!Utilities.noString(vs.getDescription()))
+      b.append("<h3>"+vs.getDescription()+"</h3>\r\n");
     b.append("<table class=\"codes\">\r\n");
-    for (DefinedCode c : bs.getCodes()) {
-      if (hasComments)
-        b.append(" <tr><td>"+(links ? "<a href=\"#"+c.getCode()+"\">"+c.getCode()+"</a>" : c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(c.getComment())+"</td></tr>\r\n");
-      else
-        b.append(" <tr><td>"+(links ? "<a href=\"#"+c.getCode()+"\">"+c.getCode()+"</a>" : c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>\r\n");
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+      genCodeItem(links, hasComments, b, c);
     }
     b.append("</table>\r\n");
     return b.toString();
   }
 
-  private String codetoc(String n, String mode) throws Exception {
-    BindingSpecification bs = definitions.getBindingByName(mode);
-    if (bs == null)
-      throw new Exception("Unable to find code list '"+mode+"'");
-    if (bs.getCodes().size() == 0)
-      throw new Exception("Code list '"+mode+"' is empty/not defined");
-    boolean hasComments = false;
-    for (DefinedCode c : bs.getCodes())
-      hasComments = hasComments || c.hasComment();
+  private void genCodeItem(boolean links, boolean hasComments, StringBuilder b, ConceptDefinitionComponent c) {
+    if (hasComments)
+      b.append(" <tr><td>"+(links ? "<a href=\"#"+c.getCode()+"\">"+c.getCode()+"</a>" : c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(ToolingExtensions.getComment(c))+"</td></tr>\r\n");
+    else
+      b.append(" <tr><td>"+(links ? "<a href=\"#"+c.getCode()+"\">"+c.getCode()+"</a>" : c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>\r\n");
+    for (ConceptDefinitionComponent cc : c.getConcept()) {
+      genCodeItem(links, hasComments, b, cc);
+    }
+  }
+
+  private boolean checkHasComment(ConceptDefinitionComponent c) {
+    if (ToolingExtensions.getComment(c) != null)
+      return true;
+    for (ConceptDefinitionComponent cc : c.getConcept())
+      if (checkHasComment(cc))
+        return true;
+    return false;
+  }
+
+  private String codetoc(String n) throws Exception {
+    ValueSet vs = definitions.getBoundValueSets().get(n);
+    if (vs == null)
+      throw new Exception("Unable to find value set '"+n+"'");
+    if (!vs.hasDefine() || !vs.getDefine().hasConcept())
+      throw new Exception("ValueSet '"+n+"' is empty/not defined");
     
     StringBuilder b = new StringBuilder();
-    for (DefinedCode c : bs.getCodes()) {
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept())
       b.append("<a href=\"#"+c.getCode()+"\">"+c.getDisplay()+"</a><br/>\r\n");
-    }
     return b.toString();
   }
 
@@ -2672,130 +2667,130 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   */
 
-  private String genBindingsTable() {
-    assert(false);
-    StringBuilder s = new StringBuilder();
-    s.append("<table class=\"codes\">\r\n");
-    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Type</b></td><td><b>Reference</b></td></tr>\r\n");
-    List<String> names = new ArrayList<String>();
-    for (String n : definitions.getBindings().keySet()) {
-      names.add(n);
-    }
-    Collections.sort(names);
-    for (String n : names) {
-      if (!n.startsWith("*")) {
-        BindingSpecification cd = definitions.getBindingByName(n);
-        if (cd.getElementType() != ElementType.Unknown) {
-          s.append(" <tr><td>"+Utilities.escapeXml(cd.getName())+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>");
-          if (cd.getBinding() == Binding.Reference) 
-            s.append("Reference");
-          else if (cd.getElementType() == ElementType.Simple) 
-            s.append("Code List");
-          else if (cd.getBinding() == Binding.Unbound)
-            s.append("??");
-          else 
-            s.append("Value Set");
-
-          if (cd.getBinding() == Binding.Special) {
-
-            if (cd.getName().equals("MessageEvent"))
-              s.append("</td><td><a href=\"message-events.html\">http://hl7.org/fhir/valueset/message-events.html</a></td></tr>\r\n");
-            else if (cd.getName().equals("ResourceType"))
-              s.append("</td><td><a href=\"resource-types.html\">http://hl7.org/fhir/valueset/resource-types.html</a></td></tr>\r\n");
-            else if (cd.getName().equals("DataType"))
-              s.append("</td><td><a href=\"data-types.html\">http://hl7.org/fhir/valueset/data-types.html</a></td></tr>\r\n");
-            else if (cd.getName().equals("FHIRDefinedType"))
-              s.append("</td><td><a href=\"defined-types.html\">http://hl7.org/fhir/valueset/defined-types.html</a></td></tr>\r\n");
-            else 
-              s.append("</td><td>???</td></tr>\r\n");
-
-          } else if (cd.getBinding() == Binding.CodeList)
-            s.append("</td><td><a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td></tr>\r\n");          
-          else if (cd.getBinding() == Binding.ValueSet) { 
-            if (cd.getReferredValueSet() != null) {
-              if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs")) 
-                s.append("</td><td><a href=\"v3/"+cd.getReference().substring(26)+"/index.html\">"+cd.getReference()+"</a></td></tr>\r\n");          
-              else if (cd.getReference().startsWith("http://hl7.org/fhir")) 
-                s.append("</td><td><a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a></td></tr>\r\n");          
-              else
-                s.append("</td><td><a href=\""+cd.getReference()+".html\">"+cd.getReferredValueSet().getUrl()+"</a></td></tr>\r\n");          
-            } else 
-              s.append("</td><td><a href=\""+cd.getReference()+".html\">??</a></td></tr>\r\n");          
-          } else if (cd.hasReference())
-            s.append("</td><td><a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a></td></tr>\r\n");
-          else if (Utilities.noString(cd.getDescription()))
-            s.append("</td><td style=\"color: grey\">??</td></tr>\r\n");
-          else
-            s.append("</td><td>? "+Utilities.escapeXml(cd.getBinding().toString())+": "+Utilities.escapeXml(cd.getDescription())+"</td></tr>\r\n");
-        }
-      }
-    }
-    s.append("</table>\r\n");
-    return s.toString();
-  }
-  
-  private String genBindingTable(boolean codelists) {
-    StringBuilder s = new StringBuilder();
-    s.append("<table class=\"codes\">\r\n");
-    List<String> names = new ArrayList<String>();
-    for (String n : definitions.getBindings().keySet()) {
-      if ((codelists && definitions.getBindingByName(n).getBinding() == Binding.CodeList) || (!codelists && definitions.getBindingByName(n).getBinding() != Binding.CodeList))
-       names.add(n);
-    }
-    Collections.sort(names);
-    for (String n : names) {
-      if (!n.startsWith("*")) {
-        BindingSpecification cd = definitions.getBindingByName(n);
-        if (cd.getBinding() == Binding.CodeList || cd.getBinding() == Binding.Special)
-          s.append("  <tr><td title=\""+Utilities.escapeXml(cd.getDefinition())+"\">"+cd.getName()+"<br/><font color=\"grey\">http://hl7.org/fhir/sid/"+cd.getReference().substring(1)+"</font></td><td>");
-        else
-          s.append("  <tr><td title=\""+Utilities.escapeXml(cd.getDefinition())+"\">"+cd.getName()+"</td><td>");
-        if (cd.getBinding() == Binding.Unbound) {
-          s.append("Definition: "+Utilities.escapeXml(cd.getDefinition()));
-        } else if (cd.getBinding() == Binding.CodeList) {
-          assert(cd.getStrength() == BindingStrength.REQUIRED);
-          s.append("Required codes: ");
-          s.append("    <table class=\"codes\">\r\n");
-          boolean hasComment = false;
-          boolean hasDefinition = false;
-          for (DefinedCode c : cd.getCodes()) {
-            hasComment = hasComment || c.hasComment();
-            hasDefinition = hasDefinition || c.hasDefinition();
-          }
-          for (DefinedCode c : cd.getCodes()) {
-            if (hasComment)
-              s.append("    <tr><td>"+Utilities.escapeXml(c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(c.getComment())+"</td></tr>");
-            else if (hasDefinition)
-              s.append("    <tr><td>"+Utilities.escapeXml(c.getCode())+"</td><td colspan=\"2\">"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
-            else
-              s.append("    <tr><td colspan=\"3\">"+Utilities.escapeXml(c.getCode())+"</td></tr>");
-          }
-          s.append("    </table>\r\n");
-        } else if (cd.getBinding() == Binding.ValueSet) {
-          if (cd.hasReference())
-            s.append("<a href=\""+cd.getReference()+"\">Value Set "+cd.getDescription()+"</a>");
-          else
-            s.append("Value Set "+cd.getDescription());
-          s.append(" (<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>)");
-        } else if (cd.getBinding() == Binding.Reference) {
-            s.append("See <a href=\""+cd.getReference()+"\">"+cd.getReference()+"</a>");
-        } else if (cd.getBinding() == Binding.Special) {
-          if (cd.getName().equals("MessageEvent"))
-            s.append("See the <a href=\"message.html#Events\"> Event List </a>in the messaging framework");
-          else if (cd.getName().equals("ResourceType"))
-            s.append("See the <a href=\"terminologies.html#ResourceType\"> list of defined Resource Types</a>");
-          else if (cd.getName().equals("FHIRContentType"))
-            s.append("See the <a href=\"terminologies.html#fhircontenttypes\"> list of defined Resource and Data Types</a>");
-          else 
-            s.append("<a href=\"datatypes.html\">Any defined data Type name</a> (including <a href=\"resource.html#Resource\">Resource</a>)");
-        }        
-        s.append("</td></tr>\r\n");
-      }
-      
-    }
-    s.append("</table>\r\n");
-    return s.toString();
-  }
+//  private String genBindingsTable() {
+//    assert(false);
+//    StringBuilder s = new StringBuilder();
+//    s.append("<table class=\"codes\">\r\n");
+//    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Type</b></td><td><b>Reference</b></td></tr>\r\n");
+//    List<String> names = new ArrayList<String>();
+//    for (String n : definitions.getBindings().keySet()) {
+//      names.add(n);
+//    }
+//    Collections.sort(names);
+//    for (String n : names) {
+//      if (!n.startsWith("*")) {
+//        BindingSpecification cd = definitions.getBindingByName(n);
+//        if (cd.getElementType() != ElementType.Unknown) {
+//          s.append(" <tr><td>"+Utilities.escapeXml(cd.getName())+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>");
+//          if (cd.getBinding() == Binding.Reference) 
+//            s.append("Reference");
+//          else if (cd.getElementType() == ElementType.Simple) 
+//            s.append("Code List");
+//          else if (cd.getBinding() == Binding.Unbound)
+//            s.append("??");
+//          else 
+//            s.append("Value Set");
+//
+//          if (cd.getBinding() == Binding.Special) {
+//
+//            if (cd.getName().equals("MessageEvent"))
+//              s.append("</td><td><a href=\"message-events.html\">http://hl7.org/fhir/valueset/message-events.html</a></td></tr>\r\n");
+//            else if (cd.getName().equals("ResourceType"))
+//              s.append("</td><td><a href=\"resource-types.html\">http://hl7.org/fhir/valueset/resource-types.html</a></td></tr>\r\n");
+//            else if (cd.getName().equals("DataType"))
+//              s.append("</td><td><a href=\"data-types.html\">http://hl7.org/fhir/valueset/data-types.html</a></td></tr>\r\n");
+//            else if (cd.getName().equals("FHIRDefinedType"))
+//              s.append("</td><td><a href=\"defined-types.html\">http://hl7.org/fhir/valueset/defined-types.html</a></td></tr>\r\n");
+//            else 
+//              s.append("</td><td>???</td></tr>\r\n");
+//
+//          } else if (cd.getBinding() == Binding.CodeList)
+//            s.append("</td><td><a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td></tr>\r\n");          
+//          else if (cd.getBinding() == Binding.ValueSet) { 
+//            if (cd.getReferredValueSet() != null) {
+//              if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs")) 
+//                s.append("</td><td><a href=\"v3/"+cd.getReference().substring(26)+"/index.html\">"+cd.getReference()+"</a></td></tr>\r\n");          
+//              else if (cd.getReference().startsWith("http://hl7.org/fhir")) 
+//                s.append("</td><td><a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a></td></tr>\r\n");          
+//              else
+//                s.append("</td><td><a href=\""+cd.getReference()+".html\">"+cd.getReferredValueSet().getUrl()+"</a></td></tr>\r\n");          
+//            } else 
+//              s.append("</td><td><a href=\""+cd.getReference()+".html\">??</a></td></tr>\r\n");          
+//          } else if (cd.hasReference())
+//            s.append("</td><td><a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a></td></tr>\r\n");
+//          else if (Utilities.noString(cd.getDescription()))
+//            s.append("</td><td style=\"color: grey\">??</td></tr>\r\n");
+//          else
+//            s.append("</td><td>? "+Utilities.escapeXml(cd.getBinding().toString())+": "+Utilities.escapeXml(cd.getDescription())+"</td></tr>\r\n");
+//        }
+//      }
+//    }
+//    s.append("</table>\r\n");
+//    return s.toString();
+//  }
+//  
+//  private String genBindingTable(boolean codelists) {
+//    StringBuilder s = new StringBuilder();
+//    s.append("<table class=\"codes\">\r\n");
+//    List<String> names = new ArrayList<String>();
+//    for (String n : definitions.getBindings().keySet()) {
+//      if ((codelists && definitions.getBindingByName(n).getBinding() == Binding.CodeList) || (!codelists && definitions.getBindingByName(n).getBinding() != Binding.CodeList))
+//       names.add(n);
+//    }
+//    Collections.sort(names);
+//    for (String n : names) {
+//      if (!n.startsWith("*")) {
+//        BindingSpecification cd = definitions.getBindingByName(n);
+//        if (cd.getBinding() == Binding.CodeList || cd.getBinding() == Binding.Special)
+//          s.append("  <tr><td title=\""+Utilities.escapeXml(cd.getDefinition())+"\">"+cd.getName()+"<br/><font color=\"grey\">http://hl7.org/fhir/sid/"+cd.getReference().substring(1)+"</font></td><td>");
+//        else
+//          s.append("  <tr><td title=\""+Utilities.escapeXml(cd.getDefinition())+"\">"+cd.getName()+"</td><td>");
+//        if (cd.getBinding() == Binding.Unbound) {
+//          s.append("Definition: "+Utilities.escapeXml(cd.getDefinition()));
+//        } else if (cd.getBinding() == Binding.CodeList) {
+//          assert(cd.getStrength() == BindingStrength.REQUIRED);
+//          s.append("Required codes: ");
+//          s.append("    <table class=\"codes\">\r\n");
+//          boolean hasComment = false;
+//          boolean hasDefinition = false;
+//          for (DefinedCode c : cd.getCodes()) {
+//            hasComment = hasComment || c.hasComment();
+//            hasDefinition = hasDefinition || c.hasDefinition();
+//          }
+//          for (DefinedCode c : cd.getCodes()) {
+//            if (hasComment)
+//              s.append("    <tr><td>"+Utilities.escapeXml(c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(c.getComment())+"</td></tr>");
+//            else if (hasDefinition)
+//              s.append("    <tr><td>"+Utilities.escapeXml(c.getCode())+"</td><td colspan=\"2\">"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
+//            else
+//              s.append("    <tr><td colspan=\"3\">"+Utilities.escapeXml(c.getCode())+"</td></tr>");
+//          }
+//          s.append("    </table>\r\n");
+//        } else if (cd.getBinding() == Binding.ValueSet) {
+//          if (cd.hasReference())
+//            s.append("<a href=\""+cd.getReference()+"\">Value Set "+cd.getDescription()+"</a>");
+//          else
+//            s.append("Value Set "+cd.getDescription());
+//          s.append(" (<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>)");
+//        } else if (cd.getBinding() == Binding.Reference) {
+//            s.append("See <a href=\""+cd.getReference()+"\">"+cd.getReference()+"</a>");
+//        } else if (cd.getBinding() == Binding.Special) {
+//          if (cd.getName().equals("MessageEvent"))
+//            s.append("See the <a href=\"message.html#Events\"> Event List </a>in the messaging framework");
+//          else if (cd.getName().equals("ResourceType"))
+//            s.append("See the <a href=\"terminologies.html#ResourceType\"> list of defined Resource Types</a>");
+//          else if (cd.getName().equals("FHIRContentType"))
+//            s.append("See the <a href=\"terminologies.html#fhircontenttypes\"> list of defined Resource and Data Types</a>");
+//          else 
+//            s.append("<a href=\"datatypes.html\">Any defined data Type name</a> (including <a href=\"resource.html#Resource\">Resource</a>)");
+//        }        
+//        s.append("</td></tr>\r\n");
+//      }
+//      
+//    }
+//    s.append("</table>\r\n");
+//    return s.toString();
+//  }
 
   private String getEventsTable() throws Exception {
     List<String> codes = new ArrayList<String>();
@@ -2935,11 +2930,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("aresheader"))
         src = s1+abstractResHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist(name, com.length > 1 ? com[1] : null, false)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, false)+s3;
       else if (com[0].equals("linkcodelist"))
-        src = s1+codelist(name, com.length > 1 ? com[1] : null, true)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true)+s3;
       else if (com[0].equals("codetoc"))
-        src = s1+codetoc(name, com.length > 1 ? com[1] : null)+s3;
+        src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("res-category")) {
         src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
         even = false;
@@ -2955,17 +2950,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else  if (com[0].equals("conceptmaplistvs")) {
-        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
-        String ref;
-        if (bs == null) {
-          ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
-        } else {
-          ref = bs.getReference();
-          if (ref.startsWith("valueset-"))
-            ref = ref.substring(9);
-          ref = "http://hl7.org/fhir/vs/"+ref;
-        }
-        src = s1 + conceptmaplist(ref, com[1]) + s3;
+        throw new Error("Fix this");
+//        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+//        String ref;
+//        if (bs == null) {
+//          ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
+//        } else {
+//          ref = bs.getReference();
+//          if (ref.startsWith("valueset-"))
+//            ref = ref.substring(9);
+//          ref = "http://hl7.org/fhir/vs/"+ref;
+//        }
+//        src = s1 + conceptmaplist(ref, com[1]) + s3;
       }  else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com[0].equals("dtusage")) 
@@ -3012,12 +3008,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genResCodes() + s3;
       else if (com[0].equals("datatypecodes"))
         src = s1 + genDTCodes() + s3;
-      else if (com[0].equals("bindingtable-codelists"))
-        src = s1 + genBindingTable(true) + s3;
-      else if (com[0].equals("bindingtable"))
-        src = s1 + genBindingsTable() + s3;
-      else if (com[0].equals("bindingtable-others"))
-        src = s1 + genBindingTable(false) + s3;
+//      else if (com[0].equals("bindingtable-codelists"))
+//        src = s1 + genBindingTable(true) + s3;
+//      else if (com[0].equals("bindingtable"))
+//        src = s1 + genBindingsTable() + s3;
+//      else if (com[0].equals("bindingtable-others"))
+//        src = s1 + genBindingTable(false) + s3;
       else if (com[0].equals("codeslist"))
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
@@ -3036,15 +3032,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (resource != null)
           src = s1 + ((ValueSet) resource).getUrl() + s3;
         else {
-        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
-        if (bs == null) {
-          src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
-        } else {
-          String reference = bs.getReference();
-          if (reference.startsWith("valueset-"))
-            reference = reference.substring(9);
-          src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
-        }
+          throw new Error("Fix this");
+//          BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+//          if (bs == null) {
+//            src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+//          } else {
+//            String reference = bs.getReference();
+//            if (reference.startsWith("valueset-"))
+//              reference = reference.substring(9);
+//            src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+//          }
         }
       } else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
@@ -3055,9 +3052,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsdef"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) : generateValueSetDefinition(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
-        src = s1 + generateBSUsage(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateBSUsage((ValueSet) resource) + s3;
       else if (com[0].equals("vsusage"))
-        src = s1 + generateBSUsage(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateBSUsage((ValueSet) resource) + s3;
       else if (com[0].equals("txsummary"))
         src = s1 + generateCodeTable(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vssummary"))
@@ -3068,8 +3065,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateToc() + s3;
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
-      else if (com[0].equals("vsexpansion"))
-        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : (ValueSet) resource) + s3;
+//      else if (com[0].equals("vsexpansion"))
+//        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : (ValueSet) resource) + s3;
       else if (com[0].equals("vsexpansionig"))
         src = s1 + expandValueSetIG((ValueSet) resource) + s3;
       else if (com[0].equals("pub-notice"))
@@ -3097,49 +3094,44 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
-  private String generateOID(String fileTitle, boolean vs) throws Exception {
-    BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
-    if (cd == null)
-      return oid;
-    else {
-      String s;
-      if (vs)
-        s = cd.getVsOid();
-      else
-        s = cd.getCsOid();
-      if (Utilities.noString(s))
-        return "N/A";
-      else
-        return s;
-    }
+  private String generateOID(ValueSet vs, boolean isVs) throws Exception {
+    if (vs == null)
+      return "";
+    if (isVs)
+      return ToolingExtensions.getOID(vs);
+    else if (vs.hasDefine())
+      return ToolingExtensions.getOID(vs.getDefine());
+    else
+      return "";
   }
 
-  private String generateDesc(String fileTitle) {
-    BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
-    List<String> vslist = cd.getVSSources();
-    StringBuilder b = new StringBuilder();
-    if (vslist.contains("")) {
-      b.append("This value set defines its own codes");
-      vslist.remove(0);
-      if (vslist.size() > 0)
-        b.append(" and includes codes taken from");
-    } else 
-      b.append("This is a value set with codes taken from ");
-    int i = 0;
-    for (String n : cd.getVSSources()) {
-      i++;
-      if (Utilities.noString(n)) {
-        //b.append("Codes defined internally");
-      } else {
-        String an = fixUrlReference(n);
-        b.append("<a href=\""+an+"\">"+n+"</a>");
-      }
-      if (i == vslist.size() - 1)
-        b.append(" and ");
-      else if (vslist.size() > 1 && i != vslist.size() )
-        b.append(", ");
-    }
-    return b.toString()+":";
+  private String generateDesc(ValueSet vs) {
+    throw new Error("Fix this");
+//    BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
+//    List<String> vslist = cd.getVSSources();
+//    StringBuilder b = new StringBuilder();
+//    if (vslist.contains("")) {
+//      b.append("This value set defines its own codes");
+//      vslist.remove(0);
+//      if (vslist.size() > 0)
+//        b.append(" and includes codes taken from");
+//    } else 
+//      b.append("This is a value set with codes taken from ");
+//    int i = 0;
+//    for (String n : cd.getVSSources()) {
+//      i++;
+//      if (Utilities.noString(n)) {
+//        //b.append("Codes defined internally");
+//      } else {
+//        String an = fixUrlReference(n);
+//        b.append("<a href=\""+an+"\">"+n+"</a>");
+//      }
+//      if (i == vslist.size() - 1)
+//        b.append(" and ");
+//      else if (vslist.size() > 1 && i != vslist.size() )
+//        b.append(", ");
+//    }
+//    return b.toString()+":";
   }
 
   private String fixUrlReference(String n) {
@@ -3170,14 +3162,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e.getMessage())+"</div>";
     }
   }
+  
   private String expandValueSet(String fileTitle, ValueSet vs) throws Exception {
-    if (vs == null) {
-      BindingSpecification cd = definitions.getBindingByName(fileTitle);
-      if (cd == null)
-        vs = definitions.getExtraValuesets().get(fileTitle);
-      else 
-        vs = cd.getReferredValueSet();
-    }
+    if (vs == null) 
+      throw new Exception("no vs?");
     return expandVS(vs, "");
   }
   
@@ -3251,13 +3239,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String generateVSDesc(String fileTitle) throws Exception {
-    BindingSpecification cd = definitions.getBindingByName(fileTitle);
-    if (cd == null)
-      return new XhtmlComposer().compose(definitions.getExtraValuesets().get(fileTitle).getText().getDiv());
-    else if (cd.getReferredValueSet().hasText() && cd.getReferredValueSet().getText().hasDiv())
-      return new XhtmlComposer().compose(cd.getReferredValueSet().getText().getDiv());
-    else
-      return cd.getReferredValueSet().getDescription();
+    throw new Error("Fix this");
+//    BindingSpecification cd = definitions.getBindingByName(fileTitle);
+//    if (cd == null)
+//      return new XhtmlComposer().compose(definitions.getExtraValuesets().get(fileTitle).getText().getDiv());
+//    else if (cd.getReferredValueSet().hasText() && cd.getReferredValueSet().getText().hasDiv())
+//      return new XhtmlComposer().compose(cd.getReferredValueSet().getText().getDiv());
+//    else
+//      return cd.getReferredValueSet().getDescription();
   }
 
   String processPageIncludesForBook(String file, String src, String type, Resource resource) throws Exception {
@@ -3312,25 +3301,22 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("w5"))
         src = s1+genW5("true".equals(com[1]))+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist(name, com.length > 1 ? com[1] : null, false)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, false)+s3;
       else if (com[0].equals("linkcodelist"))
-        src = s1+codelist(name, com.length > 1 ? com[1] : null, true)+s3;
+        src = s1+codelist((ValueSet) resource, com.length > 1 ? com[1] : null, true)+s3;
       else if (com[0].equals("codetoc"))
-        src = s1+codetoc(name, com.length > 1 ? com[1] : null)+s3;
+        src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("maponthispage"))
           src = s1+s3;
       else if (com[0].equals("onthispage"))
           src = s1+s3;
       else if (com[0].equals("conceptmaplistvs")) {
-        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        ValueSet vs = (ValueSet) resource;
         String ref;
-        if (bs == null) {
+        if (vs == null) {
           ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
         } else {
-          ref = bs.getReference();
-          if (ref.startsWith("valueset-"))
-            ref = ref.substring(9);
-          ref = "http://hl7.org/fhir/vs/"+ref;
+          ref = vs.getUrl();
         }
         src = s1 + conceptmaplist(ref, com[1]) + s3;
       }  else if (com[0].equals("res-category")) {
@@ -3397,8 +3383,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+enteredInErrorTable()+s3;
       else if (com[0].equals("datatypecodes"))
         src = s1 + genDTCodes() + s3;
-      else if (com[0].equals("bindingtable-codelists"))
-        src = s1 + genBindingTable(true) + s3;
+//      else if (com[0].equals("bindingtable-codelists"))
+//        src = s1 + genBindingTable(true) + s3;
       else if (com[0].equals("codeslist"))
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
@@ -3407,10 +3393,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genIGValueSetsTable() + s3;
       else if (com[0].equals("conceptmapslist"))
         src = s1 + genConceptMapsTable() + s3;
-      else if (com[0].equals("bindingtable"))
-        src = s1 + genBindingsTable() + s3;
-      else if (com[0].equals("bindingtable-others"))
-        src = s1 + genBindingTable(false) + s3;
+//      else if (com[0].equals("bindingtable"))
+//        src = s1 + genBindingsTable() + s3;
+//      else if (com[0].equals("bindingtable-others"))
+//        src = s1 + genBindingTable(false) + s3;
       else if (com[0].equals("vsxref"))
         src = s1 + xreferencesForFhir(name) + s3;      
       else if (com[0].equals("resimplall"))
@@ -3425,15 +3411,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (resource != null)
           src = s1 + ((ValueSet) resource).getUrl() + s3;
         else {
-        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
-        if (bs == null) {
-          src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
-        } else {
-          String reference = bs.getReference();
-          if (reference.startsWith("valueset-"))
-            reference = reference.substring(9);
-          src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
-        }
+          throw new Error("Fix this");
+//          BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+//          if (bs == null) {
+//            src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+//          } else {
+//            String reference = bs.getReference();
+//            if (reference.startsWith("valueset-"))
+//              reference = reference.substring(9);
+//            src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+//          }
         }
       } else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
@@ -3446,9 +3433,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsdef"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) : generateValueSetDefinition(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txoid"))
-        src = s1 + generateOID(Utilities.fileTitle(file), false) + s3;
+        src = s1 + generateOID((ValueSet) resource, false) + s3;
       else if (com[0].equals("vsoid"))
-        src = s1 + generateOID(Utilities.fileTitle(file), true) + s3;
+        src = s1 + generateOID((ValueSet) resource, true) + s3;
       else if (com[0].equals("txname"))
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsname"))
@@ -3457,20 +3444,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (resource != null)
           src = s1 + Utilities.fileTitle((String) resource.getUserData("filename")) + s3;
         else {
-        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
-        if (bs == null)
-          src = s1 + Utilities.fileTitle(file) + s3;
-        else
-          src = s1 + bs.getReference() + s3;
+          throw new Error("Fix this");
+//          BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+//          if (bs == null)
+//            src = s1 + Utilities.fileTitle(file) + s3;
+//          else
+//            src = s1 + bs.getReference() + s3;
         }
       } else if (com[0].equals("txdesc"))
-        src = s1 + generateDesc(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateDesc((ValueSet) resource) + s3;
       else if (com[0].equals("vsdesc"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
-        src = s1 + generateBSUsage(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateBSUsage((ValueSet) resource) + s3;
       else if (com[0].equals("vsusage"))
-        src = s1 + generateBSUsage(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateBSUsage((ValueSet) resource) + s3;
       else if (com[0].equals("txsummary"))
         src = s1 + generateCodeTable(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("v2Index"))
@@ -5695,10 +5683,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genDTCodes() + s3;
       else if (com[0].equals("allparams"))
         src = s1 + allParamlist() + s3;      
-      else if (com[0].equals("bindingtable-codelists"))
-        src = s1 + genBindingTable(true) + s3;
-      else if (com[0].equals("bindingtable"))
-        src = s1 + genBindingsTable() + s3;
+//      else if (com[0].equals("bindingtable-codelists"))
+//        src = s1 + genBindingTable(true) + s3;
+//      else if (com[0].equals("bindingtable"))
+//        src = s1 + genBindingsTable() + s3;
       else if (com[0].equals("codeslist"))
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
@@ -5707,8 +5695,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genIGValueSetsTable() + s3;
       else if (com[0].equals("conceptmapslist"))
         src = s1 + genConceptMapsTable() + s3;
-      else if (com[0].equals("bindingtable-others"))
-        src = s1 + genBindingTable(false) + s3;
+//      else if (com[0].equals("bindingtable-others"))
+//        src = s1 + genBindingTable(false) + s3;
       else if (com[0].equals("resimplall"))
           src = s1 + genResImplList() + s3;
       else if (com[0].equals("impllist"))

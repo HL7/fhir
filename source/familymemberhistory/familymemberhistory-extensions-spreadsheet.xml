@@ -10,7 +10,7 @@
   <LastAuthor>Mathews, Jason</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-24T15:17:33Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>20355</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4775,7 +4775,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6748,19 +6747,18 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s123"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">ConditionSeverity</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">A subjective assessment of the severity of the condition as evaluated by the clinician.</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/condition-severity</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -7209,6 +7207,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7228,19 +7227,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R29C5</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>&quot;Y,N&quot;</Value>
-  </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4:R29C4</Range>
    <Type>List</Type>
@@ -7252,6 +7246,12 @@
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C5:R29C5</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <AutoFilter x:Range="R1C1:R1C14"
    xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7306,7 +7306,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R4C14</Range>
+   <Range>R3C1:R4C14,R2C7:R2C14,R2C1:R2C4</Range>
    <Condition>
     <Value1>AND(R[1048563]C1=&quot;&quot;,R[1048563]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7355,7 +7355,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R4C5</Range>
+   <Range>R3C2:R4C5,R2C2:R2C4</Range>
    <Condition>
     <Value1>AND(R[1048563]C1&lt;&gt;&quot;&quot;,R[1048563]C[16372]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7376,7 +7376,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R4C6</Range>
+   <Range>R3C6:R4C6</Range>
    <Condition>
     <Value1>AND(R[1048563]C1&lt;&gt;&quot;&quot;,(R[1048563]C3=&quot;unbound&quot;)&lt;&gt;(R[1048563]C[16324]=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7439,7 +7439,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R4C14</Range>
+   <Range>R3C1:R4C14,R2C1:R2C4,R2C6:R2C14</Range>
    <Condition>
     <Value1>LEFT(R[1048563]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -7457,6 +7457,34 @@
    <Condition>
     <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6</Range>
+   <Condition>
+    <Value1>AND(R[1048563]C1=&quot;&quot;,R[1048563]C[-1]&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6</Range>
+   <Condition>
+    <Value1>AND(R[1048563]C1&lt;&gt;&quot;&quot;,R[1048563]C[16371]=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6</Range>
+   <Condition>
+    <Value1>AND(R[1048563]C1=&quot;&quot;,R[1048563]C&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6</Range>
+   <Condition>
+    <Value1>AND(R[1048563]C1&lt;&gt;&quot;&quot;,(R[1048563]C[16312]&lt;&gt;&quot;&quot;)&lt;&gt;(R[1048563]C3=&quot;reference&quot;))</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
