@@ -567,18 +567,20 @@ public class SourceParser {
     }
 
     for (BindingSpecification cd : definitions.getCommonBindings().values()) {
-      if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
-        if (!parser.loadCodes(cd)) {
-          File file = new CSFile(termDir + cd.getReference().substring(1)	+ ".csv");
-          if (!file.exists())
-            throw new Exception("code source file not found for "
-                + cd.getName() + ": " + file.getAbsolutePath());
-          CodeListParser cparser = new CodeListParser(
-              new CSFileInputStream(file));
-          cparser.parse(cd.getCodes());
-          cparser.close();
-        }
-      }
+   // bscodes  
+
+//      if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
+//        if (!parser.loadCodes(cd)) {
+//          File file = new CSFile(termDir + cd.getReference().substring(1)	+ ".csv");
+//          if (!file.exists())
+//            throw new Exception("code source file not found for "
+//                + cd.getName() + ": " + file.getAbsolutePath());
+//          CodeListParser cparser = new CodeListParser(
+//              new CSFileInputStream(file));
+//          cparser.parse(cd.getCodes());
+//          cparser.close();
+//        }
+//      }
       if (cd.getBinding() == BindingMethod.ValueSet && !Utilities.noString(cd.getReference())) {
         if (cd.getReference().startsWith("http://hl7.org/fhir")) {
           // ok, it's a reference to a value set defined within this build. Since it's an absolute 

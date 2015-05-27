@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.BindingType;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
@@ -41,6 +42,9 @@ import org.hl7.fhir.definitions.ecore.fhir.Definitions;
 import org.hl7.fhir.definitions.ecore.fhir.FhirFactory;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -91,33 +95,38 @@ public class BindingConverter
 		result.setV2Map(spec.getV2Map());
 		result.setV3Map(spec.getV3Map());
 		
-		for( org.hl7.fhir.definitions.model.DefinedCode code : spec.getCodes() )
+		ValueSet vs = spec.getValueSet();
+		if (vs != null && vs.hasDefine())
+		for( ConceptDefinitionComponent code : vs.getDefine().getConcept() )
 		{
-			DefinedCode convertedCode = convertFromFhirDefinedCode( code );
-			result.getCode().add( convertedCode );
+			convertFromFhirDefinedCode(result.getCode(), code, vs.getDefine().getSystem(), null);
 		}
 		
 		return result;
 	}
 
 	
-	public static DefinedCode convertFromFhirDefinedCode( org.hl7.fhir.definitions.model.DefinedCode code) 
+	public static void convertFromFhirDefinedCode(EList<DefinedCode> eList, ConceptDefinitionComponent code, String system, String parent) 
 	{
 		DefinedCode result = FhirFactory.eINSTANCE.createDefinedCode();
-		
+		eList.add( result );
+
 		result.setId( code.getId() );
 		result.setCode( code.getCode() );
 		result.setDefinition( Utilities.cleanupTextString(code.getDefinition()) );
 		result.setDisplay( Utilities.cleanupTextString(code.getDisplay()));
-		result.setSystem( Utilities.cleanupTextString(code.getSystem()));
-		result.setComment( Utilities.cleanupTextString(code.getComment()));
-    result.setV2Map(code.getV2Map());
-    result.setV3Map(code.getV3Map());
+		result.setSystem( Utilities.cleanupTextString(system));
+		result.setComment( Utilities.cleanupTextString(ToolingExtensions.getComment(code)));
+    result.setV2Map(code.getUserString("v2Map"));
+    result.setV3Map(code.getUserString("v3Map"));
     
-		if( !Utilities.noString(code.getParent()) )
-		  result.setParent(code.getParent());
+		if( !Utilities.noString(parent) )
+		  result.setParent(parent);
 		
-		return  result;
+    for( ConceptDefinitionComponent child : code.getConcept() )
+    {
+      convertFromFhirDefinedCode(eList, child, system, code.getCode());
+    }
 	}
 
 	public static BindingDefn buildResourceTypeBinding(Definitions definitions) {

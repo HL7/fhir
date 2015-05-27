@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -500,10 +501,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		if (isSharedEnum(cd))
 		  return;
 
+		List<DefinedCode> codes = cd.getAllCodes();
+		
 		write("    public enum "+tns+" {\r\n");
-		int l = cd.getCodes().size();
+		int l = codes.size();
 		int i = 0;
-		for (DefinedCode c : cd.getCodes()) {
+		for (DefinedCode c : codes) {
 			i++;
 			String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
@@ -521,7 +524,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		write("        public static "+tns+" fromCode(String codeString) throws Exception {\r\n");
 		write("            if (codeString == null || \"\".equals(codeString))\r\n");
 		write("                return null;\r\n");
-		for (DefinedCode c : cd.getCodes()) {
+		for (DefinedCode c : codes) {
 			String cc = Utilities.camelCase(c.getCode());
 			cc = makeConst(cc);
 			write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
@@ -532,7 +535,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
 		write("        public String toCode() {\r\n");
 		write("          switch (this) {\r\n");
-		for (DefinedCode c : cd.getCodes()) {
+		for (DefinedCode c : codes) {
 			String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
 			write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
@@ -543,7 +546,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
     write("        public String getSystem() {\r\n");
     write("          switch (this) {\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : codes) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("            case "+cc+": return \""+c.getSystem()+"\";\r\n");
@@ -554,7 +557,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
     write("        public String getDefinition() {\r\n");
     write("          switch (this) {\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : codes) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
@@ -565,7 +568,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
     write("        public String getDisplay() {\r\n");
     write("          switch (this) {\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : codes) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
@@ -584,7 +587,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		write("      if (codeString == null || \"\".equals(codeString))\r\n");
     write("            if (codeString == null || \"\".equals(codeString))\r\n");
     write("                return null;\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : codes) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
@@ -593,7 +596,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
     write("    public String toCode("+tns+" code) {\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : codes) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("      if (code == "+tns+"."+cc+")\r\n        return \""+c.getCode()+"\";\r\n");

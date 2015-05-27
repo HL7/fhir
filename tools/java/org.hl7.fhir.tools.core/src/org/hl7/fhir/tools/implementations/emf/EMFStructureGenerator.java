@@ -94,7 +94,7 @@ public class EMFStructureGenerator extends EMFBase {
     write("      0 : Null = \"Missing in instance\";");
 
 		int i = 0;
-		for (DefinedCode c : cd.getCodes()) {
+		for (DefinedCode c : cd.getAllCodes()) {
 			i++;
 			String cc = Utilities.camelCase(c.getCode());
 			if (GeneratorUtils.isJavaReservedWord(cc))

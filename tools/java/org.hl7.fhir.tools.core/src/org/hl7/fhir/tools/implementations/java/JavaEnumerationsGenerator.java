@@ -39,6 +39,7 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -73,13 +74,20 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
     write("public class Enumerations {\r\n");
     write("\r\n");
+    write("// In here: \r\n");
 		
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getCommonBindings().keySet());
     Collections.sort(names);
     for (String n : names) {
       BindingSpecification bs = definitions.getCommonBindings().get(n);
-			generateEnum(bs);
+      if (bs.getBinding() == BindingMethod.CodeList || bs.getBinding() == BindingMethod.Special)
+        write("//   "+bs.getName()+": "+bs.getDefinition()+"\r\n");
+    }
+    for (String n : names) {
+      BindingSpecification bs = definitions.getCommonBindings().get(n);
+      if (bs.getBinding() == BindingMethod.CodeList || bs.getBinding() == BindingMethod.Special)
+			  generateEnum(bs);
 		}
 		write("\r\n");
 		write("}\r\n");
@@ -91,9 +99,9 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     String tns = cd.getName();
 	  
 		write("    public enum "+tns+" {\r\n");
-		int l = cd.getCodes().size();
+		int l = cd.getAllCodes().size();
 		int i = 0;
-		for (DefinedCode c : cd.getCodes()) {
+		for (DefinedCode c : cd.getAllCodes()) {
 			i++;
 			String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
@@ -111,7 +119,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 		write("        public static "+tns+" fromCode(String codeString) throws Exception {\r\n");
 		write("            if (codeString == null || \"\".equals(codeString))\r\n");
 		write("                return null;\r\n");
-		for (DefinedCode c : cd.getCodes()) {
+		for (DefinedCode c : cd.getAllCodes()) {
 			String cc = Utilities.camelCase(c.getCode());
 			cc = makeConst(cc);
 			write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
@@ -122,7 +130,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
 		write("        public String toCode() {\r\n");
 		write("          switch (this) {\r\n");
-		for (DefinedCode c : cd.getCodes()) {
+		for (DefinedCode c : cd.getAllCodes()) {
 			String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
 			write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
@@ -133,7 +141,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
     write("        public String getSystem() {\r\n");
     write("          switch (this) {\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : cd.getAllCodes()) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("            case "+cc+": return \""+c.getSystem()+"\";\r\n");
@@ -144,7 +152,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
     write("        public String getDefinition() {\r\n");
     write("          switch (this) {\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : cd.getAllCodes()) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
@@ -155,7 +163,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
     write("        public String getDisplay() {\r\n");
     write("          switch (this) {\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : cd.getAllCodes()) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
@@ -174,7 +182,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 		write("      if (codeString == null || \"\".equals(codeString))\r\n");
     write("            if (codeString == null || \"\".equals(codeString))\r\n");
     write("                return null;\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : cd.getAllCodes()) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
@@ -183,7 +191,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
     write("    public String toCode("+tns+" code) {\r\n");
-    for (DefinedCode c : cd.getCodes()) {
+    for (DefinedCode c : cd.getAllCodes()) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
       write("      if (code == "+tns+"."+cc+")\r\n        return \""+c.getCode()+"\";\r\n");

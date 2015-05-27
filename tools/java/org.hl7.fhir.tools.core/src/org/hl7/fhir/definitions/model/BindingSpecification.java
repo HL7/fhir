@@ -34,7 +34,11 @@ import java.util.Map;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 
 /**
@@ -92,14 +96,14 @@ public class BindingSpecification {
   private String webSite;
   private String email;
   private String copyright;
-  private List<DefinedCode> codes = new ArrayList<DefinedCode>();
+//  private List<DefinedCode> codes = new ArrayList<DefinedCode>();
   private String csOid;
   private String vsOid;
-  private List<DefinedCode> childCodes;
+//  private List<DefinedCode> childCodes;
   private ConformanceResourceStatus status;
   private ValueSet referredValueSet;
+  private List<DefinedCode> allCodes;
 
-  
   
   
   // analysis during run time
@@ -163,10 +167,10 @@ public class BindingSpecification {
     this.description = description;
   }
 
-  public List<DefinedCode> getCodes() {
-    return codes;
-  }
-	
+//  public List<DefinedCode> getCodes() {
+//    return codes;
+//  }
+//	
 	public boolean hasReference() {
 	  return !(reference == null || reference.equals(""));
 	}
@@ -206,38 +210,38 @@ public class BindingSpecification {
     this.useContexts = useContexts;
   }
 
-  public boolean hasExternalCodes() {
-    boolean external = false;
-    for (DefinedCode c : codes)
-      if (!Utilities.noString(c.getSystem()))
-        external = true;
-    return external;
-  }
-
-  public boolean hasInternalCodes() {
-    boolean internal = false;
-    for (DefinedCode c : codes)
-      if (Utilities.noString(c.getSystem()))
-        internal = true;
-    return internal;
-  }
-
-  
-  public List<String> getVSSources() {
-    List<String> vslist = new ArrayList<String>();
-    boolean internal = false;
-    for (DefinedCode c : codes) {
-      if (Utilities.noString(c.getSystem())) {
-        internal = true;
-      } else {
-        if (!vslist.contains(c.getSystem()))
-          vslist.add(c.getSystem());
-      }
-    }
-    if (internal)
-      vslist.add(0, "");
-    return vslist;
-  }
+//  public boolean hasExternalCodes() {
+//    boolean external = false;
+//    for (DefinedCode c : codes)
+//      if (!Utilities.noString(c.getSystem()))
+//        external = true;
+//    return external;
+//  }
+//
+//  public boolean hasInternalCodes() {
+//    boolean internal = false;
+//    for (DefinedCode c : codes)
+//      if (Utilities.noString(c.getSystem()))
+//        internal = true;
+//    return internal;
+//  }
+//
+//  
+//  public List<String> getVSSources() {
+//    List<String> vslist = new ArrayList<String>();
+//    boolean internal = false;
+//    for (DefinedCode c : codes) {
+//      if (Utilities.noString(c.getSystem())) {
+//        internal = true;
+//      } else {
+//        if (!vslist.contains(c.getSystem()))
+//          vslist.add(c.getSystem());
+//      }
+//    }
+//    if (internal)
+//      vslist.add(0, "");
+//    return vslist;
+//  }
 
   public ValueSet getReferredValueSet() {
     return referredValueSet;
@@ -249,39 +253,39 @@ public class BindingSpecification {
   }
 
   
-  public List<DefinedCode> getChildCodes() throws Exception {
-    if (childCodes == null) {
-      childCodes = new ArrayList<DefinedCode>();
-      for (DefinedCode c : codes) {
-        if (c.hasParent()) { 
-          DefinedCode p = getCode(c.getParent());
-          if (p == null)
-            throw new Exception("unable to find parent Code '"+c.getParent()+"' for code '"+c.getCode()+"'");
-          p.getChildCodes().add(c);
-        } else
-          childCodes.add(c);
-      }
-    }
-    return childCodes;
-  }
-
-  public DefinedCode getCode(String code) {
-    for (DefinedCode c : codes) {
-      if (code.equals(c.getCode()))
-        return c;
-      if (code.equals("#"+c.getId()))
-        return c;
-    }
-    return null;
-  }
-
-  public boolean isHeirachical() {
-    boolean hasParent = false;
-    for (DefinedCode c : getCodes()) {
-      hasParent = hasParent || c.hasParent();
-    }
-    return hasParent;
-  }
+//  public List<DefinedCode> getChildCodes() throws Exception {
+//    if (childCodes == null) {
+//      childCodes = new ArrayList<DefinedCode>();
+//      for (DefinedCode c : codes) {
+//        if (c.hasParent()) { 
+//          DefinedCode p = getCode(c.getParent());
+//          if (p == null)
+//            throw new Exception("unable to find parent Code '"+c.getParent()+"' for code '"+c.getCode()+"'");
+//          p.getChildCodes().add(c);
+//        } else
+//          childCodes.add(c);
+//      }
+//    }
+//    return childCodes;
+//  }
+//
+//  public DefinedCode getCode(String code) {
+//    for (DefinedCode c : codes) {
+//      if (code.equals(c.getCode()))
+//        return c;
+//      if (code.equals("#"+c.getId()))
+//        return c;
+//    }
+//    return null;
+//  }
+//
+//  public boolean isHeirachical() {
+//    boolean hasParent = false;
+//    for (DefinedCode c : getCodes()) {
+//      hasParent = hasParent || c.hasParent();
+//    }
+//    return hasParent;
+//  }
 
   public ElementType getElementType() {
     return elementType;
@@ -371,5 +375,41 @@ public class BindingSpecification {
     this.valueSet = valueSet;
   }
 
-  
+  public List<DefinedCode> getAllCodes() {
+    if (allCodes == null) {
+      allCodes = new ArrayList<DefinedCode>();
+      if (valueSet != null) {
+        if (valueSet.hasDefine()) 
+          for (ConceptDefinitionComponent c : valueSet.getDefine().getConcept())
+            processCode(c, valueSet.getDefine().getSystem(), null);
+        if (valueSet.hasCompose()) {
+          for (ConceptSetComponent cc : valueSet.getCompose().getInclude())
+            for (ConceptReferenceComponent c : cc.getConcept())
+              processCode(c, cc.getSystem());
+        }
+      }   
+    }
+    return allCodes;
+  }
+
+  private void processCode(ConceptReferenceComponent c, String system) {
+    DefinedCode code = new DefinedCode();
+    code.setCode(c.getCode());
+    code.setDisplay(c.getDisplay());
+    code.setSystem(system);
+    allCodes.add(code);
+  }
+
+  private void processCode(ConceptDefinitionComponent c, String system, String parent) {
+    DefinedCode code = new DefinedCode();
+    code.setCode(c.getCode());
+    code.setDisplay(c.getDisplay());
+    code.setComment(ToolingExtensions.getComment(c));
+    code.setDefinition(c.getDefinition());
+    code.setParent(parent);
+    code.setSystem(system);
+    allCodes.add(code);
+    for (ConceptDefinitionComponent cc : c.getConcept())
+      processCode(cc, system, c.getCode());
+  }  
 }

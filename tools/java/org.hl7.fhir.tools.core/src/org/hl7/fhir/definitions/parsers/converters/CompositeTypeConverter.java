@@ -72,7 +72,7 @@ public class CompositeTypeConverter {
 			catch (Exception e) 
 			{
 				throw new Exception(e.getMessage() + " on resource "
-						+ resource.getName());
+						+ resource.getName(), e);
 			}
 		}
 

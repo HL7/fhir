@@ -47,6 +47,9 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 public class XSDBaseGenerator {
@@ -119,9 +122,9 @@ public class XSDBaseGenerator {
       }
     }
     // todo: what to do about this? 
-//    for (BindingSpecification b : definitions.getBindings().values())
-//      if ((b.getUseContexts().size() > 1 && b.getBinding() == Binding.CodeList) || definitions.getCommonBindings().contains(b))
-//        generateEnum(b.getName());
+    for (BindingSpecification b : definitions.getCommonBindings().values())
+      if ((b.getUseContexts().size() > 1 && b.getBinding() == BindingMethod.CodeList))
+        generateEnum(b);
     if (outer) { 
       write("</xs:schema>\r\n");
       writer.flush();
@@ -522,15 +525,18 @@ public class XSDBaseGenerator {
 
     write("  <xs:simpleType name=\"" + en + "-list\">\r\n");
     write("    <xs:restriction base=\"xs:string\">\r\n");
-    for (DefinedCode c : bs.getCodes()) {
-      write("      <xs:enumeration value=\""
-          + Utilities.escapeXml(c.getCode()) + "\">\r\n");
-      write("        <xs:annotation>\r\n");
-      write("          <xs:documentation>"
-          + Utilities.escapeXml(c.getDefinition())
-          + "</xs:documentation>\r\n");
-      write("        </xs:annotation>\r\n");
-      write("      </xs:enumeration>\r\n");
+    if (bs.getValueSet().hasDefine()) {
+      for (ConceptDefinitionComponent c : bs.getValueSet().getDefine().getConcept()) {
+        genDefinedCode(c);
+      }
+    }
+    if (bs.getValueSet().hasCompose()) {
+      for (ConceptSetComponent cc : bs.getValueSet().getCompose().getInclude()) {
+        for (ConceptReferenceComponent c : cc.getConcept()) {
+          genIncludedCode(c);
+          
+        }
+      }
     }
     write("    </xs:restriction>\r\n");
     write("  </xs:simpleType>\r\n");
@@ -548,6 +554,25 @@ public class XSDBaseGenerator {
     write("  </xs:complexType>\r\n");
 
     genEnums.add(en);
+  }
+
+  private void genIncludedCode(ConceptReferenceComponent c) throws IOException {
+    write("      <xs:enumeration value=\"" + Utilities.escapeXml(c.getCode()) + "\">\r\n");
+    write("        <xs:annotation>\r\n");
+    write("          <xs:documentation>" + Utilities.escapeXml(c.getDisplay()) + "</xs:documentation>\r\n"); // todo: do we need to look the definition up? 
+    write("        </xs:annotation>\r\n");
+    write("      </xs:enumeration>\r\n");
+  }
+
+  private void genDefinedCode(ConceptDefinitionComponent c) throws IOException {
+    write("      <xs:enumeration value=\"" + Utilities.escapeXml(c.getCode()) + "\">\r\n");
+    write("        <xs:annotation>\r\n");
+    write("          <xs:documentation>" + Utilities.escapeXml(c.getDefinition()) + "</xs:documentation>\r\n");
+    write("        </xs:annotation>\r\n");
+    write("      </xs:enumeration>\r\n");
+    for (ConceptDefinitionComponent cc : c.getConcept()) {
+      genDefinedCode(cc);
+    }
   }
 
   private void generateType(ElementDefn root, String name, ElementDefn struc)

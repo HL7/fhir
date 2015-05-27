@@ -1,6 +1,8 @@
 package org.hl7.fhir.tools.implementations;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
 
 import org.hl7.fhir.definitions.ecore.fhir.Annotations;
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
@@ -12,6 +14,9 @@ import org.hl7.fhir.definitions.ecore.fhir.FhirFactory;
 import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
 import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
+import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 /*
@@ -571,5 +576,6 @@ public class GeneratorUtils {
     newElem.getType().add(elemTypeRef);
     
     return newElem;
-  }	
+  }
+
 }

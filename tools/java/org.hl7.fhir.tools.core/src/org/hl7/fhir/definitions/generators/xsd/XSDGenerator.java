@@ -41,6 +41,10 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 public class XSDGenerator  {
@@ -51,8 +55,7 @@ public class XSDGenerator  {
 	private Map<ElementDefn, String> types = new HashMap<ElementDefn, String>();
 	private List<String> typenames = new ArrayList<String>();
 	private List<TypeRef> datatypes = new ArrayList<TypeRef>();
-	private Map<String, BindingSpecification> tx;
-	private Map<String, List<DefinedCode>> enums = new HashMap<String, List<DefinedCode>>();
+	private Map<String, ValueSet> enums = new HashMap<String, ValueSet>();
 	private Map<String, String> enumDefs = new HashMap<String, String>();
 
 	public XSDGenerator(OutputStreamWriter out, Definitions definitions) throws UnsupportedEncodingException {
@@ -70,7 +73,6 @@ public class XSDGenerator  {
 
 	public void generate(ElementDefn root, String version, String genDate, boolean outer) throws Exception
 	{
-		this.tx = tx;
 		enums.clear();
 		enumDefs.clear();
 
@@ -111,13 +113,21 @@ public class XSDGenerator  {
 	private void generateEnum(String en) throws IOException {
 		write("  <xs:simpleType name=\""+en+"-list\">\r\n");
 		write("    <xs:restriction base=\"xs:string\">\r\n");
-		for (DefinedCode c : enums.get(en)) {
-			write("      <xs:enumeration value=\""+c.getCode()+"\">\r\n");
-			write("        <xs:annotation>\r\n");
-			write("          <xs:documentation>"+Utilities.escapeXml(c.getDefinition())+"</xs:documentation>\r\n");
-			write("        </xs:annotation>\r\n");
-			write("      </xs:enumeration>\r\n");
-		}
+		ValueSet vs = enums.get(en);
+    if (vs.hasDefine()) {
+      for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+        genDefinedCode(c);
+      }
+    }
+    if (vs.hasCompose()) {
+      for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
+        for (ConceptReferenceComponent c : cc.getConcept()) {
+          genIncludedCode(c);
+          
+        }
+      }
+    }
+		
 		write("    </xs:restriction>\r\n");
 		write("  </xs:simpleType>\r\n");
 
@@ -134,6 +144,24 @@ public class XSDGenerator  {
 		write("  </xs:complexType>\r\n");
 	}
 
+	 private void genIncludedCode(ConceptReferenceComponent c) throws IOException {
+	    write("      <xs:enumeration value=\"" + Utilities.escapeXml(c.getCode()) + "\">\r\n");
+	    write("        <xs:annotation>\r\n");
+	    write("          <xs:documentation>" + Utilities.escapeXml(c.getDisplay()) + "</xs:documentation>\r\n"); // todo: do we need to look the definition up? 
+	    write("        </xs:annotation>\r\n");
+	    write("      </xs:enumeration>\r\n");
+	  }
+
+	  private void genDefinedCode(ConceptDefinitionComponent c) throws IOException {
+	    write("      <xs:enumeration value=\"" + Utilities.escapeXml(c.getCode()) + "\">\r\n");
+	    write("        <xs:annotation>\r\n");
+	    write("          <xs:documentation>" + Utilities.escapeXml(c.getDefinition()) + "</xs:documentation>\r\n");
+	    write("        </xs:annotation>\r\n");
+	    write("      </xs:enumeration>\r\n");
+	    for (ConceptDefinitionComponent cc : c.getConcept()) {
+	      genDefinedCode(cc);
+	    }
+	  }
 	private void generateType(ElementDefn root, String name, ElementDefn struc, boolean isResource) throws IOException, Exception {
 		write("  <xs:complexType name=\""+name+"\">\r\n");
 		write("    <xs:annotation>\r\n");
@@ -286,7 +314,7 @@ public class XSDGenerator  {
 				if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList ) {
 					en = cd.getName();
 					if (!definitions.getCommonBindings().containsKey(cd.getName()) && cd.getUseContexts().size() <= 1) {
-						enums.put(en, cd.getCodes());
+						enums.put(en, cd.getValueSet());
 						enumDefs.put(en, cd.getDefinition());
 					}
 					return en;

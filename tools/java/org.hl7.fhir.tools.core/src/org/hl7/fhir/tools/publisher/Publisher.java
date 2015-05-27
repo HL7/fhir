@@ -527,8 +527,8 @@ public class Publisher implements URIResolver {
     if (buildFlags.get("all")) {
       copyStaticContent();
     }
-    defineSpecialValues();
     loadValueSets1();
+    prsr.getRegistry().commit();
 
 
     if (!validate()) {
@@ -1149,68 +1149,6 @@ public class Publisher implements URIResolver {
     SystemInteractionComponent t = new SystemInteractionComponent();
     t.setCode(op);
     res.getInteraction().add(t);
-  }
-
-  private IniFile ini;
-
-  private void defineSpecialValues() throws Exception {
-    for (BindingSpecification bs : page.getDefinitions().getCommonBindings().values()) {
-      if (bs.getBinding() == BindingMethod.Special) {
-        if (bs.getName().equals("DataType") || bs.getName().equals("FHIRDefinedType")) {
-          List<String> codes = new ArrayList<String>();
-          for (TypeRef t : page.getDefinitions().getKnownTypes())
-            codes.add(t.getName());
-          Collections.sort(codes);
-          for (String s : codes) {
-            if (!page.getDefinitions().dataTypeIsSharedInfo(s)) {
-              DefinedCode c = new DefinedCode();
-              c.setCode(s);
-              c.setId(getCodeId("datatype", s));
-              if (page.getDefinitions().getPrimitives().containsKey(s))
-                c.setDefinition(page.getDefinitions().getPrimitives().get(s).getDefinition());
-              else if (page.getDefinitions().getConstraints().containsKey(s))
-                c.setDefinition(page.getDefinitions().getConstraints().get(s).getDefinition());
-              else if (page.getDefinitions().hasElementDefn(s))
-                c.setDefinition(page.getDefinitions().getElementDefn(s).getDefinition());
-              else 
-                c.setDefinition("...to do...");
-              bs.getCodes().add(c);
-            }
-          }
-        }
-        if (bs.getName().equals("ResourceType") || bs.getName().equals("FHIRDefinedType")) {
-          List<String> codes = new ArrayList<String>();
-          codes.addAll(page.getDefinitions().getKnownResources().keySet());
-          Collections.sort(codes);
-          for (String s : codes) {
-            DefinedCode c = page.getDefinitions().getKnownResources().get(s);
-            c.setId(getCodeId("resourcetype", s));
-            bs.getCodes().add(c);
-          }
-        }
-        if (bs.getName().equals("MessageEvent")) {
-          List<String> codes = new ArrayList<String>();
-          codes.addAll(page.getDefinitions().getEvents().keySet());
-          Collections.sort(codes);
-          for (String s : codes) {
-            DefinedCode c = new DefinedCode();
-            EventDefn e = page.getDefinitions().getEvents().get(s);
-            c.setCode(s);
-            c.setId(getCodeId("messageevent", s));
-            c.setDefinition(e.getDefinition());
-            bs.getCodes().add(c);
-          }
-        }
-        if (!(bs.getName().equals("DataType") || bs.getName().equals("FHIRDefinedType") || bs.getName().equals("ResourceType") || bs.getName().equals(
-            "MessageEvent")))
-          page.log("unprocessed special type " + bs.getName(), LogMessageType.Error);
-      }
-    }
-    prsr.getRegistry().commit();
-  }
-
-  private String getCodeId(String q, String name) {
-    return prsr.getRegistry().idForQName(q, name);
   }
 
   private void generateECore(org.hl7.fhir.definitions.ecore.fhir.Definitions eCoreDefinitions, String filename) throws IOException {

@@ -224,29 +224,30 @@ public class BindingsParser {
     throw new Exception("Unknown Binding Strength: '"+s+"'");
   }
 
-  public boolean loadCodes(BindingSpecification cd) throws Exception {
-    // TODO Auto-generated method stub
-    Sheet sheet = xls.getSheets().get(cd.getReference().substring(1));
-    if (sheet == null)
-      return false;
-
-    for (int row = 0; row < sheet.rows.size(); row++) {
-      DefinedCode c = new DefinedCode();
-      c.setId(sheet.getColumn(row, "Id"));
-      c.setCode(sheet.getColumn(row, "Code"));
-      c.setDisplay(sheet.getColumn(row, "Display"));
-      if (c.hasCode() && !c.hasDisplay())
-        c.setDisplay(Utilities.humanize(c.getCode()));
-      c.setSystem(sheet.getColumn(row, "System"));
-      c.setDefinition(sheet.getColumn(row, "Definition"));
-      c.setComment(sheet.getColumn(row, "Comment"));
-      c.setV2Map(sheet.getColumn(row, "v2"));
-      c.setV3Map(sheet.getColumn(row, "v3"));
-      for (String ct : sheet.columns) 
-        if (ct.startsWith("Display:") && !Utilities.noString(sheet.getColumn(row, ct)))
-          c.getLangs().put(ct.substring(8), sheet.getColumn(row, ct));
-      cd.getCodes().add(c);
-    }
-    return true;
-  }
+// bscodes  
+//  public boolean loadCodes(BindingSpecification cd) throws Exception {
+//    // TODO Auto-generated method stub
+//    Sheet sheet = xls.getSheets().get(cd.getReference().substring(1));
+//    if (sheet == null)
+//      return false;
+//
+//    for (int row = 0; row < sheet.rows.size(); row++) {
+//      DefinedCode c = new DefinedCode();
+//      c.setId(sheet.getColumn(row, "Id"));
+//      c.setCode(sheet.getColumn(row, "Code"));
+//      c.setDisplay(sheet.getColumn(row, "Display"));
+//      if (c.hasCode() && !c.hasDisplay())
+//        c.setDisplay(Utilities.humanize(c.getCode()));
+//      c.setSystem(sheet.getColumn(row, "System"));
+//      c.setDefinition(sheet.getColumn(row, "Definition"));
+//      c.setComment(sheet.getColumn(row, "Comment"));
+//      c.setV2Map(sheet.getColumn(row, "v2"));
+//      c.setV3Map(sheet.getColumn(row, "v3"));
+//      for (String ct : sheet.columns) 
+//        if (ct.startsWith("Display:") && !Utilities.noString(sheet.getColumn(row, ct)))
+//          c.getLangs().put(ct.substring(8), sheet.getColumn(row, ct));
+//      cd.getCodes().add(c);
+//    }
+//    return true;
+//  }
 }

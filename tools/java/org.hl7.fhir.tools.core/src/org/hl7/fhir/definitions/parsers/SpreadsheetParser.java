@@ -809,13 +809,14 @@ public class SpreadsheetParser {
       cd.setV2Map(sheet.getColumn(row, "v2"));
       cd.setV3Map(checkV3Mapping(sheet.getColumn(row, "v3")));
 
-			if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
-				Sheet codes = xls.getSheets().get(
-						cd.getReference().substring(1));
-				if (codes == null)
-					throw new Exception("code source sheet not found for "+ cd.getName() + ": " + cd.getReference());
-				parseCodes(cd.getCodes(), codes);
-			}
+// // bscodes        
+//			if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
+//				Sheet codes = xls.getSheets().get(
+//						cd.getReference().substring(1));
+//				if (codes == null)
+//					throw new Exception("code source sheet not found for "+ cd.getName() + ": " + cd.getReference());
+//				parseCodes(cd.getCodes(), codes);
+//			}
 			
 			if (cd.getBinding() == BindingMethod.ValueSet && !Utilities.noString(cd.getReference())) {
 			  try {

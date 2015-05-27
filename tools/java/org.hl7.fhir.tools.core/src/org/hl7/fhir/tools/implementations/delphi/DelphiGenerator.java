@@ -987,7 +987,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private void generateEnum(ElementDefn e) throws Exception {
     String tn = typeNames.get(e);
     BindingSpecification cd = e.getBinding();
-    enumSizes.put(tn, cd.getCodes().size());
+    enumSizes.put(tn, cd.getAllCodes().size());
 
 
     String prefix = tn.substring(5);
@@ -1002,11 +1002,11 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       con.append("  CODES_"+tn+" : Array["+tn+"] of String = (");
       constants.add(tn);
 
-      int l = cd.getCodes().size();
+      int l = cd.getAllCodes().size();
       int i = 0;
       def.append("    "+prefix+"Null,  {@enum.value "+prefix+"Null Value is missing from Instance }\r\n");
       con.append("'', ");
-      for (DefinedCode c : cd.getCodes()) {
+      for (DefinedCode c : cd.getAllCodes()) {
         i++;
         String cc = c.getCode();
         if (cc.equals("-"))
@@ -3142,6 +3142,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
 
   private String makeDocoSafe(String string) {
+    if (string == null)
+      return "";
     string = Utilities.normaliseEolns(string);
     while (string.contains("]{") && string.contains("}") && string.indexOf("]{") < string.indexOf("}")) {
       string = string.substring(0, string.indexOf("]{")+1)+string.substring(string.indexOf("}")+1);
