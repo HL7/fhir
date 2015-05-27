@@ -457,7 +457,13 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  
 	  StringBuilder b = new StringBuilder();
 	  BindingSpecification cd =  e.getBinding();
-    b.append(cd.getName()+": ");
+	  if (cd.getValueSet() != null)
+      b.append(cd.getValueSet().getName()+": ");
+	  else if (cd.getReference() != null)
+      b.append("<a href=\""+cd.getReference()+"\">[External]</a>: ");
+	  else
+	    b.append("??: ");
+	    
     b.append(TerminologyNotesGenerator.describeBinding(cd, page));
 //    if (cd.getBinding() == Binding.Unbound)
 //      b.append(" (Not Bound to any codes)");

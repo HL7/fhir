@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -112,13 +112,13 @@ public class MedicationPrescription extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIVE: return "";
-            case ONHOLD: return "";
-            case COMPLETED: return "";
-            case ENTEREDINERROR: return "";
-            case STOPPED: return "";
-            case SUPERCEDED: return "";
-            case DRAFT: return "";
+            case ACTIVE: return "http://hl7.org.fhir/medication-prescription-status";
+            case ONHOLD: return "http://hl7.org.fhir/medication-prescription-status";
+            case COMPLETED: return "http://hl7.org.fhir/medication-prescription-status";
+            case ENTEREDINERROR: return "http://hl7.org.fhir/medication-prescription-status";
+            case STOPPED: return "http://hl7.org.fhir/medication-prescription-status";
+            case SUPERCEDED: return "http://hl7.org.fhir/medication-prescription-status";
+            case DRAFT: return "http://hl7.org.fhir/medication-prescription-status";
             default: return "?";
           }
         }

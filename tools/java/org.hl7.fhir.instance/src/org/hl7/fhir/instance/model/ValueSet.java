@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -49,27 +49,27 @@ public class ValueSet extends DomainResource {
 
     public enum FilterOperator {
         /**
-         * The specified property of the code equals the provided value.
+         * The specified property of the code equals the provided value
          */
         EQUAL, 
         /**
-         * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.
+         * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself
          */
         ISA, 
         /**
-         * The specified property of the code does not have an is-a relationship with the provided value.
+         * The specified property of the code does not have an is-a relationship with the provided value
          */
         ISNOTA, 
         /**
-         * The specified property of the code  matches the regex specified in the provided value.
+         * The specified property of the code  matches the regex specified in the provided value
          */
         REGEX, 
         /**
-         * The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).
+         * The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list)
          */
         IN, 
         /**
-         * The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).
+         * The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list)
          */
         NOTIN, 
         /**
@@ -106,23 +106,23 @@ public class ValueSet extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case EQUAL: return "";
-            case ISA: return "";
-            case ISNOTA: return "";
-            case REGEX: return "";
-            case IN: return "";
-            case NOTIN: return "";
+            case EQUAL: return "http://hl7.org.fhir/filter-operator";
+            case ISA: return "http://hl7.org.fhir/filter-operator";
+            case ISNOTA: return "http://hl7.org.fhir/filter-operator";
+            case REGEX: return "http://hl7.org.fhir/filter-operator";
+            case IN: return "http://hl7.org.fhir/filter-operator";
+            case NOTIN: return "http://hl7.org.fhir/filter-operator";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case EQUAL: return "The specified property of the code equals the provided value.";
-            case ISA: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.";
-            case ISNOTA: return "The specified property of the code does not have an is-a relationship with the provided value.";
-            case REGEX: return "The specified property of the code  matches the regex specified in the provided value.";
-            case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";
-            case NOTIN: return "The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).";
+            case EQUAL: return "The specified property of the code equals the provided value";
+            case ISA: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself";
+            case ISNOTA: return "The specified property of the code does not have an is-a relationship with the provided value";
+            case REGEX: return "The specified property of the code  matches the regex specified in the provided value";
+            case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list)";
+            case NOTIN: return "The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list)";
             default: return "?";
           }
         }

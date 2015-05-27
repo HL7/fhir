@@ -236,13 +236,6 @@ public class EMFStructureGenerator extends EMFBase {
 		return b.toString();
 	}
 
-	private BindingSpecification getConceptDomain(Map<String, BindingSpecification> conceptDomains, String conceptDomain) {
-		for (BindingSpecification cd : conceptDomains.values())
-			if (cd.getName().equals(conceptDomain))
-				return cd;
-		return null;
-	}
-
 	private void generateField(ElementDefn root, ElementDefn e, String prefix) throws Exception {
 	  String tn = typeNames.get(e);
 	  

@@ -57,7 +57,7 @@ public class BindingConverter
 		
 	    for (org.hl7.fhir.definitions.model.BindingSpecification binding : bindings) 
 	    {
-	    	if( !binding.getName().equals("*unbound*") )
+	    	if( !binding.getName1().equals("*unbound*") )
 	    	{
 	    		result.add(buildBindingFromFhirModel(binding, parent));
 	    	}
@@ -72,12 +72,12 @@ public class BindingConverter
 		BindingDefn result = FhirFactory.eINSTANCE.createBindingDefn();
 		
 		result.setId( Integer.parseInt( spec.getId() ) );
-		result.setName( spec.getName() );
+		result.setName( spec.getName1() );
 		
 		if( parent == null )
-			result.setFullName( spec.getName() );		// this is a global binding
+			result.setFullName( spec.getName1() );		// this is a global binding
 		else
-			result.setFullName( parent.getName() + "." + spec.getName() );
+			result.setFullName( parent.getName() + "." + spec.getName1() );
 
 		result.setDefinition( spec.getDefinition() );
 		result.setDescription( spec.getDescription() );

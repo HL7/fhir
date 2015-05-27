@@ -23,7 +23,7 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Condition;
-import org.hl7.fhir.instance.model.Condition.ConditionStatus;
+import org.hl7.fhir.instance.model.Condition.ConditionClinicalStatus;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.Factory;
@@ -646,7 +646,7 @@ public class FHIRSimpleClientTest {
 			patientReference.setReference("patient/@"+getEntryId(patientEntry));
 			condition.setPatient(patientReference);
 			condition.setCode(conditionCode);
-			condition.setClinicalStatus(ConditionStatus.CONFIRMED);
+			condition.setClinicalStatus(ConditionClinicalStatus.CONFIRMED);
 		} catch (Exception e) {
 			fail();
 		}

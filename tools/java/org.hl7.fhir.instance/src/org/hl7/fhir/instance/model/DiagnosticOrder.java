@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -48,55 +48,55 @@ public class DiagnosticOrder extends DomainResource {
 
     public enum DiagnosticOrderStatus {
         /**
-         * The request has been proposed.
+         * The request has been proposed
          */
         PROPOSED, 
         /**
-         * the request is in preliminary form prior to being sent.
+         * the request is in preliminary form prior to being sent
          */
         DRAFT, 
         /**
-         * The request has been planned.
+         * The request has been planned
          */
         PLANNED, 
         /**
-         * The request has been placed.
+         * The request has been placed
          */
         REQUESTED, 
         /**
-         * The receiving system has received the order, but not yet decided whether it will be performed.
+         * The receiving system has received the order, but not yet decided whether it will be performed
          */
         RECEIVED, 
         /**
-         * The receiving system has accepted the order, but work has not yet commenced.
+         * The receiving system has accepted the order, but work has not yet commenced
          */
         ACCEPTED, 
         /**
-         * The work to fulfill the order is happening.
+         * The work to fulfill the order is happening
          */
         INPROGRESS, 
         /**
-         * The work is complete, and the outcomes are being reviewed for approval.
+         * The work is complete, and the outcomes are being reviewed for approval
          */
         REVIEW, 
         /**
-         * The work has been complete, the report(s) released, and no further work is planned.
+         * The work has been complete, the report(s) released, and no further work is planned
          */
         COMPLETED, 
         /**
-         * the request has been withdrawn.
+         * the request has been withdrawn
          */
         CANCELLED, 
         /**
-         * The request has been held by originating system/user request.
+         * The request has been held by originating system/user request
          */
         SUSPENDED, 
         /**
-         * The receiving system has declined to fulfill the request.
+         * The receiving system has declined to fulfill the request
          */
         REJECTED, 
         /**
-         * The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
+         * The diagnostic investigation was attempted, but due to some procedural error, it could not be completed
          */
         FAILED, 
         /**
@@ -154,37 +154,37 @@ public class DiagnosticOrder extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PROPOSED: return "";
-            case DRAFT: return "";
-            case PLANNED: return "";
-            case REQUESTED: return "";
-            case RECEIVED: return "";
-            case ACCEPTED: return "";
-            case INPROGRESS: return "";
-            case REVIEW: return "";
-            case COMPLETED: return "";
-            case CANCELLED: return "";
-            case SUSPENDED: return "";
-            case REJECTED: return "";
-            case FAILED: return "";
+            case PROPOSED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case DRAFT: return "http://hl7.org.fhir/diagnostic-order-status";
+            case PLANNED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case REQUESTED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case RECEIVED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case ACCEPTED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case INPROGRESS: return "http://hl7.org.fhir/diagnostic-order-status";
+            case REVIEW: return "http://hl7.org.fhir/diagnostic-order-status";
+            case COMPLETED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case CANCELLED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case SUSPENDED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case REJECTED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case FAILED: return "http://hl7.org.fhir/diagnostic-order-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case PROPOSED: return "The request has been proposed.";
-            case DRAFT: return "the request is in preliminary form prior to being sent.";
-            case PLANNED: return "The request has been planned.";
-            case REQUESTED: return "The request has been placed.";
-            case RECEIVED: return "The receiving system has received the order, but not yet decided whether it will be performed.";
-            case ACCEPTED: return "The receiving system has accepted the order, but work has not yet commenced.";
-            case INPROGRESS: return "The work to fulfill the order is happening.";
-            case REVIEW: return "The work is complete, and the outcomes are being reviewed for approval.";
-            case COMPLETED: return "The work has been complete, the report(s) released, and no further work is planned.";
-            case CANCELLED: return "the request has been withdrawn.";
-            case SUSPENDED: return "The request has been held by originating system/user request.";
-            case REJECTED: return "The receiving system has declined to fulfill the request.";
-            case FAILED: return "The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.";
+            case PROPOSED: return "The request has been proposed";
+            case DRAFT: return "the request is in preliminary form prior to being sent";
+            case PLANNED: return "The request has been planned";
+            case REQUESTED: return "The request has been placed";
+            case RECEIVED: return "The receiving system has received the order, but not yet decided whether it will be performed";
+            case ACCEPTED: return "The receiving system has accepted the order, but work has not yet commenced";
+            case INPROGRESS: return "The work to fulfill the order is happening";
+            case REVIEW: return "The work is complete, and the outcomes are being reviewed for approval";
+            case COMPLETED: return "The work has been complete, the report(s) released, and no further work is planned";
+            case CANCELLED: return "the request has been withdrawn";
+            case SUSPENDED: return "The request has been held by originating system/user request";
+            case REJECTED: return "The receiving system has declined to fulfill the request";
+            case FAILED: return "The diagnostic investigation was attempted, but due to some procedural error, it could not be completed";
             default: return "?";
           }
         }
@@ -274,19 +274,19 @@ public class DiagnosticOrder extends DomainResource {
 
     public enum DiagnosticOrderPriority {
         /**
-         * The order has a normal priority.
+         * The order has a normal priority
          */
         ROUTINE, 
         /**
-         * The order should be urgently.
+         * The order should be urgently
          */
         URGENT, 
         /**
-         * The order is time-critical.
+         * The order is time-critical
          */
         STAT, 
         /**
-         * The order should be acted on as soon as possible.
+         * The order should be acted on as soon as possible
          */
         ASAP, 
         /**
@@ -317,19 +317,19 @@ public class DiagnosticOrder extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ROUTINE: return "";
-            case URGENT: return "";
-            case STAT: return "";
-            case ASAP: return "";
+            case ROUTINE: return "http://hl7.org.fhir/diagnostic-order-priority";
+            case URGENT: return "http://hl7.org.fhir/diagnostic-order-priority";
+            case STAT: return "http://hl7.org.fhir/diagnostic-order-priority";
+            case ASAP: return "http://hl7.org.fhir/diagnostic-order-priority";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case ROUTINE: return "The order has a normal priority.";
-            case URGENT: return "The order should be urgently.";
-            case STAT: return "The order is time-critical.";
-            case ASAP: return "The order should be acted on as soon as possible.";
+            case ROUTINE: return "The order has a normal priority";
+            case URGENT: return "The order should be urgently";
+            case STAT: return "The order is time-critical";
+            case ASAP: return "The order should be acted on as soon as possible";
             default: return "?";
           }
         }

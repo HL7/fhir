@@ -162,9 +162,10 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       List<CDUsage> list = txusages.get(cd);
       for (int i = 2; i < list.size(); i++) {
         if (!list.get(i).element.typeCode().equals(list.get(1).element.typeCode()))
-          throw new Exception("Mixed types on one concept domain in one type - not yet supported by the build process for binding "+cd.getName());
+          throw new Exception("Mixed types on one concept domain in one type - not yet supported by the build process for binding "+cd.getName1());
       }
-      write(" <tr><td valign=\"top\" title=\""+cd.getName()+"\">");
+      String name = cd.getValueSet() != null ? cd.getValueSet().getName() : cd.getName1();
+      write(" <tr><td valign=\"top\" title=\""+name+"\">");
       boolean first = true;
       for (int i = 1; i < list.size(); i++) {
         if (!first)
@@ -180,16 +181,16 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         write("<td><a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a></td>");
         write("<td valign=\"top\">");
         if (cd.getBinding() == BindingSpecification.BindingMethod.Special) {
-          if (cd.getName().equals("MessageEvent"))
+          if (name.equals("MessageEvent"))
             write("<a href=\"message-events.html\">http://hl7.org/fhir/valueset/message-events</a>");
-          else if (cd.getName().equals("ResourceType"))
+          else if (name.equals("ResourceType"))
             write("<a href=\"resource-types.html\">http://hl7.org/fhir/valueset/resource-types</a>");
-          else if (cd.getName().equals("DataType"))
+          else if (name.equals("DataType"))
             write("<a href=\"data-types.html\">http://hl7.org/fhir/valueset/data-types</a>");
-          else if (cd.getName().equals("FHIRDefinedType"))
+          else if (name.equals("FHIRDefinedType"))
             write("<a href=\"defined-types.html\">http://hl7.org/fhir/valueset/defined-types</a>");
           else 
-            throw new Exception("Unknown special type "+cd.getName());
+            throw new Exception("Unknown special type "+name);
         } 
         if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
           if (Utilities.noString(cd.getReference())) 
@@ -275,16 +276,16 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     if (cd.getBinding() == BindingSpecification.BindingMethod.Unbound) 
       return cd.getDefinition();
     if (cd.getBinding() == BindingSpecification.BindingMethod.Special) {
-      if (cd.getName().equals("MessageEvent"))
+      if (cd.getValueSet().getName().equals("MessageEvent"))
         return "the <a href=\"message-events.html\">Event List in the messaging framework</a>";
-      else if (cd.getName().equals("ResourceType"))
+      else if (cd.getValueSet().getName().equals("ResourceType"))
         return "<a href=\"resource-types.html\">Any defined Resource Type name</a>";
-      else if (cd.getName().equals("DataType"))
+      else if (cd.getValueSet().getName().equals("DataType"))
         return "<a href=\"data-types.html\">Any defined Data Type name</a>";
-      else if (cd.getName().equals("FHIRDefinedType"))
+      else if (cd.getValueSet().getName().equals("FHIRDefinedType"))
         return "<a href=\"defined-types.html\">Any defined Resource or Data Type name</a>";
       else 
-        throw new Exception("Unknown special type "+cd.getName());
+        throw new Exception("Unknown special type "+cd.getValueSet().getName());
     } 
     String bs = "<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";
     if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
@@ -323,10 +324,10 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
   }
 
   private void genBinding(BindingSpecification cd, String path, boolean isCode) throws Exception {
-    if (cd.getName().equals("*unbound*")) {
+    if (cd.getName1().equals("*unbound*")) {
     	write("  <li>"+path+" (Error!!!)</li>\r\n");
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.Unbound) {
-      write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". (not bound to any codes)</li>\r\n");
+      write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName1())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". (not bound to any codes)</li>\r\n");
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
       String sid = "";
       String bs = "<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";
@@ -335,9 +336,9 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         //					if (!sids.contains(sid))
         //						sids.put(sid, new DefinedCode())
         sid = " system "+sid+"";
-        write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". "+bs+". See "+sid+".\r\n");
+        write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getValueSet().getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". "+bs+". See "+sid+".\r\n");
       } else {
-        write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\" "+bs+". "+sid+". Example values:\r\n");
+        write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getValueSet().getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\" "+bs+". "+sid+". Example values:\r\n");
         write("  <li>this list is todo:\r\n");
      // bscodes  
 //        write("    <table class=\"codes\">\r\n");
@@ -366,18 +367,18 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     	write("  </li>\r\n");
     	
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.Special) {
-      if (cd.getName().equals("MessageEvent"))
+      if (cd.getValueSet().getName().equals("MessageEvent"))
         write("<li>"+path+" of the <a href=\"message.html#Events\"> Event List in the messaging framework</a></li>\r\n");
-      else if (cd.getName().equals("ResourceType"))
+      else if (cd.getValueSet().getName().equals("ResourceType"))
         write("  <li>"+path+" of <a href=\"terminologies.html#ResourceType\"> any defined Resource Type name</a></li>\r\n");
-      else if (cd.getName().equals("FHIRContentType"))
+      else if (cd.getValueSet().getName().equals("FHIRContentType"))
         write("  <li>"+path+" of <a href=\"terminologies.html#fhircontenttypes\"> any defined Resource or Data Type name</a></li>\r\n");
       else 
         write("  <li>"+path+" of <a href=\"datatypes.html\"> any defined data Type name</a> (including <a href=\"resource.html#Resource\">Resource</a>)</li>\r\n");
       
     } else {
       String bs = "<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";
-      write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". "+bs+". See "+ref(cd)+"</li>\r\n");
+      write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getValueSet().getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". "+bs+". See "+ref(cd)+"</li>\r\n");
     }
   }
 
@@ -406,16 +407,6 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 		for (ElementDefn c : e.getElements()) {
 			scan(c, path+"."+c.getName());
 		}		
-	}
-
-	
-  private BindingSpecification getConceptDomainByName(Map<String, BindingSpecification> tx, String conceptDomain) throws Exception {    
-    for (BindingSpecification cd : tx.values()) {
-      if (cd.getName().equals(conceptDomain))
-        return cd; 
-    }
-    throw new Exception("Unable to find Concept Domain "+conceptDomain);
-  }
-    
+	}  
 	
 }

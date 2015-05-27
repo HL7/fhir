@@ -82,8 +82,10 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     for (String n : names) {
       BindingSpecification bs = definitions.getCommonBindings().get(n);
       if (bs.getBinding() == BindingMethod.CodeList || bs.getBinding() == BindingMethod.Special)
-        write("//   "+bs.getName()+": "+bs.getDefinition()+"\r\n");
+        write("//   "+bs.getValueSet().getName()+": "+bs.getDefinition()+"\r\n");
     }
+    write("\r\n");
+    write("\r\n");
     for (String n : names) {
       BindingSpecification bs = definitions.getCommonBindings().get(n);
       if (bs.getBinding() == BindingMethod.CodeList || bs.getBinding() == BindingMethod.Special)
@@ -96,7 +98,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 	}
 
 	private void generateEnum(BindingSpecification cd) throws Exception {
-    String tns = cd.getName();
+    String tns = cd.getValueSet().getName();
 	  
 		write("    public enum "+tns+" {\r\n");
 		int l = cd.getAllCodes().size();

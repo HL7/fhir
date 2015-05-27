@@ -308,12 +308,12 @@ public class CompositeTypeConverter {
 							.getDeclaredTypeName()));
 
 		if (element.getBinding() != null
-				&& !element.getBinding().getName().equals("")
-				&& !element.getBinding().getName().equals("*unbound*")) {
+				&& !element.getBinding().getName1().equals("")
+				&& !element.getBinding().getName1().equals("*unbound*")) {
 			if (result.getType().size() >= 1) {
 				for (TypeRef tr : result.getType()) {
 					if (tr.isBindable())
-						tr.setBindingRef(element.getBinding().getName());
+						tr.setBindingRef(element.getBinding().getName1());
 				}
 			}
 			// else

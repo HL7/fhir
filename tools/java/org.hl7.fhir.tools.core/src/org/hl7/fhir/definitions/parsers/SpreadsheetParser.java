@@ -744,25 +744,24 @@ public class SpreadsheetParser {
 		  // Ignore bindings whose name start with "!"
 		  if (Utilities.noString(bindingName) || bindingName.startsWith("!")) continue;
 	      
-			BindingSpecification cd = new BindingSpecification(usageContext);
+			BindingSpecification cd = new BindingSpecification(usageContext, bindingName, false);
       definitions.getAllBindings().add(cd);
 
-			cd.setName(bindingName);
 			cd.setDefinition(sheet.getColumn(row, "Definition"));
 			
 			cd.setBindingMethod(BindingsParser.readBinding(sheet.getColumn(row, "Binding")));
       String ref = sheet.getColumn(row, "Reference");
       if (!cd.getBinding().equals(BindingMethod.Unbound) && Utilities.noString(ref)) 
-        throw new Exception("binding "+cd.getName()+" is missing a reference");
+        throw new Exception("binding "+cd.getName1()+" is missing a reference");
       if (cd.getBinding() == BindingMethod.CodeList) {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/vs/"+ref.substring(1));
         if (!ref.startsWith("#"))
-          throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' must started with '#'");
+          throw new Exception("Error parsing binding "+cd.getName1()+": code list reference '"+ref+"' must started with '#'");
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
-          throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
+          throw new Exception("Error parsing binding "+cd.getName1()+": code list reference '"+ref+"' not resolved");
         new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version).execute();
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:"))
@@ -776,7 +775,7 @@ public class SpreadsheetParser {
       }			
       cd.setReference(sheet.getColumn(row, "Reference")); // do this anyway in the short term
       
-      cd.setId(registry.idForName(cd.getName()));
+      cd.setId(registry.idForName(cd.getName1()));
       if (cd.getValueSet() != null) {
         ValueSet vs = cd.getValueSet();
         ValueSetUtilities.makeShareable(vs);
@@ -862,7 +861,7 @@ public class SpreadsheetParser {
             cd.getReferredValueSet().setVersion(version);
 			  }
 			}
-			result.put(cd.getName(), cd);
+			result.put(cd.getName1(), cd);
 	    if (cd.getValueSet() != null) {
 	      ValueSet vs = cd.getValueSet();
 	      vsGen.updateHeader(cd, cd.getValueSet());

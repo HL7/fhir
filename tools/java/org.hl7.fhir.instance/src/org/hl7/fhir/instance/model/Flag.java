@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -48,15 +48,15 @@ public class Flag extends DomainResource {
 
     public enum FlagStatus {
         /**
-         * A current flag that should be displayed to a user. A system may use the category to determine which roles should view the flag.
+         * A current flag that should be displayed to a user. A system may use the category to determine which roles should view the flag
          */
         ACTIVE, 
         /**
-         * The flag does not need to be displayed any more.
+         * The flag does not need to be displayed any more
          */
         INACTIVE, 
         /**
-         * The flag was added in error, and should no longer be displayed.
+         * The flag was added in error, and should no longer be displayed
          */
         ENTEREDINERROR, 
         /**
@@ -84,17 +84,17 @@ public class Flag extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIVE: return "";
-            case INACTIVE: return "";
-            case ENTEREDINERROR: return "";
+            case ACTIVE: return "http://hl7.org.fhir/flag-status";
+            case INACTIVE: return "http://hl7.org.fhir/flag-status";
+            case ENTEREDINERROR: return "http://hl7.org.fhir/flag-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIVE: return "A current flag that should be displayed to a user. A system may use the category to determine which roles should view the flag.";
-            case INACTIVE: return "The flag does not need to be displayed any more.";
-            case ENTEREDINERROR: return "The flag was added in error, and should no longer be displayed.";
+            case ACTIVE: return "A current flag that should be displayed to a user. A system may use the category to determine which roles should view the flag";
+            case INACTIVE: return "The flag does not need to be displayed any more";
+            case ENTEREDINERROR: return "The flag was added in error, and should no longer be displayed";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, May 28, 2015 05:18+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:57+1000 for FHIR v0.5.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -51,6 +51,8 @@ public class Enumerations {
 //   ResourceType: One of the resource types defined as part of FHIR
 //   SearchParamType: Data types allowed to be used for search parameters
 //   SpecialValues: A set of generally useful codes defined so they can be included in value sets
+
+
     public enum AdministrativeGender {
         /**
          * Male

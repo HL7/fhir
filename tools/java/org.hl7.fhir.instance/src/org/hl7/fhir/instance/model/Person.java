@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -92,10 +92,10 @@ public class Person extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case LEVEL1: return "";
-            case LEVEL2: return "";
-            case LEVEL3: return "";
-            case LEVEL4: return "";
+            case LEVEL1: return "http://hl7.org.fhir/identity-assuranceLevel";
+            case LEVEL2: return "http://hl7.org.fhir/identity-assuranceLevel";
+            case LEVEL3: return "http://hl7.org.fhir/identity-assuranceLevel";
+            case LEVEL4: return "http://hl7.org.fhir/identity-assuranceLevel";
             default: return "?";
           }
         }

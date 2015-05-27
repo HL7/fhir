@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -49,19 +49,19 @@ public class StructureDefinition extends DomainResource {
 
     public enum StructureDefinitionType {
         /**
-         * A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.
+         * A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions
          */
         TYPE, 
         /**
-         * A resource defined by the FHIR specification.
+         * A resource defined by the FHIR specification
          */
         RESOURCE, 
         /**
-         * A set of constraints on a resource or data type that describe how it is used for a particular use.
+         * A set of constraints on a resource or data type that describe how it is used for a particular use
          */
         CONSTRAINT, 
         /**
-         * A definition of an extension that can be used in a FHIR resource (or a set of constraints on an exsting extension).
+         * A definition of an extension that can be used in a FHIR resource (or a set of constraints on an exsting extension)
          */
         EXTENSION, 
         /**
@@ -92,19 +92,19 @@ public class StructureDefinition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case TYPE: return "";
-            case RESOURCE: return "";
-            case CONSTRAINT: return "";
-            case EXTENSION: return "";
+            case TYPE: return "http://hl7.org.fhir/structure-definition-type";
+            case RESOURCE: return "http://hl7.org.fhir/structure-definition-type";
+            case CONSTRAINT: return "http://hl7.org.fhir/structure-definition-type";
+            case EXTENSION: return "http://hl7.org.fhir/structure-definition-type";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case TYPE: return "A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.";
-            case RESOURCE: return "A resource defined by the FHIR specification.";
-            case CONSTRAINT: return "A set of constraints on a resource or data type that describe how it is used for a particular use.";
-            case EXTENSION: return "A definition of an extension that can be used in a FHIR resource (or a set of constraints on an exsting extension).";
+            case TYPE: return "A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions";
+            case RESOURCE: return "A resource defined by the FHIR specification";
+            case CONSTRAINT: return "A set of constraints on a resource or data type that describe how it is used for a particular use";
+            case EXTENSION: return "A definition of an extension that can be used in a FHIR resource (or a set of constraints on an exsting extension)";
             default: return "?";
           }
         }
@@ -149,19 +149,19 @@ public class StructureDefinition extends DomainResource {
 
     public enum ExtensionContext {
         /**
-         * The context is all elements matching a particular resource element path.
+         * The context is all elements matching a particular resource element path
          */
         RESOURCE, 
         /**
-         * The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
+         * The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name)
          */
         DATATYPE, 
         /**
-         * The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.
+         * The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used
          */
         MAPPING, 
         /**
-         * The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code.
+         * The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code
          */
         EXTENSION, 
         /**
@@ -192,19 +192,19 @@ public class StructureDefinition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case RESOURCE: return "";
-            case DATATYPE: return "";
-            case MAPPING: return "";
-            case EXTENSION: return "";
+            case RESOURCE: return "http://hl7.org.fhir/extension-context";
+            case DATATYPE: return "http://hl7.org.fhir/extension-context";
+            case MAPPING: return "http://hl7.org.fhir/extension-context";
+            case EXTENSION: return "http://hl7.org.fhir/extension-context";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case RESOURCE: return "The context is all elements matching a particular resource element path.";
-            case DATATYPE: return "The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).";
-            case MAPPING: return "The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.";
-            case EXTENSION: return "The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code.";
+            case RESOURCE: return "The context is all elements matching a particular resource element path";
+            case DATATYPE: return "The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name)";
+            case MAPPING: return "The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used";
+            case EXTENSION: return "The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code";
             default: return "?";
           }
         }

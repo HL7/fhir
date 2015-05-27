@@ -318,7 +318,10 @@ public class ResourceValidator extends BaseValidator {
 		if (e.hasBinding()) {
 		  rule(errors, "structure", path, e.typeCode().equals("code") || e.typeCode().contains("Coding") 
 				  || e.typeCode().contains("CodeableConcept") || e.typeCode().equals("uri"), "Can only specify bindings for coded data types");
-      rule(errors, "structure", path, !e.getBinding().getName().toLowerCase().contains("code"), "Binding name " + e.getBinding().getName()+" is invalid - contains 'code'");
+		  if (e.getBinding().getValueSet() != null && e.getBinding().getValueSet().getName() == null)
+		    throw new Error("unnamed value set on "+e.getBinding().getName1());
+		  if (e.getBinding().getValueSet() != null)
+        warning(errors, "structure", path, !e.getBinding().getValueSet().getName().toLowerCase().contains("code"), "Value Set name "+e.getBinding().getValueSet().getName()+" on " + e.getBinding().getName1()+" a path "+path+" is invalid - contains 'code'");
 			BindingSpecification cd = e.getBinding();
 			
 			if (cd != null) {

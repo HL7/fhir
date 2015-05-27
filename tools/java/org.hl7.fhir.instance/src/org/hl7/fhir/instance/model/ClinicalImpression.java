@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -52,11 +52,11 @@ public class ClinicalImpression extends DomainResource {
          */
         INPROGRESS, 
         /**
-         * The assessment is done and the results are final.
+         * The assessment is done and the results are final
          */
         COMPLETED, 
         /**
-         * This assessment was never actually done and the record is erroneous (e.g. Wrong patient).
+         * This assessment was never actually done and the record is erroneous (e.g. Wrong patient)
          */
         ENTEREDINERROR, 
         /**
@@ -84,17 +84,17 @@ public class ClinicalImpression extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case INPROGRESS: return "";
-            case COMPLETED: return "";
-            case ENTEREDINERROR: return "";
+            case INPROGRESS: return "http://hl7.org.fhir/clinical-impression-status";
+            case COMPLETED: return "http://hl7.org.fhir/clinical-impression-status";
+            case ENTEREDINERROR: return "http://hl7.org.fhir/clinical-impression-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
             case INPROGRESS: return "The assessment is still on-going and results are not yet final.";
-            case COMPLETED: return "The assessment is done and the results are final.";
-            case ENTEREDINERROR: return "This assessment was never actually done and the record is erroneous (e.g. Wrong patient).";
+            case COMPLETED: return "The assessment is done and the results are final";
+            case ENTEREDINERROR: return "This assessment was never actually done and the record is erroneous (e.g. Wrong patient)";
             default: return "?";
           }
         }

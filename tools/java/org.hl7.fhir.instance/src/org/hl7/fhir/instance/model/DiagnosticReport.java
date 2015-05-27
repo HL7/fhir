@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -48,31 +48,31 @@ public class DiagnosticReport extends DomainResource {
 
     public enum DiagnosticReportStatus {
         /**
-         * The existence of the report is registered, but there is nothing yet available.
+         * The existence of the report is registered, but there is nothing yet available
          */
         REGISTERED, 
         /**
-         * This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.
+         * This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified
          */
         PARTIAL, 
         /**
-         * The report is complete and verified by an authorized person.
+         * The report is complete and verified by an authorized person
          */
         FINAL, 
         /**
-         * The report has been modified subsequent to being Final, and is complete and verified by an authorized person.
+         * The report has been modified subsequent to being Final, and is complete and verified by an authorized person
          */
         CORRECTED, 
         /**
-         * The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.
+         * The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed
          */
         APPENDED, 
         /**
-         * The report is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
+         * The report is unavailable because the measurement was not started or not completed (also sometimes called "aborted")
          */
         CANCELLED, 
         /**
-         * The report has been withdrawn following previous Final release.
+         * The report has been withdrawn following previous Final release
          */
         ENTEREDINERROR, 
         /**
@@ -112,25 +112,25 @@ public class DiagnosticReport extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case REGISTERED: return "";
-            case PARTIAL: return "";
-            case FINAL: return "";
-            case CORRECTED: return "";
-            case APPENDED: return "";
-            case CANCELLED: return "";
-            case ENTEREDINERROR: return "";
+            case REGISTERED: return "http://hl7.org.fhir/diagnostic-report-status";
+            case PARTIAL: return "http://hl7.org.fhir/diagnostic-report-status";
+            case FINAL: return "http://hl7.org.fhir/diagnostic-report-status";
+            case CORRECTED: return "http://hl7.org.fhir/diagnostic-report-status";
+            case APPENDED: return "http://hl7.org.fhir/diagnostic-report-status";
+            case CANCELLED: return "http://hl7.org.fhir/diagnostic-report-status";
+            case ENTEREDINERROR: return "http://hl7.org.fhir/diagnostic-report-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case REGISTERED: return "The existence of the report is registered, but there is nothing yet available.";
-            case PARTIAL: return "This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.";
-            case FINAL: return "The report is complete and verified by an authorized person.";
-            case CORRECTED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person.";
-            case APPENDED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.";
-            case CANCELLED: return "The report is unavailable because the measurement was not started or not completed (also sometimes called 'aborted').";
-            case ENTEREDINERROR: return "The report has been withdrawn following previous Final release.";
+            case REGISTERED: return "The existence of the report is registered, but there is nothing yet available";
+            case PARTIAL: return "This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified";
+            case FINAL: return "The report is complete and verified by an authorized person";
+            case CORRECTED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person";
+            case APPENDED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed";
+            case CANCELLED: return "The report is unavailable because the measurement was not started or not completed (also sometimes called 'aborted')";
+            case ENTEREDINERROR: return "The report has been withdrawn following previous Final release";
             default: return "?";
           }
         }

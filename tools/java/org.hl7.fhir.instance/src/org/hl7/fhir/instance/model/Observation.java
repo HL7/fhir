@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -48,31 +48,31 @@ public class Observation extends DomainResource {
 
     public enum ObservationStatus {
         /**
-         * The existence of the observation is registered, but there is no result yet available.
+         * The existence of the observation is registered, but there is no result yet available
          */
         REGISTERED, 
         /**
-         * This is an initial or interim observation: data may be incomplete or unverified.
+         * This is an initial or interim observation: data may be incomplete or unverified
          */
         PRELIMINARY, 
         /**
-         * The observation is complete and verified by an authorized person.
+         * The observation is complete and verified by an authorized person
          */
         FINAL, 
         /**
-         * The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.
+         * The observation has been modified subsequent to being Final, and is complete and verified by an authorized person
          */
         AMENDED, 
         /**
-         * The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
+         * The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted")
          */
         CANCELLED, 
         /**
-         * The observation has been withdrawn following previous Final release.
+         * The observation has been withdrawn following previous Final release
          */
         ENTEREDINERROR, 
         /**
-         * The observation status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
+         * The observation status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown"
          */
         UNKNOWN, 
         /**
@@ -112,25 +112,25 @@ public class Observation extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case REGISTERED: return "";
-            case PRELIMINARY: return "";
-            case FINAL: return "";
-            case AMENDED: return "";
-            case CANCELLED: return "";
-            case ENTEREDINERROR: return "";
-            case UNKNOWN: return "";
+            case REGISTERED: return "http://hl7.org.fhir/observation-status";
+            case PRELIMINARY: return "http://hl7.org.fhir/observation-status";
+            case FINAL: return "http://hl7.org.fhir/observation-status";
+            case AMENDED: return "http://hl7.org.fhir/observation-status";
+            case CANCELLED: return "http://hl7.org.fhir/observation-status";
+            case ENTEREDINERROR: return "http://hl7.org.fhir/observation-status";
+            case UNKNOWN: return "http://hl7.org.fhir/observation-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case REGISTERED: return "The existence of the observation is registered, but there is no result yet available.";
-            case PRELIMINARY: return "This is an initial or interim observation: data may be incomplete or unverified.";
-            case FINAL: return "The observation is complete and verified by an authorized person.";
-            case AMENDED: return "The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.";
-            case CANCELLED: return "The observation is unavailable because the measurement was not started or not completed (also sometimes called 'aborted').";
-            case ENTEREDINERROR: return "The observation has been withdrawn following previous Final release.";
-            case UNKNOWN: return "The observation status is unknown.  Note that 'unknown' is a value of last resort and every attempt should be made to provide a meaningful value other than 'unknown'.";
+            case REGISTERED: return "The existence of the observation is registered, but there is no result yet available";
+            case PRELIMINARY: return "This is an initial or interim observation: data may be incomplete or unverified";
+            case FINAL: return "The observation is complete and verified by an authorized person";
+            case AMENDED: return "The observation has been modified subsequent to being Final, and is complete and verified by an authorized person";
+            case CANCELLED: return "The observation is unavailable because the measurement was not started or not completed (also sometimes called 'aborted')";
+            case ENTEREDINERROR: return "The observation has been withdrawn following previous Final release";
+            case UNKNOWN: return "The observation status is unknown.  Note that 'unknown' is a value of last resort and every attempt should be made to provide a meaningful value other than 'unknown'";
             default: return "?";
           }
         }
@@ -190,31 +190,31 @@ public class Observation extends DomainResource {
 
     public enum ObservationReliability {
         /**
-         * The result has no reliability concerns.
+         * The result has no reliability concerns
          */
         OK, 
         /**
-         * An early estimate of value; measurement is still occurring.
+         * An early estimate of value; measurement is still occurring
          */
         ONGOING, 
         /**
-         * An early estimate of value; processing is still occurring.
+         * An early estimate of value; processing is still occurring
          */
         EARLY, 
         /**
-         * The observation value should be treated with care.
+         * The observation value should be treated with care
          */
         QUESTIONABLE, 
         /**
-         * The result has been generated while calibration is occurring.
+         * The result has been generated while calibration is occurring
          */
         CALIBRATING, 
         /**
-         * The observation could not be completed because of an error.
+         * The observation could not be completed because of an error
          */
         ERROR, 
         /**
-         * No observation  reliability value was available.
+         * No observation  reliability value was available
          */
         UNKNOWN, 
         /**
@@ -254,25 +254,25 @@ public class Observation extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case OK: return "";
-            case ONGOING: return "";
-            case EARLY: return "";
-            case QUESTIONABLE: return "";
-            case CALIBRATING: return "";
-            case ERROR: return "";
-            case UNKNOWN: return "";
+            case OK: return "http://hl7.org.fhir/observation-reliability";
+            case ONGOING: return "http://hl7.org.fhir/observation-reliability";
+            case EARLY: return "http://hl7.org.fhir/observation-reliability";
+            case QUESTIONABLE: return "http://hl7.org.fhir/observation-reliability";
+            case CALIBRATING: return "http://hl7.org.fhir/observation-reliability";
+            case ERROR: return "http://hl7.org.fhir/observation-reliability";
+            case UNKNOWN: return "http://hl7.org.fhir/observation-reliability";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case OK: return "The result has no reliability concerns.";
-            case ONGOING: return "An early estimate of value; measurement is still occurring.";
-            case EARLY: return "An early estimate of value; processing is still occurring.";
-            case QUESTIONABLE: return "The observation value should be treated with care.";
-            case CALIBRATING: return "The result has been generated while calibration is occurring.";
-            case ERROR: return "The observation could not be completed because of an error.";
-            case UNKNOWN: return "No observation  reliability value was available.";
+            case OK: return "The result has no reliability concerns";
+            case ONGOING: return "An early estimate of value; measurement is still occurring";
+            case EARLY: return "An early estimate of value; processing is still occurring";
+            case QUESTIONABLE: return "The observation value should be treated with care";
+            case CALIBRATING: return "The result has been generated while calibration is occurring";
+            case ERROR: return "The observation could not be completed because of an error";
+            case UNKNOWN: return "No observation  reliability value was available";
             default: return "?";
           }
         }
@@ -330,32 +330,32 @@ public class Observation extends DomainResource {
       }
     }
 
-    public enum ObservationRelationshiptypes {
+    public enum ObservationRelationshipType {
         /**
-         * This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.
+         * This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group
          */
         HASMEMBER, 
         /**
-         * This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).
+         * This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test)
          */
         SEQUELTO, 
         /**
-         * This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.
+         * This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete
          */
         REPLACES, 
         /**
-         * The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure).
+         * The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure)
          */
         QUALIFIEDBY, 
         /**
-         * The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).
+         * The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value)
          */
         INTERFEREDBY, 
         /**
          * added to help the parsers
          */
         NULL;
-        public static ObservationRelationshiptypes fromCode(String codeString) throws Exception {
+        public static ObservationRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("has-member".equals(codeString))
@@ -368,7 +368,7 @@ public class Observation extends DomainResource {
           return QUALIFIEDBY;
         if ("interfered-by".equals(codeString))
           return INTERFEREDBY;
-        throw new Exception("Unknown ObservationRelationshiptypes code '"+codeString+"'");
+        throw new Exception("Unknown ObservationRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -382,21 +382,21 @@ public class Observation extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case HASMEMBER: return "";
-            case SEQUELTO: return "";
-            case REPLACES: return "";
-            case QUALIFIEDBY: return "";
-            case INTERFEREDBY: return "";
+            case HASMEMBER: return "http://hl7.org.fhir/observation-relationshiptypes";
+            case SEQUELTO: return "http://hl7.org.fhir/observation-relationshiptypes";
+            case REPLACES: return "http://hl7.org.fhir/observation-relationshiptypes";
+            case QUALIFIEDBY: return "http://hl7.org.fhir/observation-relationshiptypes";
+            case INTERFEREDBY: return "http://hl7.org.fhir/observation-relationshiptypes";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case HASMEMBER: return "This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.";
-            case SEQUELTO: return "This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).";
-            case REPLACES: return "This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.";
-            case QUALIFIEDBY: return "The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure).";
-            case INTERFEREDBY: return "The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).";
+            case HASMEMBER: return "This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group";
+            case SEQUELTO: return "This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test)";
+            case REPLACES: return "This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete";
+            case QUALIFIEDBY: return "The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure)";
+            case INTERFEREDBY: return "The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value)";
             default: return "?";
           }
         }
@@ -412,33 +412,33 @@ public class Observation extends DomainResource {
         }
     }
 
-  public static class ObservationRelationshiptypesEnumFactory implements EnumFactory<ObservationRelationshiptypes> {
-    public ObservationRelationshiptypes fromCode(String codeString) throws IllegalArgumentException {
+  public static class ObservationRelationshipTypeEnumFactory implements EnumFactory<ObservationRelationshipType> {
+    public ObservationRelationshipType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("has-member".equals(codeString))
-          return ObservationRelationshiptypes.HASMEMBER;
+          return ObservationRelationshipType.HASMEMBER;
         if ("sequel-to".equals(codeString))
-          return ObservationRelationshiptypes.SEQUELTO;
+          return ObservationRelationshipType.SEQUELTO;
         if ("replaces".equals(codeString))
-          return ObservationRelationshiptypes.REPLACES;
+          return ObservationRelationshipType.REPLACES;
         if ("qualified-by".equals(codeString))
-          return ObservationRelationshiptypes.QUALIFIEDBY;
+          return ObservationRelationshipType.QUALIFIEDBY;
         if ("interfered-by".equals(codeString))
-          return ObservationRelationshiptypes.INTERFEREDBY;
-        throw new IllegalArgumentException("Unknown ObservationRelationshiptypes code '"+codeString+"'");
+          return ObservationRelationshipType.INTERFEREDBY;
+        throw new IllegalArgumentException("Unknown ObservationRelationshipType code '"+codeString+"'");
         }
-    public String toCode(ObservationRelationshiptypes code) {
-      if (code == ObservationRelationshiptypes.HASMEMBER)
+    public String toCode(ObservationRelationshipType code) {
+      if (code == ObservationRelationshipType.HASMEMBER)
         return "has-member";
-      if (code == ObservationRelationshiptypes.SEQUELTO)
+      if (code == ObservationRelationshipType.SEQUELTO)
         return "sequel-to";
-      if (code == ObservationRelationshiptypes.REPLACES)
+      if (code == ObservationRelationshipType.REPLACES)
         return "replaces";
-      if (code == ObservationRelationshiptypes.QUALIFIEDBY)
+      if (code == ObservationRelationshipType.QUALIFIEDBY)
         return "qualified-by";
-      if (code == ObservationRelationshiptypes.INTERFEREDBY)
+      if (code == ObservationRelationshipType.INTERFEREDBY)
         return "interfered-by";
       return "?";
       }
@@ -691,7 +691,7 @@ public class Observation extends DomainResource {
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="has-member | sequel-to | replaces | qualified-by | interfered-by", formalDefinition="A code specifying the kind of relationship that exists with the target observation." )
-        protected Enumeration<ObservationRelationshiptypes> type;
+        protected Enumeration<ObservationRelationshipType> type;
 
         /**
          * A reference to the observation that is related to this observation.
@@ -705,7 +705,7 @@ public class Observation extends DomainResource {
          */
         protected Observation targetTarget;
 
-        private static final long serialVersionUID = 1078793488L;
+        private static final long serialVersionUID = 1755337013L;
 
     /*
      * Constructor
@@ -725,12 +725,12 @@ public class Observation extends DomainResource {
         /**
          * @return {@link #type} (A code specifying the kind of relationship that exists with the target observation.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ObservationRelationshiptypes> getTypeElement() { 
+        public Enumeration<ObservationRelationshipType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationRelatedComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<ObservationRelationshiptypes>(new ObservationRelationshiptypesEnumFactory()); // bb
+              this.type = new Enumeration<ObservationRelationshipType>(new ObservationRelationshipTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -745,7 +745,7 @@ public class Observation extends DomainResource {
         /**
          * @param value {@link #type} (A code specifying the kind of relationship that exists with the target observation.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ObservationRelatedComponent setTypeElement(Enumeration<ObservationRelationshiptypes> value) { 
+        public ObservationRelatedComponent setTypeElement(Enumeration<ObservationRelationshipType> value) { 
           this.type = value;
           return this;
         }
@@ -753,19 +753,19 @@ public class Observation extends DomainResource {
         /**
          * @return A code specifying the kind of relationship that exists with the target observation.
          */
-        public ObservationRelationshiptypes getType() { 
+        public ObservationRelationshipType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value A code specifying the kind of relationship that exists with the target observation.
          */
-        public ObservationRelatedComponent setType(ObservationRelationshiptypes value) { 
+        public ObservationRelatedComponent setType(ObservationRelationshipType value) { 
           if (value == null)
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new Enumeration<ObservationRelationshiptypes>(new ObservationRelationshiptypesEnumFactory());
+              this.type = new Enumeration<ObservationRelationshipType>(new ObservationRelationshipTypeEnumFactory());
             this.type.setValue(value);
           }
           return this;

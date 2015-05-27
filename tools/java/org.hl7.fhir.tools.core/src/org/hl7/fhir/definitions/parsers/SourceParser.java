@@ -557,7 +557,7 @@ public class SourceParser {
 
     for (BindingSpecification cd : cds) {
       definitions.getAllBindings().add(cd);
-      definitions.getCommonBindings().put(cd.getName(), cd);
+      definitions.getCommonBindings().put(cd.getName1(), cd);
       if (cd.getValueSet() != null) {
         vsGen.updateHeader(cd, cd.getValueSet());
         definitions.getBoundValueSets().put(cd.getValueSet().getUrl(), cd.getValueSet());

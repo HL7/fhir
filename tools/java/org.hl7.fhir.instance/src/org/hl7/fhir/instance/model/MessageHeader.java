@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
+// Generated on Thu, May 28, 2015 08:41+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -47,13 +47,13 @@ import org.hl7.fhir.instance.model.api.*;
 @ResourceDef(name="MessageHeader", profile="http://hl7.org/fhir/Profile/MessageHeader")
 public class MessageHeader extends DomainResource {
 
-    public enum ResponseCode {
+    public enum ResponseType {
         /**
-         * The message was accepted and processed without error.
+         * The message was accepted and processed without error
          */
         OK, 
         /**
-         * Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.
+         * Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required
          */
         TRANSIENTERROR, 
         /**
@@ -64,7 +64,7 @@ public class MessageHeader extends DomainResource {
          * added to help the parsers
          */
         NULL;
-        public static ResponseCode fromCode(String codeString) throws Exception {
+        public static ResponseType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("ok".equals(codeString))
@@ -73,7 +73,7 @@ public class MessageHeader extends DomainResource {
           return TRANSIENTERROR;
         if ("fatal-error".equals(codeString))
           return FATALERROR;
-        throw new Exception("Unknown ResponseCode code '"+codeString+"'");
+        throw new Exception("Unknown ResponseType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -85,16 +85,16 @@ public class MessageHeader extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case OK: return "";
-            case TRANSIENTERROR: return "";
-            case FATALERROR: return "";
+            case OK: return "http://hl7.org.fhir/response-code";
+            case TRANSIENTERROR: return "http://hl7.org.fhir/response-code";
+            case FATALERROR: return "http://hl7.org.fhir/response-code";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case OK: return "The message was accepted and processed without error.";
-            case TRANSIENTERROR: return "Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.";
+            case OK: return "The message was accepted and processed without error";
+            case TRANSIENTERROR: return "Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required";
             case FATALERROR: return "The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative SHALL describe what the issue is.";
             default: return "?";
           }
@@ -109,25 +109,25 @@ public class MessageHeader extends DomainResource {
         }
     }
 
-  public static class ResponseCodeEnumFactory implements EnumFactory<ResponseCode> {
-    public ResponseCode fromCode(String codeString) throws IllegalArgumentException {
+  public static class ResponseTypeEnumFactory implements EnumFactory<ResponseType> {
+    public ResponseType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("ok".equals(codeString))
-          return ResponseCode.OK;
+          return ResponseType.OK;
         if ("transient-error".equals(codeString))
-          return ResponseCode.TRANSIENTERROR;
+          return ResponseType.TRANSIENTERROR;
         if ("fatal-error".equals(codeString))
-          return ResponseCode.FATALERROR;
-        throw new IllegalArgumentException("Unknown ResponseCode code '"+codeString+"'");
+          return ResponseType.FATALERROR;
+        throw new IllegalArgumentException("Unknown ResponseType code '"+codeString+"'");
         }
-    public String toCode(ResponseCode code) {
-      if (code == ResponseCode.OK)
+    public String toCode(ResponseType code) {
+      if (code == ResponseType.OK)
         return "ok";
-      if (code == ResponseCode.TRANSIENTERROR)
+      if (code == ResponseType.TRANSIENTERROR)
         return "transient-error";
-      if (code == ResponseCode.FATALERROR)
+      if (code == ResponseType.FATALERROR)
         return "fatal-error";
       return "?";
       }
@@ -147,7 +147,7 @@ public class MessageHeader extends DomainResource {
          */
         @Child(name = "code", type = {CodeType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="ok | transient-error | fatal-error", formalDefinition="Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not." )
-        protected Enumeration<ResponseCode> code;
+        protected Enumeration<ResponseType> code;
 
         /**
          * Full details of any issues found in the message.
@@ -161,7 +161,7 @@ public class MessageHeader extends DomainResource {
          */
         protected OperationOutcome detailsTarget;
 
-        private static final long serialVersionUID = 1419103693L;
+        private static final long serialVersionUID = -1008716838L;
 
     /*
      * Constructor
@@ -173,7 +173,7 @@ public class MessageHeader extends DomainResource {
     /*
      * Constructor
      */
-      public MessageHeaderResponseComponent(IdType identifier, Enumeration<ResponseCode> code) {
+      public MessageHeaderResponseComponent(IdType identifier, Enumeration<ResponseType> code) {
         super();
         this.identifier = identifier;
         this.code = code;
@@ -227,12 +227,12 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<ResponseCode> getCodeElement() { 
+        public Enumeration<ResponseType> getCodeElement() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageHeaderResponseComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Enumeration<ResponseCode>(new ResponseCodeEnumFactory()); // bb
+              this.code = new Enumeration<ResponseType>(new ResponseTypeEnumFactory()); // bb
           return this.code;
         }
 
@@ -247,7 +247,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @param value {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public MessageHeaderResponseComponent setCodeElement(Enumeration<ResponseCode> value) { 
+        public MessageHeaderResponseComponent setCodeElement(Enumeration<ResponseType> value) { 
           this.code = value;
           return this;
         }
@@ -255,16 +255,16 @@ public class MessageHeader extends DomainResource {
         /**
          * @return Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
          */
-        public ResponseCode getCode() { 
+        public ResponseType getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
          */
-        public MessageHeaderResponseComponent setCode(ResponseCode value) { 
+        public MessageHeaderResponseComponent setCode(ResponseType value) { 
             if (this.code == null)
-              this.code = new Enumeration<ResponseCode>(new ResponseCodeEnumFactory());
+              this.code = new Enumeration<ResponseType>(new ResponseTypeEnumFactory());
             this.code.setValue(value);
           return this;
         }

@@ -519,7 +519,7 @@ public class XSDBaseGenerator {
   }
 
   private void generateEnum(BindingSpecification bs) throws IOException {
-    String en = bs.getName();
+    String en = bs.getValueSet().getName();
     if (genEnums.contains(en))
       return;
 
@@ -727,7 +727,7 @@ public class XSDBaseGenerator {
       if (e.hasBinding()) {
         BindingSpecification cd = e.getBinding();
         if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
-          en = cd.getName();
+          en = cd.getValueSet().getName();
           enums.add(cd);
           enumDefs.put(en, cd.getDefinition());
           return en;

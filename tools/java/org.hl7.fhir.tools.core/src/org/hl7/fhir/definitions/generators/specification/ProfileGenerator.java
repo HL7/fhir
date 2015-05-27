@@ -62,8 +62,8 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraint
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.PropertyRepresentation;
-import org.hl7.fhir.instance.model.ElementDefinition.ResourceAggregationMode;
-import org.hl7.fhir.instance.model.ElementDefinition.ResourceSlicingRules;
+import org.hl7.fhir.instance.model.ElementDefinition.AggregationMode;
+import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumerations;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
@@ -99,7 +99,6 @@ public class ProfileGenerator {
 
   private WorkerContext context;
   private Definitions definitions;
-  private final Set<String> bindings = new HashSet<String>();
 
   // status
   // note that once we start slicing, the slices keep their own maps, but all share the master pathname list
@@ -639,7 +638,7 @@ public class ProfileGenerator {
       return null;
 
     ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
-    dst.setName(src.getName());
+    dst.setName(src.getName1()); // todo: remove this
     dst.setStrength(src.getStrength());    
     dst.setDescription(src.getDefinition());
     if (src.getBinding() != BindingMethod.Unbound)
@@ -703,9 +702,9 @@ public class ProfileGenerator {
         else
           ce.getSlicing().setOrdered(false);
         if (d.length >= 3)
-          ce.getSlicing().setRules(ResourceSlicingRules.fromCode(d[2].trim()));
+          ce.getSlicing().setRules(SlicingRules.fromCode(d[2].trim()));
         else
-          ce.getSlicing().setRules(ResourceSlicingRules.OPEN);
+          ce.getSlicing().setRules(SlicingRules.OPEN);
         for (int i = 1; i < e.getDiscriminator().size(); i++) { // we've already process the first in the list
           ce.getSlicing().addDiscriminator(e.getDiscriminator().get(i).trim());
         }
@@ -783,7 +782,7 @@ public class ProfileGenerator {
           }
 
           for (String aggregation : t.getAggregations()) {
-            type.addAggregation(ResourceAggregationMode.fromCode(aggregation));
+            type.addAggregation(AggregationMode.fromCode(aggregation));
           }	      	
 
           ce.getType().add(type);
@@ -835,7 +834,6 @@ public class ProfileGenerator {
 
     if (e.hasBinding()) {
       ce.setBinding(generateBinding(e.getBinding()));
-      bindings.add(e.getBinding().getName());
     }
 
     if (snapshot != SnapShotMode.None && !e.getElements().isEmpty()) {    

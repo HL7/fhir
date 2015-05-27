@@ -57,6 +57,7 @@ import org.hl7.fhir.instance.model.api.IPrimitiveType;
 public final class IdType extends UriType implements IPrimitiveType<String>, IIdType {
 
 	private static final long serialVersionUID = 2L;
+  public static final int MAX_LENGTH = 64; // maximum length 
 	private String myBaseUrl;
 	private boolean myHaveComponentParts;
 	private String myResourceType;

@@ -434,8 +434,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       BindingSpecification cd = e.getBinding();
       if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
         String en = typeNames.get(e); // getCodeListType(cd.getBinding());
-        if (isSharedEnum(e.getBinding()))
-          en = "Enumerations."+e.getBinding().getName();
+        if (e.getBinding().isShared())
+          en = "Enumerations."+e.getBinding().getValueSet().getName();
         prsr = "parseEnumeration(xpp, "+en+".NULL, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
         // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative.NarrativeStatusEnumFactory())
       } else {   
@@ -555,12 +555,12 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     if (e.typeCode().equals("code") && e.hasBinding()) {
       BindingSpecification cd = e.getBinding();
       if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
-        tn = getCodeListType(cd.getReference());
+        tn = getCodeListType(cd.getValueSet().getName());
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
           enums.add(e);
         }
-        typeNames.put(e,  rootOf(path)+"."+upFirst(tn.substring(1)));
+        typeNames.put(e,  rootOf(path)+"."+upFirst(tn));
       }
     }
     if (tn == null) {
@@ -611,7 +611,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     if (e.typeCode().equals("code") && e.hasBinding()) {
       BindingSpecification cd = e.getBinding();
       if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
-        tn = getCodeListType(cd.getReference());
+        tn = getCodeListType(cd.getValueSet().getName());
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
           enums.add(e);
@@ -1030,15 +1030,15 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         } else {
             write("        if (element.has"+upFirst(getElementName(name, false))+"()) \r\n");
             write("          for (Enumeration<"+prepEnumName(en)+"> e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
-            write("            composeEnumeration(\""+name+"\", e, new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+            write("            composeEnumeration(\""+name+"\", e, new "+context+"."+upFirst(en.substring(en.indexOf(".")+1))+"EnumFactory());\r\n");
         
         }
       } else if (en != null) {
         write("      if (element.has"+upFirst(getElementName(name, false))+"Element())\r\n"); 
-        if (isSharedEnum(e.getBinding()))
-          write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new Enumerations."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+        if (e.getBinding().isShared())
+          write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new Enumerations."+upFirst(en.substring(en.indexOf(".")+1))+"EnumFactory());\r\n");
         else
-          write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+          write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+1))+"EnumFactory());\r\n");
 //        write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
       } else if (isJavaPrimitive(e)) {
         write("      if (element.has"+upFirst(getElementName(name, false))+"Element()) {\r\n");
@@ -1068,7 +1068,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   if (parts.length == 1)
     return upFirst(parts[0]);
   else
-    return upFirst(parts[0])+'.'+upFirst(parts[1].substring(1));
+    return upFirst(parts[0])+'.'+upFirst(parts[1]);
 }
 
 

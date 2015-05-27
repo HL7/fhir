@@ -311,12 +311,10 @@ public class XSDGenerator  {
 			String en = null;
 			if (e.hasBinding()) {
 				BindingSpecification cd = e.getBinding();
-				if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList ) {
-					en = cd.getName();
-					if (!definitions.getCommonBindings().containsKey(cd.getName()) && cd.getUseContexts().size() <= 1) {
-						enums.put(en, cd.getValueSet());
-						enumDefs.put(en, cd.getDefinition());
-					}
+				if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList && !cd.isShared()) {
+					en = cd.getValueSet().getName();
+					enums.put(en, cd.getValueSet());
+					enumDefs.put(en, cd.getDefinition());
 					return en;
 				}
 			}
@@ -331,14 +329,6 @@ public class XSDGenerator  {
 			throw new Exception("multiple type parameters are only supported on resource");
 		else  
 			return type.getName()+"_"+upFirst(type.getParams().get(0));
-	}
-
-	private BindingSpecification getConceptDomainByName(Map<String, BindingSpecification> tx, String conceptDomain) throws Exception {		
-		for (BindingSpecification cd : tx.values()) {
-			if (cd.getName().equals(conceptDomain))
-				return cd; 
-		}
-		return null;
 	}
 
   public OutputStreamWriter getWriter() {

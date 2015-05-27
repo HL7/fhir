@@ -78,6 +78,7 @@ public class BindingSpecification {
   private String source; // for useful error messages during build
   private String v2Map;
   private String v3Map;
+  private boolean shared;
 
   // in ElementDefinition.binding 
   private String name;
@@ -103,15 +104,18 @@ public class BindingSpecification {
   private ConformanceResourceStatus status;
   private ValueSet referredValueSet;
   private List<DefinedCode> allCodes;
+  
 
   
   
   // analysis during run time
 
   
-  public BindingSpecification(String usageContext) {
+  public BindingSpecification(String usageContext, String name, boolean shared) {
     super();
     this.usageContext = usageContext;
+    this.name = name; 
+    this.shared = shared;
   }
 
   public String getUsageContext() {
@@ -126,13 +130,13 @@ public class BindingSpecification {
     this.id = id;
   }
 
-  public String getName() {
+  public String getName1() {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+//  public void setName(String name) {
+//    this.name = name;
+//  }
 
   public String getDefinition() {
     return definition;
@@ -191,16 +195,13 @@ public class BindingSpecification {
     this.strength = strength;
   }
 
-  public static BindingSpecification getBindingFromList(
-			Map<String, BindingSpecification> conceptDomains,
-			String conceptDomain)
-  {
-	  for (BindingSpecification cd : conceptDomains.values())
-		  if (cd.getName().equals(conceptDomain))
-			  return cd;
-	
-	  return null;
-  }
+//  public static BindingSpecification getBindingFromList(Map<String, BindingSpecification> conceptDomains, String conceptDomain) {
+//	  for (BindingSpecification cd : conceptDomains.values())
+//		  if (cd.name.equals(conceptDomain))
+//			  return cd;
+//	
+//	  return null;
+//  }
 
   public List<String> getUseContexts() {
     return useContexts;
@@ -411,5 +412,11 @@ public class BindingSpecification {
     allCodes.add(code);
     for (ConceptDefinitionComponent cc : c.getConcept())
       processCode(cc, system, c.getCode());
+  }
+
+  public boolean isShared() {
+    return shared;
   }  
+  
+  
 }

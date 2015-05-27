@@ -104,7 +104,7 @@ import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
-import org.hl7.fhir.instance.model.ElementDefinition.ResourceSlicingRules;
+import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Reference;
@@ -1803,7 +1803,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private void scanForUsage(StringBuilder b, ValueSet vs, ElementDefn e, String path, String ref) {
     path = path.equals("") ? e.getName() : path+"."+e.getName();
-    if (e.hasBinding() && e.getBinding().getName() != null && e.getBinding().getValueSet() == vs) {
+    if (e.hasBinding() && e.getBinding().getValueSet() == vs) {
       b.append(" <li><a href=\"").append(ref).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding())).append("</li>\r\n");
     }
     for (ElementDefn c : e.getElements()) {
@@ -4758,7 +4758,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String s = "";
     if (slicing.getOrdered())
       s = "ordered";
-    if (slicing.getRules() != ResourceSlicingRules.OPEN)
+    if (slicing.getRules() != SlicingRules.OPEN)
       s = Utilities.noString(s) ? slicing.getRules().getDisplay() : s+", "+ slicing.getRules().getDisplay();
     if (!Utilities.noString(s))
       s = " ("+s+")";

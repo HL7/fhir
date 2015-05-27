@@ -54,10 +54,6 @@ public class JavaBaseGenerator extends OutputStreamWriter {
     return definitions.hasPrimitiveType(name) || (name.endsWith("Type") && definitions.getPrimitives().containsKey(name.substring(0, name.length()-4)));
   }
 
-  protected boolean isSharedEnum(BindingSpecification bs) {
-    return definitions.getCommonBindings().containsValue(bs);
-  }
-
 	protected String getElementName(String name, boolean alone) {
 	  if (name.equals("[type]"))
 	    return "value";

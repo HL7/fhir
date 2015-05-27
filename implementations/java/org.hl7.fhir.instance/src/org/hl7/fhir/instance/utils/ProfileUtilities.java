@@ -21,7 +21,7 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingCom
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
-import org.hl7.fhir.instance.model.ElementDefinition.ResourceSlicingRules;
+import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.PrimitiveType;
@@ -327,7 +327,7 @@ public class ProfileUtilities {
           }
         } else {
           // first - check that the slicing is ok
-          boolean closed = currentBase.getSlicing().getRules() == ResourceSlicingRules.CLOSED;
+          boolean closed = currentBase.getSlicing().getRules() == SlicingRules.CLOSED;
           int diffpos = 0;
           if (diffMatches.get(0).hasSlicing()) { // it might be null if the differential doesn't want to say anything about slicing
             diffpos++; // if there's a slice on the first, we'll ignore any content it has
@@ -505,9 +505,9 @@ public class ProfileUtilities {
     return true;
   }
 
-  private boolean ruleMatches(ResourceSlicingRules diff, ResourceSlicingRules base) {
-    return (diff == null) || (base == null) || (diff == base) || (diff == ResourceSlicingRules.OPEN) ||
-        ((diff == ResourceSlicingRules.OPENATEND && base == ResourceSlicingRules.CLOSED));
+  private boolean ruleMatches(SlicingRules diff, SlicingRules base) {
+    return (diff == null) || (base == null) || (diff == base) || (diff == SlicingRules.OPEN) ||
+        ((diff == SlicingRules.OPENATEND && base == SlicingRules.CLOSED));
   }
 
   private boolean isSlicedToOneOnly(ElementDefinition e) {
@@ -518,7 +518,7 @@ public class ProfileUtilities {
   	ElementDefinitionSlicingComponent slice = new ElementDefinitionSlicingComponent();
     slice.addDiscriminator("url");
     slice.setOrdered(true);
-    slice.setRules(ResourceSlicingRules.OPENATEND);
+    slice.setRules(SlicingRules.OPENATEND);
     return slice;
   }
 
@@ -1117,7 +1117,7 @@ public class ProfileUtilities {
   private boolean standardExtensionSlicing(ElementDefinition element) {
     String t = tail(element.getPath());
     return (t.equals("extension") || t.equals("modifierExtension"))
-          && element.getSlicing().getRules() != ResourceSlicingRules.CLOSED && element.getSlicing().getDiscriminator().size() == 1 && element.getSlicing().getDiscriminator().get(0).getValue().equals("url");
+          && element.getSlicing().getRules() != SlicingRules.CLOSED && element.getSlicing().getDiscriminator().size() == 1 && element.getSlicing().getDiscriminator().get(0).getValue().equals("url");
   }
 
 
@@ -1212,7 +1212,7 @@ public class ProfileUtilities {
   }
 
 
-  private String describe(ResourceSlicingRules rules) {
+  private String describe(SlicingRules rules) {
     switch (rules) {
     case CLOSED : return "Closed";
     case OPEN : return "Open";

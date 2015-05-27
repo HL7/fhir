@@ -452,7 +452,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private boolean hasSharedEnums(ElementDefn root) {
     for (ElementDefn e : root.getElements()) {
-      if ((e.getBinding() != null && isSharedEnum(e.getBinding())) || hasSharedEnums(e))
+      if ((e.getBinding() != null && e.getBinding().isShared()) || hasSharedEnums(e))
         return true;
     } 
     return false;
@@ -498,9 +498,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		String tns = tn.substring(tn.indexOf("<")+1);
 		tns = tns.substring(0, tns.length()-1);
 		BindingSpecification cd = e.getBinding();
-		if (isSharedEnum(cd))
+		if (cd.isShared())
 		  return;
-
+		
 		List<DefinedCode> codes = cd.getAllCodes();
 		
 		write("    public enum "+tns+" {\r\n");
@@ -810,7 +810,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		if (e.typeCode().equals("code") && e.hasBinding()) {
 			BindingSpecification cd = e.getBinding();
 			if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
-				tn = getCodeListType(cd.getReference().substring(1));
+				tn = getCodeListType(cd.getValueSet().getName());
 				if (!enumNames.contains(tn)) {
 					enumNames.add(tn);
 					enums.add(e);

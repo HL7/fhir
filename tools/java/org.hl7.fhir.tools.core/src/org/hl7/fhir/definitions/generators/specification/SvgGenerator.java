@@ -814,14 +814,15 @@ public class SvgGenerator extends BaseGenerator {
   private String describeBinding(ElementDefn e) {
     BindingSpecification b = e.getBinding();
     if (e.hasBinding() && b.getBinding() != BindingMethod.Unbound) {
+      String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName1();
       if (b.getStrength() == BindingStrength.EXAMPLE)
-        return " \u00AB ("+e.getBinding().getName()+") \u00BB";
+        return " \u00AB ("+name+") \u00BB";
       else if (b.getStrength() == BindingStrength.PREFERRED)
-        return " \u00AB "+e.getBinding().getName()+"? \u00BB";
+        return " \u00AB "+name+"? \u00BB";
       else if (b.getStrength() == BindingStrength.EXTENSIBLE)
-        return " \u00AB "+e.getBinding().getName()+"+ \u00BB";
+        return " \u00AB "+name+"+ \u00BB";
       else // if (b.getBindingStrength() == BindingStrength.REQUIRED)
-        return " \u00AB "+e.getBinding().getName()+" \u00BB";
+        return " \u00AB "+name+" \u00BB";
     } else
       return "";
   }
@@ -869,26 +870,27 @@ public class SvgGenerator extends BaseGenerator {
         if (e.hasBinding() && e.getBinding().getBinding() != BindingMethod.Unbound) {
           BindingSpecification b = e.getBinding();
           xml.text(" \u00AB ");
+          String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName1();
           if (b.getStrength() == BindingStrength.EXAMPLE) {
             xml.text("(");
             xml.attribute("xlink:href", getBindingLink(e));
             xml.enter("a");
             xml.element("title", b.getDefinition());
-            xml.text(e.getBinding().getName());
+            xml.text(name);
             xml.exit("a");
             xml.text(")");
           } else if (b.getStrength() == BindingStrength.PREFERRED) {
             xml.attribute("xlink:href", getBindingLink(e));
             xml.enter("a");
             xml.element("title", b.getDefinition());
-            xml.text(e.getBinding().getName());
+            xml.text(name);
             xml.exit("a");
             xml.text("+");
           } else if (b.getStrength() == BindingStrength.EXTENSIBLE) {
             xml.attribute("xlink:href", getBindingLink(e));
             xml.enter("a");
             xml.element("title", b.getDefinition());
-            xml.text(e.getBinding().getName());
+            xml.text(name);
             xml.exit("a");
             xml.text("+");
           } else if (b.getStrength() == BindingStrength.REQUIRED) {
@@ -896,14 +898,14 @@ public class SvgGenerator extends BaseGenerator {
             xml.enter("a");
             xml.element("title", b.getDefinition());
             //xml.open("b");
-            xml.text(e.getBinding().getName());
+            xml.text(name);
             //xml.close("b");
             xml.exit("a");
           } else {
             xml.attribute("xlink:href", getBindingLink(e));
             xml.enter("a");
             xml.element("title", b.getDefinition());
-            xml.text(e.getBinding().getName());
+            xml.text(name);
             xml.exit("a");
           }
           xml.text(" \u00BB");
