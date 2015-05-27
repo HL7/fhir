@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
+// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -91,7 +91,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
      * 
      * @param theResource The resource represented by this reference
      */
-    public Reference(IRefImplResource theResource) {
+    public Reference(IAnyResource theResource) {
       super(theResource);
     }
 

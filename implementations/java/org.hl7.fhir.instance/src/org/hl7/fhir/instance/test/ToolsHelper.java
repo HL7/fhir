@@ -263,9 +263,12 @@ public class ToolsHelper {
     ByteArrayOutputStream json = new ByteArrayOutputStream();
     parser.setOutputStyle(OutputStyle.PRETTY);
     parser.compose(json, rf);
+    json.close();
     TextFile.stringToFile(new String(json.toByteArray()), Utilities.changeFileExt(dest.getAbsolutePath(), ".json"));
     rf = pj.parse(new ByteArrayInputStream(json.toByteArray()));
-    new XmlParser().compose(new FileOutputStream(dest), rf, true);
+    FileOutputStream s = new FileOutputStream(dest);
+    new XmlParser().compose(s, rf, true);
+    s.close();
   }
 
   public String executeJson(String[] args) throws Exception {
@@ -282,12 +285,18 @@ public class ToolsHelper {
     Resource rf = p.parse(in);
     JsonParser json = new JsonParser();
     json.setOutputStyle(OutputStyle.PRETTY);
-    json.compose(new FileOutputStream(dest), rf);
+    FileOutputStream s = new FileOutputStream(dest);
+    json.compose(s, rf);
+    s.close();
     json.setOutputStyle(OutputStyle.CANONICAL);
-    json.compose(new FileOutputStream(destc), rf);
+    s = new FileOutputStream(destc);
+    json.compose(s, rf);
+    s.close();
     json.setSuppressXhtml("Snipped for Brevity");
     json.setOutputStyle(OutputStyle.PRETTY);
-    json.compose(new FileOutputStream(destt), rf);
+    s = new FileOutputStream(destt);
+    json.compose(s, rf);
+    s.close();    
     return TextFile.fileToString(destt.getAbsolutePath());
   }
 

@@ -29,12 +29,13 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
+// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Child;

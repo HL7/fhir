@@ -32,7 +32,7 @@ import org.hl7.fhir.instance.model.Observation;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Patient;
-import org.hl7.fhir.instance.model.Patient.AdministrativeGender;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.junit.After;
@@ -364,7 +364,7 @@ public class FHIRSimpleClientTest {
 			patientReference.setReference(getEntryPath(createdPatientEntry));
 			Observation obs = new Observation();
 			obs.setSubject(patientReference);
-			obs.setApplies(Factory.newDateTime("2013-01-10"));
+			obs.setEffective(Factory.newDateTime("2013-01-10"));
 			OperationOutcome createdObservationEntry = testClient.create(Observation.class, obs);
 			obs.setId(getEntryPath(createdObservationEntry));
 			Bundle batchFeed = new Bundle();

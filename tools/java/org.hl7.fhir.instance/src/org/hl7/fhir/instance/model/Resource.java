@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, May 18, 2015 12:12+1000 for FHIR v0.5.0
+// Generated on Wed, May 27, 2015 10:37+1000 for FHIR v0.5.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Child;
@@ -43,7 +44,7 @@ import org.hl7.fhir.instance.model.api.*;
 /**
  * Base Resource for everything.
  */
-public abstract class Resource extends BaseResource implements IRefImplResource {
+public abstract class Resource extends BaseResource implements IAnyResource {
 
     /**
      * The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes.

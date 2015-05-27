@@ -65,7 +65,9 @@ import org.hl7.fhir.instance.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.instance.model.ElementDefinition.ResourceAggregationMode;
 import org.hl7.fhir.instance.model.ElementDefinition.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.instance.model.Enumerations;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
@@ -549,24 +551,24 @@ public class ProfileGenerator {
     return p;
   }
 
-  private SearchParameter.SearchParamType getSearchParamType(SearchParameterDefn.SearchType type) {
+  private SearchParamType getSearchParamType(SearchParameterDefn.SearchType type) {
     switch (type) {
     case number:
-      return SearchParameter.SearchParamType.NUMBER;
+      return SearchParamType.NUMBER;
     case string:
-      return SearchParameter.SearchParamType.STRING;
+      return SearchParamType.STRING;
     case date:
-      return SearchParameter.SearchParamType.DATE;
+      return SearchParamType.DATE;
     case reference:
-      return SearchParameter.SearchParamType.REFERENCE;
+      return SearchParamType.REFERENCE;
     case token:
-      return SearchParameter.SearchParamType.TOKEN;
+      return SearchParamType.TOKEN;
     case uri:
-      return SearchParameter.SearchParamType.URI;
+      return SearchParamType.URI;
     case composite:
-      return SearchParameter.SearchParamType.COMPOSITE;
+      return SearchParamType.COMPOSITE;
     case quantity:
-      return SearchParameter.SearchParamType.QUANTITY;
+      return SearchParamType.QUANTITY;
     }
     return null;
   }

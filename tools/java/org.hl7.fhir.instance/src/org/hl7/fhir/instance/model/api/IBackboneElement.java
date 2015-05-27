@@ -20,12 +20,7 @@ package org.hl7.fhir.instance.model.api;
  * #L%
  */
 
-import java.util.List;
 
-public interface IDomainResource extends IAnyResource {
-
-	List<? extends IAnyResource> getContained();
-
-	INarrative getText();
+public interface IBackboneElement extends IBase {
 
 }

@@ -72,6 +72,7 @@ public abstract class ParserBase extends FormatUtilities implements IParser {
   public byte[] composeBytes(Resource resource) throws Exception {
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
     compose(bytes, resource);
+    bytes.close();
     return bytes.toByteArray();
   }
 
@@ -82,6 +83,7 @@ public abstract class ParserBase extends FormatUtilities implements IParser {
   public byte[] composeBytes(Type type, String typeName) throws Exception {
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
     compose(bytes, type, typeName);
+    bytes.close();
     return bytes.toByteArray();
   }
 

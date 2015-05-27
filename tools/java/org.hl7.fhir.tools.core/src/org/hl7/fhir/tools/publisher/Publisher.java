@@ -127,7 +127,7 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.ConceptMap;
-import org.hl7.fhir.instance.model.ConceptMap.ConceptEquivalence;
+import org.hl7.fhir.instance.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapContactComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
@@ -147,6 +147,7 @@ import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Meta;
@@ -1116,24 +1117,24 @@ public class Publisher implements URIResolver {
     return result;
   }
 
-  private Conformance.SearchParamType getSearchParamType(SearchType type) {
+  private SearchParamType getSearchParamType(SearchType type) {
     switch (type) {
     case number:
-      return Conformance.SearchParamType.NUMBER;
+      return SearchParamType.NUMBER;
     case string:
-      return Conformance.SearchParamType.STRING;
+      return SearchParamType.STRING;
     case date:
-      return Conformance.SearchParamType.DATE;
+      return SearchParamType.DATE;
     case reference:
-      return Conformance.SearchParamType.REFERENCE;
+      return SearchParamType.REFERENCE;
     case token:
-      return Conformance.SearchParamType.TOKEN;
+      return SearchParamType.TOKEN;
     case uri:
-      return Conformance.SearchParamType.URI;
+      return SearchParamType.URI;
     case composite:
-      return Conformance.SearchParamType.COMPOSITE;
+      return SearchParamType.COMPOSITE;
     case quantity:
-      return Conformance.SearchParamType.QUANTITY;
+      return SearchParamType.QUANTITY;
     }
     return null;
   }
@@ -4860,13 +4861,13 @@ public class Publisher implements URIResolver {
         map.setCodeSystem("http://hl7.org/fhir/v2/" + n[0].substring(1));
         map.setCode(n[1].trim());
         if (n[0].charAt(0) == '=')
-          map.setEquivalence(ConceptEquivalence.EQUAL);
+          map.setEquivalence(ConceptMapEquivalence.EQUAL);
         if (n[0].charAt(0) == '~')
-          map.setEquivalence(ConceptEquivalence.EQUIVALENT);
+          map.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
         if (n[0].charAt(0) == '>')
-          map.setEquivalence(ConceptEquivalence.WIDER);
+          map.setEquivalence(ConceptMapEquivalence.WIDER);
         if (n[0].charAt(0) == '<') {
-          map.setEquivalence(ConceptEquivalence.NARROWER);
+          map.setEquivalence(ConceptMapEquivalence.NARROWER);
           if (!map.hasComments())
             throw new Exception("Missing comments for narrower match on "+vs.getName()+"/"+c.getCode());
         }
@@ -4963,18 +4964,18 @@ public class Publisher implements URIResolver {
           throw new Exception("Error processing v3 map value for "+vs.getName()+"."+c.getCode()+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
         String codesystem = n[0].substring(1);
         if (n[0].charAt(0) == '=')
-          map.setEquivalence(ConceptEquivalence.EQUAL);
+          map.setEquivalence(ConceptMapEquivalence.EQUAL);
         else if (n[0].charAt(0) == '~')
-          map.setEquivalence(ConceptEquivalence.EQUIVALENT);
+          map.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
         else if (n[0].charAt(0) == '>') {
-          map.setEquivalence(ConceptEquivalence.NARROWER);
+          map.setEquivalence(ConceptMapEquivalence.NARROWER);
           if (!map.hasComments())
             throw new Exception("Missing comments for narrower match on "+vs.getName()+"/"+c.getCode());
 
         } else if (n[0].charAt(0) == '<')
-          map.setEquivalence(ConceptEquivalence.WIDER);
+          map.setEquivalence(ConceptMapEquivalence.WIDER);
         else {
-          map.setEquivalence(ConceptEquivalence.EQUAL);
+          map.setEquivalence(ConceptMapEquivalence.EQUAL);
           codesystem = n[0];
         }
         tbls.add(codesystem);
