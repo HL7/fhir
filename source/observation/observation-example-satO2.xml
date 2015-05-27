@@ -11,14 +11,6 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Dec 04 2014: Oxygen saturation 95% (normal)</div>
   </text>
 
-  <!--
-  <extension url="http://hl7.org/fhir/StructureDefinition/relatedDeviceMetric">
-    <valueReference>
-		<reference value="DeviceMetric/example"/>
-	</valueReference>
-  </extension>
-  -->
-
   <code>
     <coding>
       <system value="https://rtmms.nist.gov"/> <!--   mdc   -->
@@ -29,7 +21,7 @@
 
   <valueQuantity>
     <value value="95"/>
-    <units value="percent"/>
+    <units value="%"/>
     <system value="https://rtmms.nist.gov"/>
     <code value="262688"/>
   </valueQuantity>
@@ -58,20 +50,19 @@
   </subject>
 
   <device>
-    <!--reference value="Device/ihe-pcd"/-->
     <reference value="DeviceMetric/example"/>
   </device>
 
   <referenceRange>
     <low>
       <value value="90"/>
-      <units value="percent"/>
+      <units value="%"/>
       <system value="https://rtmms.nist.gov"/>
       <code value="262688"/>
     </low>
     <high>
       <value value="99"/>
-      <units value="percent"/>
+      <units value="%"/>
       <system value="https://rtmms.nist.gov"/>
       <code value="262688"/>
     </high>
