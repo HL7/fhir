@@ -9,7 +9,8 @@ The DeviceComponent resource is used to describe the characteristics, operationa
 Note:
 </p>
 <p>
-For the initial scope, this DeviceComponent resource is only applicable to describe a single node (such as MDS, VMD, or Channel) represents in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard.</p>
+For the initial scope, this DeviceComponent resource is only applicable to describe a single MDS, VMD, or Channel node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard.
+</p>
 </div>
 
 <div>
