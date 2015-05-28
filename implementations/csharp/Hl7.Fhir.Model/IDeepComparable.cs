@@ -56,7 +56,7 @@ namespace Hl7.Fhir.Model
 
         public static bool Matches(IDeepComparable a, IDeepComparable pattern)
         {
-            if (a == null && pattern == null) return true;
+            if (pattern == null) return true;
 
             if (a != null && pattern != null)
             {
@@ -69,21 +69,16 @@ namespace Hl7.Fhir.Model
         public static bool IsExactly<T>(this IEnumerable<T> source, IEnumerable<T> other) 
                 where T : IDeepComparable 
         {
-            if (source == null && other == null) return true;
-            if (source != null && other != null)
-            {
-                if (source.Count() != other.Count()) return false;
+            if (other == null) return false;
 
-                return source.Zip(other, (a, b) => IsExactly(a, b)).All(r => r == true);
-            }
-            else
-                return false;
+            if (source.Count() != other.Count()) return false;
+            return source.Zip(other, (a, b) => IsExactly(a, b)).All(r => r == true);
         }
 
         public static bool Matches<T>(this IEnumerable<T> source, IEnumerable<T> pattern)
                     where T : IDeepComparable
         {
-            if (pattern == null) return false;
+            if (pattern == null) return true;       // if not present in the pattern, there's a match
 
             return source.All(src => pattern.Any(patt => Matches(src, patt)));
         }

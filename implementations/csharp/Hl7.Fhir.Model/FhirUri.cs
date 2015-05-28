@@ -38,6 +38,7 @@ using System.Text.RegularExpressions;
 
 namespace Hl7.Fhir.Model
 {
+    [System.Diagnostics.DebuggerDisplay(@"\{{Value,nq}}")] // http://blogs.msdn.com/b/jaredpar/archive/2011/03/18/debuggerdisplay-attribute-best-practices.aspx
     public partial class FhirUri
     {
         public FhirUri(Uri uri)

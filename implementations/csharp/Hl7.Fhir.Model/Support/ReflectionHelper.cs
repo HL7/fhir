@@ -18,6 +18,18 @@ namespace Hl7.Fhir.Support
 {
     internal static class ReflectionHelper
     {
+        public static bool CanBeTreatedAsType(this Type CurrentType, Type TypeToCompareWith)
+        {
+            // Always return false if either Type is null
+            if (CurrentType == null || TypeToCompareWith == null)
+                return false;
+
+
+            // Return the result of the assignability test
+            return TypeToCompareWith.IsAssignableFrom(CurrentType);
+        }
+
+
         /// <summary>
         /// Gets an attribute on an enum field value
         /// </summary>
@@ -42,9 +54,10 @@ namespace Hl7.Fhir.Support
             if(t == null) throw Error.ArgumentNull("t");
 
 #if PORTABLE45
-			return t.GetTypeInfo().DeclaredProperties.Union(t.GetTypeInfo().BaseType.GetTypeInfo().DeclaredProperties); //(BindingFlags.Instance | BindingFlags.Public);
+			return t.GetRuntimeProperties(); //(BindingFlags.Instance | BindingFlags.Public);
+            // return t.GetTypeInfo().DeclaredProperties.Union(t.GetTypeInfo().BaseType.GetTypeInfo().DeclaredProperties); //(BindingFlags.Instance | BindingFlags.Public);
 #else
-			return t.GetProperties(BindingFlags.Instance | BindingFlags.Public);
+            return t.GetProperties(BindingFlags.Instance | BindingFlags.Public);
 #endif
         }
 

@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011-2012, HL7, Inc
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -25,38 +25,51 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
   
-*/
 
-using Hl7.Fhir.Validation;
+*/
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using Hl7.Fhir.Introspection;
+using Hl7.Fhir.Validation;
 using System.Linq;
-using System.Text;
-using Hl7.Fhir.Support;
+using System.Runtime.Serialization;
 
 namespace Hl7.Fhir.Model
 {
-    [System.Diagnostics.DebuggerDisplay("\\{\"{TypeName,nq}/{Id,nq}\" Identity={ResourceIdentity()}}")]
-    [InvokeIValidatableObject]
-    public abstract partial class DomainResource : IModifierExtendable
+    /// <summary>
+    /// Details of a Technology mediated contact point (phone, fax, email, etc)
+    /// </summary>
+    [System.Diagnostics.DebuggerDisplay(@"\{{DebuggerDisplay,nq}}")] // http://blogs.msdn.com/b/jaredpar/archive/2011/03/18/debuggerdisplay-attribute-best-practices.aspx
+    public partial class ContactPoint
     {
-        public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        [NotMapped]
+        private string DebuggerDisplay
         {
-            var result = new List<ValidationResult>(base.Validate(validationContext));
-
-            if (this.Contained != null)
+            get
             {
-                if (!Contained.OfType<DomainResource>().All(dr => dr.Text == null))
-                    result.Add(new ValidationResult("Resource has contained resources with narrative"));
+                string result = null;
 
-                if(!Contained.OfType<DomainResource>().All(cr => cr.Contained == null || !cr.Contained.Any()))
-                    result.Add(new ValidationResult("Resource has contained resources with nested contained resources"));
+                if (this._SystemElement != null && this._SystemElement.Value != null && this._SystemElement.Value.HasValue)
+                    result = this._SystemElement.Value.ToString();
+                else
+                    result = "(null)";
+
+                if (this._UseElement != null && this._UseElement.Value != null && this._UseElement.Value.HasValue)
+                    result += String.Format(" ({0})", this._UseElement.Value.ToString());
+                result += ": ";
+
+                if (this._ValueElement != null && this._ValueElement.Value != null)
+                    result += String.Format("\"{0}\"", this._ValueElement.Value);
+                else
+                    result += "(null)";
+
+                return result;
             }
-
-            return result;
         }
+
+        [NotMapped]
+        [Obsolete("The Zip element of the ContactPoint datatype (formerly Contact) has been renamed to PostalCode, please rename this property to this for compatibility", true)]
+        public string Zip { get; set; }
     }
+    
 }
-
-

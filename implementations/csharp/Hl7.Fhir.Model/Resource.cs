@@ -27,8 +27,6 @@
   
 */
 
-
-
 using Hl7.Fhir.Validation;
 using System;
 using System.Collections.Generic;
@@ -36,29 +34,62 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using Hl7.Fhir.Support;
+using Hl7.Fhir.Introspection;
 
 namespace Hl7.Fhir.Model
 {
+    [System.Diagnostics.DebuggerDisplay("\\{\"{TypeName,nq}/{Id,nq}\" Identity={ResourceIdentity()}}")]
     [InvokeIValidatableObject]
     public abstract partial class Resource 
     {
+        /// <summary>
+        /// This is the base URL of the FHIR server that this resource is hosted on
+        /// </summary>
+        [NotMapped]
+        public Uri ResourceBase;
+
         public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var result = new List<ValidationResult>();
 
-            if (Id != null && !new Uri(Id,UriKind.RelativeOrAbsolute).IsAbsoluteUri)
-                result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry id must be an absolute URI"));
+            // The ID field does not need to be an abolute URI,
+            // this should be the ResourceIdentity.
+            // if (Id != null && !new Uri(Id,UriKind.RelativeOrAbsolute).IsAbsoluteUri)
+            //    result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry id must be an absolute URI"));
 
             if(Meta != null)
             {
-                if (!String.IsNullOrEmpty(this.Meta.VersionId) && !new Uri(Id,UriKind.RelativeOrAbsolute).IsAbsoluteUri)
-                    result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry selflink must be an absolute URI"));
+                // if (!String.IsNullOrEmpty(this.Meta.VersionId) && !new Uri(Id,UriKind.RelativeOrAbsolute).IsAbsoluteUri)
+                //     result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry selflink must be an absolute URI"));
 
                 if (Meta.Tag != null && validationContext.ValidateRecursively())
                     DotNetAttributeValidation.TryValidate(Meta.Tag,result,true);
             }
 
             return result;
+        }
+
+        [NotMapped]
+        public string VersionId
+        {
+            get 
+            {
+                if (HasVersionId)
+                    return Meta.VersionId;
+                else 
+                    return null;
+            }
+            set
+            {
+                if (Meta == null) Meta = new Meta();
+                Meta.VersionId = value;
+            }
+        }
+
+        [NotMapped]
+        public bool HasVersionId
+        {
+            get { return Meta != null && Meta.VersionId != null; }
         }
     }
 }

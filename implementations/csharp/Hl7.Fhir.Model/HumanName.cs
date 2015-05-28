@@ -1,5 +1,13 @@
-﻿/*
-  Copyright (c) 2011-2012, HL7, Inc
+﻿using System;
+using System.Collections.Generic;
+using Hl7.Fhir.Introspection;
+using Hl7.Fhir.Validation;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+
+/*
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -25,38 +33,46 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
   
+
 */
 
-using Hl7.Fhir.Validation;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using Hl7.Fhir.Support;
-
+//
+// Generated on Wed, Dec 24, 2014 16:02+0100 for FHIR v0.4.0
+//
 namespace Hl7.Fhir.Model
 {
-    [System.Diagnostics.DebuggerDisplay("\\{\"{TypeName,nq}/{Id,nq}\" Identity={ResourceIdentity()}}")]
-    [InvokeIValidatableObject]
-    public abstract partial class DomainResource : IModifierExtendable
+    [System.Diagnostics.DebuggerDisplay(@"\{{DebuggerDisplay,nq}}")] // http://blogs.msdn.com/b/jaredpar/archive/2011/03/18/debuggerdisplay-attribute-best-practices.aspx
+    public partial class HumanName
     {
-        public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        [NotMapped]
+        private string DebuggerDisplay
         {
-            var result = new List<ValidationResult>(base.Validate(validationContext));
-
-            if (this.Contained != null)
+            get
             {
-                if (!Contained.OfType<DomainResource>().All(dr => dr.Text == null))
-                    result.Add(new ValidationResult("Resource has contained resources with narrative"));
+                if (this._TextElement != null && !String.IsNullOrEmpty(this._TextElement.Value))
+                    return "Text = \"" + this._TextElement.Value + "\"";
 
-                if(!Contained.OfType<DomainResource>().All(cr => cr.Contained == null || !cr.Contained.Any()))
-                    result.Add(new ValidationResult("Resource has contained resources with nested contained resources"));
+                StringBuilder sb = new StringBuilder();
+                if (this._GivenElement != null)
+                {
+                    foreach (var item in this._GivenElement)
+                    {
+                        if (sb.Length > 0)
+                            sb.Append(" ");
+                        sb.Append(item);
+                    }
+                }
+                if (this._FamilyElement != null)
+                {
+                    foreach (var item in this._FamilyElement)
+                    {
+                        if (sb.Length > 0)
+                            sb.Append(" ");
+                        sb.Append(item);
+                    }
+                }
+                return sb.ToString();
             }
-
-            return result;
         }
     }
 }
-
-

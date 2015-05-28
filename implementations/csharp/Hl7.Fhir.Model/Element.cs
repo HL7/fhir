@@ -1,5 +1,12 @@
-﻿/*
-  Copyright (c) 2011-2012, HL7, Inc
+﻿using System;
+using System.Collections.Generic;
+using Hl7.Fhir.Introspection;
+using Hl7.Fhir.Validation;
+using System.Linq;
+using System.Runtime.Serialization;
+
+/*
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -25,20 +32,13 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
   
+
 */
-
-
-
-using System;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace Hl7.Fhir.Model
 {
-    public abstract partial class Element : IExtendable, IDeepCopyable, IDeepComparable
+    public abstract partial class Element : IExtendable
     {
-        public abstract IDeepCopyable DeepCopy();
     }
+    
 }
-
-

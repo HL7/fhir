@@ -145,9 +145,11 @@ namespace Hl7.Fhir.Support
         {
             string message;
 
-            if(pos != null)
+            if (pos != null)
+            {
                 message = String.Format("At line {0}, pos {1}: {2}", pos.LineNumber, pos.LinePosition,
                         Error.formatMessage(messageFormat, messageArgs));
+            }
             else
                 message = Error.formatMessage(messageFormat, messageArgs);
 
@@ -174,12 +176,4 @@ namespace Hl7.Fhir.Support
             return new NotImplementedException();
         }
     }
-
-
-    public interface IPostitionInfo
-    {
-        int LineNumber { get; }
-        int LinePosition { get; }
-    }
-
 }

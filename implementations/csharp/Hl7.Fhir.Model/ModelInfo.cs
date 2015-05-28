@@ -32,6 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
 {
@@ -42,7 +43,7 @@ namespace Hl7.Fhir.Model
             public string Resource { get; set; }
             public string Name { get; set; }
             public string Description { get; set; }
-            public Conformance.SearchParamType Type { get; set; }
+            public SearchParamType Type { get; set; }
 
             /// <summary>
             /// If this search parameter is a Composite, this array contains 
@@ -57,12 +58,9 @@ namespace Hl7.Fhir.Model
             public string[] Path { get; set; }
 
             /// <summary>
-            /// Where this search parameter's Type == "reference", 
-            /// which resource types this search parameter relates to.
+            /// If this is a reference, the possible types of resources that the
+            /// parameters references to
             /// </summary>
-            /// <example>
-            /// Appointment patient search parameter (path = actor, but only when a reference to a patient)
-            /// </example>
             public ResourceType[] Target { get; set; }
         }
 
@@ -113,5 +111,71 @@ namespace Hl7.Fhir.Model
             else
                 return null;
         }
+
+        public static bool IsPrimitive(string name)
+        {
+            return FhirTypeToCsType.ContainsKey(name) && Char.IsLower(name[0]);
+        }
+
+        public static bool IsPrimitive(Type type)
+        {
+            return IsPrimitive(type.Name);
+        }
+
+        public static bool IsDataType(string name)
+        {
+            return FhirTypeToCsType.ContainsKey(name) && !IsKnownResource(name) && !IsPrimitive(name);
+        }
+
+
+        public static bool IsDataType(Type type)
+        {
+            return IsDataType(type.Name);
+        }
+
+        public static bool IsReference(string name)
+        {
+            return name == "Reference";
+        }
+
+        public static bool IsReference(Type type)
+        {
+            return IsReference(type.Name);
+        }
+
+        public static bool IsConformanceResource(Type type)
+        {
+            return IsConformanceResource(type.Name);
+        }
+
+        public static bool IsConformanceResource(string name)
+        {
+            return ConformanceResources.Contains(name);
+        }
+
+        public static readonly string[] ConformanceResources = { "Conformance", "StructureDefinition", "ValueSet", "ConceptMap",
+                "DataElement", "OperationDefinition", "SearchParameter", "NamingSystem" };
+
+        /// <summary>
+        /// Is the given type a core Resource, Datatype or primitive
+        /// </summary>
+        public static bool IsCoreModelType(string name)
+        {
+            return IsKnownResource(name) || IsDataType(name) || IsPrimitive(name);
+        }
     }
+
+    public static class ModelInfoExtensions
+    {
+        public static string GetCollectionName(this Type type)
+        {
+            // if (typeof(Resource).IsAssignableFrom(type))
+            if (type.CanBeTreatedAsType(typeof(Resource)))
+                return ModelInfo.GetResourceNameForType(type);
+            else
+                throw new ArgumentException(String.Format(
+                    "Cannot determine collection name, type {0} is not a resource type", type.Name));
+        }
+    }
+
 }

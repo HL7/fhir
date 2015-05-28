@@ -38,6 +38,7 @@ using System.Text.RegularExpressions;
 
 namespace Hl7.Fhir.Model
 {
+    [System.Diagnostics.DebuggerDisplay(@"\{Value={Value}}")]
     public partial class Id
     {
         public static bool IsValidValue(string value)

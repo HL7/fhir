@@ -36,10 +36,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using Hl7.Fhir.Support;
+using Hl7.Fhir.Introspection;
 
 namespace Hl7.Fhir.Model
 {
     [InvokeIValidatableObject]
+    [System.Runtime.Serialization.DataContract]
     public abstract class Base : Hl7.Fhir.Validation.IValidatableObject, IDeepCopyable, IDeepComparable
     {
         public abstract bool IsExactly(IDeepComparable other);
@@ -74,6 +76,7 @@ namespace Hl7.Fhir.Model
 
         private Dictionary<string, object> _userData = new Dictionary<string, object>();
 
+        [NotMapped]
         public Dictionary<string, object> UserData
         {
             get { return _userData; }
