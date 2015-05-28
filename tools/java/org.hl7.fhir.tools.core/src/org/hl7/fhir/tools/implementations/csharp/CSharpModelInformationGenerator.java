@@ -95,7 +95,7 @@ public class CSharpModelInformationGenerator extends GenBlock {
           nl(", Description = " + GeneratorUtils.makeCsStringLiteral(param.getDescription()));
 
           String type = Utilities.capitalize(param.getType().toString());
-          nl(", Type = Conformance.SearchParamType." + type);
+          nl(", Type = SearchParamType." + type);
 
           if (param.getType() == SearchType.COMPOSITE) {
             nl(", CompositeParams = new string[] { ");

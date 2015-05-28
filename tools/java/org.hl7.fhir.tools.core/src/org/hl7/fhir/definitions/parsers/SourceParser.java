@@ -214,7 +214,7 @@ public class SourceParser {
     loadMappingSpaces();
     loadGlobalBindings();
     // todo: will commenting this out this cause us problems? 
-    // eCoreParseResults.getBinding().addAll(sortBindings(BindingConverter.buildBindingsFromFhirModel(definitions.getBindings().values(), null)));
+    eCoreParseResults.getBinding().addAll(sortBindings(BindingConverter.buildBindingsFromFhirModel(definitions.getCommonBindings().values(), null)));
 
     loadTLAs();
     loadIgs();
