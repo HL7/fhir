@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
+import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
@@ -102,7 +103,6 @@ public class BindingSpecification {
   private String vsOid;
 //  private List<DefinedCode> childCodes;
   private ConformanceResourceStatus status;
-  private ValueSet referredValueSet;
   private List<DefinedCode> allCodes;
   
 
@@ -130,7 +130,7 @@ public class BindingSpecification {
     this.id = id;
   }
 
-  public String getName1() {
+  public String getName() {
     return name;
   }
 
@@ -243,15 +243,6 @@ public class BindingSpecification {
 //      vslist.add(0, "");
 //    return vslist;
 //  }
-
-  public ValueSet getReferredValueSet() {
-    return referredValueSet;
-  }
-
-  public void setReferredValueSet(ValueSet referredValueSet) {
-    this.referredValueSet = referredValueSet;
-    ToolResourceUtilities.updateUsage(referredValueSet, usageContext);
-  }
 
   
 //  public List<DefinedCode> getChildCodes() throws Exception {
@@ -374,6 +365,7 @@ public class BindingSpecification {
 
   public void setValueSet(ValueSet valueSet) {
     this.valueSet = valueSet;
+    ToolResourceUtilities.updateUsage(valueSet, usageContext);
   }
 
   public List<DefinedCode> getAllCodes() {

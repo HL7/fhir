@@ -134,7 +134,7 @@ public class ValueSetGenerator {
     if (!vs.hasExperimental())
       vs.setExperimental(false);
     if (!vs.hasName())
-      vs.setName(bs.getName1());
+      vs.setName(bs.getName());
     if (!vs.hasPublisher())
       vs.setPublisher("HL7 (FHIR Project)");
     if (!vs.hasContact()) {
@@ -150,5 +150,18 @@ public class ValueSetGenerator {
       vs.setStatus(bs.getStatus() != null ? bs.getStatus() : ConformanceResourceStatus.DRAFT); // until we publish DSTU, then .review
     if (!vs.hasDate())
       vs.setDate(genDate.getTime());
+    if (!Utilities.noString(bs.getV2Map()))
+      vs.setUserData("v2map", bs.getV2Map());
+    if (!Utilities.noString(bs.getV2Map()))
+      vs.setUserData("v3map", checkV3Mapping(bs.getV3Map()));
   }
+  
+  private String checkV3Mapping(String value) {
+    if (value.startsWith("http://hl7.org/fhir/v3/vs/"))
+      return value.substring("http://hl7.org/fhir/v3/vs/".length());
+    else
+      return value;
+  }
+
+  
 }

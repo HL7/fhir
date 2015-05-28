@@ -979,7 +979,7 @@ public class Publisher implements URIResolver {
       produceResource1(r, false);
       produceResource2(r, false, null);
     }
-    page.log(" ...vocab #2", LogMessageType.Process);
+    page.log(" ...value sets", LogMessageType.Process);
     generateValueSetsPart2();
     if (page.hasIG())
       generateIGValueSetsPart2();
@@ -3389,6 +3389,7 @@ public class Publisher implements URIResolver {
 
     if (rt.equals("ValueSet")) {
       ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
+      vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
       new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "Value set Example "+n, vs, false, false);
       if (vs.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
@@ -4628,7 +4629,6 @@ public class Publisher implements URIResolver {
   }
 
   private void generateValueSetsPart2() throws Exception {
-    page.log(" ...value sets (2)", LogMessageType.Process);
     for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
         generateValueSetPart2(vs);
     }
@@ -4648,6 +4648,9 @@ public class Publisher implements URIResolver {
     new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, n, vs, true, false);
 
     if (isGenerate) {
+      if (vs.hasDefine())
+        generateCodeSystemPart2(vs);
+      
       addToResourceFeed(vs, valueSetsFeed, null);
 
       vs.setUserData("path", n + ".html");
@@ -4672,8 +4675,6 @@ public class Publisher implements URIResolver {
       cloneToXhtml(n, "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set");
       jsonToXhtml(n, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set");
     }
-    if (vs.hasDefine())
-      generateCodeSystemPart2(vs);
 
   }
 
@@ -4836,7 +4837,7 @@ public class Publisher implements URIResolver {
     // DSTU, then .review
     cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
-    cm.setTarget(Factory.makeReference("http://hl7.org/fhir/v3/vs/"+vs.getUserString("v2map")));
+    cm.setTarget(Factory.makeReference("http://hl7.org/fhir/v3/vs/"+vs.getUserString("v3map")));
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       genV3MapItems(vs, srcCS, cm, tbls, c);
     }

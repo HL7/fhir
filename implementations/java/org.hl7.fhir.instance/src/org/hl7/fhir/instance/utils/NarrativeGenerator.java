@@ -1831,10 +1831,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
    * @throws Exception
    */
   public void generate(ValueSet vs) throws Exception {
+    generate(vs, null);
+  }
+  
+  public void generate(ValueSet vs, ValueSet src) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     if (vs.hasExpansion()) {
       if (!vs.hasDefine() && !vs.hasCompose())
-        generateExpansion(x, vs);
+        generateExpansion(x, vs, src);
       else
         throw new Exception("Error: should not encounter value set expansion at this point");
     }
@@ -1854,6 +1858,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private Integer countMembership(ValueSet vs) {
     int count = 0;
+    if (vs.hasExpansion())
+      count = count + conceptCount(vs.getExpansion().getContains());
+    else {
     if (vs.hasDefine())
       count = count + countConcepts(vs.getDefine().getConcept());
     if (vs.hasCompose()) {
@@ -1861,9 +1868,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         try {
           ValueSet vse = context.getTerminologyServices().expandVS(vs);
           count = 0;
-          for (ValueSetExpansionContainsComponent exc : vse.getExpansion().getContains()) {
-            count += conceptCount(exc);
-          }
+            count += conceptCount(vse.getExpansion().getContains());
           return count;
         } catch (Exception e) {
           return null;
@@ -1877,15 +1882,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
         count = count + inc.getConcept().size();
       }
     }
+    }
     return count;
   }
 
-  private int conceptCount(ValueSetExpansionContainsComponent exc) {
+  private int conceptCount(List<ValueSetExpansionContainsComponent> list) {
     int count = 0;
-    if (!exc.getAbstract())
+    for (ValueSetExpansionContainsComponent c : list) {
+      if (!c.getAbstract())
       count++;
-    for (ValueSetExpansionContainsComponent c : exc.getContains()) 
-      count += conceptCount(c);
+      count = count + conceptCount(c.getContains());
+    }
     return count;
   }
 
@@ -1897,7 +1904,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return count;
   }
 
-  private boolean generateExpansion(XhtmlNode x, ValueSet vs) {
+  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src) {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (ConceptMap a : context.getMaps().values()) {
@@ -1910,21 +1917,50 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
 
     XhtmlNode h = x.addTag("h3");
-    h.addText(vs.getDescription());
+    h.addText("Value Set Contents");
+    if (IsNotFixedExpansion(vs))
+      x.addTag("p").addText(vs.getDescription());
     if (vs.hasCopyright())
       generateCopyright(x, vs);
 
+    boolean doSystem = checkDoSystem(vs, src);
+    
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     XhtmlNode tr = t.addTag("tr");
     tr.addTag("td").addTag("b").addText("Code");
+    if (doSystem)
     tr.addTag("td").addTag("b").addText("System");
     tr.addTag("td").addTag("b").addText("Display");
 
     addMapHeaders(tr, mymaps);
     for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
-      addExpansionRowToTable(t, c, 0, mymaps);
+      addExpansionRowToTable(t, c, 0, doSystem, mymaps);
     }    
     return hasExtensions;
+  }
+
+  private boolean checkDoSystem(ValueSet vs, ValueSet src) {
+    if (src != null)
+      vs = src;
+    if (!vs.hasDefine())
+      return true;
+    if (vs.hasCompose())
+      return true;
+    return false;
+  }
+
+  private boolean IsNotFixedExpansion(ValueSet vs) {
+    if (vs.hasCompose())
+      return false;
+    
+    if (vs.getCompose().hasImport())
+      return true;
+    
+    // it's not fixed if it has any includes that are not version fixed
+    for (ConceptSetComponent cc : vs.getCompose().getInclude())
+      if (!cc.hasVersion())
+        return true;
+    return false;
   }
 
   private boolean generateDefinition(XhtmlNode x, ValueSet vs) {
@@ -2074,7 +2110,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return tr;
   }
 
-  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, Map<ConceptMap, String> mymaps) {
+  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, Map<ConceptMap, String> mymaps) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     
@@ -2087,11 +2123,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
     else {
       XhtmlNode a = td.addTag("a");
       a.addText(c.getCode());
-      a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(c.getCode()));
-      
+      a.setAttribute("href", prefix+getCsRef(e)+".html#"+Utilities.nmtokenize(c.getCode()));
     }
+    if (doSystem) {
     td = tr.addTag("td");
     td.addText(c.getSystem());
+    }
     td = tr.addTag("td");
     if (c.hasDisplayElement())
       td.addText(c.getDisplay());
@@ -2115,7 +2152,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       }
     }
     for (ValueSetExpansionContainsComponent cc : c.getContains()) {
-      addExpansionRowToTable(t, cc, i+1, mymaps);
+      addExpansionRowToTable(t, cc, i+1, doSystem, mymaps);
     }    
   }
 

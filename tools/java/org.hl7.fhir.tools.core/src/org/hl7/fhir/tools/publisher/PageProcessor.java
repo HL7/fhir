@@ -688,8 +688,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateBSUsage((ValueSet) resource) + s3;
       else if (com[0].equals("vsusage"))
         src = s1 + generateBSUsage((ValueSet) resource) + s3;
-      else if (com[0].equals("txsummary"))
-        src = s1 + generateCodeTable(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vssummary"))
         src = s1 + "todo" + s3;
       else if (com[0].equals("compartmentlist"))
@@ -780,10 +778,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       }
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
-      else 
+      else if (com[0].equals("txsummary"))
+        src = s1 + txsummary((ValueSet) resource) + s3;        
+      else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String txsummary(ValueSet vs) {
+    if (vs.hasDefine()) {
+      return "<tr><td>System URL:</td><td>"+vs.getDefine().getSystem()+"</td></tr>\r\n<tr><td>System OID:</td><td>"+ToolingExtensions.getOID(vs.getDefine())+"</td></tr>";
+    } else
+      return "";
   }
 
   private String genExampleProfileLink(Resource resource) {
@@ -1830,70 +1837,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //      return definitions.getExtraValuesets().get(name).getDescription();
 //    else
 //      return Utilities.escapeXml(cd.getDefinition());
-  }
-
-  private String generateCodeTable(String name) throws Exception {
-    throw new Error("fix this");
-//    BindingSpecification cd = definitions.getBindingByURL("#"+name);
-//    if (cd.getReferredValueSet() != null) {
-//      return new XhtmlComposer().compose(cd.getReferredValueSet().getText().getDiv());
-//    } else {
-//      List<String> langs = new ArrayList<String>();
-//      StringBuilder s = new StringBuilder();
-//      s.append("    <table class=\"codes\">\r\n");
-//      boolean hasComment = false;
-//      boolean hasDefinition = false;
-//      boolean hasParent = false;
-//      boolean hasSource = false;
-//      boolean hasId = false;
-//      for (DefinedCode c : cd.getCodes()) {
-//        hasComment = hasComment || c.hasComment();
-//        hasDefinition = hasDefinition || c.hasDefinition();
-//        hasParent = hasParent || c.hasParent();
-//        hasSource = hasSource || !Utilities.noString(c.getSystem());
-//        hasId = hasId || !Utilities.noString(c.getId());
-//      }
-//      String src = "";
-//      if (hasId) 
-//        src = src + "<td><b>Id</b></td>";
-//      if (hasSource) 
-//        src = src + "<td><b>Source</b></td>";
-//
-//      String lvl = hasParent ?  "<td><b>Level</b></td>" : "";
-//      if (hasComment)
-//        s.append("    <tr>"+src+lvl+"<td><b>Code</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr>");
-//      else if (hasDefinition)
-//        s.append("    <tr>"+src+lvl+"<td><b>Code</b></td><td colspan=\"2\"><b>Definition</b></td></tr>");
-//      else
-//        s.append("    <tr>"+src+lvl+"<td colspan=\"3\"><b>Code</b></td></tr>");
-//
-//      for (DefinedCode c : cd.getChildCodes()) {
-//        generateCode(cd, s, hasSource, hasId, hasComment, hasDefinition, hasParent, 1, c);
-//        for (String lang : c.getLangs().keySet())
-//          if (!langs.contains(lang))
-//            langs.add(lang);
-//      }
-//      s.append("    </table>\r\n");
-//      if (langs.size() > 0) {
-//        Collections.sort(langs);
-//        s.append("<p><b>Additional Language Displays</b></p>\r\n");
-//        s.append("<table class=\"codes\">\r\n");
-//        s.append("<tr><td><b>Code</b></td>");
-//        for (String lang : langs)
-//          s.append("<td><b>"+lang+"</b>");
-//        s.append("</tr>\r\n");
-//        for (DefinedCode c : cd.getCodes()) {
-//          s.append("<tr><td>"+c.getCode()+"</td>");
-//          for (String lang : langs) {
-//            String disp = c.getLangs().get(lang);
-//            s.append("<td>"+(disp == null ? "" : disp)+"</b>");
-//          }
-//          s.append("</tr>\r\n");
-//        }
-//        s.append("    </table>\r\n");
-//      }
-//      return s.toString();
-//    }
   }
 
   private void generateCode(BindingSpecification cd, StringBuilder s, boolean hasSource, boolean hasId, boolean hasComment, boolean hasDefinition, boolean hasParent, int level, DefinedCode c) {
@@ -3055,8 +2998,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateBSUsage((ValueSet) resource) + s3;
       else if (com[0].equals("vsusage"))
         src = s1 + generateBSUsage((ValueSet) resource) + s3;
-      else if (com[0].equals("txsummary"))
-        src = s1 + generateCodeTable(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vssummary"))
         src = s1 + "todo" + s3;
       else if (com[0].equals("piperesources"))
@@ -3183,32 +3124,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     else
       return result.getValueset();
   }
-  public String expandVS(ValueSet vs, String prefix) {
-    if (!hasDynamicContent(vs))
-      return "";
-    try {
-      if (expandedVSCache == null)
-        expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
-      ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
-      if (result.getError() != null)
-        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
-      
-      if (result.getValueset() == null)
-        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling (no error returned)</div>";
-      ValueSet exp = result.getValueset();
-      exp.setCompose(null);
-      exp.setDefine(null);
-      exp.setText(null); 
-      exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
-      new NarrativeGenerator(prefix, workerContext).generate(exp);
-      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
-    } catch (Exception e) {
-      e.printStackTrace();
-      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e instanceof NullPointerException ? "NullPointerException" : e.getMessage())+" "+Utilities.escapeXml(stack(e))+" </div>";
-      
-//      return "<!-- This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
-    }
-  }
+
 
   private String stack(Exception e) {
     StringBuilder b = new StringBuilder();
@@ -3459,8 +3375,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateBSUsage((ValueSet) resource) + s3;
       else if (com[0].equals("vsusage"))
         src = s1 + generateBSUsage((ValueSet) resource) + s3;
-      else if (com[0].equals("txsummary"))
-        src = s1 + generateCodeTable(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("v2Index"))
         src = s1+genV2Index()+s3;
       else if (com[0].equals("v3Index-cs"))
@@ -5926,5 +5840,31 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       ed = ed.getElementByName(path[i]);
     }
     return ed;
+  }
+
+  public String expandVS(ValueSet vs, String prefix) {
+    try {
+      if (expandedVSCache == null)
+        expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
+      ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
+      if (result.getError() != null)
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
+
+      if (result.getValueset() == null)
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling (no error returned)</div>";
+      ValueSet exp = result.getValueset();
+      exp.setCompose(null);
+      exp.setDefine(null);
+      exp.setText(null); 
+      exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
+      
+      new NarrativeGenerator(prefix, workerContext).generate(exp, vs);
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e instanceof NullPointerException ? "NullPointerException" : e.getMessage())+" "+Utilities.escapeXml(stack(e))+" </div>";
+
+      //      return "<!-- This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
+    }
   }
 }

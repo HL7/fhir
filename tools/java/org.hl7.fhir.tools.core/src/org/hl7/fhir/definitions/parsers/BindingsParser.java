@@ -86,21 +86,21 @@ public class BindingsParser {
 
   private void processLine(List<BindingSpecification> results, Sheet sheet, int row) throws Exception {
     BindingSpecification cd = new BindingSpecification("core", sheet.getColumn(row, "Binding Name"), true);
-    if (!cd.getName1().startsWith("!")) {
+    if (!cd.getName().startsWith("!")) {
       cd.setDefinition(sheet.getColumn(row, "Definition"));
       cd.setBindingMethod(readBinding(sheet.getColumn(row, "Binding")));
       String ref = sheet.getColumn(row, "Reference");
       if (!cd.getBinding().equals(BindingMethod.Unbound) && Utilities.noString(ref)) 
-        throw new Exception("binding "+cd.getName1()+" is missing a reference");
+        throw new Exception("binding "+cd.getName()+" is missing a reference");
       if (cd.getBinding() == BindingMethod.CodeList) {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/vs/"+ref.substring(1));
         if (!ref.startsWith("#"))
-          throw new Exception("Error parsing binding "+cd.getName1()+": code list reference '"+ref+"' must started with '#'");
+          throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' must started with '#'");
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
-          throw new Exception("Error parsing binding "+cd.getName1()+": code list reference '"+ref+"' not resolved");
+          throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
         new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version).execute();
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:")) {
@@ -111,7 +111,7 @@ public class BindingsParser {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/vs/"+ref.substring(1));
-        cd.getValueSet().setName(cd.getName1());
+        cd.getValueSet().setName(cd.getName());
         
         // do nothing more: this will get filled out once all the resources are loaded
       } else if (cd.getBinding() == BindingMethod.Reference) { 
@@ -120,7 +120,7 @@ public class BindingsParser {
       cd.setReference(sheet.getColumn(row, "Reference")); // do this anyway in the short term
 
       
-      cd.setId(registry.idForName(cd.getName1()));
+      cd.setId(registry.idForName(cd.getName()));
       if (cd.getValueSet() != null) {
         ValueSet vs = cd.getValueSet();
         ValueSetUtilities.makeShareable(vs);
@@ -142,11 +142,7 @@ public class BindingsParser {
       cd.setStatus(ConformanceResourceStatus.fromCode(sheet.getColumn(row, "Status")));
       cd.setEmail(sheet.getColumn(row, "Email"));
       cd.setV2Map(sheet.getColumn(row, "v2"));
-      if (!Utilities.noString(cd.getV2Map()))
-        cd.getValueSet().setUserData("v2map", cd.getV2Map());
-      cd.setV3Map(checkV3Mapping(sheet.getColumn(row, "v3")));
-      if (!Utilities.noString(cd.getV3Map()))
-        cd.getValueSet().setUserData("v3map", cd.getV3Map());
+      cd.setV3Map(sheet.getColumn(row, "v3"));
 
       results.add(cd);
     }
@@ -179,22 +175,6 @@ public class BindingsParser {
     }
   }
 
-  private String checkV3Mapping(String value) {
-    if (value.startsWith("http://hl7.org/fhir/v3/vs/"))
-      return value.substring("http://hl7.org/fhir/v3/vs/".length());
-    else
-      return value;
-  }
-
-  //	public static BindingExtensibility readExtensibility(String s) throws Exception {
-  //    s = s.toLowerCase();
-  //    if (s == null || "".equals(s) || "complete".equals(s))
-  //      return BindingSpecification.BindingExtensibility.Complete;
-  //    if (s.equals("extensible"))
-  //      return BindingSpecification.BindingExtensibility.Extensible;
-  //    throw new Exception("Unknown Binding Extensibility: "+s);
-  //  }
-
   public static BindingSpecification.BindingMethod readBinding(String s) throws Exception {
     s = s.toLowerCase();
     if (s == null || "".equals(s) || "unbound".equals(s))
@@ -222,31 +202,4 @@ public class BindingsParser {
       return BindingStrength.EXAMPLE;
     throw new Exception("Unknown Binding Strength: '"+s+"'");
   }
-
-// bscodes  
-//  public boolean loadCodes(BindingSpecification cd) throws Exception {
-//    // TODO Auto-generated method stub
-//    Sheet sheet = xls.getSheets().get(cd.getReference().substring(1));
-//    if (sheet == null)
-//      return false;
-//
-//    for (int row = 0; row < sheet.rows.size(); row++) {
-//      DefinedCode c = new DefinedCode();
-//      c.setId(sheet.getColumn(row, "Id"));
-//      c.setCode(sheet.getColumn(row, "Code"));
-//      c.setDisplay(sheet.getColumn(row, "Display"));
-//      if (c.hasCode() && !c.hasDisplay())
-//        c.setDisplay(Utilities.humanize(c.getCode()));
-//      c.setSystem(sheet.getColumn(row, "System"));
-//      c.setDefinition(sheet.getColumn(row, "Definition"));
-//      c.setComment(sheet.getColumn(row, "Comment"));
-//      c.setV2Map(sheet.getColumn(row, "v2"));
-//      c.setV3Map(sheet.getColumn(row, "v3"));
-//      for (String ct : sheet.columns) 
-//        if (ct.startsWith("Display:") && !Utilities.noString(sheet.getColumn(row, ct)))
-//          c.getLangs().put(ct.substring(8), sheet.getColumn(row, ct));
-//      cd.getCodes().add(c);
-//    }
-//    return true;
-//  }
 }

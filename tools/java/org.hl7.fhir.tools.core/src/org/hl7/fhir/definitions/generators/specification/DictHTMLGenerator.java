@@ -460,7 +460,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  if (cd.getValueSet() != null)
       b.append(cd.getValueSet().getName()+": ");
 	  else if (cd.getReference() != null)
-      b.append("<a href=\""+cd.getReference()+"\">[External]</a>: ");
+      b.append("<a href=\""+cd.getReference()+"\">"+e.getBinding().getName()+"</a>: ");
 	  else
 	    b.append("??: ");
 	    

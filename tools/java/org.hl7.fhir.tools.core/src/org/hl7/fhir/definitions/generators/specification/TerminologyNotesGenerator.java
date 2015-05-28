@@ -162,9 +162,9 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       List<CDUsage> list = txusages.get(cd);
       for (int i = 2; i < list.size(); i++) {
         if (!list.get(i).element.typeCode().equals(list.get(1).element.typeCode()))
-          throw new Exception("Mixed types on one concept domain in one type - not yet supported by the build process for binding "+cd.getName1());
+          throw new Exception("Mixed types on one concept domain in one type - not yet supported by the build process for binding "+cd.getName());
       }
-      String name = cd.getValueSet() != null ? cd.getValueSet().getName() : cd.getName1();
+      String name = cd.getValueSet() != null ? cd.getValueSet().getName() : cd.getName();
       write(" <tr><td valign=\"top\" title=\""+name+"\">");
       boolean first = true;
       for (int i = 1; i < list.size(); i++) {
@@ -299,14 +299,14 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           ValueSet vs = page.getValueSets().get(cd.getReference());
           String pp = (String) vs.getUserData("path");
           return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+bs+")";
-      } else if (cd.getReferredValueSet() != null) {
+      } else if (cd.getValueSet() != null) {
         if (cd.getReference().startsWith("http://hl7.org/fhir/vs/")) {
           if (page.getValueSets().containsKey(cd.getReference()) && page.getValueSets().get(cd.getReference()).getUserData("filename") != null)
-            return bs+": <a href=\""+page.getValueSets().get(cd.getReference()).getUserData("filename")+"\">See "+cd.getReferredValueSet().getUrl()+"</a> ("+cd.getDefinition()+")"; 
+            return bs+": <a href=\""+page.getValueSets().get(cd.getReference()).getUserData("filename")+"\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")"; 
           else
-          return bs+": <a href=\""+cd.getReference().substring(23)+".html\">See "+cd.getReferredValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
+          return bs+": <a href=\""+cd.getReference().substring(23)+".html\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
         } else 
-          return bs+": <a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
+          return bs+": <a href=\""+cd.getReference()+".html\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
       }
       else
         return bs+": <a href=\""+cd.getReference()+".html\">Value Set Definition</a> ("+cd.getDefinition()+")";
@@ -324,10 +324,10 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
   }
 
   private void genBinding(BindingSpecification cd, String path, boolean isCode) throws Exception {
-    if (cd.getName1().equals("*unbound*")) {
+    if (cd.getName().equals("*unbound*")) {
     	write("  <li>"+path+" (Error!!!)</li>\r\n");
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.Unbound) {
-      write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName1())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". (not bound to any codes)</li>\r\n");
+      write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". (not bound to any codes)</li>\r\n");
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
       String sid = "";
       String bs = "<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";
@@ -387,8 +387,8 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
   private String ref(BindingSpecification cd) {
     if (!cd.hasReference())
       return Utilities.escapeXml(cd.getDescription());
-    else if (cd.getReferredValueSet() != null)
-      return "<a href=\""+cd.getReference()+".html\">"+Utilities.escapeXml(cd.getReferredValueSet().getName())+"</a>";      
+    else if (cd.getValueSet() != null)
+      return "<a href=\""+cd.getReference()+".html\">"+Utilities.escapeXml(cd.getValueSet().getName())+"</a>";      
     else
       return "<a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a>";
   }

@@ -557,64 +557,12 @@ public class SourceParser {
 
     for (BindingSpecification cd : cds) {
       definitions.getAllBindings().add(cd);
-      definitions.getCommonBindings().put(cd.getName1(), cd);
+      definitions.getCommonBindings().put(cd.getName(), cd);
       if (cd.getValueSet() != null) {
         vsGen.updateHeader(cd, cd.getValueSet());
         definitions.getBoundValueSets().put(cd.getValueSet().getUrl(), cd.getValueSet());
       } else if (cd.getReference() != null && cd.getReference().startsWith("http:")) {
         definitions.getUnresolvedBindings().add(cd);
-      }
-    }
-
-    for (BindingSpecification cd : definitions.getCommonBindings().values()) {
-   // bscodes  
-
-//      if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
-//        if (!parser.loadCodes(cd)) {
-//          File file = new CSFile(termDir + cd.getReference().substring(1)	+ ".csv");
-//          if (!file.exists())
-//            throw new Exception("code source file not found for "
-//                + cd.getName() + ": " + file.getAbsolutePath());
-//          CodeListParser cparser = new CodeListParser(
-//              new CSFileInputStream(file));
-//          cparser.parse(cd.getCodes());
-//          cparser.close();
-//        }
-//      }
-      if (cd.getBinding() == BindingMethod.ValueSet && !Utilities.noString(cd.getReference())) {
-        if (cd.getReference().startsWith("http://hl7.org/fhir")) {
-          // ok, it's a reference to a value set defined within this build. Since it's an absolute 
-          // reference, it's into the base infrastructure. That's not loaded yet, so we will try
-          // to resolve it later
-        } else if (new File(Utilities.appendSlash(termDir)+cd.getReference()+".xml").exists()) {
-          XmlParser p = new XmlParser();
-          FileInputStream input = new FileInputStream(Utilities.appendSlash(termDir)+cd.getReference()+".xml");
-          try {
-            cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
-          } finally {
-            IOUtils.closeQuietly(input);
-          }
-          if (!cd.getReferredValueSet().hasExperimental())
-            cd.getReferredValueSet().setExperimental(true);
-          if (!cd.getReferredValueSet().hasVersion())
-            cd.getReferredValueSet().setVersion(version);
-        } else if (new File(Utilities.appendSlash(termDir)+cd.getReference()+".json").exists()) {
-          JsonParser p = new JsonParser();
-          FileInputStream input = new FileInputStream(Utilities.appendSlash(termDir)+cd.getReference()+".json");
-          try {
-            cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
-          } finally {
-            IOUtils.closeQuietly(input);
-          }
-          cd.getReferredValueSet().setExperimental(true);
-          if (!cd.getReferredValueSet().hasExperimental())
-            cd.getReferredValueSet().setExperimental(true);
-          if (!cd.getReferredValueSet().hasVersion())
-            cd.getReferredValueSet().setVersion(version);
-        } else
-          throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(termDir)+cd.getReference()+".xml/json)");
-        if (cd.getReferredValueSet() != null && cd.getReferredValueSet().getId() == null)
-          cd.getReferredValueSet().setId(FormatUtilities.makeId(cd.getBinding().name())); 
       }
     }
   }

@@ -102,8 +102,8 @@ public class CodeListToValueSetParser {
           ToolingExtensions.addDefinition(cc, sheet.getColumn(row, "Definition"));
         if (!Utilities.noString(sheet.getColumn(row, "Comment")))
           ToolingExtensions.addComment(cc, sheet.getColumn(row, "Comment"));
-        cc.setUserData("v2", sheet.getColumn(row, "v2"));
-        cc.setUserData("v3", sheet.getColumn(row, "v3"));
+        cc.setUserDataINN("v2", sheet.getColumn(row, "v2"));
+        cc.setUserDataINN("v3", sheet.getColumn(row, "v3"));
         for (String ct : sheet.columns) 
           if (ct.startsWith("Display:") && !Utilities.noString(sheet.getColumn(row, ct)))
             cc.addDesignation().setLanguage(ct.substring(8)).setValue(sheet.getColumn(row, ct));       

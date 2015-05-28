@@ -109,7 +109,7 @@ public class TableGenerator extends BaseGenerator {
     if (e.hasBinding() && e.getBinding() != null && e.getBinding().getBinding() != BindingMethod.Unbound) {
       if (cc.getPieces().size() == 1)
         cc.addPiece(gen.new Piece("br"));
-      cc.getPieces().add(gen.new Piece(getBindingLink(e), e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName1(), 
+      cc.getPieces().add(gen.new Piece(getBindingLink(e), e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName(), 
             e.getBinding().getDefinition()));
       cc.getPieces().add(gen.new Piece(null, " (", null));
       BindingSpecification b = e.getBinding();

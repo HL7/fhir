@@ -752,16 +752,16 @@ public class SpreadsheetParser {
 			cd.setBindingMethod(BindingsParser.readBinding(sheet.getColumn(row, "Binding")));
       String ref = sheet.getColumn(row, "Reference");
       if (!cd.getBinding().equals(BindingMethod.Unbound) && Utilities.noString(ref)) 
-        throw new Exception("binding "+cd.getName1()+" is missing a reference");
+        throw new Exception("binding "+cd.getName()+" is missing a reference");
       if (cd.getBinding() == BindingMethod.CodeList) {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/vs/"+ref.substring(1));
         if (!ref.startsWith("#"))
-          throw new Exception("Error parsing binding "+cd.getName1()+": code list reference '"+ref+"' must started with '#'");
+          throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' must started with '#'");
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
-          throw new Exception("Error parsing binding "+cd.getName1()+": code list reference '"+ref+"' not resolved");
+          throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
         new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version).execute();
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:"))
@@ -775,7 +775,7 @@ public class SpreadsheetParser {
       }			
       cd.setReference(sheet.getColumn(row, "Reference")); // do this anyway in the short term
       
-      cd.setId(registry.idForName(cd.getName1()));
+      cd.setId(registry.idForName(cd.getName()));
       if (cd.getValueSet() != null) {
         ValueSet vs = cd.getValueSet();
         ValueSetUtilities.makeShareable(vs);
@@ -808,60 +808,7 @@ public class SpreadsheetParser {
       cd.setV2Map(sheet.getColumn(row, "v2"));
       cd.setV3Map(checkV3Mapping(sheet.getColumn(row, "v3")));
 
-// // bscodes        
-//			if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
-//				Sheet codes = xls.getSheets().get(
-//						cd.getReference().substring(1));
-//				if (codes == null)
-//					throw new Exception("code source sheet not found for "+ cd.getName() + ": " + cd.getReference());
-//				parseCodes(cd.getCodes(), codes);
-//			}
-			
-			if (cd.getBinding() == BindingMethod.ValueSet && !Utilities.noString(cd.getReference())) {
-			  try {
-			    if (cd.getReference().startsWith("http://hl7.org/fhir")) {
-			    // ok, it's a reference to a value set defined within this build. Since it's an absolute 
-			    // reference, it's into the base infrastructure. That's not loaded yet, so we will try
-			    // to resolve it later
-			  } else if (new File(Utilities.appendSlash(folder)+cd.getReference()+".xml").exists()) {
-			    XmlParser p = new XmlParser();
-			    FileInputStream input = new FileInputStream(Utilities.appendSlash(folder)+cd.getReference()+".xml");
-	        cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
-			  } else if (new File(Utilities.appendSlash(folder)+cd.getReference()+".json").exists()) {
-			    JsonParser p = new JsonParser();
-			    FileInputStream input = new FileInputStream(Utilities.appendSlash(folder)+cd.getReference()+".json");
-			    cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
-			  } else if (new File(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".xml").exists()) {
-			    XmlParser p = new XmlParser();
-			    FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".xml");
-			    cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
-			  } else if (new File(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json").exists()) {
-			    JsonParser p = new JsonParser();
-			    FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json");
-			    cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
-        } else if (new File(Utilities.appendSlash(txFolder)+cd.getReference()+".xml").exists()) {
-          XmlParser p = new XmlParser();
-          FileInputStream input = new FileInputStream(Utilities.appendSlash(txFolder)+cd.getReference()+".xml");
-          cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
-        } else if (new File(Utilities.appendSlash(txFolder)+cd.getReference()+".json").exists()) {
-          JsonParser p = new JsonParser();
-          FileInputStream input = new FileInputStream(Utilities.appendSlash(txFolder)+cd.getReference()+".json");
-          cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
-			  } else
-			    throw new Exception("Unable to find source"); 
-        } catch (Exception e) {
-          throw new Exception(e.getMessage() + "for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)", e);          
-        }
-			  if (cd.getReferredValueSet() != null) {
-			    cd.getReferredValueSet().setId(FormatUtilities.makeId(cd.getReference()));
-          cd.getReferredValueSet().setUserData("filename", cd.getReference()+".html");
-          if (!cd.getReferredValueSet().hasExperimental())
-            cd.getReferredValueSet().setExperimental(true);
-          if (!cd.getReferredValueSet().hasVersion())
-            cd.getReferredValueSet().setVersion(version);
-			  }
-			}
-			result.put(cd.getName1(), cd);
+			result.put(cd.getName(), cd);
 	    if (cd.getValueSet() != null) {
 	      ValueSet vs = cd.getValueSet();
 	      vsGen.updateHeader(cd, cd.getValueSet());

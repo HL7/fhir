@@ -814,7 +814,7 @@ public class SvgGenerator extends BaseGenerator {
   private String describeBinding(ElementDefn e) {
     BindingSpecification b = e.getBinding();
     if (e.hasBinding() && b.getBinding() != BindingMethod.Unbound) {
-      String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName1();
+      String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName();
       if (b.getStrength() == BindingStrength.EXAMPLE)
         return " \u00AB ("+name+") \u00BB";
       else if (b.getStrength() == BindingStrength.PREFERRED)
@@ -870,7 +870,7 @@ public class SvgGenerator extends BaseGenerator {
         if (e.hasBinding() && e.getBinding().getBinding() != BindingMethod.Unbound) {
           BindingSpecification b = e.getBinding();
           xml.text(" \u00AB ");
-          String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName1();
+          String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName();
           if (b.getStrength() == BindingStrength.EXAMPLE) {
             xml.text("(");
             xml.attribute("xlink:href", getBindingLink(e));
