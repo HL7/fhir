@@ -95,18 +95,18 @@ public class BindingConverter
 		result.setV2Map(spec.getV2Map());
 		result.setV3Map(spec.getV3Map());
 		
-		ValueSet vs = spec.getValueSet();
-		if (vs != null && vs.hasDefine())
-		for( ConceptDefinitionComponent code : vs.getDefine().getConcept() )
+		//ValueSet vs = spec.getValueSet();
+		//if (vs != null && vs.hasDefine())
+		for( org.hl7.fhir.definitions.model.DefinedCode code : spec.getAllCodes() )
 		{
-			convertFromFhirDefinedCode(result.getCode(), code, vs.getDefine().getSystem(), null);
+			convertFromFhirDefinedCode(result.getCode(), code, null);
 		}
 		
 		return result;
 	}
 
 	
-	public static void convertFromFhirDefinedCode(EList<DefinedCode> eList, ConceptDefinitionComponent code, String system, String parent) 
+	public static void convertFromFhirDefinedCode(EList<DefinedCode> eList, org.hl7.fhir.definitions.model.DefinedCode code, String parent) 
 	{
 		DefinedCode result = FhirFactory.eINSTANCE.createDefinedCode();
 		eList.add( result );
@@ -115,17 +115,17 @@ public class BindingConverter
 		result.setCode( code.getCode() );
 		result.setDefinition( Utilities.cleanupTextString(code.getDefinition()) );
 		result.setDisplay( Utilities.cleanupTextString(code.getDisplay()));
-		result.setSystem( Utilities.cleanupTextString(system));
-		result.setComment( Utilities.cleanupTextString(ToolingExtensions.getComment(code)));
-    result.setV2Map(code.getUserString("v2Map"));
-    result.setV3Map(code.getUserString("v3Map"));
+		result.setSystem( Utilities.cleanupTextString(code.getSystem()));
+		result.setComment( Utilities.cleanupTextString(code.getComment()));
+    result.setV2Map(code.getV2Map());
+    result.setV3Map(code.getV3Map());
     
 		if( !Utilities.noString(parent) )
 		  result.setParent(parent);
 		
-    for( ConceptDefinitionComponent child : code.getConcept() )
+    for( org.hl7.fhir.definitions.model.DefinedCode child : code.getChildCodes() )
     {
-      convertFromFhirDefinedCode(eList, child, system, code.getCode());
+      convertFromFhirDefinedCode(eList, child, code.getCode());
     }
 	}
 

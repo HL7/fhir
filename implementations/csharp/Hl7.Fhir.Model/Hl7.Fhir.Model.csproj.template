@@ -88,14 +88,15 @@
     <Compile Include="OperationOutcome.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceReference.cs" />
+    <Compile Include="Support\IPositionInfo.cs" />
     <Compile Include="Support\Logging.cs" />
+    <Compile Include="Support\NullExtensions.cs" />
     <Compile Include="Support\ReflectionHelper.cs" />
     <Compile Include="Support\StringExtensions.cs" />
     <Compile Include="Support\XmlNs.cs" />
     <Compile Include="Uuid.cs" />
     <Compile Include="Validation\DotNetAttributeValidation.cs" />
     <Compile Include="ValueSet.cs" />
-    <Compile Include="XHtml.cs" />
     <Compile Include="Introspection\NotMappedAttribute.cs" />
     <Compile Include="Introspection\FhirEnumerationAttribute.cs" />
     <Compile Include="Introspection\EnumLiteralAttribute.cs" />
