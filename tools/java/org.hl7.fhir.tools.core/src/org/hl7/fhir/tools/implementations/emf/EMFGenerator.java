@@ -1,4 +1,5 @@
 package org.hl7.fhir.tools.implementations.emf;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -154,6 +155,11 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
   @Override
   public void verify(String filename) throws Exception {
     throw new Exception("this should not be called");
+  }
+
+  @Override
+  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+    throw new Error("This should not be called");
   }
 
 }

@@ -29,6 +29,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -265,5 +266,10 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) {
   @Override
 public String checkFragments(String rootDir, String fragments) throws Exception {
     return "Not supported by C# implementation";
+  }
+
+  @Override
+  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+    throw new Error("This should not be called");
   }
 }

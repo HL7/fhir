@@ -28,6 +28,7 @@ package org.hl7.fhir.tools.implementations;
  POSSIBILITY OF SUCH DAMAGE.
 
  */
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -105,6 +106,11 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   @Override
   public String getVersion() {
     return "0.01";
+  }
+
+  @Override
+  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+    throw new Error("This should not be called");
   }
 
 }

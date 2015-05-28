@@ -3596,8 +3596,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+(resource.getWg() == null ? "" : "<p>This resource maintained by the <a _target=\"blank\" href=\""+resource.getWg().getUrl()+"\">"+resource.getWg().getName()+"</a> Work Group</p>\r\n")+s3;
       else if (com[0].equals("example-list")) 
         src = s1+produceExampleList(resource)+s3;
-      else if (com[0].equals("examples-book")) 
-        src = s1+produceBookExamples(resource)+s3;
       else if (com[0].equals("name"))
         src = s1+name+s3;
       else if (com[0].equals("search"))
@@ -4264,18 +4262,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("</tr>");
   }
   
-  private String produceBookExamples(ResourceDefn resource) {
-    StringBuilder s = new StringBuilder();
-    for (Example e: resource.getExamples()) {
-      s.append("<h3>").append(Utilities.escapeXml(e.getName())).append("</h3>\r\n");
-      s.append("<p>XML</p>\r\n");
-      s.append(e.getXhtm());
-      s.append("<p>JSON</p>\r\n");
-      s.append(e.getJson());
-    }
-    return s.toString();
-  }
-
   private static final String HTML_PREFIX1 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_PREFIX2 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_SUFFIX = "</div>\r\n";

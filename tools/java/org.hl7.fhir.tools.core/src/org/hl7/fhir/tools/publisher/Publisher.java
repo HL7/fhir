@@ -339,6 +339,8 @@ public class Publisher implements URIResolver {
   private String singleResource;
   private String singlePage;
 
+  private Map<String, Example> processingList = new HashMap<String, Example>();
+  
   private boolean genRDF;
 
   public static void main(String[] args) throws Exception {
@@ -542,9 +544,10 @@ public class Publisher implements URIResolver {
     }
 
     if (isGenerate) {
-      page.log("Clear Directory", LogMessageType.Process);
-      if (buildFlags.get("all"))
+      if (web) {
+        page.log("Clear Directory", LogMessageType.Process);
         Utilities.clearDirectory(page.getFolders().dstDir);
+      }
       Utilities.createDirectory(page.getFolders().dstDir + "html");
       Utilities.createDirectory(page.getFolders().dstDir + "examples");
 
@@ -558,7 +561,7 @@ public class Publisher implements URIResolver {
     } else if (genRDF) 
       processRDF();
 
-    validateXml();
+    validationProcess();
     if (isGenerate && buildFlags.get("all"))
       produceQA();
     if (!buildFlags.get("all")) {
@@ -1685,7 +1688,8 @@ public class Publisher implements URIResolver {
         produceCompartment(c);
       }
     }
-
+    processExamplesByBatch();
+    
     for (String n : page.getIni().getPropertyNames("pages")) {
       if (buildFlags.get("all") || buildFlags.get("page-" + n.toLowerCase())) {
         page.log(" ...page " + n, LogMessageType.Process);
@@ -3415,36 +3419,9 @@ public class Publisher implements URIResolver {
       page.getConceptMaps().put(cm.getUrl(), cm);
     }
 
-    // generate the canonical xml version (use the java reference platform)
-    try {
-      javaReferencePlatform.canonicaliseXml(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".canonical.xml");
-    } catch (Throwable t) {
-      System.out.println("Error processing " + page.getFolders().dstDir + n + ".xml");
-      t.printStackTrace(System.err);
-      TextFile.stringToFile(t.getMessage(), page.getFolders().dstDir + n + ".canonical.xml");
-    }
-
-    String json;
-    // generate the json version (use the java reference platform)
-    try {
-      json = javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
-    } catch (Throwable t) {
-      System.out.println("Error processing " + page.getFolders().dstDir + n + ".xml");
-      t.printStackTrace(System.err);
-      TextFile.stringToFile(t.getMessage(), page.getFolders().dstDir + n + ".json");
-      json = t.getMessage();
-    }
-
-    String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+ n + ".json\">Raw JSON</a> (<a href=\""+n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
-        + "\r\n</pre>\r\n</div>\r\n";
-    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
-        + "\r\n</pre>\r\n</div>\r\n";
-    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-    html = page.processPageIncludes(n + ".json.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, null, null, "Example");
-    TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
-
-    page.getEpub().registerExternal(n + ".json.html");
-    e.setJson(json2);
+    // queue for json and canonical XML generation processing
+    e.setResourceName(resourceName);
+    processingList.put(n, e);
 
     // reload it now, xml to xhtml of xml
     builder = factory.newDocumentBuilder();
@@ -3453,7 +3430,7 @@ public class Publisher implements URIResolver {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()
         + " (id = \"" + e.getId() + "\")", 0, true, n + ".xml.html");
-    html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
     html = page.processPageIncludes(n + ".xml.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example");
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
     XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.html"), "html");
@@ -3477,10 +3454,33 @@ public class Publisher implements URIResolver {
     // TextFile.stringToFile(head+narrative+tail, page.getFolders().dstDir + n +
     // ".html");
     page.getEpub().registerExternal(n + ".html");
-    page.getEpub().registerExternal(n + ".json.html");
     page.getEpub().registerExternal(n + ".xml.html");
   }
 
+  private void processExamplesByBatch() throws Exception {
+    page.log(" ...process examples", LogMessageType.Process);
+    
+    try {
+      javaReferencePlatform.processExamples(page.getFolders().dstDir, page.getFolders().tmpDir, processingList.keySet());
+    } catch (Throwable t) {
+      System.out.println("Error processing examples");
+      t.printStackTrace(System.err);
+    }
+    for (String n : processingList.keySet()) {
+      Example e = processingList.get(n);
+      String json = TextFile.fileToString(page.getFolders().dstDir + n + ".json");
+      String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+ n + ".json\">Raw JSON</a> (<a href=\""+n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
+          + "\r\n</pre>\r\n</div>\r\n";
+      json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
+          + "\r\n</pre>\r\n</div>\r\n";
+      String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
+      html = page.processPageIncludes(n + ".json.html", html, e.getResourceName() == null ? "profile-instance:resource:" + e.getResourceName() : "resource-instance:" + e.getResourceName(), null, null, null, "Example");
+      TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
+
+      page.getEpub().registerExternal(n + ".json.html");
+    }
+  }
+    
   private String buildLoincExample(String filename) throws FileNotFoundException, Exception {
     LoincToDEConvertor conv = new LoincToDEConvertor();
     conv.setDefinitions(Utilities.path(page.getFolders().srcDir, "loinc", "loincS.xml"));
@@ -4205,6 +4205,11 @@ public class Publisher implements URIResolver {
 
   private List<ValidationMessage> validationErrors;
 
+  private void validationProcess() throws Exception {
+    validateXml();
+    roundTrip();
+  }
+  
   private void validateXml() throws Exception {
     if (buildFlags.get("all") && isGenerate)
       produceCoverageWarnings();
@@ -4278,19 +4283,34 @@ public class Publisher implements URIResolver {
     logError("Summary: Errors="+Integer.toString(errorCount)+", Warnings="+Integer.toString(warningCount)+", Hints="+Integer.toString(informationCount), LogMessageType.Error);
     if (errorCount > 0)
       throw new Exception("Resource Examples failed instance validation");
-
+  }
+  
+  private void roundTrip() throws Exception {
     page.log("Reference Platform Validation", LogMessageType.Process);
 
+    processingList.clear();
+    
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       if (wantBuild(rname)) {
         for (Example e : r.getExamples()) {
           String n = e.getFileTitle();
-          page.log(" ...test " + n, LogMessageType.Process);
-          validateRoundTrip(schema, n);
+          processingList.put(n, e);
         }
       }
     }
+    for (PlatformGenerator gen : page.getReferenceImplementations()) {
+      if (gen.doesTest()) {
+        page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
+        gen.test(page.getFolders().dstDir, page.getFolders().tmpDir, processingList.keySet());
+      }
+    }
+    
+    for (String n : processingList.keySet()) {    
+      page.log(" ...test " + n, LogMessageType.Process);
+      validateRoundTrip(n);
+    }
+
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
       for (SearchParameterDefn sp : r.getSearchParams().values()) {
@@ -4444,12 +4464,11 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void validateRoundTrip(Schema schema, String n) throws Exception {
+  private void validateRoundTrip(String n) throws Exception {
+    testSearchParameters(page.getFolders().dstDir + n + ".xml");
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
       if (gen.doesTest()) {
-        gen.loadAndSave(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n + "-tmp.xml");
-        testSearchParameters(page.getFolders().dstDir + n + ".xml");
-        compareXml(n, gen.getName(), page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n + "-tmp.xml");
+        compareXml(n, gen.getName(), page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n + "."+gen.getName()+".xml");
       }
     }
   }
@@ -4527,18 +4546,18 @@ public class Publisher implements URIResolver {
     if (!TextFile.fileToString(tmp1.getAbsolutePath()).equals(TextFile.fileToString(tmp2.getAbsolutePath()))) {
       page.log("file " + t + " did not round trip perfectly in XML in platform " + n, LogMessageType.Warning);
       String diff = diffProgram != null ? diffProgram : System.getenv("ProgramFiles(X86)") + sc + "WinMerge" + sc + "WinMergeU.exe";
-      if (new CSFile(diff).exists()) {
-        List<String> command = new ArrayList<String>();
-        command.add("\"" + diff + "\" \"" + tmp1.getAbsolutePath() + "\" \"" + tmp2.getAbsolutePath() + "\"");
-
-        ProcessBuilder builder = new ProcessBuilder(command);
-        builder.directory(new CSFile(page.getFolders().rootDir));
-        final Process process = builder.start();
-        process.waitFor();
-      } else {
-        // no diff program
-        page.log("Files for diff: '" + fn1 + "' and '" + fn2 + "'", LogMessageType.Warning);
-      }
+//      if (new CSFile(diff).exists()) {
+//        List<String> command = new ArrayList<String>();
+//        command.add("\"" + diff + "\" \"" + tmp1.getAbsolutePath() + "\" \"" + tmp2.getAbsolutePath() + "\"");
+//
+//        ProcessBuilder builder = new ProcessBuilder(command);
+//        builder.directory(new CSFile(page.getFolders().rootDir));
+//        final Process process = builder.start();
+//        process.waitFor();
+//      } else {
+//        // no diff program
+//        page.log("Files for diff: '" + fn1 + "' and '" + fn2 + "'", LogMessageType.Warning);
+//      }
     }
   }
 

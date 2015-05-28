@@ -352,8 +352,8 @@ begin
   FBufferedData := TStringBuilder.Create;
   FEncoding := Encoding;
   FBufferSize := BufferSize;
-  if FBufferSize < 128 then
-    FBufferSize := 128;
+  if FBufferSize < 12 then
+    FBufferSize := 12;
   FNoDataInStream := False;
   FStream := aStream;
   FDetectBOM := DetectBOM;
@@ -462,7 +462,7 @@ begin
   LString := FEncoding.GetString(LBuffer, StartIndex, ByteBufLen);
   except
     on e : Exception do
-      raise Exception.Create(e.message + ' @~'+inttostr(FCursor));
+      raise Exception.Create(e.message + ' between bytes '+inttostr(FCursor-ByteBufLen)+' and '+inttostr(FCursor));
   end;
   ByteCount := FEncoding.GetByteCount(LString);
 

@@ -754,7 +754,7 @@ end;
 
 constructor TJSONLexer.Create(oStream: TAdvStream);
 begin
-  Inherited Create(oStream);
+  Inherited Create(oStream, TEncoding.UTF8, true, 12000);
   FStates := TStringList.Create;
 end;
 

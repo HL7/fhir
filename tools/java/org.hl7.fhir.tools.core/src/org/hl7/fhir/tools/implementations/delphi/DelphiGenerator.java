@@ -33,6 +33,7 @@ import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -60,6 +61,7 @@ import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
+import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
@@ -3366,7 +3368,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     if (exe == null)
       exe = Utilities.path(Utilities.getDirectoryForFile(Utilities.getDirectoryForFile(rootDir)), "implementations", "pascal", "fhirtest.exe");
     if (!(new File(exe).exists()))
-      throw new Exception("Delphi tool helper executeable not found "+exe);
+      throw new Exception("Delphi tool helper executable not found "+exe);
     List<String> command = new ArrayList<String>();
     command.add(exe);
     command.add(sourceFile);
@@ -3382,7 +3384,43 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       throw new Exception(TextFile.fileToString(destFile+".err"));
     if (!(new File(destFile).exists()))
       throw new Exception("Neither output nor error file created");
+  }
 
+  @Override
+  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+    if (exe == null)
+      exe = Utilities.path(Utilities.getDirectoryForFile(Utilities.getDirectoryForFile(rootDir)), "implementations", "pascal", "fhirtest.exe");
+    if (!(new File(exe).exists()))
+      throw new Exception("Delphi tool helper executable not found "+exe);
+
+    StringBuilder b = new StringBuilder();
+    b.append(rootDir);
+    b.append("\r\n");
+    b.append(tmpDir);
+    b.append("\r\n");
+    for (String n : names) {
+      b.append(n);
+      b.append("\r\n");
+    }
+    String ctrl = tmpDir+"ctrl-pascal.ini";
+    TextFile.stringToFileNoPrefix(b.toString(), ctrl);
+    String err = tmpDir+"ctrl-pascal.out";
+    File file = new CSFile(err);
+    if (file.exists())
+      file.delete();
+    List<String> command = new ArrayList<String>();
+    command.add(exe);
+    command.add("-tests");
+    command.add(ctrl);
+    command.add(err);
+
+    ProcessBuilder builder = new ProcessBuilder(command);
+    builder.directory(new File(Utilities.getDirectoryForFile(exe)));
+    final Process process = builder.start();
+    process.waitFor();
+    String result = TextFile.fileToString(err);
+    if (!"ok".equals(result))
+      throw new Exception(result);
   }
 
   @Override

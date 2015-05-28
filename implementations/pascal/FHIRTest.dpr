@@ -276,9 +276,25 @@ begin
   raise Exception.Create('Not Done Yet');
 end;
 
+procedure dotest(src, dst : String; names : TStringList);
+var
+  s : String;
+begin
+  for s in names do
+    try
+      roundtrip(src+s+'.xml', dst+s+'.pascal.xml');
+    except
+      on e : exception do
+        raise Exception.Create('Error Processing '+s+': '+e.message);
+    end;
+end;
+
 procedure DoBuildEntry;
 var
   certpath, certtype, password : String;
+  f : System.Text;
+  st : TStringList;
+  src, dst, s : String;
 begin
   try
     CoInitialize(nil);
@@ -299,6 +315,39 @@ begin
       else if (paramstr(1) = '-signprovenance') then
       begin
         raise Exception.Create('Not Done Yet');
+      end
+      else if (paramstr(1) = '-tests') then
+      begin
+        try
+          AssignFile(f, paramstr(2));
+          reset(f);
+          st :=  TStringList.Create;
+          try
+            readln(f, src);
+            readln(f, dst);
+            while not (eof(f)) do
+            begin
+              readln(f, s);
+              st.Add(s);
+            end;
+            dotest(src, dst, st);
+          finally
+            st.Free;
+          end;
+          CloseFile(f);
+          AssignFile(f, paramstr(3));
+          Rewrite(f);
+          write(f, 'ok');
+          closeFile(f);
+        except
+          on e:exception do
+          begin
+            AssignFile(f, paramstr(3));
+            Rewrite(f);
+            write(f, e.Message);
+            closeFile(f);
+          end;
+        end;
       end
       else if (paramstr(1) = '-verify') then
       begin

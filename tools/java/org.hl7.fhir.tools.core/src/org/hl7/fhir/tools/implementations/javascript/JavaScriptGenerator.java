@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -146,6 +147,11 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
   @Override
   public String checkFragments(String rootDir, String fragmentsXml) throws Exception {
     return null;
+  }
+
+  @Override
+  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+    throw new Error("This should not be called");
   }
 
 }

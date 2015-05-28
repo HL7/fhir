@@ -35,6 +35,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -467,7 +468,6 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     } else if (name.endsWith(".java")) {
       classes.add(f);
     }
-    
   }
 
   private void AddJarToJar(JarOutputStream jar, String name, List<String> names) throws Exception {
@@ -579,53 +579,39 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
     }
   }
 
-  public String convertToJson(String rootDir, String sourceFile, String destFile) throws Exception {
+  public void processExamples(String rootDir, String tmpDir, Collection<String> names) throws Exception {
     // for debugging: do it in process
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
-      String[] cmds = new String[] {"json", sourceFile, destFile};    
-      return t.executeJson(cmds);
+      t.processExamples(rootDir, names);
     } else {
-
-      // execute the jar file javatest.jar
-      // it will produce either the specified output file, or [output file].err with an exception
-      // 
-      File file = new CSFile(destFile);
+      StringBuilder b = new StringBuilder();
+      b.append(rootDir);
+      b.append("\r\n");
+      for (String n : names) {
+        b.append(n);
+        b.append("\r\n");
+      }
+      String ctrl = tmpDir+"ctrl-java.ini";
+      TextFile.stringToFileNoPrefix(b.toString(), ctrl);
+      String err = tmpDir+"ctrl-java.out";
+      File file = new CSFile(err);
       if (file.exists())
         file.delete();
-      file = new CSFile(destFile+".err");
-      if (file.exists())
-        file.delete();
-
       List<String> command = new ArrayList<String>();
       command.add("java");
       command.add("-jar");
       command.add("org.hl7.fhir.tools.jar");
-      command.add("json");
-      command.add(sourceFile);
-      command.add(destFile);
+      command.add("examples");
+      command.add(ctrl);
 
       ProcessBuilder builder = new ProcessBuilder(command);
       builder.directory(new File(rootDir));
-
       final Process process = builder.start();
-      BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-      String s;
-      while ((s = stdError.readLine()) != null) {
-        System.err.println(s);
-      }    
-
       process.waitFor();
-      if (new File(destFile+".err").exists())
-        throw new Exception(TextFile.fileToString(destFile+".err"));
-      if (!(new File(destFile+".tmp").exists()))
-        throw new Exception("Neither output nor error file created doing json conversion");    
-      if (new File(destFile+".tmp").length() == 0)
-        throw new Exception("Output file '"+destFile+".tmp' empty");  
-      String txt = TextFile.fileToString(destFile+".tmp");
-      new File(destFile+".tmp").delete();
-      return txt;
-      
+      String result = TextFile.fileToString(err);
+      if (!"ok".equals(result))
+        throw new Exception(result);
     } 
   }
 
@@ -712,6 +698,44 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       if (new File(destFile+".err").exists())
         throw new Exception(TextFile.fileToString(destFile+".err"));
     } 
+  }
+
+  @Override
+  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+    if (IN_PROCESS) {
+      ToolsHelper t = new ToolsHelper();
+      t.testRoundTrip(rootDir, tmpDir, names);
+    } else {
+      StringBuilder b = new StringBuilder();
+      b.append(rootDir);
+      b.append("\r\n");
+      b.append(tmpDir);
+      b.append("\r\n");
+      for (String n : names) {
+        b.append(n);
+        b.append("\r\n");
+      }
+      String ctrl = tmpDir+"ctrl-java.ini";
+      TextFile.stringToFileNoPrefix(b.toString(), ctrl);
+      String err = tmpDir+"ctrl-java.out";
+      File file = new CSFile(err);
+      if (file.exists())
+        file.delete();
+      List<String> command = new ArrayList<String>();
+      command.add("java");
+      command.add("-jar");
+      command.add("org.hl7.fhir.tools.jar");
+      command.add("test");
+      command.add(ctrl);
+
+      ProcessBuilder builder = new ProcessBuilder(command);
+      builder.directory(new File(rootDir));
+      final Process process = builder.start();
+      process.waitFor();
+      String result = TextFile.fileToString(err);
+      if (!"ok".equals(result))
+        throw new Exception(result);
+    }
   }
 
 }

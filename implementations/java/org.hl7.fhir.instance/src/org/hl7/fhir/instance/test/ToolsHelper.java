@@ -33,14 +33,20 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.codec.Charsets;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
@@ -68,6 +74,10 @@ public class ToolsHelper {
         throw new Exception("Missing Command Parameter. Valid Commands: round, json, version, fragments, snapshot-maker");
       if (args[0].equals("round")) 
         self.executeRoundTrip(args);
+      if (args[0].equals("test")) 
+        self.executeTest(args);
+      if (args[0].equals("examples")) 
+        self.executeExamples(args);
       else if (args[0].equals("json")) 
         self.executeJson(args);
       else if (args[0].equals("cxml")) 
@@ -88,6 +98,19 @@ public class ToolsHelper {
         e1.printStackTrace();
       }
     }
+  }
+
+	private void executeExamples(String[] args) throws Exception {
+  	try {
+  		@SuppressWarnings("unchecked")
+  		List<String> lines = FileUtils.readLines(new File(args[1]), "UTF-8");
+  		String srcDir = lines.get(0);
+  		lines.remove(0);
+  		processExamples(srcDir, lines);
+  		TextFile.stringToFile("ok", Utilities.changeFileExt(args[1], ".out"));
+  	} catch (Exception e) {
+  		TextFile.stringToFile(e.getMessage(), Utilities.changeFileExt(args[1], ".out"));			
+  	}
   }
 
 	private void generateSnapshots(String[] args) throws Exception {
@@ -319,4 +342,63 @@ public class ToolsHelper {
     TextFile.stringToFile(org.hl7.fhir.instance.utils.Version.VERSION+":"+Constants.VERSION, args[1]);
   }
 
+  public void processExamples(String rootDir, Collection<String> list) throws Exception {
+    for (String n : list) {
+      String filename = rootDir + n + ".xml";
+      // 1. produce canonical XML
+      CSFileInputStream source = new CSFileInputStream(filename);
+      FileOutputStream dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.xml"));
+      XmlParser p = new XmlParser();
+      Resource r = p.parse(source);
+      XmlParser cxml = new XmlParser();
+      cxml.setOutputStyle(OutputStyle.CANONICAL);
+      cxml.compose(dest, r);
+
+      // 2. produce JSON
+      source = new CSFileInputStream(filename);
+      dest = new FileOutputStream(Utilities.changeFileExt(filename, ".json"));
+      r = p.parse(source);
+      JsonParser json = new JsonParser();
+      json.setOutputStyle(OutputStyle.PRETTY);
+      json.compose(dest, r);
+    }
+  }
+
+  public void testRoundTrip(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+    for (String n : names) {
+      String source = rootDir + n + ".xml";
+      // String tmpJson = tmpDir + n + ".json";
+      String dest = tmpDir + n + ".java.xml";
+      
+      FileInputStream in = new FileInputStream(source);
+      XmlParser xp = new XmlParser();
+      Resource r = xp.parse(in);
+      JsonParser jp = new JsonParser();
+      ByteArrayOutputStream json = new ByteArrayOutputStream();
+      jp.setOutputStyle(OutputStyle.PRETTY);
+      jp.compose(json, r);
+      json.close();
+      // TextFile.stringToFile(new String(json.toByteArray()), tmpJson);
+      
+      r = jp.parse(new ByteArrayInputStream(json.toByteArray()));
+      FileOutputStream s = new FileOutputStream(dest);
+      new XmlParser().compose(s, r, true);
+      s.close();
+    }
+  }
+
+  private void executeTest(String[] args) throws Exception {
+  	try {
+  		@SuppressWarnings("unchecked")
+  		List<String> lines = FileUtils.readLines(new File(args[1]), "UTF-8");
+  		String srcDir = lines.get(0);
+  		lines.remove(0);
+  		String dstDir = lines.get(0).trim();
+  		lines.remove(0);
+  		testRoundTrip(srcDir, dstDir, lines);
+  		TextFile.stringToFile("ok", Utilities.changeFileExt(args[1], ".out"));
+  	} catch (Exception e) {
+  		TextFile.stringToFile(e.getMessage(), Utilities.changeFileExt(args[1], ".out"));			
+  	}
+  }
 }

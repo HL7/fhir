@@ -27,6 +27,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -129,6 +130,16 @@ public interface PlatformGenerator {
    * @throws Exception 
    */
   public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception;
+  
+  /**
+   * Load a set of source Files to the object model, then save them to [tmp]\*.xx.xml
+   * where xx is getName()
+   * 
+   * Both dest and source should be XML. The build tool will check if the 
+   * canonical XML of the source and dest are the same. If so, it passes
+   * 
+   */
+  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception;
   
   /**
    * Used during the build to check the syntactical validity of fragments. We use the 
