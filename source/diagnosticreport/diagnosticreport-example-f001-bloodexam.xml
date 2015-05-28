@@ -81,7 +81,7 @@
     </coding>
   </serviceCategory>
 
-  <diagnosticDateTime value="2013-04-02"/>
+  <effectiveDateTime value="2013-04-02"/>
   <result>
     <reference value="Observation/f001"/>
   </result>

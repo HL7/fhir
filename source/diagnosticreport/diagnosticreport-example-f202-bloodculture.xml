@@ -50,7 +50,7 @@
       <code value="LAB" />
     </coding>
   </serviceCategory>
-  <diagnosticDateTime value="2013-03-11T03:45:00+01:00"/>
+  <effectiveDateTime value="2013-03-11T03:45:00+01:00"/>
   <result>
     <reference value="Observation/f206"/>
     <display value="Results for staphylococcus analysis on Roel's blood culture"/>

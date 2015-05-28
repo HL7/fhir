@@ -50,7 +50,7 @@ see narrative
 		<reference value="DiagnosticOrder/uslab-example1"/>
 		<display value="USLan Example1"/>
 	</requestDetail>
-	<diagnosticDateTime value="2014-12-05"/>
+	<effectiveDateTime value="2014-12-05"/>
 	<specimen><reference value="Specimen/uslab-example1"></reference><display value="Blood Sample"></display></specimen>
 	<!-- now the atomic result -->
 	<result>

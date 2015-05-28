@@ -625,7 +625,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     <code value="HM"/>
   </coding>
   </serviceCategory>
-  <diagnosticDateTime value="2011-03-04T08:30:00+11:00"/>
+  <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
 
   <!-- now the atomic results -->
   <result>

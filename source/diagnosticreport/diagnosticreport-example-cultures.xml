@@ -20,7 +20,7 @@
   <performer>
     <reference value="Organization/acme-lab"/>
   </performer>
-  <diagnosticDateTime value="2013-03-04T18:00:00"/>
+  <effectiveDateTime value="2013-03-04T18:00:00"/>
     <group>
       <code>
         <text value="Streptococcus lactis"/>

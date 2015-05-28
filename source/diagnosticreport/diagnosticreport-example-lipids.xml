@@ -170,7 +170,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       <code value="HM"/>
     </coding>
   </serviceCategory>
-  <diagnosticDateTime value="2011-03-04T08:30:00+11:00"/>
+  <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
   <!-- now the atomic results -->
   <result>
     <reference value="#cholesterol"/>

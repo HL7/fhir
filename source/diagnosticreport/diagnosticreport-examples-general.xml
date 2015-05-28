@@ -1059,7 +1059,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2005-01-27T06:40:17Z"/>
+        <effectiveDateTime value="2005-01-27T06:40:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -2012,7 +2012,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-08T07:45:17Z"/>
+        <effectiveDateTime value="2004-12-08T07:45:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -2950,7 +2950,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-15T07:20:17Z"/>
+        <effectiveDateTime value="2004-12-15T07:20:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -3883,7 +3883,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-22T07:45:17Z"/>
+        <effectiveDateTime value="2004-12-22T07:45:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -4802,7 +4802,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-03T09:45:17Z"/>
+        <effectiveDateTime value="2004-12-03T09:45:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -5723,7 +5723,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-03T20:30:17Z"/>
+        <effectiveDateTime value="2004-12-03T20:30:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -6644,7 +6644,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-05T07:15:17Z"/>
+        <effectiveDateTime value="2004-12-05T07:15:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -7566,7 +7566,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2005-01-27T06:40:17Z"/>
+        <effectiveDateTime value="2005-01-27T06:40:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -8516,7 +8516,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-08T07:45:17Z"/>
+        <effectiveDateTime value="2004-12-08T07:45:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -9454,7 +9454,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-15T07:20:17Z"/>
+        <effectiveDateTime value="2004-12-15T07:20:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -10387,7 +10387,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-22T07:45:17Z"/>
+        <effectiveDateTime value="2004-12-22T07:45:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -11306,7 +11306,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-03T09:45:17Z"/>
+        <effectiveDateTime value="2004-12-03T09:45:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -12227,7 +12227,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-03T20:30:17Z"/>
+        <effectiveDateTime value="2004-12-03T20:30:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -13148,7 +13148,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2004-12-05T07:15:17Z"/>
+        <effectiveDateTime value="2004-12-05T07:15:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -13689,7 +13689,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2005-11-07T21:44:17Z"/>
+        <effectiveDateTime value="2005-11-07T21:44:17Z"/>
         <specimen>
           <display value="URINE, CLEAN CATCH/MIDSTREAM"/>
         </specimen>
@@ -13799,7 +13799,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
         </identifier>
-        <diagnosticDateTime value="2005-03-07T14:02:17Z"/>
+        <effectiveDateTime value="2005-03-07T14:02:17Z"/>
         <result>
           <reference value="#o1"/>
         </result>
@@ -13880,7 +13880,7 @@
           <system value="http://acme.com/lab/reports"/>
           <value value="23412355"/>
         </identifier>
-        <diagnosticDateTime value="2012-05-21T10:45:00Z"/>
+        <effectiveDateTime value="2012-05-21T10:45:00Z"/>
         <result>
           <reference value="#o1"/>
         </result>

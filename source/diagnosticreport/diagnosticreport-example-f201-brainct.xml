@@ -31,7 +31,7 @@
          <code value="RAD" />
      </coding>
  </serviceCategory>
- <diagnosticDateTime value="2012-12-01T12:00:00+01:00"/>
+ <effectiveDateTime value="2012-12-01T12:00:00+01:00"/>
  <!--The CT image was not available-->
  <conclusion value="CT brains: large tumor sphenoid/clivus."/>
  <codedDiagnosis>
