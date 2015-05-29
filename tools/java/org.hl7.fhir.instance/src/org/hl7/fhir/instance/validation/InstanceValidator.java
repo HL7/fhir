@@ -1615,28 +1615,31 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       }
     }
     if (type.equals("dateTime")) {
-      rule(errors, "invalid", e.line(), e.col(), path, yearIsValid(e.getAttribute("value")), "The value '"+e.getAttribute("value")+"' is not a valid year");
+      rule(errors, "invalid", e.line(), e.col(), path, yearIsValid(e.getAttribute("value")), "The value '"+e.getAttribute("value")+"' does not have a valid year");
       rule(errors, "invalid", e.line(), e.col(), path, e.getAttribute("value").matches("-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?"), "Not a valid date time");
       rule(errors, "invalid", e.line(), e.col(), path, !hasTime(e.getAttribute("value")) || hasTimeZone(e.getAttribute("value")), "if a date has a time, it must have a timezone");
       
     }
     if (type.equals("instant")) {
       rule(errors, "invalid", e.line(), e.col(), path, e.getAttribute("value").matches("-?[0-9]{4}-(0[1-9]|1[0-2])-(0[0-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))"), "The instant '"+e.getAttribute("value")+"' is not valid (by regex)");
-      rule(errors, "invalid", e.line(), e.col(), path, yearIsValid(e.getAttribute("value")), "The value '"+e.getAttribute("value")+"' is not a valid year");      
+      rule(errors, "invalid", e.line(), e.col(), path, yearIsValid(e.getAttribute("value")), "The value '"+e.getAttribute("value")+"' does not have a valid year");      
     }
 
     // for nothing to check    
   }
 
   private boolean yearIsValid(String v) {
-    if (Utilities.noString(v) || v.length() < 4)
-      return false;
-    v = v.substring(0, 4);
-    if (!Utilities.IsInteger(v))
-      return false;
-    int i = Integer.parseInt(v);
-    return i >= 1800 && i <= 2100;
+    if (v == null) {
+        return false;
+    }
+    try {
+       int i = Integer.parseInt(v.substring(0, Math.min(4, v.length())));
+       return i >= 1800 && i <= 2100;
+    } catch (NumberFormatException e) {
+       return false;
+    }
   }
+    
   private boolean hasTimeZone(String fmt) {
     return fmt.length() > 10 && (fmt.substring(10).contains("-") || fmt.substring(10).contains("-") || fmt.substring(10).contains("+") || fmt.substring(10).contains("Z"));
   }
