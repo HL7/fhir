@@ -12,6 +12,23 @@ Notes:
   This specimen elements in this resource are provided for when the diagnostic investigation is requested on already existing specimens</li>
  <li>A single specimen should not appear in both DiagnosticOrder.specimen and DiagnosticOrder.item.specimen - DiagnosticOrder.specimen should only be used when the entire order relates to a single specimen, and then there is no need to repeat it for each item</li>
  <li>The clinical notes may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all</li>
+ <li>The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2 ) and the producer of the observations in response to the order ( known the 'Filler' in HL7 v2) .   Use the type code "PLAC" for the Placer Identifier and use the  type code "FILL" for the Filler identifier. See the example code below:
+<pre class="xml">
+
+&lt;!-- Placer identifier--&gt;
+  &lt;identifier&gt;
+  	&lt;type value="PLAC"/&gt;
+  	&lt;system value="http://aceclinic.com"/&gt;
+  	&lt;value value="ORD000123A"/&gt;
+  &lt;/identifier&gt;
+&lt;!-- Filler identifier--&gt;
+  &lt;identifier&gt;
+	&lt;type value="FILL"/&gt;
+	&lt;system value="http://acmelabs.com"/&gt;
+	&lt;value value="567890"/&gt;
+  &lt;/identifier&gt;
+</pre>
+</li>
 </ul>
 
 </div>
