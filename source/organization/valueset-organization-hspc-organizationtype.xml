@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <version value="0.01"/>
+  <name value="HSPC Organization Type"/>
+  <immutable value="true"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="The set of codes that describe a kind of organization."/>
+  <copyright value="Intermountain Healthcare"/>
+  <status value="draft"/>
+  <extensible value="true"/>
+  <date value="2015-05-19"/>
+  <define>
+		<system value="Internountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>	
+			<code value="526758010"/>
+			<display value="Clinic"/>
+			<definition value="A place where outpatients are provided medical treatments or advices."/>
+		</concept>	
+		<concept>	
+			<code value="526758011"/>
+			<display value="Cancer Center"/>
+			<definition value="A center where patients with cancer are cared and treated."/>
+		</concept>	
+		<concept>	
+			<code value="526758012"/>
+			<display value="Dental Office"/>
+			<definition value="A place where dental services are provided."/>
+		</concept>	
+		<concept>	
+			<code value="526758013"/>
+			<display value="Diagnostic Imaging Center"/>
+			<definition value="A center where patients are provided imaging services."/>
+		</concept>	
+		<concept>	
+			<code value="526758014"/>
+			<display value="Dialysis Center"/>
+			<definition value="A center where patients with kidney diseases are provided dialysis services."/>
+		</concept>	
+		<concept>	
+			<code value="526758015"/>
+			<display value="Educational Institute"/>
+			<definition value="A place where people of different ages gain an education."/>
+		</concept>	
+		<concept>	
+			<code value="526758016"/>
+			<display value="Federal Agency"/>
+			<definition value="A government organization set up for a specific purpose such as the management of resources, financial oversight of industries or national security issues."/>
+		</concept>	
+		<concept>	
+			<code value="526758017"/>
+			<display value="Home Health"/>
+			<definition value="An organization which provides assistant health care for people at their homes."/>
+		</concept>	
+		<concept>	
+			<code value="526758018"/>
+			<display value="Hospital"/>
+			<definition value="An institution where the sick or injuried people are provided medical and surgical treatments and nursing cares."/>
+		</concept>	
+		<concept>	
+			<code value="526758019"/>
+			<display value="Hospital Network"/>
+			<definition value="A network or group of hospitals that work together to coordinate and deliver a broad spectrum of services to their community."/>
+		</concept>	
+		<concept>	
+			<code value="526758020"/>
+			<display value="Insurance Company"/>
+			<definition value="A financial institution that sells insurance."/>
+		</concept>	
+		<concept>	
+			<code value="526758021"/>
+			<display value="Medical Laboratory"/>
+			<definition value="A laboratory where tests are done on clinical specimens in order to get information about the health of a patient as pertaining to the diagnosis, treatment, and prevention of disease."/>
+		</concept>	
+		<concept>	
+			<code value="526758022"/>
+			<display value="Nursing Care Facility"/>
+			<definition value="A facility providing skilled, intermediate or custodial nursing care."/>
+		</concept>	
+		<concept>	
+			<code value="526758023"/>
+			<display value="Pharmacy"/>
+			<definition value="A store or a place in the hospital where drugs and medicines are dispensed and sold."/>
+		</concept>	
+		<concept>	
+			<code value="526758024"/>
+			<display value="Surgical Center"/>
+			<definition value="A center where outpatients are provided surgical services."/>
+		</concept>
+  </define>
+</ValueSet>
