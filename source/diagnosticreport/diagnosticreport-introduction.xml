@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-A diagnostic report (in contrast to the <i>DiagnosticReport resource</i>) is the set of information that is typically provided by a diagnostic service
+A diagnostic report is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,
 and codes. The mix varies depending on the nature of the diagnostic procedure, and sometimes on the nature
 of the outcomes for a particular investigation.  In FHIR, the report can conveyed in a variety of ways including a <a href="documents.html">Document</a>, <a href="http.html">RESTful API</a>, or <a href="messaging.html">Messaging </a> framework.  Included within each of these, would be the DiagnosticReport resource itself.
@@ -51,8 +51,7 @@ as described above. Languages other than English have their own variations on th
 This resource uses one particular set of terms. A practitioner "requests" a set of "tests". The
 diagnostic service returns a "report" which may contain a "narrative" - a written summary of the
 outcomes, and/or "results" - the individual pieces of atomic data which each are "observations".
-The results are assembled in "groups" which are nested structures of Observations that can be used to
-represent relationships between the individual data items.
+The results are assembled in "groups" which are nested structures of Observations (traditionally referred to as "panels" or " batteries" by laboratories)that can be used to represent relationships between the individual data items.
 </p>
 
 

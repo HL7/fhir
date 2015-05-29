@@ -23,7 +23,7 @@ specimen from which the result comes.
 There is rarely a need for more than two levels of nesting in the Observation tree. One known use is for organism sensitivities - see <a href="diagnosticreport-micro1.html">this example</a>.
 </li>
 <li>
-Applications consuming diagnostic reports must take careful note of updated reports, and ensure that retracted reports are appropriately handled.
+Applications consuming diagnostic reports must take careful note of updated (revised) reports, and ensure that retracted reports are appropriately handled.
 </li>
 <li>
 For applications providing diagnostic reports, a report should not be final until all the individual data items
