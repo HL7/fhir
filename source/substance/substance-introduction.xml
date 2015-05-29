@@ -16,7 +16,7 @@ The composition of the material can be specified in terms of a mix of other mate
 <div> 
 <h2>Boundaries and Relationships</h2> 
 <p>
-A medication is a substance that is packaged and used for use as an administered medication. 
+A medication is a substance that is packaged and used as an administered medication. 
 The <a href="medication.html">medication resource</a> uses the substance resource to represent 
 the actual ingredients of a medication.
 </p>
