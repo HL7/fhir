@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11640</WindowHeight>
-  <WindowWidth>20610</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowHeight>6720</WindowHeight>
+  <WindowWidth>25260</WindowWidth>
+  <WindowTopX>-15</WindowTopX>
+  <WindowTopY>6660</WindowTopY>
   <TabRatio>663</TabRatio>
   <ActiveSheet>6</ActiveSheet>
   <RefModeR1C1/>
@@ -7984,7 +7984,7 @@
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="281.25"/>
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="252"/>
    <Column ss:StyleID="s115" ss:Width="63"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="56.25">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"> <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Label for profile&#10;Comment the row by starting with '!'</Font> </ss:Data></Comment><NamedCell
@@ -8189,11 +8189,11 @@
     <Cell><Data ss:Type="String">hspc</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">HSPC Blood Type Profile</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">observation-hspc-aborhbld-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">observation-hspc-aborhbld-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">DAF Results Profile Ver2</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">observation-daf-results-ver2.xml</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">observation-daf-results-profile-ver2-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">hspc</Data></Cell>
+    <Cell><Data ss:Type="String">daf</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s120"><Data ss:Type="String">HSPC Cord Blood Type Profile</Data></Cell>
@@ -8280,7 +8280,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8297,7 +8297,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
+     <ActiveRow>30</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -8314,14 +8314,14 @@
   <AutoFilter x:Range="R1C1:R2C4" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R4C4,R30C1:R38C4,R27C1:R29C1</Range>
+   <Range>R2C1:R4C4,R27C1,R28C2:R38C4,R29C1:R38C1</Range>
    <Condition>
     <Value1>AND(R[1048560]C1=&quot;&quot;,R[1048560]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R27C1:R38C1,R2C1:R4C1</Range>
+   <Range>R2C1:R4C1,R27C1,R29C1:R38C1</Range>
    <Condition>
     <Value1>AND(R[1048560]C&lt;&gt;&quot;&quot;,R[1048559]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8335,7 +8335,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R4C4,R30C1:R38C4,R27C1:R29C1</Range>
+   <Range>R2C1:R4C4,R27C1,R28C2:R38C4,R29C1:R38C1</Range>
    <Condition>
     <Value1>LEFT(R[1048560]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
