@@ -1161,11 +1161,10 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s212">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
+  <Style ss:ID="s215">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"/>
    <Borders/>
-   <Interior ss:Color="#A6A6A6" ss:Pattern="Solid"/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -2183,7 +2182,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">Patient.telecom</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s212"><Data ss:Type="String">!0..*</Data><NamedCell
+    <Cell ss:StyleID="s147"><Data ss:Type="String">!0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2596,7 +2595,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">!0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s135"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+    <Cell ss:StyleID="s215"><Data ss:Type="String">!CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s135"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">QICorePatientContactRelationship</Data><NamedCell
@@ -3295,8 +3294,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>44</ActiveRow>
-     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
