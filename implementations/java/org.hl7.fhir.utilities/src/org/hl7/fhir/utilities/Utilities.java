@@ -437,7 +437,16 @@ public class Utilities {
         d = !noString(arg);
       else if (!s.toString().endsWith(File.separator))
         s.append(File.separator);
-      s.append(arg);
+      String a = arg;
+      a = a.replace("\\", File.separator);
+      if (a.startsWith(File.separator))
+        a = a.substring(File.separator.length());
+        
+      if ("..".equals(a)) {
+        int i = s.substring(0, s.length()-1).lastIndexOf(File.separator);
+        s = new StringBuilder(s.substring(0, i+1));
+      } else
+        s.append(a);
     }
     return s.toString();
   }

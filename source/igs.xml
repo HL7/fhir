@@ -11,6 +11,6 @@
   <ig code="sdc"      name="Structured Data Capture Project" page="sdc.html" review=""/>
   <ig code="cqmf"     name="Clinical Quality Measure Framework" page="" review=""/>
   <ig code="ihe"      name="IHE Profiles" page="" review=""/>
-  <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="1" ballot="yes" source="\guides\hspc\hspc.xml"/>
+  <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="1" ballot="yes" source="guides\hspc\hspc.xml"/>
   <ig code="argonaut" name="Argonaut" page="argonauts.html" review="0" ballot="yes"/>
 </igs>
