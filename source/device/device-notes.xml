@@ -2,7 +2,7 @@
 	<h3>Notes</h3>
 	<h4>Device Types</h4>
 	<p>
-		There are many sources of possible codes for device type. The example suggests to use device codes from RTM. Another source which is appropriate for many devices is the local UDI repository (in the US this is the GUDID database). The full UDI string is placed in the Device.udi element.  Alternatively, many jurisdictions have their own supply chain arrangements which define many useful codes.
+		There are many sources of possible codes for device type. The example uses device codes from Global Medical Device Nomenclature (GMDN&reg;).  Another source which may be appropriate is RTM (Rosetta Terminology Mapping). The local UDI repository (in the US this is the GUDID database) is another source as well, however, the full UDI string is placed in the Device.udi element.  Alternatively, many jurisdictions have their own supply chain arrangements which define many useful codes.
 
 	</p>
 	<h4>Device Identifiers</h4>
