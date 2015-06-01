@@ -863,9 +863,7 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setNameElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("strength")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("strength")) {
         res.setStrengthElement(parseEnumeration(xpp, ElementDefinition.BindingStrength.NULL, new ElementDefinition.BindingStrengthEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
@@ -10882,9 +10880,6 @@ public class XmlParser extends XmlParserBase {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
       composeElementElements(element);
-      if (element.hasNameElement()) {
-        composeString("name", element.getNameElement());
-      }
       if (element.hasStrengthElement())
         composeEnumeration("strength", element.getStrengthElement(), new ElementDefinition.BindingStrengthEnumFactory());
       if (element.hasDescriptionElement()) {

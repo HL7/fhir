@@ -1,0 +1,102 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Role Type value set"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+ 
+  <description value="The list of codes that describe the type of role an individual plays in an act."/>
+  <status value="draft"/>
+  <compose>
+    <include>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+		<concept>
+			<code value="AUNT"/>
+			<display value="aunt"/>
+		</concept>
+		<concept>
+			<code value="BRO"/>
+			<display value="Brother"/>
+		</concept>
+		<concept>
+			<code value="DAUC"/>
+			<display value="Daughter"/>
+		</concept>
+		<concept>
+			<code value="FTH"/>
+			<display value="Father"/>
+		</concept>
+		<concept>
+			<code value="GRNDDAU"/>
+			<display value="Granddaughter"/>
+		</concept>
+		<concept>
+			<code value="GRFTH"/>
+			<display value="Grandfather"/>
+		</concept>
+		<concept>
+			<code value="GRMTH"/>
+			<display value="Grandmother"/>
+		</concept>
+		<concept>
+			<code value="GRNDSON"/>
+			<display value="Grandson"/>
+		</concept>
+		<concept>
+			<code value="GUARD"/>
+			<display value="Guardian"/>
+		</concept>
+		<concept>
+			<code value="HUSB"/>
+			<display value="Husband"/>
+		</concept>
+		<concept>
+			<code value="GUADLTM"/>
+			<display value="Guardian ad litem"/>
+		</concept>
+		<concept>
+			<code value="MTH"/>
+			<display value="Mother"/>
+		</concept>
+		<concept>
+			<code value="NBOR"/>
+			<display value="Neighbor"/>
+		</concept>
+		<concept>
+			<code value="NEPHEW"/>
+			<display value="Nephew"/>
+		</concept>
+		<concept>
+			<code value="NIECE"/>
+			<display value="Niece"/>
+		</concept>
+		<concept>
+			<code value="SIGOTHR"/>
+			<display value="Significant Other"/>
+		</concept>
+		<concept>
+			<code value="SIS"/>
+			<display value="Sister"/>
+		</concept>
+		<concept>
+			<code value="SONC"/>
+			<display value="Son"/>
+		</concept>
+		<concept>
+			<code value="UNCLE"/>
+			<display value="Uncle"/>
+		</concept>
+		<concept>
+			<code value="FRND"/>
+			<display value="Unrelated Friend"/>
+		</concept>
+		<concept>
+			<code value="WIFE"/>
+			<display value="Wife"/>
+		</concept>
+    </include>
+  </compose>    
+</ValueSet>

@@ -164,9 +164,9 @@ public class Decimal {
 		String s = value.substring(0, i);
 		String e = value.substring(i+1);
 				
-	  if (Utilities.noString(s) || s.equals("-") || !Utilities.IsDecimal(s))
+	  if (Utilities.noString(s) || s.equals("-") || !Utilities.isDecimal(s))
 	    throw new Exception("'"+value+"' is not a valid decimal (numeric)");
-	  if (Utilities.noString(e) || e.equals("-") || !Utilities.IsInteger(e))
+	  if (Utilities.noString(e) || e.equals("-") || !Utilities.isInteger(e))
 	    throw new Exception("'"+value+"' is not a valid decimal (exponent)");
 
 	  setValueDecimal(s);

@@ -55,6 +55,7 @@ import org.hl7.fhir.definitions.model.EventDefn.Category;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
+import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.Operation;
@@ -440,20 +441,22 @@ public class SpreadsheetParser {
           pack.setTitle(name);
           pack.setSource(checkFile(sheet, row, "Source", false, sheet.getColumn(row, "Filename"))); // todo-profile
           if (!definitions.getIgs().containsKey(pack.getCategory()))
-            throw new Exception("IG Name '"+pack.getCategory()+"' is not reegistered in [igs] in fhir.ini at "+getLocation(row));
+            throw new Exception("IG Name '"+pack.getCategory()+"' is not registered in [igs] in fhir.ini at "+getLocation(row));
             
-            
-          String type = sheet.getColumn(row, "Type");
-          if ("bundle".equalsIgnoreCase(type))
-            pack.setSourceType(ConformancePackageSourceType.Bundle);
-          else if ("spreadsheet".equalsIgnoreCase(type))
-            pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
-          else
-            throw new Exception("Unknown source type: "+type+" at "+getLocation(row));
-          String example = checkFile(sheet, row, "Example", true, null); // todo-profile
-          if (example != null)
-            pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getSource(), new File(example), true, ExampleType.XmlFile, isAbstract));
-          defn.getConformancePackages().add(pack);
+          ImplementationGuide ig = definitions.getIgs().get(pack.getCategory());  
+          if (Utilities.noString(ig.getSource())) {
+            String type = sheet.getColumn(row, "Type");
+            if ("bundle".equalsIgnoreCase(type))
+              pack.setSourceType(ConformancePackageSourceType.Bundle);
+            else if ("spreadsheet".equalsIgnoreCase(type))
+              pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
+            else
+              throw new Exception("Unknown source type: "+type+" at "+getLocation(row));
+            String example = checkFile(sheet, row, "Example", true, null); // todo-profile
+            if (example != null)
+              pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getSource(), new File(example), true, ExampleType.XmlFile, isAbstract));
+            defn.getConformancePackages().add(pack);
+          }
         }
       }
     }
@@ -1072,9 +1075,10 @@ public class SpreadsheetParser {
 					    if (r.getTitle().equals(pn))
 					      ap = r;
 					  }
-					  if (ap == null)
-					    throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
-					  ap.getExamples().add(new Example(filename, id, desc, file, parseBoolean(sheet.getColumn(row, "Registered"), row, true), parseExampleType(type, row), isAbstract));
+//					  if (ap == null)
+//					    throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
+            if (ap != null)
+  					  ap.getExamples().add(new Example(filename, id, desc, file, parseBoolean(sheet.getColumn(row, "Registered"), row, true), parseExampleType(type, row), isAbstract));
 					}
 				}
 			}
@@ -1208,7 +1212,7 @@ public class SpreadsheetParser {
 			}
 		} else {
 			String[] card = c.split("\\.\\.");
-			if (card.length != 2 || !Utilities.IsInteger(card[0]) || (!"*".equals(card[1]) && !Utilities.IsInteger(card[1])))
+			if (card.length != 2 || !Utilities.isInteger(card[0]) || (!"*".equals(card[1]) && !Utilities.isInteger(card[1])))
 				throw new Exception("Unable to parse Cardinality '" + c + "' " + c + " in " + getLocation(row) + " on " + path);
 			e.setMinCardinality(Integer.parseInt(card[0]));
 			e.setMaxCardinality("*".equals(card[1]) ? Integer.MAX_VALUE : Integer.parseInt(card[1]));
@@ -1483,8 +1487,8 @@ public class SpreadsheetParser {
   private void parseExtensionElement(Sheet sheet, int row, Definitions definitions, ElementDefn exe) throws Exception {
     // things that go on Extension
     String[] card = sheet.getColumn(row, "Card.").split("\\.\\.");
-    if (card.length != 2 || !Utilities.IsInteger(card[0])
-        || (!"*".equals(card[1]) && !Utilities.IsInteger(card[1])))
+    if (card.length != 2 || !Utilities.isInteger(card[0])
+        || (!"*".equals(card[1]) && !Utilities.isInteger(card[1])))
       throw new Exception("Unable to parse Cardinality "
           + sheet.getColumn(row, "Card.") + " in " + getLocation(row));
     exe.setMinCardinality(Integer.parseInt(card[0]));

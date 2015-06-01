@@ -5,12 +5,16 @@ public class Dictionary {
   private String id;
   private String name;
   private String category;
-  public Dictionary(String id, String name, String category) {
+  private String source;
+  
+  public Dictionary(String id, String name, String category, String source) {
     super();
     this.id = id;
     this.name = name;
     this.category = category;
+    this.source = source;
   }
+  
   public String getId() {
     return id;
   }
@@ -20,6 +24,9 @@ public class Dictionary {
   public String getCategory() {
     return category;
   }
-  
+
+  public String getSource() {
+    return source;
+  } 
   
 }

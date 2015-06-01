@@ -338,6 +338,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     addSourceFiles(classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.utilities");
     addSourceFiles(classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.instance");
   
+    logger.log(" .... "+Integer.toString(classes.size())+" classes", LogMessageType.Process);
     JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
     if (compiler == null)
       throw new Exception("Cannot continue build process as java compilation services are not available. Check that you are executing the build process using a jdk, not a jre");

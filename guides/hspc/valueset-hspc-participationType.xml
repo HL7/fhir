@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="valueset-hspc-participationType"/>
+  <version value="0.01"/>
+  <name value="HSPC Participation Type"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="The kind of participation an individual is performing."/>
+  <status value="draft"/>
+  <extensible value="true"/>
+  <date value="2015-05-19"/>
+  <define>
+		<system value="Intermountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="521401509"/>
+			<display value="Annotator"/>
+			<definition value="One who adds additional information to documentation. This could be the person translating information from text to coded data or someone adding an addendum to existing documentation."/>
+		</concept>
+		<concept>
+			<code value="521401470"/>
+			<display value="Referee"/>
+			<definition value="The person who receives the patient."/>
+		</concept>
+		<concept>
+			<code value="521401456"/>
+			<display value="Therapeutic agent"/>
+			<definition value="Something incorporated in the subject of a therapy service to achieve a physiologic effect (e.g., heal, relieve, provoke a condition, etc.)"/>
+		</concept>
+  </define>
+  <compose>
+	    <include>
+			<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+			<concept>	
+				<code value="ADM"/>
+				<display value="admitter"/>
+			</concept>	
+			<concept>	
+				<code value="ALY"/>
+				<display value="analyte"/>
+			</concept>	
+			<concept>	
+				<code value="ATND"/>
+				<display value="attender"/>
+			</concept>	
+			<concept>	
+				<code value="AUTHEN"/>
+				<display value="authenticator"/>
+			</concept>	
+			<concept>	
+				<code value="BBY"/>
+				<display value="baby"/>
+			</concept>	
+			<concept>	
+				<code value="BEN"/>
+				<display value="beneficiary"/>
+			</concept>	
+			<concept>	
+				<code value="CALLBCK"/>
+				<display value="callback contact"/>
+			</concept>	
+			<concept>	
+				<code value="CAT"/>
+				<display value="catalyst"/>
+			</concept>	
+			<concept>	
+				<code value="CAGNT"/>
+				<display value="causative agent"/>
+			</concept>	
+			<concept>	
+				<code value="CON"/>
+				<display value="consultant"/>
+			</concept>	
+			<concept>	
+				<code value="CSM"/>
+				<display value="consumable"/>
+			</concept>	
+			<concept>	
+				<code value="COV"/>
+				<display value="coverage target"/>
+			</concept>	
+			<concept>	
+				<code value="CST"/>
+				<display value="custodian"/>
+			</concept>	
+			<concept>	
+				<code value="ENT"/>
+				<display value="data entry person"/>
+			</concept>	
+			<concept>	
+				<code value="DEV"/>
+				<display value="device"/>
+			</concept>	
+			<concept>	
+				<code value="DIR"/>
+				<display value="direct target"/>
+			</concept>	
+			<concept>	
+				<code value="DIS"/>
+				<display value="discharger"/>
+			</concept>	
+			<concept>	
+				<code value="DOST"/>
+				<display value="distributor"/>
+			</concept>	
+			<concept>	
+				<code value="DON"/>
+				<display value="donor"/>
+			</concept>	
+			<concept>	
+				<code value="ELOC"/>
+				<display value="entry location"/>
+			</concept>	
+			<concept>	
+				<code value="ESC"/>
+				<display value="escort"/>
+			</concept>	
+			<concept>	
+				<code value="EXPAGNT"/>
+				<display value="Exposure Agent"/>
+			</concept>	
+			<concept>	
+				<code value="EXPART"/>
+				<display value="Exposure Participation"/>
+			</concept>	
+			<concept>	
+				<code value="EXPTRGT"/>
+				<display value="Exposure Target"/>
+			</concept>	
+			<concept>	
+				<code value="EXSRC"/>
+				<display value="Exposure Source"/>
+			</concept>	
+			<concept>	
+				<code value="GUAR"/>
+				<display value="guarantor party"/>
+			</concept>	
+			<concept>	
+				<code value="HLD"/>
+				<display value="holder"/>
+			</concept>	
+			<concept>	
+				<code value="IND"/>
+				<display value="indirect target"/>
+			</concept>	
+			<concept>	
+				<code value="INF"/>
+				<display value="informant"/>
+			</concept>	
+			<concept>	
+				<code value="IRCP"/>
+				<display value="information recipient"/>
+			</concept>	
+			<concept>	
+				<code value="LA"/>
+				<display value="legal authenticator"/>
+			</concept>	
+			<concept>	
+				<code value="NRD"/>
+				<display value="non-reuseable device"/>
+			</concept>	
+			<concept>	
+				<code value="ORG"/>
+				<display value="origin"/>
+			</concept>	
+			<concept>	
+				<code value="AUT"/>
+				<display value="author(originator)"/>
+			</concept>	
+			<concept>	
+				<code value="LOC"/>
+				<display value="location"/>
+			</concept>	
+			<concept>	
+				<code value="PRF"/>
+				<display value="performer"/>
+			</concept>	
+			<concept>	
+				<code value="PRCP"/>
+				<display value="primary information recipient"/>
+			</concept>	
+			<concept>	
+				<code value="PPRF"/>
+				<display value="primary performer"/>
+			</concept>	
+			<concept>	
+				<code value="PRD"/>
+				<display value="product"/>
+			</concept>	
+			<concept>	
+				<code value="RCV"/>
+				<display value="receiver"/>
+			</concept>	
+			<concept>	
+				<code value="RCT"/>
+				<display value="record target"/>
+			</concept>	
+			<concept>	
+				<code value="REFB"/>
+				<display value="Referred by"/>
+			</concept>	
+			<concept>	
+				<code value="REFT"/>
+				<display value="Referred to"/>
+			</concept>	
+			<concept>	
+				<code value="REF"/>
+				<display value="referrer"/>
+			</concept>	
+			<concept>	
+				<code value="RML"/>
+				<display value="remote"/>
+			</concept>	
+			<concept>	
+				<code value="RESP"/>
+				<display value="responsible party"/>
+			</concept>	
+			<concept>	
+				<code value="RDV"/>
+				<display value="reusable device"/>
+			</concept>	
+			<concept>	
+				<code value="SPRF"/>
+				<display value="secondary performer"/>
+			</concept>	
+			<concept>	
+				<code value="DST"/>
+				<display value="destination"/>
+			</concept>	
+			<concept>	
+				<code value="SPC"/>
+				<display value="specimen"/>
+			</concept>	
+			<concept>	
+				<code value="SBJ"/>
+				<display value="subject"/>
+			</concept>	
+			<concept>	
+				<code value="TRC"/>
+				<display value="tracker"/>
+			</concept>	
+			<concept>	
+				<code value="TRANS"/>
+				<display value="Transcriber"/>
+			</concept>	
+			<concept>	
+				<code value="NOT"/>
+				<display value="urgent notification contact"/>
+			</concept>	
+			<concept>	
+				<code value="VRF"/>
+				<display value="verifier"/>
+			</concept>	
+			<concept>	
+				<code value="VIA"/>
+				<display value="via"/>
+			</concept>	
+			<concept>	
+				<code value="WIT"/>
+				<display value="witness"/>
+			</concept>	
+	    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,136 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC ProviderPractitioner Type"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of values that describe the general type of practice for a provider."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://www.nucc.org"/>
+			<concept>
+				<code value="20"/>
+				<display value="Allopathic and Osteopathic Physicians"/>
+			</concept>
+			<concept>
+				<code value="10"/>
+				<display value="Behavioral Health and Social Service Providers"/>
+			</concept>
+			<concept>
+				<code value="11"/>
+				<display value="Chiropractic Providers"/>
+			</concept>
+			<concept>
+				<code value="12"/>
+				<display value="Dental Providers"/>
+			</concept>
+			<concept>
+				<code value="13"/>
+				<display value="Dietary and Nutritional Service Providers"/>
+			</concept>
+			<concept>
+				<code value="14"/>
+				<display value="Emergency Medical Service Providers"/>
+			</concept>
+			<concept>
+				<code value="15"/>
+				<display value="Eye and Vision Service Providers"/>
+			</concept>
+			<concept>
+				<code value="19"/>
+				<display value="Group"/>
+			</concept>
+			<concept>
+				<code value="16"/>
+				<display value="Nursing Service Providers"/>
+			</concept>
+			<concept>
+				<code value="37"/>
+				<display value="Nursing Service Related Providers"/>
+			</concept>
+			<concept>
+				<code value="17"/>
+				<display value="Other Service Providers"/>
+			</concept>
+			<concept>
+				<code value="18"/>
+				<display value="Pharmacy Service Providers"/>
+			</concept>
+			<concept>
+				<code value="36"/>
+				<display value="Physician Assistant and Advanced Practice Nursing Providers"/>
+			</concept>
+			<concept>
+				<code value="21"/>
+				<display value="Podiatric Medicine and Surgery Service Providers"/>
+			</concept>
+			<concept>
+				<code value="22"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers"/>
+			</concept>
+			<concept>
+				<code value="23"/>
+				<display value="Speech, Language and Hearing Service Providers"/>
+			</concept>
+			<concept>
+				<code value="39"/>
+				<display value="Student, Health Care"/>
+			</concept>
+			<concept>
+				<code value="24"/>
+				<display value="Technologists, Technicians and Other Technical Service Providers"/>
+			</concept>
+			<concept>
+				<code value="32"/>
+				<display value="Residential Treatment Facilities"/>
+			</concept>
+			<concept>
+				<code value="28"/>
+				<display value="Hospitals"/>
+			</concept>
+			<concept>
+				<code value="33"/>
+				<display value="Suppliers"/>
+			</concept>
+			<concept>
+				<code value="26"/>
+				<display value="Ambulatory Health Care Facilities"/>
+			</concept>
+			<concept>
+				<code value="31"/>
+				<display value="Nursing and Custodial Care Facilities"/>
+			</concept>
+			<concept>
+				<code value="34"/>
+				<display value="Transportation Services"/>
+			</concept>
+			<concept>
+				<code value="25"/>
+				<display value="Agencies"/>
+			</concept>
+			<concept>
+				<code value="27"/>
+				<display value="Managed Care Organizations"/>
+			</concept>
+			<concept>
+				<code value="29"/>
+				<display value="Laboratories"/>
+			</concept>
+			<concept>
+				<code value="30"/>
+				<display value="Respite Care Facility"/>
+			</concept>
+			<concept>
+				<code value="38"/>
+				<display value="Hospital Units"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+

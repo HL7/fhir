@@ -1,0 +1,41 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="ServiceDeliveryLocation key value set"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="This value set defines the set of codes used to identify the service delivery location."/>
+	<status value="draft"/>
+	<define>
+		<system value="Intermountain Healthcare Health Data Dictionary"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value = "119"/>
+			<display value ="Facility"/>
+			<definition value ="A location that is categorized by the nursing skill, specialty, or type of care delivered"/>
+		</concept>
+	</define>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/vs/EntityCode"/>
+			<concept>
+				<code value="WING"/>
+				<display value="Wing Location"/>
+			</concept>
+			<concept>
+				<code value="ROOM"/>
+				<display value="Room Location"/>
+			</concept>
+			<concept>
+				<code value="BED"/>
+				<display value="Bed Location"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+

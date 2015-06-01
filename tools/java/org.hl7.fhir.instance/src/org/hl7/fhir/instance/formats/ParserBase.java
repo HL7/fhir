@@ -145,7 +145,7 @@ public abstract class ParserBase extends FormatUtilities implements IParser {
 
 
   protected int parseIntegerPrimitive(String value) {
-    if (value.startsWith("+") && Utilities.IsInteger(value.substring(1)))
+    if (value.startsWith("+") && Utilities.isInteger(value.substring(1)))
       value = value.substring(1);
 	return java.lang.Integer.parseInt(value);
   }

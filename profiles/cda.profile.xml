@@ -310,7 +310,6 @@
             </type>
             <isModifier value="false"/>
             <binding>
-              <name value="CompositionAttestationMode"/>
               <strength value="required"/>
               <description value="The way in which a person authenticated a composition"/>
               <valueSetReference>
@@ -451,7 +450,6 @@
             </type>
             <isModifier value="false"/>
             <binding>
-              <name value="DocumentEventType"/>
               <strength value="required"/>
               <description value="This list of codes represents the main clinical acts being documented"/>
               <valueSetReference>
@@ -606,7 +604,6 @@
             </type>
             <isModifier value="false"/>
             <binding>
-              <name value="CompositionSectionType"/>
               <strength value="required"/>
               <description value="Classification of a composition / document"/>
               <valueSetReference>
@@ -1210,7 +1207,6 @@
             <min value="0"/>
             <max value="1"/>
             <binding>
-              <name value="OrganizationIndustryClass"/>
               <strength value="extensible"/>
               <valueSetUri value="http://hl7.org/fhir/v3/vs/OrganizationIndustryClass"/>
             </binding>
@@ -1700,7 +1696,6 @@
             <code value="CodeableConcept"/>
           </type>
           <binding>
-            <name value="LanguageAbiliityProficiency"/>
             <strength value="extensible"/>
             <valueSetUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency"/>
           </binding>
@@ -1755,7 +1750,6 @@
             <code value="CodeableConcept"/>
           </type>
           <binding>
-            <name value="LanguageAbiliityMode"/>
             <strength value="extensible"/>
             <valueSetUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityMode"/>
           </binding>
@@ -1961,7 +1955,6 @@
             <code value="CodeableConcept"/>
           </type>
           <binding>
-            <name value="RoleStatus"/>
             <strength value="required"/>
             <valueSetUri value="http://hl7.org/fhir/v3/vs/RoleStatus"/>
           </binding>
@@ -2016,7 +2009,6 @@
             <code value="CodeableConcept"/>
           </type>
           <binding>
-            <name value="RoleCode"/>
             <strength value="extensible"/>
             <valueSetUri value="http://hl7.org/fhir/v3/vs/RoleCode"/>
           </binding>

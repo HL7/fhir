@@ -87,7 +87,7 @@ public class Utilities {
     }
     
   
-  	public static boolean IsInteger(String string) {
+  	public static boolean isInteger(String string) {
   		try {
   			int i = Integer.parseInt(string);
   			return i != i+1;
@@ -96,7 +96,7 @@ public class Utilities {
   		}
   	}
   	
-  	public static boolean IsDecimal(String string) {
+  	public static boolean isDecimal(String string) {
   		try {
   			float r = Float.parseFloat(string);
   			return r != r + 1; // just to suppress the hint

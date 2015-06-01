@@ -43,6 +43,7 @@ import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
@@ -298,12 +299,55 @@ public class SourceParser {
       }
     logger.log("Load Profiles", LogMessageType.Process);
     for (String n : ini.getPropertyNames("profiles")) { // todo-profile: rename this
-      loadConformancePackages(n, definitions.getConformancePackages());
+      loadConformancePackages(n);
     }
 
     for (ResourceDefn r : definitions.getResources().values()) {
       for (Profile p : r.getConformancePackages()) 
         loadConformancePackage(p);
+    }
+    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+      if (!Utilities.noString(ig.getSource()))
+        loadIg(ig);
+    }
+  }
+
+
+  private void loadIg(ImplementationGuide ig) throws Exception {
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(true); 
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    CSFile file = new CSFile(Utilities.path(srcDir, "..", ig.getSource()));
+    Document xdoc = builder.parse(new CSFileInputStream(file));
+    Element root = xdoc.getDocumentElement();
+    if (!root.getNodeName().equals("ig")) 
+      throw new Exception("wrong base node");
+    Element e = XMLUtil.getFirstChild(root);
+    while (e != null) {
+      if (e.getNodeName().equals("dependsOn")) {
+        // we ignore this for now
+      } else if (e.getNodeName().equals("publishing")) {
+        if (e.hasAttribute("homepage"))
+          ig.setPage(e.getAttribute("homepage"));
+      } else if (e.getNodeName().equals("profile")) {
+        Profile p = new Profile(ig.getCode());
+        p.setSource(Utilities.path(file.getParent(), e.getAttribute("source")));
+        if ("spreadsheet".equals(e.getAttribute("type")))
+          p.setSourceType(ConformancePackageSourceType.Spreadsheet);
+        else
+          throw new Exception("Unknown profile type in IG: "+e.getNodeName());
+        loadConformancePackage(p);
+        String id = e.getAttribute("id");
+        if (Utilities.noString(id))
+          id = Utilities.changeFileExt(e.getAttribute("source"), "");
+        definitions.getPackList().add(p);
+        definitions.getPackMap().put(id, p);
+      } else if (e.getNodeName().equals("dictionary")) {
+        Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), ig.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))));
+        definitions.getDictionaries().put(d.getId(), d);
+      } else
+        throw new Exception("Unknown element name in IG: "+e.getNodeName());
+      e = XMLUtil.getNextSibling(e);
     }
   }
 
@@ -319,7 +363,7 @@ public class SourceParser {
     if (dicts != null) {
       for (String dict : dicts) {
         String[] s = ini.getStringProperty("dictionaries", dict).split("\\:");
-        definitions.getDictionaries().put(dict, new Dictionary(dict, s[1], s[0]));
+        definitions.getDictionaries().put(dict, new Dictionary(dict, s[1], s[0], Utilities.path(page.getFolders().srcDir, "dictionaries", dict+".xml")));
       }
     }
   }
@@ -335,7 +379,7 @@ public class SourceParser {
       Element ig = XMLUtil.getFirstChild(root);
       while (ig != null) {
         if (ig.getNodeName().equals("ig")) {
-          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), 
+          ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), ig.getAttribute("source"), 
               "1".equals(ig.getAttribute("review")), !"no".equals(ig.getAttribute("ballot")));
           definitions.getIgs().put(igg.getCode(), igg);
           definitions.getSortedIgs().add(igg);
@@ -485,7 +529,7 @@ public class SourceParser {
   }
 
 
-  private void loadConformancePackages(String n, Map<String, Profile> packs) throws Exception {
+  private void loadConformancePackages(String n) throws Exception {
     String usage = "core";
     File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
     if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
@@ -495,7 +539,8 @@ public class SourceParser {
         pack.setTitle(n);
         pack.setSource(spreadsheet.getAbsolutePath());
         pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
-        packs.put(n, pack);
+        definitions.getPackList().add(pack);
+        definitions.getPackMap().put(n, pack);
         sparser.parseConformancePackage(pack, definitions, Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()), pack.getCategory());
       } catch (Exception e) {
         throw new Exception("Error Parsing StructureDefinition: '"+n+"': "+e.getMessage(), e);
@@ -503,7 +548,8 @@ public class SourceParser {
     } else {
       Profile pack = new Profile(usage);
       parseConformanceDocument(pack, n, spreadsheet, usage);
-      packs.put(n, pack);
+      definitions.getPackList().add(pack);
+      definitions.getPackMap().put(n, pack);
     }
   }
 

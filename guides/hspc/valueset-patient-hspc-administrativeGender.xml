@@ -1,0 +1,32 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC Administrative Gender"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="The codes that describe the individual's gender."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/vs/AdministrativeGender"/>
+			<concept>
+				<code value="M"/>
+				<display value="Male"/>
+			</concept>
+			<concept>
+				<code value="F"/>
+				<display value="Female"/>
+			</concept>
+			<concept>
+				<code value="UN"/>
+				<display value="Undifferentiated"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+

@@ -1,0 +1,2666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="hspc-standardlabs-qty"/>
+  <name value="HSPC Quantitative Labs"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+    <system value="url"/>
+    <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="Quantitative LOINC codes used in HSPC"/>
+  <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <status value="draft"/>
+  <date value="2015-02-20T13:44:49+11:00"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="7155-5"/>
+        <display value="Boxelder IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="3298-7"/>
+        <display value="Acetaminophen [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5568-1"/>
+        <display value="Acetone [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="11034-6"/>
+        <display value="Acetylcholine receptor binding Ab [Moles/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="30192-9"/>
+        <display value="Acetylcholine receptor modulation Ab/Acetylcholine Ab.total in Serum"/>
+      </concept>
+      <concept>
+        <code value="20420-6"/>
+        <display value="Prostatic acid phosphatase [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="34661-9"/>
+        <display value="Actin IgG Ab [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1742-6"/>
+        <display value="Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20636-7"/>
+        <display value="Alanine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1747-5"/>
+        <display value="Albumin [Mass/volume] in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="1746-7"/>
+        <display value="Albumin [Mass/volume] in Cerebral spinal fluid"/>
+      </concept>
+      <concept>
+        <code value="2862-1"/>
+        <display value="Albumin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="1751-7"/>
+        <display value="Albumin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="14956-7"/>
+        <display value="Microalbumin [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="13992-3"/>
+        <display value="Albumin/Protein.total in Urine by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="1761-6"/>
+        <display value="Aldolase [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1763-2"/>
+        <display value="Aldosterone [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1777-2"/>
+        <display value="Alkaline phosphatase.bone [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6768-6"/>
+        <display value="Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1779-8"/>
+        <display value="Alkaline phosphatase.liver [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1825-9"/>
+        <display value="Alpha 1 antitrypsin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2865-4"/>
+        <display value="Alpha 1 globulin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="13990-7"/>
+        <display value="Alpha 1 globulin/Protein.total in Urine by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="2868-8"/>
+        <display value="Alpha 2 globulin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="13993-1"/>
+        <display value="Alpha 2 globulin/Protein.total in Urine by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="1834-1"/>
+        <display value="Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20450-3"/>
+        <display value="Alpha-1-Fetoprotein [Multiple of the median] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6020-2"/>
+        <display value="Alternaria alternata IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6085-5"/>
+        <display value="Common Ragweed IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="16362-6"/>
+        <display value="Ammonia [Moles/volume] in Plasma"/>
+      </concept>
+      <concept>
+        <code value="1795-4"/>
+        <display value="Amylase [Enzymatic activity/volume] in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="1798-8"/>
+        <display value="Amylase [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="33915-0"/>
+        <display value="Anabasine [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="6718-1"/>
+        <display value="Cashew Nut IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="1848-1"/>
+        <display value="Androstanolone [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1854-9"/>
+        <display value="Androstenedione [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2742-5"/>
+        <display value="Angiotensin converting enzyme [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="10466-1"/>
+        <display value="Anion gap 3 in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="27811-9"/>
+        <display value="Antithrombin actual/normal in Platelet poor plasma by Chromogenic method"/>
+      </concept>
+      <concept>
+        <code value="1869-7"/>
+        <display value="Apolipoprotein A-I [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1871-3"/>
+        <display value="Apolipoprotein B-100 [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6206-7"/>
+        <display value="Peanut IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="20637-5"/>
+        <display value="Arginine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5583-0"/>
+        <display value="Arsenic [Mass/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="6286-9"/>
+        <display value="Wormwood IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6183-8"/>
+        <display value="Mugwort IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="1903-4"/>
+        <display value="Ascorbate [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1920-8"/>
+        <display value="Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6025-1"/>
+        <display value="Aspergillus fumigatus IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5053-4"/>
+        <display value="Aspergillus sp Ab [Titer] in Serum by Complement fixation"/>
+      </concept>
+      <concept>
+        <code value="6239-8"/>
+        <display value="Lenscale IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6029-3"/>
+        <display value="Aureobasidium pullulans IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6190-3"/>
+        <display value="Oat IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="9426-8"/>
+        <display value="Barbiturates [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="28637-7"/>
+        <display value="Base deficit in Venous cord blood"/>
+      </concept>
+      <concept>
+        <code value="30318-0"/>
+        <display value="Base deficit in Blood"/>
+      </concept>
+      <concept>
+        <code value="1925-7"/>
+        <display value="Base excess in Arterial blood by calculation"/>
+      </concept>
+      <concept>
+        <code value="1926-5"/>
+        <display value="Base excess in Capillary blood by calculation"/>
+      </concept>
+      <concept>
+        <code value="11555-0"/>
+        <display value="Base excess in Blood by calculation"/>
+      </concept>
+      <concept>
+        <code value="1927-3"/>
+        <display value="Base excess in Venous blood by calculation"/>
+      </concept>
+      <concept>
+        <code value="706-2"/>
+        <display value="Basophils/100 leukocytes in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="707-0"/>
+        <display value="Basophils/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="12179-8"/>
+        <display value="Basophils/100 leukocytes in Body fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="13519-4"/>
+        <display value="Basophils/100 leukocytes in Cerebral spinal fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="704-7"/>
+        <display value="Basophils [#/volume] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="6039-2"/>
+        <display value="Beef IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="9428-4"/>
+        <display value="Benzodiazepines [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="6050-9"/>
+        <display value="Brazil Nut IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="44447-1"/>
+        <display value="Beta 2 glycoprotein 1 IgA Ab [Units/volume] in Serum or Plasma by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="44448-9"/>
+        <display value="Beta 2 glycoprotein 1 IgG Ab [Units/volume] in Serum or Plasma by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="44449-7"/>
+        <display value="Beta 2 glycoprotein 1 IgM Ab [Units/volume] in Serum or Plasma by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="2871-2"/>
+        <display value="Beta globulin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="13994-9"/>
+        <display value="Beta globulin/Protein.total in Urine by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="6873-4"/>
+        <display value="Beta hydroxybutyrate [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1952-1"/>
+        <display value="Beta-2-Microglobulin [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="15283-5"/>
+        <display value="Silver Birch IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="1960-4"/>
+        <display value="Bicarbonate [Moles/volume] in Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="28640-1"/>
+        <display value="Bicarbonate [Moles/volume] in Arterial cord blood"/>
+      </concept>
+      <concept>
+        <code value="28641-9"/>
+        <display value="Bicarbonate [Moles/volume] in Venous cord blood"/>
+      </concept>
+      <concept>
+        <code value="1961-2"/>
+        <display value="Bicarbonate [Moles/volume] in Capillary blood"/>
+      </concept>
+      <concept>
+        <code value="1959-6"/>
+        <display value="Bicarbonate [Moles/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="14627-4"/>
+        <display value="Bicarbonate [Moles/volume] in Venous blood"/>
+      </concept>
+      <concept>
+        <code value="1975-2"/>
+        <display value="Bilirubin.total [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1971-1"/>
+        <display value="Bilirubin.indirect [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5057-5"/>
+        <display value="Blastomyces dermatitidis Ab [Titer] in Serum by Complement fixation"/>
+      </concept>
+      <concept>
+        <code value="709-6"/>
+        <display value="Blasts/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="6078-0"/>
+        <display value="Cockroach IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="19839-0"/>
+        <display value="Breath rate spontaneous --on ventilator"/>
+      </concept>
+      <concept>
+        <code value="3422-3"/>
+        <display value="Caffeine [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="49543-2"/>
+        <display value="Calcidiol+Calciferol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1989-3"/>
+        <display value="Calcidiol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2236-8"/>
+        <display value="Calciferol (Vit D2) [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1992-7"/>
+        <display value="Calcitonin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1649-3"/>
+        <display value="Calcitriol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1994-3"/>
+        <display value="Calcium.ionized [Moles/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="1995-0"/>
+        <display value="Calcium.ionized [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="17861-6"/>
+        <display value="Calcium [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="17862-4"/>
+        <display value="Calcium [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="6874-2"/>
+        <display value="Calcium [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="10334-1"/>
+        <display value="Cancer Ag 125 [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6875-9"/>
+        <display value="Cancer Ag 15-3 [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="24108-3"/>
+        <display value="Cancer Ag 19-9 [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="17842-6"/>
+        <display value="Cancer Ag 27-29 [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6092-1"/>
+        <display value="Crab IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6059-0"/>
+        <display value="Candida albicans IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="3432-2"/>
+        <display value="Carbamazepine [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2019-8"/>
+        <display value="Carbon dioxide [Partial pressure] in Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="28644-3"/>
+        <display value="Carbon dioxide [Partial pressure] in Arterial cord blood"/>
+      </concept>
+      <concept>
+        <code value="28645-0"/>
+        <display value="Carbon dioxide [Partial pressure] in Venous cord blood"/>
+      </concept>
+      <concept>
+        <code value="33022-5"/>
+        <display value="Carbon dioxide [Partial pressure] in Capillary blood by Transcutaneous CO2 monitor"/>
+      </concept>
+      <concept>
+        <code value="2021-4"/>
+        <display value="Carbon dioxide [Partial pressure] in Venous blood"/>
+      </concept>
+      <concept>
+        <code value="20565-8"/>
+        <display value="Carbon dioxide, total [Moles/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="2028-9"/>
+        <display value="Carbon dioxide, total [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2030-5"/>
+        <display value="Carboxyhemoglobin/Hemoglobin.total in Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="20563-3"/>
+        <display value="Carboxyhemoglobin/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="2032-1"/>
+        <display value="Carboxyhemoglobin/Hemoglobin.total in Venous blood"/>
+      </concept>
+      <concept>
+        <code value="2039-6"/>
+        <display value="Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3181-5"/>
+        <display value="Cardiolipin IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="3182-3"/>
+        <display value="Cardiolipin IgM Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="14288-5"/>
+        <display value="Carnitine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="19074-4"/>
+        <display value="Carnitine esters [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="14286-9"/>
+        <display value="Carnitine free (C0) [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6208-3"/>
+        <display value="Pecan or Hickory Nut IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6209-1"/>
+        <display value="Pecan or Hickory Tree IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6062-4"/>
+        <display value="Casein IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6833-8"/>
+        <display value="Cat dander IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="8117-4"/>
+        <display value="CD19 cells/100 cells in Blood"/>
+      </concept>
+      <concept>
+        <code value="20593-0"/>
+        <display value="CD19 cells/100 cells in Unspecified specimen"/>
+      </concept>
+      <concept>
+        <code value="8116-6"/>
+        <display value="CD19 cells [#/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="8118-2"/>
+        <display value="CD2 cells/100 cells in Blood"/>
+      </concept>
+      <concept>
+        <code value="9557-0"/>
+        <display value="CD2 cells [#/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="8124-0"/>
+        <display value="CD3 cells/100 cells in Blood"/>
+      </concept>
+      <concept>
+        <code value="14135-8"/>
+        <display value="CD3+CD8+ (T8 suppressor cells) cells [#/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="8112-5"/>
+        <display value="CD3-CD16+CD56+ (Natural killer) cells/100 cells in Blood"/>
+      </concept>
+      <concept>
+        <code value="8122-4"/>
+        <display value="CD3 cells [#/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="8130-7"/>
+        <display value="CD45 (Lymphs) cells/100 cells in Blood"/>
+      </concept>
+      <concept>
+        <code value="11282-1"/>
+        <display value="Cells Counted Total [#] in Blood"/>
+      </concept>
+      <concept>
+        <code value="38256-4"/>
+        <display value="Cells Counted Total [#] in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="19075-1"/>
+        <display value="Cells Counted Total [#] in Cerebral spinal fluid"/>
+      </concept>
+      <concept>
+        <code value="2064-4"/>
+        <display value="Ceruloplasmin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6156-4"/>
+        <display value="Goosefoot IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2075-0"/>
+        <display value="Chloride [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2077-6"/>
+        <display value="Chloride [Moles/volume] in Sweat"/>
+      </concept>
+      <concept>
+        <code value="2078-4"/>
+        <display value="Chloride [Moles/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="6073-1"/>
+        <display value="Chocolate IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2085-9"/>
+        <display value="Cholesterol in HDL [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="13457-7"/>
+        <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"/>
+      </concept>
+      <concept>
+        <code value="18262-6"/>
+        <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"/>
+      </concept>
+      <concept>
+        <code value="2089-1"/>
+        <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="13458-5"/>
+        <display value="Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation"/>
+      </concept>
+      <concept>
+        <code value="2093-3"/>
+        <display value="Cholesterol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="43396-1"/>
+        <display value="Cholesterol non HDL [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="9830-1"/>
+        <display value="Cholesterol.total/Cholesterol in HDL [Mass Ratio] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="19080-1"/>
+        <display value="Choriogonadotropin [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="21198-7"/>
+        <display value="Choriogonadotropin.beta subunit [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20465-1"/>
+        <display value="Choriogonadotropin [Multiple of the median] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="9811-1"/>
+        <display value="Chromogranin A [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6687-8"/>
+        <display value="Citrate [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="20640-9"/>
+        <display value="Citrulline [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6194-5"/>
+        <display value="Orange IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="7415-3"/>
+        <display value="Cladosporium sphaerospermum IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="22203-4"/>
+        <display value="Clostridium tetani IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="3184-9"/>
+        <display value="Activated clotting time in Blood by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="15359-3"/>
+        <display value="Dilute Russell viper venom time (dRVVT) actual/normal in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="43397-9"/>
+        <display value="Dilute Russell viper venom time (dRVVT) factor substitution in Platelet poor plasma by Coagulation assay --immediately after addition of normal plasma"/>
+      </concept>
+      <concept>
+        <code value="6303-2"/>
+        <display value="Dilute Russell viper venom time (dRVVT) in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="3187-2"/>
+        <display value="Coagulation factor IX activity actual/normal in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="3193-0"/>
+        <display value="Coagulation factor V activity actual/normal in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="3198-9"/>
+        <display value="Coagulation factor VII activity actual/normal in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="3209-4"/>
+        <display value="Coagulation factor VIII activity actual/normal in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="3218-5"/>
+        <display value="Coagulation factor X activity actual/normal in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="5946-9"/>
+        <display value="Activated partial thromboplastin time (aPTT).factor substitution in Platelet poor plasma by Coagulation assay --immediately after addition of normal plasma"/>
+      </concept>
+      <concept>
+        <code value="14979-9"/>
+        <display value="Activated partial thromboplastin time (aPTT) in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="3243-3"/>
+        <display value="Thrombin time in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="5959-2"/>
+        <display value="Prothrombin time (PT) factor substitution in Platelet poor plasma by Coagulation assay --immediately after addition of normal plasma"/>
+      </concept>
+      <concept>
+        <code value="29893-5"/>
+        <display value="HIV 1 Ab [Presence] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="5902-2"/>
+        <display value="Prothrombin time (PT) in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="2132-9"/>
+        <display value="Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6081-4"/>
+        <display value="Coconut IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="14115-0"/>
+        <display value="Collagen crosslinked N-telopeptide/Creatinine [Molar ratio] in Urine"/>
+      </concept>
+      <concept>
+        <code value="13362-9"/>
+        <display value="Collection duration of Urine"/>
+      </concept>
+      <concept>
+        <code value="19087-6"/>
+        <display value="Collection of urine specimen end time"/>
+      </concept>
+      <concept>
+        <code value="19089-2"/>
+        <display value="Collection of urine specimen start time"/>
+      </concept>
+      <concept>
+        <code value="13358-7"/>
+        <display value="Collection time of Semen"/>
+      </concept>
+      <concept>
+        <code value="49049-0"/>
+        <display value="Collection time of Unspecified specimen"/>
+      </concept>
+      <concept>
+        <code value="4477-6"/>
+        <display value="Complement C1 esterase inhibitor [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="4485-9"/>
+        <display value="Complement C3 [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="4498-2"/>
+        <display value="Complement C4 [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="4532-8"/>
+        <display value="Complement total hemolytic CH50 [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5631-7"/>
+        <display value="Copper [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2141-0"/>
+        <display value="Corticotropin [Mass/volume] in Plasma"/>
+      </concept>
+      <concept>
+        <code value="9812-9"/>
+        <display value="Cortisol [Mass/volume] in Serum or Plasma --PM trough specimen"/>
+      </concept>
+      <concept>
+        <code value="2147-7"/>
+        <display value="Cortisol Free [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="2142-8"/>
+        <display value="Cortisol [Mass/volume] in Saliva (oral fluid)"/>
+      </concept>
+      <concept>
+        <code value="2143-6"/>
+        <display value="Cortisol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="9813-7"/>
+        <display value="Cortisol [Mass/volume] in Serum or Plasma --AM peak specimen"/>
+      </concept>
+      <concept>
+        <code value="6136-6"/>
+        <display value="Hazelnut IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="13227-4"/>
+        <display value="Corynebacterium diphtheriae IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="10366-3"/>
+        <display value="Cotinine [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="7774-3"/>
+        <display value="Cow whey IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="1986-9"/>
+        <display value="C peptide [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="30522-7"/>
+        <display value="C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"/>
+      </concept>
+      <concept>
+        <code value="1988-5"/>
+        <display value="C reactive protein [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="15048-2"/>
+        <display value="Creatine kinase.BB/Creatine kinase.total in Serum or Plasma by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="2157-6"/>
+        <display value="Creatine kinase [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="26019-0"/>
+        <display value="Creatine Kinase.macromolecular type 1/Creatine kinase.total in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="26020-8"/>
+        <display value="Creatine Kinase.macromolecular type 2/Creatine kinase.total in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="32673-6"/>
+        <display value="Creatine kinase.MB [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="12187-1"/>
+        <display value="Creatine kinase.MB/Creatine kinase.total in Serum or Plasma by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="20569-0"/>
+        <display value="Creatine kinase.MB/Creatine kinase.total in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="15049-0"/>
+        <display value="Creatine kinase.MM/Creatine kinase.total in Serum or Plasma by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="12190-5"/>
+        <display value="Creatinine [Mass/volume] in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="2160-0"/>
+        <display value="Creatinine [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2161-8"/>
+        <display value="Creatinine [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="2162-6"/>
+        <display value="Creatinine [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="33935-8"/>
+        <display value="Cyclic citrullinated peptide IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="3520-4"/>
+        <display value="Cyclosporine [Mass/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="6041-8"/>
+        <display value="Bermuda grass IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5124-3"/>
+        <display value="Cytomegalovirus IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="5126-8"/>
+        <display value="Cytomegalovirus IgM Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="33006-8"/>
+        <display value="Cytomegalovirus DNA [#/volume] (viral load) in Unspecified specimen by Probe and target amplification method"/>
+      </concept>
+      <concept>
+        <code value="6195-2"/>
+        <display value="Cocksfoot IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="35789-7"/>
+        <display value="Daptomycin [Susceptibility]"/>
+      </concept>
+      <concept>
+        <code value="6061-6"/>
+        <display value="Carrot IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2193-1"/>
+        <display value="Dehydroepiandrosterone (DHEA) [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2191-5"/>
+        <display value="Dehydroepiandrosterone sulfate (DHEA-S) [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="11778-8"/>
+        <display value="Delivery date Estimated"/>
+      </concept>
+      <concept>
+        <code value="6095-4"/>
+        <display value="American house dust mite IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6096-2"/>
+        <display value="European house dust mite IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="10535-3"/>
+        <display value="Digoxin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="14207-5"/>
+        <display value="Streptococcal DNAse B [Titer] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6098-8"/>
+        <display value="Dog dander IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6099-6"/>
+        <display value="Dog epithelium IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2216-0"/>
+        <display value="Dopamine [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2218-6"/>
+        <display value="Dopamine [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="6106-9"/>
+        <display value="Egg white IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6107-7"/>
+        <display value="Egg yolk IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="9784-0"/>
+        <display value="Ehrlichia chaffeensis IgM Ab [Titer] in Serum"/>
+      </concept>
+      <concept>
+        <code value="10863-9"/>
+        <display value="Endomysium IgA Ab [Titer] in Serum"/>
+      </concept>
+      <concept>
+        <code value="713-8"/>
+        <display value="Eosinophils/100 leukocytes in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="714-6"/>
+        <display value="Eosinophils/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="12209-3"/>
+        <display value="Eosinophils/100 leukocytes in Body fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="12208-5"/>
+        <display value="Eosinophils/100 leukocytes in Cerebral spinal fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="711-2"/>
+        <display value="Eosinophils [#/volume] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="2232-7"/>
+        <display value="Epinephrine [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="5787-7"/>
+        <display value="Epithelial cells [#/area] in Urine sediment by Microscopy high power field"/>
+      </concept>
+      <concept>
+        <code value="5157-3"/>
+        <display value="Epstein Barr virus capsid IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="7885-7"/>
+        <display value="Epstein Barr virus capsid IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5159-9"/>
+        <display value="Epstein Barr virus capsid IgM Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="32585-2"/>
+        <display value="Epstein Barr virus DNA [#/volume] (viral load) in Unspecified specimen by Probe and target amplification method"/>
+      </concept>
+      <concept>
+        <code value="30083-0"/>
+        <display value="Epstein Barr virus nuclear IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="31374-2"/>
+        <display value="Epstein Barr virus nuclear IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="788-0"/>
+        <display value="Erythrocyte distribution width [Ratio] by Automated count"/>
+      </concept>
+      <concept>
+        <code value="786-4"/>
+        <display value="Erythrocyte mean corpuscular hemoglobin concentration [Mass/volume] by Automated count"/>
+      </concept>
+      <concept>
+        <code value="785-6"/>
+        <display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
+      </concept>
+      <concept>
+        <code value="30341-2"/>
+        <display value="Erythrocyte sedimentation rate"/>
+      </concept>
+      <concept>
+        <code value="4537-7"/>
+        <display value="Erythrocyte sedimentation rate by Westergren method"/>
+      </concept>
+      <concept>
+        <code value="13945-1"/>
+        <display value="Erythrocytes [#/area] in Urine sediment by Microscopy high power field"/>
+      </concept>
+      <concept>
+        <code value="789-8"/>
+        <display value="Erythrocytes [#/volume] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="6741-3"/>
+        <display value="Erythrocytes [#/volume] in Body fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="26454-9"/>
+        <display value="Erythrocytes [#/volume] in Cerebral spinal fluid"/>
+      </concept>
+      <concept>
+        <code value="20409-9"/>
+        <display value="Erythrocytes [#/volume] in Urine by Test strip"/>
+      </concept>
+      <concept>
+        <code value="58413-6"/>
+        <display value="Nucleated erythrocytes/100 leukocytes [Ratio] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="18309-5"/>
+        <display value="Nucleated erythrocytes/100 leukocytes [Ratio] in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="15061-5"/>
+        <display value="Erythropoietin (EPO) [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="27353-2"/>
+        <display value="Glucose mean value [Mass/volume] in Blood Estimated from glycated hemoglobin"/>
+      </concept>
+      <concept>
+        <code value="2243-4"/>
+        <display value="Estradiol (E2) [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2251-7"/>
+        <display value="Estriol (E3) [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2250-9"/>
+        <display value="Estriol (E3).unconjugated [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20466-9"/>
+        <display value="Estriol (E3).unconjugated [Multiple of the median] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2254-1"/>
+        <display value="Estrogen [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5643-2"/>
+        <display value="Ethanol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5646-5"/>
+        <display value="Ethylene glycol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6113-5"/>
+        <display value="Gum-Tree IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2276-4"/>
+        <display value="Ferritin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="11878-6"/>
+        <display value="Number of fetuses by US"/>
+      </concept>
+      <concept>
+        <code value="48065-7"/>
+        <display value="Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma"/>
+      </concept>
+      <concept>
+        <code value="3255-7"/>
+        <display value="Fibrinogen [Mass/volume] in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="2283-0"/>
+        <display value="Folate [Mass/volume] in Red Blood Cells"/>
+      </concept>
+      <concept>
+        <code value="2284-8"/>
+        <display value="Folate [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="15067-2"/>
+        <display value="Follitropin [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6257-0"/>
+        <display value="Strawberry IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6278-6"/>
+        <display value="White Ash IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="15069-8"/>
+        <display value="Fructosamine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6121-8"/>
+        <display value="Fusarium moniliforme IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6082-2"/>
+        <display value="Codfish IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="44357-2"/>
+        <display value="Galactomannan Ag [Units/volume] in Serum or Plasma by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="2873-8"/>
+        <display value="Gamma globulin [Mass/volume] in Cerebral spinal fluid by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="2874-6"/>
+        <display value="Gamma globulin [Mass/volume] in Serum or Plasma by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="13995-6"/>
+        <display value="Gamma globulin/Protein.total in Urine by Electrophoresis"/>
+      </concept>
+      <concept>
+        <code value="2324-2"/>
+        <display value="Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="19941-4"/>
+        <display value="Oxygen gas flow Oxygen delivery system"/>
+      </concept>
+      <concept>
+        <code value="2333-3"/>
+        <display value="Gastrin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="35668-3"/>
+        <display value="Gentamicin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3663-2"/>
+        <display value="Gentamicin [Mass/volume] in Serum or Plasma --peak"/>
+      </concept>
+      <concept>
+        <code value="3665-7"/>
+        <display value="Gentamicin [Mass/volume] in Serum or Plasma --trough"/>
+      </concept>
+      <concept>
+        <code value="18185-9"/>
+        <display value="Gestational age"/>
+      </concept>
+      <concept>
+        <code value="33914-3"/>
+        <display value="Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (MDRD)"/>
+      </concept>
+      <concept>
+        <code value="1501-6"/>
+        <display value="Glucose [Mass/volume] in Serum or Plasma --1 hour post 100 g glucose PO"/>
+      </concept>
+      <concept>
+        <code value="1504-0"/>
+        <display value="Glucose [Mass/volume] in Serum or Plasma --1 hour post 50 g glucose PO"/>
+      </concept>
+      <concept>
+        <code value="1514-9"/>
+        <display value="Glucose [Mass/volume] in Serum or Plasma --2 hours post 100 g glucose PO"/>
+      </concept>
+      <concept>
+        <code value="1530-5"/>
+        <display value="Glucose [Mass/volume] in Serum or Plasma --3 hours post 100 g glucose PO"/>
+      </concept>
+      <concept>
+        <code value="2344-0"/>
+        <display value="Glucose [Mass/volume] in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="2342-4"/>
+        <display value="Glucose [Mass/volume] in Cerebral spinal fluid"/>
+      </concept>
+      <concept>
+        <code value="2350-7"/>
+        <display value="Glucose [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="5792-7"/>
+        <display value="Glucose [Mass/volume] in Urine by Test strip"/>
+      </concept>
+      <concept>
+        <code value="32546-4"/>
+        <display value="Glucose-6-Phosphate dehydrogenase [Enzymatic activity/mass] in Red Blood Cells"/>
+      </concept>
+      <concept>
+        <code value="1558-6"/>
+        <display value="Fasting glucose [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20642-5"/>
+        <display value="Glutamate [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20643-3"/>
+        <display value="Glutamine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6125-9"/>
+        <display value="Gluten IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6248-9"/>
+        <display value="Soybean IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="20644-1"/>
+        <display value="Glycine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6420-4"/>
+        <display value="Helicobacter pylori IgA Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="5176-3"/>
+        <display value="Helicobacter pylori IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="5177-1"/>
+        <display value="Helicobacter pylori IgM Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="31100-1"/>
+        <display value="Hematocrit [Volume Fraction] of Blood by Impedance"/>
+      </concept>
+      <concept>
+        <code value="20570-8"/>
+        <display value="Hematocrit [Volume Fraction] of Blood"/>
+      </concept>
+      <concept>
+        <code value="4545-0"/>
+        <display value="Hematocrit [Volume Fraction] of Blood by Centrifugation"/>
+      </concept>
+      <concept>
+        <code value="11153-4"/>
+        <display value="Hematocrit [Volume Fraction] of Body fluid"/>
+      </concept>
+      <concept>
+        <code value="17856-6"/>
+        <display value="Hemoglobin A1c/Hemoglobin.total in Blood by HPLC"/>
+      </concept>
+      <concept>
+        <code value="4548-4"/>
+        <display value="Hemoglobin A1c/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="4547-6"/>
+        <display value="Hemoglobin A1/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="4551-8"/>
+        <display value="Hemoglobin A2/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="4563-3"/>
+        <display value="Hemoglobin C/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="4575-7"/>
+        <display value="Hemoglobin E/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="42810-2"/>
+        <display value="Hemoglobin [Entitic mass] in Reticulocytes"/>
+      </concept>
+      <concept>
+        <code value="4633-4"/>
+        <display value="Hemoglobin F/Hemoglobin.total in Blood by Kleihauer-Betke method"/>
+      </concept>
+      <concept>
+        <code value="4576-5"/>
+        <display value="Hemoglobin F/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="721-1"/>
+        <display value="Free Hemoglobin [Mass/volume] in Plasma"/>
+      </concept>
+      <concept>
+        <code value="4635-9"/>
+        <display value="Free Hemoglobin [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="30313-1"/>
+        <display value="Hemoglobin [Mass/volume] in Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="718-7"/>
+        <display value="Hemoglobin [Mass/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="30350-3"/>
+        <display value="Hemoglobin [Mass/volume] in Venous blood"/>
+      </concept>
+      <concept>
+        <code value="4625-0"/>
+        <display value="Hemoglobin S/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="29615-2"/>
+        <display value="Hepatitis B virus DNA [#/volume] (viral load) in Serum or Plasma by Probe and target amplification method"/>
+      </concept>
+      <concept>
+        <code value="5193-8"/>
+        <display value="Hepatitis B virus surface Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="38180-6"/>
+        <display value="Hepatitis C virus RNA [log units/volume] (viral load) in Serum or Plasma by Probe and target amplification method"/>
+      </concept>
+      <concept>
+        <code value="27948-9"/>
+        <display value="Herpes simplex virus 1+2 IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="20645-8"/>
+        <display value="Histidine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20573-2"/>
+        <display value="Histoplasma capsulatum mycelial phase Ab [Titer] in Serum by Complement fixation"/>
+      </concept>
+      <concept>
+        <code value="20574-0"/>
+        <display value="Histoplasma capsulatum yeast phase Ab [Titer] in Serum by Complement fixation"/>
+      </concept>
+      <concept>
+        <code value="29539-4"/>
+        <display value="HIV 1 RNA [Log #/volume] (viral load) in Plasma by Probe and signal amplification method"/>
+      </concept>
+      <concept>
+        <code value="20447-9"/>
+        <display value="HIV 1 RNA [#/volume] (viral load) in Serum or Plasma by Probe and target amplification method"/>
+      </concept>
+      <concept>
+        <code value="6165-5"/>
+        <display value="Lobster IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="13965-9"/>
+        <display value="Homocysteine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6037-6"/>
+        <display value="Barley IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5796-8"/>
+        <display value="Hyaline casts [#/area] in Urine sediment by Microscopy low power field"/>
+      </concept>
+      <concept>
+        <code value="2458-8"/>
+        <display value="IgA [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="19113-0"/>
+        <display value="IgE [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="14117-6"/>
+        <display value="IgG index in Serum and CSF"/>
+      </concept>
+      <concept>
+        <code value="2464-6"/>
+        <display value="IgG [Mass/volume] in Cerebral spinal fluid"/>
+      </concept>
+      <concept>
+        <code value="2465-3"/>
+        <display value="IgG [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2466-1"/>
+        <display value="IgG subclass 1 [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2467-9"/>
+        <display value="IgG subclass 2 [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2468-7"/>
+        <display value="IgG subclass 3 [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2469-5"/>
+        <display value="IgG subclass 4 [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="14116-8"/>
+        <display value="IgG synthesis rate [Mass/time] in Serum and CSF by calculation"/>
+      </concept>
+      <concept>
+        <code value="2472-9"/>
+        <display value="IgM [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="36916-5"/>
+        <display value="Immunoglobulin light chains.kappa.free [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="15189-4"/>
+        <display value="Immunoglobulin light chains.kappa/Immunoglobulin light chains.lambda [Mass Ratio] in Serum"/>
+      </concept>
+      <concept>
+        <code value="11050-2"/>
+        <display value="Immunoglobulin light chains.kappa [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="33944-0"/>
+        <display value="Immunoglobulin light chains.lambda.free [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="11051-0"/>
+        <display value="Immunoglobulin light chains.lambda [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="23883-2"/>
+        <display value="Inhibin A [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20448-7"/>
+        <display value="Insulin [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6901-3"/>
+        <display value="Insulin Free [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2483-6"/>
+        <display value="Insulin-like growth factor binding protein 3 [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2484-4"/>
+        <display value="Insulin-like growth factor-I [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2500-7"/>
+        <display value="Iron binding capacity [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2498-4"/>
+        <display value="Iron [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2502-3"/>
+        <display value="Iron saturation [Mass Fraction] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="31209-0"/>
+        <display value="Islet cell 512 Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="20648-2"/>
+        <display value="Isoleucine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5669-7"/>
+        <display value="Isopropanol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6273-7"/>
+        <display value="Walnut IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6178-8"/>
+        <display value="Mountain Juniper IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5797-6"/>
+        <display value="Ketones [Mass/volume] in Urine by Test strip"/>
+      </concept>
+      <concept>
+        <code value="2529-6"/>
+        <display value="Lactate dehydrogenase [Enzymatic activity/volume] in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="2518-9"/>
+        <display value="Lactate [Moles/volume] in Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="32133-1"/>
+        <display value="Lactate [Moles/volume] in Plasma venous"/>
+      </concept>
+      <concept>
+        <code value="2524-7"/>
+        <display value="Lactate [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6948-4"/>
+        <display value="Lamotrigine [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6158-0"/>
+        <display value="Latex IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5671-3"/>
+        <display value="Lead [Mass/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="14976-5"/>
+        <display value="Lecithin/Sphingomyelin [Ratio] in Amniotic fluid"/>
+      </concept>
+      <concept>
+        <code value="20649-0"/>
+        <display value="Leucine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5821-4"/>
+        <display value="Leukocytes [#/area] in Urine sediment by Microscopy high power field"/>
+      </concept>
+      <concept>
+        <code value="6690-2"/>
+        <display value="Leukocytes [#/volume] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="30471-7"/>
+        <display value="Levetiracetam [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3714-3"/>
+        <display value="Lidocaine [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="7632-3"/>
+        <display value="Privet IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="10835-7"/>
+        <display value="Lipoprotein a [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3719-2"/>
+        <display value="Lithium [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="7369-2"/>
+        <display value="Perennial rye grass IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="3284-7"/>
+        <display value="Lupus anticoagulant neutralization platelet [Time] in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="10501-5"/>
+        <display value="Lutropin [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6266-1"/>
+        <display value="Tomato IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="736-9"/>
+        <display value="Lymphocytes/100 leukocytes in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="737-7"/>
+        <display value="Lymphocytes/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="11031-2"/>
+        <display value="Lymphocytes/100 leukocytes in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="10328-3"/>
+        <display value="Lymphocytes/100 leukocytes in Cerebral spinal fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="731-0"/>
+        <display value="Lymphocytes [#/volume] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="20650-8"/>
+        <display value="Lysine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="12230-9"/>
+        <display value="Macrophages/100 leukocytes in Body fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="12229-1"/>
+        <display value="Macrophages/100 leukocytes in Cerebral spinal fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="19123-9"/>
+        <display value="Magnesium [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2597-3"/>
+        <display value="Magnesium [Moles/volume] in Red Blood Cells"/>
+      </concept>
+      <concept>
+        <code value="6021-0"/>
+        <display value="Apple IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="787-2"/>
+        <display value="Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"/>
+      </concept>
+      <concept>
+        <code value="5244-9"/>
+        <display value="Measles virus IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="5685-3"/>
+        <display value="Mercury [Mass/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="12234-1"/>
+        <display value="Mesothelial cells/100 leukocytes in Body fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="740-1"/>
+        <display value="Metamyelocytes/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="739-3"/>
+        <display value="Metamyelocytes [#/volume] in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="19049-6"/>
+        <display value="Metanephrine [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="25473-0"/>
+        <display value="Metanephrine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5693-7"/>
+        <display value="Methanol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2615-3"/>
+        <display value="Methemoglobin/Hemoglobin.total in Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="2614-6"/>
+        <display value="Methemoglobin/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="20651-6"/>
+        <display value="Methionine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="14836-1"/>
+        <display value="Methotrexate [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="13964-2"/>
+        <display value="Methylmalonate [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6174-7"/>
+        <display value="Milk IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="14251-3"/>
+        <display value="Mitochondria M2 IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5905-5"/>
+        <display value="Monocytes/100 leukocytes in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="744-3"/>
+        <display value="Monocytes/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="10329-1"/>
+        <display value="Monocytes/100 leukocytes in Cerebral spinal fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="742-7"/>
+        <display value="Monocytes [#/volume] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="743-5"/>
+        <display value="Monocytes [#/volume] in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="6281-0"/>
+        <display value="White mulberry IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6182-0"/>
+        <display value="Mucor racemosus IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="38476-8"/>
+        <display value="Mullerian inhibiting substance [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="25418-5"/>
+        <display value="Mumps virus IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="7966-5"/>
+        <display value="Mumps virus IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6035-0"/>
+        <display value="Banana IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="23905-3"/>
+        <display value="Mycophenolate [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="5255-5"/>
+        <display value="Mycoplasma pneumoniae IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="5256-3"/>
+        <display value="Mycoplasma pneumoniae IgM Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="2638-5"/>
+        <display value="Myelin basic protein [Mass/volume] in Cerebral spinal fluid"/>
+      </concept>
+      <concept>
+        <code value="749-2"/>
+        <display value="Myelocytes/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="748-4"/>
+        <display value="Myelocytes [#/volume] in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="6969-0"/>
+        <display value="Myeloperoxidase Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2639-3"/>
+        <display value="Myoglobin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="30934-4"/>
+        <display value="Natriuretic peptide B [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="29967-7"/>
+        <display value="Neutrophil cytoplasmic IgG Ab [Titer] in Serum by Immunofluorescence"/>
+      </concept>
+      <concept>
+        <code value="14278-6"/>
+        <display value="Neutrophil cytoplasmic Ab.perinuclear [Titer] in Serum by Immunofluorescence"/>
+      </concept>
+      <concept>
+        <code value="770-8"/>
+        <display value="Neutrophils/100 leukocytes in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="12238-2"/>
+        <display value="Neutrophils/100 leukocytes in Body fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="13516-0"/>
+        <display value="Neutrophils/100 leukocytes in Cerebral spinal fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="764-1"/>
+        <display value="Neutrophils.band form/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="26510-8"/>
+        <display value="Neutrophils.band form/100 leukocytes in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="12278-8"/>
+        <display value="Neutrophils.band form/100 leukocytes in Cerebral spinal fluid by Manual count"/>
+      </concept>
+      <concept>
+        <code value="751-8"/>
+        <display value="Neutrophils [#/volume] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="769-0"/>
+        <display value="Neutrophils.segmented/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="3854-7"/>
+        <display value="Nicotine [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="2668-2"/>
+        <display value="Norepinephrine [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="2671-6"/>
+        <display value="Normetanephrine [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="25489-6"/>
+        <display value="Normetanephrine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="33917-6"/>
+        <display value="Nornicotine [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="29953-7"/>
+        <display value="Nuclear Ab [Titer] in Serum"/>
+      </concept>
+      <concept>
+        <code value="31019-3"/>
+        <display value="10-Hydroxycarbazepine [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1668-3"/>
+        <display value="17-Hydroxyprogesterone [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="1695-6"/>
+        <display value="5-Hydroxyindoleacetate [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="42176-8"/>
+        <display value="1,3 beta glucan [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="8220-6"/>
+        <display value="Opiates [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="20652-4"/>
+        <display value="Ornithine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6230-7"/>
+        <display value="Rice IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2692-2"/>
+        <display value="Osmolality of Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2695-5"/>
+        <display value="Osmolality of Urine"/>
+      </concept>
+      <concept>
+        <code value="5788-5"/>
+        <display value="Oval fat bodies (globules) [#/area] in Urine sediment by Microscopy high power field"/>
+      </concept>
+      <concept>
+        <code value="2701-1"/>
+        <display value="Oxalate [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="2703-7"/>
+        <display value="Oxygen [Partial pressure] in Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="28648-4"/>
+        <display value="Oxygen [Partial pressure] in Arterial cord blood"/>
+      </concept>
+      <concept>
+        <code value="28649-2"/>
+        <display value="Oxygen [Partial pressure] in Venous cord blood"/>
+      </concept>
+      <concept>
+        <code value="2705-2"/>
+        <display value="Oxygen [Partial pressure] in Venous blood"/>
+      </concept>
+      <concept>
+        <code value="2708-6"/>
+        <display value="Oxygen saturation in Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="2711-0"/>
+        <display value="Oxygen saturation in Venous blood"/>
+      </concept>
+      <concept>
+        <code value="2714-4"/>
+        <display value="Fractional oxyhemoglobin in Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="2716-9"/>
+        <display value="Fractional oxyhemoglobin in Venous blood"/>
+      </concept>
+      <concept>
+        <code value="6246-3"/>
+        <display value="Shrimp IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2731-8"/>
+        <display value="Parathyrin.intact [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="7983-0"/>
+        <display value="Parvovirus B19 IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="7984-8"/>
+        <display value="Parvovirus B19 IgM Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6034-3"/>
+        <display value="Bahia grass IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="7691-9"/>
+        <display value="Scallop IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6212-5"/>
+        <display value="Penicillium notatum IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="33254-4"/>
+        <display value="pH of Arterial blood adjusted to patients actual temperature"/>
+      </concept>
+      <concept>
+        <code value="3948-7"/>
+        <display value="Phenobarbital [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="14875-9"/>
+        <display value="Phenylalanine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3969-3"/>
+        <display value="Phenytoin Free [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3968-5"/>
+        <display value="Phenytoin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6265-3"/>
+        <display value="Timothy IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2744-1"/>
+        <display value="pH of Arterial blood"/>
+      </concept>
+      <concept>
+        <code value="28646-8"/>
+        <display value="pH of Arterial cord blood"/>
+      </concept>
+      <concept>
+        <code value="28647-6"/>
+        <display value="pH of Venous cord blood"/>
+      </concept>
+      <concept>
+        <code value="2745-8"/>
+        <display value="pH of Capillary blood"/>
+      </concept>
+      <concept>
+        <code value="11558-4"/>
+        <display value="pH of Blood"/>
+      </concept>
+      <concept>
+        <code value="2746-6"/>
+        <display value="pH of Venous blood"/>
+      </concept>
+      <concept>
+        <code value="2748-2"/>
+        <display value="pH of Body fluid"/>
+      </concept>
+      <concept>
+        <code value="2749-0"/>
+        <display value="pH of Gastric fluid"/>
+      </concept>
+      <concept>
+        <code value="2753-2"/>
+        <display value="pH of Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2756-5"/>
+        <display value="pH of Urine"/>
+      </concept>
+      <concept>
+        <code value="5803-2"/>
+        <display value="pH of Urine by Test strip"/>
+      </concept>
+      <concept>
+        <code value="2777-1"/>
+        <display value="Phosphate [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2778-9"/>
+        <display value="Phosphate [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="2779-7"/>
+        <display value="Phosphate [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="14246-3"/>
+        <display value="Phosphatidylserine IgM Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="7613-3"/>
+        <display value="Pistachio IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6110-1"/>
+        <display value="English Plantain IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="13047-6"/>
+        <display value="Plasma cells/100 leukocytes in Blood"/>
+      </concept>
+      <concept>
+        <code value="6263-8"/>
+        <display value="American Sycamore IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="32623-1"/>
+        <display value="Platelet mean volume [Entitic volume] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="777-3"/>
+        <display value="Platelets [#/volume] in Blood by Automated count"/>
+      </concept>
+      <concept>
+        <code value="6153-1"/>
+        <display value="Kentucky blue grass IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6090-5"/>
+        <display value="Cottonwood IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6219-0"/>
+        <display value="Pork IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2823-3"/>
+        <display value="Potassium [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2828-2"/>
+        <display value="Potassium [Moles/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="14338-8"/>
+        <display value="Prealbumin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="32046-5"/>
+        <display value="Pregnancy associated plasma protein A [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2837-3"/>
+        <display value="Pregnenolone [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2839-9"/>
+        <display value="Progesterone [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2842-3"/>
+        <display value="Prolactin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20655-7"/>
+        <display value="Proline [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="783-1"/>
+        <display value="Promyelocytes/100 leukocytes in Blood by Manual count"/>
+      </concept>
+      <concept>
+        <code value="26523-1"/>
+        <display value="Promyelocytes [#/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="3545-1"/>
+        <display value="Propoxyphene [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="10886-0"/>
+        <display value="Prostate Specific Ag Free [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="12841-3"/>
+        <display value="Prostate Specific Ag Free/Prostate specific Ag.total in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2857-1"/>
+        <display value="Prostate specific Ag [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6968-2"/>
+        <display value="Proteinase 3 Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27819-2"/>
+        <display value="Protein C actual/normal in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="27820-0"/>
+        <display value="Protein C Ag actual/normal in Platelet poor plasma by Immunologic method"/>
+      </concept>
+      <concept>
+        <code value="2890-2"/>
+        <display value="Protein/Creatinine [Mass Ratio] in Urine"/>
+      </concept>
+      <concept>
+        <code value="2881-1"/>
+        <display value="Protein [Mass/volume] in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="2880-3"/>
+        <display value="Protein [Mass/volume] in Cerebral spinal fluid"/>
+      </concept>
+      <concept>
+        <code value="2885-2"/>
+        <display value="Protein [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2888-6"/>
+        <display value="Protein [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="2889-4"/>
+        <display value="Protein [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="27822-6"/>
+        <display value="Protein S actual/normal in Platelet poor plasma by Coagulation assay"/>
+      </concept>
+      <concept>
+        <code value="27823-4"/>
+        <display value="Protein S Ag actual/normal in Platelet poor plasma by Immunologic method"/>
+      </concept>
+      <concept>
+        <code value="2892-8"/>
+        <display value="Protoporphyrin Free [Mass/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="2895-1"/>
+        <display value="Protoporphyrin.zinc [Mass/volume] in Red Blood Cells"/>
+      </concept>
+      <concept>
+        <code value="6019-4"/>
+        <display value="Almond IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2900-9"/>
+        <display value="Pyridoxine [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="14121-8"/>
+        <display value="Pyruvate [Moles/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="6189-5"/>
+        <display value="White Oak IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6164-8"/>
+        <display value="Virginia Live Oak IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="31147-2"/>
+        <display value="Reagin Ab [Titer] in Serum by RPR"/>
+      </concept>
+      <concept>
+        <code value="2915-7"/>
+        <display value="Renin [Enzymatic activity/volume] in Plasma"/>
+      </concept>
+      <concept>
+        <code value="31112-6"/>
+        <display value="Reticulocytes/100 erythrocytes in Blood by Manual"/>
+      </concept>
+      <concept>
+        <code value="14196-0"/>
+        <display value="Reticulocytes [#/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="2923-1"/>
+        <display value="Retinol [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="38496-6"/>
+        <display value="Retinyl palmitate [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="11572-5"/>
+        <display value="Rheumatoid factor [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="8014-3"/>
+        <display value="Rubella virus IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5335-5"/>
+        <display value="Rubella virus IgM Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="6076-4"/>
+        <display value="Clam IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="31032-6"/>
+        <display value="Baker&#39;s yeast IgA Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="35538-8"/>
+        <display value="Baker&#39;s yeast IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="4024-6"/>
+        <display value="Salicylates [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6237-2"/>
+        <display value="Salmon IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="6234-9"/>
+        <display value="Saltwort IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27416-7"/>
+        <display value="SCL-70 extractable nuclear Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5724-0"/>
+        <display value="Selenium [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20656-5"/>
+        <display value="Serine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6242-2"/>
+        <display value="Sesame Seed IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="13967-5"/>
+        <display value="Sex hormone binding globulin [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="10587-4"/>
+        <display value="Sexual abstinence duration"/>
+      </concept>
+      <concept>
+        <code value="29247-4"/>
+        <display value="Sirolimus [Mass/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="17791-5"/>
+        <display value="Sjogrens syndrome-B extractable nuclear Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5358-7"/>
+        <display value="Smooth muscle Ab [Titer] in Serum by Immunofluorescence"/>
+      </concept>
+      <concept>
+        <code value="2951-2"/>
+        <display value="Sodium [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2955-3"/>
+        <display value="Sodium [Moles/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="2956-1"/>
+        <display value="Sodium [Moles/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="6220-8"/>
+        <display value="Potato IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2963-7"/>
+        <display value="Somatotropin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6152-3"/>
+        <display value="Johnson grass IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="2965-2"/>
+        <display value="Specific gravity of Urine"/>
+      </concept>
+      <concept>
+        <code value="3167-4"/>
+        <display value="Volume of 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="3160-9"/>
+        <display value="Volume of Semen"/>
+      </concept>
+      <concept>
+        <code value="28009-9"/>
+        <display value="Volume of Urine"/>
+      </concept>
+      <concept>
+        <code value="19153-6"/>
+        <display value="Volume of unspecified time Urine"/>
+      </concept>
+      <concept>
+        <code value="33247-8"/>
+        <display value="Weight of Sweat"/>
+      </concept>
+      <concept>
+        <code value="6800-7"/>
+        <display value="Spermatozoa Motile/100 spermatozoa in Semen"/>
+      </concept>
+      <concept>
+        <code value="9780-8"/>
+        <display value="Spermatozoa [#/volume] in Semen"/>
+      </concept>
+      <concept>
+        <code value="10622-9"/>
+        <display value="Spermatozoa Normal/100 spermatozoa in Semen"/>
+      </concept>
+      <concept>
+        <code value="27374-8"/>
+        <display value="Streptococcus pneumoniae 12 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27387-0"/>
+        <display value="Streptococcus pneumoniae 14 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27390-4"/>
+        <display value="Streptococcus pneumoniae 19 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27092-6"/>
+        <display value="Streptococcus pneumoniae 1 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27389-6"/>
+        <display value="Streptococcus pneumoniae 23 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27118-9"/>
+        <display value="Streptococcus pneumoniae 26 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27096-7"/>
+        <display value="Streptococcus pneumoniae 3 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27094-2"/>
+        <display value="Streptococcus pneumoniae 4 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="25296-5"/>
+        <display value="Streptococcus pneumoniae 51 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="30153-1"/>
+        <display value="Streptococcus pneumoniae 68 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27113-0"/>
+        <display value="Streptococcus pneumoniae 8 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="27392-0"/>
+        <display value="Streptococcus pneumoniae 9 IgG Ab [Mass/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="22568-0"/>
+        <display value="Streptolysin O Ab [Titer] in Serum"/>
+      </concept>
+      <concept>
+        <code value="11253-2"/>
+        <display value="Tacrolimus [Mass/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="20657-3"/>
+        <display value="Taurine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2991-8"/>
+        <display value="Testosterone Free [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="15432-8"/>
+        <display value="Testosterone Free/Testosterone.total in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="49041-7"/>
+        <display value="Testosterone [Mass/volume] in Serum or Plasma by Detection limit &lt;= 1.0 ng/dL"/>
+      </concept>
+      <concept>
+        <code value="2986-8"/>
+        <display value="Testosterone [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="4049-3"/>
+        <display value="Theophylline [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2998-3"/>
+        <display value="Thiamine [Mass/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="2999-1"/>
+        <display value="Thiamine [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20658-1"/>
+        <display value="Threonine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6270-3"/>
+        <display value="Tuna IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="8098-6"/>
+        <display value="Thyroglobulin Ab [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3013-0"/>
+        <display value="Thyroglobulin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="38505-4"/>
+        <display value="Thyroglobulin recovery in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="8099-4"/>
+        <display value="Thyroperoxidase Ab [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3016-3"/>
+        <display value="Thyrotropin [Units/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3024-7"/>
+        <display value="Thyroxine (T4) free [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="31144-9"/>
+        <display value="Thyroxine (T4) [Mass/volume] in Dried blood spot"/>
+      </concept>
+      <concept>
+        <code value="3026-2"/>
+        <display value="Thyroxine (T4) [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="31017-7"/>
+        <display value="Tissue transglutaminase IgA Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="32998-7"/>
+        <display value="Tissue transglutaminase IgG Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="35670-9"/>
+        <display value="Tobramycin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="4057-6"/>
+        <display value="Tobramycin [Mass/volume] in Serum or Plasma --peak"/>
+      </concept>
+      <concept>
+        <code value="4059-2"/>
+        <display value="Tobramycin [Mass/volume] in Serum or Plasma --trough"/>
+      </concept>
+      <concept>
+        <code value="17713-9"/>
+        <display value="Topiramate [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3034-6"/>
+        <display value="Transferrin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="15212-4"/>
+        <display value="Lipase [Enzymatic activity/volume] in Body fluid"/>
+      </concept>
+      <concept>
+        <code value="3040-3"/>
+        <display value="Lipase [Enzymatic activity/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="2571-8"/>
+        <display value="Triglyceride [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3051-0"/>
+        <display value="Triiodothyronine (T3) Free [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3053-6"/>
+        <display value="Triiodothyronine (T3) [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3050-2"/>
+        <display value="Triiodothyronine resin uptake (T3RU) in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3052-8"/>
+        <display value="Triiodothyronine (T3).reverse [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6276-0"/>
+        <display value="Wheat IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="10839-9"/>
+        <display value="Troponin I.cardiac [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="21582-2"/>
+        <display value="Tryptase [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20660-7"/>
+        <display value="Tyrosine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="6109-3"/>
+        <display value="White Elm IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="3084-1"/>
+        <display value="Urate [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3086-6"/>
+        <display value="Urate [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="3087-4"/>
+        <display value="Urate [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="3094-0"/>
+        <display value="Urea nitrogen [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="3095-7"/>
+        <display value="Urea nitrogen [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="3096-5"/>
+        <display value="Urea nitrogen [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="3107-0"/>
+        <display value="Urobilinogen [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="6186-1"/>
+        <display value="Nettle IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="20661-5"/>
+        <display value="Valine [Moles/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="4086-5"/>
+        <display value="Valproate [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="20578-1"/>
+        <display value="Vancomycin [Mass/volume] in Serum or Plasma"/>
+      </concept>
+      <concept>
+        <code value="4090-7"/>
+        <display value="Vancomycin [Mass/volume] in Serum or Plasma --peak"/>
+      </concept>
+      <concept>
+        <code value="4092-3"/>
+        <display value="Vancomycin [Mass/volume] in Serum or Plasma --trough"/>
+      </concept>
+      <concept>
+        <code value="9624-8"/>
+        <display value="Vanillylmandelate [Mass/volume] in Urine"/>
+      </concept>
+      <concept>
+        <code value="3122-9"/>
+        <display value="Vanillylmandelate [Mass/time] in 24 hour Urine"/>
+      </concept>
+      <concept>
+        <code value="5403-1"/>
+        <display value="Varicella zoster virus IgG Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="5404-9"/>
+        <display value="Varicella zoster virus IgM Ab [Units/volume] in Serum by Immunoassay"/>
+      </concept>
+      <concept>
+        <code value="6012-9"/>
+        <display value="von Willebrand factor (vWf) Ag [Units/volume] in Platelet poor plasma by Immunologic method"/>
+      </concept>
+      <concept>
+        <code value="6014-5"/>
+        <display value="von Willebrand factor (vWf) ristocetin cofactor actual/normal in Platelet poor plasma by Aggregation"/>
+      </concept>
+      <concept>
+        <code value="9804-6"/>
+        <display value="Weight of Stone"/>
+      </concept>
+      <concept>
+        <code value="6087-1"/>
+        <display value="Corn IgE Ab [Units/volume] in Serum"/>
+      </concept>
+      <concept>
+        <code value="5763-8"/>
+        <display value="Zinc [Mass/volume] in Serum or Plasma"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

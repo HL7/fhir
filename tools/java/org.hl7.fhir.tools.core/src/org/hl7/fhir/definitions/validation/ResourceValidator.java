@@ -346,7 +346,7 @@ public class ResourceValidator extends BaseValidator {
 
   private boolean hasGoodCode(List<DefinedCode> codes) {
     for (DefinedCode d : codes) 
-      if (!Utilities.IsInteger(d.getCode()) && d.getCode().length() > 1)
+      if (!Utilities.isInteger(d.getCode()) && d.getCode().length() > 1)
         return true;
     return false;
   }

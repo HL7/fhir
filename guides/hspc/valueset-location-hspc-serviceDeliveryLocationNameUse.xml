@@ -1,0 +1,37 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="ServiceDeliveryLocation name use value set"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="The set of values that describe how usage of the service delivery location name."/>
+	<status value="draft"/>
+	<define>
+		<system value="Intermountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value = "ABR"/>
+			<display value ="Abbreviation"/>
+			<definition value ="A name or word display that has had a number of letters removed in order to fit into limited fields or spaces"/>
+		</concept>
+	</define>	
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/vs/EntityNameUse"/>
+			<concept>
+				<code value="L"/>
+				<display value="Legal Name"/>
+			</concept>
+			<concept>
+				<code value="ASGN"/>
+				<display value="Assigned (alias)"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+

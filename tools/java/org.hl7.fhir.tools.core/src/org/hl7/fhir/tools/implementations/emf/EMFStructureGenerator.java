@@ -99,7 +99,7 @@ public class EMFStructureGenerator extends EMFBase {
 			String cc = Utilities.camelCase(c.getCode());
 			if (GeneratorUtils.isJavaReservedWord(cc))
 				cc = cc + "_";
-			if (Utilities.IsInteger(cc))
+			if (Utilities.isInteger(cc))
 			  cc = "_"+cc;
 			if (cc.equals("<"))
 				cc = "lessThan";

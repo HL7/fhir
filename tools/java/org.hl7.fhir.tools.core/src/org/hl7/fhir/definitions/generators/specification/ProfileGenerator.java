@@ -638,7 +638,6 @@ public class ProfileGenerator {
       return null;
 
     ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
-    dst.setName(src.getName()); // todo: remove this
     dst.setStrength(src.getStrength());    
     dst.setDescription(src.getDefinition());
     if (src.getBinding() != BindingMethod.Unbound)

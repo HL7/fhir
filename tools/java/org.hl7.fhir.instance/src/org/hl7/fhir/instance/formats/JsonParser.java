@@ -796,11 +796,6 @@ public class JsonParser extends JsonParserBase {
   protected ElementDefinition.ElementDefinitionBindingComponent parseElementDefinitionElementDefinitionBindingComponent(JsonObject json, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionBindingComponent res = new ElementDefinition.ElementDefinitionBindingComponent();
     parseElementProperties(json, res);
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("strength"))
       res.setStrengthElement(parseEnumeration(json.get("strength").getAsString(), ElementDefinition.BindingStrength.NULL, new ElementDefinition.BindingStrengthEnumFactory()));
     if (json.has("_strength"))
       parseElementProperties(json.getAsJsonObject("_strength"), res.getStrengthElement());
@@ -12207,10 +12202,6 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeElementDefinitionElementDefinitionBindingComponentInner(ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
       composeElement(element);
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
       if (element.hasStrengthElement()) {
         composeEnumerationCore("strength", element.getStrengthElement(), new ElementDefinition.BindingStrengthEnumFactory(), false);
         composeEnumerationExtras("strength", element.getStrengthElement(), new ElementDefinition.BindingStrengthEnumFactory(), false);

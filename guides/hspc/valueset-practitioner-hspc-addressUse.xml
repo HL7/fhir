@@ -1,0 +1,78 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC Address Use"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of codes that describe the manner in which an addressed is used."/>
+	<status value="draft"/>
+	<define>
+		<system value="Intermountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="15053040"/>
+			<display value="Permanent"/>
+			<definition value="A place of permanent physical residence."/>
+		</concept>
+		<concept>
+			<code value="50450836"/>
+			<display value="Primary office"/>
+			<definition value="An office, work, or business location that represents where the most work time is spent.."/>
+		</concept>
+	</define>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
+			<concept>
+				<code value="BAD"/>
+				<display value="Bad address"/>
+			</concept>
+			<concept>
+				<code value="PHYS"/>
+				<display value="Physical visit address"/>
+			</concept>
+			<concept>
+				<code value="PST"/>
+				<display value="Postal address"/>
+			</concept>
+			<concept>
+				<code value="HP"/>
+				<display value="Primary home"/>
+			</concept>
+			<concept>
+				<code value="PUB"/>
+				<display value="Public"/>
+			</concept>
+			<concept>
+				<code value="TMP"/>
+				<display value="Temporary address"/>
+			</concept>
+			<concept>
+				<code value="HV"/>
+				<display value="Vacation home"/>
+			</concept>
+			<concept>
+				<code value="WP"/>
+				<display value="Work place"/>
+			</concept>
+			<concept>
+				<code value="H"/>
+				<display value="Home address"/>
+			</concept>
+			<concept>
+				<code value="DIR"/>
+				<display value="Direct address"/>
+			</concept>
+			<concept>
+				<code value="CONF"/>
+				<display value="Confidential address"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+

@@ -1,0 +1,2424 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC ProviderPractitioner Specialty"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of values that describe the specialty practice for a provider."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://www.nucc.org"/>
+			<concept>
+				<code value="207KA0200X"/>
+				<display value="Allopathic   Osteopathic Physicians-Allergy   Immunology-Allergy"/>
+			</concept>
+			<concept>
+				<code value="207KI0005X"/>
+				<display value="Allopathic   Osteopathic Physicians-Allergy   Immunology-Clinical   Laboratory Immunology"/>
+			</concept>
+			<concept>
+				<code value="207LA0401X"/>
+				<display value="Allopathic   Osteopathic Physicians-Anesthesiology-Addiction Medicine"/>
+			</concept>
+			<concept>
+				<code value="207LC0200X"/>
+				<display value="Allopathic   Osteopathic Physicians-Anesthesiology-Critical Care Medicine"/>
+			</concept>
+			<concept>
+				<code value="207LH0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Anesthesiology-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="207LP2900X"/>
+				<display value="Allopathic   Osteopathic Physicians-Anesthesiology-Pain Medicine"/>
+			</concept>
+			<concept>
+				<code value="207LP3000X"/>
+				<display value="Allopathic   Osteopathic Physicians-Anesthesiology-Pediatric Anesthesiology"/>
+			</concept>
+			<concept>
+				<code value="207NI0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Dermatology-Clinical   Laboratory Dermatological Immunology"/>
+			</concept>
+			<concept>
+				<code value="207ND0900X"/>
+				<display value="Allopathic   Osteopathic Physicians-Dermatology-Dermatopathology"/>
+			</concept>
+			<concept>
+				<code value="207ND0101X"/>
+				<display value="Allopathic   Osteopathic Physicians-Dermatology-MOHS-Micrographic Surgery"/>
+			</concept>
+			<concept>
+				<code value="207NP0225X"/>
+				<display value="Allopathic   Osteopathic Physicians-Dermatology-Pediatric Dermatology"/>
+			</concept>
+			<concept>
+				<code value="207NS0135X"/>
+				<display value="Allopathic   Osteopathic Physicians-Dermatology-Procedural Dermatology"/>
+			</concept>
+			<concept>
+				<code value="207PE0004X"/>
+				<display value="Allopathic   Osteopathic Physicians-Emergency Medicine-Emergency Medical Services"/>
+			</concept>
+			<concept>
+				<code value="207PH0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Emergency Medicine-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="207PT0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Emergency Medicine-Medical Toxicology"/>
+			</concept>
+			<concept>
+				<code value="207PP0204X"/>
+				<display value="Allopathic   Osteopathic Physicians-Emergency Medicine-Pediatric Emergency Medicine"/>
+			</concept>
+			<concept>
+				<code value="207PS0010X"/>
+				<display value="Allopathic   Osteopathic Physicians-Emergency Medicine-Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="207PE0005X"/>
+				<display value="Allopathic   Osteopathic Physicians-Emergency Medicine-Undersea and Hyperbaric Medicine"/>
+			</concept>
+			<concept>
+				<code value="207QA0401X"/>
+				<display value="Allopathic   Osteopathic Physicians-Family Medicine-Addiction Medicine"/>
+			</concept>
+			<concept>
+				<code value="207QA0000X"/>
+				<display value="Allopathic   Osteopathic Physicians-Family Medicine-Adolescent Medicine"/>
+			</concept>
+			<concept>
+				<code value="207QA0505X"/>
+				<display value="Allopathic   Osteopathic Physicians-Family Medicine-Adult Medicine"/>
+			</concept>
+			<concept>
+				<code value="207QB0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Family Medicine-Bariatric Medicine"/>
+			</concept>
+			<concept>
+				<code value="207QG0300X"/>
+				<display value="Allopathic   Osteopathic Physicians-Family Medicine-Geriatric Medicine"/>
+			</concept>
+			<concept>
+				<code value="207QH0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Family Medicine-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="207QS1201X"/>
+				<display value="Allopathic   Osteopathic Physicians-Family Medicine-Sleep Medicine"/>
+			</concept>
+			<concept>
+				<code value="207QS0010X"/>
+				<display value="Allopathic   Osteopathic Physicians-Family Medicine-Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="207RA0401X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Addiction Medicine"/>
+			</concept>
+			<concept>
+				<code value="207RA0000X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Adolescent Medicine"/>
+			</concept>
+			<concept>
+				<code value="207RA0201X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Allergy   Immunology"/>
+			</concept>
+			<concept>
+				<code value="207RB0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Bariatric Medicine"/>
+			</concept>
+			<concept>
+				<code value="207RC0000X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Cardiovascular Disease"/>
+			</concept>
+			<concept>
+				<code value="207RI0001X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Clinical   Laboratory Immunology"/>
+			</concept>
+			<concept>
+				<code value="207RC0001X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Clinical Cardiac Electrophysiology"/>
+			</concept>
+			<concept>
+				<code value="207RC0200X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Critical Care Medicine"/>
+			</concept>
+			<concept>
+				<code value="207RE0101X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Endocrinology, Diabetes   Metabolism"/>
+			</concept>
+			<concept>
+				<code value="207RG0100X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Gastroenterology"/>
+			</concept>
+			<concept>
+				<code value="207RG0300X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Geriatric Medicine"/>
+			</concept>
+			<concept>
+				<code value="207RH0000X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Hematology"/>
+			</concept>
+			<concept>
+				<code value="207RH0003X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Hematology   Oncology"/>
+			</concept>
+			<concept>
+				<code value="207RI0008X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Hepatology"/>
+			</concept>
+			<concept>
+				<code value="207RH0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="207RH0005X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Hypertension Specialist"/>
+			</concept>
+			<concept>
+				<code value="207RI0200X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Infectious Disease"/>
+			</concept>
+			<concept>
+				<code value="207RI0011X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Interventional Cardiology"/>
+			</concept>
+			<concept>
+				<code value="207RM1200X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Magnetic Resonance Imaging (MRI)"/>
+			</concept>
+			<concept>
+				<code value="207RX0202X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Medical Oncology"/>
+			</concept>
+			<concept>
+				<code value="207RN0300X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Nephrology"/>
+			</concept>
+			<concept>
+				<code value="207RP1001X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Pulmonary Disease"/>
+			</concept>
+			<concept>
+				<code value="207RR0500X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Rheumatology"/>
+			</concept>
+			<concept>
+				<code value="207RS0012X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Sleep Medicine"/>
+			</concept>
+			<concept>
+				<code value="207RS0010X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="207RT0003X"/>
+				<display value="Allopathic   Osteopathic Physicians-Internal Medicine-Transplant Hepatology"/>
+			</concept>
+			<concept>
+				<code value="207SG0202X"/>
+				<display value="Allopathic   Osteopathic Physicians-Medical Genetics-Clinical Biochemical Genetics"/>
+			</concept>
+			<concept>
+				<code value="207SC0300X"/>
+				<display value="Allopathic   Osteopathic Physicians-Medical Genetics-Clinical Cytogenetic"/>
+			</concept>
+			<concept>
+				<code value="207SG0201X"/>
+				<display value="Allopathic   Osteopathic Physicians-Medical Genetics-Clinical Genetics (M.D.)"/>
+			</concept>
+			<concept>
+				<code value="207SG0203X"/>
+				<display value="Allopathic   Osteopathic Physicians-Medical Genetics-Clinical Molecular Genetics"/>
+			</concept>
+			<concept>
+				<code value="207SM0001X"/>
+				<display value="Allopathic   Osteopathic Physicians-Medical Genetics-Molecular Genetic Pathology"/>
+			</concept>
+			<concept>
+				<code value="207SG0205X"/>
+				<display value="Allopathic   Osteopathic Physicians-Medical Genetics-Ph.D. Medical Genetics"/>
+			</concept>
+			<concept>
+				<code value="207UN0903X"/>
+				<display value="Allopathic   Osteopathic Physicians-Nuclear Medicine-In Vivo   In Vitro Nuclear Medicine"/>
+			</concept>
+			<concept>
+				<code value="207UN0901X"/>
+				<display value="Allopathic   Osteopathic Physicians-Nuclear Medicine-Nuclear Cardiology"/>
+			</concept>
+			<concept>
+				<code value="207UN0902X"/>
+				<display value="Allopathic   Osteopathic Physicians-Nuclear Medicine-Nuclear Imaging   Therapy"/>
+			</concept>
+			<concept>
+				<code value="207VB0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Obstetrics   Gynecology-Bariatric Medicine"/>
+			</concept>
+			<concept>
+				<code value="207VC0200X"/>
+				<display value="Allopathic   Osteopathic Physicians-Obstetrics   Gynecology-Critical Care Medicine"/>
+			</concept>
+			<concept>
+				<code value="207VF0040X"/>
+				<display value="Allopathic   Osteopathic Physicians-Obstetrics   Gynecology-Female Pelvic Medicine and Reconstructive Surgery"/>
+			</concept>
+			<concept>
+				<code value="207VX0201X"/>
+				<display value="Allopathic   Osteopathic Physicians-Obstetrics   Gynecology-Gynecologic Oncology"/>
+			</concept>
+			<concept>
+				<code value="207VG0400X"/>
+				<display value="Allopathic   Osteopathic Physicians-Obstetrics   Gynecology-Gynecology"/>
+			</concept>
+			<concept>
+				<code value="207VH0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Obstetrics   Gynecology-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="207VM0101X"/>
+				<display value="Allopathic   Osteopathic Physicians-Obstetrics   Gynecology-Maternal   Fetal Medicine"/>
+			</concept>
+			<concept>
+				<code value="207VX0000X"/>
+				<display value="Allopathic   Osteopathic Physicians-Obstetrics   Gynecology-Obstetrics"/>
+			</concept>
+			<concept>
+				<code value="207VE0102X"/>
+				<display value="Allopathic   Osteopathic Physicians-Obstetrics   Gynecology-Reproductive Endocrinology"/>
+			</concept>
+			<concept>
+				<code value="207XS0114X"/>
+				<display value="Allopathic   Osteopathic Physicians-Orthopaedic Surgery-Adult Reconstructive Orthopaedic Surgery"/>
+			</concept>
+			<concept>
+				<code value="207XX0004X"/>
+				<display value="Allopathic   Osteopathic Physicians-Orthopaedic Surgery-Foot and Ankle Surgery"/>
+			</concept>
+			<concept>
+				<code value="207XS0106X"/>
+				<display value="Allopathic   Osteopathic Physicians-Orthopaedic Surgery-Hand Surgery"/>
+			</concept>
+			<concept>
+				<code value="207XS0117X"/>
+				<display value="Allopathic   Osteopathic Physicians-Orthopaedic Surgery-Orthopaedic Surgery of the Spine"/>
+			</concept>
+			<concept>
+				<code value="207XX0801X"/>
+				<display value="Allopathic   Osteopathic Physicians-Orthopaedic Surgery-Orthopaedic Trauma"/>
+			</concept>
+			<concept>
+				<code value="207XP3100X"/>
+				<display value="Allopathic   Osteopathic Physicians-Orthopaedic Surgery-Pediatric Orthopaedic Surgery"/>
+			</concept>
+			<concept>
+				<code value="207XX0005X"/>
+				<display value="Allopathic   Osteopathic Physicians-Orthopaedic Surgery-Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="207YS0123X"/>
+				<display value="Allopathic   Osteopathic Physicians-Otolaryngology-Facial Plastic Surgery"/>
+			</concept>
+			<concept>
+				<code value="207YX0602X"/>
+				<display value="Allopathic   Osteopathic Physicians-Otolaryngology-Otolaryngic Allergy"/>
+			</concept>
+			<concept>
+				<code value="207YX0905X"/>
+				<display value="Allopathic   Osteopathic Physicians-Otolaryngology-Otolaryngology/Facial Plastic Surgery"/>
+			</concept>
+			<concept>
+				<code value="207YX0901X"/>
+				<display value="Allopathic   Osteopathic Physicians-Otolaryngology-Otology   Neurotology"/>
+			</concept>
+			<concept>
+				<code value="207YP0228X"/>
+				<display value="Allopathic   Osteopathic Physicians-Otolaryngology-Pediatric Otolaryngology"/>
+			</concept>
+			<concept>
+				<code value="207YX0007X"/>
+				<display value="Allopathic   Osteopathic Physicians-Otolaryngology-Plastic Surgery within the Head   Neck"/>
+			</concept>
+			<concept>
+				<code value="207YS0012X"/>
+				<display value="Allopathic   Osteopathic Physicians-Otolaryngology-Sleep Medicine"/>
+			</concept>
+			<concept>
+				<code value="208VP0014X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pain Medicine-Interventional Pain Medicine"/>
+			</concept>
+			<concept>
+				<code value="208VP0000X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pain Medicine-Pain Medicine"/>
+			</concept>
+			<concept>
+				<code value="207ZP0101X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Anatomic Pathology"/>
+			</concept>
+			<concept>
+				<code value="207ZP0102X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Anatomic Pathology   Clinical Pathology"/>
+			</concept>
+			<concept>
+				<code value="207ZB0001X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Blood Banking   Transfusion Medicine"/>
+			</concept>
+			<concept>
+				<code value="207ZP0104X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Chemical Pathology"/>
+			</concept>
+			<concept>
+				<code value="207ZC0008X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Clinical Informatics"/>
+			</concept>
+			<concept>
+				<code value="207ZC0006X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Clinical Pathology"/>
+			</concept>
+			<concept>
+				<code value="207ZP0105X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Clinical Pathology/Laboratory Medicine"/>
+			</concept>
+			<concept>
+				<code value="207ZC0500X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Cytopathology"/>
+			</concept>
+			<concept>
+				<code value="207ZD0900X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Dermatopathology"/>
+			</concept>
+			<concept>
+				<code value="207ZF0201X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Forensic Pathology"/>
+			</concept>
+			<concept>
+				<code value="207ZH0000X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Hematology"/>
+			</concept>
+			<concept>
+				<code value="207ZI0100X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Immunopathology"/>
+			</concept>
+			<concept>
+				<code value="207ZM0300X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Medical Microbiology"/>
+			</concept>
+			<concept>
+				<code value="207ZP0007X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Molecular Genetic Pathology"/>
+			</concept>
+			<concept>
+				<code value="207ZN0500X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Neuropathology"/>
+			</concept>
+			<concept>
+				<code value="207ZP0213X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pathology-Pediatric Pathology"/>
+			</concept>
+			<concept>
+				<code value="2080A0000X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Adolescent Medicine"/>
+			</concept>
+			<concept>
+				<code value="2080C0008X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Child Abuse Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="2080I0007X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Clinical   Laboratory Immunology"/>
+			</concept>
+			<concept>
+				<code value="2080P0006X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Developmental ñ Behavioral Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="2080H0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="2080T0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Medical Toxicology"/>
+			</concept>
+			<concept>
+				<code value="2080N0001X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Neonatal-Perinatal Medicine"/>
+			</concept>
+			<concept>
+				<code value="2080P0008X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Neurodevelopmental Disabilities"/>
+			</concept>
+			<concept>
+				<code value="2080P0201X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Allergy/Immunology"/>
+			</concept>
+			<concept>
+				<code value="2080P0202X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Cardiology"/>
+			</concept>
+			<concept>
+				<code value="2080P0203X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Critical Care Medicine"/>
+			</concept>
+			<concept>
+				<code value="2080P0204X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Emergency Medicine"/>
+			</concept>
+			<concept>
+				<code value="2080P0205X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Endocrinology"/>
+			</concept>
+			<concept>
+				<code value="2080P0206X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Gastroenterology"/>
+			</concept>
+			<concept>
+				<code value="2080P0207X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Hematology-Oncology"/>
+			</concept>
+			<concept>
+				<code value="2080P0208X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Infectious Diseases"/>
+			</concept>
+			<concept>
+				<code value="2080P0210X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Nephrology"/>
+			</concept>
+			<concept>
+				<code value="2080P0214X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Pulmonology"/>
+			</concept>
+			<concept>
+				<code value="2080P0216X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Rheumatology"/>
+			</concept>
+			<concept>
+				<code value="2080T0004X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Pediatric Transplant Hepatology"/>
+			</concept>
+			<concept>
+				<code value="2080S0012X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Sleep Medicine"/>
+			</concept>
+			<concept>
+				<code value="2080S0010X"/>
+				<display value="Allopathic   Osteopathic Physicians-Pediatrics-Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="2081H0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Physical Medicine   Rehabilitation-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="2081N0008X"/>
+				<display value="Allopathic   Osteopathic Physicians-Physical Medicine   Rehabilitation-Neuromuscular Medicine"/>
+			</concept>
+			<concept>
+				<code value="2081P2900X"/>
+				<display value="Allopathic   Osteopathic Physicians-Physical Medicine   Rehabilitation-Pain Medicine"/>
+			</concept>
+			<concept>
+				<code value="2081P0010X"/>
+				<display value="Allopathic   Osteopathic Physicians-Physical Medicine   Rehabilitation-Pediatric Rehabilitation Medicine"/>
+			</concept>
+			<concept>
+				<code value="2081P0004X"/>
+				<display value="Allopathic   Osteopathic Physicians-Physical Medicine   Rehabilitation-Spinal Cord Injury Medicine"/>
+			</concept>
+			<concept>
+				<code value="2081S0010X"/>
+				<display value="Allopathic   Osteopathic Physicians-Physical Medicine   Rehabilitation-Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="2082S0099X"/>
+				<display value="Allopathic   Osteopathic Physicians-Plastic Surgery-Plastic Surgery Within the Head and Neck"/>
+			</concept>
+			<concept>
+				<code value="2082S0105X"/>
+				<display value="Allopathic   Osteopathic Physicians-Plastic Surgery-Surgery of the Hand"/>
+			</concept>
+			<concept>
+				<code value="2083A0100X"/>
+				<display value="Allopathic   Osteopathic Physicians-Preventive Medicine-Aerospace Medicine"/>
+			</concept>
+			<concept>
+				<code value="2083C0008X"/>
+				<display value="Allopathic   Osteopathic Physicians-Preventive Medicine-Clinical Informatics"/>
+			</concept>
+			<concept>
+				<code value="2083T0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Preventive Medicine-Medical Toxicology"/>
+			</concept>
+			<concept>
+				<code value="2083X0100X"/>
+				<display value="Allopathic   Osteopathic Physicians-Preventive Medicine-Occupational Medicine"/>
+			</concept>
+			<concept>
+				<code value="2083P0500X"/>
+				<display value="Allopathic   Osteopathic Physicians-Preventive Medicine-Preventive Medicine/Occupational Environmental Medicine"/>
+			</concept>
+			<concept>
+				<code value="2083P0901X"/>
+				<display value="Allopathic   Osteopathic Physicians-Preventive Medicine-Public Health   General Preventive Medicine"/>
+			</concept>
+			<concept>
+				<code value="2083S0010X"/>
+				<display value="Allopathic   Osteopathic Physicians-Preventive Medicine-Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="2083P0011X"/>
+				<display value="Allopathic   Osteopathic Physicians-Preventive Medicine-Undersea and Hyperbaric Medicine"/>
+			</concept>
+			<concept>
+				<code value="2084A0401X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Addiction Medicine"/>
+			</concept>
+			<concept>
+				<code value="2084P0802X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Addiction Psychiatry"/>
+			</concept>
+			<concept>
+				<code value="2084B0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Bariatric Medicine"/>
+			</concept>
+			<concept>
+				<code value="2084B0040X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Behavioral Neurology   Neuropsychiatry"/>
+			</concept>
+			<concept>
+				<code value="2084P0804X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Child   Adolescent Psychiatry"/>
+			</concept>
+			<concept>
+				<code value="2084N0600X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Clinical Neurophysiology"/>
+			</concept>
+			<concept>
+				<code value="2084D0003X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Diagnostic Neuroimaging"/>
+			</concept>
+			<concept>
+				<code value="2084F0202X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Forensic Psychiatry"/>
+			</concept>
+			<concept>
+				<code value="2084P0805X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Geriatric Psychiatry"/>
+			</concept>
+			<concept>
+				<code value="2084H0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="2084P0005X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Neurodevelopmental Disabilities"/>
+			</concept>
+			<concept>
+				<code value="2084N0400X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Neurology"/>
+			</concept>
+			<concept>
+				<code value="2084N0402X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Neurology with Special Qualifications in Child Neurology"/>
+			</concept>
+			<concept>
+				<code value="2084N0008X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Neuromuscular Medicine"/>
+			</concept>
+			<concept>
+				<code value="2084P2900X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Pain Medicine"/>
+			</concept>
+			<concept>
+				<code value="2084P0800X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Psychiatry"/>
+			</concept>
+			<concept>
+				<code value="2084P0015X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Psychosomatic Medicine"/>
+			</concept>
+			<concept>
+				<code value="2084S0012X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Sleep Medicine"/>
+			</concept>
+			<concept>
+				<code value="2084S0010X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="2084V0102X"/>
+				<display value="Allopathic   Osteopathic Physicians-Psychiatry   Neurology-Vascular Neurology"/>
+			</concept>
+			<concept>
+				<code value="2085B0100X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Body Imaging"/>
+			</concept>
+			<concept>
+				<code value="2085D0003X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Diagnostic Neuroimaging"/>
+			</concept>
+			<concept>
+				<code value="2085R0202X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Diagnostic Radiology"/>
+			</concept>
+			<concept>
+				<code value="2085U0001X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Diagnostic Ultrasound"/>
+			</concept>
+			<concept>
+				<code value="2085H0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="2085N0700X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Neuroradiology"/>
+			</concept>
+			<concept>
+				<code value="2085N0904X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Nuclear Radiology"/>
+			</concept>
+			<concept>
+				<code value="2085P0229X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Pediatric Radiology"/>
+			</concept>
+			<concept>
+				<code value="2085R0001X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Radiation Oncology"/>
+			</concept>
+			<concept>
+				<code value="2085R0205X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Radiological Physics"/>
+			</concept>
+			<concept>
+				<code value="2085R0203X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Therapeutic Radiology"/>
+			</concept>
+			<concept>
+				<code value="2085R0204X"/>
+				<display value="Allopathic   Osteopathic Physicians-Radiology-Vascular   Interventional Radiology"/>
+			</concept>
+			<concept>
+				<code value="2086H0002X"/>
+				<display value="Allopathic   Osteopathic Physicians-Surgery-Hospice and Palliative Medicine"/>
+			</concept>
+			<concept>
+				<code value="2086S0120X"/>
+				<display value="Allopathic   Osteopathic Physicians-Surgery-Pediatric Surgery"/>
+			</concept>
+			<concept>
+				<code value="2086S0122X"/>
+				<display value="Allopathic   Osteopathic Physicians-Surgery-Plastic and Reconstructive Surgery"/>
+			</concept>
+			<concept>
+				<code value="2086S0105X"/>
+				<display value="Allopathic   Osteopathic Physicians-Surgery-Surgery of the Hand"/>
+			</concept>
+			<concept>
+				<code value="2086S0102X"/>
+				<display value="Allopathic   Osteopathic Physicians-Surgery-Surgical Critical Care"/>
+			</concept>
+			<concept>
+				<code value="2086X0206X"/>
+				<display value="Allopathic   Osteopathic Physicians-Surgery-Surgical Oncology"/>
+			</concept>
+			<concept>
+				<code value="2086S0127X"/>
+				<display value="Allopathic   Osteopathic Physicians-Surgery-Trauma Surgery"/>
+			</concept>
+			<concept>
+				<code value="2086S0129X"/>
+				<display value="Allopathic   Osteopathic Physicians-Surgery-Vascular Surgery"/>
+			</concept>
+			<concept>
+				<code value="2088F0040X"/>
+				<display value="Allopathic   Osteopathic Physicians-Urology-Female Pelvic Medicine and Reconstructive Surgery"/>
+			</concept>
+			<concept>
+				<code value="2088P0231X"/>
+				<display value="Allopathic   Osteopathic Physicians-Urology-Pediatric Urology"/>
+			</concept>
+			<concept>
+				<code value="103GC0700X"/>
+				<display value="Behavioral Health   Social Service Providers-Clinical Neuropsychologist-Clinical"/>
+			</concept>
+			<concept>
+				<code value="101YA0400X"/>
+				<display value="Behavioral Health   Social Service Providers-Counselor-Addiction (Substance Use Disorder)"/>
+			</concept>
+			<concept>
+				<code value="101YM0800X"/>
+				<display value="Behavioral Health   Social Service Providers-Counselor-Mental Health"/>
+			</concept>
+			<concept>
+				<code value="101YP1600X"/>
+				<display value="Behavioral Health   Social Service Providers-Counselor-Pastoral"/>
+			</concept>
+			<concept>
+				<code value="101YP2500X"/>
+				<display value="Behavioral Health   Social Service Providers-Counselor-Professional"/>
+			</concept>
+			<concept>
+				<code value="101YS0200X"/>
+				<display value="Behavioral Health   Social Service Providers-Counselor-School"/>
+			</concept>
+			<concept>
+				<code value="103TA0400X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Addiction (Substance Use Disorder)"/>
+			</concept>
+			<concept>
+				<code value="103TA0700X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Adult Development   Aging"/>
+			</concept>
+			<concept>
+				<code value="103TC0700X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Clinical"/>
+			</concept>
+			<concept>
+				<code value="103TC2200X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Clinical Child   Adolescent"/>
+			</concept>
+			<concept>
+				<code value="103TB0200X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Cognitive   Behavioral"/>
+			</concept>
+			<concept>
+				<code value="103TC1900X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Counseling"/>
+			</concept>
+			<concept>
+				<code value="103TE1000X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Educational"/>
+			</concept>
+			<concept>
+				<code value="103TE1100X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Exercise   Sports"/>
+			</concept>
+			<concept>
+				<code value="103TF0000X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Family"/>
+			</concept>
+			<concept>
+				<code value="103TF0200X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Forensic"/>
+			</concept>
+			<concept>
+				<code value="103TP2701X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Group Psychotherapy"/>
+			</concept>
+			<concept>
+				<code value="103TH0004X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Health"/>
+			</concept>
+			<concept>
+				<code value="103TH0100X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Health Service"/>
+			</concept>
+			<concept>
+				<code value="103TM1700X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Men   Masculinity"/>
+			</concept>
+			<concept>
+				<code value="103TM1800X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Mental Retardation   Developmental Disabilities"/>
+			</concept>
+			<concept>
+				<code value="103TP0016X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Prescribing (Medical)"/>
+			</concept>
+			<concept>
+				<code value="103TP0814X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Psychoanalysis"/>
+			</concept>
+			<concept>
+				<code value="103TP2700X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Psychotherapy"/>
+			</concept>
+			<concept>
+				<code value="103TR0400X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="103TS0200X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-School"/>
+			</concept>
+			<concept>
+				<code value="103TW0100X"/>
+				<display value="Behavioral Health   Social Service Providers-Psychologist-Women"/>
+			</concept>
+			<concept>
+				<code value="1041C0700X"/>
+				<display value="Behavioral Health   Social Service Providers-Social Worker-Clinical"/>
+			</concept>
+			<concept>
+				<code value="1041S0200X"/>
+				<display value="Behavioral Health   Social Service Providers-Social Worker-School"/>
+			</concept>
+			<concept>
+				<code value="111NI0013X"/>
+				<display value="Chiropractic Providers-Chiropractor-Independent Medical Examiner"/>
+			</concept>
+			<concept>
+				<code value="111NI0900X"/>
+				<display value="Chiropractic Providers-Chiropractor-Internist"/>
+			</concept>
+			<concept>
+				<code value="111NN0400X"/>
+				<display value="Chiropractic Providers-Chiropractor-Neurology"/>
+			</concept>
+			<concept>
+				<code value="111NN1001X"/>
+				<display value="Chiropractic Providers-Chiropractor-Nutrition"/>
+			</concept>
+			<concept>
+				<code value="111NX0100X"/>
+				<display value="Chiropractic Providers-Chiropractor-Occupational Health"/>
+			</concept>
+			<concept>
+				<code value="111NX0800X"/>
+				<display value="Chiropractic Providers-Chiropractor-Orthopedic"/>
+			</concept>
+			<concept>
+				<code value="111NP0017X"/>
+				<display value="Chiropractic Providers-Chiropractor-Pediatric Chiropractor"/>
+			</concept>
+			<concept>
+				<code value="111NR0200X"/>
+				<display value="Chiropractic Providers-Chiropractor-Radiology"/>
+			</concept>
+			<concept>
+				<code value="111NR0400X"/>
+				<display value="Chiropractic Providers-Chiropractor-Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="111NS0005X"/>
+				<display value="Chiropractic Providers-Chiropractor-Sports Physician"/>
+			</concept>
+			<concept>
+				<code value="111NT0100X"/>
+				<display value="Chiropractic Providers-Chiropractor-Thermography"/>
+			</concept>
+			<concept>
+				<code value="1223D0001X"/>
+				<display value="Dental Providers-Dentist-Dental Public Health"/>
+			</concept>
+			<concept>
+				<code value="1223D0004X"/>
+				<display value="Dental Providers-Dentist-Dentist Anesthesiologist"/>
+			</concept>
+			<concept>
+				<code value="1223E0200X"/>
+				<display value="Dental Providers-Dentist-Endodontics"/>
+			</concept>
+			<concept>
+				<code value="1223G0001X"/>
+				<display value="Dental Providers-Dentist-General Practice"/>
+			</concept>
+			<concept>
+				<code value="1223P0106X"/>
+				<display value="Dental Providers-Dentist-Oral and Maxillofacial Pathology"/>
+			</concept>
+			<concept>
+				<code value="1223X0008X"/>
+				<display value="Dental Providers-Dentist-Oral and Maxillofacial Radiology"/>
+			</concept>
+			<concept>
+				<code value="1223S0112X"/>
+				<display value="Dental Providers-Dentist-Oral and Maxillofacial Surgery"/>
+			</concept>
+			<concept>
+				<code value="1223X0400X"/>
+				<display value="Dental Providers-Dentist-Orthodontics and Dentofacial Orthopedics"/>
+			</concept>
+			<concept>
+				<code value="1223P0221X"/>
+				<display value="Dental Providers-Dentist-Pediatric Dentistry"/>
+			</concept>
+			<concept>
+				<code value="1223P0300X"/>
+				<display value="Dental Providers-Dentist-Periodontics"/>
+			</concept>
+			<concept>
+				<code value="1223P0700X"/>
+				<display value="Dental Providers-Dentist-Prosthodontics"/>
+			</concept>
+			<concept>
+				<code value="133VN1006X"/>
+				<display value="Dietary   Nutritional Service Providers-Dietitian, Registered-Nutrition, Metabolic"/>
+			</concept>
+			<concept>
+				<code value="133VN1004X"/>
+				<display value="Dietary   Nutritional Service Providers-Dietitian, Registered-Nutrition, Pediatric"/>
+			</concept>
+			<concept>
+				<code value="133VN1005X"/>
+				<display value="Dietary   Nutritional Service Providers-Dietitian, Registered-Nutrition, Renal"/>
+			</concept>
+			<concept>
+				<code value="133NN1002X"/>
+				<display value="Dietary   Nutritional Service Providers-Nutritionist-Nutrition, Education"/>
+			</concept>
+			<concept>
+				<code value="152WC0802X"/>
+				<display value="Eye and Vision Services Providers-Optometrist-Corneal and Contact Management"/>
+			</concept>
+			<concept>
+				<code value="152WL0500X"/>
+				<display value="Eye and Vision Services Providers-Optometrist-Low Vision Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="152WX0102X"/>
+				<display value="Eye and Vision Services Providers-Optometrist-Occupational Vision"/>
+			</concept>
+			<concept>
+				<code value="152WP0200X"/>
+				<display value="Eye and Vision Services Providers-Optometrist-Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="152WS0006X"/>
+				<display value="Eye and Vision Services Providers-Optometrist-Sports Vision"/>
+			</concept>
+			<concept>
+				<code value="152WV0400X"/>
+				<display value="Eye and Vision Services Providers-Optometrist-Vision Therapy"/>
+			</concept>
+			<concept>
+				<code value="156FC0800X"/>
+				<display value="Eye and Vision Services Providers-Technician/Technologist-Contact Lens"/>
+			</concept>
+			<concept>
+				<code value="156FC0801X"/>
+				<display value="Eye and Vision Services Providers-Technician/Technologist-Contact Lens Fitter"/>
+			</concept>
+			<concept>
+				<code value="156FX1700X"/>
+				<display value="Eye and Vision Services Providers-Technician/Technologist-Ocularist"/>
+			</concept>
+			<concept>
+				<code value="156FX1100X"/>
+				<display value="Eye and Vision Services Providers-Technician/Technologist-Ophthalmic"/>
+			</concept>
+			<concept>
+				<code value="156FX1101X"/>
+				<display value="Eye and Vision Services Providers-Technician/Technologist-Ophthalmic Assistant"/>
+			</concept>
+			<concept>
+				<code value="156FX1800X"/>
+				<display value="Eye and Vision Services Providers-Technician/Technologist-Optician"/>
+			</concept>
+			<concept>
+				<code value="156FX1201X"/>
+				<display value="Eye and Vision Services Providers-Technician/Technologist-Optometric Assistant"/>
+			</concept>
+			<concept>
+				<code value="156FX1202X"/>
+				<display value="Eye and Vision Services Providers-Technician/Technologist-Optometric Technician"/>
+			</concept>
+			<concept>
+				<code value="156FX1900X"/>
+				<display value="Eye and Vision Services Providers-Technician/Technologist-Orthoptist"/>
+			</concept>
+			<concept>
+				<code value="163WA0400X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Addiction (Substance Use Disorder)"/>
+			</concept>
+			<concept>
+				<code value="163WA2000X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Administrator"/>
+			</concept>
+			<concept>
+				<code value="163WP2201X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Ambulatory Care"/>
+			</concept>
+			<concept>
+				<code value="163WC3500X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Cardiac Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="163WC0400X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Case Management"/>
+			</concept>
+			<concept>
+				<code value="163WC1400X"/>
+				<display value="Nursing Service Providers-Registered Nurse-College Health"/>
+			</concept>
+			<concept>
+				<code value="163WC1500X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Community Health"/>
+			</concept>
+			<concept>
+				<code value="163WC2100X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Continence Care"/>
+			</concept>
+			<concept>
+				<code value="163WC1600X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Continuing Education/Staff Development"/>
+			</concept>
+			<concept>
+				<code value="163WC0200X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Critical Care Medicine"/>
+			</concept>
+			<concept>
+				<code value="163WD0400X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Diabetes Educator"/>
+			</concept>
+			<concept>
+				<code value="163WD1100X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Dialysis, Peritoneal"/>
+			</concept>
+			<concept>
+				<code value="163WE0003X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Emergency"/>
+			</concept>
+			<concept>
+				<code value="163WE0900X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Enterostomal Therapy"/>
+			</concept>
+			<concept>
+				<code value="163WF0300X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Flight"/>
+			</concept>
+			<concept>
+				<code value="163WG0100X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Gastroenterology"/>
+			</concept>
+			<concept>
+				<code value="163WG0000X"/>
+				<display value="Nursing Service Providers-Registered Nurse-General Practice"/>
+			</concept>
+			<concept>
+				<code value="163WG0600X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Gerontology"/>
+			</concept>
+			<concept>
+				<code value="163WH0500X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Hemodialysis"/>
+			</concept>
+			<concept>
+				<code value="163WH0200X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Home Health"/>
+			</concept>
+			<concept>
+				<code value="163WH1000X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Hospice"/>
+			</concept>
+			<concept>
+				<code value="163WI0600X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Infection Control"/>
+			</concept>
+			<concept>
+				<code value="163WI0500X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Infusion Therapy"/>
+			</concept>
+			<concept>
+				<code value="163WL0100X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Lactation Consultant"/>
+			</concept>
+			<concept>
+				<code value="163WM0102X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Maternal Newborn"/>
+			</concept>
+			<concept>
+				<code value="163WM0705X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Medical-Surgical"/>
+			</concept>
+			<concept>
+				<code value="163WN0002X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Neonatal Intensive Care"/>
+			</concept>
+			<concept>
+				<code value="163WN0003X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Neonatal, Low-Risk"/>
+			</concept>
+			<concept>
+				<code value="163WN0300X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Nephrology"/>
+			</concept>
+			<concept>
+				<code value="163WN0800X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Neuroscience"/>
+			</concept>
+			<concept>
+				<code value="163WM1400X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Nurse Massage Therapist (NMT)"/>
+			</concept>
+			<concept>
+				<code value="163WN1003X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Nutrition Support"/>
+			</concept>
+			<concept>
+				<code value="163WX0002X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Obstetric, High-Risk"/>
+			</concept>
+			<concept>
+				<code value="163WX0003X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Obstetric, Inpatient"/>
+			</concept>
+			<concept>
+				<code value="163WX0106X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Occupational Health"/>
+			</concept>
+			<concept>
+				<code value="163WX0200X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Oncology"/>
+			</concept>
+			<concept>
+				<code value="163WX1100X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Ophthalmic"/>
+			</concept>
+			<concept>
+				<code value="163WX0800X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Orthopedic"/>
+			</concept>
+			<concept>
+				<code value="163WX1500X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Ostomy Care"/>
+			</concept>
+			<concept>
+				<code value="163WX0601X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Otorhinolaryngology   Head-Neck"/>
+			</concept>
+			<concept>
+				<code value="163WP0000X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Pain Management"/>
+			</concept>
+			<concept>
+				<code value="163WP0218X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Pediatric Oncology"/>
+			</concept>
+			<concept>
+				<code value="163WP0200X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="163WP1700X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Perinatal"/>
+			</concept>
+			<concept>
+				<code value="163WS0121X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Plastic Surgery"/>
+			</concept>
+			<concept>
+				<code value="163WP0808X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Psych/Mental Health"/>
+			</concept>
+			<concept>
+				<code value="163WP0809X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Psych/Mental Health, Adult"/>
+			</concept>
+			<concept>
+				<code value="163WP0807X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Psych/Mental Health, Child   Adolescent"/>
+			</concept>
+			<concept>
+				<code value="163WR0006X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Registered Nurse First Assistant"/>
+			</concept>
+			<concept>
+				<code value="163WR0400X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="163WR1000X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Reproductive Endocrinology/Infertility"/>
+			</concept>
+			<concept>
+				<code value="163WS0200X"/>
+				<display value="Nursing Service Providers-Registered Nurse-School"/>
+			</concept>
+			<concept>
+				<code value="163WU0100X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Urology"/>
+			</concept>
+			<concept>
+				<code value="163WW0101X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Women's Health Care, Ambulatory"/>
+			</concept>
+			<concept>
+				<code value="163WW0000X"/>
+				<display value="Nursing Service Providers-Registered Nurse-Wound Care"/>
+			</concept>
+			<concept>
+				<code value="3747A0650X"/>
+				<display value="Nursing Service Related Providers-Technician-Attendant Care Provider"/>
+			</concept>
+			<concept>
+				<code value="3747P1801X"/>
+				<display value="Nursing Service Related Providers-Technician-Personal Care Attendant"/>
+			</concept>
+			<concept>
+				<code value="171WH0202X"/>
+				<display value="Other Service Providers-Contractor-Home Modifications"/>
+			</concept>
+			<concept>
+				<code value="171WV0202X"/>
+				<display value="Other Service Providers-Contractor-Vehicle Modifications"/>
+			</concept>
+			<concept>
+				<code value="1710I1002X"/>
+				<display value="Other Service Providers-Military Health Care Provider-Independent Duty Corpsman"/>
+			</concept>
+			<concept>
+				<code value="1710I1003X"/>
+				<display value="Other Service Providers-Military Health Care Provider-Independent Duty Medical Technicians"/>
+			</concept>
+			<concept>
+				<code value="1744G0900X"/>
+				<display value="Other Service Providers-Specialist-Graphics Designer"/>
+			</concept>
+			<concept>
+				<code value="1744P3200X"/>
+				<display value="Other Service Providers-Specialist-Prosthetics Case Management"/>
+			</concept>
+			<concept>
+				<code value="1744R1103X"/>
+				<display value="Other Service Providers-Specialist-Research Data Abstracter/Coder"/>
+			</concept>
+			<concept>
+				<code value="1744R1102X"/>
+				<display value="Other Service Providers-Specialist-Research Study"/>
+			</concept>
+			<concept>
+				<code value="174MM1900X"/>
+				<display value="Other Service Providers-Veterinarian-Medical Research"/>
+			</concept>
+			<concept>
+				<code value="1835G0000X"/>
+				<display value="Pharmacy Service Providers-Pharmacist-General Practice"/>
+			</concept>
+			<concept>
+				<code value="1835G0303X"/>
+				<display value="Pharmacy Service Providers-Pharmacist-Geriatric"/>
+			</concept>
+			<concept>
+				<code value="1835N0905X"/>
+				<display value="Pharmacy Service Providers-Pharmacist-Nuclear"/>
+			</concept>
+			<concept>
+				<code value="1835N1003X"/>
+				<display value="Pharmacy Service Providers-Pharmacist-Nutrition Support"/>
+			</concept>
+			<concept>
+				<code value="1835X0200X"/>
+				<display value="Pharmacy Service Providers-Pharmacist-Oncology"/>
+			</concept>
+			<concept>
+				<code value="1835P0018X"/>
+				<display value="Pharmacy Service Providers-Pharmacist-Pharmacist Clinician (PhC)/ Clinical Pharmacy Specialist"/>
+			</concept>
+			<concept>
+				<code value="1835P1200X"/>
+				<display value="Pharmacy Service Providers-Pharmacist-Pharmacotherapy"/>
+			</concept>
+			<concept>
+				<code value="1835P1300X"/>
+				<display value="Pharmacy Service Providers-Pharmacist-Psychiatric"/>
+			</concept>
+			<concept>
+				<code value="364SA2100X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Acute Care"/>
+			</concept>
+			<concept>
+				<code value="364SA2200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Adult Health"/>
+			</concept>
+			<concept>
+				<code value="364SC2300X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Chronic Care"/>
+			</concept>
+			<concept>
+				<code value="364SC1501X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Community Health/Public Health"/>
+			</concept>
+			<concept>
+				<code value="364SC0200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Critical Care Medicine"/>
+			</concept>
+			<concept>
+				<code value="364SE0003X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Emergency"/>
+			</concept>
+			<concept>
+				<code value="364SE1400X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Ethics"/>
+			</concept>
+			<concept>
+				<code value="364SF0001X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Family Health"/>
+			</concept>
+			<concept>
+				<code value="364SG0600X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Gerontology"/>
+			</concept>
+			<concept>
+				<code value="364SH1100X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Holistic"/>
+			</concept>
+			<concept>
+				<code value="364SH0200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Home Health"/>
+			</concept>
+			<concept>
+				<code value="364SI0800X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Informatics"/>
+			</concept>
+			<concept>
+				<code value="364SL0600X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Long-Term Care"/>
+			</concept>
+			<concept>
+				<code value="364SM0705X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Medical-Surgical"/>
+			</concept>
+			<concept>
+				<code value="364SN0000X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Neonatal"/>
+			</concept>
+			<concept>
+				<code value="364SN0800X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Neuroscience"/>
+			</concept>
+			<concept>
+				<code value="364SX0106X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Occupational Health"/>
+			</concept>
+			<concept>
+				<code value="364SX0200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Oncology"/>
+			</concept>
+			<concept>
+				<code value="364SX0204X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Oncology, Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="364SP0200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="364SP1700X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Perinatal"/>
+			</concept>
+			<concept>
+				<code value="364SP2800X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Perioperative"/>
+			</concept>
+			<concept>
+				<code value="364SP0808X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Psych/Mental Health"/>
+			</concept>
+			<concept>
+				<code value="364SP0809X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Psych/Mental Health, Adult"/>
+			</concept>
+			<concept>
+				<code value="364SP0807X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Psych/Mental Health, Child   Adolescent"/>
+			</concept>
+			<concept>
+				<code value="364SP0810X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Psych/Mental Health, Child   Family"/>
+			</concept>
+			<concept>
+				<code value="364SP0811X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Psych/Mental Health, Chronically Ill"/>
+			</concept>
+			<concept>
+				<code value="364SP0812X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Psych/Mental Health, Community"/>
+			</concept>
+			<concept>
+				<code value="364SP0813X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Psych/Mental Health, Geropsychiatric"/>
+			</concept>
+			<concept>
+				<code value="364SR0400X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="364SS0200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-School"/>
+			</concept>
+			<concept>
+				<code value="364ST0500X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Transplantation"/>
+			</concept>
+			<concept>
+				<code value="364SW0102X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Clinical Nurse Specialist-Women's Health"/>
+			</concept>
+			<concept>
+				<code value="363LA2100X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Acute Care"/>
+			</concept>
+			<concept>
+				<code value="363LA2200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Adult Health"/>
+			</concept>
+			<concept>
+				<code value="363LC1500X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Community Health"/>
+			</concept>
+			<concept>
+				<code value="363LC0200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Critical Care Medicine"/>
+			</concept>
+			<concept>
+				<code value="363LF0000X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Family"/>
+			</concept>
+			<concept>
+				<code value="363LG0600X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Gerontology"/>
+			</concept>
+			<concept>
+				<code value="363LN0000X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Neonatal"/>
+			</concept>
+			<concept>
+				<code value="363LN0005X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Neonatal, Critical Care"/>
+			</concept>
+			<concept>
+				<code value="363LX0001X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Obstetrics   Gynecology"/>
+			</concept>
+			<concept>
+				<code value="363LX0106X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Occupational Health"/>
+			</concept>
+			<concept>
+				<code value="363LP0200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="363LP0222X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Pediatrics, Critical Care"/>
+			</concept>
+			<concept>
+				<code value="363LP1700X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Perinatal"/>
+			</concept>
+			<concept>
+				<code value="363LP2300X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Primary Care"/>
+			</concept>
+			<concept>
+				<code value="363LP0808X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Psych/Mental Health"/>
+			</concept>
+			<concept>
+				<code value="363LS0200X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-School"/>
+			</concept>
+			<concept>
+				<code value="363LW0102X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Nurse Practitioner-Women's Health"/>
+			</concept>
+			<concept>
+				<code value="363AM0700X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Physician Assistant-Medical"/>
+			</concept>
+			<concept>
+				<code value="363AS0400X"/>
+				<display value="Physician Assistants   Advanced Practice Nursing Providers-Physician Assistant-Surgical"/>
+			</concept>
+			<concept>
+				<code value="213ES0103X"/>
+				<display value="Podiatric Medicine   Surgery Service Providers-Podiatrist-Foot   Ankle Surgery"/>
+			</concept>
+			<concept>
+				<code value="213ES0131X"/>
+				<display value="Podiatric Medicine   Surgery Service Providers-Podiatrist-Foot Surgery"/>
+			</concept>
+			<concept>
+				<code value="213EG0000X"/>
+				<display value="Podiatric Medicine   Surgery Service Providers-Podiatrist-General Practice"/>
+			</concept>
+			<concept>
+				<code value="213EP1101X"/>
+				<display value="Podiatric Medicine   Surgery Service Providers-Podiatrist-Primary Podiatric Medicine"/>
+			</concept>
+			<concept>
+				<code value="213EP0504X"/>
+				<display value="Podiatric Medicine   Surgery Service Providers-Podiatrist-Public Medicine"/>
+			</concept>
+			<concept>
+				<code value="213ER0200X"/>
+				<display value="Podiatric Medicine   Surgery Service Providers-Podiatrist-Radiology"/>
+			</concept>
+			<concept>
+				<code value="213ES0000X"/>
+				<display value="Podiatric Medicine   Surgery Service Providers-Podiatrist-Sports Medicine"/>
+			</concept>
+			<concept>
+				<code value="225XR0403X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Driving and Community Mobility"/>
+			</concept>
+			<concept>
+				<code value="225XE0001X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Environmental Modification"/>
+			</concept>
+			<concept>
+				<code value="225XE1200X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Ergonomics"/>
+			</concept>
+			<concept>
+				<code value="225XF0002X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Feeding, Eating   Swallowing"/>
+			</concept>
+			<concept>
+				<code value="225XG0600X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Gerontology"/>
+			</concept>
+			<concept>
+				<code value="225XH1200X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Hand"/>
+			</concept>
+			<concept>
+				<code value="225XH1300X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Human Factors"/>
+			</concept>
+			<concept>
+				<code value="225XL0004X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Low Vision"/>
+			</concept>
+			<concept>
+				<code value="225XM0800X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Mental Health"/>
+			</concept>
+			<concept>
+				<code value="225XN1300X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Neurorehabilitation"/>
+			</concept>
+			<concept>
+				<code value="225XP0200X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="225XP0019X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapist-Physical Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="224ZR0403X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapy Assistant-Driving and Community Mobility"/>
+			</concept>
+			<concept>
+				<code value="224ZE0001X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapy Assistant-Environmental Modification"/>
+			</concept>
+			<concept>
+				<code value="224ZF0002X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapy Assistant-Feeding, Eating   Swallowing"/>
+			</concept>
+			<concept>
+				<code value="224ZL0004X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Occupational Therapy Assistant-Low Vision"/>
+			</concept>
+			<concept>
+				<code value="2251C2600X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Cardiopulmonary"/>
+			</concept>
+			<concept>
+				<code value="2251E1300X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Electrophysiology, Clinical"/>
+			</concept>
+			<concept>
+				<code value="2251E1200X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Ergonomics"/>
+			</concept>
+			<concept>
+				<code value="2251G0304X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Geriatrics"/>
+			</concept>
+			<concept>
+				<code value="2251H1200X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Hand"/>
+			</concept>
+			<concept>
+				<code value="2251H1300X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Human Factors"/>
+			</concept>
+			<concept>
+				<code value="2251N0400X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Neurology"/>
+			</concept>
+			<concept>
+				<code value="2251X0800X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Orthopedic"/>
+			</concept>
+			<concept>
+				<code value="2251P0200X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="2251S0007X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Physical Therapist-Sports"/>
+			</concept>
+			<concept>
+				<code value="225CA2400X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Rehabilitation Counselor-Assistive Technology Practitioner"/>
+			</concept>
+			<concept>
+				<code value="225CA2500X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Rehabilitation Counselor-Assistive Technology Supplier"/>
+			</concept>
+			<concept>
+				<code value="225CX0006X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Rehabilitation Counselor-Orientation and Mobility Training Provider"/>
+			</concept>
+			<concept>
+				<code value="2278C0205X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Critical Care"/>
+			</concept>
+			<concept>
+				<code value="2278E1000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Educational"/>
+			</concept>
+			<concept>
+				<code value="2278E0002X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Emergency Care"/>
+			</concept>
+			<concept>
+				<code value="2278G1100X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-General Care"/>
+			</concept>
+			<concept>
+				<code value="2278G0305X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Geriatric Care"/>
+			</concept>
+			<concept>
+				<code value="2278H0200X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Home Health"/>
+			</concept>
+			<concept>
+				<code value="2278P3900X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Neonatal/Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="2278P3800X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Palliative/Hospice"/>
+			</concept>
+			<concept>
+				<code value="2278P4000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Patient Transport"/>
+			</concept>
+			<concept>
+				<code value="2278P1004X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Pulmonary Diagnostics"/>
+			</concept>
+			<concept>
+				<code value="2278P1006X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Pulmonary Function Technologist"/>
+			</concept>
+			<concept>
+				<code value="2278P1005X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-Pulmonary Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="2278S1500X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Certified-SNF/Subacute Care"/>
+			</concept>
+			<concept>
+				<code value="2279C0205X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Critical Care"/>
+			</concept>
+			<concept>
+				<code value="2279E1000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Educational"/>
+			</concept>
+			<concept>
+				<code value="2279E0002X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Emergency Care"/>
+			</concept>
+			<concept>
+				<code value="2279G1100X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-General Care"/>
+			</concept>
+			<concept>
+				<code value="2279G0305X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Geriatric Care"/>
+			</concept>
+			<concept>
+				<code value="2279H0200X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Home Health"/>
+			</concept>
+			<concept>
+				<code value="2279P3900X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Neonatal/Pediatrics"/>
+			</concept>
+			<concept>
+				<code value="2279P3800X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Palliative/Hospice"/>
+			</concept>
+			<concept>
+				<code value="2279P4000X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Patient Transport"/>
+			</concept>
+			<concept>
+				<code value="2279P1004X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Pulmonary Diagnostics"/>
+			</concept>
+			<concept>
+				<code value="2279P1006X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Pulmonary Function Technologist"/>
+			</concept>
+			<concept>
+				<code value="2279P1005X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-Pulmonary Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="2279S1500X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Respiratory Therapist, Registered-SNF/Subacute Care"/>
+			</concept>
+			<concept>
+				<code value="2255A2300X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Specialist/Technologist-Athletic Trainer"/>
+			</concept>
+			<concept>
+				<code value="2255R0406X"/>
+				<display value="Respiratory, Developmental, Rehabilitative and Restorative Service Providers-Specialist/Technologist-Rehabilitation, Blind"/>
+			</concept>
+			<concept>
+				<code value="231HA2400X"/>
+				<display value="Speech, Language and Hearing Service Providers-Audiologist-Assistive Technology Practitioner"/>
+			</concept>
+			<concept>
+				<code value="231HA2500X"/>
+				<display value="Speech, Language and Hearing Service Providers-Audiologist-Assistive Technology Supplier"/>
+			</concept>
+			<concept>
+				<code value="2355A2700X"/>
+				<display value="Speech, Language and Hearing Service Providers-Specialist/Technologist-Audiology Assistant"/>
+			</concept>
+			<concept>
+				<code value="2355S0801X"/>
+				<display value="Speech, Language and Hearing Service Providers-Specialist/Technologist-Speech-Language Assistant"/>
+			</concept>
+			<concept>
+				<code value="247ZC0005X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Pathology-Clinical Laboratory Director, Non-physician"/>
+			</concept>
+			<concept>
+				<code value="2471B0102X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Bone Densitometry"/>
+			</concept>
+			<concept>
+				<code value="2471C1106X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Cardiac-Interventional Technology"/>
+			</concept>
+			<concept>
+				<code value="2471C1101X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Cardiovascular-Interventional Technology"/>
+			</concept>
+			<concept>
+				<code value="2471C3401X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Computed Tomography"/>
+			</concept>
+			<concept>
+				<code value="2471M1202X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Magnetic Resonance Imaging"/>
+			</concept>
+			<concept>
+				<code value="2471M2300X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Mammography"/>
+			</concept>
+			<concept>
+				<code value="2471N0900X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Nuclear Medicine Technology"/>
+			</concept>
+			<concept>
+				<code value="2471Q0001X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Quality Management"/>
+			</concept>
+			<concept>
+				<code value="2471R0002X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Radiation Therapy"/>
+			</concept>
+			<concept>
+				<code value="2471C3402X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Radiography"/>
+			</concept>
+			<concept>
+				<code value="2471S1302X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Sonography"/>
+			</concept>
+			<concept>
+				<code value="2471V0105X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Vascular Sonography"/>
+			</concept>
+			<concept>
+				<code value="2471V0106X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Radiologic Technologist-Vascular-Interventional Technology"/>
+			</concept>
+			<concept>
+				<code value="246XC2901X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Cardiovascular-Cardiovascular Invasive Specialist"/>
+			</concept>
+			<concept>
+				<code value="246XS1301X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Cardiovascular-Sonography"/>
+			</concept>
+			<concept>
+				<code value="246XC2903X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Cardiovascular-Vascular Specialist"/>
+			</concept>
+			<concept>
+				<code value="246YC3301X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Health Info-Coding Specialist, Hospital Based"/>
+			</concept>
+			<concept>
+				<code value="246YC3302X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Health Info-Coding Specialist, Physician Office Based"/>
+			</concept>
+			<concept>
+				<code value="246YR1600X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Health Info-Registered Record Administrator"/>
+			</concept>
+			<concept>
+				<code value="246QB0000X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Blood Banking"/>
+			</concept>
+			<concept>
+				<code value="246QC1000X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Chemistry"/>
+			</concept>
+			<concept>
+				<code value="246QC2700X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Cytotechnology"/>
+			</concept>
+			<concept>
+				<code value="246QH0401X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Hemapheresis Practitioner"/>
+			</concept>
+			<concept>
+				<code value="246QH0000X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Hematology"/>
+			</concept>
+			<concept>
+				<code value="246QH0600X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Histology"/>
+			</concept>
+			<concept>
+				<code value="246QI0000X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Immunology"/>
+			</concept>
+			<concept>
+				<code value="246QL0900X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Laboratory Management"/>
+			</concept>
+			<concept>
+				<code value="246QL0901X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Laboratory Management, Diplomate"/>
+			</concept>
+			<concept>
+				<code value="246QM0706X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Medical Technologist"/>
+			</concept>
+			<concept>
+				<code value="246QM0900X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Spec/Tech, Pathology-Microbiology"/>
+			</concept>
+			<concept>
+				<code value="246ZA2600X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Art, Medical"/>
+			</concept>
+			<concept>
+				<code value="246ZB0500X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Biochemist"/>
+			</concept>
+			<concept>
+				<code value="246ZB0301X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Biomedical Engineering"/>
+			</concept>
+			<concept>
+				<code value="246ZB0302X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Biomedical Photographer"/>
+			</concept>
+			<concept>
+				<code value="246ZB0600X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Biostatistician"/>
+			</concept>
+			<concept>
+				<code value="246ZE0500X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-EEG"/>
+			</concept>
+			<concept>
+				<code value="246ZE0600X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Electroneurodiagnostic"/>
+			</concept>
+			<concept>
+				<code value="246ZG1000X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Geneticist, Medical (PhD)"/>
+			</concept>
+			<concept>
+				<code value="246ZG0701X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Graphics Methods"/>
+			</concept>
+			<concept>
+				<code value="246ZI1000X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Illustration, Medical"/>
+			</concept>
+			<concept>
+				<code value="246ZN0300X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Nephrology"/>
+			</concept>
+			<concept>
+				<code value="246ZX2200X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Orthopedic Assistant"/>
+			</concept>
+			<concept>
+				<code value="246ZC0007X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Surgical Assistant"/>
+			</concept>
+			<concept>
+				<code value="246ZS0410X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Specialist/Technologist, Other-Surgical Technologist"/>
+			</concept>
+			<concept>
+				<code value="2470A2800X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Technician, Health Information-Assistant Record Technician"/>
+			</concept>
+			<concept>
+				<code value="2472B0301X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Technician, Other-Biomedical Engineering"/>
+			</concept>
+			<concept>
+				<code value="2472D0500X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Technician, Other-Darkroom"/>
+			</concept>
+			<concept>
+				<code value="2472E0500X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Technician, Other-EEG"/>
+			</concept>
+			<concept>
+				<code value="2472R0900X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Technician, Other-Renal Dialysis"/>
+			</concept>
+			<concept>
+				<code value="2472V0600X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Technician, Other-Veterinary"/>
+			</concept>
+			<concept>
+				<code value="246RH0600X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Technician, Pathology-Histology"/>
+			</concept>
+			<concept>
+				<code value="246RM2200X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Technician, Pathology-Medical Laboratory"/>
+			</concept>
+			<concept>
+				<code value="246RP1900X"/>
+				<display value="Technologists, Technicians   Other Technical Service Providers-Technician, Pathology-Phlebotomy"/>
+			</concept>
+			<concept>
+				<code value="261QM0855X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Adolescent and Children Mental Health"/>
+			</concept>
+			<concept>
+				<code value="261QA0600X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Adult Day Care"/>
+			</concept>
+			<concept>
+				<code value="261QM0850X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Adult Mental Health"/>
+			</concept>
+			<concept>
+				<code value="261QA0005X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Ambulatory Family Planning Facility"/>
+			</concept>
+			<concept>
+				<code value="261QA0006X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Ambulatory Fertility Facility"/>
+			</concept>
+			<concept>
+				<code value="261QA1903X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Ambulatory Surgical"/>
+			</concept>
+			<concept>
+				<code value="261QA0900X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Amputee"/>
+			</concept>
+			<concept>
+				<code value="261QA3000X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Augmentative Communication"/>
+			</concept>
+			<concept>
+				<code value="261QB0400X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Birthing"/>
+			</concept>
+			<concept>
+				<code value="261QC1500X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Community Health"/>
+			</concept>
+			<concept>
+				<code value="261QC1800X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Corporate Health"/>
+			</concept>
+			<concept>
+				<code value="261QC0050X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Critical Access Hospital"/>
+			</concept>
+			<concept>
+				<code value="261QD0000X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Dental"/>
+			</concept>
+			<concept>
+				<code value="261QD1600X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Developmental Disabilities"/>
+			</concept>
+			<concept>
+				<code value="261QE0002X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Emergency Care"/>
+			</concept>
+			<concept>
+				<code value="261QE0700X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-End-Stage Renal Disease (ESRD) Treatment"/>
+			</concept>
+			<concept>
+				<code value="261QE0800X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Endoscopy"/>
+			</concept>
+			<concept>
+				<code value="261QF0050X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Family Planning, Non-Surgical"/>
+			</concept>
+			<concept>
+				<code value="261QF0400X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Federally Qualified Health Center (FQHC)"/>
+			</concept>
+			<concept>
+				<code value="261QG0250X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Genetics"/>
+			</concept>
+			<concept>
+				<code value="261QH0100X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Health Service"/>
+			</concept>
+			<concept>
+				<code value="261QH0700X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Hearing and Speech"/>
+			</concept>
+			<concept>
+				<code value="261QI0500X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Infusion Therapy"/>
+			</concept>
+			<concept>
+				<code value="261QL0400X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Lithotripsy"/>
+			</concept>
+			<concept>
+				<code value="261QM1200X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Magnetic Resonance Imaging (MRI)"/>
+			</concept>
+			<concept>
+				<code value="261QM2500X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Medical Specialty"/>
+			</concept>
+			<concept>
+				<code value="261QM3000X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Medically Fragile Intants and Children Day Care"/>
+			</concept>
+			<concept>
+				<code value="261QM0801X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Mental Health (Including Community Mental Health Center)"/>
+			</concept>
+			<concept>
+				<code value="261QM2800X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Methadone Clinic"/>
+			</concept>
+			<concept>
+				<code value="261QM1000X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Migrant Health"/>
+			</concept>
+			<concept>
+				<code value="261QM1103X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Military Ambulatory Procedure Visits Operational (Transportable)"/>
+			</concept>
+			<concept>
+				<code value="261QM1101X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Military and U.S. Coast Guard Ambulatory Procedure"/>
+			</concept>
+			<concept>
+				<code value="261QM1102X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Military Outpatient Operational (Transportable) Component"/>
+			</concept>
+			<concept>
+				<code value="261QM1100X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Military/U.S. Coast Guard Outpatient"/>
+			</concept>
+			<concept>
+				<code value="261QM1300X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Multi-Specialty"/>
+			</concept>
+			<concept>
+				<code value="261QX0100X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Occupational Medicine"/>
+			</concept>
+			<concept>
+				<code value="261QX0200X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Oncology"/>
+			</concept>
+			<concept>
+				<code value="261QX0203X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Oncology, Radiation"/>
+			</concept>
+			<concept>
+				<code value="261QS0132X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Ophthalmologic Surgery"/>
+			</concept>
+			<concept>
+				<code value="261QS0112X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Oral and Maxillofacial Surgery"/>
+			</concept>
+			<concept>
+				<code value="261QP3300X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Pain"/>
+			</concept>
+			<concept>
+				<code value="261QP2000X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Physical Therapy"/>
+			</concept>
+			<concept>
+				<code value="261QP1100X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Podiatric"/>
+			</concept>
+			<concept>
+				<code value="261QP2300X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Primary Care"/>
+			</concept>
+			<concept>
+				<code value="261QP2400X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Prison Health"/>
+			</concept>
+			<concept>
+				<code value="261QP0904X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Public Health, Federal"/>
+			</concept>
+			<concept>
+				<code value="261QP0905X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Public Health, State or Local"/>
+			</concept>
+			<concept>
+				<code value="261QR0200X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Radiology"/>
+			</concept>
+			<concept>
+				<code value="261QR0206X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Radiology, Mammography"/>
+			</concept>
+			<concept>
+				<code value="261QR0208X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Radiology, Mobile"/>
+			</concept>
+			<concept>
+				<code value="261QR0207X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Radiology, Mobile Mammography"/>
+			</concept>
+			<concept>
+				<code value="261QR0800X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Recovery Care"/>
+			</concept>
+			<concept>
+				<code value="261QR0400X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Rehabilitation"/>
+			</concept>
+			<concept>
+				<code value="261QR0404X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Rehabilitation, Cardiac Facilities"/>
+			</concept>
+			<concept>
+				<code value="261QR0401X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Rehabilitation, Comprehensive Outpatient Rehabilitation Facility (CORF)"/>
+			</concept>
+			<concept>
+				<code value="261QR0405X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Rehabilitation, Substance Use Disorder"/>
+			</concept>
+			<concept>
+				<code value="261QR1100X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Research"/>
+			</concept>
+			<concept>
+				<code value="261QR1300X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Rural Health"/>
+			</concept>
+			<concept>
+				<code value="261QS1200X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Sleep Disorder Diagnostic"/>
+			</concept>
+			<concept>
+				<code value="261QS1000X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Student Health"/>
+			</concept>
+			<concept>
+				<code value="261QU0200X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-Urgent Care"/>
+			</concept>
+			<concept>
+				<code value="261QV0200X"/>
+				<display value="Ambulatory Health Care Facilities-Clinic/Center-VA"/>
+			</concept>
+			<concept>
+				<code value="281PC2000X"/>
+				<display value="Hospitals-Chronic Disease Hospital-Children"/>
+			</concept>
+			<concept>
+				<code value="282NC2000X"/>
+				<display value="Hospitals-General Acute Care Hospital-Children"/>
+			</concept>
+			<concept>
+				<code value="282NC0060X"/>
+				<display value="Hospitals-General Acute Care Hospital-Critical Access"/>
+			</concept>
+			<concept>
+				<code value="282NR1301X"/>
+				<display value="Hospitals-General Acute Care Hospital-Rural"/>
+			</concept>
+			<concept>
+				<code value="282NW0100X"/>
+				<display value="Hospitals-General Acute Care Hospital-Women"/>
+			</concept>
+			<concept>
+				<code value="2865C1500X"/>
+				<display value="Hospitals-Military Hospital-Community Health"/>
+			</concept>
+			<concept>
+				<code value="2865M2000X"/>
+				<display value="Hospitals-Military Hospital-Military General Acute Care Hospital"/>
+			</concept>
+			<concept>
+				<code value="2865X1600X"/>
+				<display value="Hospitals-Military Hospital-Military General Acute Care Hospital. Operational (Transportable)"/>
+			</concept>
+			<concept>
+				<code value="283XC2000X"/>
+				<display value="Hospitals-Rehabilitation Hospital-Children"/>
+			</concept>
+			<concept>
+				<code value="3104A0630X"/>
+				<display value="Nursing   Custodial Care Facilities-Assisted Living Facility-Assisted Living, Behavioral Disturbances"/>
+			</concept>
+			<concept>
+				<code value="3104A0625X"/>
+				<display value="Nursing   Custodial Care Facilities-Assisted Living Facility-Assisted Living, Mental Illness"/>
+			</concept>
+			<concept>
+				<code value="311ZA0620X"/>
+				<display value="Nursing   Custodial Care Facilities-Custodial Care Facility-Adult Care Home"/>
+			</concept>
+			<concept>
+				<code value="3140N1450X"/>
+				<display value="Nursing   Custodial Care Facilities-Skilled Nursing Facility-Nursing Care, Pediatric"/>
+			</concept>
+			<concept>
+				<code value="3245S0500X"/>
+				<display value="Residential Treatment Facilities-Substance Abuse Rehabilitation Facility-Substance Abuse Treatment, Children"/>
+			</concept>
+			<concept>
+				<code value="385HR2050X"/>
+				<display value="Respite Care Facility-Respite Care-Respite Care Camp"/>
+			</concept>
+			<concept>
+				<code value="385HR2055X"/>
+				<display value="Respite Care Facility-Respite Care-Respite Care, Mental Illness, Child"/>
+			</concept>
+			<concept>
+				<code value="385HR2060X"/>
+				<display value="Respite Care Facility-Respite Care-Respite Care, Mental Retardation and/or Developmental Disabilities, Child"/>
+			</concept>
+			<concept>
+				<code value="385HR2065X"/>
+				<display value="Respite Care Facility-Respite Care-Respite Care, Physical Disabilities, Child"/>
+			</concept>
+			<concept>
+				<code value="332BC3200X"/>
+				<display value="Suppliers-Durable Medical Equipment   Medical Supplies-Customized Equipment"/>
+			</concept>
+			<concept>
+				<code value="332BD1200X"/>
+				<display value="Suppliers-Durable Medical Equipment   Medical Supplies-Dialysis Equipment   Supplies"/>
+			</concept>
+			<concept>
+				<code value="332BN1400X"/>
+				<display value="Suppliers-Durable Medical Equipment   Medical Supplies-Nursing Facility Supplies"/>
+			</concept>
+			<concept>
+				<code value="332BX2000X"/>
+				<display value="Suppliers-Durable Medical Equipment   Medical Supplies-Oxygen Equipment   Supplies"/>
+			</concept>
+			<concept>
+				<code value="332BP3500X"/>
+				<display value="Suppliers-Durable Medical Equipment   Medical Supplies-Parenteral   Enteral Nutrition"/>
+			</concept>
+			<concept>
+				<code value="3336C0002X"/>
+				<display value="Suppliers-Pharmacy-Clinic Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3336C0003X"/>
+				<display value="Suppliers-Pharmacy-Community/Retail Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3336C0004X"/>
+				<display value="Suppliers-Pharmacy-Compounding Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3336H0001X"/>
+				<display value="Suppliers-Pharmacy-Home Infusion Therapy Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3336I0012X"/>
+				<display value="Suppliers-Pharmacy-Institutional Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3336L0003X"/>
+				<display value="Suppliers-Pharmacy-Long Term Care Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3336M0002X"/>
+				<display value="Suppliers-Pharmacy-Mail Order Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3336M0003X"/>
+				<display value="Suppliers-Pharmacy-Managed Care Organization Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3336N0007X"/>
+				<display value="Suppliers-Pharmacy-Nuclear Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3336S0011X"/>
+				<display value="Suppliers-Pharmacy-Specialty Pharmacy"/>
+			</concept>
+			<concept>
+				<code value="3416A0800X"/>
+				<display value="Transportation Services-Ambulance-Air Transport"/>
+			</concept>
+			<concept>
+				<code value="3416L0300X"/>
+				<display value="Transportation Services-Ambulance-Land Transport"/>
+			</concept>
+			<concept>
+				<code value="3416S0300X"/>
+				<display value="Transportation Services-Ambulance-Water Transport"/>
+			</concept>
+			<concept>
+				<code value="3418M1120X"/>
+				<display value="Transportation Services-Military/U.S. Coast Guard Transport-Military or U.S. Coast Guard Ambulance, Air Transport"/>
+			</concept>
+			<concept>
+				<code value="3418M1110X"/>
+				<display value="Transportation Services-Military/U.S. Coast Guard Transport-Military or U.S. Coast Guard Ambulance, Ground Transport"/>
+			</concept>
+			<concept>
+				<code value="3418M1130X"/>
+				<display value="Transportation Services-Military/U.S. Coast Guard Transport-Military or U.S. Coast Guard Ambulance, Water Transport"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+

@@ -1,0 +1,29 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="Adption Info"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of value that describe the state of the medical records of an adopted child."/>
+	<status value="draft"/>
+	<define>
+		<system value="Intermountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="5ee777e9-7916-4e41-bfc1-083a5b106937"/>
+			<display value="Adopted Birth Record"/>
+			<definition value="An indication that the medical records being viewed are from a time prior to a patient's adoption and therefore cannot be viewed by adoptive guardians."/>
+		</concept>
+		<concept>
+			<code value="f3b8a7bc-c653-42da-a1c6-09b3e0607a21"/>
+			<display value="Adopted Patient Record"/>
+			<definition value="An indication that the medical records being viewed are from a time after a patient's adoption and can be viewed by the adoptive guardians."/>
+		</concept>
+	</define>
+</ValueSet>
+
+

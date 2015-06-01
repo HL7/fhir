@@ -7,11 +7,13 @@ public class ImplementationGuide {
   private String page;
   private boolean review;
   private boolean ballot;
+  private String source;
   
-  public ImplementationGuide(String code, String name, String page, boolean review, boolean ballot) {
+  public ImplementationGuide(String code, String name, String page, String source, boolean review, boolean ballot) {
     super();
     this.code = code;
     this.name = name;
+    this.source = source;
     this.page = page;
     this.review = review;
     this.ballot = ballot;
@@ -36,5 +38,14 @@ public class ImplementationGuide {
   public boolean isBallot() {
     return ballot;
   }
+
+  public String getSource() {
+    return source;
+  }
+
+  public void setPage(String page) {
+    this.page = page;
+  }
+  
   
 }

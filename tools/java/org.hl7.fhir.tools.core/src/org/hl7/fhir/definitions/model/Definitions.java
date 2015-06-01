@@ -76,7 +76,8 @@ public class Definitions {
   private Map<String, WorkGroup> workgroups = new HashMap<String, WorkGroup>();
 
 	// profiles not owned by a particular resource
-  private Map<String, Profile> packs = new HashMap<String, Profile>();
+  private List<Profile> packList = new ArrayList<Profile>();
+  private Map<String, Profile> packMap = new HashMap<String, Profile>();
   private Map<String, Dictionary> dictionaries = new HashMap<String, Dictionary>();
 
   // indexes of above
@@ -241,11 +242,15 @@ public class Definitions {
 		return events;
 	}
 
-	// Returns all defined Profiles, which are the profiles found
-	// under [profiles] in fhir.ini
-	public Map<String, Profile> getConformancePackages() {
-		return packs;
-	}
+  // Returns all defined Profiles, which are the profiles found
+  // under [profiles] in fhir.ini
+  public Map<String, Profile> getPackMap() {
+    return packMap;
+  }
+
+  public List<Profile> getPackList() {
+    return packList;
+  }
 
 //  public BindingSpecification getBindingByReference(String ref, BindingSpecification other) {
 //    for (BindingSpecification b : bindings.values()) {
@@ -385,7 +390,7 @@ public class Definitions {
         }
       }
     }
-    for (Profile cp : packs.values()) {
+    for (Profile cp : packList) {
       for (ConstraintStructure p : cp.getProfiles()) {
         if (p.getResource() != null && base.equals(p.getResource().getUrl()))
           return p.getResource();

@@ -5,6 +5,5 @@
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.common-2.9.2-v20131212-0545.jar"/>
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore.xmi-2.9.1-v20131212-0545.jar"/>
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore-2.9.2-v20131212-0545.jar"/>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -159,7 +159,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String[] p0 = arg0.split("\\.");
       String[] p1 = arg1.split("\\.");
       for (int i = 0; i < Math.min(p0.length, p1.length); i++) {
-        if (Utilities.IsInteger(p0[i]) && Utilities.IsInteger(p1[i])) {
+        if (Utilities.isInteger(p0[i]) && Utilities.isInteger(p1[i])) {
           int i0 = Integer.parseInt(p0[i]);
           int i1 = Integer.parseInt(p1[i]);
           if (i0 != i1) {
@@ -184,7 +184,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private static final String SIDEBAR_SPACER = "<p>&#xA0;</p>\r\n";
 
-  private ImplementationGuideDetails ig;
   private final List<String> suppressedMessages = new ArrayList<String>();
   private Definitions definitions;
   private FolderManager folders;
@@ -479,8 +478,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+txHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("fmtheader"))
         src = s1+fmtHeader(name, com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("igheader"))
-        src = s1+igHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("cmpheader"))
         src = s1+cmpHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("dictheader"))
@@ -657,8 +654,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateToc() + s3;
       else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
-      else if (com[0].equals("igname"))
-        src = s1 + ig.getName() + s3;
       else if (com[0].equals("vsdef"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) : generateValueSetDefinition(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txoid"))
@@ -668,7 +663,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("txname"))
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsname"))
-        src = s1 + Utilities.fileTitle(file) + s3;
+        src = s1 + ((ValueSet) resource).getName() + s3;
       else if (com[0].equals("vsref")) {
         if (resource != null)
           src = s1 + Utilities.fileTitle((String) resource.getUserData("filename")) + s3;
@@ -1058,10 +1053,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("    <td colspan=\"2\"><b>General</b></td>\r\n");
     b.append("  </tr>\r\n");
     List<String> names = new ArrayList<String>();
-    names.addAll(definitions.getConformancePackages().keySet());
+    names.addAll(definitions.getPackMap().keySet());
     Collections.sort(names);
     for (String s : names) {
-      Profile ap = definitions.getConformancePackages().get(s);
+      Profile ap = definitions.getPackMap().get(s);
       if (definitions.doPublish(ap.getCategory())) {
         b.append("  <tr>\r\n");
         b.append("    <td><a href=\"").append(ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
@@ -2177,27 +2172,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();   
   }
 
-  private String igHeader(String n, String mode) {
-    if (n.contains("-"))
-      n = n.substring(0, n.indexOf('-'));
-    StringBuilder b = new StringBuilder();
-    String pfx = "";
-    if ("l1".equals(mode))
-      pfx = "../";
-    if ("l2".equals(mode))
-      pfx = "../../";
-    if ("l3".equals(mode))
-      pfx = "../../../";
-
-    b.append("<ul class=\"nav nav-tabs\">");    
-    b.append(makeHeaderTab("Orientation", pfx + ig.getFilePrefix()+"orientation.html", mode==null || "orientation".equals(mode)));
-    b.append(makeHeaderTab("Profiles", pfx + "ig-profiles.html", "profiles".equals(mode)));
-    b.append(makeHeaderTab("Value Sets", pfx + "ig-valuesets.html", "valuesets".equals(mode)));
-    b.append(makeHeaderTab("Security", pfx + ig.getFilePrefix()+"security.html", "security".equals(mode)));
-    b.append("</ul>\r\n");
-    return b.toString();
-  }
-
   private String txHeader(String n, String mode) {
     if (n.contains("-"))
       n = n.substring(0, n.indexOf('-'));
@@ -2990,8 +2964,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsxref"))
         src = s1 + xreferencesForFhir(name) + s3;      
-      else if (com[0].equals("igname"))
-        src = s1 + ig.getName() + s3;
       else if (com[0].equals("vsdef"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) : generateValueSetDefinition(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
@@ -3091,7 +3063,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
       ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
       if (result.getError() != null)
-        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--1-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
       ValueSet exp = result.getValueset();
       exp.setCompose(null);
       exp.setDefine(null);
@@ -3100,7 +3072,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       new NarrativeGenerator("", workerContext).generate(exp);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
-      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e.getMessage())+"</div>";
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--2-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e.getMessage())+"</div>";
     }
   }
   
@@ -3344,8 +3316,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : (ValueSet) resource) + s3;
       else if (com[0].equals("vsexpansionig"))
         src = s1 + expandValueSetIG((ValueSet) resource) + s3;
-      else if (com[0].equals("igname"))
-        src = s1 + ig.getName() + s3;
       else if (com[0].equals("vsdef"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) : generateValueSetDefinition(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txoid"))
@@ -3355,7 +3325,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("txname"))
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsname"))
-        src = s1 + Utilities.fileTitle(file) + s3;
+        src = s1 + ((ValueSet) resource).getName() + s3;
       else if (com[0].equals("vsref")) {
         if (resource != null)
           src = s1 + Utilities.fileTitle((String) resource.getUserData("filename")) + s3;
@@ -4159,8 +4129,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
     s.append("<table class=\"list\">\r\n");
     Map<String, ConstraintStructure> constraints = new HashMap<String, ConstraintStructure>();
-    for (String pn : definitions.getConformancePackages().keySet()) 
-      for (ConstraintStructure p : definitions.getConformancePackages().get(pn).getProfiles())
+    for (Profile pp : definitions.getPackList()) 
+      for (ConstraintStructure p : pp.getProfiles())
         constraints.put(p.getId(), p);
     for (String rn : definitions.sortedResourceNames()) 
       for (Profile ap: definitions.getResourceByName(rn).getConformancePackages())
@@ -4932,7 +4902,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
               vss = "<a href=\""+vs.getUserData("path")+"\">"+Utilities.escapeXml(vs.getName())+"</a>";
           }
         }
-        b.append("<tr><td>").append(path).append("</td><td>").append(tx.getName()).append("</td><td>").append(tx.getStrength().toCode()).append("</td><td>").append(vss).append("</td></tr>\r\n");
+        b.append("<tr><td>").append(path).append("</td><td>").append("[vs name (todo)]").append("</td><td>").append(tx.getStrength().toCode()).append("</td><td>").append(vss).append("</td></tr>\r\n");
       }
       b.append("</table>\r\n");
       return b.toString();
@@ -5174,6 +5144,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return genDate;
   }
 
+  private long lastSecs = 0;
+  
   @Override
   public void log(String content, LogMessageType type) {
     if (suppressedMessages.contains(content) && (type == LogMessageType.Hint || type == LogMessageType.Warning))
@@ -5184,10 +5156,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       long l2 = stop.getTime();
       long diff = l2 - l1;
       long secs = diff / 1000;
+      float tmp = diff - lastSecs;
+      float gap = tmp / 1000;
+      lastSecs = diff;
       MemoryMXBean mem = ManagementFactory.getMemoryMXBean();
       // mem.gc();
       long used = mem.getHeapMemoryUsage().getUsed() / (1024 * 1024);
-      System.out.println(String.format("%1$-74s", content)+" "+String.format("%1$3s", Long.toString(secs))+"sec "+String.format("%1$4s", Long.toString(used))+"MB");
+      System.out.println(String.format("%1$-74s", content)+" "+String.format("%1$5s", Float.toString(gap))+" "+String.format("%1$3s", Long.toString(secs))+"sec "+String.format("%1$4s", Long.toString(used))+"MB");
     } else
       System.out.println(content);
   }
@@ -5435,52 +5410,74 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return workerContext;
   }
 
-  public ImplementationGuideDetails getIg() {
-    return ig;
-  }
-
-  public void setIg(ImplementationGuideDetails ig) {
-    this.ig = ig;
-  }
-
-  public boolean hasIG() {
-    return ig != null;
-  }
-
   public Map<String, Resource> getIgResources() {
     return igResources;
   }
 
   @Override
-  public String resolveBinding(ElementDefinitionBindingComponent binding) {
-    if (!binding.hasValueSet())
-      return null;
-    if (binding.getValueSet() instanceof UriType) {
+  public BindingResolution resolveBinding(ElementDefinitionBindingComponent binding) {
+    BindingResolution br = new BindingResolution();
+    if (!binding.hasValueSet()) {
+      br.url = "unbound.html";
+      br.display = "(unbound)";      
+    } else if (binding.getValueSet() instanceof UriType) {
       String ref = ((UriType) binding.getValueSet()).getValue();
-      if (ref.startsWith("http://hl7.org/fhir/v3/vs/"))
-        return "v3/"+ref.substring(26)+"/index.html";
-      else
-        return ref;
+      if (ref.startsWith("http://hl7.org/fhir/v3/vs/")) {
+        br.url = "v3/"+ref.substring(26)+"/index.html";
+        br.display = ref.substring(26);
+      } else if (definitions.getValuesets().containsKey(ref)) {
+        ValueSet vs = definitions.getValuesets().get(ref);
+        br.url = vs.getUserString("path");
+        br.display = vs.getName();
+      } else {
+        br.url = ref;
+        if (ref.equals("http://tools.ietf.org/html/bcp47"))
+          br.display = "IETF BCP-47";
+        else if (ref.equals("http://www.rfc-editor.org/bcp/bcp13.txt"))
+          br.display = "IETF BCP-13";
+        else if (ref.equals("http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"))
+          br.display = "NucCore";
+        else if (ref.equals("https://rtmms.nist.gov/rtmms/index.htm#!rosetta"))
+          br.display = "Rosetta";
+        else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
+          br.display = "ISO Country Codes";
+        else
+          br.display = "????";
+      }
     } else {
       String ref = ((Reference) binding.getValueSet()).getReference();
       if (ref.startsWith("ValueSet/")) {
         ValueSet vs = definitions.getValuesets().get(ref.substring(8));
-        if (vs == null)
-          return ref.substring(9)+".html";
-        else
-          return (String) vs.getUserData("filename");
-      } else if (ref.startsWith("http://hl7.org/fhir/vs/")) {
-        if (new File(Utilities.path(folders.dstDir, "valueset-"+ref.substring(23)+".html")).exists() || ref.substring(23).equals("use-context")) // special case because this happens before the value set is created
-          return "valueset-"+ref.substring(23)+".html";
-        else if (valueSets.containsKey(ref) && valueSets.get(ref).getUserData("filename") != null)
-          return (String) valueSets.get(ref).getUserData("filename");
-        else
-          return ref.substring(23)+".html";
-      }  else if (ref.startsWith("http://hl7.org/fhir/v3/vs/"))
-        return "v3/"+ref.substring(26)+"/index.html"; 
-      else
-        return ref;
+        if (vs == null) {
+          br.url = ref.substring(9)+".html";
+          br.display = ref.substring(9);
+        } else {
+          br.url = vs.getUserString("path");
+          br.display = vs.getName(); 
+        }
+      } else { // if (ref.startsWith("http://hl7.org/fhir/vs/")) {
+        ValueSet vs = valueSets.get(ref);
+        if (vs != null) { 
+          br.url = (String) vs.getUserData("path");
+          if (Utilities.noString(br.url))
+            br.url = ref.substring(23)+".html";
+          br.display = vs.getName(); 
+        } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created 
+          br.url = "valueset-"+ref.substring(23)+".html";
+          br.display = "Context of Use ValueSet";
+        } else { 
+          br.display = ref.substring(23);
+          br.url = ref.substring(23)+".html";
+        }
+//      }  else if (ref.startsWith("http://hl7.org/fhir/v3/vs/")) {
+//        br.url = "v3/"+ref.substring(26)+"/index.html"; 
+//        br.display = ref.substring(26);
+//      } else {
+//        br.url = ref;
+//        br.display = "????";
+      }
     }
+    return br;
   }
 
   @Override
@@ -5601,8 +5598,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           src = s1 + genResImplList() + s3;
       else if (com[0].equals("impllist"))
         src = s1 + genReferenceImplList() + s3;
-      else if (com[0].equals("igname"))
-        src = s1 + ig.getName() + s3;
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(pack.getId()) + s3;
       else if (com[0].equals("navlist"))
@@ -5834,10 +5829,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
       ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
       if (result.getError() != null)
-        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--3-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
 
       if (result.getValueset() == null)
-        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling (no error returned)</div>";
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--4-->This value set could not be expanded by the publication tooling (no error returned)</div>";
       ValueSet exp = result.getValueset();
       exp.setCompose(null);
       exp.setDefine(null);
@@ -5848,9 +5843,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
       e.printStackTrace();
-      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e instanceof NullPointerException ? "NullPointerException" : e.getMessage())+" "+Utilities.escapeXml(stack(e))+" </div>";
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\"><!--5-->This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e instanceof NullPointerException ? "NullPointerException" : e.getMessage())+" "+Utilities.escapeXml(stack(e))+" </div>";
 
-      //      return "<!-- This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
+      //      return "<!-- <!--6-->This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
     }
   }
 }

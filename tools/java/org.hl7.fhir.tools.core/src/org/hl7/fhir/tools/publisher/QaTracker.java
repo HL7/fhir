@@ -69,7 +69,7 @@ public class QaTracker {
     current.resources = definitions.getResources().size();
     current.types = definitions.getResources().size() + definitions.getTypes().size() + definitions.getStructures().size()  
          + definitions.getShared().size() + definitions.getPrimitives().size()+ definitions.getInfrastructure().size();
-    current.packs = definitions.getConformancePackages().size();
+    current.packs = definitions.getPackList().size();
     
     for (ResourceDefn r : definitions.getResources().values())
       countPaths(r.getRoot());

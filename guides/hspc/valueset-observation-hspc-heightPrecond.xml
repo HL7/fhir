@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="valueset-observation-hspc-heightPrecond"/>
+  <version value="0.01"/>
+  <name value="HSPC Height Meas Associated Precondition"/>
+  <immutable value="true"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="The conditions during which an individual's height was measured."/>
+  <copyright value="Intermountain Healthcare"/>
+  <status value="draft"/>
+  <extensible value="true"/>
+  <date value="2015-05-19"/>
+  <define>
+		<system value="Internountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="84138"/>
+			<display value="Height (body length) with shoes"/>
+			<definition value="The individual's height was measured while the individual was wearing shoes"/>
+		</concept>
+		<concept>
+			<code value="84139"/>
+			<display value="Height (body length) without shoes"/>
+			<definition value="The individual's height was measured without the individual wearing shoes."/>
+		</concept>
+		<concept>
+			<code value="84140"/>
+			<display value="Height (body length) with patient reclining"/>
+			<definition value="The individual's height was measured while the individual was lying down."/>
+		</concept>
+		<concept>
+			<code value="84141"/>
+			<display value="Height (body length) with patient standing"/>
+			<definition value="The individual's height was measured while the individual was standing up."/>
+		</concept>
+  </define>
+</ValueSet>

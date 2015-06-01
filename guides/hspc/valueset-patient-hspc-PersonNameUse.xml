@@ -1,0 +1,54 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC Person Name Use value set"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="The set of values that describe the manner an individual uses a name."/>
+	<status value="draft"/>
+	<define>
+		<system value="Intermountain Health Care HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value = "188"/>
+			<display value ="Previous Name"/>
+			<definition value ="A name by which an individual previously identified by."/>
+		</concept>
+		<concept>
+			<code value="191"/>
+			<display value="Preferred Name"/>
+			<definition value="The name by which an individual prefers to be known by."/>
+		</concept>
+		<concept>
+			<code value="812"/>
+			<display value="Professional Name"/>
+			<definition value="The name by which an individual in known by professionally."/>
+		</concept>
+	</define>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/vs/EntityNameUse"/>
+			<concept>
+				<code value="L"/>
+				<display value="Legal Name"/>
+			</concept>
+			<concept>
+				<code value="ASGN"/>
+				<display value="Assigned (alias)"/>
+			</concept>
+		</include>
+		<include>
+			<system value ="http://hl7.org/fhir/v3/vs/EntityNameuseR2"/>
+			<concept>
+				<code value="M"/>
+				<display value="maiden name"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
+
+

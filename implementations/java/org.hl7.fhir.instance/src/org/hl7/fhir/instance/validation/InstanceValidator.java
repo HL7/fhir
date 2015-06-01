@@ -1632,7 +1632,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (Utilities.noString(v) || v.length() < 4)
       return false;
     v = v.substring(0, 4);
-    if (!Utilities.IsInteger(v))
+    if (!Utilities.isInteger(v))
       return false;
     int i = Integer.parseInt(v);
     return i >= 1800 && i <= 2100;

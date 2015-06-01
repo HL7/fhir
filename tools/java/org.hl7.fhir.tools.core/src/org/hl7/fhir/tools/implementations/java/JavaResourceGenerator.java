@@ -608,7 +608,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	}
 
   private String makeConst(String cc) {
-    if (Utilities.IsInteger(cc))
+    if (Utilities.isInteger(cc))
       cc = "_"+cc;
     if (cc.equals("<"))
     	cc = "less_Than";

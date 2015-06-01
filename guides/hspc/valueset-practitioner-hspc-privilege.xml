@@ -1,0 +1,44 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="HSPC ProviderPractitioner Privilege"/>
+	<publisher value="HSPC"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://healthcaresoa.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of codes that describe the level of authorization given to a provider to practice medicine at an institution."/>
+	<status value="draft"/>
+	<define>
+		<system value="Intermountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="e6310141-5308-4062-a176-0a03197fb489"/>
+			<display value="Full Privilege"/>
+			<definition value="The provider is allowed to practice and admit"/>
+		</concept>
+		<concept>
+			<code value="0a9a9b65-4f9f-42fa-ade8-0d2592bde220"/>
+			<display value="No Privileges to practice or admit"/>
+			<definition value="The provider is not allowed to practice or admit"/>
+		</concept>
+		<concept>
+			<code value="77f1b390-a433-4708-ad3b-070e358868f4"/>
+			<display value="Privileges Suspended"/>
+			<definition value="The provider is not allowed to practice or admit at this time"/>
+		</concept>
+		<concept>
+			<code value="5750552b-25d4-4eb8-86f9-8233756449f0"/>
+			<display value="Practice Privileges Only (not allowed to admit)"/>
+			<definition value="The provider is allowed to practice only, cannot admit patients"/>
+		</concept>
+		<concept>
+			<code value="45fc874f-d787-43f2-a2aa-5954446b163d"/>
+			<display value="Temporary Privileges"/>
+			<definition value="The provider is allowed to practice and admit for a limited time"/>
+		</concept>
+	</define>
+</ValueSet>
+
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- processed by StringTemplate -->
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="hspc-qnlab-de-$de_id$"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/$de_id$"/>
+  <name value="HSPC StdQtyObs $de_name$"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+    <system value="url"/>
+    <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="$de_definition$"/> 
+  <status value="draft"/>
+  <date value="2015-02-18"/>
+  <type value="constraint"/>
+  <abstract value="false"/>
+  <base value="http://hl7.org/fhir/StructureDefinition/observation-hspc-standardlabobs-quantitative-stdqty"/>
+  <differential>
+    <element>
+      <path value="Observation.code"/>
+      <fixedCodeableConcept>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="$de_code0_code$"/>
+        </coding>
+      </fixedCodeableConcept>
+    </element>
+    <element>
+      <path value="Observation.valueQuantity.code"/>
+      <min value="1"/>
+      <max value="1"/>
+<!--      <fixedCode value="$de_units_code0_code$"/> -->
+    </element>
+  </differential>
+</StructureDefinition>

@@ -447,7 +447,7 @@ public class GeneratorUtils {
 		if (result.startsWith("-"))
 			result = result.replace("-", "Minus");
 		
-		if (Utilities.IsInteger(result))
+		if (Utilities.isInteger(result))
 			result = "N" + result;
 		
 		result = result.replace("-", "_");
