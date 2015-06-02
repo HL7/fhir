@@ -31,6 +31,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -38,8 +39,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.jar.Attributes;
 import java.util.jar.JarEntry;
 import java.util.jar.JarOutputStream;
@@ -49,8 +52,13 @@ import java.util.zip.ZipInputStream;
 
 import javax.tools.Diagnostic;
 import javax.tools.DiagnosticCollector;
+import javax.tools.FileObject;
 import javax.tools.JavaCompiler;
+import javax.tools.JavaFileManager;
+import javax.tools.JavaFileManager.Location;
 import javax.tools.JavaFileObject;
+import javax.tools.JavaFileObject.Kind;
+import javax.tools.SimpleJavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 
@@ -75,6 +83,14 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 
 public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
+
+  public class JavaClass {
+    private File sourceFile;
+    private long sourceDate;
+    private long targetDate;
+    private List<JavaClass> dependencies;
+    public Boolean doCompile;  
+  }
 
   private static final boolean IN_PROCESS = false;
   
@@ -333,27 +349,33 @@ public boolean doesCompile() {
 public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
     assert(this.folders.rootDir.equals(rootDir));
     char sl = File.separatorChar;
-    List<File> classes = new ArrayList<File>();
-
-    addSourceFiles(classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.utilities");
-    addSourceFiles(classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.instance");
+    Map<String, JavaClass> classes = new HashMap<String, JavaClass>();
+    List<String> paths = new ArrayList<String>();
+    
+    addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src", paths);
+    addSourceFiles(0, classes, rootDir + "implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src", paths);
+    List<File> list = listFilesToCompile(classes);
   
-    logger.log(" .... "+Integer.toString(classes.size())+" classes", LogMessageType.Process);
+    logger.log(" .... found "+Integer.toString(classes.size())+" classes, compile "+Integer.toString(list.size()), LogMessageType.Process);
     JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
     if (compiler == null)
       throw new Exception("Cannot continue build process as java compilation services are not available. Check that you are executing the build process using a jdk, not a jre");
     
     StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null);
+//    JavaFileManager fileManager = new CustomFileManager(classes);
     
-    Iterable<? extends JavaFileObject> units = fileManager.getJavaFileObjectsFromFiles(classes);
+    Iterable<? extends JavaFileObject> units = fileManager.getJavaFileObjectsFromFiles(list);
     DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
     List<String> options = new ArrayList<String>();
     StringBuilder path= new StringBuilder();
+    for (String n : paths)
+      path.append(File.pathSeparator+n);
     for (String n : new File(rootDir+sl+"tools"+sl+"java"+sl+"imports").list()) {
       path.append(File.pathSeparator+rootDir+"tools"+sl+"java"+sl+"imports"+sl+n);
     }
+    
     options.addAll(Arrays.asList("-classpath",path.toString()));
-    //logger.log("Classpath: "+path.toString());
+    logger.log("Classpath: "+path.toString(), LogMessageType.Process);
     JavaCompiler.CompilationTask task = ToolProvider.getSystemJavaCompiler().getTask(null, null, diagnostics, options, null, units);
     Boolean result = task.call();
     if (!result) {
@@ -423,7 +445,107 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     return result;
   }
 
-  
+  private void addSourceFiles(int prefix, Map<String, JavaClass> classes, String name, List<String> paths) {
+    if (prefix == 0)
+      prefix = name.length()+1;
+    File f = new File(name);
+    if (f.isDirectory()) {
+      for (String n : f.list()) {
+        addSourceFiles(prefix, classes, name+File.separator+n, paths);
+      }
+    } else if (name.endsWith(".java")) {
+      String path = f.getParent();
+      if (!paths.contains(path))
+        paths.add(path);
+      
+      JavaClass jc = new JavaClass();
+      jc.sourceFile = f;
+      jc.sourceDate = f.lastModified();
+      File cf = new File(Utilities.changeFileExt(f.getAbsolutePath(), ".class"));
+      if (cf.exists())
+        jc.targetDate = cf.lastModified();
+      classes.put(Utilities.changeFileExt(f.getAbsolutePath(), "").substring(prefix).replace(File.separatorChar, '.'), jc);
+    }
+  }
+
+  private List<File> listFilesToCompile(Map<String, JavaClass> classes) throws IOException {
+    // first pass: determine dependencies 
+    for (JavaClass jc : classes.values()) {
+      if (jc.dependencies == null)
+        jc.dependencies = determineDependencies(jc, classes);
+        if (jc.sourceDate > jc.targetDate)
+          jc.doCompile = true;
+    }
+    // second pass: mark everything that needs compiling (dependents)
+    for (JavaClass jc : classes.values()) {
+      if (jc.doCompile == null)
+        jc.doCompile = checkNeedsCompile(jc.dependencies);
+    }
+    List<File> list = new ArrayList<File>();
+    for (JavaClass jc : classes.values()) {
+//      if (jc.doCompile)  - enable this to set up minimal compiling 
+        list.add(jc.sourceFile);
+    }
+    return list;
+  }
+
+  private Boolean checkNeedsCompile(List<JavaClass> dependencies) {
+    for (JavaClass jc : dependencies) {
+      if (jc.doCompile == null)
+        jc.doCompile = checkNeedsCompile(jc.dependencies);
+      if (jc.doCompile)
+        return true;
+    }
+    return false;
+  }
+
+  private List<JavaClass> determineDependencies(JavaClass jc, Map<String, JavaClass> classes) throws IOException {
+    List<String> imports = new ArrayList<String>();
+    BufferedReader src = new BufferedReader(new InputStreamReader(new FileInputStream(jc.sourceFile)));
+    String line = src.readLine();
+    while (!line.contains("class") && !line.contains("enum") && !line.contains("interface")) {
+      line = line.trim();
+      if (line.endsWith(";"))
+        line = line.substring(0, line.length()-1);
+      if (line.startsWith("import")) {
+        imports.add(line.substring(7));
+      }
+      line = src.readLine();
+    }
+    src.close();
+    List<JavaClass> list = new ArrayList<JavaGenerator.JavaClass>();
+    for (String imp : imports) {
+      if (classes.containsKey(imp))
+        list.add(classes.get(imp));
+      else if (imp.startsWith("org.hl7.fhir")) {
+        boolean found = false;
+        if (imp.endsWith(".*")) {
+          String mask = imp.substring(0, imp.length()-1);
+          for (String s : classes.keySet()) {
+            if (s.startsWith(mask)) { 
+              list.add(classes.get(s));
+              found = true;
+            }
+          }
+        }
+        if (!found) {
+          String s = imp.substring(0, imp.lastIndexOf("."));
+          while (s.contains(".") && !found) {
+            if (classes.containsKey(s)) {
+              found = true;
+              list.add(classes.get(s));
+            }
+            s = s.substring(0, imp.lastIndexOf("."));
+          }
+        }
+        if (!found)
+          throw new Error("unable to find import "+imp);
+      }
+        
+    }
+    return list;
+  }
+
   private void checkVersion() throws Exception {
     // execute the jar file javatest.jar to check that it's version matches the version of the reference implemetnation bound in to the build tool
     // also serves as as check of the java
@@ -458,17 +580,6 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
       throw new Exception("Version mismatch - the compiled version is using FHIR "+ver[1]+" but the bound version of FHIR is "+Constants.VERSION);
     if (!ver[0].equals(getVersion()))
       throw new Exception("Version mismatch - the compiled version of the reference implementation is "+ver[0]+" but the bound version is "+getVersion());
-  }
-
-  private void addSourceFiles(List<File> classes, String name) {
-    File f = new File(name);
-    if (f.isDirectory()) {
-      for (String n : f.list()) {
-        addSourceFiles(classes, name+File.separator+n);
-      }
-    } else if (name.endsWith(".java")) {
-      classes.add(f);
-    }
   }
 
   private void AddJarToJar(JarOutputStream jar, String name, List<String> names) throws Exception {

@@ -1050,7 +1050,7 @@ public class ProfileUtilities {
              else // if it's complex, we just call it nothing
                 // genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
               row.getCells().add(gen.new Cell(null, null, "(Complex)", null, null));
-            generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, null, pkp, profile);
+            generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, extDefn.getUrl(), pkp, profile);
           }
         } else {
           genCardinality(gen, element, row, hasDef, used, null);
@@ -1152,7 +1152,7 @@ public class ProfileUtilities {
         if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
         String fullUrl = url.startsWith("#") ? baseURL+url : url;
         StructureDefinition ed = context.getExtensionStructure(null, url);
-        String ref = ed == null ? null : (String) ed.getUserData("filename");
+        String ref = ed == null ? null : (String) ed.getUserData("filename")+".html";
         c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
         c.getPieces().add(gen.new Piece(ref, fullUrl, null));
       }
