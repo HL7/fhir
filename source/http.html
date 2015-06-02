@@ -722,7 +722,7 @@ The transaction interaction is performed by an HTTP <code>POST</code> command as
   POST [base] {?_format=[mime-type]}
 </pre>
 <p>
-The content of the post submission is a <a href="bundle.html">Bundle</a> with type set to <code>transaction</code>.
+The content of the post submission is a <a href="bundle.html">Bundle</a> with <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> = <code><a href="bundle-type.html#transaction">transaction</a></code>.
 Each entry carries a <code>transaction</code> (<a href="bundle-definitions.html#Bundle.entry.transaction">Bundle.entry.transaction</a>)
 that provides the HTTP details of the operation in order to inform the system processing the transaction
 what to do for the entry. If the HTTP operation is a <code>PUT</code> or <code>POST</code>, then the entry SHALL contain a resource for the body of the operation.
