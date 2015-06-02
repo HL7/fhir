@@ -696,7 +696,7 @@ The interaction is performed by an HTTP OPTIONS or a <code>GET</code> command as
 Applications SHALL return a <a href="conformance.html">Conformance Resource</a> that specifies which resource types and interactions are supported
 for the <code>GET</code> command, and SHOULD do so for the <code>OPTIONS</code> command. If a 404 Unknown is returned from the GET, FHIR is not supported on the
 nominated service url. The <code>GET</code> command is defined because not all client libraries are able to perform an <code>OPTIONS</code> command.
-An <code>ETag</code> header SHALL be returned with the conformance resource. The value of the header SHALL change if the
+An <code>ETag</code> header SHOULD be returned with the conformance resource. The value of the header SHALL change if the
 conformance statement itself changes. In addition, a <code>Content-Location</code> header with a literal location where this version of the
 conformance statement is (and will continue to be) available MAY be returned. Additional parameters that are required to be returned with
 the <code>OPTIONS</code> command are defined in the <a href="#hdata">OMG hData RESTful Transport</a> specification.
