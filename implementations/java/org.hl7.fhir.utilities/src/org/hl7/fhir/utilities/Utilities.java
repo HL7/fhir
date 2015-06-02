@@ -439,7 +439,7 @@ public class Utilities {
         s.append(File.separator);
       String a = arg;
       a = a.replace("\\", File.separator);
-      if (a.startsWith(File.separator))
+      if (s.length() > 0 && a.startsWith(File.separator))
         a = a.substring(File.separator.length());
         
       if ("..".equals(a)) {
