@@ -347,9 +347,8 @@ The <code>update</code> interaction is performed by an HTTP <code>PUT</code> com
 The request body SHALL be a <a href="resource.html">Resource</a> with an id element that has an identical value to the [id] in the URL.
 If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
 ignore the existing <code>versionId</code> and <code>lastUpdated</code> values.
-The server SHALL populate the <code>meta.versionId</code> and <code>meta.lastUpdated</code>
-with the new correct values.
-Servers are allowed to review and alter the other metadata values, but SHOULD refrain
+If the server supports versions, it SHALL populate the <code>meta.versionId</code> and <code>meta.lastUpdated</code>
+with the new correct values. Servers are allowed to review and alter the other metadata values, but SHOULD refrain
 from doing so (see <a href="resource.html#meta">metadata description</a>  for further information).
 </p>
 <p>
