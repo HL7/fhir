@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-The scope of the supply resource is for supplies used in the healthcare process.  This includes supplies specifically
+The scope of the SupplyRequest resource is for recording the request of supplies used in the healthcare process.  This includes supplies specifically
 used in the treatment of patients as well as supply movement within an institution (transport a set of supplies from 
 materials management to a service unit (nurse station).  This resource does not include the provisioning of transportation
 services.
@@ -13,11 +13,10 @@ services.
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource overlaps with others such as <a href="device.html">Device</a> and <a href="medication.html">Medication</a>.
-The <b>Supply</b> resource may be used to describe medications and devices when handling them generically (as any other supply).  For
-example, when processing bulk orders, etc.  However, when the medication, device or other aspects of the resource are important,
-(e.g. in a <a href="medicationprescription.html">MedicationPrescription</a> or when identifying a device as a performer), the
-more detailed resource must be used.
+Note that the SupplyRequest a record of the fact that a request was made. To actually request that a a supply be ordered, additional workflow beyond simply the existence of a SupplyRequest is required. This can be achieved by using an <a href="order.html">Order</a> resource, with the SupplyRequest referenced from the <i>Order.details</i>, or by using the SupplyRequest resource in the context of an messaging or service workflow where the request is explicit or implicit.
+</p>
+<p>
+This resource overlaps with <a href="deviceuserequest.html">DeviceUseRequest</a> and <a href="medicationprescription.html">MedicationPrescription</a>. The <b>SupplyRequest</b> resource may be used to request medication, substances and devices when handling them generically (as any other supply).  For example, when processing bulk orders, etc.  TODO - finish defining boundaries. 
 </p>
 </div>
 
