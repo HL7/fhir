@@ -4531,7 +4531,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">The resource to validate</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">Must be present unles the mode is &quot;delete&quot;</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Must be present unless the mode is &quot;delete&quot;</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
