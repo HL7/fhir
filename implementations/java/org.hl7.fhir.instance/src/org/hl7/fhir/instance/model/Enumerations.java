@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 2, 2015 17:45+1000 for FHIR v0.5.0
+// Generated on Wed, Jun 3, 2015 08:07+1000 for FHIR v0.5.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -98,10 +98,10 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case MALE: return "http://hl7.org.fhir/administrative-gender";
-            case FEMALE: return "http://hl7.org.fhir/administrative-gender";
-            case OTHER: return "http://hl7.org.fhir/administrative-gender";
-            case UNKNOWN: return "http://hl7.org.fhir/administrative-gender";
+            case MALE: return "http://hl7.org/fhir/administrative-gender";
+            case FEMALE: return "http://hl7.org/fhir/administrative-gender";
+            case OTHER: return "http://hl7.org/fhir/administrative-gender";
+            case UNKNOWN: return "http://hl7.org/fhir/administrative-gender";
             default: return "?";
           }
         }
@@ -361,15 +361,15 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case EQUIVALENT: return "http://hl7.org.fhir/concept-map-equivalence";
-            case EQUAL: return "http://hl7.org.fhir/concept-map-equivalence";
-            case WIDER: return "http://hl7.org.fhir/concept-map-equivalence";
-            case SUBSUMES: return "http://hl7.org.fhir/concept-map-equivalence";
-            case NARROWER: return "http://hl7.org.fhir/concept-map-equivalence";
-            case SPECIALISES: return "http://hl7.org.fhir/concept-map-equivalence";
-            case INEXACT: return "http://hl7.org.fhir/concept-map-equivalence";
-            case UNMATCHED: return "http://hl7.org.fhir/concept-map-equivalence";
-            case DISJOINT: return "http://hl7.org.fhir/concept-map-equivalence";
+            case EQUIVALENT: return "http://hl7.org/fhir/concept-map-equivalence";
+            case EQUAL: return "http://hl7.org/fhir/concept-map-equivalence";
+            case WIDER: return "http://hl7.org/fhir/concept-map-equivalence";
+            case SUBSUMES: return "http://hl7.org/fhir/concept-map-equivalence";
+            case NARROWER: return "http://hl7.org/fhir/concept-map-equivalence";
+            case SPECIALISES: return "http://hl7.org/fhir/concept-map-equivalence";
+            case INEXACT: return "http://hl7.org/fhir/concept-map-equivalence";
+            case UNMATCHED: return "http://hl7.org/fhir/concept-map-equivalence";
+            case DISJOINT: return "http://hl7.org/fhir/concept-map-equivalence";
             default: return "?";
           }
         }
@@ -489,9 +489,9 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case DRAFT: return "http://hl7.org.fhir/conformance-resource-status";
-            case ACTIVE: return "http://hl7.org.fhir/conformance-resource-status";
-            case RETIRED: return "http://hl7.org.fhir/conformance-resource-status";
+            case DRAFT: return "http://hl7.org/fhir/conformance-resource-status";
+            case ACTIVE: return "http://hl7.org/fhir/conformance-resource-status";
+            case RETIRED: return "http://hl7.org/fhir/conformance-resource-status";
             default: return "?";
           }
         }
@@ -610,14 +610,14 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case UNKNOWN: return "http://hl7.org.fhir/data-absent-reason";
-            case ASKED: return "http://hl7.org.fhir/data-absent-reason";
-            case TEMP: return "http://hl7.org.fhir/data-absent-reason";
-            case NOTASKED: return "http://hl7.org.fhir/data-absent-reason";
-            case MASKED: return "http://hl7.org.fhir/data-absent-reason";
-            case UNSUPPORTED: return "http://hl7.org.fhir/data-absent-reason";
-            case ASTEXT: return "http://hl7.org.fhir/data-absent-reason";
-            case ERROR: return "http://hl7.org.fhir/data-absent-reason";
+            case UNKNOWN: return "http://hl7.org/fhir/data-absent-reason";
+            case ASKED: return "http://hl7.org/fhir/data-absent-reason";
+            case TEMP: return "http://hl7.org/fhir/data-absent-reason";
+            case NOTASKED: return "http://hl7.org/fhir/data-absent-reason";
+            case MASKED: return "http://hl7.org/fhir/data-absent-reason";
+            case UNSUPPORTED: return "http://hl7.org/fhir/data-absent-reason";
+            case ASTEXT: return "http://hl7.org/fhir/data-absent-reason";
+            case ERROR: return "http://hl7.org/fhir/data-absent-reason";
             default: return "?";
           }
         }
@@ -775,9 +775,9 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case CURRENT: return "http://hl7.org.fhir/document-reference-status";
-            case SUPERCEDED: return "http://hl7.org.fhir/document-reference-status";
-            case ENTEREDINERROR: return "http://hl7.org.fhir/document-reference-status";
+            case CURRENT: return "http://hl7.org/fhir/document-reference-status";
+            case SUPERCEDED: return "http://hl7.org/fhir/document-reference-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/document-reference-status";
             default: return "?";
           }
         }
@@ -949,9 +949,9 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case DISPLAY: return "http://hl7.org.fhir/note-type";
-            case PRINT: return "http://hl7.org.fhir/note-type";
-            case PRINTOPER: return "http://hl7.org.fhir/note-type";
+            case DISPLAY: return "http://hl7.org/fhir/note-type";
+            case PRINT: return "http://hl7.org/fhir/note-type";
+            case PRINTOPER: return "http://hl7.org/fhir/note-type";
             default: return "?";
           }
         }
@@ -1028,8 +1028,8 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case COMPLETE: return "http://hl7.org.fhir/remittance-outcome";
-            case ERROR: return "http://hl7.org.fhir/remittance-outcome";
+            case COMPLETE: return "http://hl7.org/fhir/remittance-outcome";
+            case ERROR: return "http://hl7.org/fhir/remittance-outcome";
             default: return "?";
           }
         }
@@ -1186,14 +1186,14 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case NUMBER: return "http://hl7.org.fhir/search-param-type";
-            case DATE: return "http://hl7.org.fhir/search-param-type";
-            case STRING: return "http://hl7.org.fhir/search-param-type";
-            case TOKEN: return "http://hl7.org.fhir/search-param-type";
-            case REFERENCE: return "http://hl7.org.fhir/search-param-type";
-            case COMPOSITE: return "http://hl7.org.fhir/search-param-type";
-            case QUANTITY: return "http://hl7.org.fhir/search-param-type";
-            case URI: return "http://hl7.org.fhir/search-param-type";
+            case NUMBER: return "http://hl7.org/fhir/search-param-type";
+            case DATE: return "http://hl7.org/fhir/search-param-type";
+            case STRING: return "http://hl7.org/fhir/search-param-type";
+            case TOKEN: return "http://hl7.org/fhir/search-param-type";
+            case REFERENCE: return "http://hl7.org/fhir/search-param-type";
+            case COMPOSITE: return "http://hl7.org/fhir/search-param-type";
+            case QUANTITY: return "http://hl7.org/fhir/search-param-type";
+            case URI: return "http://hl7.org/fhir/search-param-type";
             default: return "?";
           }
         }
@@ -1328,12 +1328,12 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case TRUE: return "http://hl7.org.fhir/special-values";
-            case FALSE: return "http://hl7.org.fhir/special-values";
-            case TRACE: return "http://hl7.org.fhir/special-values";
-            case SUFFICIENT: return "http://hl7.org.fhir/special-values";
-            case WITHDRAWN: return "http://hl7.org.fhir/special-values";
-            case NILKNOWN: return "http://hl7.org.fhir/special-values";
+            case TRUE: return "http://hl7.org/fhir/special-values";
+            case FALSE: return "http://hl7.org/fhir/special-values";
+            case TRACE: return "http://hl7.org/fhir/special-values";
+            case SUFFICIENT: return "http://hl7.org/fhir/special-values";
+            case WITHDRAWN: return "http://hl7.org/fhir/special-values";
+            case NILKNOWN: return "http://hl7.org/fhir/special-values";
             default: return "?";
           }
         }

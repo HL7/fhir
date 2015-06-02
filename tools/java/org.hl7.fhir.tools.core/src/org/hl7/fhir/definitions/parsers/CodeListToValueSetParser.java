@@ -44,7 +44,7 @@ public class CodeListToValueSetParser {
     if (hasDefine) {
       ValueSetDefineComponent define = new ValueSetDefineComponent();
       valueSet.setDefine(define);
-      define.setSystem("http://hl7.org.fhir/"+sheetName);
+      define.setSystem("http://hl7.org/fhir/"+sheetName);
       define.setVersion(version);
       define.setCaseSensitive(true);
 
