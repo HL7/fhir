@@ -45,7 +45,7 @@ from server to server, the resource identity will change as the servers
 assign identities to the resource.
 </p>
 <p>
-However all copies of the reosurce refer to the same underlying concept,
+However all copies of the resource refer to the same underlying concept,
 and this concept may also be represented in other formats (variously, v2,
 CDA, XDS, and many more). Each representation carries the same identifier
 that identifies it consistently across all contexts of use. This is known
