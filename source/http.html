@@ -26,7 +26,7 @@ collection - for further information, see the <a href="security.html">Security P
 The API describes the FHIR resources as a set of operations (known as "interactions") on resources where individual
 resource instances are managed in collections by their type. Servers can choose which of
 these interactions are made available and which resource types they support. Servers SHALL
-provide a <a href="conformance.html">conformance statement</a> that specifies what interactions and
+provide a <a href="conformance.html">conformance statement</a> that specifies which interactions and
 resources are supported.
 </p>
 <p>
@@ -361,9 +361,12 @@ the note on <a href="#transactional-integrity">transactional integrity</a> for d
 If the interaction is successful, the server SHALL return either a 200 OK HTTP status code if the resource was updated, or a 201 Created status code if the resource was created,
 with a <code>Last-Modified</code> header, and an <code>ETag</code> header which contains the new <code>versionId</code> of the resource. A <code>Content-Location</code> header
 that refers to the specific version created by the update interaction SHOULD also be returned. If the resource was created (i.e. the interaction resulted in a 201 Created), the server SHOULD
-return a <code>Location</code> header.</p>
-<p>The server MAY include a response body containing an <a href="operationoutcome.html">OperationOutcome</a>
+return a <code>Location</code> header.
+</p>
+<p>
+The server MAY include a response body containing an <a href="operationoutcome.html">OperationOutcome</a>
 resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.</p>
+
 <h4>Conditional updates</h4>
 <p>
 The conditional update operation allows a client to update an existing resource based on some identification criteria,
@@ -388,6 +391,11 @@ updated results to a server, without having to remember the logical ids that the
 For example, a client updating the status of a lab result from "preliminary" to "final"
 might submit the finalized result using <code>PUT /Observation?identifier=http://my-lab-system|123</code>
 </p>
+<p>
+Note that transactions and conditional create/update/delete are complex operations and it is 
+not expected that every server will implement them.
+</p>
+
 <h4>Rejecting Updates</h4>
 <p>
 Servers are permitted to reject update interactions because of integrity concerns or other business
@@ -515,6 +523,10 @@ This variant can be used to allow a stateless client (such as an interface engin
 a resource on a  server, without having to remember the logical ids that the server has assigned.
 For example, a client deleting a lab atomic result might delete the resource using <code>DELETE /Observation?identifier=http://my-lab-system|123</code>.
 </p>
+<p>
+Note that transactions and conditional create/update/delete are complex operations and it is 
+not expected that every server will implement them.
+</p>
 
 <a name="create"> </a>
 <h3>create</h3>
@@ -600,6 +612,10 @@ on how many matches are found:
 This variant can be used to avoid the risk of two clients
 creating duplicate resources for the same record. For example, a client posting a new lab result might specify
 <code>If-None-Exist: /Observation?identifier=http://my-lab-system|123</code> to ensure it is does not create a duplicate record.
+</p>
+<p>
+Note that transactions and conditional create/update/delete are complex operations and it is 
+not expected that every server will implement them.
 </p>
 
 
@@ -707,13 +723,18 @@ All servers are required to support the conformance operation, but servers may c
 <h3>transaction</h3>
 <p>
 The transaction interaction submits a set of actions to perform on a server as a single atomic action.
-Multiple actions on multiple resources of the same or different types may be submitted, and they may be a mix of other operations defined on this page (e.g. read, search, create, update, delete, etc).
+Multiple actions on multiple resources of the same or different types may be submitted, and they may be 
+a mix of other operations defined on this page (e.g. read, search, create, update, delete, etc).
 </p>
 <p>
 This is especially useful where one would otherwise need multiple interactions, possibly
 with a risk of loss of referential integrity if a later interaction fails (e.g. when storing
 a Provenance resource and its corresponding target resource, or, on document repositories, a
 document index entry and its accompanying document).
+</p>
+<p>
+Note that transactions and conditional create/update/delete are complex operations and it is 
+not expected that every server will implement them.
 </p>
 <p>
 The transaction interaction is performed by an HTTP <code>POST</code> command as shown:
