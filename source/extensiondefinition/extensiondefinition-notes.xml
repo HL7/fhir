@@ -15,7 +15,7 @@ Before extensions can be used in instances, their definition SHALL be published.
 HL7 maintains two extension registries:
 </p>
 <ol>
- <li>HL7 approved extensions, approved by an appropriate part of the HL7 community following a review process, and with have formal standing</li> 
+ <li>HL7 approved extensions, approved by an appropriate part of the HL7 community following a review process, and which have formal standing</li> 
  <li>Provided as a service to the community, where anyone can register an extension</li>
 </ol>
 <p>
