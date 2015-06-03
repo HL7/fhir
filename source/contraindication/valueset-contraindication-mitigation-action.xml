@@ -8,7 +8,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="Kinds of mitigating actions and observations that can be associated with a contraindicaiton, such as 'added concurrent therapy', 'prior therapy documented', etc."/>
+  <description value="Kinds of mitigating actions and observations that can be associated with a contraindication, such as 'added concurrent therapy', 'prior therapy documented', etc."/>
   <status value="draft"/>
   <compose>
     <include>
