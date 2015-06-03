@@ -46,7 +46,7 @@ When the type of a structure definition is either a "constraint" or an "extensio
      <li>The cardinality must be a subset of the allowable cardinality in the base structure i.e. the minumum must be >= the base minimum, and the maximum must be &lt;= the base maximum</li>
    </ul>
   </li>
-  <li>Note that because of slicing, there can be more than element for the same path. For details, see <a href="profiling.html">Profiling resources</a></li>
+  <li>Note that because of slicing, there can be more than one element for the same path. For details, see <a href="profiling.html">Profiling resources</a></li>
 </ul>
   
 <!-- 
