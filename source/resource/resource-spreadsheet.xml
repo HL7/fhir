@@ -4561,7 +4561,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Literal or logical uri of a profile</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">If this is nominated, then the resource is validated against this specific profile. If a profile is nominated, and the server cannot validate agsinst the nominated profile, it SHALL return an error</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">If this is nominated, then the resource is validated against this specific profile. If a profile is nominated, and the server cannot validate against the nominated profile, it SHALL return an error</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
