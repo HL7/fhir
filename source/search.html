@@ -34,11 +34,12 @@ complexity that they require.
 <a href="#id">_id</a><br/>
 <a href="#language">_language</a><br/>
 <a href="#lastUpdated">_lastUpdated</a><br/>
+<a href="#tag">_tag</a><br/>
 <a href="#profile">_profile</a><br/>
 <a href="#security">_security</a><br/>
-<a href="#tag">_tag</a><br/>
 <a href="#text">_text</a><br/>
-<a href="#filter">_filter</a><br/>
+<a href="#content">_content</a><br/>
+<a href="#query">_query</a><br/>
 </td>
 <td>
 <a href="#sort">_sort</a><br/>
@@ -51,6 +52,9 @@ complexity that they require.
 </td>
 </tr>
 </table>
+<p>
+In addition, there is the special search parameter <a href="#filter">_filter</a> that allows a different method of searching.
+</p>
 
 <h3>Introduction</h3>
 <p>
@@ -584,6 +588,7 @@ and the parameter value "param=xx\\xx" means a literal value of 'xx\xx'.
 
 
 <a name="text"> </a>
+<a name="content"> </a>
 <h4>Text Search Parameters</h4>
 <p>
 There are two special text search parameters, _text and _content, which search
@@ -1022,6 +1027,7 @@ to supporting search:
 
 <hr/>
 <a name="advanced"> </a>
+<a name="query"> </a>
 <h3>Advanced Search</h3>
 <p>
 The search framework described above is a useful framework
