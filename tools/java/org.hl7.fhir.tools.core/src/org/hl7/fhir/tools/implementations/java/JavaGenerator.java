@@ -37,6 +37,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -269,33 +270,29 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     output.write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     output.write("public enum ResourceType {");
 
+    List<String> names = new ArrayList<String>();
+    for (String n : definitions.getResources().keySet()) 
+      names.add(n);
+    for (String n : definitions.getBaseResources().keySet()) 
+      if (!definitions.getBaseResources().get(n).isAbstract()) 
+        names.add(n);
+    Collections.sort(names);
+    
     boolean first = true;
-    for (String n : definitions.getResources().keySet()) {
+    for (String n : names) {
       if (first)
         first = false;
       else
         output.write(",");
       output.write("\r\n    "+n);
     }
-    for (String n : definitions.getBaseResources().keySet()) {
-      if (!definitions.getBaseResources().get(n).isAbstract()) {
-        output.write(",");
-        output.write("\r\n    "+n);
-      }
-    }
     output.write(";\r\n\r\n");
 
     output.write("\r\n    public String getPath() {;\r\n");
     output.write("      switch (this) {\r\n");
-    for (String n : definitions.getResources().keySet()) {
+    for (String n : names) {
       output.write("    case "+n+":\r\n");
       output.write("      return \""+n.toLowerCase()+"\";\r\n");
-    }
-    for (String n : definitions.getBaseResources().keySet()) {
-      if (!definitions.getBaseResources().get(n).isAbstract()) {
-        output.write("    case "+n+":\r\n");
-        output.write("      return \""+n.toLowerCase()+"\";\r\n");
-      }
     }
 
     output.write("    }\r\n      return null;\r\n");
