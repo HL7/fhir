@@ -22,7 +22,7 @@ As an abstract resource, this resource never exists directly, only one of its de
 <h2>Boundaries and Relationships</h2>
 
 <p>
-This resource is extends <a href="resource.html">resource</a>. All of the <a href="resourcelist.html">listed</a>
+This resource extends the base <a href="resource.html">resource</a>. All of the <a href="resourcelist.html">listed</a>
 resources except <a href="bundle.html">Bundle</a> and <a href="binary.html">Binary</a> extend
 this resource.
 </p>
