@@ -46,8 +46,8 @@ enhanced to contain a complete set of extensions and a full 11179 in a future re
 Data elements (and their registries) and codes (and their code systems) serve different purposes.  Data elements describe the characteristics of a piece of
 data while codes describe a particular concept (often in relation to other concepts).  However, because data elements provide
 a definition of the meaning of a particular element, they  
-can be thought of as being codes.  One of their purpose is to define  variables, observations, or questions, that include information about how to 
-collect a variable's value--including information about data types, and  guidance about the use of about answer lists and/or units of measure.
+can be thought of as being codes.  One of their purposes is to define variables, observations, or questions that include information about how to 
+collect a variable's value--including information about data types and guidance about the use of about answer lists and/or units of measure.
 This function is typically done by code systems such as <a href="http://loinc.org">LOINC</a> and
 <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED CT</a>.  (Note that LOINC provides considerable detail about allowed answers, while most other code 
 systems such as SNOMED only allow identifying the question.)It would be possible to treat a registry of data elements using a common
