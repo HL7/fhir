@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
   <LastSaved>2015-04-10T01:54:05Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,6 @@
   <WindowWidth>20550</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>4530</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -62,7 +61,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="compartments">
-  <Table ss:ExpandedColumnCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="108.75" ss:Span="1"/>
@@ -77,35 +76,35 @@
     <Cell><Data ss:Type="String">Inclusion</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Patient</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The set of resources associated with a particular patient</Data></Cell>
     <Cell><Data ss:Type="String">There is an instance of the patient compartment for each patient resource, and the identity of the compartment is the same as the patient. When a patient is linked to another patient, all the records associated with the linked patient are in the compartment associated with the target of the link. </Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The patient compartment includes any resources where the subject of &#13;the resource is the patient, and some other resources that are directly linked &#13;to resources in the patient compartment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">Encounter</Data></Cell>
     <Cell><Data ss:Type="String">The set of resources associated with a particular encounter</Data></Cell>
     <Cell><Data ss:Type="String">There is an instance of the encounter compartment for each encounter resource, and the identity of the compartment is the same as the encounter</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The encounter compartment includes any resources where the resource has an explicitly nominated encounter, and some other resources that them selves link &#13;to resources in the encounter compartment. Note that for many resources, the exact nature of the link to encounter can be ambiguous (e.g. for a DiagnosticReport, is it the encounter when it was initiated, or when it was reported?)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>
+    <Cell><Data ss:Type="String">relatedPerson</Data></Cell>
     <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>
     <Cell><Data ss:Type="String">The set of resources associated with a particular 'related person'</Data></Cell>
     <Cell><Data ss:Type="String">There is an instance of the relatedPerson compartment for each relatedPerson resource, and the identity of the compartment is the same as the relatedPerson</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The relatedPerson compartment includes any resources where the resource is explicitly linked to relatedPerson (usually as author)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">practitioner</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner</Data></Cell>
     <Cell><Data ss:Type="String">The set of resources associated with a particular practitioner</Data></Cell>
     <Cell><Data ss:Type="String">There is an instance of the practitioner compartment for each Practitioner resource, and the identity of the compartment is the same as the Practitioner</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The practitioner compartment includes any resources where the resource is explicitly linked to a Practitioner (usually as author, but other kinds of linkage exist)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Device</Data></Cell>
+    <Cell><Data ss:Type="String">device</Data></Cell>
     <Cell><Data ss:Type="String">Device</Data></Cell>
     <Cell><Data ss:Type="String">The set of resources associated with a particular device</Data></Cell>
     <Cell><Data ss:Type="String">There is an instance of the practitioner compartment for each Device resource, and the identity of the compartment is the same as the Device</Data></Cell>
@@ -119,11 +118,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -132,7 +131,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="93" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -613,7 +612,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
