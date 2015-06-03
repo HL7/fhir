@@ -324,7 +324,7 @@ The response to a GET contains the Resource.
 Notes:
 </p>
 <ul>
-  <li><b>id</b> (line 8) - The id of the resource. This must match the id in the read request</li>
+  <li><b>id</b> (line 9) - The id of the resource. This must match the id in the read request</li>
   <li><b>versionId</b> (line 11) - The current version id of the resource. Best practice is that this value matches the ETag (see <a href="http.html#update">version aware update</a>), but clients must never assume this. Note that some servers do not track the version of the resource</li>
   <li>Note that servers are not required to support versioning, but are strongly encouraged to do so</li>
   <li><b>lastUpdated</b> (line 12) - if present, this must match the value in the HTTP header</li>
@@ -403,17 +403,17 @@ Notes:
 <ul>
   <li><b>resourceType</b> (line 7) - "SearchResults" is the name for a bundle returned from a search</li>
   <li><b>id</b> (line 3) - An identifier assigned to this particular bundle. The server should assign a unique id to this bundle that it will not be re-used. Note that in some bundles - though not search results - this must be <a href="extras.html#bundle-unique">globally unique</a></li>
-  <li><b>meta.lastUpdated</b> (line 10) - This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
-  <li><b>base</b> (line 12) - The base URL for any relative <a href="references.html">references</a> in the resources. The server SHOULD provide this value</li>
-  <li><b>total</b> (line 13) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
-  <li><b>link</b> (line 14) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
-  <li><b>item</b> (line 23) - The actual resources in this set of results</li>
+  <li><b>meta.lastUpdated</b> (line 5) - This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
+  <li><b>base</b> (line 7) - The base URL for any relative <a href="references.html">references</a> in the resources. The server SHOULD provide this value</li>
+  <li><b>total</b> (line 8) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
+  <li><b>link</b> (line 9) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
+  <li><b>entry</b> (line 18) - An actual resources in this set of results</li>
   <li>In addition, the search operation is also able to <a href="search.html#include">return additional related resources</a> as well</li>
 </ul>
 
 <h3>Update Request</h3>
 <p>
-The client sends the server a new version of the resource to replace the exist version - it PUTs it to the location of the existing resource:
+The client sends the server a new version of the resource to replace the existing version - it PUTs it to the location of the existing resource:
 </p>
 <pre> 
   PUT https://example.com/path/{resourceType}/{id}
@@ -449,7 +449,7 @@ Notes:
 </p>
 <ul>
   <li><b>resourceType</b> (line 1) - "Patient" in the url must match the resource type in the resource (line 9)</li>
-  <li><b>resource id</b> (line 1, "347") - This must match the id in the resource (line 9)</li>
+  <li><b>resource id</b> (line 1, "347") - This must match the id in the resource (line 10)</li>
   <li><b>If-Match</b> (line 6) - if this is provided, it must match the value in meta.versionId (line 12), and the server must check the version integrity, or return 412 if it doesn't support versions</li>
   <li><b>meta.lastUpdated</b> (line 10) - This value is ignored, and will be updated by the server</li>
   <li><b>resource content</b> (line 14) - Not shown here, the same as Patient above</li>
