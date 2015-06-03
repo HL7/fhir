@@ -90,9 +90,8 @@ and that may be returned by following the "next" <a href="bundle-definitions.htm
 
 <p>
 A transaction (type = "transaction") consists of a series of 0 or more entries. Each entry element 
-MAY contain a transaction element, and MAY contain either a resource element. 
-See <a href="http.html#transaction">Transactions</a> for further information.
-Each entry in a transaction has the details of an HTTP operation that informs the system 
+SHALL contain either a transaction element, or a resource element (or both). See <a href="http.html#transaction">Transactions</a> 
+for further information. Each entry in a transaction has the details of an HTTP operation that informs the system 
 processing the transaction what to do with the entry. If the entry method is a 'PUT' or 
 'POST', then the entry SHALL contain a resource that becomes the body of the HTTP operation. 
 </p>
