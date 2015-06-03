@@ -143,7 +143,7 @@ http://acme.org/fhir/ResourceType/id123/_history/v2.
 <p>
 Note that there's no requirement for servers to keep a history. The 
 <a href="http.html#history">history interaction</a> is provided for 
-where this is an appropriate service to provide. However, Whether a server keeps them 
+where this is an appropriate service to provide. However, whether a server keeps them 
 or not, past versions are dead and gone. 
 The current version of the resource is in the <i>Resource.meta.versionId</i>. For a value set this would be:
 </p>
