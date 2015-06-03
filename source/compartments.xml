@@ -62,7 +62,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="compartments">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="108.75" ss:Span="1"/>
@@ -132,7 +132,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="92" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
