@@ -128,9 +128,6 @@ in particular implementations or contexts of use.
 [%edt Meta resource.html%]
 
 <p>
-Meta is used in the following places: [%dtusage Meta%]
-</p>
-<p>
 Note that the RESTful API defines some <a href="operations.html">Operations</a> that provide
 <a href="resource-operations.html#meta">direct read and write access</a> to the <i>meta</i> element.   
 </p>
@@ -265,6 +262,10 @@ healthcare vocabulary, including ones defined in this specification, or vocabula
 as those defined by HL7 for other purposes (e.g. v2 and v3/CDA), LOINC, or SNOMED CT. 
 Alternatively, the concept may be one defined by the implementation in the local context. 
 </p>
+<p>
+The list of tags on a resource is a set, where each tag is unique based on the 
+<code>system</code>+<code>code</code> combination.
+</p>
 
 <a name="profile-tags"> </a>
 <h4>Profile Tags</h4>
@@ -306,12 +307,34 @@ a particular <a href="structuredefinition.html">StructureDefinition</a>, not sta
 Many trading partner agreements will make rules about what claims can be made 
 and when they must be tested, which will make the profile assertion more reliable. 
 </p>
+<p>
+The list of profiles on a resource is a set, where each profile is unique based the <code>value</code> of the URI.
+</p>
 
 <h4>Security Labels</h4>
 <p>
 A security label is attached to a resource to provide specific security metadata 
 about the information in the resource. For further information, see 
 <a href="security-labels.html">Security Labels</a>.
+</p>
+<p>
+The list of security on a resource is a set, where each tag is unique based on the 
+<code>system</code>+<code>code</code> combination.
+</p>
+
+<h3>Updates to Tags, Profiles, and Security Labels</h3>
+<p>
+When a resource is updated (e.g. on the RESTful interface), servers generally follow this
+pattern:
+</p>
+<ul>
+ <li>Merge existing and new tags</li>
+ <li>Replace existing profile tags with new profile tags</li>
+ <li>Merge existing and new security labels</li>
+</ul>
+<p>
+However, in some cases, an update may invalidate existing tags.  Servers may update 
+or remove previously existing recognized tags if this is known to be appropriate.
 </p>
 
 <h3>Further Information</h3>
