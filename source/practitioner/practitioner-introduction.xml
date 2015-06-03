@@ -22,7 +22,7 @@ Practitioners include (but are not limited to):
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-The Resource SHALL not be used for persons involved without a formal responsibility like individuals taking care for friends, 
+The Resource SHALL NOT be used for persons involved without a formal responsibility like individuals taking care for friends, 
 relatives or neighbors. These can be registered as a Patient's Contact.  If performing some action or being referenced by another
 resource, use <a href="relatedperson.html">RelatedPerson</a>.
 </p>

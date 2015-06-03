@@ -3727,7 +3727,7 @@
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">DomainResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">If the resource is contained in another resource, it SHALL not contain any narrative</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">If the resource is contained in another resource, it SHALL NOT contain any narrative</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">not(parent::f:contained and f:text)</Data><NamedCell
@@ -3739,7 +3739,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">No nested contained resources</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">DomainResource</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If the resource is contained in another resource, it SHALL not contain nested Resources</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If the resource is contained in another resource, it SHALL NOT contain nested Resources</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">not(parent::f:contained and f:contained)</Data></Cell>
    </Row>
@@ -3759,7 +3759,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">No versionId and lastUpdated in contained resources</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">DomainResource</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If a resource is contained in another resource, it SHALL not have a meta.versionId or a meta.lastUpdated</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">not(exists(f:contained/f:meta/f:versionId)) and not(exists(f:contained/f:meta/f:lastUpdated))</Data></Cell>
    </Row>
