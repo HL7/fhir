@@ -105,7 +105,7 @@ in particular implementations or contexts of use.
   <tr>
    <td>profile (0..*)</td>
    <td><a href="datatypes.html#uri">uri</a></td>
-   <td>An assertion that the content conforms to a resource profile (a <a href="structuredefinition.html">StructureDefinition</a>. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. 
+   <td>An assertion that the content conforms to a resource profile (a <a href="structuredefinition.html">StructureDefinition</a>). See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. 
     Can be changed as profiles and value sets change or the system rechecks conformance</td>
   </tr>
 	
