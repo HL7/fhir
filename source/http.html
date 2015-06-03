@@ -844,10 +844,14 @@ interaction are performed by HTTP <code>GET</code> command as shown:
 </pre>
 <p>
 The return content is a <a href="extras.html#bundle">Bundle</a> with
-<a href="bundle-definitions.html#Bundle.type">type</a> set to <code>history</code> containing the specified version history,
-sorted with oldest versions last, and including deleted resources.
-Each entry SHALL contain a <code>transaction</code>, and, if the <code>entry.transaction.method</code> is a <code>PUT</code> or a <code>POST</code>, a resource.
-The entry SHALL contain the resource state at the conclusion of the operation.
+<a href="bundle-definitions.html#Bundle.type">type</a> set to <code>history</code> containing the 
+specified version history, sorted with oldest versions last, and including deleted resources.
+Each entry SHALL minimally contain a either a <code>resource</code> which holds the resource as 
+it is at the conclusion of the operation, or a <code>transaction</code> with <code>entry.transaction.method</code> 
+= DELETE. The <code>transaction</code> provides information about the operation that occurred to 
+cause the new version. The principal reason it might not be missing is that the resource was changed 
+by some other channel than via the RESTful interface. If the <code>entry.transaction.method</code> is 
+a <code>PUT</code> or a <code>POST</code>, the entry SHALL contain a resource.
 </p>
 <p>
 The operations <a href="#create">create</a>, <a href="#update">update</a>, and <a href="#delete">delete</a>
