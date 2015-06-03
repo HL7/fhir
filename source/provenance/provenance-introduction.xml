@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-The provenance resource tracks information about activity that created a version of a resource, including the entities, and agents involved in producing a resource.
+The provenance resource tracks information about the activity that created a version of a resource, including the entities, and agents involved in producing a resource.
 This information can be used to form assessments about its quality, reliability or trustworthiness, or to provide pointers for where to go to further investigate the origins of the resource and the information in it. 
 </p>
 <p>
