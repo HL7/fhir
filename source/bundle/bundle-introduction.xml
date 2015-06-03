@@ -37,7 +37,7 @@ In addition to these two technical mechanism, there are three administrative and
 <li>
 The <a href="list.html">List</a> resource - enumerates a flat collection of resources and provides features for managing the collection.  
 While a particular List instance may represent a "snapshot", from a business process perspective the notion of "List" 
-is dynamic – items are added and removed over time.  The list resource references other resources.  Lists are may be 
+is dynamic – items are added and removed over time.  The list resource references other resources.  Lists may be 
 curated and have specific business meaning.
 </li>
 <li>
