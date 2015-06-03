@@ -1003,7 +1003,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Logical id of this artefact</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Logical id of this artifact</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
