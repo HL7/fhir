@@ -4005,27 +4005,28 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String produceProfiles(ResourceDefn resource) {
     StringBuilder s = new StringBuilder();
-    if (resource.getConformancePackages().size() == 0) {
-      s.append("<tr><td colspan=\"2\">No Profiles defined for this resource</td></tr>");
-    } else { 
-      for (ImplementationGuide ig : definitions.getSortedIgs()) {
-        if (definitions.doPublish(ig)) {
-          boolean started = false;
-          for (Profile ap: resource.getConformancePackages()) {
-            if (ig.getCode().equals(ap.getCategory())) {
-              produceProfileLine(s, ig, started, ap);
-              started = true;
-            }
+    int count = 0;
+    for (ImplementationGuide ig : definitions.getSortedIgs()) {
+      if (definitions.doPublish(ig)) {
+        boolean started = false;
+        for (Profile ap: resource.getConformancePackages()) {
+          if (ig.getCode().equals(ap.getCategory())) {
+            produceProfileLine(s, ig, started, ap);
+            started = true;
+            count++;
           }
-          for (Profile ap: definitions.getPackList()) {
-            if (ig.getCode().equals(ap.getCategory()) && ap.coversResource(resource)) {
-              produceProfileLine(s, ig, started, ap);
-              started = true;
-            }
+        }
+        for (Profile ap: definitions.getPackList()) {
+          if (ig.getCode().equals(ap.getCategory()) && ap.coversResource(resource)) {
+            produceProfileLine(s, ig, started, ap);
+            started = true;
+            count++;
           }
         }
       }
     }
+    if (count == 0)
+      s.append("<tr><td colspan=\"2\">No Profiles defined for this resource</td></tr>");
     return s.toString();
   }
 

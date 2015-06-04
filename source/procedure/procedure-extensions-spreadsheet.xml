@@ -2068,8 +2068,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3848,7 +3848,7 @@
     <Cell ss:StyleID="s116"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s136"><Data ss:Type="String">qicore-procedure-bodySite</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Procedure-bodySite</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Codes describing anatomical locations</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">preferred</Data></Cell>
@@ -3864,7 +3864,7 @@
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"><Data ss:Type="String">qicore-procedure-approach-bodySite</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Procedure-approach-bodySite</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Codes describing anatomical locations</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">preferred</Data></Cell>
@@ -4200,7 +4200,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
