@@ -534,8 +534,8 @@ public class ResourceValidator extends BaseValidator {
         b.append(" | ").append(c.getCode());
       }
       if (sd.equals("*")) {
-        e.setShortDefn(b.toString());
-        sd = b.toString();
+        e.setShortDefn(b.toString().substring(3));
+        sd = b.toString().substring(3);
       }
         
       if (sd.contains("|")) {
