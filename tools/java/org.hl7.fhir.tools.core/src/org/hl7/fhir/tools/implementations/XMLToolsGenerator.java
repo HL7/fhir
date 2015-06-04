@@ -110,7 +110,7 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   }
 
   @Override
-  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, Collection<String> names) throws Exception {
     throw new Error("This should not be called");
   }
 

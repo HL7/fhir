@@ -337,6 +337,7 @@ public class SourceParser {
         else
           throw new Exception("Unknown profile type in IG: "+e.getNodeName());
         loadConformancePackage(p);
+        crossReference(p);
         String id = e.getAttribute("id");
         if (Utilities.noString(id))
           id = Utilities.changeFileExt(e.getAttribute("source"), "");
@@ -349,6 +350,17 @@ public class SourceParser {
         throw new Exception("Unknown element name in IG: "+e.getNodeName());
       e = XMLUtil.getNextSibling(e);
     }
+  }
+
+
+  private void crossReference(Profile p) {
+    for (ConstraintStructure item : p.getProfiles()) {
+      String n = item.getDefn().getName();
+      System.out.println(n);
+    }
+      
+//      register it on it's target
+    
   }
 
 

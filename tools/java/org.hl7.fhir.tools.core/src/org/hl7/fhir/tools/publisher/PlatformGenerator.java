@@ -139,7 +139,7 @@ public interface PlatformGenerator {
    * canonical XML of the source and dest are the same. If so, it passes
    * 
    */
-  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception;
+  public void test(FolderManager folders, Collection<String> names) throws Exception;
   
   /**
    * Used during the build to check the syntactical validity of fragments. We use the 

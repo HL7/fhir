@@ -151,7 +151,7 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, Collection<String> names) throws Exception {
     throw new Error("This should not be called");
   }
 

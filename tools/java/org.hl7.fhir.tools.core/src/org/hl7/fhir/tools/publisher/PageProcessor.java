@@ -4013,20 +4013,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           boolean started = false;
           for (Profile ap: resource.getConformancePackages()) {
             if (ig.getCode().equals(ap.getCategory())) {
-              if (!started) {
-                started = true;
-                s.append("  <tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ig.getName())+"</b></td></tr>\r\n");
-              }
-              s.append("  <tr>\r\n");
-              s.append("    <td><a href=\"").append(ap.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
-              s.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
-              s.append(" </tr>\r\n");
+              produceProfileLine(s, ig, started, ap);
+              started = true;
+            }
+          }
+          for (Profile ap: definitions.getPackList()) {
+            if (ig.getCode().equals(ap.getCategory()) && ap.coversResource(resource)) {
+              produceProfileLine(s, ig, started, ap);
+              started = true;
             }
           }
         }
       }
     }
     return s.toString();
+  }
+
+  private void produceProfileLine(StringBuilder s, ImplementationGuide ig, boolean started, Profile ap) {
+    if (!started) 
+      s.append("  <tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ig.getName())+"</b></td></tr>\r\n");
+    s.append("  <tr>\r\n");
+    s.append("    <td><a href=\"").append(ap.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
+    s.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
+    s.append(" </tr>\r\n");
   }
 
   private String produceExampleList(ResourceDefn resource) throws Exception {

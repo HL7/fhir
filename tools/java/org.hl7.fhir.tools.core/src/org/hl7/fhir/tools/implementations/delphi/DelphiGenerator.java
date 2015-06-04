@@ -3387,24 +3387,24 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   @Override
-  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, Collection<String> names) throws Exception {
     if (exe == null)
       exe = Utilities.path(Utilities.getDirectoryForFile(Utilities.getDirectoryForFile(folders.rootDir)), "implementations", "pascal", "fhirtest.exe");
     if (!(new File(exe).exists()))
       throw new Exception("Delphi tool helper executable not found "+exe);
 
     StringBuilder b = new StringBuilder();
-    b.append(folders.rootDir);
+    b.append(folders.dstDir);
     b.append("\r\n");
-    b.append(tmpDir);
+    b.append(folders.tmpDir);
     b.append("\r\n");
     for (String n : names) {
       b.append(n);
       b.append("\r\n");
     }
-    String ctrl = tmpDir+"ctrl-pascal.ini";
+    String ctrl = folders.tmpDir+"ctrl-pascal.ini";
     TextFile.stringToFileNoPrefix(b.toString(), ctrl);
-    String err = tmpDir+"ctrl-pascal.out";
+    String err = folders.tmpDir+"ctrl-pascal.out";
     File file = new CSFile(err);
     if (file.exists())
       file.delete();

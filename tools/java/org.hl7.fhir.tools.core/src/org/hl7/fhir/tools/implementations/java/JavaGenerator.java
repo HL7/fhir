@@ -810,23 +810,23 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
   }
 
   @Override
-  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, Collection<String> names) throws Exception {
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
-      t.testRoundTrip(folders.rootDir, tmpDir, names);
+      t.testRoundTrip(folders.dstDir, folders.tmpDir, names);
     } else {
       StringBuilder b = new StringBuilder();
       b.append(folders.dstDir);
       b.append("\r\n");
-      b.append(tmpDir);
+      b.append(folders.tmpDir);
       b.append("\r\n");
       for (String n : names) {
         b.append(n);
         b.append("\r\n");
       }
-      String ctrl = tmpDir+"ctrl-java.ini";
+      String ctrl = folders.tmpDir+"ctrl-java.ini";
       TextFile.stringToFileNoPrefix(b.toString(), ctrl);
-      String err = tmpDir+"ctrl-java.out";
+      String err = folders.tmpDir+"ctrl-java.out";
       File file = new CSFile(err);
       if (file.exists())
         file.delete();

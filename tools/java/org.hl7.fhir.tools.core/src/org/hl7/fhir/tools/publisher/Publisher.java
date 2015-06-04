@@ -4198,7 +4198,7 @@ public class Publisher implements URIResolver {
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
       if (gen.doesTest()) {
         page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
-        gen.test(page.getFolders(), page.getFolders().tmpDir, processingList.keySet());
+        gen.test(page.getFolders(), processingList.keySet());
       }
     }
     

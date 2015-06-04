@@ -76,6 +76,8 @@ public class Definitions {
   private Map<String, WorkGroup> workgroups = new HashMap<String, WorkGroup>();
 
 	// profiles not owned by a particular resource
+  private Map<String, ImplementationGuide> igs = new HashMap<String, ImplementationGuide>();
+  private List<ImplementationGuide> sortedIgs = new ArrayList<ImplementationGuide>();
   private List<Profile> packList = new ArrayList<Profile>();
   private Map<String, Profile> packMap = new HashMap<String, Profile>();
   private Map<String, Dictionary> dictionaries = new HashMap<String, Dictionary>();
@@ -104,8 +106,6 @@ public class Definitions {
 
   private Map<String, W5Entry> w5s = new HashMap<String, W5Entry>();
   private Map<String, String> typePages = new HashMap<String, String>();
-  private Map<String, ImplementationGuide> igs = new HashMap<String, ImplementationGuide>();
-  private List<ImplementationGuide> sortedIgs = new ArrayList<ImplementationGuide>();
   private Map<String, String> pageTitles = new HashMap<String, String>();
 
   
