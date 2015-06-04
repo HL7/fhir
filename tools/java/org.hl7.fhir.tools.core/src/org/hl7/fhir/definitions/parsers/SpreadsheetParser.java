@@ -747,6 +747,9 @@ public class SpreadsheetParser {
 		  // Ignore bindings whose name start with "!"
 		  if (Utilities.noString(bindingName) || bindingName.startsWith("!")) continue;
 	      
+//      if (Character.isLowerCase(bindingName.charAt(0)))
+//        throw new Exception("binding name "+bindingName+" is illegal - must start with a capital letter");
+
 			BindingSpecification cd = new BindingSpecification(usageContext, bindingName, false);
       definitions.getAllBindings().add(cd);
 

@@ -3363,10 +3363,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   @Override
-  public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception {
+  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
 
     if (exe == null)
-      exe = Utilities.path(Utilities.getDirectoryForFile(Utilities.getDirectoryForFile(rootDir)), "implementations", "pascal", "fhirtest.exe");
+      exe = Utilities.path(Utilities.getDirectoryForFile(Utilities.getDirectoryForFile(folders.rootDir)), "implementations", "pascal", "fhirtest.exe");
     if (!(new File(exe).exists()))
       throw new Exception("Delphi tool helper executable not found "+exe);
     List<String> command = new ArrayList<String>();
@@ -3387,14 +3387,14 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   @Override
-  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
     if (exe == null)
-      exe = Utilities.path(Utilities.getDirectoryForFile(Utilities.getDirectoryForFile(rootDir)), "implementations", "pascal", "fhirtest.exe");
+      exe = Utilities.path(Utilities.getDirectoryForFile(Utilities.getDirectoryForFile(folders.rootDir)), "implementations", "pascal", "fhirtest.exe");
     if (!(new File(exe).exists()))
       throw new Exception("Delphi tool helper executable not found "+exe);
 
     StringBuilder b = new StringBuilder();
-    b.append(rootDir);
+    b.append(folders.rootDir);
     b.append("\r\n");
     b.append(tmpDir);
     b.append("\r\n");
@@ -3424,7 +3424,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   @Override
-  public String checkFragments(String rootDir, String fragments) throws Exception {
+  public String checkFragments(FolderManager folders, String fragments) throws Exception {
     return "Not supported by pascal implementation";
   }
 

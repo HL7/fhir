@@ -87,6 +87,8 @@ public class BindingsParser {
   private void processLine(List<BindingSpecification> results, Sheet sheet, int row) throws Exception {
     BindingSpecification cd = new BindingSpecification("core", sheet.getColumn(row, "Binding Name"), true);
     if (!cd.getName().startsWith("!")) {
+      if (Character.isLowerCase(cd.getName().charAt(0)))
+        throw new Exception("binding name "+cd.getName()+" is illegal - must start with a capital letter");
       cd.setDefinition(sheet.getColumn(row, "Definition"));
       cd.setBindingMethod(readBinding(sheet.getColumn(row, "Binding")));
       String ref = sheet.getColumn(row, "Reference");

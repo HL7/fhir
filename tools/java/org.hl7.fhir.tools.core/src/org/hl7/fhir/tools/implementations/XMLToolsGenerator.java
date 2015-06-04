@@ -33,6 +33,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Utilities;
@@ -95,11 +96,11 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   }
 
   @Override
-  public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception {
+  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
   }
 
   @Override
-  public String checkFragments(String rootDir, String fragments) throws Exception {
+  public String checkFragments(FolderManager folders, String fragments) throws Exception {
     throw new UnsupportedOperationException("not supported");   
   }
 
@@ -109,7 +110,7 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   }
 
   @Override
-  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
     throw new Error("This should not be called");
   }
 

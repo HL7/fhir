@@ -41,6 +41,7 @@ import org.hl7.fhir.instance.utils.Version;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.tools.publisher.DotNetFramework;
+import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.DotNetFramework.DotNetCompileResult;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.CSFile;
@@ -260,16 +261,16 @@ public boolean doesTest() {
   }
 
   @Override
-public void loadAndSave(String rootDir, String sourceFile, String destFile) {
+public void loadAndSave(FolderManager folders, String sourceFile, String destFile) {
   }
 
   @Override
-public String checkFragments(String rootDir, String fragments) throws Exception {
+public String checkFragments(FolderManager folders, String fragments) throws Exception {
     return "Not supported by C# implementation";
   }
 
   @Override
-  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
     throw new Error("This should not be called");
   }
 }

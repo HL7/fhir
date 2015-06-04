@@ -129,7 +129,7 @@ public interface PlatformGenerator {
    * @param destFile
    * @throws Exception 
    */
-  public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception;
+  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception;
   
   /**
    * Load a set of source Files to the object model, then save them to [tmp]\*.xx.xml
@@ -139,7 +139,7 @@ public interface PlatformGenerator {
    * canonical XML of the source and dest are the same. If so, it passes
    * 
    */
-  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception;
+  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception;
   
   /**
    * Used during the build to check the syntactical validity of fragments. We use the 
@@ -147,7 +147,7 @@ public interface PlatformGenerator {
    * incomplete, and we mainly want to know whether they include things that are not known
    *  
    */
-  public String checkFragments(String rootDir, String fragmentsXml) throws Exception;
+  public String checkFragments(FolderManager folders, String fragmentsXml) throws Exception;
 
   /**
    * Whether to list this in the downloads page

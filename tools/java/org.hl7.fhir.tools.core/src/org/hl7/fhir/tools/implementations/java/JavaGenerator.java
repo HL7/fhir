@@ -652,7 +652,7 @@ public boolean doesTest() {
   }
 
   @Override
-public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception {
+public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
       String[] cmds = new String[] {"round", sourceFile, destFile};    
@@ -677,7 +677,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
     command.add(destFile);
 
     ProcessBuilder builder = new ProcessBuilder(command);
-    builder.directory(new File(rootDir));
+    builder.directory(new File(folders.dstDir));
 
     final Process process = builder.start();
     process.waitFor();
@@ -688,14 +688,14 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
     }
   }
 
-  public void processExamples(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  public void processExamples(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
     // for debugging: do it in process
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
-      t.processExamples(rootDir, names);
+      t.processExamples(folders.rootDir, names);
     } else {
       StringBuilder b = new StringBuilder();
-      b.append(rootDir);
+      b.append(folders.rootDir);
       b.append("\r\n");
       for (String n : names) {
         b.append(n);
@@ -715,7 +715,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       command.add(ctrl);
 
       ProcessBuilder builder = new ProcessBuilder(command);
-      builder.directory(new File(rootDir));
+      builder.directory(new File(folders.dstDir));
       final Process process = builder.start();
       process.waitFor();
       String result = TextFile.fileToString(err);
@@ -726,7 +726,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
 
   @Override
   // in process for debugging, but requires tool generated code to be current
-  public String checkFragments(String rootDir, String fragments) throws Exception {
+  public String checkFragments(FolderManager folders, String fragments) throws Exception {
     File file = Utilities.createTempFile("temp", ".xml");
     if (file.exists())
       file.delete();
@@ -748,7 +748,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       command.add(filed.getAbsolutePath());
 
       ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
-      builder.directory(new File(rootDir));
+      builder.directory(new File(folders.dstDir));
 
       final Process process = builder.start();
       process.waitFor();
@@ -767,7 +767,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
     return Version.VERSION; // this has to be hard coded, but we'll fetch if later from the client and check that it's correct
   }
 
-  public void canonicaliseXml(String rootDir, String sourceFile, String destFile) throws Exception {
+  public void canonicaliseXml(FolderManager folders, String sourceFile, String destFile) throws Exception {
     // for debugging: do it in process
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
@@ -794,7 +794,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       command.add(destFile);
 
       ProcessBuilder builder = new ProcessBuilder(command);
-      builder.directory(new File(rootDir));
+      builder.directory(new File(folders.dstDir));
 
       final Process process = builder.start();
       BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
@@ -810,13 +810,13 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
   }
 
   @Override
-  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
-      t.testRoundTrip(rootDir, tmpDir, names);
+      t.testRoundTrip(folders.rootDir, tmpDir, names);
     } else {
       StringBuilder b = new StringBuilder();
-      b.append(rootDir);
+      b.append(folders.dstDir);
       b.append("\r\n");
       b.append(tmpDir);
       b.append("\r\n");
@@ -838,7 +838,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       command.add(ctrl);
 
       ProcessBuilder builder = new ProcessBuilder(command);
-      builder.directory(new File(rootDir));
+      builder.directory(new File(folders.dstDir));
       final Process process = builder.start();
       process.waitFor();
       String result = TextFile.fileToString(err);

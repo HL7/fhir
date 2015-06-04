@@ -43,6 +43,7 @@ import java.util.Map;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
+import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
@@ -132,7 +133,7 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception {
+  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
   }
 
   @Override
@@ -145,12 +146,12 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public String checkFragments(String rootDir, String fragmentsXml) throws Exception {
+  public String checkFragments(FolderManager folders, String fragmentsXml) throws Exception {
     return null;
   }
 
   @Override
-  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
     throw new Error("This should not be called");
   }
 

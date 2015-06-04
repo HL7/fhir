@@ -2802,7 +2802,7 @@ public class Publisher implements URIResolver {
       i++;
     }
     s.append("</tests>\r\n");
-    String err = javaReferencePlatform.checkFragments(page.getFolders().dstDir, s.toString());
+    String err = javaReferencePlatform.checkFragments(page.getFolders(), s.toString());
     if (err == null)
       throw new Exception("Unable to process outcome of checking fragments");
     if (!err.startsWith("<results"))
@@ -3352,7 +3352,7 @@ public class Publisher implements URIResolver {
     page.log(" ...process examples", LogMessageType.Process);
     
     try {
-      javaReferencePlatform.processExamples(page.getFolders().dstDir, page.getFolders().tmpDir, processingList.keySet());
+      javaReferencePlatform.processExamples(page.getFolders(), page.getFolders().tmpDir, processingList.keySet());
     } catch (Throwable t) {
       System.out.println("Error processing examples");
       t.printStackTrace(System.err);
@@ -4198,7 +4198,7 @@ public class Publisher implements URIResolver {
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
       if (gen.doesTest()) {
         page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
-        gen.test(page.getFolders().dstDir, page.getFolders().tmpDir, processingList.keySet());
+        gen.test(page.getFolders(), page.getFolders().tmpDir, processingList.keySet());
       }
     }
     

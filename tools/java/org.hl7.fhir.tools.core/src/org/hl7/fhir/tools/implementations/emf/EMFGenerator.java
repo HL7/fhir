@@ -10,6 +10,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.utils.Version;
 import org.hl7.fhir.tools.implementations.emf.EMFStructureGenerator.OOGenClass;
+import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
@@ -113,7 +114,7 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
   }
 
   @Override
-  public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception {
+  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
     throw new UnsupportedOperationException("not implemented in EMF Generator");  
   }
 
@@ -122,7 +123,7 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
   }
 
   @Override
-  public String checkFragments(String rootDir, String fragments) throws Exception {
+  public String checkFragments(FolderManager folders, String fragments) throws Exception {
     throw new UnsupportedOperationException("not implemented in EMF Generator");  
   }
 
@@ -158,7 +159,7 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
   }
 
   @Override
-  public void test(String rootDir, String tmpDir, Collection<String> names) throws Exception {
+  public void test(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
     throw new Error("This should not be called");
   }
 

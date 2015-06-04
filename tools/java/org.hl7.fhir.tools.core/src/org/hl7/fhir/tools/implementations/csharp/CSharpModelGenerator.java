@@ -812,8 +812,7 @@ public class CSharpModelGenerator extends GenBlock
 
 		generateDocComment(binding.getDefinition());
 		ln("[FhirEnumeration(\"" + binding.getName() + "\")]");
-		ln("public enum " + 
-				GeneratorUtils.generateCSharpTypeName(binding.getName()));
+		ln("public enum " + GeneratorUtils.generateCSharpTypeName(binding.getName()));
 		bs("{");
 			for( DefinedCode code : binding.getCode() ) 
 			{

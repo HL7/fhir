@@ -529,11 +529,16 @@ public class ResourceValidator extends BaseValidator {
           }
         }
       }
+      StringBuilder b = new StringBuilder();
+      for (DefinedCode c : cd.getAllCodes()) {
+        b.append(" | ").append(c.getCode());
+      }
+      if (sd.equals("...")) {
+        e.setShortDefn(b.toString());
+        sd = b.toString();
+      }
+        
       if (sd.contains("|")) {
-        StringBuilder b = new StringBuilder();
-        for (DefinedCode c : cd.getAllCodes()) {
-          b.append(" | ").append(c.getCode());
-        }
         String esd = b.substring(3);
         rule(errors, "structure", path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
       } else
