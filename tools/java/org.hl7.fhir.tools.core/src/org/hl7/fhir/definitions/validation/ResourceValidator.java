@@ -260,6 +260,7 @@ public class ResourceValidator extends BaseValidator {
 	    names.put(e.getName(), 0);
     names.put(e.getName(), names.get(e.getName())+1);
 	  
+    rule(errors, "structure", path, isValidToken(e.getName(), !path.contains(".")), "Name "+e.getName()+" is not a valid element name");
 	  rule(errors, "structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, "structure", path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
 		if (hasSummary && e.getMinCardinality() == 0) {
@@ -339,6 +340,34 @@ public class ResourceValidator extends BaseValidator {
 		}
 	}
 
+
+  private boolean isValidToken(String name, boolean root) {
+    if (Utilities.noString(name))
+      return false;
+    for (char c : name.toCharArray()) {
+      if (!isValidChar(c))
+        return false;
+    }
+    if (!Character.isAlphabetic(name.charAt(0)))
+      return false;
+    if (root && !Character.isUpperCase(name.charAt(0)))
+      return false;
+    if (!root && !Character.isLowerCase(name.charAt(0)))
+      return false;
+    return true;
+  }
+
+  private boolean isValidChar(char c) {
+    if (c >= 'a' && c <= 'z')
+      return true;
+    if (c >= 'A' && c <= 'Z')
+      return true;
+    if (c >= '0' && c <= '9')
+      return true;
+    if (c == '[' || c == ']')
+      return true;
+    return false;
+  }
 
   private boolean isExemptFromCodeList(String path) {
     return path.equals("Timing.repeat.when");

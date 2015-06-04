@@ -624,6 +624,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       cc = cc.replace("-", "Minus").replace("+", "Plus");
     else
     	cc = cc.replace("-", "").replace("+", "");
+    cc = cc.replace("(", "_").replace(")", "_");
     cc = cc.toUpperCase();
     if (GeneratorUtils.isJavaReservedWord(cc))
       cc = cc + "_";
