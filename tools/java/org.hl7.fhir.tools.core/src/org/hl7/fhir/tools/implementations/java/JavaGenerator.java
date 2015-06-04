@@ -695,7 +695,7 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
       t.processExamples(folders.rootDir, names);
     } else {
       StringBuilder b = new StringBuilder();
-      b.append(folders.rootDir);
+      b.append(folders.dstDir);
       b.append("\r\n");
       for (String n : names) {
         b.append(n);
