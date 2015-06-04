@@ -533,7 +533,7 @@ public class ResourceValidator extends BaseValidator {
       for (DefinedCode c : cd.getAllCodes()) {
         b.append(" | ").append(c.getCode());
       }
-      if (sd.equals("...")) {
+      if (sd.equals("*")) {
         e.setShortDefn(b.toString());
         sd = b.toString();
       }
