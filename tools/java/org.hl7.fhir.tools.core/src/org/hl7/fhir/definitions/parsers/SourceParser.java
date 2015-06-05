@@ -57,6 +57,7 @@ import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
+import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -65,6 +66,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
+import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.MappingSpace;
@@ -329,6 +331,11 @@ public class SourceParser {
       } else if (e.getNodeName().equals("publishing")) {
         if (e.hasAttribute("homepage"))
           ig.setPage(e.getAttribute("homepage"));
+      } else if (e.getNodeName().equals("page")) {
+        ig.getPageList().add(e.getAttribute("source"));
+      } else if (e.getNodeName().equals("example")) {
+        throw new Exception("Unsupported element name in IG: "+e.getNodeName());
+        
       } else if (e.getNodeName().equals("profile")) {
         Profile p = new Profile(ig.getCode());
         p.setSource(Utilities.path(file.getParent(), e.getAttribute("source")));
@@ -337,12 +344,21 @@ public class SourceParser {
         else
           throw new Exception("Unknown profile type in IG: "+e.getNodeName());
         loadConformancePackage(p);
-        crossReference(p);
         String id = e.getAttribute("id");
         if (Utilities.noString(id))
           id = Utilities.changeFileExt(e.getAttribute("source"), "");
         definitions.getPackList().add(p);
         definitions.getPackMap().put(id, p);
+        Element ex = XMLUtil.getFirstChild(e);
+        while (ex != null) {
+          if (ex.getNodeName().equals("example")) {
+            String filename = ex.getAttribute("source");
+            Example example = new Example(ex.getAttribute("name"), Utilities.changeFileExt(filename, ""), ex.getAttribute("name"), new File(Utilities.path(file.getParent(), filename)), false, ExampleType.XmlFile, false);
+            p.getExamples().add(example);
+          } else
+            throw new Exception("Unknown element name in IG: "+ex.getNodeName());
+          ex = XMLUtil.getNextSibling(ex);
+        }
       } else if (e.getNodeName().equals("dictionary")) {
         Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), ig.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))));
         definitions.getDictionaries().put(d.getId(), d);
@@ -351,18 +367,6 @@ public class SourceParser {
       e = XMLUtil.getNextSibling(e);
     }
   }
-
-
-  private void crossReference(Profile p) {
-    for (ConstraintStructure item : p.getProfiles()) {
-      String n = item.getDefn().getName();
-      System.out.println(n);
-    }
-      
-//      register it on it's target
-    
-  }
-
 
   private void buildSpecialValues() throws Exception {
     for (ValueSet vs : definitions.getBoundValueSets().values())
@@ -392,7 +396,7 @@ public class SourceParser {
       while (ig != null) {
         if (ig.getNodeName().equals("ig")) {
           ImplementationGuide igg = new ImplementationGuide(ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("page"), ig.getAttribute("source"), 
-              "1".equals(ig.getAttribute("review")), !"no".equals(ig.getAttribute("ballot")));
+              "1".equals(ig.getAttribute("review")));
           definitions.getIgs().put(igg.getCode(), igg);
           definitions.getSortedIgs().add(igg);
         }

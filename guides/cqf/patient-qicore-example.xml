@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+  <id value="patient-qicore-example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>Todd G. <b>Lerr</b>, Jr.</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>123 North 102nd Street, Apt 4d, Harrisburg, PA 17102</td>
+          </tr>
+          <tr>
+            <td>Contacts</td>
+            <td>Home: unknown. Work: (555) 555 1212</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </text>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/Race" />
+        <code value="2106-3"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/Ethnicity" />
+        <code value="2135-2"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial">
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrialNCT">
+      <valueString value="NCT01647425"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrialPeriod">
+      <valuePeriod>
+        <start value="2012-04-01"/>
+        <end value="2013-09-30"/>
+      </valuePeriod>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrialReason">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="254637007" />
+          <display value="NSCLC - Non-small cell lung cancer"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+    <valueDateTime value="2012-06-07T06:12:45-05:00"/>
+  </extension>
+
+  <name>
+    <use value="official"/>
+    <family value="Lerr"/>
+    <given value="Todd"/>
+    <given value="G."/>
+    <suffix value="Jr"/>
+  </name>
+
+  <telecom>
+    <system value="phone"/>
+    <value value="(555) 555 1212"/>
+    <use value="work"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="person@example.org"/>
+    <use value="work"/>
+  </telecom>
+
+  <gender value="male"/>
+  <birthDate value="2012-06-07"/>
+  <deceasedBoolean value="false"/>
+
+  <address>
+    <use value="home"/>
+    <line value="123 North 102nd Street"/>
+    <line value="Apt 4d"/>
+    <city value="Harrisburg"/>
+    <state value="PA"/>
+    <postalCode value="17102"/>
+    <country value="USA"/>
+  </address>
+
+  <active value="true"/>
+
+</Patient>

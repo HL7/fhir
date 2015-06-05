@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedurerequest.xsd">
+  <id value="procedurerequest-qicore-example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Request for Routine Appendectomy</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/procedurerequest-authorizedBy">
+    <valueReference>
+      <reference value="Practitioner/example"/>
+    </valueReference>
+  </extension>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="80146002"/>
+      <display value="Appendectomy (Procedure)"/>
+    </coding>
+    <text value="Appendectomy"/>
+  </type>
+  <bodySite>
+    <siteCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="66754008"/>
+        <display value="Appendix structure"/>
+      </coding>
+    </siteCodeableConcept>
+  </bodySite>
+  <indication>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="163220003"/>
+      <display value="On examination - abdominal pain - right iliac"/>
+    </coding>
+  </indication>
+  <timingDateTime value="2013-04-05"/>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <status value="completed"/>
+  <orderedOn value="2013-04-04"/>
+  <priority value="urgent"/>
+</ProcedureRequest>

@@ -438,25 +438,25 @@ public class SpreadsheetParser {
           Profile pack = new Profile(sheet.getColumn(row, "IG Name"));
           if (Utilities.noString(pack.getCategory()))
             throw new Exception("Missing IG Name at "+getLocation(row));
-          pack.setTitle(name);
-          pack.setSource(checkFile(sheet, row, "Source", false, sheet.getColumn(row, "Filename"))); // todo-profile
           if (!definitions.getIgs().containsKey(pack.getCategory()))
             throw new Exception("IG Name '"+pack.getCategory()+"' is not registered in [igs] in fhir.ini at "+getLocation(row));
-            
           ImplementationGuide ig = definitions.getIgs().get(pack.getCategory());  
-          if (Utilities.noString(ig.getSource())) {
-            String type = sheet.getColumn(row, "Type");
-            if ("bundle".equalsIgnoreCase(type))
-              pack.setSourceType(ConformancePackageSourceType.Bundle);
-            else if ("spreadsheet".equalsIgnoreCase(type))
-              pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
-            else
-              throw new Exception("Unknown source type: "+type+" at "+getLocation(row));
-            String example = checkFile(sheet, row, "Example", true, null); // todo-profile
-            if (example != null)
-              pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getSource(), new File(example), true, ExampleType.XmlFile, isAbstract));
-            defn.getConformancePackages().add(pack);
-          }
+          if (!Utilities.noString(ig.getSource())) 
+            throw new Exception("Implementation Guides that have their own structured cannot be registered directly in a source spreadsheet");
+          pack.setTitle(name);
+          pack.setSource(checkFile(sheet, row, "Source", false, sheet.getColumn(row, "Filename"))); // todo-profile
+            
+          String type = sheet.getColumn(row, "Type");
+          if ("bundle".equalsIgnoreCase(type))
+            pack.setSourceType(ConformancePackageSourceType.Bundle);
+          else if ("spreadsheet".equalsIgnoreCase(type))
+            pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
+          else
+            throw new Exception("Unknown source type: "+type+" at "+getLocation(row));
+          String example = checkFile(sheet, row, "Example", true, null); // todo-profile
+          if (example != null)
+            pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getSource(), new File(example), true, ExampleType.XmlFile, isAbstract));
+          defn.getConformancePackages().add(pack);
         }
       }
     }

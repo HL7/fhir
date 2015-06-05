@@ -298,7 +298,6 @@ public class Definitions {
   }
 
   private List<String> sortedNames;
-  private boolean publishAll;
   
   public List<String> sortedResourceNames() {
     if (sortedNames == null) {
@@ -500,37 +499,6 @@ public class Definitions {
 
   public Map<String, String> getPageTitles() {
     return pageTitles;
-  }
-
-  public boolean noPublish(String category)  {
-    return !doPublish(category);
-  }
-
-  public boolean noPublish(ImplementationGuide ig)  {
-    return !doPublish(ig);
-  }
-
-  public boolean isPublishAll() {
-    return publishAll;
-  }
-
-  public void setPublishAll(boolean publishAll) {
-    this.publishAll = publishAll;
-  }
-
-  public boolean doPublish(String category) {
-    ImplementationGuide ig = igs.get(category);
-    if (ig == null)
-      throw new Error("No known IG for "+category);
-    if (publishAll)
-      return true;
-    return ig.isBallot();
-  }
-
-  public boolean doPublish(ImplementationGuide ig) {
-    if (publishAll)
-      return true;
-    return ig.isBallot();
   }
 
   public Map<String, ValueSet> getBoundValueSets() {

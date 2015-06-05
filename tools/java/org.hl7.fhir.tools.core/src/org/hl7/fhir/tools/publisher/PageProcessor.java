@@ -1057,12 +1057,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     Collections.sort(names);
     for (String s : names) {
       Profile ap = definitions.getPackMap().get(s);
-      if (definitions.doPublish(ap.getCategory())) {
-        b.append("  <tr>\r\n");
-        b.append("    <td><a href=\"").append(ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
-        b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
-        b.append(" </tr>\r\n");
-      }
+      b.append("  <tr>\r\n");
+      b.append("    <td><a href=\"").append(ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
+      b.append(" </tr>\r\n");
     }
 // todo-profiles - do we want to list these here?    
 //    for (String n : definitions.sortedResourceNames()) {
@@ -1769,14 +1767,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private void scanForProfileUsage(StringBuilder b, ValueSet vs, ResourceDefn r) {
     for (Profile ap : r.getConformancePackages()) {
-      if (definitions.doPublish(ap.getCategory())) {
-        for (ConstraintStructure p : ap.getProfiles()) {
-          for (ElementDefinition ed : p.getResource().getSnapshot().getElement()) {
-            if (ed.hasBinding()) {
-              if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
-                b.append(" <li><a href=\"").append(p.getId()).append(".html\">StructureDefinition ")
-                .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ").append(getBindingTypeDesc(ed.getBinding())).append("</li>\r\n");
-            }
+      for (ConstraintStructure p : ap.getProfiles()) {
+        for (ElementDefinition ed : p.getResource().getSnapshot().getElement()) {
+          if (ed.hasBinding()) {
+            if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
+              b.append(" <li><a href=\"").append(p.getId()).append(".html\">StructureDefinition ")
+              .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ").append(getBindingTypeDesc(ed.getBinding())).append("</li>\r\n");
           }
         }
       }
@@ -2525,7 +2521,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (String p : ps) {
         if (!definitions.getIgs().containsKey(p))
           return true;
-        else if (definitions.doPublish(p))
+        else 
           return true;
       }
       return false;
@@ -4007,21 +4003,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder s = new StringBuilder();
     int count = 0;
     for (ImplementationGuide ig : definitions.getSortedIgs()) {
-      if (definitions.doPublish(ig)) {
-        boolean started = false;
-        for (Profile ap: resource.getConformancePackages()) {
-          if (ig.getCode().equals(ap.getCategory())) {
-            produceProfileLine(s, ig, started, ap);
-            started = true;
-            count++;
-          }
+      boolean started = false;
+      for (Profile ap: resource.getConformancePackages()) {
+        if (ig.getCode().equals(ap.getCategory())) {
+          produceProfileLine(s, ig, started, ap);
+          started = true;
+          count++;
         }
-        for (Profile ap: definitions.getPackList()) {
-          if (ig.getCode().equals(ap.getCategory()) && ap.coversResource(resource)) {
-            produceProfileLine(s, ig, started, ap);
-            started = true;
-            count++;
-          }
+      }
+      for (Profile ap: definitions.getPackList()) {
+        if (ig.getCode().equals(ap.getCategory()) && ap.coversResource(resource)) {
+          produceProfileLine(s, ig, started, ap);
+          started = true;
+          count++;
         }
       }
     }
@@ -4044,17 +4038,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return produceStructureDefinitionExamples();
     } else {
       StringBuilder s = new StringBuilder();
-      s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
+      s.append("<p>Example List:</p>\r\n<table class=\"list\">\r\n");
       for (Example e: resource.getExamples()) {
         if (e.isRegistered())
           produceExampleListEntry(s, e, null);
       }
       for (Profile p : resource.getConformancePackages()) {
-        if (definitions.doPublish(p.getCategory())) {
-          for (Example e: p.getExamples()) {
+        for (Example e: p.getExamples()) {
+          produceExampleListEntry(s, e, p);
+        }        
+      }
+      for (Profile p : definitions.getPackList()) {
+        for (Example e: p.getExamples()) {
+          String rn = e.getResourceName();
+          if (Utilities.noString(rn))
+            rn = e.getXml().getDocumentElement().getNodeName();
+          if (rn.equals(resource.getName()))
             produceExampleListEntry(s, e, p);
-          }        
-        }
+        }        
       }
       s.append("<tr><td colspan=\"4\">&nbsp;</td></tr></table>\r\n");
       return s.toString();
@@ -4144,10 +4145,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         constraints.put(p.getId(), p);
     for (String rn : definitions.sortedResourceNames()) 
       for (Profile ap: definitions.getResourceByName(rn).getConformancePackages())
-        if (definitions.doPublish(ap.getCategory())) {
-          for (ConstraintStructure p : ap.getProfiles()) 
-            constraints.put(p.getId(), p);
-        }
+        for (ConstraintStructure p : ap.getProfiles()) 
+          constraints.put(p.getId(), p);
     names.clear();
     names.addAll(constraints.keySet());
     Collections.sort(names);

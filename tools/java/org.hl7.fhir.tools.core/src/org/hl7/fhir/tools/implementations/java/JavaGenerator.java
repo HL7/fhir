@@ -371,8 +371,8 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
       path.append(File.pathSeparator+rootDir+"tools"+sl+"java"+sl+"imports"+sl+n);
     }
     
-    options.addAll(Arrays.asList("-classpath",path.toString()));
-    logger.log("Classpath: "+path.toString(), LogMessageType.Process);
+    options.addAll(Arrays.asList("-classpath",path.toString().substring(1)));
+    logger.log("Classpath: "+path.toString().substring(1), LogMessageType.Process);
     JavaCompiler.CompilationTask task = ToolProvider.getSystemJavaCompiler().getTask(null, null, diagnostics, options, null, units);
     Boolean result = task.call();
     if (!result) {
@@ -480,7 +480,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     }
     List<File> list = new ArrayList<File>();
     for (JavaClass jc : classes.values()) {
-//      if (jc.doCompile)  - enable this to set up minimal compiling 
+      // if (jc.doCompile) // - enable this to set up minimal compiling 
         list.add(jc.sourceFile);
     }
     return list;

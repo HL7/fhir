@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
+<CommunicationRequest   xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/communicationrequest.xsd">
+  <id value="communicationrequest-qicore-example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">To be filled out at a later time</div>
+  </text>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/communicationrequest-orderedBy">
+    <valueReference>
+      <reference value="Practitioner/example"/>
+    </valueReference>
+  </extension>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/communicationrequest-reasonRejected">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="NON-AVAIL" />
+        <display value="patient not-available"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+
+  <status value="rejected"/>
+
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  
+</CommunicationRequest>

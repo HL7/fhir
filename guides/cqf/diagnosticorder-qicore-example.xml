@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
+<!-- lab report example: a CBC -->
+
+<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticorder.xsd">
+  <id value="diagnosticorder-qicore-example"/>
+  <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+        Example Diagnostic Order
+        </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticorder-reason">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="PHY" />
+        <display value="Physician request"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/diagnosticorder-reasonRejected">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="NON-AVAIL" />
+        <display value="patient not-available"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <orderer>
+    <reference value="Practitioner/example"/>
+  </orderer>
+  <identifier>
+    <type><text value="Placer"/></type>
+    <system value="urn:oid:1.3.4.5.6.7"/>
+    <value value="2345234234234"/>
+  </identifier>
+  <status value="rejected"/>
+  <event>
+    <status value="requested"/>
+    <dateTime value="2013-05-02T16:16:00-07:00"/>
+  </event>
+  <event>
+    <status value="rejected"/>
+    <dateTime value="2013-05-06T11:20:00-07:00"/>
+  </event>
+  <item>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="57698-3"/>
+      </coding>
+      <text value="Lipid panel with direct LDL - Serum or Plasma"/>
+    </code>
+  </item>
+</DiagnosticOrder>

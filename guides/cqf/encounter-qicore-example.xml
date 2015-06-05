@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
+  <id value="encounter-qicore-example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient @qicore</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition">
+    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-condition">
+      <valueReference>
+        <reference value="Condition/qicore"/>
+      </valueReference>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-conditionRole">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="8319008" />
+          <display value="Principal diagnosis"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </extension>
+
+  <status value="finished" />
+  <class value="inpatient" />
+  <patient>
+    <reference value="Patient/qicore"/>
+  </patient>
+  <period>
+    <start value="2015-02-09T00:00:00Z"/>
+    <end value="2015-02-20T00:00:00Z"/>
+  </period>
+
+  <hospitalization>
+    <dischargeDisposition>
+      <coding>
+        <system value="http://hl7.org/fhir/discharge-disposition"/>
+        <code value="home"/>
+        <display value="Home"/>
+      </coding>
+    </dischargeDisposition>
+  </hospitalization>
+
+</Encounter>

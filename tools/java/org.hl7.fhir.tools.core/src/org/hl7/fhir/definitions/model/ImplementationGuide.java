@@ -1,22 +1,24 @@
 package org.hl7.fhir.definitions.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ImplementationGuide {
 
   private String code;
   private String name;
   private String page;
   private boolean review;
-  private boolean ballot;
   private String source;
+  private List<String> pageList = new ArrayList<String>();
   
-  public ImplementationGuide(String code, String name, String page, String source, boolean review, boolean ballot) {
+  public ImplementationGuide(String code, String name, String page, String source, boolean review) {
     super();
     this.code = code;
     this.name = name;
     this.source = source;
     this.page = page;
     this.review = review;
-    this.ballot = ballot;
   }
   
   public String getCode() {
@@ -35,10 +37,6 @@ public class ImplementationGuide {
     this.review = review;
   }
 
-  public boolean isBallot() {
-    return ballot;
-  }
-
   public String getSource() {
     return source;
   }
@@ -46,6 +44,9 @@ public class ImplementationGuide {
   public void setPage(String page) {
     this.page = page;
   }
-  
+
+  public List<String> getPageList() {
+    return pageList;
+  }
   
 }

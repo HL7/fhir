@@ -103,6 +103,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
+import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.OperationTuplePart;
@@ -522,7 +523,6 @@ public class Publisher implements URIResolver {
       page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
       throw new Exception("Errors executing build. Details logged.");
     }
-    page.getDefinitions().setPublishAll(!web);
     processProfiles();
 
     if (isGenerate) {
@@ -1616,8 +1616,14 @@ public class Publisher implements URIResolver {
         producePage(n, page.getIni().getStringProperty("pages", n));
       }
     }
+    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+      for (String n : ig.getPageList()) {
+        page.log(" ...ig page " + n, LogMessageType.Process);
+        produceIgPage(n, ig);        
+      }
+    }
     for (String n : page.getDefinitions().getDictionaries().keySet()) {
-      if (buildFlags.get("all") && page.getDefinitions().doPublish(page.getDefinitions().getDictionaries().get(n).getCategory())) { // || buildFlags.get("dict-" + n.toLowerCase())) {
+      if (buildFlags.get("all")) { // || buildFlags.get("dict-" + n.toLowerCase())) {
         page.log(" ...dictionary " + n, LogMessageType.Process);
         produceDictionary(page.getDefinitions().getDictionaries().get(n));
       }
@@ -1699,8 +1705,7 @@ public class Publisher implements URIResolver {
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
         addSearchParams(searchParamsFeed, rd);
       for (Profile cp : page.getDefinitions().getPackList()) {
-        if (page.getDefinitions().doPublish(cp.getCategory()))
-          addSearchParams(searchParamsFeed, cp);
+        addSearchParams(searchParamsFeed, cp);
       }
       s = new FileOutputStream(page.getFolders().dstDir + "search-parameters.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, searchParamsFeed);
@@ -1718,8 +1723,7 @@ public class Publisher implements URIResolver {
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
         addOtherProfiles(profileOthersFeed, rd);
       for (Profile cp : page.getDefinitions().getPackList()) {
-        if (page.getDefinitions().doPublish(cp.getCategory()))
-          addOtherProfiles(profileOthersFeed, cp);
+        addOtherProfiles(profileOthersFeed, cp);
       }
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-others.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileOthersFeed);
@@ -3503,9 +3507,9 @@ public class Publisher implements URIResolver {
   }
 
   private void produceConformancePackage(String resourceName, Profile pack, SectionTracker st) throws Exception {
-     if (web && page.getDefinitions().noPublish(pack.getCategory()))
-      return;
-          
+    if (Utilities.noString(resourceName) && pack.getProfiles().size() == 1)
+      resourceName = pack.getProfiles().get(0).getDefn().getName();
+    
     String intro = pack.getIntroduction() != null ? page.loadXmlNotesFromFile(pack.getIntroduction(), false, null, null, null) : null;
     String notes = pack.getNotes() != null ? page.loadXmlNotesFromFile(pack.getNotes(), false, null, null, null) : null;
 
@@ -3747,6 +3751,23 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
 
     src = TextFile.fileToString(page.getFolders().srcDir + file).replace("<body>", "<body style=\"margin: 10px\">");
+    src = page.processPageIncludesForBook(file, src, "page", null);
+    cachePage(file, src, logicalName);
+  }
+
+  private void produceIgPage(String file, ImplementationGuide ig) throws Exception {
+    String logicalName = Utilities.fileTitle(file);
+    String src = TextFile.fileToString(Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()),  file));
+    src = page.processPageIncludes(file, src, "page", null, null, null, logicalName);
+    // before we save this page out, we're going to figure out what it's index
+    // is, and number the headers if we can
+
+    TextFile.stringToFile(src, page.getFolders().dstDir + file);
+    src = addSectionNumbers(file, logicalName, src, null);
+
+    TextFile.stringToFile(src, page.getFolders().dstDir + file);
+
+    src = TextFile.fileToString(Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()),  file)).replace("<body>", "<body style=\"margin: 10px\">");
     src = page.processPageIncludesForBook(file, src, "page", null);
     cachePage(file, src, logicalName);
   }

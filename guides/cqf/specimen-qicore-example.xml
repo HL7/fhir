@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/specimen.xsd">
+ <id value="specimen-qicore-example"/>
+  <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="122555007"/>
+      <display value="Venous blood specimen"/>
+    </coding>
+  </type>
+
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter Patient"/>
+  </subject>
+
+  <receivedTime value="2011-03-04T07:03:00Z"/>
+
+  <collection>
+    <extension url="http://hl7.org/fhir/StructureDefinition/specimen-collectionPriority">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/vs/specimen-collection-priority"/>
+          <code value="5"/>
+          <display value="ROUTINE"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/specimen-specialHandling">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ActCode"/>
+          <code value="NOPERSISTP"/>
+          <display value="no collection beyond purpose of use"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <collectedDateTime value="2011-03-06T06:15:00Z" />
+    <quantity>
+      <extension url="http://hl7.org/fhir/StructureDefinition/specimen-isDryWeight">
+        <valueBoolean value="false"/>
+      </extension>
+      <value value="6"/>
+      <units value="mL"/>
+    </quantity>
+  </collection>
+  <treatment>
+    <extension url="http://hl7.org/fhir/StructureDefinition/specimen-treatmentTime">
+      <valuePeriod>
+        <start value="2011-03-04T07:03:00Z"/>
+        <end value="2011-03-04T07:03:00Z"/>
+      </valuePeriod>
+    </extension>
+    <description value="Treated with anticoagulants."/>
+    <additive>
+      <reference value="Substance/example"/>
+    </additive>
+  </treatment>
+  <container>
+    <extension url="http://hl7.org/fhir/StructureDefinition/specimen-sequenceNumber">
+      <valueInteger value="1"/>
+    </extension>
+    <type>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="434746001"/>
+        <display value="Specimen vial"/>
+      </coding>
+    </type>
+    <capacity>
+      <value value="10"/>
+      <units value="mL"/>
+    </capacity>
+
+  </container>
+</Specimen>

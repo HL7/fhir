@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
+<!-- This example is used with contraindication-example-dup, so don't make changes that would cause it to no longer be a duplicate -->
+<ImagingStudy xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\imagingstudy.xsd">
+  <id value="imagingstudy-qicore-example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDose">
+    <valueRange>
+      <low>
+        <value value="200.0"/>
+        <units value="Gy"/>
+      </low>
+      <high>
+        <value value="1234.5"/>
+        <units value="Gy"/>
+      </high>
+    </valueRange>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDuration">
+    <valueQuantity>
+      <value value="25" />
+      <units value="sec" />
+      <system value="http://unitsofmeasure.org" />
+      <code value="s" />
+    </valueQuantity>
+  </extension>
+  <started value="2011-01-01T11:01:20+03:00"/>
+  <patient>
+    <reference value="Patient/dicom"/>
+  </patient>
+  <uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
+  <numberOfSeries value="1"/>
+  <numberOfInstances value="1"/>
+  <series>
+    <number value="3"/>
+    <modality value="CT"/>
+    <uid value="urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
+    <description value="CT Surview 180"/>
+    <numberOfInstances value="1"/>
+    <bodySite>
+      <!-- Added body site to support duplicate checking example -->
+      <system value="http://snomed.info/sct"/>
+      <code value="67734004"/>
+      <display value="Upper Trunk Structure"/>
+    </bodySite>
+    <instance>
+      <number value="1"/>
+      <uid value="urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903"/>
+      <sopclass value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+      <content>
+        <url value="http://localhost/fhir/Binary/1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+      </content>
+    </instance>
+  </series>
+</ImagingStudy>

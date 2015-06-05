@@ -1,0 +1,140 @@
+<ig code="cqf" title="QI-Core">
+  <dependsOn code="daf"/>
+  <publishing homepage="qicore.html"/>
+  <!-- 
+    the normal order for this file is:
+      value sets
+      concept maps
+      profiles
+      dictionaries
+      examples
+      pages      
+      
+    order rules:
+    
+    -->
+  <!-- 
+    value seta. This is just a file name. everything else of interest is in the value set 
+    <valueSet source="filename, relative to this file"/> 
+    value sets don't have to be listed here; they can be loaded implicitly by referring to them
+    in a spreadsheet, or by including them in bundles. So the primary use here is if you 
+    want to include other valuesets not directly referenced in a spreadsheet (e.g. imports
+    in a value set))
+  -->
+  <!-- 
+    concept maps: same as value sets, except that there's no way to load them implicitly (though you can define them in a spreadsheet)
+    <conceptMap source="filename, relative to this file"/> 
+    you don't have to load the value sets prior to loading the concept maps that refer to them
+  -->
+  <!--
+    profiles. You have to list all the profiles that are in this implementation guide. 
+    <profile source=filename, relative to this file" type="[see below]"/> 
+    there's two types: 
+      spreadsheet - loads as a normal spreadsheet
+      bundle - loads as a bundle of structure definitions (and possibly value sets and concept maps)
+    all the rest of the information is extracted from the targets
+    
+    note: profiles are loaded in order. Derived profiles must be loaded after the profiles they are derived from.
+  --> 
+  <!--
+    Examples
+    <example name="" source="" description=""/>
+    
+    putting an example inside a profile indicates that it's subject to that profile
+  -->    
+  <profile source="allergyintolerance-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore AllergyIntolerance" description="Example of QICore AllergyIntolerance" source="allergyintolerance-qicore-example.xml"/>
+  </profile>
+  <profile source="basic-adverseevent-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore AdverseEvent" description="Example of QICore AdverseEvent" source="basic-example-adverseevent-qicore.xml"/>
+  </profile>
+  <profile source="bodysite-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="communication-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Communication" description="Example of QICore Communication" source="communication-qicore-example.xml"/>
+  </profile>
+  <profile source="communicationrequest-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore CommunicationRequest" description="Example of QICore CommunicationRequest" source="communicationrequest-qicore-example.xml"/>
+  </profile>
+  <profile source="condition-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Condition" description="Example of QICore Condition" source="condition-qicore-example.xml"/>
+  </profile>
+  <profile source="device-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="deviceusestatement-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="deviceuserequest-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore DeviceUseRequest" description="Example of QICore DeviceUseRequest" source="deviceuserequest-qicore-example.xml"/>
+  </profile>
+  <profile source="diagnosticorder-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore DiagnosticOrder" description="Example of QICore DiagnosticOrder" source="diagnosticorder-qicore-example.xml"/>
+  </profile>
+  <profile source="diagnosticreport-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore DiagnosticReport" description="Example of QICore DiagnosticReport" source="diagnosticreport-qicore-example.xml"/>
+  </profile>
+  <profile source="encounter-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Encounter" description="Example of QICore Encounter" source="encounter-qicore-example.xml"/>
+  </profile>
+  <profile source="familymemberhistory-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore FamilyMemberHistory" description="Example of QICore FamilyMemberHistory with condition did-not-have" source="familymemberhistory-qicore-example.xml"/>
+  </profile>
+  <profile source="flag-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Flag" description="Example of QICore Flag" source="flag-qicore-example.xml"/>
+  </profile>
+  <profile source="goal-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Goal" description="Example of QICoreGoal" source="goal-qicore-example.xml"/>
+  </profile>
+  <profile source="imagingstudy-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore ImagingStudy" description="Example of QICore ImagingStudy" source="imagingstudy-qicore-example.xml"/>
+  </profile>
+  <profile source="immunization-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="immunizationrecommendation-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="location-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="medication-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="medicationadministration-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="medicationdispense-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore MedicationDispense" description="Example of QICore MedicationDispense" source="medicationdispense-qicore-example.xml"/>
+  </profile>
+  <profile source="medicationprescription-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore MedicationPrescription" description="Example of QICore MedicationPrescription" source="medicationprescription-qicore-example.xml"/>
+  </profile>
+  <profile source="medicationstatement-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore MedicationStatement" description="Example of QICore MedicationStatement" source="medicationstatement-qicore-example.xml"/>
+  </profile>
+  <profile source="observation-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Observation" description="Example of QICore Observation" source="observation-qicore-example.xml"/>
+  </profile>
+  <profile source="organization-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Organization" description="Example of QICore Organization" source="organization-qicore-example.xml"/>
+  </profile>
+  <profile source="patient-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Patient" description="Example of QICore Patient" source="patient-qicore-example.xml"/>
+  </profile>
+  <profile source="practitioner-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Practitioner" description="Example of QICore Practitioner" source="practitioner-qicore-example.xml"/>
+  </profile>
+  <profile source="procedure-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Procedure" description="Example of QICore Procedure" source="procedure-qicore-example.xml"/>
+  </profile>
+  <profile source="procedurerequest-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore ProcedureRequest" description="Example of QICore ProcedureRequest" source="procedurerequest-qicore-example.xml"/>
+  </profile>
+  <profile source="referralrequest-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore ReferralRequest" description="Example of QICore ReferralRequest" source="referralrequest-qicore-example.xml"/>
+  </profile>
+  <profile source="specimen-qicore-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="QICore Specimen" description="Example of QICore Specimen" source="specimen-qicore-example.xml"/>
+  </profile>
+  <profile source="substance-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
+  
+  <!--
+    dictionaries
+    <dictionary name="" source="">
+  -->
+    <dictionary id="hspc-qnlab-de" name="HSPC Quantitative Labs dictionary" source="hspc-qnlab-de.xml"/>
+    
+
+
+<!--
+hspc-QuantitativeLab-dataelements.xml
+
+-->  
+  <page source="qicore.html"/>
+</ig>
