@@ -3757,7 +3757,8 @@ public class Publisher implements URIResolver {
 
   private void produceIgPage(String file, ImplementationGuide ig) throws Exception {
     String logicalName = Utilities.fileTitle(file);
-    String src = TextFile.fileToString(Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()),  file));
+    String actualName = Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()), file);
+    String src = TextFile.fileToString(actualName);
     src = page.processPageIncludes(file, src, "page", null, null, null, logicalName);
     // before we save this page out, we're going to figure out what it's index
     // is, and number the headers if we can
@@ -3767,7 +3768,7 @@ public class Publisher implements URIResolver {
 
     TextFile.stringToFile(src, page.getFolders().dstDir + file);
 
-    src = TextFile.fileToString(Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()),  file)).replace("<body>", "<body style=\"margin: 10px\">");
+    src = TextFile.fileToString(actualName).replace("<body>", "<body style=\"margin: 10px\">");
     src = page.processPageIncludesForBook(file, src, "page", null);
     cachePage(file, src, logicalName);
   }
