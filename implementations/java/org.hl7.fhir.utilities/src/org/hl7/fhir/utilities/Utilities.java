@@ -508,11 +508,8 @@ public class Utilities {
 
 
   public static String getDirectoryForFile(String filepath) {
-    int i = filepath.lastIndexOf(File.separator);
-    if (i == -1)
-      return filepath;
-    else
-      return filepath.substring(0, i);
+    File f = new File(filepath);
+    return f.getParent();
   }
 
   public static String appendPeriod(String s) {
