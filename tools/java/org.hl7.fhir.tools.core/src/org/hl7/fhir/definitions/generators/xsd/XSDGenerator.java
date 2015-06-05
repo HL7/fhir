@@ -71,8 +71,7 @@ public class XSDGenerator  {
 		datatypes.addAll(types);
 	}
 
-	public void generate(ElementDefn root, String version, String genDate, boolean outer) throws Exception
-	{
+	public void generate(ElementDefn root, String version, String genDate, boolean outer) throws Exception {
 		enums.clear();
 		enumDefs.clear();
 

@@ -632,33 +632,26 @@ public class XSDBaseGenerator {
     if (types.size() > 1 || (types.size() == 1 && types.get(0).isWildcardType())) {
       if (!e.getName().contains("[x]"))
         throw new Exception("Element has multiple types as a choice doesn't have a [x] in the element name '"+ e.getName()+ "' in resource "+ root.getName());
-      generateAny(root, e, e.getName().replace("[x]", ""));
-      // write("<xs:choice>\r\n");
-      // if (e.hasDefinition()) {
-      // write("        <xs:annotation>\r\n");
-      // write("          <xs:documentation>"+Utilities.escapeXml(e.getDefinition())+"</xs:documentation>\r\n");
-      // write("        </xs:annotation>\r\n");
-      // }
-      // if (types.size() == 1)
-      // types = definitions.getKnownTypes();
-      // for (TypeDefn t : types) {
-      // if (!definitions.getInfrastructure().containsKey(t.getName())) {
-      // if (t.hasParams()) {
-      // for (String p : t.getParams()) {
-      // String tn = t.getName()+"_"+upFirst(p);
-      // String n = e.getName().replace("[x]", upFirst(tn));
-      // write("        <xs:element name=\""+n+"\" type=\""+tn+"\"/>\r\n");
-      //
-      // }
-      // } else {
-      // String tn = encodeType(e, t, false);
-      // String n = e.getName().replace("[x]", upFirst(tn));
-      // write("        <xs:element name=\""+n+"\" type=\""+encodeType(e,
-      // t, true)+"\"/>\r\n");
-      // }
-      // }
-      // }
-      // write("      </xs:choice>\r\n");
+      if ((types.size() == 1 && types.get(0).isWildcardType())) {
+        generateAny(root, e, e.getName().replace("[x]", ""));
+      } else {
+         write("          <xs:choice minOccurs=\"" + e.getMinCardinality().toString() + "\">\r\n");
+         if (e.hasDefinition()) {
+           write("            <xs:annotation>\r\n");
+           write("              <xs:documentation>"+Utilities.escapeXml(e.getDefinition())+"</xs:documentation>\r\n");
+           write("            </xs:annotation>\r\n");
+         }
+         for (TypeRef t : types) {
+           String type = encodeType(e, t, true);
+           String name = e.getName().substring(0,  e.getName().length()-3) + Utilities.capitalize(type); 
+           write("           <xs:element name=\"" + name + "\" type=\"" + type + "\" ");
+           if (e.unbounded())
+             write(" maxOccurs=\"unbounded\"/>\r\n");
+           else
+             write(" maxOccurs=\"1\"/>\r\n");
+         }
+         write("          </xs:choice>\r\n");
+      }
     } else {
       write("          ");
       if ("extension".equals(e.getName()))
