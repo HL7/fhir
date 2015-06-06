@@ -3533,8 +3533,18 @@ public class Publisher implements URIResolver {
   }
 
   private void produceConformancePackage(String resourceName, Profile pack, SectionTracker st) throws Exception {
-    if (Utilities.noString(resourceName) && pack.getProfiles().size() == 1)
-      resourceName = pack.getProfiles().get(0).getDefn().getName();
+    if (Utilities.noString(resourceName)) {
+      if (pack.getProfiles().size() == 1)
+        resourceName = pack.getProfiles().get(0).getDefn().getName();
+      else if (pack.getProfiles().size() == 0) {
+       // throw new Exception("Unable to determine resource name - no profiles"); no, we don't complain 
+      } else if (pack.getProfiles().get(0).getDefn() != null) {
+        resourceName = pack.getProfiles().get(0).getDefn().getName();
+        for (int i = 1; i < pack.getProfiles().size(); i++)
+          if (!pack.getProfiles().get(i).getDefn().getName().equals(resourceName))
+            throw new Exception("Unable to determine resource name - profile mismatch "+resourceName+"/"+pack.getProfiles().get(i).getDefn().getName()); 
+      }
+    }
     
     String intro = pack.getIntroduction() != null ? page.loadXmlNotesFromFile(pack.getIntroduction(), false, null, null, null) : null;
     String notes = pack.getNotes() != null ? page.loadXmlNotesFromFile(pack.getNotes(), false, null, null, null) : null;

@@ -5,7 +5,7 @@ file: cond-uslab-example1.xml
  Name: USLab Condition Example1
 Description: USLab Condition Profile Canonical Example: Lead Exposure -->
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
-	<id value="uslab-example1"/>
+	<id value="cond-uslab-example1"/>
 	<patient>
 		<reference value="Patient/uslab-example1"/>
 		<display value="Todd Lerr"/>

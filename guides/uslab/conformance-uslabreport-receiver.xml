@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
-	<id value="uslabreport-sender"/>
+	<id value="conformance-uslabreport-receiver"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<h2>USLabReport Sender</h2>
+			<h2>USLabReport Receiver</h2>
 			<p>(Requirements Definition)</p>
 			<p>Published: 2014-12-02 (draft)</p>
 			<p>Published by: <b>
 					<a href="http://www.hl7.org/">Published by: HL7 Orders and Observation Workgroup</a>
 				</b> Primary Author: Eric Haas  Health eData Inc</p>
-			<p>This profile defines the expected capabilities of the USLabReport Sender actor when conforming to the <a href="uslabreport.html">The US Laboratory Report Implementation (USLabReport)</a>.  This actor is the source of a laboratory test order report and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabReport guide.</p>
+			<p>This profile defines the expected capabilities of the USLabReport Receiver actor when conforming to the <a href="uslabreport.html">The US Receiver Report Implementation (USLabReport)</a>.  This actor is the receiver of a laboratory test report and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabReport guide.</p>
 			<h2>General</h2>
 			<table>
 				<tbody>
@@ -28,7 +28,7 @@
 			<p>
 				<b>Mode:</b> Server
 			</p>
-			<p>This conformance resource assumes the USLabReport Sender is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Sender MUST support querying one or more resources outlined by the <a href="uslabreport-guide.html">USLabReport Guide</a>. The USLabReport Sender MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Sender MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>This conformance resource assumes the USLabReport Receiver is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the <a href="uslabreport-guide.html">USLabReport Guide</a>. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
 			<p>
 				<b>Security:</b>
 			</p>
@@ -161,9 +161,9 @@
 			<p>Supported Includes: DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report</p>
 			<h2>REST  behavior</h2>
 			<p>
-				<b>Mode:</b> Client
+				<b>Mode:</b> Server
 			</p>
-			<p>The following conformance rules assumes the USLabReport Sender is the client, in other words, operating in 'Push'  RESTful interface.  The USLabReport Sender MUST support querying one or more resources outlined by the <a href="uslabreport.html">USLabReport Guide</a>. The USLabReport Sender MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Sender MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>The following conformance rules assumes the USLabReport Receiver is the client, in other words, operating in 'Push'  RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the <a href="uslabreport.html">USLabReport Guide</a>. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
 			<p>
 				<b>Security:</b>
 			</p>
@@ -296,9 +296,8 @@
 			<p>Supported Includes: DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report</p>
 		</div>
 	</text>
-
 	<!-- EH:   this is the SDC  template for conformance examples which I will run to generate the text-->
-	<name value="USLabReport Sender"/>
+	<name value="USLabReport Receiver"/>
 	<publisher value="Published by: HL7 Orders and Observation Workgroup. Primary Author: Eric Haas  Health eData Inc"/>
 	<contact>
     <telecom>
@@ -306,20 +305,20 @@
 		<value value="http://www.hl7.org/"/>
 	</telecom>
   </contact>
-	<description value="This profile defines the expected capabilities of the USLabReport Sender actor when conforming to the [[uslabreport.html|The US Sender Report Implementation (USLabReport)]].  This actor is the source of a laboratory test order report and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabReport guide."/>
+	<description value="This profile defines the expected capabilities of the USLabReport Receiver actor when conforming to the [[uslabreport.html|The US Receiver Report Implementation (USLabReport)]].  This actor is the receiver of a laboratory test report and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabReport guide."/>
 	<status value="draft"/>
 	<date value="2014-12-02"/>
 	<fhirVersion value="0.8"/>
 	<acceptUnknown value="false"/>
 	<format value="xml"/>
 	<format value="json"/>
-	<!-- EH:  need to distinguish when laboratory in server mode  = Pull: The source is a server, and the destination is a client. When the client wants to use the data, it uses a combination of search and read so the users can find the data they need
+	<!-- EH:  need to distinguish when receiver in server mode  = Pull: The source is a server, and the destination is a client. When the client wants to use the data, it uses a combination of search and read so the users can find the data they need
 Push/Pull: The source is a server, and the destination is a client. On a regular basis, the destination queries the server for its history, and replicates the changes in its own copy of the database
 ...
-or when laboratory in client  mode  =Push: The source is a client, and when new data is available, it uses create, update, and transaction to push data to the destination, which is a server -->
+or when receiver in client  mode  =Push: The source is a client, and when new data is available, it uses create, update, and transaction to push data to the destination, which is a server -->
 	<rest>
 		<mode value="server"/>
-		<documentation value="This conformance resource assumes the USLabReport Sender is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Sender MUST support querying one or more resources outlined by the [[uslabreport|USLabReport Guide]]. The USLabReport Sender MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Sender MUST implement REST behavior according to the [[http|FHIR specification]] and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query."/>
+		<documentation value="This conformance resource assumes the USLabReport Receiver is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the [[uslabreport|USLabReport Guide]]. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the [[http|FHIR specification]] and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query."/>
 		<security>
 			<description value="Implementations must meet the security requirements documented in the [[uslabreport|USLabReport Guide assumptions]]."/>
 		</security>
@@ -402,7 +401,7 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
 	</rest>
 	<rest>
 		<mode value="client"/>
-		<documentation value="The following conformance rules assumes the USLabReport Sender is the client, in other words, operating in 'Push'  RESTful interface.  The USLabReport Sender MUST support querying one or more resources outlined by the [[uslabreport|USLabReport Guide]]. The USLabReport Sender MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Sender MUST implement REST behavior according to the [[http|FHIR specification]] and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query."/>
+		<documentation value="The following conformance rules assumes the USLabReport Receiver is the client, in other words, operating in 'Push'  RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the [[uslabreport|USLabReport Guide]]. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the [[http|FHIR specification]] and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query."/>
 		<security>
 			<description value="Implementations must meet the security requirements documented in the [[uslabreport|USLabReport Guide assumptions]]."/>
 		</security>
@@ -471,7 +470,7 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
 		<versioning value="versioned|no-version"-->
 			<searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report"/>
 			<!-- How do we  do nested includes  ie  DiagnosticReport.orderer (Practitioner.organization)  -->
-		<!-- EH: comment out for now
+			<!-- EH: comment out for now
 		<searchParam-->
 			<!-- EH: comment out for now extension url="http://hl7.org/fhir/StructureDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>

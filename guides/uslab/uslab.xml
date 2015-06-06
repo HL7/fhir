@@ -1,0 +1,73 @@
+<ig code="uslab" title="US Laboratory Implementation Guide (ex LRF)">
+  <acronym target="dr-uslab-uslabdr" id="usl-pdr"/>
+  <acronym target="obs-uslab-uslabobscode" id="usl-cod"/>
+  <acronym target="obs-uslab-uslabobsquantity" id="usl-qty"/>
+  <acronym target="obs-uslab-uslabobsother" id="usl-oth"/>
+  <acronym target="obs-uslab-uslabobsratio" id="usl-rto"/>
+  <acronym target="org-uslab-uslaborderfacility" id="usl-bdf"/>
+  <acronym target="org-uslab-uslabperforminglab" id="usl-pfl"/>
+  <acronym target="org-uslab-uslabcctarget" id="usl-cct"/>
+  <acronym target="spec-uslab-uslabspec" id="usl-spm"/>
+  <acronym target="patient-uslab-uslabpatient" id="usl-pat"/>
+  <acronym target="patient-uslab-uslabphpatient" id="usl-php"/>
+  <acronym target="do-uslab-uslabdo" id="usl-do"/>
+  <acronym target="pract-uslab-uslabpract" id="usl-prc"/>
+  <acronym target="pract-uslab-uslabphpract" id="usl-prh"/>
+
+  <publishing homepage="uslab.html"/>
+    
+  <profile source="cond-uslab-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="USLab Condition Example1" description="USLab Condition Profile Canonical Example: Lead Exposure" source="cond-uslab-example1.xml"/>		
+    <example name="USLab Condition Example2" description="USLab Reason for Study Profile Canonical Example: Lead Exposure" source="cond-uslab-example2.xml"/>		
+  </profile>
+  <profile source="do-uslab-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="USLab DiagnosticOrder Example1" description="USLabOrder  Blood Lead " source="do-uslab-example1.xml"/>		
+  </profile>
+  <profile source="dr-uslab-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="USLab DiagnosticReport Example1" description="USLabReport DiagnosticReport Profile Canonical Example: Childhood Blood Lead Report" source="dr-uslab-example1.xml"/> 		
+  </profile>
+  <profile source="obs-uslab-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="USLab Observation Example1" description="USLab Quantitative Observation Profile Example: Capillary Blood Lead" source="obs-uslab-example1.xml"/>		
+    <example name="USLab Observation Example2" description="USLab Coded Observation Profile Example: N gonorrhoeae PCR" source="obs-uslab-example2.xml"/>		
+    <example name="USLab Observation Example3" description="USLab Other (string) Observation Profile Example: S.aureus" source="obs-uslab-example3.xml"/>		
+    <example name="USLab Observation Example4" description="USLab Ratio Observation Profile Example: Dengue Titer" source="obs-uslab-example4.xml"/>		
+    <example name="USLab Observation Example5" description="USLab Quantitative Observation Profile Example: Blood Lead" source="obs-uslab-example5.xml"/>		
+    <example name="USLab Observation Example6" description="USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel" source="obs-uslab-example6.xml"/>		
+    <example name="USLab Observation Example7" description="USLab Coded Observation Profile Example: C trachomatis PCR" source="obs-uslab-example7.xml"/>		
+    <example name="USLab Observation Example8" description="USLab Range Observation Profile  Example: WBCs in Urine" source="obs-uslab-example8.xml"/>		
+  </profile>
+  <profile source="org-uslab-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="USLab Observation Example1" description="USLab Ordering Organization Profile Canonical Example: University Hospital" source="org-uslab-example1.xml"/>		
+    <example name="USLab Observation Example2" description="USLab Copy to Organization Profile Canonical Example: Children's Hospital" source="org-uslab-example2.xml"/>		
+    <example name="USLab Observation Example3" description="USLab Performing Lab Organization Profile Canonical Example: Acme Labs" source="org-uslab-example3.xml"/>		
+  </profile>
+  <profile source="patient-uslab-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="USLab Patient Example1" description="Description: USLab Patient Profile Canonical Example: Todd Lerr" source="patient-uslab-example1.xml"/>		
+    <example name="USLab Patient Example2" description="Description: USLab PHPatient Profile Canonical Example: Todd Lerr" source="patient-uslab-example2.xml"/>		
+  </profile>
+  <profile source="pract-uslab-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="USLab Practitioner Example1" description="USLab Practitioner Canonical Example: Dr Leonard T Bloodraw Jr" source="pract-uslab-example1.xml"/>		
+    <example name="USLab PHPractitioner Example2" description="USLab PHPractitioner Canonical Example: Dr Bill T Lookafter Jr" source="pract-uslab-example2.xml"/>		
+    <example name="USLab PHPractitioner Example3" description="USLab PHPractitioner Canonical Example: Gregory F House PhD" source="pract-uslab-example3.xml"/>		
+  </profile>
+  <profile source="spec-uslab-profile-spreadsheet.xml" type="spreadsheet">
+    <example name="USLab Specimen Example1" description="USLab Specimen Profile Canonical Example: Blood" source="spec-uslab-example1.xml"/>		
+    <example name="USLab Specimen Example2" description="USLab Specimen Profile  Example: Urine- first catch" source="spec-uslab-example2.xml"/>		
+  </profile>
+    
+  <example name="USLabOrder Orderer" description="USLabOrder Orderer" source="conformance-uslaborder-orderer.xml"/>
+  <example name="USLabOrder Receiver" description="USLabOrder Receiver" source="conformance-uslaborder-receiver.xml"/>
+  <example name="USLabReport Sender" description="USLabReport Sender" source="conformance-uslabreport-sender.xml"/>
+  <example name="USLabReport Receiver" description="USLabReport Receiver" source="conformance-uslabreport-receiver.xml"/>
+  <example name="USLab Value Set List" description="USLab Value Set List" source="list-uslab-valuesets.xml"/>
+  
+  <page source="uslab.html"/>
+  <page source="uslaborder.html"/>
+  <page source="uslabreport.html"/>
+  <page source="uslabphreport.html"/>
+  <page source="uslaborder-guide.html"/>
+  <page source="uslabreport.html"/>
+  <page source="uslabreport-guide.html"/>
+  <page source="uslabphreport.html"/>
+  <page source="uslabphreport-guide.html"/>  
+</ig>

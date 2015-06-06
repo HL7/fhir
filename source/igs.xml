@@ -5,12 +5,13 @@
   <ig code="ccda"     name="Consolidated CDA" page="" review=""/>
   <ig code="openehr"  name="openEHR Profiles" page="" review=""/>
   <ig code="ehrfm"    name="EHRS Functional model - Record Lifecycle Events" page="ehrs-rle.html" review=""/>
-  <ig code="daf"      name="Data Access Framework" page="daf.html" review="" source="\guides\daf\daf.xml"/>
-  <ig code="uslab"    name="US Lab Profile" page="uslabreport.html" review=""/>
   <ig code="sdc"      name="Structured Data Capture Project" page="sdc.html" review=""/>
   <ig code="cqmf"     name="Clinical Quality Measure Framework" page="" review=""/>
   <ig code="ihe"      name="IHE Profiles" page="" review=""/>
   <ig code="argonaut" name="Argonaut" page="argonauts.html" review="0" ballot="yes"/>
+  
+  <ig code="uslab"    name="US Lab Profile" page="uslabreport.html" review="" source="\guides\uslab\uslab.xml"/>
+  <ig code="daf"      name="Data Access Framework" page="daf.html" review="" source="\guides\daf\daf.xml"/>
   <ig code="cqf"      name="Quality Improvement Core" page="qicore.html" review="" source="\guides\cqf\cqf.xml"/>
-  <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="1" ballot="yes" source="guides\hspc\hspc.xml"/>
+  <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="1" source="guides\hspc\hspc.xml"/>
 </igs>

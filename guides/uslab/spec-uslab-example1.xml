@@ -10,7 +10,7 @@ Authored by: Eric M Haas  Health eData Inc.
 
 -->
 <Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/specimen.xsd">
-	<id value="uslab-example1"/>
+	<id value="spec-uslab-example1"/>
 
 	<!-- a specimen identifier - e.g. assigned when the specimen was taken by the orderer/placer  use the accession number for the filling lab -->
 	<!--Placer ID-->

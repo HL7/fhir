@@ -11,7 +11,7 @@ Authored by: Eric M Haas  Health eData Inc.
 see narrative
 -->
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
-	<id value="uslab-example1"/>
+	<id value="dr-uslab-example1"/>
 
 	<!-- first, various administrative/context stuff   EH the report name code LOINC and/or local-->
 	<name>

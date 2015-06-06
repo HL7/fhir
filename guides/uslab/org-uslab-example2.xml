@@ -10,7 +10,7 @@ Authored by: Eric M Haas  Health eData Inc.
 
 -->
 <Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
-	<id value="uslab-example2"/>
+	<id value="org-uslab-example2"/>
 	<identifier>
 		<use value="official"/>
 		<system value="https://nppes.cms.hhs.gov/NPPES/"/>

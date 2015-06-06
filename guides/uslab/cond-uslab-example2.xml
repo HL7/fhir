@@ -5,7 +5,7 @@ file: cond-uslab-example2.xml
  Name: USLab Condition Example2
 Description: USLab Reason For Study Profile Canonical Example: Lead Exposure -->
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
-	<id value="uslab-example2"/>
+	<id value="cond-uslab-example2"/>
 	<patient>
 		<reference value="Patient/uslab-example2"/>
 		<display value="Todd Lerr"/>
