@@ -3792,8 +3792,8 @@ public class Publisher implements URIResolver {
   }
 
   private void produceIgPage(String file, ImplementationGuide ig) throws Exception {
-    String logicalName = Utilities.fileTitle(file);
     String actualName = Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()), file);
+    String logicalName = Utilities.fileTitle(actualName);
     String src = TextFile.fileToString(actualName);
     file = logicalName +".html";
     page.log("    src: "+logicalName+" "+actualName+" "+file, LogMessageType.Process);
