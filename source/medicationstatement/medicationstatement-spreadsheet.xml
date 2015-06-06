@@ -20,7 +20,7 @@
   <WindowWidth>24855</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -716,22 +716,22 @@
    <Interior/>
   </Style>
   <Style ss:ID="s142">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+  </Style>
+  <Style ss:ID="s143">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s144">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
-  </Style>
-  <Style ss:ID="s143">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
-  </Style>
-  <Style ss:ID="s144">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s145">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
@@ -6687,7 +6687,7 @@
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R1C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="38" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="165"/>
@@ -6712,13 +6712,6 @@
         x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">IG Name</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">daf-medicationstatement</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">medicationstatement-daf.xml</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">medicationstatement-daf-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">daf</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s113"><Data ss:Type="String">Medication Statement Extensions</Data></Cell>
@@ -6940,6 +6933,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6959,9 +6953,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6969,7 +6960,7 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R37C4</Range>
+   <Range>R2C4:R36C4</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;spreadsheet,profile&quot;</Value>
@@ -6977,98 +6968,98 @@
   <AutoFilter x:Range="R1C1:R1C4" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1:R37C4,R4C1:R5C4</Range>
+   <Range>R7C1:R36C4,R3C1:R4C4</Range>
    <Condition>
     <Value1>AND(R[1048560]C1=&quot;&quot;,R[1048560]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C1:R37C1,R4C1:R5C1</Range>
+   <Range>R8C1:R36C1,R3C1:R4C1</Range>
    <Condition>
     <Value1>AND(R[1048560]C&lt;&gt;&quot;&quot;,R[1048559]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C2:R37C2,R8C4:R37C4,R4C2:R5C2,R4C4:R5C4</Range>
+   <Range>R7C2:R36C2,R7C4:R36C4,R3C2:R4C2,R3C4:R4C4</Range>
    <Condition>
     <Value1>AND(R[1048560]C1&lt;&gt;&quot;&quot;,R[1048560]C[16368]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1:R37C4,R4C1:R5C4</Range>
+   <Range>R7C1:R36C4,R3C1:R4C4</Range>
    <Condition>
     <Value1>LEFT(R[1048560]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C1:R7C4</Range>
+   <Range>R5C1:R6C4</Range>
    <Condition>
     <Value1>AND(#REF!=&quot;&quot;,#REF!&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1</Range>
+   <Range>R7C1</Range>
    <Condition>
     <Value1>AND(R[1048497]C&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C1</Range>
+   <Range>R5C1</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,R[1048516]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1</Range>
+   <Range>R6C1</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C2:R7C2,R6C4:R7C4</Range>
+   <Range>R5C2:R6C2,R5C4:R6C4</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C1:R7C4</Range>
+   <Range>R5C1:R6C4</Range>
    <Condition>
     <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R3C4</Range>
+   <Range>R2C1:R2C4</Range>
    <Condition>
     <Value1>AND(R[1048559]C1=&quot;&quot;,R[1048559]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R3C1</Range>
+   <Range>R2C1</Range>
    <Condition>
     <Value1>AND(R[1048559]C&lt;&gt;&quot;&quot;,R[1048558]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R3C2,R2C4:R3C4</Range>
+   <Range>R2C2,R2C4</Range>
    <Condition>
     <Value1>AND(R[1048559]C1&lt;&gt;&quot;&quot;,R[1048559]C[16368]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R3C4</Range>
+   <Range>R2C1:R2C4</Range>
    <Condition>
     <Value1>LEFT(R[1048559]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -7131,56 +7122,56 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Fully Populated</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">Example of a medication statement where the Patient reported - I'm taking med x at this dose (from bottle) - most complete example</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example001</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample1.xml</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">Example of a medication statement where the Patient reported - I'm taking med x at this dose (from bottle) - most complete example</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">example001</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">medicationstatementexample1.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Not Taking</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s145"><Data ss:Type="String">Example of a medication statement where the patient reported &quot;I am not taking Med x&quot;</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example002</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample2.xml</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">example002</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">medicationstatementexample2.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Past</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s145"><Data ss:Type="String">Example of a medication statement where the patient reported &quot;I took this in the past but am not taking it now&quot;</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example004</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample4.xml</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">example004</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">medicationstatementexample4.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Nullified</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s145"><Data ss:Type="String">Example of a medication statement where the patient reported that &quot;I said I took this but I really didn't&quot; - nullified</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example005</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample5.xml</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">example005</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">medicationstatementexample5.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Care Giver</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s145"><Data ss:Type="String">Example of a medication statement that is reported by someone other than the patient (for example a care giver).</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example006</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample6.xml</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">example006</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">medicationstatementexample6.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Intend</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s145"><Data ss:Type="String">Example of a medication statement where the patient reported that &quot;I intend to take this in the future&quot;</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">example007</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">medicationstatementexample7.xml</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">example007</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">medicationstatementexample7.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"/>
@@ -7466,7 +7457,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8324,7 +8314,7 @@
     <Cell ss:StyleID="s155"><Data ss:Type="String">The medication is still being taken.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">ActStatus.active</Data></Cell>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">completed</Data></Cell>

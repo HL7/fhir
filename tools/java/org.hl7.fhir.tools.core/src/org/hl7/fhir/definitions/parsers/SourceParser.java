@@ -333,9 +333,24 @@ public class SourceParser {
           ig.setPage(e.getAttribute("homepage"));
       } else if (e.getNodeName().equals("page")) {
         ig.getPageList().add(e.getAttribute("source"));
+      } else if (e.getNodeName().equals("image")) {
+        ig.getImageList().add(e.getAttribute("source"));
+      } else if (e.getNodeName().equals("valueset")) {
+        XmlParser xml = new XmlParser();
+        ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(Utilities.path(file.getParent(), e.getAttribute("source"))));
+        if (!vs.hasId())
+          vs.setId(Utilities.changeFileExt(file.getName(), ""));
+        if (!vs.hasUrl())
+          vs.setUrl("http://hl7.org/fhir/vs/"+vs.getId());
+        definitions.getExtraValuesets().put(vs.getId(), vs);
+      } else if (e.getNodeName().equals("acronym")) {
+        definitions.getTLAs().put(e.getAttribute("target"), e.getAttribute("id"));        
       } else if (e.getNodeName().equals("example")) {
-        throw new Exception("Unsupported element name in IG: "+e.getNodeName());
-        
+        String filename = e.getAttribute("source");
+        File efile = new File(Utilities.path(file.getParent(), filename));
+        Example example = new Example(e.getAttribute("name"), Utilities.changeFileExt(efile.getName(), ""), e.getAttribute("name"), efile, false, ExampleType.XmlFile, false);
+        ig.getExamples().add(example);
+        definitions.getResourceByName(example.getResourceName()).getExamples().add(example);
       } else if (e.getNodeName().equals("profile")) {
         Profile p = new Profile(ig.getCode());
         p.setSource(Utilities.path(file.getParent(), e.getAttribute("source")));
@@ -353,7 +368,7 @@ public class SourceParser {
         while (ex != null) {
           if (ex.getNodeName().equals("example")) {
             String filename = ex.getAttribute("source");
-            Example example = new Example(ex.getAttribute("name"), Utilities.changeFileExt(filename, ""), ex.getAttribute("name"), new File(Utilities.path(file.getParent(), filename)), false, ExampleType.XmlFile, false);
+            Example example = new Example(ex.getAttribute("name"), Utilities.changeFileExt(Utilities.getFileNameForName(filename), ""), ex.getAttribute("name"), new File(Utilities.path(file.getParent(), filename)), false, ExampleType.XmlFile, false);
             p.getExamples().add(example);
           } else
             throw new Exception("Unknown element name in IG: "+ex.getNodeName());

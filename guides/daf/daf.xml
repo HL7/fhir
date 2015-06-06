@@ -1,0 +1,105 @@
+<ig code="daf" title="Data Access Framework">
+  <dependsOn code="uslab"/>
+  <!-- used for invariants -->
+  <acronym target="observation-daf-results-dafresultobservationcode" id="daf-cod"/>
+  <acronym target="observation-daf-results-dafresultobsquantity" id="daf-qty"/>
+  <acronym target="observation-daf-results-dafresultobsratio" id="daf-rto"/>
+  <acronym target="observation-daf-results-dafresultobsother" id="daf-oth"/>
+  <acronym target="diagnosticreport-daf-dafdiagnosticreport" id="daf-dir"/>
+  <acronym target="diagnosticorder-daf-dafdiagnosticorder" id="daf-dio"/>
+
+  <image source="pages\daf-actors-and-interactions.png"/>
+  <image source="pages\daf-fhir-query-stack.png"/>
+
+
+  <publishing homepage="daf.html"/>
+  <!-- 
+    the normal order for this file is:
+      value sets
+      concept maps
+      profiles
+      dictionaries
+      examples
+      pages      
+      
+    order rules:
+    
+    -->
+  <!-- 
+    value seta. This is just a file name. everything else of interest is in the value set 
+    <valueSet source="filename, relative to this file"/> 
+    value sets don't have to be listed here; they can be loaded implicitly by referring to them
+    in a spreadsheet, or by including them in bundles. So the primary use here is if you 
+    want to include other valuesets not directly referenced in a spreadsheet (e.g. imports
+    in a value set))
+  -->
+  <valueset source="profiles\valueset-daf-substance-ndfrt.xml"/>
+  <valueset source="profiles\valueset-daf-substance-rxnorm.xml"/>
+  <valueset source="profiles\valueset-daf-substance-sct.xml"/>
+  <valueset source="profiles\valueset-daf-substance-unii.xml"/>
+
+  
+  <!-- 
+    concept maps: same as value sets, except that there's no way to load them implicitly (though you can define them in a spreadsheet)
+    <conceptMap source="filename, relative to this file"/> 
+    you don't have to load the value sets prior to loading the concept maps that refer to them
+  -->
+  <!--
+    profiles. You have to list all the profiles that are in this implementation guide. 
+    <profile source=filename, relative to this file" type="[see below]"/> 
+    there's two types: 
+      spreadsheet - loads as a normal spreadsheet
+      bundle - loads as a bundle of structure definitions (and possibly value sets and concept maps)
+    all the rest of the information is extracted from the targets
+    
+    note: profiles are loaded in order. Derived profiles must be loaded after the profiles they are derived from.
+  --> 
+ <profile source="profiles\allergyintolerance-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\condition-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\diagnosticorder-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\diagnosticreport-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\encounter-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\familymemberhistory-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\immunization-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\list-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\location-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\medication-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\medicationadministration-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\medicationdispense-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\medicationprescription-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\medicationstatement-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\observation-daf-vitalsigns-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\observation-daf-results-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\observation-daf-smokingstatus-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\observation-daf-resultsv2-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\organization-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\patient-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\practitioner-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\procedure-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\relatedperson-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+ <profile source="profiles\substance-daf-profile-spreadsheet.xml" type="spreadsheet"/>
+  
+  <!--
+    Examples
+    <example name="" source="" description=""/>
+    
+    putting an example inside a profile indicates that it's subject to that profile
+  -->    
+  <example name="DAF Responder" description="DAF Responder" source="conformance\conformance-daf-query-responder.xml"/>
+  <example name="DAF Requestor" description="DAF Requestor" source="conformance\conformance-daf-query-requestor.xml"/>
+  
+  
+  <page source="pages\daf.html"/>
+  <page source="pages\daf-intro.html"/>
+  <page source="pages\daf-medicationusage.html"/>
+  <page source="pages\daf-outstandingissues.html"/>
+  <page source="pages\daf-security.html"/>
+
+daf.html=
+daf-intro.html=
+daf-security.html=
+daf-outstandingissues.html=
+daf-medicationusage.html=
+
+  
+</ig>

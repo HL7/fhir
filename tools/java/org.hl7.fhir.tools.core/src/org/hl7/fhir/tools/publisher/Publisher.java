@@ -2083,6 +2083,11 @@ public class Publisher implements URIResolver {
     for (String n : page.getIni().getPropertyNames("images")) {
       copyImage(page.getFolders().imgDir, n);
     }
+    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+      for (String n : ig.getImageList()) {
+        copyIgImage(ig, n);
+      }
+    }
     for (String n : page.getIni().getPropertyNames("files")) {
       Utilities.copyFile(new CSFile(page.getFolders().rootDir + n), new CSFile(page.getFolders().dstDir + page.getIni().getStringProperty("files", n)));
       page.getEpub().registerFile(page.getIni().getStringProperty("files", n), "Support File",
@@ -2117,6 +2122,27 @@ public class Publisher implements URIResolver {
     } else {
       Utilities.copyFile(new CSFile(folder + n), new CSFile(page.getFolders().dstDir + n));
       page.getEpub().registerFile(n, "Support File", EPubManager.determineType(n));
+    }
+  }
+
+  private void copyIgImage(ImplementationGuide ig, String path) throws IOException {
+    File file = new File(Utilities.path(page.getFolders().rootDir, ig.getSource(), "..", path));
+    
+    if (path.contains("*")) {
+      final String filter = file.getName().replace("?", ".?").replace("*", ".*?");
+      File[] files = new File(file.getParent()).listFiles(new FilenameFilter() {
+        @Override
+        public boolean accept(File dir, String name) {
+          return name.matches(filter);
+        }
+      });
+      for (File f : files) {
+        Utilities.copyFile(f, new CSFile(Utilities.path(page.getFolders().dstDir, f.getName())));
+        page.getEpub().registerFile(f.getName(), "Support File", EPubManager.determineType(f.getName()));
+      }
+    } else {
+      Utilities.copyFile(file, new CSFile(Utilities.path(page.getFolders().dstDir , file.getName())));
+      page.getEpub().registerFile(file.getName(), "Support File", EPubManager.determineType(file.getName()));
     }
   }
 
@@ -3759,6 +3785,8 @@ public class Publisher implements URIResolver {
     String logicalName = Utilities.fileTitle(file);
     String actualName = Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()), file);
     String src = TextFile.fileToString(actualName);
+    file = logicalName +".html";
+    
     src = page.processPageIncludes(file, src, "page", null, null, null, logicalName);
     // before we save this page out, we're going to figure out what it's index
     // is, and number the headers if we can

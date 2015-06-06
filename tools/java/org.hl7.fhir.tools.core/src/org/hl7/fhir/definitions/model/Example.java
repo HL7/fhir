@@ -83,6 +83,7 @@ public class Example {
       try {
         DocumentBuilder builder = factory.newDocumentBuilder();
         xml = builder.parse(new CSFileInputStream(path.getAbsolutePath()));
+        resourceName = xml.getDocumentElement().getNodeName();
       } catch (Exception e) {
         throw new Exception("unable to read "+path.getAbsolutePath()+": "+e.getMessage(), e);
       }

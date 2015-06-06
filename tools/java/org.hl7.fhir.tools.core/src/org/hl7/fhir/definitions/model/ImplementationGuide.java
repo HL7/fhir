@@ -11,6 +11,8 @@ public class ImplementationGuide {
   private boolean review;
   private String source;
   private List<String> pageList = new ArrayList<String>();
+  private List<String> imageList = new ArrayList<String>();
+  private List<Example> examples = new ArrayList<Example>();
   
   public ImplementationGuide(String code, String name, String page, String source, boolean review) {
     super();
@@ -47,6 +49,14 @@ public class ImplementationGuide {
 
   public List<String> getPageList() {
     return pageList;
+  }
+  
+  public List<String> getImageList() {
+    return imageList;
+  }
+
+  public List<Example> getExamples() {
+    return examples;
   }
   
 }
