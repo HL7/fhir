@@ -3796,6 +3796,7 @@ public class Publisher implements URIResolver {
     String actualName = Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()), file);
     String src = TextFile.fileToString(actualName);
     file = logicalName +".html";
+    page.log("    src: "+logicalName+" "+actualName+" "+file, LogMessageType.Process);
     
     src = page.processPageIncludes(file, src, "page", null, null, null, logicalName);
     // before we save this page out, we're going to figure out what it's index
