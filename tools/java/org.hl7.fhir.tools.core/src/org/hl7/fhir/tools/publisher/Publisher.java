@@ -1842,7 +1842,7 @@ public class Publisher implements URIResolver {
       page.log("Produce .epub Form", LogMessageType.Process);
       page.getEpub().produce();
       for (String t : page.getQa().getBrokenlinks())
-        validationErrors.add(new ValidationMessage(Source.Publisher, "Structure", -1, -1, "spec", t, IssueSeverity.WARNING));
+        validationErrors.add(new ValidationMessage(Source.Publisher, "Structure", -1, -1, "spec", t, IssueSeverity.ERROR));
         processValidationOutcomes();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
