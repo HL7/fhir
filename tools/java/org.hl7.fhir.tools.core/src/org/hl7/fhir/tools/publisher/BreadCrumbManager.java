@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -21,6 +22,7 @@ public class BreadCrumbManager {
 
   
   private Translations translations;
+  private Definitions definitions;
 
   public BreadCrumbManager(Translations translations) {
     super();
@@ -351,7 +353,8 @@ public class BreadCrumbManager {
           } else {
             if (!Utilities.noString(path[0]))
               b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+".html\">"+path[0]+"</a></li>");
-            b.append("        <li><a href=\""+prefix+(Utilities.noString(path[0]) ? "profilelist" : path[0].toLowerCase()+"-profiles")+".html\">Profiles</a></li>");
+            if (Utilities.noString(path[0]) || definitions.hasResource(path[0]))
+              b.append("        <li><a href=\""+prefix+(Utilities.noString(path[0]) ? "profilelist" : path[0].toLowerCase()+"-profiles")+".html\">Profiles</a></li>");
           }
           b.append("        <li><a href=\""+prefix+path[1].toLowerCase()+".html\">Profile</a></li>");
 //          b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+".html\">"+path[0]+"</a></li>");
@@ -594,6 +597,14 @@ public class BreadCrumbManager {
 
   public Page getPage() {
     return home;
+  }
+
+  public Definitions getDefinitions() {
+    return definitions;
+  }
+
+  public void setDefinitions(Definitions definitions) {
+    this.definitions = definitions;
   }
 
   

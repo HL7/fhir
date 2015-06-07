@@ -44,13 +44,13 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   protected String getBindingLink(ElementDefn e) throws Exception {
     BindingSpecification bs = e.getBinding();
     if (bs == null)
-      return "n/a";
+      return "terminologies.html#unbound";
     if (bs.getValueSet() != null) 
       return bs.getValueSet().getUserString("path");
-    else if (bs.getReference() != null)
+    else if (!Utilities.noString(bs.getReference()))
       return bs.getReference();      
     else 
-      return "(unbound)";
+      return "terminologies.html#unbound";
   }
 
   public void generate(ElementDefn root, boolean resource, boolean isAbstract) throws Exception {
@@ -307,7 +307,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
             + "</span></a>");
       } else {
         String ref = getBindingLink(elem);
-        write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+ref+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
+        write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+ref+"\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
 //          else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
 //            if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
 //              ValueSet vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build

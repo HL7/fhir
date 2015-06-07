@@ -1564,6 +1564,11 @@ public class Publisher implements URIResolver {
   }
 
   private void produceSpec() throws Exception {
+    for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions().values()) {
+      String filename = "extension-"+ed.getUrl().substring(40).toLowerCase();
+      ed.setUserData("filename", filename);
+      ed.setUserData("path", filename+".html");  
+    }
     loadValueSets2();
     page.log(" ...extensions", LogMessageType.Process);
 
@@ -2029,8 +2034,7 @@ public class Publisher implements URIResolver {
   }
 
   private void produceExtensionDefinition(StructureDefinition ed) throws FileNotFoundException, Exception {
-    String filename = "extension-"+ed.getUrl().substring(40).toLowerCase();
-    ed.setUserData("filename", filename);
+    String filename = ed.getUserString("filename");
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + filename+".xml");
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, ed);
     s.close();
@@ -3796,7 +3800,6 @@ public class Publisher implements URIResolver {
     String logicalName = Utilities.fileTitle(actualName);
     String src = TextFile.fileToString(actualName);
     file = logicalName +".html";
-    page.log("    src: "+logicalName+" "+actualName+" "+file, LogMessageType.Process);
     
     src = page.processPageIncludes(file, src, "page", null, null, null, logicalName);
     // before we save this page out, we're going to figure out what it's index

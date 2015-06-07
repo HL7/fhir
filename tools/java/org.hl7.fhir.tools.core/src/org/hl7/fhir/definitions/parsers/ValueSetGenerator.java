@@ -152,7 +152,7 @@ public class ValueSetGenerator {
       vs.setDate(genDate.getTime());
     if (!Utilities.noString(bs.getV2Map()))
       vs.setUserData("v2map", bs.getV2Map());
-    if (!Utilities.noString(bs.getV2Map()))
+    if (!Utilities.noString(bs.getV3Map()))
       vs.setUserData("v3map", checkV3Mapping(bs.getV3Map()));
   }
   

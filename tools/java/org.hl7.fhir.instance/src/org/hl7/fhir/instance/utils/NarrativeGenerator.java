@@ -2297,7 +2297,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (vs == null) 
       vs = context.getCodeSystems().get(value); 
     if (vs != null) {
-      String ref= (String) vs.getUserData("filename");
+      String ref= (String) vs.getUserData("path");
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", prefix+(ref == null ? "??" : ref.replace("\\", "/")));
       a.addText(value);

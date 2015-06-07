@@ -90,7 +90,7 @@ Furthermore, the TestScript resource provides clear examples of the appropriate 
   After the teardown section is executed, any fixtures that were marked 'autodelete' are removed from the server(s) under test. After this final stage, the execution of the TestScript is complete.
 </p>
 
-<h4><a id="fixtures">Fixtures</a></h4>
+<h4><a name="fixtures">Fixtures</a></h4>
 <p>
   The fixtures section of the TestScript defines a set of resource instances that will be used as part of the setup, test, and teardown sections during TestScript execution.  The fixtures are required for the test script to execute.  Each fixture defines a resource instance either by URI or as an embedded resource, and must be identified by an ID.  The URI can be local or remote (i.e. another server than the one the TestScript resource resides), absolute or relative.  The ID on the fixture is considered the "source" identifier of the fixture -- it is not the same thing as the resource ID on the server where it was hosted.  The "source" identifier is used to define the fixture instance within the context of the TestScript.  Operations reference the ID of a fixture to uniquely identify the fixture instance the operation is using ("source") or acting against ("target").  Once a fixture has been instantiated on a server (typically by the use of a create operation), the fixture ID is mapped to the ID of the corresponding resource instance on the server.  TestScript execution engines must maintain this relationship between fixture IDs and server resource IDs.  The TestScript execution engine is responsible for translating the fixture IDs (whether provided to the operation as "source" or "target")  to the ID of the resource on the server during execution.
 </p>
@@ -98,7 +98,7 @@ Furthermore, the TestScript resource provides clear examples of the appropriate 
   Using the optional "autocreate" and "autodelete" elements (missing values default to false), fixtures can be configured to automatically be created during TestScript setup and automatically deleted during TestScript teardown. This means that additional "create" and "delete" operations in the TestScript.setup and TestScript.teardown sections are unnecessary.
 </p>
 
-<h4><a id="operation-execution">Operation Execution</a></h4>
+<h4><a name="operation-execution">Operation Execution</a></h4>
 <p>
   The setup, test, and teardown sections of a TestScript can contain operation elements.  Operations are intended to be executed in sequence and they represent the logic defined by the TestScript.  Operations define a type, source, target, destination, responseId, contentType, and a set of parameters.  Except for the case of "assertion" (see <a href="#assertion-execution">Assertion Execution </a>), the type of the operation aligns with a corresponding RESTful API interaction.  The source and target of an operation define the context of the fixture data the operation is acting against (see <a href="#fixtures">Fixtures</a>).  The destination defines the server the operation is executed on and is only required for tests that include multiple servers.  The responseId specifies a fixture ID to use to map to the server response.  The contentType defines the format (XML or JSON) and the corresponding mime-type (application/xml+fhir and application/json+fhir) to use in the RESTful operation (defaulting to XML).  The parameters of an operation allow providing additional data required for execution.
 </p>
@@ -106,7 +106,7 @@ Furthermore, the TestScript resource provides clear examples of the appropriate 
   TestScript execution engines must load the operation details and execute the operation against the server(s) under test.  Operations that are expected to result in an error or exception, shall immediately be followed by one or more "assertion" operations (that test for those error conditions), otherwise the test fails. This allows for "negative" testing (for example, the test script may perform operations that should return a 4XX or 5XX HTTP response code).  If two non-assertion operations fail consecutively, then execution is halted for the current test and execution resumes with the next test. If an operation is an assertion (see <a href="#assertion-execution">Assertion Execution </a>) and results in a failure, the status of the test is a failure and execution is halted for the current test.  Test script execution then continues to the next test.  If all operations complete successfully (or are immediately followed by successful assertions, when "negative" testing), the test passes and execution continues to the next test.  Once all tests have completed execution, the teardown section is executed.  Once teardown completes, the suite execution is complete.
 </p>
 
-<h4><a id="assertion-execution">Assertion Execution</a></h4>
+<h4><a name="assertion-execution">Assertion Execution</a></h4>
 <p>
 The "assertion" operation is a special case operation that allows evaluating the results of previous operations to determine if the server under test behaves appropriately.  In order to evaluate an assertion operation the request, response, and results of the most recently executed non-assertion operation must always be maintained by the TestScript execution engine.
 </p>

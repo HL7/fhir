@@ -336,7 +336,7 @@ public class EPubManager implements FileNotifier {
       if ("self-link".equals(node.getAttribute("class")))
         return; 
       String target = collapse(base, path);
-      if (target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".xsd") || target.endsWith(".zip") || target.endsWith(".xls") || target.endsWith(".txt") || target.endsWith(".sch") || target.endsWith(".pdf") || target.endsWith(".epub")) {
+      if (target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".xsd") || target.endsWith(".txt") || target.endsWith(".sch") || target.endsWith(".pdf") || target.endsWith(".epub")) {
         if (!(new File(Utilities.path(page.getFolders().dstDir, target)).exists()))
           reportError("Broken Link (1) in "+base+": '"+href+"' not found at \""+Utilities.path(page.getFolders().dstDir, target)+"\" ("+node.allText()+")");
         node.setAttribute("href", "http://hl7.org/fhir/"+target.replace(File.separatorChar, '/'));
@@ -348,6 +348,8 @@ public class EPubManager implements FileNotifier {
         e = getEntryForFile(target);
         if (e == null) {
           if (href.startsWith("v2/") || href.startsWith("v3/")) // we can't check those links
+            return;
+          if (target.endsWith(".zip") || target.endsWith(".ttl"))
             return;
           reportError("Broken Link (2) in "+base+": '"+href+"' not found at \""+target+"\"("+node.allText()+")");
           return;

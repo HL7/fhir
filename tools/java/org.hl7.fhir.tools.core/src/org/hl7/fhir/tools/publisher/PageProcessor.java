@@ -5125,6 +5125,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setDefinitions(Definitions definitions) {
     this.definitions = definitions;
+    breadCrumbManager.setDefinitions(definitions);
   }
 
   public void setVersion(String version) {
@@ -5427,7 +5428,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public BindingResolution resolveBinding(ElementDefinitionBindingComponent binding) {
     BindingResolution br = new BindingResolution();
     if (!binding.hasValueSet()) {
-      br.url = "unbound.html";
+      br.url = "terminologies.html#unbound";
       br.display = "(unbound)";      
     } else if (binding.getValueSet() instanceof UriType) {
       String ref = ((UriType) binding.getValueSet()).getValue();

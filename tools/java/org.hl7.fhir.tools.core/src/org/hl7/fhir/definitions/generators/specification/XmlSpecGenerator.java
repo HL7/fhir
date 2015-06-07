@@ -76,13 +76,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
   protected String getBindingLink(ElementDefn e) throws Exception {
     BindingSpecification bs = e.getBinding();
     if (bs == null)
-      return "n/a";
+      return "terminologies.html#unbound";
     if (bs.getValueSet() != null) 
       return bs.getValueSet().getUserString("path");
-    else if (bs.getReference() != null)
+    else if (!Utilities.noString(bs.getReference()))
       return bs.getReference();      
     else 
-      return "(unbound)";
+      return "terminologies.html#unbound";
   }
 
 	public void generate(ElementDefn root, boolean isAbstract) throws Exception {

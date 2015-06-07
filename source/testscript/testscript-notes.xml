@@ -7,7 +7,7 @@ This table presents a summary of the constraints applicable to TestScript.setup.
 and TestScript.teardown.operation elements. The operation elements should be configured consistently with the
 <a href="http.html#2.1.0.22">FHIR RESTful API summary</a>.
 
-<h3><a id="operations-table">Operations Table</a></h3>
+<h3><a name="operations-table">Operations Table</a></h3>
 <table class="grid">
   <tr>
     <th>operation.type</th>
@@ -202,17 +202,17 @@ and TestScript.teardown.operation elements. The operation elements should be con
   <tr>
     <td colspan=6>
       <ol>
-        <li><a id="footnote1">Fixture</a>: specified by TestScript.fixture.id and <i>not</i> the resource ID on the FHIR server.</li>
-        <li><a id="footnote2">Destination</a>: If the TestScript is testing more than one FHIR server simultaneously, the destination identifies
+        <li><a name="footnote1">Fixture</a>: specified by TestScript.fixture.id and <i>not</i> the resource ID on the FHIR server.</li>
+        <li><a name="footnote2">Destination</a>: If the TestScript is testing more than one FHIR server simultaneously, the destination identifies
           which server the operation applies to using zero-based indexing.</li>
-        <li><a id="footnote3">ResponseId</a>: If a responseId is supplied, and the server responds with a Resource, then the resulting
+        <li><a name="footnote3">ResponseId</a>: If a responseId is supplied, and the server responds with a Resource, then the resulting
           Resource is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by "responseId."</li>
       </ol>
     </td>
   </tr>
 </table>
 
-<h2><a id="assertion-table">Assertions</a></h2>
+<h2><a name="assertion-table">Assertions</a></h2>
 <table class="grid">
   <tr>
     <th>Assertion Function</th>
@@ -323,8 +323,8 @@ and TestScript.teardown.operation elements. The operation elements should be con
   <tr>
     <td colspan=3>
       <ol>
-        <li><a id="assertion1">value</a> is the string-representation of a number, string, or boolean.</li>
-        <li><a id="assertion2">xpath expressions</a>
+        <li><a name="assertion1">value</a> is the string-representation of a number, string, or boolean.</li>
+        <li><a name="assertion2">xpath expressions</a>
           are evaluated against the response body before the assertion is evaluated.
           xpath expression should return a value. If the expression returns a set of nodes, the assertion fails.
           xpath expressions are evaluated as-is if the server response or fixture representation is XML.

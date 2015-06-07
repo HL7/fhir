@@ -5250,7 +5250,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">A code indicating the equivalence of the translation, using values from [ConceptMapEquivalence]{concept-equivalence.html}</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">A code indicating the equivalence of the translation, using values from [ConceptMapEquivalence]{concept-map-equivalence.html}</Data></Cell>
     <Cell ss:StyleID="s134"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5360,7 +5360,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">A code indicating the equivalence of the translation, using values from [ConceptMapEquivalence]{concept-equivalence.html}. TODO: what about multiple translations? </Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">A code indicating the equivalence of the translation, using values from [ConceptMapEquivalence]{concept-map-equivalence.html}. TODO: what about multiple translations? </Data></Cell>
     <Cell ss:StyleID="s134"/>
    </Row>
    <Row ss:AutoFitHeight="0">

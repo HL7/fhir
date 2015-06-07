@@ -410,7 +410,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		tableRowNE("Definition", null, page.processMarkdown(e.getDefinition()));
     tableRowNE("Note", null, businessIdWarning(e.getName()));
 		tableRow("Control", "conformance-rules.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
-		tableRowNE("Binding", "terminologies.html", describeBinding(e));
+		tableRowNE("Binding", "terminologies.html", describeBinding(path, e));
 		if (!Utilities.noString(type) && type.startsWith("@"))
 		  tableRowNE("Type", null, "<a href=\"#"+type.substring(1)+"\">See "+type.substring(1)+"</a>");
 		else
@@ -450,7 +450,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     return b.toString();
   }
 
-  private String describeBinding(ElementDefn e) throws Exception {
+  private String describeBinding(String path, ElementDefn e) throws Exception {
 
 	  if (!e.hasBinding())
 	    return null;
@@ -459,10 +459,10 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  BindingSpecification cd =  e.getBinding();
 	  if (cd.getValueSet() != null)
       b.append(cd.getValueSet().getName()+": ");
-	  else if (cd.getReference() != null)
+	  else if (!Utilities.noString(cd.getReference()))
       b.append("<a href=\""+cd.getReference()+"\">"+e.getBinding().getName()+"</a>: ");
 	  else
-	    b.append("??: ");
+      b.append("<a href=\"terminologies.html#unbound\">"+e.getBinding().getName()+"</a>: ");
 	    
     b.append(TerminologyNotesGenerator.describeBinding(cd, page));
 //    if (cd.getBinding() == Binding.Unbound)

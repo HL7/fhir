@@ -119,6 +119,7 @@
   <profile source="referralrequest-qicore-profile-spreadsheet.xml" type="spreadsheet">
     <example name="QICore ReferralRequest" description="Example of QICore ReferralRequest" source="referralrequest-qicore-example.xml"/>
   </profile>
+  <profile source="relatedperson-qicore-profile-spreadsheet.xml" type="spreadsheet"/>
   <profile source="specimen-qicore-profile-spreadsheet.xml" type="spreadsheet">
     <example name="QICore Specimen" description="Example of QICore Specimen" source="specimen-qicore-example.xml"/>
   </profile>

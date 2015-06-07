@@ -302,7 +302,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       } else if (cd.getValueSet() != null) {
         if (cd.getReference().startsWith("http://hl7.org/fhir/vs/")) {
           if (page.getValueSets().containsKey(cd.getReference()) && page.getValueSets().get(cd.getReference()).getUserData("filename") != null)
-            return bs+": <a href=\""+page.getValueSets().get(cd.getReference()).getUserData("filename")+"\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")"; 
+            return bs+": <a href=\""+page.getValueSets().get(cd.getReference()).getUserData("path")+"\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")"; 
           else
           return bs+": <a href=\""+cd.getReference().substring(23)+".html\">See "+cd.getValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
         } else 
