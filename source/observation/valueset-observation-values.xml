@@ -23,8 +23,7 @@
 				<value value="404684003"/>
 			</filter>
 		</include>
-	</compose>
-	<compose>
+
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<filter>
@@ -34,8 +33,7 @@
 				<value value="410607006"/>
 			</filter>
 		</include>
-	</compose>
-	<compose>
+
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<filter>
@@ -45,8 +43,7 @@
 				<value value="362981000"/>
 			</filter>
 		</include>
-	</compose>
-	<compose>
+
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<filter>
@@ -56,8 +53,7 @@
 				<value value="105590001"/>
 			</filter>
 		</include>
-	</compose>
-	<compose>
+
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<filter>
