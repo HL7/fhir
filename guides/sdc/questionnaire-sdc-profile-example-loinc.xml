@@ -1,10 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
-  <id value="sdc-loinc"/>
+  <id value="questionnaire-sdc-profile-example-loinc"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Todo</div>
   </text>
+  <contained>
+    <ValueSet>
+      <id value="ll2654-3"/>
+      <name value="AHRQ_Medication_Q1"/>
+      <description value="The answer list for question 1 on the AHRQ &quot;Medication or Other Substance&quot; form"/>
+      <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+      <status value="active"/>
+      <compose>
+        <include>
+          <system value="http://loinc.org"/>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="a."/>
+            </extension>
+            <code value="LA20271-5"/>
+            <display value="Medications"/>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="b."/>
+            </extension>
+            <code value="LA20335-8"/>
+            <display value="Biological products"/>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="3"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="c."/>
+            </extension>
+            <code value="LA20336-6"/>
+            <display value="Nutritional products"/>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="4"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="d."/>
+            </extension>
+            <code value="LA20337-4"/>
+            <display value="Expressed human breast milk"/>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="5"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="e."/>
+            </extension>
+            <code value="LA20338-2"/>
+            <display value="Medical gases (e.g., oxygen, nitrogen, nitrous oxide)"/>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="6"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="f."/>
+            </extension>
+            <code value="LA20339-0"/>
+            <display value="Contrast media"/>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="7"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="g."/>
+            </extension>
+            <code value="LA20340-8"/>
+            <display value="Radiopharmaceuticals"/>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="8"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="h."/>
+            </extension>
+            <code value="LA20341-6"/>
+            <display value="Patient food (not suspected in drug-food interactions)"/>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="9"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="i."/>
+            </extension>
+            <code value="LA20342-4"/>
+            <display value="Drug-drug, drug-food, or adverse drug reaction as a result of a prescription and/or administration of a drug and/or food prior to admission"/> 
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="10"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="j."/>
+            </extension>
+            <code value="LA20343-2"/>
+            <display value="Other"/>
+          </concept>
+        </include>
+      </compose>
+    </ValueSet>
+  </contained>
   <contained>
     <ValueSet>
       <id value="ll2655-0"/>
@@ -16,18 +130,42 @@
         <include>
           <system value="http://loinc.org/vs/LL2655-0"/>
           <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="a."/>
+            </extension>
             <code value="LA20278-0"/>
-            <display value="Prescription or over-the- counter (including herbal supplements)"/>
+            <display value="Prescription or over-the-counter (including herbal supplements)"/>
           </concept>
           <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="b."/>
+            </extension>
             <code value="LA20298-8"/>
             <display value="Compounded preparations"/>
           </concept>
           <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="3"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="c."/>
+            </extension>
             <code value="LA20299-6"/>
             <display value="Investigational drugs"/>
           </concept>
           <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="4"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="d."/>
+            </extension>
             <code value="LA4489-6"/>
             <display value="Unknown"/>
           </concept>
@@ -66,26 +204,56 @@
       <status value="active"/>
       <compose>
         <include>
-          <system value="http://loinc.org/vs/LL2659-2"/>
+          <system value="http://loinc.org"/>
           <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="a."/>
+            </extension>
             <code value="LA20273-1"/>
             <display value="Dietary supplements (other than vitamins or minerals)"/>
           </concept>
           <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="b."/>
+            </extension>
             <code value="LA16117-6"/>
             <display value="Vitamins or minerals"/>
           </concept>
           <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="3"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="c."/>
+            </extension>
             <code value="LA20320-0"/>
             <display value="Enteral nutritional products, including infant formula"/>
           </concept>
           <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="4"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="d."/>
+            </extension>
             <code value="LA20321-8"/>
             <display value="Parenteral nutritional products"/>
           </concept>
           <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="5"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-label">
+              <valueString value="e."/>
+            </extension>
             <code value="LA20318-4"/>
-            <display value="Other: PLEASE SPECIFY"/>
+            <display value="Other"/>
           </concept>
         </include>
       </compose>
@@ -100,14 +268,22 @@
       <status value="active"/>
       <compose>
         <include>
-          <system value="http://loinc.org/vs/LL2660-0"/>
+          <system value="http://loinc.org"/>
           <concept>
             <code value="LA20275-6"/>
-            <display value="Incorrect action (process failure or error) (e.g., such as administering overdose or incorrect                  medication)"/>
+            <display value="Incorrect action (process failure or error) (e.g., such as administering overdose or incorrect medication)">
+              <extension url="http://hl7.org/fhir/StructureDefinition/markup">
+                <valueString value="Incorrect action (process failure or error) &lt;i&gt;(e.g., such as administering overdose or incorrect medication)&lt;/i&gt;"/>
+              </extension>
+            </display>
           </concept>
           <concept>
-            <code value="LA20314-3 "/>
-            <display value="Unsafe condition"/>
+            <code value="LA20314-3"/>
+            <display value="Unsafe condition">
+              <extension url="http://hl7.org/fhir/StructureDefinition/style">
+                <valueString value="color:green"/>
+              </extension>
+            </display>
           </concept>
           <concept>
             <code value="LA20315-0"/>
@@ -130,17 +306,17 @@
       <status value="active"/>
       <compose>
         <include>
-          <system value="http://loinc.org/vs/LL2661-8"/>
+          <system value="http://loinc.org"/>
           <concept>
             <code value="LA20276-4"/>
             <display value="Incorrect patient"/>
           </concept>
           <concept>
-            <code value="LA20302-8 "/>
+            <code value="LA20302-8"/>
             <display value="Incorrect medication/substance"/>
           </concept>
           <concept>
-            <code value="LA20303-6  "/>
+            <code value="LA20303-6"/>
             <display value="Incorrect dose(s)"/>
           </concept>
           <concept>
@@ -189,7 +365,7 @@
           </concept>
           <concept>
             <code value="LA20318-4"/>
-            <display value="Other: PLEASE SPECIFY"/>
+            <display value="Other"/>
           </concept>
         </include>
       </compose>
@@ -357,7 +533,7 @@
           </concept>
           <concept>
             <code value="LA20318-4"/>
-            <display value="Other: PLEASE SPECIFY"/>
+            <display value="Other"/>
           </concept>
         </include>
       </compose>
@@ -411,7 +587,7 @@
           </concept>
           <concept>
             <code value="LA20318-4"/>
-            <display value="Other: PLEASE SPECIFY"/>
+            <display value="Other"/>
           </concept>
         </include>
       </compose>
@@ -448,9 +624,9 @@
       <status value="active"/>
       <compose>
         <include>
-          <system value="http://loinc.org/vs/LL2682-4"/>
+          <system value="http://loinc.org"/>
           <concept>
-            <code value=" LA20272-3 "/>
+            <code value="LA20272-3"/>
             <display value="Cutaneous, topical application, including ointment, spray, patch"/>
           </concept>
           <concept>
@@ -511,7 +687,7 @@
           </concept>
           <concept>
             <code value="LA20318-4"/>
-            <display value="Other: PLEASE SPECIFY"/>
+            <display value="Other"/>
           </concept>
         </include>
       </compose>
@@ -533,12 +709,30 @@
   <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
   <group>
     <linkId value="root"/>
-    <title value="Medication or Other Substance"/>
+    <title value="Medication or Other Substance">
+      <extension url="http://hl7.org/fhir/StructureDefinition/style">
+        <valueString value="color:#0000FF"/>
+      </extension>
+    </title>
     <group>
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-specialGroup">
         <valueCode value="header"/>
       </extension>
       <linkId value="Medication/header"/>
+      <question>
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-hidden">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-defaultValue">
+          <valueString value="AHRQ F8"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-defaultAsFixed">
+          <valueBoolean value="true"/>
+        </extension>
+        <text value="Form ID:"/>
+        <type value="string"/>
+        <required value="true"/>
+      </question>
       <question>
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="3"/>
@@ -561,11 +755,18 @@
     <group>
       <linkId value="Medication/SEC00"/>
       <title value="Medication or Other Substance"/>
-      <text value="Use this form to report any patient safety event or unsafe condition involving a substance              such as a medications, biological products, nutritional products, expressed human breast              milk, medical gases, or contrast media. Do not complete this form if the event involves              appropriateness of therapeutic choice or decision making (e.g., physician decision to              prescribe medication despite known drug-drug interaction). If the event involves a device,              please also complete the Device or Medical/Surgical Supply including Health Information              Technology (HIT) form. Narrative detail can be captured on the Healthcare Event Reporting              Form (HERF)."/>
+      <text value="Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the Device or Medical/Surgical Supply including Health Information Technology (HIT) form. Narrative detail can be captured on the Healthcare Event Reporting Form (HERF).">
+        <extension url="http://hl7.org/fhir/StructureDefinition/markup">
+          <valueString value="Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the &lt;i&gt;Device or Medical/Surgical Supply including Health Information Technology (HIT)&lt;/i&gt; form. Narrative detail can be captured on the &lt;i&gt;Healthcare Event Reporting Form (HERF)&lt;/i&gt;."/>
+        </extension>
+      </text>
       <group>
         <linkId value="Medication/SEC01/74080-3"/>
         <required value="true"/>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="1."/>
+          </extension>
           <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
             <valueInteger value="1"/>
           </extension>
@@ -576,6 +777,9 @@
             <valueReference>
               <reference value="http://loinc.org/74076-1"/>
             </valueReference>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-instruction">
+            <valueString value="CHECK ONE"/>
           </extension>
           <linkId value="74080-3/74076-1"/>
           <text value="What type of medication/substance was involved?"/>
@@ -589,6 +793,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="2."/>
+              </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="7"/>
               </extension>
@@ -600,9 +807,12 @@
                   <reference value="http://loinc.org/vs/74075-3"/>
                 </valueReference>
               </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-instruction">
+                <valueString value="CHECK ONE"/>
+              </extension>
               <linkId value="74080-3/74075-3"/>
               <text value="What type of medication?"/>
-              <type value="open-choice"/>
+              <type value="choice"/>
               <required value="true"/>
               <options>
                 <reference value="#ll2655-0"/>
@@ -612,6 +822,9 @@
                 <required value="false"/>
                 <repeats value="false"/>
                 <question>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                    <valueString value="3."/>
+                  </extension>
                   <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                     <valueInteger value="0"/>
                   </extension>
@@ -636,6 +849,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="4."/>
+              </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
                 <valueInteger value="8"/>
               </extension>
@@ -653,6 +869,12 @@
                 <required value="false"/>
                 <repeats value="false"/>
                 <question>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                    <valueString value="5."/>
+                  </extension>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-trailing">
+                    <valueString value="LOT NUMBER"/>
+                  </extension>
                   <linkId value="74080-3/30959-1"/>
                   <text value="What was the lot number of the vaccine?"/>
                   <type value="string"/>
@@ -666,6 +888,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="6."/>
+              </extension>
               <linkId value="74080-3/74073-8"/>
               <text value="What type of nutritional product?"/>
               <type value="open-choice"/>
@@ -673,10 +898,57 @@
               <options>
                 <reference value="#ll2659-2"/>
               </options>
+              <group>
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+                  <extension url="question">
+                    <valueString value="74080-3/74073-8"/>
+                  </extension>
+                  <extension url="answer">
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA20318-4"/>
+                      <display value="Other"/>
+                    </valueCoding>
+                  </extension>
+                </extension>
+                <linkId value="74080-3/74073-8/Other"/>
+                <required value="true"/>
+                <question>
+                  <linkId value="74080-3/74073-8/Other/Specify"/>
+                  <text value="PLEASE SPECIFY"/>
+                  <type value="string"/>
+                  <required value="true"/>
+                </question>
+              </group>
+            </question>
+          </group>
+          <group>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+              <extension url="question">
+                <valueString value="74080-3/74076-1"/>
+              </extension>
+              <extension url="answer">
+                <valueCoding>
+                  <system value="http://loinc.org"/>
+                  <code value="LA20318-4"/>
+                  <display value="Other"/>
+                </valueCoding>
+              </extension>
+            </extension>
+            <linkId value="74080-3/74076-1/Other"/>
+            <required value="true"/>
+            <question>
+              <linkId value="74080-3/74076-1/Other/Specify"/>
+              <text value="PLEASE SPECIFY"/>
+              <type value="string"/>
+              <required value="true"/>
             </question>
           </group>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="7."/>
+          </extension>
           <linkId value="74080-3/74072-0"/>
           <text value="Which of the following best characterizes the event?"/>
           <type value="open-choice"/>
@@ -686,9 +958,12 @@
           </options>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="8."/>
+          </extension>
           <linkId value="74080-3/74071-2"/>
           <text value="What was the incorrect action?"/>
-          <type value="open-choice"/>
+          <type value="choice"/>
           <options>
             <reference value="#ll2661-8"/>
           </options>
@@ -697,6 +972,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="9."/>
+              </extension>
               <linkId value="74080-3/74070-4"/>
               <text value="Which best describes the incorrect dose(s)?"/>
               <type value="open-choice"/>
@@ -711,6 +989,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="10."/>
+              </extension>
               <linkId value="Medication/74069-6"/>
               <text value="Which best describes the incorrect timing?"/>
               <type value="open-choice"/>
@@ -725,6 +1006,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="11."/>
+              </extension>
               <linkId value="74080-3/74068-8"/>
               <text value="Which best describes the incorrect rate?"/>
               <type value="open-choice"/>
@@ -739,6 +1023,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="12."/>
+              </extension>
               <linkId value="Medication/74067-0"/>
               <text value="Which best describes the incorrect strength or concentration?"/>
               <type value="open-choice"/>
@@ -753,6 +1040,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="13."/>
+              </extension>
               <linkId value="Medication/74066-2"/>
               <text value="What was the expiration date?"/>
               <type value="string"/>
@@ -764,6 +1054,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="14."/>
+              </extension>
               <linkId value="Medication/74065-4"/>
               <text value="Was there a documented history of allergies or sensitivities to the medication/substance                      administered?"/>
               <type value="open-choice"/>
@@ -778,6 +1071,9 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+                <valueString value="15."/>
+              </extension>
               <linkId value="Medication/74064-7"/>
               <text value="What was the contraindication (potential or actual interaction)?"/>
               <type value="open-choice"/>
@@ -785,10 +1081,57 @@
               <options>
                 <reference value="#ll2668-3"/>
               </options>
+              <group>
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+                  <extension url="question">
+                    <valueString value="Medication/74064-7"/>
+                  </extension>
+                  <extension url="answer">
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA20318-4"/>
+                      <display value="Other"/>
+                    </valueCoding>
+                  </extension>
+                </extension>
+                <linkId value="Medication/74064-7/Other"/>
+                <required value="true"/>
+                <question>
+                  <linkId value="Medication/74064-7/Other/Specify"/>
+                  <text value="PLEASE SPECIFY"/>
+                  <type value="string"/>
+                  <required value="true"/>
+                </question>
+              </group>
+            </question>
+          </group>
+          <group>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+              <extension url="question">
+                <valueString value="74080-3/74071-2"/>
+              </extension>
+              <extension url="answer">
+                <valueCoding>
+                  <system value="http://loinc.org"/>
+                  <code value="LA20318-4"/>
+                  <display value="Other"/>
+                </valueCoding>
+              </extension>
+            </extension>
+            <linkId value="74080-3/74071-2/Other"/>
+            <required value="true"/>
+            <question>
+              <linkId value="74080-3/74071-2/Other/Specify"/>
+              <text value="PLEASE SPECIFY"/>
+              <type value="string"/>
+              <required value="true"/>
             </question>
           </group>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="16."/>
+          </extension>
           <linkId value="74080-3/74063-9"/>
           <text value="At what stage in the process did the event originate, regardless of the stage at which                  it was discovered?"/>
           <type value="open-choice"/>
@@ -796,6 +1139,28 @@
           <options>
             <reference value="#ll2669-1"/>
           </options>
+          <group>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+              <extension url="question">
+                <valueString value="74080-3/74063-9"/>
+              </extension>
+              <extension url="answer">
+                <valueCoding>
+                  <system value="http://loinc.org"/>
+                  <code value="LA20318-4"/>
+                  <display value="Other"/>
+                </valueCoding>
+              </extension>
+            </extension>
+            <linkId value="74080-3/74063-9/Other"/>
+            <required value="true"/>
+            <question>
+              <linkId value="74080-3/74063-9/Other/Specify"/>
+              <text value="PLEASE SPECIFY"/>
+              <type value="string"/>
+              <required value="true"/>
+            </question>
+          </group>
         </question>
       </group>
       <group>
@@ -806,6 +1171,9 @@
         <text value="Please provide the following medication details for any medications or other substances                directly involved in the event."/>
         <repeats value="true"/>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="17."/>
+          </extension>
           <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
@@ -828,6 +1196,9 @@
           <type value="string"/>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="18."/>
+          </extension>
           <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
@@ -850,6 +1221,9 @@
           <type value="string"/>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="19."/>
+          </extension>
           <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
@@ -861,6 +1235,9 @@
           <type value="string"/>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="20."/>
+          </extension>
           <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
@@ -883,6 +1260,9 @@
           <type value="string"/>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="21."/>
+          </extension>
           <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
@@ -905,18 +1285,24 @@
           <type value="string"/>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="22."/>
+          </extension>
           <linkId value="74080-3/74078-7/74053-0"/>
           <text value="Was this medication/substance prescribed for this patient?"/>
-          <type value="open-choice"/>
+          <type value="choice"/>
           <required value="true"/>
           <options>
             <reference value="#ll2828-3"/>
           </options>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="23."/>
+          </extension>
           <linkId value="Medication/74052-2"/>
           <text value="Was this medication/substance given to this patient?"/>
-          <type value="open-choice"/>
+          <type value="choice"/>
           <required value="true"/>
           <options>
             <reference value="#ll2828-3"/>
@@ -926,6 +1312,9 @@
       <group>
         <linkId value="Medication/SEC03"/>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="24."/>
+          </extension>
           <linkId value="74080-3/74051-4"/>
           <text value="What was the intended route of administration?"/>
           <type value="open-choice"/>
@@ -933,8 +1322,33 @@
           <options>
             <reference value="#ll2682-4"/>
           </options>
+          <group>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+              <extension url="question">
+                <valueString value="74080-3/74051-4"/>
+              </extension>
+              <extension url="answer">
+                <valueCoding>
+                  <system value="http://loinc.org"/>
+                  <code value="LA20318-4"/>
+                  <display value="Other"/>
+                </valueCoding>
+              </extension>
+            </extension>
+            <linkId value="74080-3/74051-4/Other"/>
+            <required value="true"/>
+            <question>
+              <linkId value="74080-3/74051-4/Other/Specify"/>
+              <text value="PLEASE SPECIFY"/>
+              <type value="string"/>
+              <required value="true"/>
+            </question>
+          </group>
         </question>
         <question>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
+            <valueString value="25."/>
+          </extension>
           <linkId value="74080-3/74050-6"/>
           <text value="What was the actual route of administration (attempted or completed)?"/>
           <type value="open-choice"/>
@@ -942,18 +1356,53 @@
           <options>
             <reference value="#ll2682-4"/>
           </options>
+          <group>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+              <extension url="question">
+                <valueString value="74080-3/74050-6"/>
+              </extension>
+              <extension url="answer">
+                <valueCoding>
+                  <system value="http://loinc.org"/>
+                  <code value="LA20318-4"/>
+                  <display value="Other"/>
+                </valueCoding>
+              </extension>
+            </extension>
+            <linkId value="74080-3/74050-6/Other"/>
+            <required value="true"/>
+            <question>
+              <linkId value="74080-3/74050-6/Other/Specify"/>
+              <text value="PLEASE SPECIFY"/>
+              <type value="string"/>
+              <required value="true"/>
+            </question>
+          </group>
         </question>
       </group>
       <group>
         <linkId value="Medication/SEC04"/>
-        <title value="STOP"/>
-        <text value="The form is complete."/>
-      </group>
-      <group>
-        <linkId value="Medication/SEC05"/>
         <title value="Thank you for completing these questions."/>
-        <text value="OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information                is estimated to average 10 minutes per response. An agency may not conduct or sponsor,                and a person is not required to respond to, a collection of information unless it displays                a currently valid OMB control number. Send comments regarding this burden estimate or                any other aspect of this collection of information, including suggestions for reducing                this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project                (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850."/>
+        <text value="OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information is estimated to average 10 minutes per response. An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850."/>
       </group>
+    </group>
+    <group>
+      <!-- This group was added for demonstration purposes and is not part of the base form -->
+      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-hidden">
+        <valueBoolean value="true"/>
+      </extension>
+      <linkId value="Reporting"/>
+      <title value="Reporting information"/>
+      <question>
+        <linkId value="Reporting/who"/>
+        <text value="Reported by:"/>
+        <type value="string"/>
+      </question>
+      <question>
+        <linkId value="Reporting/when"/>
+        <text value="Reported date:"/>
+        <type value="date"/>
+      </question>
     </group>
     <group>
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-specialGroup">

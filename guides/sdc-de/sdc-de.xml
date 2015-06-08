@@ -1,0 +1,60 @@
+<ig code="sdc-de" title="Structured Data Capture - Data Element Exchange">
+  <dependsOn code="sdc"/>
+  <!-- used for invariants -->
+
+  <publishing homepage="sdc-de.html"/>
+  <!-- 
+    the normal order for this file is:
+      value sets
+      concept maps
+      profiles
+      dictionaries
+      examples
+      pages      
+      
+    order rules:
+    
+    -->
+  <!-- 
+    value seta. This is just a file name. everything else of interest is in the value set 
+    <valueSet source="filename, relative to this file"/> 
+    value sets don't have to be listed here; they can be loaded implicitly by referring to them
+    in a spreadsheet, or by including them in bundles. So the primary use here is if you 
+    want to include other valuesets not directly referenced in a spreadsheet (e.g. imports
+    in a value set))
+  -->
+  <valueset source="valueset-dataelement-sdccode.xml"/>
+  
+  <!-- 
+    concept maps: same as value sets, except that there's no way to load them implicitly (though you can define them in a spreadsheet)
+    <conceptMap source="filename, relative to this file"/> 
+    you don't have to load the value sets prior to loading the concept maps that refer to them
+  -->
+  <!--
+    profiles. You have to list all the profiles that are in this implementation guide. 
+    <profile source=filename, relative to this file" type="[see below]"/> 
+    there's two types: 
+      spreadsheet - loads as a normal spreadsheet
+      bundle - loads as a bundle of structure definitions (and possibly value sets and concept maps)
+    all the rest of the information is extracted from the targets
+    
+    note: profiles are loaded in order. Derived profiles must be loaded after the profiles they are derived from.
+  --> 
+ <profile source="dataelement-sdc-de-profile-spreadsheet.xml" type="spreadsheet">
+   <example name="SDC-Gender" description="Patient gender represented according to SDC rules" source="dataelement-sdc-profile-example-de.xml"/>
+ </profile>
+ <profile source="valueset-sdc-de-profile-spreadsheet.xml" type="spreadsheet"/>
+  
+  <!--
+    Examples
+    <example name="" source="" description=""/>
+    
+    putting an example inside a profile indicates that it's subject to that profile
+  -->    
+  <example name="SDC DE Registry" description="SDC Repository for Data Elements" source="conformance-sdc-de-registry.xml"/>
+  <example name="SDC DE Curator" description="SDC Data Elements author/maintenance system" source="conformance-sdc-de-curator.xml"/>
+  
+  
+  <page source="sdc-de.html"/>
+  
+</ig>

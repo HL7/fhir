@@ -1,0 +1,80 @@
+<ig code="sdc" title="Structured Data Capture">
+  <dependsOn code="uslab"/>
+  <!-- used for invariants -->
+<!--  <acronym target="observation-daf-results-dafresultobservationcode" id="daf-cod"/>
+  <acronym target="observation-daf-results-dafresultobsquantity" id="daf-qty"/>
+  <acronym target="observation-daf-results-dafresultobsratio" id="daf-rto"/>
+  <acronym target="observation-daf-results-dafresultobsother" id="daf-oth"/>
+  <acronym target="diagnosticreport-daf-dafdiagnosticreport" id="daf-dir"/>
+  <acronym target="diagnosticorder-daf-dafdiagnosticorder" id="daf-dio"/>-->
+
+  <image source="sdc-generic-workflow.png"/>
+
+
+  <publishing homepage="sdc.html"/>
+  <!-- 
+    the normal order for this file is:
+      value sets
+      concept maps
+      profiles
+      dictionaries
+      examples
+      pages      
+      
+    order rules:
+    
+    -->
+  <!-- 
+    value seta. This is just a file name. everything else of interest is in the value set 
+    <valueSet source="filename, relative to this file"/> 
+    value sets don't have to be listed here; they can be loaded implicitly by referring to them
+    in a spreadsheet, or by including them in bundles. So the primary use here is if you 
+    want to include other valuesets not directly referenced in a spreadsheet (e.g. imports
+    in a value set))
+  -->
+
+  
+  <!-- 
+    concept maps: same as value sets, except that there's no way to load them implicitly (though you can define them in a spreadsheet)
+    <conceptMap source="filename, relative to this file"/> 
+    you don't have to load the value sets prior to loading the concept maps that refer to them
+  -->
+  <!--
+    profiles. You have to list all the profiles that are in this implementation guide. 
+    <profile source=filename, relative to this file" type="[see below]"/> 
+    there's two types: 
+      spreadsheet - loads as a normal spreadsheet
+      bundle - loads as a bundle of structure definitions (and possibly value sets and concept maps)
+    all the rest of the information is extracted from the targets
+    
+    note: profiles are loaded in order. Derived profiles must be loaded after the profiles they are derived from.
+  --> 
+ <profile source="dataelement-sdc-profile-spreadsheet.xml" type="spreadsheet">
+   <example name="CCDA-Gender" description="FHIR Gender with mapping to CCDA" source="dataelement-sdc-profile-example.xml"/>
+ </profile>
+ <profile source="questionnaireanswers-sdc-profile-spreadsheet.xml" type="spreadsheet">
+   <example name="SDC" description="Set of several examples - medication, AHRQ and NCI forms" source="questionnaire-sdc-profile-example.xml"/>
+   <example name="SDC-LOINC" description="Set of several examples - medication, AHRQ and NCI formsSDC medication example with LOINC codes populated" source="questionnaire-sdc-profile-example-loinc.xml"/>
+ </profile>
+ <profile source="questionnaire-sdc-profile-spreadsheet.xml" type="spreadsheet">
+   <example name="SDC" description="Stand-alone answer set" source="questionnaireanswers-sdc-profile-example.xml"/>
+ </profile>
+ <profile source="valueset-sdc-profile-spreadsheet.xml" type="spreadsheet"/>
+  
+  <!--
+    Examples
+    <example name="" source="" description=""/>
+    
+    putting an example inside a profile indicates that it's subject to that profile
+  -->    
+  <example name="SDC Form Designer" description="SDC Form authoring system" source="conformance-sdc-form-designer.xml"/>
+  <example name="SDC Form Filler" description="SDC System for completing forms" source="conformance-sdc-form-filler.xml"/>
+  <example name="SDC Form Manager" description="SDC Repository for forms" source="conformance-sdc-form-manager.xml"/>
+  <example name="SDC Form Receiver" description="SDC Repository for completed forms" source="conformance-sdc-form-receiver.xml"/>
+  
+  
+  <page source="sdc.html"/>
+  <page source="sdc-intro.html"/>
+  <page source="sdc-security.html"/>
+
+</ig>

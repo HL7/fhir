@@ -2,7 +2,7 @@
 <!-- This DataElement is an example reflecting the content of row 15 of the Google document:
      https://docs.google.com/a/lmckenzie.com/spreadsheets/d/1YJ1Q10Hn_B-Yu-iIxzo28f6PsIfs4_b_-hhXsB64Vl4/edit#gid=1476288095 -->
 <DataElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/dataelement.xsd" xmlns="http://hl7.org/fhir">
-  <id value="sdc-gender-de"/>
+  <id value="dataelement-sdc-profile-example-de"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">TODO</div>

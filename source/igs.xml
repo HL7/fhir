@@ -4,8 +4,9 @@
   <ig code="core"     name="FHIR Specification Core" page="" review=""/>
   <ig code="ccda"     name="Consolidated CDA" page="" review=""/>
   <ig code="openehr"  name="openEHR Profiles" page="" review=""/>
-  <ig code="ehrfm"    name="EHRS Functional model - Record Lifecycle Events" page="ehrs-rle.html" review=""/>
-  <ig code="sdc"      name="Structured Data Capture Project" page="sdc.html" review=""/>
+  <ig code="ehrs-rle" name="EHRS Functional model - Record Lifecycle Events" page="\guides\ehrs-rle\ehrs-rle.html" review=""/>
+  <ig code="sdc"      name="Structured Data Capture - Forms" page="sdc.html" review="" source="\guides\sdc\sdc.xml"/>
+  <ig code="sdc-de"   name="Structured Data Capture - Data Element Management" page="sdc-de.html" review="" source="\guides\sdc-de\sdc-de.xml"/>
   <ig code="cqmf"     name="Clinical Quality Measure Framework" page="" review=""/>
   <ig code="ihe"      name="IHE Profiles" page="" review=""/>
   <ig code="argonaut" name="Argonaut" page="argonauts.html" review="0" ballot="yes"/>
@@ -13,5 +14,5 @@
   <ig code="uslab"    name="US Lab Profile" page="uslabreport.html" review="" source="\guides\uslab\uslab.xml"/>
   <ig code="daf"      name="Data Access Framework" page="daf.html" review="" source="\guides\daf\daf.xml"/>
   <ig code="cqf"      name="Quality Improvement Core" page="qicore.html" review="" source="\guides\cqf\cqf.xml"/>
-  <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="1" source="guides\hspc\hspc.xml"/>
+  <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="" source="\guides\hspc\hspc.xml"/>
 </igs>
