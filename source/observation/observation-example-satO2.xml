@@ -6,11 +6,6 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
   <id value="satO2"/>
 
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Dec 04 2014: Oxygen saturation 95% (normal)</div>
-  </text>
-
   <code>
     <coding>
       <system value="https://rtmms.nist.gov"/> <!--   mdc   -->
