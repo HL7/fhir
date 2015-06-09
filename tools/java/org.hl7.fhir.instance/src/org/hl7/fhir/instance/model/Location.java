@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -78,8 +78,8 @@ public class Location extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case INSTANCE: return "http://hl7.org.fhir/location-mode";
-            case KIND: return "http://hl7.org.fhir/location-mode";
+            case INSTANCE: return "http://hl7.org/fhir/location-mode";
+            case KIND: return "http://hl7.org/fhir/location-mode";
             default: return "?";
           }
         }
@@ -157,9 +157,9 @@ public class Location extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIVE: return "http://hl7.org.fhir/location-status";
-            case SUSPENDED: return "http://hl7.org.fhir/location-status";
-            case INACTIVE: return "http://hl7.org.fhir/location-status";
+            case ACTIVE: return "http://hl7.org/fhir/location-status";
+            case SUSPENDED: return "http://hl7.org/fhir/location-status";
+            case INACTIVE: return "http://hl7.org/fhir/location-status";
             default: return "?";
           }
         }

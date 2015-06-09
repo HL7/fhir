@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -105,12 +105,12 @@ public class Group extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PERSON: return "http://hl7.org.fhir/group-type";
-            case ANIMAL: return "http://hl7.org.fhir/group-type";
-            case PRACTITIONER: return "http://hl7.org.fhir/group-type";
-            case DEVICE: return "http://hl7.org.fhir/group-type";
-            case MEDICATION: return "http://hl7.org.fhir/group-type";
-            case SUBSTANCE: return "http://hl7.org.fhir/group-type";
+            case PERSON: return "http://hl7.org/fhir/group-type";
+            case ANIMAL: return "http://hl7.org/fhir/group-type";
+            case PRACTITIONER: return "http://hl7.org/fhir/group-type";
+            case DEVICE: return "http://hl7.org/fhir/group-type";
+            case MEDICATION: return "http://hl7.org/fhir/group-type";
+            case SUBSTANCE: return "http://hl7.org/fhir/group-type";
             default: return "?";
           }
         }

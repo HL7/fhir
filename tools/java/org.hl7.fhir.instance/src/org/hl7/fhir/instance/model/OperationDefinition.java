@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -78,8 +78,8 @@ public class OperationDefinition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case OPERATION: return "http://hl7.org.fhir/operation-kind";
-            case QUERY: return "http://hl7.org.fhir/operation-kind";
+            case OPERATION: return "http://hl7.org/fhir/operation-kind";
+            case QUERY: return "http://hl7.org/fhir/operation-kind";
             default: return "?";
           }
         }
@@ -150,8 +150,8 @@ public class OperationDefinition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case IN: return "http://hl7.org.fhir/operation-parameter-use";
-            case OUT: return "http://hl7.org.fhir/operation-parameter-use";
+            case IN: return "http://hl7.org/fhir/operation-parameter-use";
+            case OUT: return "http://hl7.org/fhir/operation-parameter-use";
             default: return "?";
           }
         }

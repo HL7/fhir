@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -169,21 +169,21 @@ public class TestScript extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case READ: return "http://hl7.org.fhir/test-operation-codes";
-            case VREAD: return "http://hl7.org.fhir/test-operation-codes";
-            case UPDATE: return "http://hl7.org.fhir/test-operation-codes";
-            case DELETE: return "http://hl7.org.fhir/test-operation-codes";
-            case HISTORY: return "http://hl7.org.fhir/test-operation-codes";
-            case CREATE: return "http://hl7.org.fhir/test-operation-codes";
-            case SEARCH: return "http://hl7.org.fhir/test-operation-codes";
-            case TRANSACTION: return "http://hl7.org.fhir/test-operation-codes";
-            case CONFORMANCE: return "http://hl7.org.fhir/test-operation-codes";
-            case TAGS: return "http://hl7.org.fhir/test-operation-codes";
-            case MAILBOX: return "http://hl7.org.fhir/test-operation-codes";
-            case DOCUMENT: return "http://hl7.org.fhir/test-operation-codes";
-            case ASSERTION: return "http://hl7.org.fhir/test-operation-codes";
-            case ASSERTIONFALSE: return "http://hl7.org.fhir/test-operation-codes";
-            case ASSERTIONWARNING: return "http://hl7.org.fhir/test-operation-codes";
+            case READ: return "http://hl7.org/fhir/test-operation-codes";
+            case VREAD: return "http://hl7.org/fhir/test-operation-codes";
+            case UPDATE: return "http://hl7.org/fhir/test-operation-codes";
+            case DELETE: return "http://hl7.org/fhir/test-operation-codes";
+            case HISTORY: return "http://hl7.org/fhir/test-operation-codes";
+            case CREATE: return "http://hl7.org/fhir/test-operation-codes";
+            case SEARCH: return "http://hl7.org/fhir/test-operation-codes";
+            case TRANSACTION: return "http://hl7.org/fhir/test-operation-codes";
+            case CONFORMANCE: return "http://hl7.org/fhir/test-operation-codes";
+            case TAGS: return "http://hl7.org/fhir/test-operation-codes";
+            case MAILBOX: return "http://hl7.org/fhir/test-operation-codes";
+            case DOCUMENT: return "http://hl7.org/fhir/test-operation-codes";
+            case ASSERTION: return "http://hl7.org/fhir/test-operation-codes";
+            case ASSERTIONFALSE: return "http://hl7.org/fhir/test-operation-codes";
+            case ASSERTIONWARNING: return "http://hl7.org/fhir/test-operation-codes";
             default: return "?";
           }
         }
@@ -332,8 +332,8 @@ public class TestScript extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case XML: return "http://hl7.org.fhir/content-type";
-            case JSON: return "http://hl7.org.fhir/content-type";
+            case XML: return "http://hl7.org/fhir/content-type";
+            case JSON: return "http://hl7.org/fhir/content-type";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.api.*;
 /**
- * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.
+ * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non medical devices may includes things such as a machine, a cellphone, a computer, an application, etc.
  */
 @ResourceDef(name="Device", profile="http://hl7.org/fhir/Profile/Device")
 public class Device extends DomainResource {
@@ -84,9 +84,9 @@ public class Device extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case AVAILABLE: return "http://hl7.org.fhir/devicestatus";
-            case NOTAVAILABLE: return "http://hl7.org.fhir/devicestatus";
-            case ENTEREDINERROR: return "http://hl7.org.fhir/devicestatus";
+            case AVAILABLE: return "http://hl7.org/fhir/devicestatus";
+            case NOTAVAILABLE: return "http://hl7.org/fhir/devicestatus";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/devicestatus";
             default: return "?";
           }
         }

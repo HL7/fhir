@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -90,10 +90,10 @@ public class Address extends Type implements ICompositeType {
         }
         public String getSystem() {
           switch (this) {
-            case HOME: return "http://hl7.org.fhir/address-use";
-            case WORK: return "http://hl7.org.fhir/address-use";
-            case TEMP: return "http://hl7.org.fhir/address-use";
-            case OLD: return "http://hl7.org.fhir/address-use";
+            case HOME: return "http://hl7.org/fhir/address-use";
+            case WORK: return "http://hl7.org/fhir/address-use";
+            case TEMP: return "http://hl7.org/fhir/address-use";
+            case OLD: return "http://hl7.org/fhir/address-use";
             default: return "?";
           }
         }

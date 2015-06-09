@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -98,11 +98,11 @@ public class Composition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PRELIMINARY: return "http://hl7.org.fhir/composition-status";
-            case FINAL: return "http://hl7.org.fhir/composition-status";
-            case APPENDED: return "http://hl7.org.fhir/composition-status";
-            case AMENDED: return "http://hl7.org.fhir/composition-status";
-            case ENTEREDINERROR: return "http://hl7.org.fhir/composition-status";
+            case PRELIMINARY: return "http://hl7.org/fhir/composition-status";
+            case FINAL: return "http://hl7.org/fhir/composition-status";
+            case APPENDED: return "http://hl7.org/fhir/composition-status";
+            case AMENDED: return "http://hl7.org/fhir/composition-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/composition-status";
             default: return "?";
           }
         }
@@ -205,10 +205,10 @@ public class Composition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PERSONAL: return "http://hl7.org.fhir/composition-attestation-mode";
-            case PROFESSIONAL: return "http://hl7.org.fhir/composition-attestation-mode";
-            case LEGAL: return "http://hl7.org.fhir/composition-attestation-mode";
-            case OFFICIAL: return "http://hl7.org.fhir/composition-attestation-mode";
+            case PERSONAL: return "http://hl7.org/fhir/composition-attestation-mode";
+            case PROFESSIONAL: return "http://hl7.org/fhir/composition-attestation-mode";
+            case LEGAL: return "http://hl7.org/fhir/composition-attestation-mode";
+            case OFFICIAL: return "http://hl7.org/fhir/composition-attestation-mode";
             default: return "?";
           }
         }

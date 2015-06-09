@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -133,16 +133,16 @@ public class CommunicationRequest extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PROPOSED: return "http://hl7.org.fhir/communication-request-status";
-            case PLANNED: return "http://hl7.org.fhir/communication-request-status";
-            case REQUESTED: return "http://hl7.org.fhir/communication-request-status";
-            case RECEIVED: return "http://hl7.org.fhir/communication-request-status";
-            case ACCEPTED: return "http://hl7.org.fhir/communication-request-status";
-            case INPROGRESS: return "http://hl7.org.fhir/communication-request-status";
-            case COMPLETED: return "http://hl7.org.fhir/communication-request-status";
-            case SUSPENDED: return "http://hl7.org.fhir/communication-request-status";
-            case REJECTED: return "http://hl7.org.fhir/communication-request-status";
-            case FAILED: return "http://hl7.org.fhir/communication-request-status";
+            case PROPOSED: return "http://hl7.org/fhir/communication-request-status";
+            case PLANNED: return "http://hl7.org/fhir/communication-request-status";
+            case REQUESTED: return "http://hl7.org/fhir/communication-request-status";
+            case RECEIVED: return "http://hl7.org/fhir/communication-request-status";
+            case ACCEPTED: return "http://hl7.org/fhir/communication-request-status";
+            case INPROGRESS: return "http://hl7.org/fhir/communication-request-status";
+            case COMPLETED: return "http://hl7.org/fhir/communication-request-status";
+            case SUSPENDED: return "http://hl7.org/fhir/communication-request-status";
+            case REJECTED: return "http://hl7.org/fhir/communication-request-status";
+            case FAILED: return "http://hl7.org/fhir/communication-request-status";
             default: return "?";
           }
         }

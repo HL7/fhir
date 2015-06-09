@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -78,8 +78,8 @@ public class Conformance extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case CLIENT: return "http://hl7.org.fhir/restful-conformance-mode";
-            case SERVER: return "http://hl7.org.fhir/restful-conformance-mode";
+            case CLIENT: return "http://hl7.org/fhir/restful-conformance-mode";
+            case SERVER: return "http://hl7.org/fhir/restful-conformance-mode";
             default: return "?";
           }
         }
@@ -327,9 +327,9 @@ public class Conformance extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case NOVERSION: return "http://hl7.org.fhir/versioning-policy";
-            case VERSIONED: return "http://hl7.org.fhir/versioning-policy";
-            case VERSIONEDUPDATE: return "http://hl7.org.fhir/versioning-policy";
+            case NOVERSION: return "http://hl7.org/fhir/versioning-policy";
+            case VERSIONED: return "http://hl7.org/fhir/versioning-policy";
+            case VERSIONEDUPDATE: return "http://hl7.org/fhir/versioning-policy";
             default: return "?";
           }
         }
@@ -499,9 +499,9 @@ public class Conformance extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case CONSEQUENCE: return "http://hl7.org.fhir/message-significance-category";
-            case CURRENCY: return "http://hl7.org.fhir/message-significance-category";
-            case NOTIFICATION: return "http://hl7.org.fhir/message-significance-category";
+            case CONSEQUENCE: return "http://hl7.org/fhir/message-significance-category";
+            case CURRENCY: return "http://hl7.org/fhir/message-significance-category";
+            case NOTIFICATION: return "http://hl7.org/fhir/message-significance-category";
             default: return "?";
           }
         }
@@ -578,8 +578,8 @@ public class Conformance extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case SENDER: return "http://hl7.org.fhir/message-conformance-event-mode";
-            case RECEIVER: return "http://hl7.org.fhir/message-conformance-event-mode";
+            case SENDER: return "http://hl7.org/fhir/message-conformance-event-mode";
+            case RECEIVER: return "http://hl7.org/fhir/message-conformance-event-mode";
             default: return "?";
           }
         }
@@ -650,8 +650,8 @@ public class Conformance extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PRODUCER: return "http://hl7.org.fhir/document-mode";
-            case CONSUMER: return "http://hl7.org.fhir/document-mode";
+            case PRODUCER: return "http://hl7.org/fhir/document-mode";
+            case CONSUMER: return "http://hl7.org/fhir/document-mode";
             default: return "?";
           }
         }

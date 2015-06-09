@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -112,13 +112,13 @@ public class Observation extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case REGISTERED: return "http://hl7.org.fhir/observation-status";
-            case PRELIMINARY: return "http://hl7.org.fhir/observation-status";
-            case FINAL: return "http://hl7.org.fhir/observation-status";
-            case AMENDED: return "http://hl7.org.fhir/observation-status";
-            case CANCELLED: return "http://hl7.org.fhir/observation-status";
-            case ENTEREDINERROR: return "http://hl7.org.fhir/observation-status";
-            case UNKNOWN: return "http://hl7.org.fhir/observation-status";
+            case REGISTERED: return "http://hl7.org/fhir/observation-status";
+            case PRELIMINARY: return "http://hl7.org/fhir/observation-status";
+            case FINAL: return "http://hl7.org/fhir/observation-status";
+            case AMENDED: return "http://hl7.org/fhir/observation-status";
+            case CANCELLED: return "http://hl7.org/fhir/observation-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/observation-status";
+            case UNKNOWN: return "http://hl7.org/fhir/observation-status";
             default: return "?";
           }
         }
@@ -254,13 +254,13 @@ public class Observation extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case OK: return "http://hl7.org.fhir/observation-reliability";
-            case ONGOING: return "http://hl7.org.fhir/observation-reliability";
-            case EARLY: return "http://hl7.org.fhir/observation-reliability";
-            case QUESTIONABLE: return "http://hl7.org.fhir/observation-reliability";
-            case CALIBRATING: return "http://hl7.org.fhir/observation-reliability";
-            case ERROR: return "http://hl7.org.fhir/observation-reliability";
-            case UNKNOWN: return "http://hl7.org.fhir/observation-reliability";
+            case OK: return "http://hl7.org/fhir/observation-reliability";
+            case ONGOING: return "http://hl7.org/fhir/observation-reliability";
+            case EARLY: return "http://hl7.org/fhir/observation-reliability";
+            case QUESTIONABLE: return "http://hl7.org/fhir/observation-reliability";
+            case CALIBRATING: return "http://hl7.org/fhir/observation-reliability";
+            case ERROR: return "http://hl7.org/fhir/observation-reliability";
+            case UNKNOWN: return "http://hl7.org/fhir/observation-reliability";
             default: return "?";
           }
         }
@@ -382,11 +382,11 @@ public class Observation extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case HASMEMBER: return "http://hl7.org.fhir/observation-relationshiptypes";
-            case SEQUELTO: return "http://hl7.org.fhir/observation-relationshiptypes";
-            case REPLACES: return "http://hl7.org.fhir/observation-relationshiptypes";
-            case QUALIFIEDBY: return "http://hl7.org.fhir/observation-relationshiptypes";
-            case INTERFEREDBY: return "http://hl7.org.fhir/observation-relationshiptypes";
+            case HASMEMBER: return "http://hl7.org/fhir/observation-relationshiptypes";
+            case SEQUELTO: return "http://hl7.org/fhir/observation-relationshiptypes";
+            case REPLACES: return "http://hl7.org/fhir/observation-relationshiptypes";
+            case QUALIFIEDBY: return "http://hl7.org/fhir/observation-relationshiptypes";
+            case INTERFEREDBY: return "http://hl7.org/fhir/observation-relationshiptypes";
             default: return "?";
           }
         }
@@ -1331,10 +1331,10 @@ other observer (for example a relative or EMT), or any observation made about th
     protected List<ObservationRelatedComponent> related;
 
     /**
-     * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same metadata.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.
+     * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.
      */
     @Child(name = "component", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Component results", formalDefinition="Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same metadata.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations." )
+    @Description(shortDefinition="Component results", formalDefinition="Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations." )
     protected List<ObservationComponentComponent> component;
 
     private static final long serialVersionUID = -1977481392L;
@@ -2239,7 +2239,7 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @return {@link #component} (Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same metadata.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.)
+     * @return {@link #component} (Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.)
      */
     public List<ObservationComponentComponent> getComponent() { 
       if (this.component == null)
@@ -2257,7 +2257,7 @@ other observer (for example a relative or EMT), or any observation made about th
     }
 
     /**
-     * @return {@link #component} (Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same metadata.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.)
+     * @return {@link #component} (Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.)
      */
     // syntactic sugar
     public ObservationComponentComponent addComponent() { //3
@@ -2301,7 +2301,7 @@ other observer (for example a relative or EMT), or any observation made about th
         childrenList.add(new Property("referenceRange", "", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange));
         childrenList.add(new Property("derivedFrom", "Reference(AllergyIntolerance|Condition|FamilyMemberHistory|ImagingStudy|Immunization|MedicationStatement|Procedure|QuestionnaireAnswers|Observation)", "A reference to a resource from which this observation value is derived. For example an Observation resource for a calculated anion gap or Apgar score Observation or a QuestionnaireAnswer resource for an Assessment Tool Observation.( 5/18/2015 EH: TODO need to get a specific example /use cases for example using something other than Observtion).", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         childrenList.add(new Property("related", "", "A  reference to another observations whose relationship is defined by the relationship type code.", 0, java.lang.Integer.MAX_VALUE, related));
-        childrenList.add(new Property("component", "", "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same metadata.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.", 0, java.lang.Integer.MAX_VALUE, component));
+        childrenList.add(new Property("component", "", "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.", 0, java.lang.Integer.MAX_VALUE, component));
       }
 
       public Observation copy() {

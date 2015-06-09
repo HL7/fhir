@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -84,9 +84,9 @@ public class CarePlan extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PLANNED: return "http://hl7.org.fhir/care-plan-status";
-            case ACTIVE: return "http://hl7.org.fhir/care-plan-status";
-            case COMPLETED: return "http://hl7.org.fhir/care-plan-status";
+            case PLANNED: return "http://hl7.org/fhir/care-plan-status";
+            case ACTIVE: return "http://hl7.org/fhir/care-plan-status";
+            case COMPLETED: return "http://hl7.org/fhir/care-plan-status";
             default: return "?";
           }
         }
@@ -198,13 +198,13 @@ public class CarePlan extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case DIET: return "http://hl7.org.fhir/care-plan-activity-category";
-            case DRUG: return "http://hl7.org.fhir/care-plan-activity-category";
-            case ENCOUNTER: return "http://hl7.org.fhir/care-plan-activity-category";
-            case OBSERVATION: return "http://hl7.org.fhir/care-plan-activity-category";
-            case PROCEDURE: return "http://hl7.org.fhir/care-plan-activity-category";
-            case SUPPLY: return "http://hl7.org.fhir/care-plan-activity-category";
-            case OTHER: return "http://hl7.org.fhir/care-plan-activity-category";
+            case DIET: return "http://hl7.org/fhir/care-plan-activity-category";
+            case DRUG: return "http://hl7.org/fhir/care-plan-activity-category";
+            case ENCOUNTER: return "http://hl7.org/fhir/care-plan-activity-category";
+            case OBSERVATION: return "http://hl7.org/fhir/care-plan-activity-category";
+            case PROCEDURE: return "http://hl7.org/fhir/care-plan-activity-category";
+            case SUPPLY: return "http://hl7.org/fhir/care-plan-activity-category";
+            case OTHER: return "http://hl7.org/fhir/care-plan-activity-category";
             default: return "?";
           }
         }
@@ -333,12 +333,12 @@ public class CarePlan extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case NOTSTARTED: return "http://hl7.org.fhir/care-plan-activity-status";
-            case SCHEDULED: return "http://hl7.org.fhir/care-plan-activity-status";
-            case INPROGRESS: return "http://hl7.org.fhir/care-plan-activity-status";
-            case ONHOLD: return "http://hl7.org.fhir/care-plan-activity-status";
-            case COMPLETED: return "http://hl7.org.fhir/care-plan-activity-status";
-            case CANCELLED: return "http://hl7.org.fhir/care-plan-activity-status";
+            case NOTSTARTED: return "http://hl7.org/fhir/care-plan-activity-status";
+            case SCHEDULED: return "http://hl7.org/fhir/care-plan-activity-status";
+            case INPROGRESS: return "http://hl7.org/fhir/care-plan-activity-status";
+            case ONHOLD: return "http://hl7.org/fhir/care-plan-activity-status";
+            case COMPLETED: return "http://hl7.org/fhir/care-plan-activity-status";
+            case CANCELLED: return "http://hl7.org/fhir/care-plan-activity-status";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -105,12 +105,12 @@ public class Condition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PROVISIONAL: return "http://hl7.org.fhir/condition-status";
-            case WORKING: return "http://hl7.org.fhir/condition-status";
-            case CONFIRMED: return "http://hl7.org.fhir/condition-status";
-            case REFUTED: return "http://hl7.org.fhir/condition-status";
-            case ENTEREDINERROR: return "http://hl7.org.fhir/condition-status";
-            case UNKNOWN: return "http://hl7.org.fhir/condition-status";
+            case PROVISIONAL: return "http://hl7.org/fhir/condition-status";
+            case WORKING: return "http://hl7.org/fhir/condition-status";
+            case CONFIRMED: return "http://hl7.org/fhir/condition-status";
+            case REFUTED: return "http://hl7.org/fhir/condition-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/condition-status";
+            case UNKNOWN: return "http://hl7.org/fhir/condition-status";
             default: return "?";
           }
         }

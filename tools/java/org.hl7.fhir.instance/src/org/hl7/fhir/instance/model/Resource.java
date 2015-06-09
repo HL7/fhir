@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -50,7 +50,7 @@ public abstract class Resource extends BaseResource implements IAnyResource {
      * The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes.
      */
     @Child(name = "id", type = {IdType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Logical id of this artefact", formalDefinition="The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes." )
+    @Description(shortDefinition="Logical id of this artifact", formalDefinition="The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes." )
     protected IdType id;
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -331,10 +331,10 @@ public class Contraindication extends DomainResource {
     protected UriType reference;
 
     /**
-     * Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
+     * Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindication from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
      */
     @Child(name = "mitigation", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Step taken to address", formalDefinition="Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action." )
+    @Description(shortDefinition="Step taken to address", formalDefinition="Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindication from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action." )
     protected List<ContraindicationMitigationComponent> mitigation;
 
     private static final long serialVersionUID = 528603336L;
@@ -723,7 +723,7 @@ public class Contraindication extends DomainResource {
     }
 
     /**
-     * @return {@link #mitigation} (Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.)
+     * @return {@link #mitigation} (Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindication from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.)
      */
     public List<ContraindicationMitigationComponent> getMitigation() { 
       if (this.mitigation == null)
@@ -741,7 +741,7 @@ public class Contraindication extends DomainResource {
     }
 
     /**
-     * @return {@link #mitigation} (Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.)
+     * @return {@link #mitigation} (Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindication from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.)
      */
     // syntactic sugar
     public ContraindicationMitigationComponent addMitigation() { //3
@@ -773,7 +773,7 @@ public class Contraindication extends DomainResource {
         childrenList.add(new Property("author", "Reference(Practitioner|Device)", "Identifies the provider or software that identified the.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("identifier", "Identifier", "Business identifier associated with the contraindication record.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("reference", "uri", "The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.", 0, java.lang.Integer.MAX_VALUE, reference));
-        childrenList.add(new Property("mitigation", "", "Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.", 0, java.lang.Integer.MAX_VALUE, mitigation));
+        childrenList.add(new Property("mitigation", "", "Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindication from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.", 0, java.lang.Integer.MAX_VALUE, mitigation));
       }
 
       public Contraindication copy() {

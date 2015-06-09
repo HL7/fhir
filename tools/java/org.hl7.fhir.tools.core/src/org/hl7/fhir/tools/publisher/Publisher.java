@@ -129,10 +129,10 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.instance.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.instance.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapContactComponent;
-import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
-import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
@@ -4780,11 +4780,11 @@ public class Publisher implements URIResolver {
   private void genV2MapItems(ValueSet vs, String srcCS, ConceptMap cm, Set<String> tbls, ConceptDefinitionComponent c) throws Exception {
     if (!Utilities.noString(c.getUserString("v2"))) {
       for (String m : c.getUserString("v2").split(",")) {
-        ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
+        SourceElementComponent cc = new ConceptMap.SourceElementComponent();
         cc.setCodeSystem(srcCS);
         cc.setCode(c.getCode());
-        ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
-        cc.getMap().add(map);
+        TargetElementComponent map = new ConceptMap.TargetElementComponent();
+        cc.getTarget().add(map);
         cm.getElement().add(cc);
         String[] n = m.split("\\(");
         if (n.length > 1)
@@ -4883,11 +4883,11 @@ public class Publisher implements URIResolver {
   private void genV3MapItems(ValueSet vs, String srcCS, ConceptMap cm, Set<String> tbls, ConceptDefinitionComponent c) throws Exception {
     if (!Utilities.noString(c.getUserString("v3"))) {
       for (String m : c.getUserString("v3").split(",")) {
-        ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
+        SourceElementComponent cc = new SourceElementComponent();
         cc.setCodeSystem(srcCS);
         cc.setCode(c.getCode());
-        ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
-        cc.getMap().add(map);
+        TargetElementComponent map = new TargetElementComponent();
+        cc.getTarget().add(map);
         cm.getElement().add(cc);
         String[] n = m.split("\\(");
         if (n.length > 1)

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -78,8 +78,8 @@ public class VisionPrescription extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case RIGHT: return "http://hl7.org.fhir/eye-codes";
-            case LEFT: return "http://hl7.org.fhir/eye-codes";
+            case RIGHT: return "http://hl7.org/fhir/eye-codes";
+            case LEFT: return "http://hl7.org/fhir/eye-codes";
             default: return "?";
           }
         }
@@ -164,10 +164,10 @@ public class VisionPrescription extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case UP: return "http://hl7.org.fhir/base-codes";
-            case DOWN: return "http://hl7.org.fhir/base-codes";
-            case IN: return "http://hl7.org.fhir/base-codes";
-            case OUT: return "http://hl7.org.fhir/base-codes";
+            case UP: return "http://hl7.org/fhir/base-codes";
+            case DOWN: return "http://hl7.org/fhir/base-codes";
+            case IN: return "http://hl7.org/fhir/base-codes";
+            case OUT: return "http://hl7.org/fhir/base-codes";
             default: return "?";
           }
         }

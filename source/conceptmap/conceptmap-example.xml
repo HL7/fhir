@@ -30,47 +30,47 @@
   <element>
     <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="home"/>
-    <map>
+    <target>
       <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="H"/>
       <equivalence value="equivalent"/>
-    </map>
+    </target>
   </element>
   <element>
     <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="home"/>
-    <map>
+    <target>
       <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="H"/>
       <equivalence value="equivalent"/>
-    </map>
+    </target>
   </element>
   <element>
     <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="work"/>
-    <map>
+    <target>
       <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="WP"/>
       <equivalence value="equivalent"/>
-    </map>
+    </target>
   </element>
   <element>
     <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="temp"/>
-    <map>
+    <target>
       <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="TMP"/>
       <equivalence value="equivalent"/>
-    </map>
+    </target>
   </element>
   <element>
     <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="old"/>
-    <map>
+    <target>
       <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="BAD"/>
       <equivalence value="disjoint"/>
       <comments value="In the V3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
-    </map>
+    </target>
   </element>
 </ConceptMap>

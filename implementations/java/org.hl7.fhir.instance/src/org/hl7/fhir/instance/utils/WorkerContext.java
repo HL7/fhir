@@ -3,6 +3,7 @@ package org.hl7.fhir.instance.utils;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -48,8 +49,12 @@ import org.hl7.fhir.utilities.CSFileInputStream;
   private static final String TEST_PROFILE = "C:\\work\\org.hl7.fhir\\build\\publish\\namespace.profile.xml";
   private static final String PROFILES = "C:\\work\\org.hl7.fhir\\build\\publish\\profiles-resources.xml";
 
+igtodo - things to add: 
+- version
+- list of resource names
+
  */
-public class WorkerContext {
+public class WorkerContext implements NameResolver {
 
 	private ITerminologyServices terminologyServices = new NullTerminologyServices();
   private IFHIRClient client = new NullClient();
@@ -58,6 +63,8 @@ public class WorkerContext {
   private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
   private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
+  private String version;
+  private List<String> resourceNames = new ArrayList<String>();
 
 
   public WorkerContext() {
@@ -120,6 +127,7 @@ public class WorkerContext {
   public WorkerContext clone(IFHIRClient altClient) {
     WorkerContext res = new WorkerContext(terminologyServices, null, codeSystems, valueSets, maps, profiles);
     res.extensionDefinitions.putAll(extensionDefinitions);
+    res.version = version;
     res.client = altClient;
     return res;
   }
@@ -453,6 +461,26 @@ public class WorkerContext {
       throw new Error("call to NullTerminologyServices");
     }
 
+  }
+
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  @Override
+  public boolean isResource(String name) {
+    if (resourceNames.contains(name))
+      return true;
+    StructureDefinition sd = profiles.get("http://hl7.org/fhir/StructureDefinition/"+name);
+    return sd != null && (sd.getBase().endsWith("Resource") || sd.getBase().endsWith("DomainResource"));
+  }
+
+  public List<String> getResourceNames() {
+    return resourceNames;
   }
 
 }

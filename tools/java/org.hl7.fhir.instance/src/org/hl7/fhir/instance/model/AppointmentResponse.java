@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -105,12 +105,12 @@ public class AppointmentResponse extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ACCEPTED: return "http://hl7.org.fhir/participantstatus";
-            case DECLINED: return "http://hl7.org.fhir/participantstatus";
-            case TENTATIVE: return "http://hl7.org.fhir/participantstatus";
-            case INPROCESS: return "http://hl7.org.fhir/participantstatus";
-            case COMPLETED: return "http://hl7.org.fhir/participantstatus";
-            case NEEDSACTION: return "http://hl7.org.fhir/participantstatus";
+            case ACCEPTED: return "http://hl7.org/fhir/participantstatus";
+            case DECLINED: return "http://hl7.org/fhir/participantstatus";
+            case TENTATIVE: return "http://hl7.org/fhir/participantstatus";
+            case INPROCESS: return "http://hl7.org/fhir/participantstatus";
+            case COMPLETED: return "http://hl7.org/fhir/participantstatus";
+            case NEEDSACTION: return "http://hl7.org/fhir/participantstatus";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -154,19 +154,19 @@ public class DiagnosticOrder extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PROPOSED: return "http://hl7.org.fhir/diagnostic-order-status";
-            case DRAFT: return "http://hl7.org.fhir/diagnostic-order-status";
-            case PLANNED: return "http://hl7.org.fhir/diagnostic-order-status";
-            case REQUESTED: return "http://hl7.org.fhir/diagnostic-order-status";
-            case RECEIVED: return "http://hl7.org.fhir/diagnostic-order-status";
-            case ACCEPTED: return "http://hl7.org.fhir/diagnostic-order-status";
-            case INPROGRESS: return "http://hl7.org.fhir/diagnostic-order-status";
-            case REVIEW: return "http://hl7.org.fhir/diagnostic-order-status";
-            case COMPLETED: return "http://hl7.org.fhir/diagnostic-order-status";
-            case CANCELLED: return "http://hl7.org.fhir/diagnostic-order-status";
-            case SUSPENDED: return "http://hl7.org.fhir/diagnostic-order-status";
-            case REJECTED: return "http://hl7.org.fhir/diagnostic-order-status";
-            case FAILED: return "http://hl7.org.fhir/diagnostic-order-status";
+            case PROPOSED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case DRAFT: return "http://hl7.org/fhir/diagnostic-order-status";
+            case PLANNED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case REQUESTED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case RECEIVED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case ACCEPTED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case INPROGRESS: return "http://hl7.org/fhir/diagnostic-order-status";
+            case REVIEW: return "http://hl7.org/fhir/diagnostic-order-status";
+            case COMPLETED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case CANCELLED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case SUSPENDED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case REJECTED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case FAILED: return "http://hl7.org/fhir/diagnostic-order-status";
             default: return "?";
           }
         }
@@ -317,10 +317,10 @@ public class DiagnosticOrder extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ROUTINE: return "http://hl7.org.fhir/diagnostic-order-priority";
-            case URGENT: return "http://hl7.org.fhir/diagnostic-order-priority";
-            case STAT: return "http://hl7.org.fhir/diagnostic-order-priority";
-            case ASAP: return "http://hl7.org.fhir/diagnostic-order-priority";
+            case ROUTINE: return "http://hl7.org/fhir/diagnostic-order-priority";
+            case URGENT: return "http://hl7.org/fhir/diagnostic-order-priority";
+            case STAT: return "http://hl7.org/fhir/diagnostic-order-priority";
+            case ASAP: return "http://hl7.org/fhir/diagnostic-order-priority";
             default: return "?";
           }
         }
@@ -976,10 +976,10 @@ public class DiagnosticOrder extends DomainResource {
     protected Practitioner ordererTarget;
 
     /**
-     * Identifiers assigned to this order by the order or by the receiver.
+     * Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Identifiers assigned to this order", formalDefinition="Identifiers assigned to this order by the order or by the receiver." )
+    @Description(shortDefinition="Identifiers assigned to this order", formalDefinition="Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller." )
     protected List<Identifier> identifier;
 
     /**
@@ -1154,7 +1154,7 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Identifiers assigned to this order by the order or by the receiver.)
+     * @return {@link #identifier} (Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1172,7 +1172,7 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Identifiers assigned to this order by the order or by the receiver.)
+     * @return {@link #identifier} (Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller.)
      */
     // syntactic sugar
     public Identifier addIdentifier() { //3
@@ -1578,7 +1578,7 @@ public class DiagnosticOrder extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("orderer", "Reference(Practitioner)", "The practitioner that holds legal responsibility for ordering the investigation.", 0, java.lang.Integer.MAX_VALUE, orderer));
-        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the orderer and/or  the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("clinicalNotes", "string", "An explanation or justification for why this diagnostic investigation is being requested.", 0, java.lang.Integer.MAX_VALUE, clinicalNotes));
         childrenList.add(new Property("supportingInformation", "Reference(Observation|Condition|DocumentReference)", "Additional clinical information about the patient or specimen that may influence test interpretations.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));

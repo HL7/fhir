@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -91,10 +91,10 @@ public class Quantity extends Type implements ICompositeType {
         }
         public String getSystem() {
           switch (this) {
-            case LESS_THAN: return "http://hl7.org.fhir/quantity-comparator";
-            case LESS_OR_EQUAL: return "http://hl7.org.fhir/quantity-comparator";
-            case GREATER_OR_EQUAL: return "http://hl7.org.fhir/quantity-comparator";
-            case GREATER_THAN: return "http://hl7.org.fhir/quantity-comparator";
+            case LESS_THAN: return "http://hl7.org/fhir/quantity-comparator";
+            case LESS_OR_EQUAL: return "http://hl7.org/fhir/quantity-comparator";
+            case GREATER_OR_EQUAL: return "http://hl7.org/fhir/quantity-comparator";
+            case GREATER_THAN: return "http://hl7.org/fhir/quantity-comparator";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -112,13 +112,13 @@ public class HealthcareService extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case MON: return "http://hl7.org.fhir/days-of-week";
-            case TUE: return "http://hl7.org.fhir/days-of-week";
-            case WED: return "http://hl7.org.fhir/days-of-week";
-            case THU: return "http://hl7.org.fhir/days-of-week";
-            case FRI: return "http://hl7.org.fhir/days-of-week";
-            case SAT: return "http://hl7.org.fhir/days-of-week";
-            case SUN: return "http://hl7.org.fhir/days-of-week";
+            case MON: return "http://hl7.org/fhir/days-of-week";
+            case TUE: return "http://hl7.org/fhir/days-of-week";
+            case WED: return "http://hl7.org/fhir/days-of-week";
+            case THU: return "http://hl7.org/fhir/days-of-week";
+            case FRI: return "http://hl7.org/fhir/days-of-week";
+            case SAT: return "http://hl7.org/fhir/days-of-week";
+            case SUN: return "http://hl7.org/fhir/days-of-week";
             default: return "?";
           }
         }

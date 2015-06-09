@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -126,15 +126,15 @@ public class OrderResponse extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PENDING: return "http://hl7.org.fhir/order-status";
-            case REVIEW: return "http://hl7.org.fhir/order-status";
-            case REJECTED: return "http://hl7.org.fhir/order-status";
-            case ERROR: return "http://hl7.org.fhir/order-status";
-            case ACCEPTED: return "http://hl7.org.fhir/order-status";
-            case CANCELLED: return "http://hl7.org.fhir/order-status";
-            case REPLACED: return "http://hl7.org.fhir/order-status";
-            case ABORTED: return "http://hl7.org.fhir/order-status";
-            case COMPLETED: return "http://hl7.org.fhir/order-status";
+            case PENDING: return "http://hl7.org/fhir/order-status";
+            case REVIEW: return "http://hl7.org/fhir/order-status";
+            case REJECTED: return "http://hl7.org/fhir/order-status";
+            case ERROR: return "http://hl7.org/fhir/order-status";
+            case ACCEPTED: return "http://hl7.org/fhir/order-status";
+            case CANCELLED: return "http://hl7.org/fhir/order-status";
+            case REPLACED: return "http://hl7.org/fhir/order-status";
+            case ABORTED: return "http://hl7.org/fhir/order-status";
+            case COMPLETED: return "http://hl7.org/fhir/order-status";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -113,13 +113,13 @@ public class Bundle extends Resource implements IBaseBundle {
         }
         public String getSystem() {
           switch (this) {
-            case DOCUMENT: return "http://hl7.org.fhir/bundle-type";
-            case MESSAGE: return "http://hl7.org.fhir/bundle-type";
-            case TRANSACTION: return "http://hl7.org.fhir/bundle-type";
-            case TRANSACTIONRESPONSE: return "http://hl7.org.fhir/bundle-type";
-            case HISTORY: return "http://hl7.org.fhir/bundle-type";
-            case SEARCHSET: return "http://hl7.org.fhir/bundle-type";
-            case COLLECTION: return "http://hl7.org.fhir/bundle-type";
+            case DOCUMENT: return "http://hl7.org/fhir/bundle-type";
+            case MESSAGE: return "http://hl7.org/fhir/bundle-type";
+            case TRANSACTION: return "http://hl7.org/fhir/bundle-type";
+            case TRANSACTIONRESPONSE: return "http://hl7.org/fhir/bundle-type";
+            case HISTORY: return "http://hl7.org/fhir/bundle-type";
+            case SEARCHSET: return "http://hl7.org/fhir/bundle-type";
+            case COLLECTION: return "http://hl7.org/fhir/bundle-type";
             default: return "?";
           }
         }
@@ -220,8 +220,8 @@ public class Bundle extends Resource implements IBaseBundle {
         }
         public String getSystem() {
           switch (this) {
-            case MATCH: return "http://hl7.org.fhir/search-entry-mode";
-            case INCLUDE: return "http://hl7.org.fhir/search-entry-mode";
+            case MATCH: return "http://hl7.org/fhir/search-entry-mode";
+            case INCLUDE: return "http://hl7.org/fhir/search-entry-mode";
             default: return "?";
           }
         }
@@ -306,10 +306,10 @@ public class Bundle extends Resource implements IBaseBundle {
         }
         public String getSystem() {
           switch (this) {
-            case GET: return "http://hl7.org.fhir/http-verb";
-            case POST: return "http://hl7.org.fhir/http-verb";
-            case PUT: return "http://hl7.org.fhir/http-verb";
-            case DELETE: return "http://hl7.org.fhir/http-verb";
+            case GET: return "http://hl7.org/fhir/http-verb";
+            case POST: return "http://hl7.org/fhir/http-verb";
+            case PUT: return "http://hl7.org/fhir/http-verb";
+            case DELETE: return "http://hl7.org/fhir/http-verb";
             default: return "?";
           }
         }
@@ -546,7 +546,7 @@ public class Bundle extends Resource implements IBaseBundle {
          * The Resources for the entry.
          */
         @Child(name = "resource", type = {Resource.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Resources in this bundle", formalDefinition="The Resources for the entry." )
+        @Description(shortDefinition="A resource in the bundle", formalDefinition="The Resources for the entry." )
         protected Resource resource;
 
         /**

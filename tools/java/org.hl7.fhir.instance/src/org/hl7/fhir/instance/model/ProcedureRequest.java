@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -133,16 +133,16 @@ public class ProcedureRequest extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PROPOSED: return "http://hl7.org.fhir/procedure-request-status";
-            case DRAFT: return "http://hl7.org.fhir/procedure-request-status";
-            case REQUESTED: return "http://hl7.org.fhir/procedure-request-status";
-            case RECEIVED: return "http://hl7.org.fhir/procedure-request-status";
-            case ACCEPTED: return "http://hl7.org.fhir/procedure-request-status";
-            case INPROGRESS: return "http://hl7.org.fhir/procedure-request-status";
-            case COMPLETED: return "http://hl7.org.fhir/procedure-request-status";
-            case SUSPENDED: return "http://hl7.org.fhir/procedure-request-status";
-            case REJECTED: return "http://hl7.org.fhir/procedure-request-status";
-            case ABORTED: return "http://hl7.org.fhir/procedure-request-status";
+            case PROPOSED: return "http://hl7.org/fhir/procedure-request-status";
+            case DRAFT: return "http://hl7.org/fhir/procedure-request-status";
+            case REQUESTED: return "http://hl7.org/fhir/procedure-request-status";
+            case RECEIVED: return "http://hl7.org/fhir/procedure-request-status";
+            case ACCEPTED: return "http://hl7.org/fhir/procedure-request-status";
+            case INPROGRESS: return "http://hl7.org/fhir/procedure-request-status";
+            case COMPLETED: return "http://hl7.org/fhir/procedure-request-status";
+            case SUSPENDED: return "http://hl7.org/fhir/procedure-request-status";
+            case REJECTED: return "http://hl7.org/fhir/procedure-request-status";
+            case ABORTED: return "http://hl7.org/fhir/procedure-request-status";
             default: return "?";
           }
         }
@@ -275,10 +275,10 @@ public class ProcedureRequest extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ROUTINE: return "http://hl7.org.fhir/procedure-request-priority";
-            case URGENT: return "http://hl7.org.fhir/procedure-request-priority";
-            case STAT: return "http://hl7.org.fhir/procedure-request-priority";
-            case ASAP: return "http://hl7.org.fhir/procedure-request-priority";
+            case ROUTINE: return "http://hl7.org/fhir/procedure-request-priority";
+            case URGENT: return "http://hl7.org/fhir/procedure-request-priority";
+            case STAT: return "http://hl7.org/fhir/procedure-request-priority";
+            case ASAP: return "http://hl7.org/fhir/procedure-request-priority";
             default: return "?";
           }
         }

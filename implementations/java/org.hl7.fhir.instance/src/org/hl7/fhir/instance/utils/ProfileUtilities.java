@@ -33,6 +33,8 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDiffer
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
@@ -72,11 +74,15 @@ public class ProfileUtilities {
   }
 
   public interface ProfileKnowledgeProvider {
+    public class BindingResolution {
+      public String display;
+      public String url; 
+    }
     boolean isDatatype(String typeSimple);
     boolean isResource(String typeSimple);
     boolean hasLinkFor(String typeSimple);
     String getLinkFor(String typeSimple) throws Exception;
-    String resolveBinding(ElementDefinitionBindingComponent binding);
+    BindingResolution resolveBinding(ElementDefinitionBindingComponent binding);
     String getLinkForProfile(StructureDefinition profile, String url) throws Exception;
   }
 
@@ -1044,7 +1050,7 @@ public class ProfileUtilities {
              else // if it's complex, we just call it nothing
                 // genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
               row.getCells().add(gen.new Cell(null, null, "(Complex)", null, null));
-            generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, null, pkp, profile);
+            generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, extDefn.getUrl(), pkp, profile);
         }
       } else {
           genCardinality(gen, element, row, hasDef, used, null);
@@ -1146,7 +1152,7 @@ public class ProfileUtilities {
         if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
         String fullUrl = url.startsWith("#") ? baseURL+url : url;
         StructureDefinition ed = context.getExtensionStructure(null, url);
-        String ref = ed == null ? null : (String) ed.getUserData("filename");
+        String ref = ed == null ? null : (String) ed.getUserData("filename")+".html";
         c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
         c.getPieces().add(gen.new Piece(ref, fullUrl, null));
       }
@@ -1159,9 +1165,9 @@ public class ProfileUtilities {
       if (definition != null) {
         if (definition.hasBinding()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          String ref = pkp.resolveBinding(definition.getBinding());
+          BindingResolution br = pkp.resolveBinding(definition.getBinding());
           c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
-          c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(ref, definition.getBinding().getName(), null)));
+          c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(br.url, br.display, null)));
           if (definition.getBinding().hasStrength()) {
             c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, " (", null)));
             c.getPieces().add(checkForNoChange(definition.getBinding(), gen.new Piece(null, definition.getBinding().getStrength().toCode(), definition.getBinding().getStrength().getDefinition())));

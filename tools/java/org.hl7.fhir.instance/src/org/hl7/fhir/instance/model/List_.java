@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -84,9 +84,9 @@ public class List_ extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case CURRENT: return "http://hl7.org.fhir/list-status";
-            case RETIRED: return "http://hl7.org.fhir/list-status";
-            case ENTEREDINERROR: return "http://hl7.org.fhir/list-status";
+            case CURRENT: return "http://hl7.org/fhir/list-status";
+            case RETIRED: return "http://hl7.org/fhir/list-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/list-status";
             default: return "?";
           }
         }
@@ -170,9 +170,9 @@ public class List_ extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case WORKING: return "http://hl7.org.fhir/list-mode";
-            case SNAPSHOT: return "http://hl7.org.fhir/list-mode";
-            case CHANGES: return "http://hl7.org.fhir/list-mode";
+            case WORKING: return "http://hl7.org/fhir/list-mode";
+            case SNAPSHOT: return "http://hl7.org/fhir/list-mode";
+            case CHANGES: return "http://hl7.org/fhir/list-mode";
             default: return "?";
           }
         }
@@ -570,7 +570,7 @@ public class List_ extends DomainResource {
      * Comments that apply to the overall list.
      */
     @Child(name = "note", type = {StringType.class}, order=9, min=0, max=1)
-    @Description(shortDefinition="Comments about the note", formalDefinition="Comments that apply to the overall list." )
+    @Description(shortDefinition="Comments about the list", formalDefinition="Comments that apply to the overall list." )
     protected StringType note;
 
     /**
@@ -1170,7 +1170,7 @@ public class List_ extends DomainResource {
   public static final String SP_ITEM = "item";
   @SearchParamDefinition(name="code", path="List.code", description="What the purpose of this list is", type="token" )
   public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="notes", path="List.note", description="Comments about the note", type="string" )
+  @SearchParamDefinition(name="notes", path="List.note", description="Comments about the list", type="string" )
   public static final String SP_NOTES = "notes";
   @SearchParamDefinition(name="date", path="List.date", description="When the list was prepared", type="date" )
   public static final String SP_DATE = "date";

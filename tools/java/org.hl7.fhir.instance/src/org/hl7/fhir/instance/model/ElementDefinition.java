@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -70,7 +70,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         public String getSystem() {
           switch (this) {
-            case XMLATTR: return "http://hl7.org.fhir/property-representation";
+            case XMLATTR: return "http://hl7.org/fhir/property-representation";
             default: return "?";
           }
         }
@@ -142,9 +142,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         public String getSystem() {
           switch (this) {
-            case CLOSED: return "http://hl7.org.fhir/resource-slicing-rules";
-            case OPEN: return "http://hl7.org.fhir/resource-slicing-rules";
-            case OPENATEND: return "http://hl7.org.fhir/resource-slicing-rules";
+            case CLOSED: return "http://hl7.org/fhir/resource-slicing-rules";
+            case OPEN: return "http://hl7.org/fhir/resource-slicing-rules";
+            case OPENATEND: return "http://hl7.org/fhir/resource-slicing-rules";
             default: return "?";
           }
         }
@@ -228,9 +228,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         public String getSystem() {
           switch (this) {
-            case CONTAINED: return "http://hl7.org.fhir/resource-aggregation-mode";
-            case REFERENCED: return "http://hl7.org.fhir/resource-aggregation-mode";
-            case BUNDLED: return "http://hl7.org.fhir/resource-aggregation-mode";
+            case CONTAINED: return "http://hl7.org/fhir/resource-aggregation-mode";
+            case REFERENCED: return "http://hl7.org/fhir/resource-aggregation-mode";
+            case BUNDLED: return "http://hl7.org/fhir/resource-aggregation-mode";
             default: return "?";
           }
         }
@@ -307,8 +307,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         public String getSystem() {
           switch (this) {
-            case ERROR: return "http://hl7.org.fhir/constraint-severity";
-            case WARNING: return "http://hl7.org.fhir/constraint-severity";
+            case ERROR: return "http://hl7.org/fhir/constraint-severity";
+            case WARNING: return "http://hl7.org/fhir/constraint-severity";
             default: return "?";
           }
         }
@@ -393,10 +393,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         public String getSystem() {
           switch (this) {
-            case REQUIRED: return "http://hl7.org.fhir/binding-strength";
-            case EXTENSIBLE: return "http://hl7.org.fhir/binding-strength";
-            case PREFERRED: return "http://hl7.org.fhir/binding-strength";
-            case EXAMPLE: return "http://hl7.org.fhir/binding-strength";
+            case REQUIRED: return "http://hl7.org/fhir/binding-strength";
+            case EXTENSIBLE: return "http://hl7.org/fhir/binding-strength";
+            case PREFERRED: return "http://hl7.org/fhir/binding-strength";
+            case EXAMPLE: return "http://hl7.org/fhir/binding-strength";
             default: return "?";
           }
         }
@@ -1314,12 +1314,12 @@ public class ElementDefinition extends Type implements ICompositeType {
 
     @Block()
     public static class ElementDefinitionBindingComponent extends Element implements IBaseDatatypeElement {
-//        /**
-//         * A descriptive name for this - can be useful for generating implementation artifacts.
-//         */
-//        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1)
-//        @Description(shortDefinition="Descriptive Name", formalDefinition="A descriptive name for this - can be useful for generating implementation artifacts." )
-//        protected StringType name;
+        /**
+         * A descriptive name for this - can be useful for generating implementation artifacts.
+         */
+        @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Descriptive Name", formalDefinition="A descriptive name for this - can be useful for generating implementation artifacts." )
+        protected StringType name;
 
         /**
          * Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
@@ -1354,56 +1354,59 @@ public class ElementDefinition extends Type implements ICompositeType {
     /*
      * Constructor
      */
-      public ElementDefinitionBindingComponent(/*StringType name, */Enumeration<BindingStrength> strength) {
+      public ElementDefinitionBindingComponent(Enumeration<BindingStrength> strength) {
         super();
-//        this.name = name;
         this.strength = strength;
       }
 
-//        /**
-//         * @return {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-//         */
-//        public StringType getNameElement() { 
-//          if (this.name == null)
-//            if (Configuration.errorOnAutoCreate())
-//              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.name");
-//            else if (Configuration.doAutoCreate())
-//              this.name = new StringType(); // bb
-//          return this.name;
-//        }
-//
-//        public boolean hasNameElement() { 
-//          return this.name != null && !this.name.isEmpty();
-//        }
-//
-//        public boolean hasName() { 
-//          return this.name != null && !this.name.isEmpty();
-//        }
-//
-//        /**
-//         * @param value {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-//         */
-//        public ElementDefinitionBindingComponent setNameElement(StringType value) { 
-//          this.name = value;
-//          return this;
-//        }
-//
-//        /**
-//         * @return A descriptive name for this - can be useful for generating implementation artifacts.
-//         */
-//        public String getName() { 
-//          return this.name == null ? null : this.name.getValue();
-//        }
-//
-//        /**
-//         * @param value A descriptive name for this - can be useful for generating implementation artifacts.
-//         */
-//        public ElementDefinitionBindingComponent setName(String value) { 
-//            if (this.name == null)
-//              this.name = new StringType();
-//            this.name.setValue(value);
-//          return this;
-//        }
+        /**
+         * @return {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public ElementDefinitionBindingComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return A descriptive name for this - can be useful for generating implementation artifacts.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value A descriptive name for this - can be useful for generating implementation artifacts.
+         */
+        public ElementDefinitionBindingComponent setName(String value) { 
+          if (Utilities.noString(value))
+            this.name = null;
+          else {
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          }
+          return this;
+        }
 
         /**
          * @return {@link #strength} (Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.). This is the underlying object with id, value and extensions. The accessor "getStrength" gives direct access to the value
@@ -1538,7 +1541,7 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-//          childrenList.add(new Property("name", "string", "A descriptive name for this - can be useful for generating implementation artifacts.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("name", "string", "A descriptive name for this - can be useful for generating implementation artifacts.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, java.lang.Integer.MAX_VALUE, strength));
           childrenList.add(new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("valueSet[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, valueSet));
@@ -1547,7 +1550,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       public ElementDefinitionBindingComponent copy() {
         ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
         copyValues(dst);
-        //dst.name = name == null ? null : name.copy();
+        dst.name = name == null ? null : name.copy();
         dst.strength = strength == null ? null : strength.copy();
         dst.description = description == null ? null : description.copy();
         dst.valueSet = valueSet == null ? null : valueSet.copy();
@@ -1561,7 +1564,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other instanceof ElementDefinitionBindingComponent))
           return false;
         ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other;
-        return /*compareDeep(name, o.name, true) && */ compareDeep(strength, o.strength, true) && compareDeep(description, o.description, true)
+        return compareDeep(name, o.name, true) && compareDeep(strength, o.strength, true) && compareDeep(description, o.description, true)
            && compareDeep(valueSet, o.valueSet, true);
       }
 
@@ -1572,12 +1575,12 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other instanceof ElementDefinitionBindingComponent))
           return false;
         ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other;
-        return compareValues(strength, o.strength, true) && compareValues(description, o.description, true)
+        return compareValues(name, o.name, true) && compareValues(strength, o.strength, true) && compareValues(description, o.description, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (strength == null || strength.isEmpty())
+        return super.isEmpty() && (name == null || name.isEmpty()) && (strength == null || strength.isEmpty())
            && (description == null || description.isEmpty()) && (valueSet == null || valueSet.isEmpty())
           ;
       }

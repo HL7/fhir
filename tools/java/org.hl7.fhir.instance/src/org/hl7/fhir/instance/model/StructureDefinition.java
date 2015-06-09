@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -92,10 +92,10 @@ public class StructureDefinition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case TYPE: return "http://hl7.org.fhir/structure-definition-type";
-            case RESOURCE: return "http://hl7.org.fhir/structure-definition-type";
-            case CONSTRAINT: return "http://hl7.org.fhir/structure-definition-type";
-            case EXTENSION: return "http://hl7.org.fhir/structure-definition-type";
+            case TYPE: return "http://hl7.org/fhir/structure-definition-type";
+            case RESOURCE: return "http://hl7.org/fhir/structure-definition-type";
+            case CONSTRAINT: return "http://hl7.org/fhir/structure-definition-type";
+            case EXTENSION: return "http://hl7.org/fhir/structure-definition-type";
             default: return "?";
           }
         }
@@ -192,10 +192,10 @@ public class StructureDefinition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case RESOURCE: return "http://hl7.org.fhir/extension-context";
-            case DATATYPE: return "http://hl7.org.fhir/extension-context";
-            case MAPPING: return "http://hl7.org.fhir/extension-context";
-            case EXTENSION: return "http://hl7.org.fhir/extension-context";
+            case RESOURCE: return "http://hl7.org/fhir/extension-context";
+            case DATATYPE: return "http://hl7.org/fhir/extension-context";
+            case MAPPING: return "http://hl7.org/fhir/extension-context";
+            case EXTENSION: return "http://hl7.org/fhir/extension-context";
             default: return "?";
           }
         }

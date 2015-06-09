@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -91,10 +91,10 @@ public class OperationOutcome extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case FATAL: return "http://hl7.org.fhir/issue-severity";
-            case ERROR: return "http://hl7.org.fhir/issue-severity";
-            case WARNING: return "http://hl7.org.fhir/issue-severity";
-            case INFORMATION: return "http://hl7.org.fhir/issue-severity";
+            case FATAL: return "http://hl7.org/fhir/issue-severity";
+            case ERROR: return "http://hl7.org/fhir/issue-severity";
+            case WARNING: return "http://hl7.org/fhir/issue-severity";
+            case INFORMATION: return "http://hl7.org/fhir/issue-severity";
             default: return "?";
           }
         }

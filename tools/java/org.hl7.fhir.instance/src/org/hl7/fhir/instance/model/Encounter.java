@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -105,12 +105,12 @@ public class Encounter extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PLANNED: return "http://hl7.org.fhir/encounter-state";
-            case ARRIVED: return "http://hl7.org.fhir/encounter-state";
-            case INPROGRESS: return "http://hl7.org.fhir/encounter-state";
-            case ONLEAVE: return "http://hl7.org.fhir/encounter-state";
-            case FINISHED: return "http://hl7.org.fhir/encounter-state";
-            case CANCELLED: return "http://hl7.org.fhir/encounter-state";
+            case PLANNED: return "http://hl7.org/fhir/encounter-state";
+            case ARRIVED: return "http://hl7.org/fhir/encounter-state";
+            case INPROGRESS: return "http://hl7.org/fhir/encounter-state";
+            case ONLEAVE: return "http://hl7.org/fhir/encounter-state";
+            case FINISHED: return "http://hl7.org/fhir/encounter-state";
+            case CANCELLED: return "http://hl7.org/fhir/encounter-state";
             default: return "?";
           }
         }
@@ -254,15 +254,15 @@ public class Encounter extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case INPATIENT: return "http://hl7.org.fhir/encounter-class";
-            case OUTPATIENT: return "http://hl7.org.fhir/encounter-class";
-            case AMBULATORY: return "http://hl7.org.fhir/encounter-class";
-            case EMERGENCY: return "http://hl7.org.fhir/encounter-class";
-            case HOME: return "http://hl7.org.fhir/encounter-class";
-            case FIELD: return "http://hl7.org.fhir/encounter-class";
-            case DAYTIME: return "http://hl7.org.fhir/encounter-class";
-            case VIRTUAL: return "http://hl7.org.fhir/encounter-class";
-            case OTHER: return "http://hl7.org.fhir/encounter-class";
+            case INPATIENT: return "http://hl7.org/fhir/encounter-class";
+            case OUTPATIENT: return "http://hl7.org/fhir/encounter-class";
+            case AMBULATORY: return "http://hl7.org/fhir/encounter-class";
+            case EMERGENCY: return "http://hl7.org/fhir/encounter-class";
+            case HOME: return "http://hl7.org/fhir/encounter-class";
+            case FIELD: return "http://hl7.org/fhir/encounter-class";
+            case DAYTIME: return "http://hl7.org/fhir/encounter-class";
+            case VIRTUAL: return "http://hl7.org/fhir/encounter-class";
+            case OTHER: return "http://hl7.org/fhir/encounter-class";
             default: return "?";
           }
         }
@@ -382,9 +382,9 @@ public class Encounter extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PLANNED: return "http://hl7.org.fhir/encounter-location-status";
-            case PRESENT: return "http://hl7.org.fhir/encounter-location-status";
-            case RESERVED: return "http://hl7.org.fhir/encounter-location-status";
+            case PLANNED: return "http://hl7.org/fhir/encounter-location-status";
+            case PRESENT: return "http://hl7.org/fhir/encounter-location-status";
+            case RESERVED: return "http://hl7.org/fhir/encounter-location-status";
             default: return "?";
           }
         }

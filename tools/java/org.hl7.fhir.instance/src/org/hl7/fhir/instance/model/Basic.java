@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -63,7 +63,7 @@ public class Basic extends DomainResource {
      * Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.
      */
     @Child(name = "subject", type = {}, order=2, min=0, max=1)
-    @Description(shortDefinition="Identifies the", formalDefinition="Identifies the patient, practitioner, device or any other resource that is the 'focus' of this resoruce." )
+    @Description(shortDefinition="Identifies the focus of this resource", formalDefinition="Identifies the patient, practitioner, device or any other resource that is the 'focus' of this resoruce." )
     protected Reference subject;
 
     /**
@@ -360,11 +360,11 @@ public class Basic extends DomainResource {
 
   @SearchParamDefinition(name="author", path="Basic.author", description="Who created", type="reference" )
   public static final String SP_AUTHOR = "author";
-  @SearchParamDefinition(name="patient", path="Basic.subject", description="Identifies the", type="reference" )
+  @SearchParamDefinition(name="patient", path="Basic.subject", description="Identifies the focus of this resource", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="created", path="Basic.created", description="When created", type="date" )
   public static final String SP_CREATED = "created";
-  @SearchParamDefinition(name="subject", path="Basic.subject", description="Identifies the", type="reference" )
+  @SearchParamDefinition(name="subject", path="Basic.subject", description="Identifies the focus of this resource", type="reference" )
   public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="code", path="Basic.code", description="Kind of Resource", type="token" )
   public static final String SP_CODE = "code";

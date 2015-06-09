@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -84,9 +84,9 @@ public class DeviceMetric extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ON: return "http://hl7.org.fhir/metric-operational-status";
-            case OFF: return "http://hl7.org.fhir/metric-operational-status";
-            case STANDBY: return "http://hl7.org.fhir/metric-operational-status";
+            case ON: return "http://hl7.org/fhir/metric-operational-status";
+            case OFF: return "http://hl7.org/fhir/metric-operational-status";
+            case STANDBY: return "http://hl7.org/fhir/metric-operational-status";
             default: return "?";
           }
         }
@@ -205,14 +205,14 @@ public class DeviceMetric extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case BLACK: return "http://hl7.org.fhir/metric-color";
-            case RED: return "http://hl7.org.fhir/metric-color";
-            case GREEN: return "http://hl7.org.fhir/metric-color";
-            case YELLOW: return "http://hl7.org.fhir/metric-color";
-            case BLUE: return "http://hl7.org.fhir/metric-color";
-            case MAGENTA: return "http://hl7.org.fhir/metric-color";
-            case CYAN: return "http://hl7.org.fhir/metric-color";
-            case WHITE: return "http://hl7.org.fhir/metric-color";
+            case BLACK: return "http://hl7.org/fhir/metric-color";
+            case RED: return "http://hl7.org/fhir/metric-color";
+            case GREEN: return "http://hl7.org/fhir/metric-color";
+            case YELLOW: return "http://hl7.org/fhir/metric-color";
+            case BLUE: return "http://hl7.org/fhir/metric-color";
+            case MAGENTA: return "http://hl7.org/fhir/metric-color";
+            case CYAN: return "http://hl7.org/fhir/metric-color";
+            case WHITE: return "http://hl7.org/fhir/metric-color";
             default: return "?";
           }
         }
@@ -333,10 +333,10 @@ public class DeviceMetric extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case MEASUREMENT: return "http://hl7.org.fhir/metric-category";
-            case SETTING: return "http://hl7.org.fhir/metric-category";
-            case CALCULATION: return "http://hl7.org.fhir/metric-category";
-            case UNSPECIFIED: return "http://hl7.org.fhir/metric-category";
+            case MEASUREMENT: return "http://hl7.org/fhir/metric-category";
+            case SETTING: return "http://hl7.org/fhir/metric-category";
+            case CALCULATION: return "http://hl7.org/fhir/metric-category";
+            case UNSPECIFIED: return "http://hl7.org/fhir/metric-category";
             default: return "?";
           }
         }
@@ -433,10 +433,10 @@ public class DeviceMetric extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case UNSPECIFIED: return "http://hl7.org.fhir/metric-calibration-type";
-            case OFFSET: return "http://hl7.org.fhir/metric-calibration-type";
-            case GAIN: return "http://hl7.org.fhir/metric-calibration-type";
-            case TWOPOINT: return "http://hl7.org.fhir/metric-calibration-type";
+            case UNSPECIFIED: return "http://hl7.org/fhir/metric-calibration-type";
+            case OFFSET: return "http://hl7.org/fhir/metric-calibration-type";
+            case GAIN: return "http://hl7.org/fhir/metric-calibration-type";
+            case TWOPOINT: return "http://hl7.org/fhir/metric-calibration-type";
             default: return "?";
           }
         }
@@ -533,10 +533,10 @@ public class DeviceMetric extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case NOTCALIBRATED: return "http://hl7.org.fhir/metric-calibration-state";
-            case CALIBRATIONREQUIRED: return "http://hl7.org.fhir/metric-calibration-state";
-            case CALIBRATED: return "http://hl7.org.fhir/metric-calibration-state";
-            case UNSPECIFIED: return "http://hl7.org.fhir/metric-calibration-state";
+            case NOTCALIBRATED: return "http://hl7.org/fhir/metric-calibration-state";
+            case CALIBRATIONREQUIRED: return "http://hl7.org/fhir/metric-calibration-state";
+            case CALIBRATED: return "http://hl7.org/fhir/metric-calibration-state";
+            case UNSPECIFIED: return "http://hl7.org/fhir/metric-calibration-state";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -98,11 +98,11 @@ public class AuditEvent extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case C: return "http://hl7.org.fhir/audit-event-action";
-            case R: return "http://hl7.org.fhir/audit-event-action";
-            case U: return "http://hl7.org.fhir/audit-event-action";
-            case D: return "http://hl7.org.fhir/audit-event-action";
-            case E: return "http://hl7.org.fhir/audit-event-action";
+            case C: return "http://hl7.org/fhir/audit-event-action";
+            case R: return "http://hl7.org/fhir/audit-event-action";
+            case U: return "http://hl7.org/fhir/audit-event-action";
+            case D: return "http://hl7.org/fhir/audit-event-action";
+            case E: return "http://hl7.org/fhir/audit-event-action";
             default: return "?";
           }
         }
@@ -205,10 +205,10 @@ public class AuditEvent extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case _0: return "http://hl7.org.fhir/audit-event-outcome";
-            case _4: return "http://hl7.org.fhir/audit-event-outcome";
-            case _8: return "http://hl7.org.fhir/audit-event-outcome";
-            case _12: return "http://hl7.org.fhir/audit-event-outcome";
+            case _0: return "http://hl7.org/fhir/audit-event-outcome";
+            case _4: return "http://hl7.org/fhir/audit-event-outcome";
+            case _8: return "http://hl7.org/fhir/audit-event-outcome";
+            case _12: return "http://hl7.org/fhir/audit-event-outcome";
             default: return "?";
           }
         }
@@ -312,11 +312,11 @@ public class AuditEvent extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case _1: return "http://hl7.org.fhir/network-type";
-            case _2: return "http://hl7.org.fhir/network-type";
-            case _3: return "http://hl7.org.fhir/network-type";
-            case _4: return "http://hl7.org.fhir/network-type";
-            case _5: return "http://hl7.org.fhir/network-type";
+            case _1: return "http://hl7.org/fhir/network-type";
+            case _2: return "http://hl7.org/fhir/network-type";
+            case _3: return "http://hl7.org/fhir/network-type";
+            case _4: return "http://hl7.org/fhir/network-type";
+            case _5: return "http://hl7.org/fhir/network-type";
             default: return "?";
           }
         }
@@ -419,10 +419,10 @@ public class AuditEvent extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case _1: return "http://hl7.org.fhir/object-type";
-            case _2: return "http://hl7.org.fhir/object-type";
-            case _3: return "http://hl7.org.fhir/object-type";
-            case _4: return "http://hl7.org.fhir/object-type";
+            case _1: return "http://hl7.org/fhir/object-type";
+            case _2: return "http://hl7.org/fhir/object-type";
+            case _3: return "http://hl7.org/fhir/object-type";
+            case _4: return "http://hl7.org/fhir/object-type";
             default: return "?";
           }
         }
@@ -659,30 +659,30 @@ public class AuditEvent extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case _1: return "http://hl7.org.fhir/object-role";
-            case _2: return "http://hl7.org.fhir/object-role";
-            case _3: return "http://hl7.org.fhir/object-role";
-            case _4: return "http://hl7.org.fhir/object-role";
-            case _5: return "http://hl7.org.fhir/object-role";
-            case _6: return "http://hl7.org.fhir/object-role";
-            case _7: return "http://hl7.org.fhir/object-role";
-            case _8: return "http://hl7.org.fhir/object-role";
-            case _9: return "http://hl7.org.fhir/object-role";
-            case _10: return "http://hl7.org.fhir/object-role";
-            case _11: return "http://hl7.org.fhir/object-role";
-            case _12: return "http://hl7.org.fhir/object-role";
-            case _13: return "http://hl7.org.fhir/object-role";
-            case _14: return "http://hl7.org.fhir/object-role";
-            case _15: return "http://hl7.org.fhir/object-role";
-            case _16: return "http://hl7.org.fhir/object-role";
-            case _17: return "http://hl7.org.fhir/object-role";
-            case _18: return "http://hl7.org.fhir/object-role";
-            case _19: return "http://hl7.org.fhir/object-role";
-            case _20: return "http://hl7.org.fhir/object-role";
-            case _21: return "http://hl7.org.fhir/object-role";
-            case _22: return "http://hl7.org.fhir/object-role";
-            case _23: return "http://hl7.org.fhir/object-role";
-            case _24: return "http://hl7.org.fhir/object-role";
+            case _1: return "http://hl7.org/fhir/object-role";
+            case _2: return "http://hl7.org/fhir/object-role";
+            case _3: return "http://hl7.org/fhir/object-role";
+            case _4: return "http://hl7.org/fhir/object-role";
+            case _5: return "http://hl7.org/fhir/object-role";
+            case _6: return "http://hl7.org/fhir/object-role";
+            case _7: return "http://hl7.org/fhir/object-role";
+            case _8: return "http://hl7.org/fhir/object-role";
+            case _9: return "http://hl7.org/fhir/object-role";
+            case _10: return "http://hl7.org/fhir/object-role";
+            case _11: return "http://hl7.org/fhir/object-role";
+            case _12: return "http://hl7.org/fhir/object-role";
+            case _13: return "http://hl7.org/fhir/object-role";
+            case _14: return "http://hl7.org/fhir/object-role";
+            case _15: return "http://hl7.org/fhir/object-role";
+            case _16: return "http://hl7.org/fhir/object-role";
+            case _17: return "http://hl7.org/fhir/object-role";
+            case _18: return "http://hl7.org/fhir/object-role";
+            case _19: return "http://hl7.org/fhir/object-role";
+            case _20: return "http://hl7.org/fhir/object-role";
+            case _21: return "http://hl7.org/fhir/object-role";
+            case _22: return "http://hl7.org/fhir/object-role";
+            case _23: return "http://hl7.org/fhir/object-role";
+            case _24: return "http://hl7.org/fhir/object-role";
             default: return "?";
           }
         }
@@ -976,21 +976,21 @@ public class AuditEvent extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case _1: return "http://hl7.org.fhir/object-lifecycle";
-            case _2: return "http://hl7.org.fhir/object-lifecycle";
-            case _3: return "http://hl7.org.fhir/object-lifecycle";
-            case _4: return "http://hl7.org.fhir/object-lifecycle";
-            case _5: return "http://hl7.org.fhir/object-lifecycle";
-            case _6: return "http://hl7.org.fhir/object-lifecycle";
-            case _7: return "http://hl7.org.fhir/object-lifecycle";
-            case _8: return "http://hl7.org.fhir/object-lifecycle";
-            case _9: return "http://hl7.org.fhir/object-lifecycle";
-            case _10: return "http://hl7.org.fhir/object-lifecycle";
-            case _11: return "http://hl7.org.fhir/object-lifecycle";
-            case _12: return "http://hl7.org.fhir/object-lifecycle";
-            case _13: return "http://hl7.org.fhir/object-lifecycle";
-            case _14: return "http://hl7.org.fhir/object-lifecycle";
-            case _15: return "http://hl7.org.fhir/object-lifecycle";
+            case _1: return "http://hl7.org/fhir/object-lifecycle";
+            case _2: return "http://hl7.org/fhir/object-lifecycle";
+            case _3: return "http://hl7.org/fhir/object-lifecycle";
+            case _4: return "http://hl7.org/fhir/object-lifecycle";
+            case _5: return "http://hl7.org/fhir/object-lifecycle";
+            case _6: return "http://hl7.org/fhir/object-lifecycle";
+            case _7: return "http://hl7.org/fhir/object-lifecycle";
+            case _8: return "http://hl7.org/fhir/object-lifecycle";
+            case _9: return "http://hl7.org/fhir/object-lifecycle";
+            case _10: return "http://hl7.org/fhir/object-lifecycle";
+            case _11: return "http://hl7.org/fhir/object-lifecycle";
+            case _12: return "http://hl7.org/fhir/object-lifecycle";
+            case _13: return "http://hl7.org/fhir/object-lifecycle";
+            case _14: return "http://hl7.org/fhir/object-lifecycle";
+            case _15: return "http://hl7.org/fhir/object-lifecycle";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 29, 2015 09:24+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -111,13 +111,13 @@ public class HumanName extends Type implements ICompositeType {
         }
         public String getSystem() {
           switch (this) {
-            case USUAL: return "http://hl7.org.fhir/name-use";
-            case OFFICIAL: return "http://hl7.org.fhir/name-use";
-            case TEMP: return "http://hl7.org.fhir/name-use";
-            case NICKNAME: return "http://hl7.org.fhir/name-use";
-            case ANONYMOUS: return "http://hl7.org.fhir/name-use";
-            case OLD: return "http://hl7.org.fhir/name-use";
-            case MAIDEN: return "http://hl7.org.fhir/name-use";
+            case USUAL: return "http://hl7.org/fhir/name-use";
+            case OFFICIAL: return "http://hl7.org/fhir/name-use";
+            case TEMP: return "http://hl7.org/fhir/name-use";
+            case NICKNAME: return "http://hl7.org/fhir/name-use";
+            case ANONYMOUS: return "http://hl7.org/fhir/name-use";
+            case OLD: return "http://hl7.org/fhir/name-use";
+            case MAIDEN: return "http://hl7.org/fhir/name-use";
             default: return "?";
           }
         }
