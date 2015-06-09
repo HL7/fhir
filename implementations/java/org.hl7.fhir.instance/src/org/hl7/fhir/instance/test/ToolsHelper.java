@@ -344,6 +344,7 @@ public class ToolsHelper {
 
   public void processExamples(String rootDir, Collection<String> list) throws Exception {
     for (String n : list) {
+      try {
       String filename = rootDir + n + ".xml";
       // 1. produce canonical XML
       CSFileInputStream source = new CSFileInputStream(filename);
@@ -365,6 +366,10 @@ public class ToolsHelper {
       json.setOutputStyle(OutputStyle.CANONICAL);
       dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.json"));
       json.compose(dest, r);
+      } catch (Exception e) {
+        e.printStackTrace();
+        throw new Exception("Error Processing "+n+".xml: "+e.getMessage(), e);
+      }
     }
   }
 

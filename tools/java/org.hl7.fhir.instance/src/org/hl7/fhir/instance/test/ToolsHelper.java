@@ -342,29 +342,34 @@ public class ToolsHelper {
     TextFile.stringToFile(org.hl7.fhir.instance.utils.Version.VERSION+":"+Constants.VERSION, args[1]);
   }
 
-  public void processExamples(String rootDir, Collection<String> list) throws Exception {
+  public void processExamples(String rootDir, Collection<String> list) throws Exception  {
     for (String n : list) {
-      String filename = rootDir + n + ".xml";
-      // 1. produce canonical XML
-      CSFileInputStream source = new CSFileInputStream(filename);
-      FileOutputStream dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.xml"));
-      XmlParser p = new XmlParser();
-      Resource r = p.parse(source);
-      XmlParser cxml = new XmlParser();
-      cxml.setOutputStyle(OutputStyle.CANONICAL);
-      cxml.compose(dest, r);
+      try {
+        String filename = rootDir + n + ".xml";
+        // 1. produce canonical XML
+        CSFileInputStream source = new CSFileInputStream(filename);
+        FileOutputStream dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.xml"));
+        XmlParser p = new XmlParser();
+        Resource r = p.parse(source);
+        XmlParser cxml = new XmlParser();
+        cxml.setOutputStyle(OutputStyle.CANONICAL);
+        cxml.compose(dest, r);
 
-      // 2. produce JSON
-      source = new CSFileInputStream(filename);
-      dest = new FileOutputStream(Utilities.changeFileExt(filename, ".json"));
-      r = p.parse(source);
-      JsonParser json = new JsonParser();
-      json.setOutputStyle(OutputStyle.PRETTY);
-      json.compose(dest, r);
-      json = new JsonParser();
-      json.setOutputStyle(OutputStyle.CANONICAL);
-      dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.json"));
-      json.compose(dest, r);
+        // 2. produce JSON
+        source = new CSFileInputStream(filename);
+        dest = new FileOutputStream(Utilities.changeFileExt(filename, ".json"));
+        r = p.parse(source);
+        JsonParser json = new JsonParser();
+        json.setOutputStyle(OutputStyle.PRETTY);
+        json.compose(dest, r);
+        json = new JsonParser();
+        json.setOutputStyle(OutputStyle.CANONICAL);
+        dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.json"));
+        json.compose(dest, r);
+      } catch (Exception e) {
+        e.printStackTrace();
+        throw new Exception("Error Processing "+n+".xml: "+e.getMessage(), e);
+      }
     }
   }
 

@@ -47,16 +47,6 @@ const
   MAX_DATE = DATETIME_MAX;
   ANY_CODE_VS = 'http://www.healthintersections.com.au/fhir/ValueSet/anything';
 
-type
-  TFhirConceptMapConceptList = TFhirConceptMapElementList;
-  TFhirConceptMapConceptMapList = TFhirConceptMapElementMapList;
-  TFhirConceptMapConcept = TFhirConceptMapElement;
-  TFhirConceptMapConceptMap = TFhirConceptMapElementMap;
-
-const
-  ValueSetStatusActive = ConformanceResourceStatusActive;
-  ConformanceStatementStatusActive = ConformanceResourceStatusActive;
-
 function HumanNameAsText(name : TFhirHumanName):String;
 function GetEmailAddress(contacts : TFhirContactPointList):String;
 function ResourceTypeByName(name : String) : TFhirResourceType;
@@ -203,29 +193,6 @@ type
     function hint(source, typeCode, path : string; test : boolean; msg : string) : boolean;
 
     function hasErrors : boolean;
-  end;
-
-  TFhirConceptMapElementHelper = class helper (TFhirElementHelper) for TFhirConceptMapElement
-  public
-    function systemObject : TFhirUri;
-    function system : String;
-  end;
-
-  TFhirConceptMapElementDependsOnHelper = class helper (TFhirElementHelper) for TFhirConceptMapElementDependsOn
-  public
-    function conceptObject : TFhirUri;
-    function concept : String;
-  end;
-
-  TFhirConceptMapHelper = class helper (TFhirResourceHelper) for TFhirConceptMap
-  public
-    function conceptList : TFhirConceptMapElementList;
-  end;
-
-  TFhirConceptMapElementMapHelper = class helper (TFhirElementHelper) for TFhirConceptMapElementMap
-  public
-    function systemObject : TFhirUri;
-    function system : String;
   end;
 
   TFHIRBundleHelper = class helper (TFhirResourceHelper) for TFHIRBundle
@@ -1581,49 +1548,6 @@ begin
 
   FreeMem(buffer);
   {$ENDIF}
-end;
-
-{ TFhirConceptMapElementHelper }
-
-function TFhirConceptMapElementHelper.systemObject: TFhirUri;
-begin
-  result := codeSystemElement;
-end;
-
-function TFhirConceptMapElementHelper.system: String;
-begin
-  result := codeSystem;
-end;
-
-{ TFhirConceptMapElementMapHelper }
-
-function TFhirConceptMapElementMapHelper.systemObject: TFhirUri;
-begin
-  result := codeSystemElement;
-end;
-
-function TFhirConceptMapElementMapHelper.system: String;
-begin
-  result := codeSystem;
-end;
-
-{ TFhirConceptMapHelper }
-
-function TFhirConceptMapHelper.conceptList: TFhirConceptMapElementList;
-begin
-  result := elementList;
-end;
-
-{ TFhirConceptMapElementDependsOnHelper }
-
-function TFhirConceptMapElementDependsOnHelper.conceptObject: TFhirUri;
-begin
-  result := elementElement;
-end;
-
-function TFhirConceptMapElementDependsOnHelper.concept: String;
-begin
-  result := element;
 end;
 
 

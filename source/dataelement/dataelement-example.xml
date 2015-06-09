@@ -109,31 +109,31 @@
       </targetReference>
       <element>
         <code value="C17998"/>
-        <map>
+        <target>
           <code value="0"/>
           <equivalence value="equal"/>
-        </map>
+        </target>
       </element>
       <element>
         <code value="C20197"/>
-        <map>
+        <target>
           <code value="1"/>
           <equivalence value="equal"/>
-        </map>
+        </target>
       </element>
       <element>
         <code value="C16576"/>
-        <map>
+        <target>
           <code value="2"/>
           <equivalence value="equal"/>
-        </map>
+        </target>
       </element>
       <element>
         <code value="C38046"/>
-        <map>
+        <target>
           <code value="3"/>
           <equivalence value="equal"/>
-        </map>
+        </target>
       </element>
     </ConceptMap>
   </contained>

@@ -32,7 +32,7 @@ public class ProfileValidator {
 
   private void checkExtensions(StructureDefinition profile, List<String> errors, String kind, ElementDefinition ec) throws Exception {
     if (!ec.getType().isEmpty() && ec.getType().get(0).getCode().equals("Extension")) {
-      String url = ec.getType().get(0).getProfile();
+      String url = ec.getType().get(0).getProfile().get(0).getValue();
       if (!Utilities.noString(url)) {
         StructureDefinition defn = context.getExtensionStructure(null, url);
         if (defn == null)

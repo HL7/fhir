@@ -33,6 +33,7 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDiffer
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -418,7 +419,7 @@ public class ProfileUtilities {
 
 
   private StructureDefinition getProfileForDataType(TypeRefComponent type) {
-    if (type.hasProfileElement() && !type.getCode().equals("Reference") && !type.getCode().equals("Extension")) 
+    if (type.hasProfile() && !type.getCode().equals("Reference") && !type.getCode().equals("Extension")) 
       throw new Error("handling profiles is not supported yet");
     for (StructureDefinition ae : context.getProfiles().values()) {
       if (ae.getName().equals(type.getCode())) {
@@ -436,7 +437,7 @@ public class ProfileUtilities {
     for (TypeRefComponent type : types) {
       if (first) first = false; else b.append(", ");
       b.append(type.getCode());
-      if (type.hasProfileElement())
+      if (type.hasProfile())
         b.append("{"+type.getProfile()+"}");
     }
     return b.toString();
@@ -467,8 +468,9 @@ public class ProfileUtilities {
       if (defn.hasBinding() && defn.getBinding().getValueSet() instanceof Reference && ((Reference)defn.getBinding().getValueSet()).getReference().startsWith("#"))
         ((Reference)defn.getBinding().getValueSet()).setReference(url+((Reference)defn.getBinding().getValueSet()).getReference());
       for (TypeRefComponent t : defn.getType()) {
-        if (t.hasProfile() && t.getProfile().startsWith("#")) {
-          t.setProfile(url+t.getProfile());
+        for (UriType tp : t.getProfile()) {
+        	if (tp.getValue().startsWith("#"))
+            tp.setValue(url+t.getProfile());
         }
       }
     }
@@ -884,17 +886,17 @@ public class ProfileUtilities {
         first = false; 
       else 
         c.addPiece(checkForNoChange(source, gen.new Piece(null,", ", null)));
-      if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.hasProfileElement())) {
-        if (t.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          String rn = t.getProfile().substring(40);
+      if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.hasProfile())) {
+        if (t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          String rn = t.getProfile().get(0).getValue().substring(40);
           c.addPiece(checkForNoChange(source, gen.new Piece(pkp.getLinkFor(rn), rn, null)));
-        } else if (t.getProfile().startsWith("#"))
-          c.addPiece(checkForNoChange(source, gen.new Piece(profileBaseFileName+"."+t.getProfile().substring(1).toLowerCase()+".html", t.getProfile(), null)));
+        } else if (t.getProfile().get(0).getValue().startsWith("#"))
+          c.addPiece(checkForNoChange(source, gen.new Piece(profileBaseFileName+"."+t.getProfile().get(0).getValue().substring(1).toLowerCase()+".html", t.getProfile().get(0).getValue(), null)));
         else
-          c.addPiece(checkForNoChange(source, gen.new Piece(t.getProfile(), t.getProfile(), null)));
-      } else if (t.hasProfileElement()) { // a profiled type
+          c.addPiece(checkForNoChange(source, gen.new Piece(t.getProfile().get(0).getValue(), t.getProfile().get(0).getValue(), null)));
+      } else if (t.hasProfile()) { // a profiled type
         String ref;
-        ref = pkp.getLinkForProfile(profile, t.getProfile());
+        ref = pkp.getLinkForProfile(profile, t.getProfile().get(0).getValue());
         if (ref != null) {
           String[] parts = ref.split("\\|");
           c.addPiece(checkForNoChange(source, gen.new Piece(parts[0], parts[1], t.getCode())));
@@ -1033,13 +1035,13 @@ public class ProfileUtilities {
     StructureDefinition extDefn = null;
     if (ext) {
       if (element != null && element.getType().size() == 1 && element.getType().get(0).hasProfile()) {
-        extDefn = context.getExtensionStructure(null, element.getType().get(0).getProfile());
+        extDefn = context.getExtensionStructure(null, element.getType().get(0).getProfile().get(0).getValue());
         if (extDefn == null) {
             genCardinality(gen, element, row, hasDef, used, null);
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getType().get(0).getProfile(), null, null));
-            generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getType().get(0).getProfile(), pkp, profile);
+            generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getType().get(0).getProfile().get(0).getValue(), pkp, profile);
           } else {
-            String name = urltail(element.getType().get(0).getProfile());
+            String name = urltail(element.getType().get(0).getProfile().get(0).getValue());
             left.getPieces().get(0).setText(name);
             // left.getPieces().get(0).setReference((String) extDefn.getExtensionStructure().getTag("filename"));
             left.getPieces().get(0).setHint("Extension URL = "+element.getType().get(0).getProfile());
