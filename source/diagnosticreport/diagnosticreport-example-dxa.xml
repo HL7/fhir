@@ -153,13 +153,13 @@ GE LUNAR PRODIGY DENSITOMETER
 
 
 <!-- first, various administrative/context stuff -->
-  <name>
+  <code>
     <coding>
       <system value="http://loinc.org"/>
       <code value="38269-7"/>
     </coding>
     <text value="DXA BONE DENSITOMETRY"/>
-  </name>
+  </code>
   <status value="final"/> <!-- all this report is final -->
   <issued value="2008-06-18T09:23:00+10:00"/>
   <subject>

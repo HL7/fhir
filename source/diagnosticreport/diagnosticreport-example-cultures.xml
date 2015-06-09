@@ -5,13 +5,13 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
     </div>
   </text>
-  <name>
+  <code>
     <coding>
       <system value="http://mater.org.au/brisbane/pathology/tests"/>
       <code value="Mblcl"/>
       <display value="Blood Cultures"/>
     </coding>
-  </name>
+  </code>
   <status value="partial"/>
   <issued value="2013-10-07T17:18:16"/>
   <subject>

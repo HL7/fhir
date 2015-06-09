@@ -9,7 +9,7 @@
 	<patient>
 	  <type>Patient</type>
 	  <id>23453</id>
-	</patient>
+	</patient
 	<laboratory>
 	  <type>Organization</type>
 	  <id>1832473e-2fe0-452d-abe9-3cdb9879522f</id>
@@ -40,13 +40,13 @@
   <resultGroup>
     <!-- null group, so no name or speciment -->
     <result>
-      <name>
+      <code>
         <coding>
           <code>718-7</code>
           <system>http://loinc.org</system>
           <display>Haemoglobin</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>176</value>
         <units>g/L</units>
@@ -73,13 +73,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>789-8</code>
           <system>http://loinc.org</system>
           <display>Red Cell Count</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>5.9</value>
         <units>x10*12/L</units>
@@ -106,13 +106,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>4544-3</code>
           <system>http://loinc.org</system>
           <display>Haematocrit</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>0.55</value>
       </valueQuantity>
@@ -131,13 +131,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>787-2</code>
           <system>http://loinc.org</system>
           <display>Mean Cell Volume</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>99</value>
         <units>fL</units>
@@ -165,13 +165,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>785-6</code>
           <system>http://loinc.org</system>
           <display>Mean Cell Haemoglobin</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>36</value>
         <units>pg</units>
@@ -199,13 +199,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>777-3</code>
           <system>http://loinc.org</system>
           <display>Platelet Count</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>444</value>
         <units>x10*9/L</units>
@@ -232,13 +232,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>6690-2</code>
           <system>http://loinc.org</system>
           <display>White Cell Count</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>4.6</value>
         <units>x10*9/L</units>
@@ -265,13 +265,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>770-8</code>
           <system>http://loinc.org</system>
           <display>Neutrophils</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>20</value>
         <units>%</units>
@@ -282,13 +282,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>751-8</code>
           <system>http://loinc.org</system>
           <display>Neutrophils</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>0.9</value>
         <units>x10*9/L</units>
@@ -316,13 +316,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>736-9</code>
           <system>http://loinc.org</system>
           <display>Lymphocytes</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>20</value>
         <units>%</units>
@@ -333,13 +333,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>731-0</code>
           <system>http://loinc.org</system>
           <display>Lymphocytes</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>0.9</value>
         <units>x10*9/L</units>
@@ -367,13 +367,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>5905-5</code>
           <system>http://loinc.org</system>
           <display>Monocytes</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>20</value>
         <units>%</units>
@@ -384,13 +384,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>742-7</code>
           <system>http://loinc.org</system>
           <display>Monocytes</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>0.9</value>
         <units>x10*9/L</units>
@@ -417,13 +417,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>713-8</code>
           <system>http://loinc.org</system>
           <display>Eosinophils</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>20</value>
         <units>%</units>
@@ -434,13 +434,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>711-2</code>
           <system>http://loinc.org</system>
           <display>Eosinophils</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>0.92</value>
         <units>x10*9/L</units>
@@ -468,13 +468,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>706-2</code>
           <system>http://loinc.org</system>
           <display>Basophils</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>20</value>
         <units>%</units>
@@ -485,13 +485,13 @@
     </result>
 
     <result>
-      <name>
+      <code>
         <coding>
           <code>704-7</code>
           <system>http://loinc.org</system>
           <display>Basophils</display>
         </coding>
-      </name>
+      </code>
       <valueQuantity>
         <value>0.92</value>
         <units>x10*9/L</units>

@@ -18,13 +18,13 @@
       </encounter>
     </DiagnosticOrder>
   </contained>
-  <name>
+  <code>
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="104177005"/>
         <display value="Blood culture for bacteria, including anaerobic screen"/>
     </coding>
-  </name>
+  </code>
   <status value="final"/>
   <issued value="2013-03-11T10:28:00+01:00"/>
   <subject><!--It entails Roel's diagnostic report-->
