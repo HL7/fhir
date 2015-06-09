@@ -601,7 +601,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   </extension>
 
 <!-- first, various administrative/context stuff -->
-  <name>
+  <code>
     <coding>
       <system value="http://loinc.org"/>
       <code value="58410-2"/>
@@ -612,7 +612,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       <display value="MASTER FULL BLOOD COUNT"/>
     </coding>
     <text value="Complete Blood Count"/>
-  </name>
+  </code>
   <status value="final"/> <!-- all this report is final -->
   <issued value="2011-03-04T11:45:33+11:00"/>
   <subject>

@@ -14,7 +14,7 @@ see narrative
 	<id value="dr-uslab-example1"/>
 
 	<!-- first, various administrative/context stuff   EH the report name code LOINC and/or local-->
-	<name>
+	<code>
 		<!-- EH first the LOINC -->
 		<coding>
 			<system value="http://loinc.org"/>
@@ -28,7 +28,7 @@ see narrative
 			<display value="Blood Lead"/>
 		</coding>
 		<text value="Blood Lead Report"/>
-	</name>
+	</code>
 	<status value="final"/>
 	<!-- all this report is final -->
 	<!-- EH: Showing dateTime to ss with TZO although only needed to Day -->
