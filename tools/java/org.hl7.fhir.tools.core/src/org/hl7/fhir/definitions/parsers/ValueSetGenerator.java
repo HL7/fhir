@@ -44,13 +44,13 @@ public class ValueSetGenerator {
     if (!vs.hasUrl())
       throw new Exception("Value set with no URL!");
 
-    if (vs.getUrl().equals("data-types"))
+    if (vs.getId().equals("data-types"))
       genDataTypes(vs);
-    else if (vs.getUrl().equals("defined-types"))
+    else if (vs.getId().equals("defined-types"))
       genDefinedTypes(vs);
-    else if (vs.getUrl().equals("message-events"))
+    else if (vs.getId().equals("message-events"))
       genMessageEvents(vs);
-    else if (vs.getUrl().equals("resource-types"))
+    else if (vs.getId().equals("resource-types"))
       genResourceTypes(vs);
   }
 

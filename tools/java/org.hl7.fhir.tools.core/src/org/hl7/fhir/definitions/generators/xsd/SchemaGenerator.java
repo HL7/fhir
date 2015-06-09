@@ -49,7 +49,7 @@ public class SchemaGenerator {
   private String genDate;
   private String version;
 
-  public void generate(Definitions definitions, IniFile ini, String tmpResDir, String xsdDir, String dstDir, String srcDir, String version, String genDate) throws Exception {
+  public void generate(Definitions definitions, IniFile ini, String tmpResDir, String xsdDir, String dstDir, String srcDir, String version, String genDate, boolean forCodeGeneration) throws Exception {
 	  this.genDate = genDate;
 	  this.version = version;
 
@@ -59,7 +59,7 @@ public class SchemaGenerator {
 			  f.delete();
 	  }
 
-	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"));
+	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"), forCodeGeneration);
 	  xsdb.setDefinitions(definitions);
 	  xsdb.generate(version, genDate, true);
 	  xsdb.getWriter().close();
@@ -69,7 +69,7 @@ public class SchemaGenerator {
     Collections.sort(names);
     for (String name : names) {
       ResourceDefn root = definitions.getResources().get(name);
-		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd"))), definitions);
+		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd"))), definitions, forCodeGeneration);
 		  sgen.setDataTypes(definitions.getKnownTypes());
 		  sgen.generate(root.getRoot(), version, genDate, true);
 		  sgen.getWriter().close();
@@ -87,10 +87,10 @@ public class SchemaGenerator {
 	      + "xmlns:xml=\"http://www.w3.org/XML/1998/namespace\" targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
 	  single.write("  <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml=\"http://www.w3.org/XML/1998/namespace\", however this causes performance issues with other tools and thus is not in the base schemas. -->\r\n");
 
-    xsdb = new XSDBaseGenerator(single);
+    xsdb = new XSDBaseGenerator(single, forCodeGeneration);
     xsdb.setDefinitions(definitions);
     xsdb.generate(version, genDate, false);
-
+ 
 //    single.write("  <xs:simpleType name=\"ResourceNamesPlusBinary\">\r\n");
 //    single.write("    <xs:union memberTypes=\"ResourceType\">\r\n");
 //    single.write("      <xs:simpleType>\r\n");
@@ -112,7 +112,7 @@ public class SchemaGenerator {
 //  
     for (String name : names) {
       ResourceDefn root = definitions.getResources().get(name);
-      XSDGenerator sgen = new XSDGenerator(single, definitions);
+      XSDGenerator sgen = new XSDGenerator(single, definitions, forCodeGeneration);
       sgen.setDataTypes(definitions.getKnownTypes());
       sgen.generate(root.getRoot(), version, genDate, false);
     }

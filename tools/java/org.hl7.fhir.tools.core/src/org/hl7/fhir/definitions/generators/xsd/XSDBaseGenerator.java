@@ -66,12 +66,15 @@ public class XSDBaseGenerator {
   private Map<String, String> enumDefs = new HashMap<String, String>();
 
   private List<String> genEnums = new ArrayList<String>();
-  private Map<String, String> regexQueue = new HashMap<String, String>(); 
+  private Map<String, String> regexQueue = new HashMap<String, String>();
+
+  private boolean forCodeGeneration; 
 
   // private Map<String, PrimitiveType> primitives;
 
-  public XSDBaseGenerator(OutputStreamWriter out) throws UnsupportedEncodingException {
+  public XSDBaseGenerator(OutputStreamWriter out, boolean forCodeGeneration) throws UnsupportedEncodingException {
     writer = out;
+    this.forCodeGeneration = forCodeGeneration;
   }
 
   private void write(String s) throws IOException {
@@ -133,11 +136,20 @@ public class XSDBaseGenerator {
 
   private void genResourceContainer() throws IOException {
         write("  <xs:complexType name=\"ResourceContainer\">\r\n");
-        write("    <xs:choice>\r\n");
+        if (forCodeGeneration) {
+          write("    <xs:sequence>\r\n");
+          write("      <xs:annotation>\r\n");
+          write("        <xs:documentation>(choose any one of the elements, but only one)</xs:documentation>\r\n");         
+          write("      </xs:annotation>\r\n");
+        } else
+          write("    <xs:choice>\r\n");
         for (String n : definitions.sortedResourceNames())
           write("      <xs:element ref=\""+n+"\"/>\r\n");
         write("      <xs:element ref=\"Parameters\"/>\r\n");
-        write("    </xs:choice>\r\n");
+        if (forCodeGeneration) 
+          write("    </xs:sequence>\r\n");
+        else
+          write("    </xs:choice>\r\n");
         write("  </xs:complexType>\r\n");
     
   }
@@ -598,33 +610,38 @@ public class XSDBaseGenerator {
     write("  </xs:complexType>\r\n");
   }
 
-  private void generateAny(ElementDefn root, ElementDefn e, String prefix)
-      throws Exception {
-    write("        <xs:choice minOccurs=\""
-        + e.getMinCardinality().toString() + "\" maxOccurs=\"1\">\r\n");
-    if (e.hasDefinition()) {
-      write("           <xs:annotation>\r\n");
-      write("             <xs:documentation>"
-          + Utilities.escapeXml(e.getDefinition())
-          + "</xs:documentation>\r\n");
-      write("           </xs:annotation>\r\n");
+  private void generateAny(ElementDefn root, ElementDefn e, String prefix) throws Exception {
+    String close = ">";
+    if (!forCodeGeneration) {
+      write("        <xs:choice minOccurs=\"" + e.getMinCardinality().toString() + "\" maxOccurs=\"1\">\r\n");
+      if (e.hasDefinition()) {
+        write("           <xs:annotation>\r\n");
+        write("             <xs:documentation>" + Utilities.escapeXml(e.getDefinition()) + "</xs:documentation>\r\n");
+        write("           </xs:annotation>\r\n");
+      }
+      close = "/>";
     }
     for (TypeRef t : definitions.getKnownTypes()) {
-      if (!definitions.getInfrastructure().containsKey(t.getName())
-          && !definitions.getConstraints().containsKey(t.getName())) {
-        String en = prefix != null ? prefix + upFirst(t.getName()) : t
-            .getName();
-        if (t.hasParams()) {
-          for (String p : t.getParams()) {
-            write("           <xs:element name=\"" + en + "_"
-                + upFirst(p) + "\" type=\""+ t.getName() + "_" + upFirst(p) + "\"/>\r\n");
+      if (!definitions.getInfrastructure().containsKey(t.getName()) && !definitions.getConstraints().containsKey(t.getName()) && !definitions.getShared().contains(t.getName())) {
+        if (t.isResourceReference()) {
+          write("           <xs:element name=\""+prefix+"Resource\" type=\"Reference\""+close+"\r\n");        
+        } else {
+          write("           <xs:element name=\""+prefix+Utilities.capitalize(t.getName())+"\" type=\""+t.getName()+"\""+close+"\r\n");       
+        }
+        if (forCodeGeneration) {
+          write("            <xs:annotation>\r\n");
+          if (e.hasDefinition()) {
+            write("              <xs:documentation>"+Utilities.escapeXml(e.getDefinition())+" (choose any one of the elements, but only one)</xs:documentation>\r\n");
+          } else {
+            write("              <xs:documentation>(choose any one of the elements, but only one)</xs:documentation>\r\n");         
           }
-        } else if (!definitions.getShared().contains(t.getName())) { 
-          write("           <xs:element name=\"" + en + "\" type=\"" + t.getName()+ "\"/>\r\n");
+          write("            </xs:annotation>\r\n");
+          write("           </xs:element>\r\n");       
         }
       }
     }
-    write("          </xs:choice>\r\n");
+    if (!forCodeGeneration) 
+      write("         </xs:choice>\r\n");
   }
 
   private void generateElement(ElementDefn root, ElementDefn e, String paramType) throws Exception {
@@ -635,22 +652,37 @@ public class XSDBaseGenerator {
       if ((types.size() == 1 && types.get(0).isWildcardType())) {
         generateAny(root, e, e.getName().replace("[x]", ""));
       } else {
-         write("          <xs:choice minOccurs=\"" + e.getMinCardinality().toString() + "\">\r\n");
-         if (e.hasDefinition()) {
-           write("            <xs:annotation>\r\n");
-           write("              <xs:documentation>"+Utilities.escapeXml(e.getDefinition())+"</xs:documentation>\r\n");
-           write("            </xs:annotation>\r\n");
-         }
-         for (TypeRef t : types) {
-           String type = encodeType(e, t, true);
-           String name = e.getName().substring(0,  e.getName().length()-3) + Utilities.capitalize(type); 
-           write("           <xs:element name=\"" + name + "\" type=\"" + type + "\" ");
-           if (e.unbounded())
-             write(" maxOccurs=\"unbounded\"/>\r\n");
-           else
-             write(" maxOccurs=\"1\"/>\r\n");
-         }
-         write("          </xs:choice>\r\n");
+        String close = ">";
+        if (!forCodeGeneration) {
+          write("          <xs:choice minOccurs=\"" + e.getMinCardinality().toString() + "\">\r\n");
+          if (e.hasDefinition()) {
+            write("            <xs:annotation>\r\n");
+            write("              <xs:documentation>"+Utilities.escapeXml(e.getDefinition())+"</xs:documentation>\r\n");
+            write("            </xs:annotation>\r\n");
+          }
+          close = "/>";
+        }
+        for (TypeRef t : types) {
+          String type = encodeType(e, t, true);
+          String name = e.getName().substring(0,  e.getName().length()-3) + Utilities.capitalize(type); 
+          write("           <xs:element name=\"" + name + "\" type=\"" + type + "\" ");
+          if (e.unbounded())
+            write(" maxOccurs=\"unbounded\""+close+"\r\n");
+          else
+            write(" maxOccurs=\"1\""+close+"\r\n");
+          if (forCodeGeneration) {
+            write("              <xs:annotation>\r\n");
+            if (e.hasDefinition()) {
+              write("                <xs:documentation>"+Utilities.escapeXml(e.getDefinition())+" (choose any one of "+e.getName().replace("[x]", "")+"*, but only one)</xs:documentation>\r\n");
+            } else {
+              write("                <xs:documentation>(choose any one of "+e.getName().replace("[x]", "")+"*, but only one)</xs:documentation>\r\n");         
+            }
+            write("              </xs:annotation>\r\n");
+            write("             </xs:element>\r\n");       
+          }
+        }
+        if (!forCodeGeneration) 
+          write("          </xs:choice>\r\n");
       }
     } else {
       write("          ");

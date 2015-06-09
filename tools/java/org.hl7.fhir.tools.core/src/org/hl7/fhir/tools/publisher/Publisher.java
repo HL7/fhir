@@ -495,14 +495,25 @@ public class Publisher implements URIResolver {
       buildFlags.put(singleResource.toLowerCase(), true);
     } 
     if (!buildFlags.get("all")) {
+      Utilities.tone(800, 20);
+      Utilities.tone(1000, 20);
+      Utilities.tone(1200, 20);
+      Utilities.tone(1400, 20);
+      Utilities.tone(1600, 20);
       page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (String n : buildFlags.keySet())
         if (buildFlags.get(n))
           b.append(n);
       page.log("  Build: "+b.toString(), LogMessageType.Process);
-    } else
+    } else {
+      Utilities.tone(1600, 20);
+      Utilities.tone(1400, 20);
+      Utilities.tone(1200, 20);
+      Utilities.tone(1000, 20);
+      Utilities.tone(800, 20);
       page.log("Full Build", LogMessageType.Process);
+    }
     Utilities.createDirectory(page.getFolders().dstDir);
     Utilities.deleteTempFiles();
 
@@ -555,6 +566,11 @@ public class Publisher implements URIResolver {
       page.log("  Build: "+b.toString(), LogMessageType.Process);
     } else
       page.log("This was a Full Build", LogMessageType.Process);
+    Utilities.tone(800, 10);
+    Utilities.tone(1000, 10);
+    Utilities.tone(1200, 10);
+    Utilities.tone(1000, 10);
+    Utilities.tone(800, 10);
     page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
   }
 
@@ -1423,7 +1439,9 @@ public class Publisher implements URIResolver {
 
     page.log("Produce Schemas", LogMessageType.Process);
     new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
-        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()));
+        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false);
+    new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir+"codegen//", page.getFolders().dstDir,
+        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true);
 
     if (buildFlags.get("all")) {
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
@@ -2901,6 +2919,14 @@ public class Publisher implements URIResolver {
     zip.addFiles(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, "", ".xsl", "");
     zip.close();
     Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir-all-xsd.zip"), f);
+    
+    f = new CSFile(page.getFolders().dstDir + "fhir-codegen-xsd.zip");
+    if (f.exists())
+      f.delete();
+    zip = new ZipGenerator(page.getFolders().tmpResDir + "fhir-codegen-xsd.zip");
+    zip.addFiles(page.getFolders().xsdDir+"codegen//", "", ".xsd", null);
+    zip.close();
+    Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir-codegen-xsd.zip"), f);
   }
 
   private void produceResource1(ResourceDefn resource, boolean isAbstract) throws Exception {
