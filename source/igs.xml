@@ -4,7 +4,7 @@
   <ig code="core"     name="FHIR Specification Core" page="" review=""/>
   <ig code="ccda"     name="Consolidated CDA" page="" review=""/>
   <ig code="openehr"  name="openEHR Profiles" page="" review=""/>
-  <ig code="ehrs-rle" name="EHRS Functional model - Record Lifecycle Events" page="\guides\ehrs-rle\ehrs-rle.html" review=""/>
+  <ig code="ehrs-rle" name="EHRS Functional model - Record Lifecycle Events" page="ehrs-rle.html" review="" source="\guides\ehrs-rle\ehrs-rle.xml"/>
   <ig code="sdc"      name="Structured Data Capture - Forms" page="sdc.html" review="" source="\guides\sdc\sdc.xml"/>
   <ig code="sdc-de"   name="Structured Data Capture - Data Element Management" page="sdc-de.html" review="" source="\guides\sdc-de\sdc-de.xml"/>
   <ig code="cqmf"     name="Clinical Quality Measure Framework" page="" review=""/>

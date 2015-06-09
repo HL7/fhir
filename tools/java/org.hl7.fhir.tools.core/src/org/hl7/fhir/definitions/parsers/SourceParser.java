@@ -309,79 +309,27 @@ public class SourceParser {
         loadConformancePackage(p);
     }
     for (ImplementationGuide ig : definitions.getSortedIgs()) {
-      if (!Utilities.noString(ig.getSource()))
-        loadIg(ig);
-    }
-  }
-
-
-  private void loadIg(ImplementationGuide ig) throws Exception {
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true); 
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    CSFile file = new CSFile(Utilities.path(srcDir, "..", ig.getSource()));
-    Document xdoc = builder.parse(new CSFileInputStream(file));
-    Element root = xdoc.getDocumentElement();
-    if (!root.getNodeName().equals("ig")) 
-      throw new Exception("wrong base node");
-    Element e = XMLUtil.getFirstChild(root);
-    while (e != null) {
-      if (e.getNodeName().equals("dependsOn")) {
-        // we ignore this for now
-      } else if (e.getNodeName().equals("publishing")) {
-        if (e.hasAttribute("homepage"))
-          ig.setPage(e.getAttribute("homepage"));
-      } else if (e.getNodeName().equals("page")) {
-        ig.getPageList().add(e.getAttribute("source"));
-      } else if (e.getNodeName().equals("image")) {
-        ig.getImageList().add(e.getAttribute("source"));
-      } else if (e.getNodeName().equals("valueset")) {
-        XmlParser xml = new XmlParser();
-        ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(Utilities.path(file.getParent(), e.getAttribute("source"))));
-        if (!vs.hasId())
-          vs.setId(Utilities.changeFileExt(file.getName(), ""));
-        if (!vs.hasUrl())
-          vs.setUrl("http://hl7.org/fhir/vs/"+vs.getId());
-        definitions.getExtraValuesets().put(vs.getId(), vs);
-      } else if (e.getNodeName().equals("acronym")) {
-        definitions.getTLAs().put(e.getAttribute("target"), e.getAttribute("id"));        
-      } else if (e.getNodeName().equals("example")) {
-        String filename = e.getAttribute("source");
-        File efile = new File(Utilities.path(file.getParent(), filename));
-        Example example = new Example(e.getAttribute("name"), Utilities.changeFileExt(efile.getName(), ""), e.getAttribute("name"), efile, false, ExampleType.XmlFile, false);
-        ig.getExamples().add(example);
-        definitions.getResourceByName(example.getResourceName()).getExamples().add(example);
-      } else if (e.getNodeName().equals("profile")) {
-        Profile p = new Profile(ig.getCode());
-        p.setSource(Utilities.path(file.getParent(), e.getAttribute("source")));
-        if ("spreadsheet".equals(e.getAttribute("type")))
-          p.setSourceType(ConformancePackageSourceType.Spreadsheet);
-        else
-          throw new Exception("Unknown profile type in IG: "+e.getNodeName());
-        loadConformancePackage(p);
-        String id = e.getAttribute("id");
-        if (Utilities.noString(id))
-          id = Utilities.changeFileExt(e.getAttribute("source"), "");
-        definitions.getPackList().add(p);
-        definitions.getPackMap().put(id, p);
-        Element ex = XMLUtil.getFirstChild(e);
-        while (ex != null) {
-          if (ex.getNodeName().equals("example")) {
-            String filename = ex.getAttribute("source");
-            Example example = new Example(ex.getAttribute("name"), Utilities.changeFileExt(Utilities.getFileNameForName(filename), ""), ex.getAttribute("name"), new File(Utilities.path(file.getParent(), filename)), false, ExampleType.XmlFile, false);
-            p.getExamples().add(example);
-          } else
-            throw new Exception("Unknown element name in IG: "+ex.getNodeName());
-          ex = XMLUtil.getNextSibling(ex);
+      if (!Utilities.noString(ig.getSource())) {
+        new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings()).load(rootDir, ig);
+        // register what needs registering
+        for (ValueSet vs : ig.getValueSets()) {
+          definitions.getExtraValuesets().put(vs.getId(), vs);
+          context.getValueSets().put(vs.getUrl(), vs);
         }
-      } else if (e.getNodeName().equals("dictionary")) {
-        Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), ig.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))));
-        definitions.getDictionaries().put(d.getId(), d);
-      } else
-        throw new Exception("Unknown element name in IG: "+e.getNodeName());
-      e = XMLUtil.getNextSibling(e);
+        for (Example ex : ig.getExamples())
+          definitions.getResourceByName(ex.getResourceName()).getExamples().add(ex);
+        for (Profile p : ig.getProfiles()) {
+          definitions.getPackList().add(p);
+          definitions.getPackMap().put(p.getId(), p);
+        }
+        for (Dictionary d : ig.getDictionaries())
+          definitions.getDictionaries().put(d.getId(), d);
+      }
     }
   }
+
+
+ 
 
   private void buildSpecialValues() throws Exception {
     for (ValueSet vs : definitions.getBoundValueSets().values())
@@ -775,6 +723,7 @@ public class SourceParser {
     root.setStatus(ini.getStringProperty("status", n));
     if (Utilities.noString(root.getStatus()) && ini.getBooleanProperty("draft-resources", root.getName()))
       root.setStatus("draft");
+    context.getResourceNames().add(root.getName());
     return root;
   }
 

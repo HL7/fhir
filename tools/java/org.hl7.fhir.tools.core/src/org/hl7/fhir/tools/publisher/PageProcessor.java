@@ -230,7 +230,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
     }
-    workerContext  = new WorkerContext(null, client, codeSystems, valueSets, conceptMaps, profiles);
+    workerContext = new WorkerContext(null, client, codeSystems, valueSets, conceptMaps, profiles);
   }
 
   public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
@@ -5130,6 +5130,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setVersion(String version) {
     this.version = version;
+    workerContext.setVersion(version);
   }
 
   public void setFolders(FolderManager folders) {

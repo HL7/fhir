@@ -35,7 +35,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
@@ -52,7 +51,7 @@ import org.hl7.fhir.instance.model.ValueSet;
  * @author Grahame
  * 
  */
-public class Definitions {
+public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
 
   public static final String RIM_MAPPING = "http://hl7.org/v3";
   public static final String v2_MAPPING = "http://hl7.org/v2";
@@ -511,6 +510,11 @@ public class Definitions {
 
   public List<BindingSpecification> getAllBindings() {
     return allBindings;
+  }
+
+  @Override
+  public boolean isResource(String name) {
+    return hasResource(name);
   }
 
   

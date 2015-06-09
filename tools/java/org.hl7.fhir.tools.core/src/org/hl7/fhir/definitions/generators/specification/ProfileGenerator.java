@@ -1076,9 +1076,11 @@ public class ProfileGenerator {
         dst.getType().add(type);
       }
     }
-    for (String mu : definitions.getMapTypes().keySet()) {
-      if (src.hasMapping(mu)) {
-        addMapping(ed, dst, mu, src.getMapping(mu), null);
+    if (definitions != null) { // igtodo - catch this
+      for (String mu : definitions.getMapTypes().keySet()) {
+        if (src.hasMapping(mu)) {
+          addMapping(ed, dst, mu, src.getMapping(mu), null);
+        }
       }
     }
     if (src.hasBinding())

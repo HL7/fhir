@@ -33,11 +33,12 @@ import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.utils.NameResolver;
 
 public class TypeParser {
 
 
-	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, Definitions definitions) throws Exception {
+	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, NameResolver resolver) throws Exception {
 		ArrayList<TypeRef> a = new ArrayList<TypeRef>();
 
 		if (n == null || n.equals("") || n.startsWith("!"))
@@ -100,7 +101,7 @@ public class TypeParser {
 				String[] params = typeString.substring(startPos + 1, endPos).split(",");
 				for (int j=0;j<params.length;j++) {
 	        if (typeString.startsWith("Reference("))
-	          if (inProfile && !definitions.hasResource(params[j].trim()) && !"Any".equals(params[j].trim()))
+	          if (inProfile && !resolver.isResource(params[j].trim()) && !"Any".equals(params[j].trim()))
 	            throw new Exception("Unknown resource "+params[j].trim());
 					t.getParams().add(params[j].trim());
 				}
@@ -112,5 +113,6 @@ public class TypeParser {
 		}
 
 		return a;
-	}	
+	}
+
 }

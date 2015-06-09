@@ -63,7 +63,7 @@ public class CSFile extends File {
     if (exists()) 
     {
     	if(!this.getCanonicalFile().getName().equals(this.getName()))
-    		throw new Error("Case mismatch of file "+ pathname);
+    		throw new Error("Case mismatch of file "+ pathname+": found "+this.getCanonicalFile().getName());
     }
   }
 

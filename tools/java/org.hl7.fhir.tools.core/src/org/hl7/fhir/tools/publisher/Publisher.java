@@ -885,11 +885,25 @@ public class Publisher implements URIResolver {
       if (ref.startsWith("http://hl7.org/fhir")) {
         // we expect to be able to resolve this
         ValueSet vs = page.getDefinitions().getValuesets().get(ref);
+        if (vs == null)
+          vs = page.getWorkerContext().getValueSets().get(ref);            
         if (vs == null) {
           if (page.getDefinitions().getBoundValueSets().containsKey(ref))
             throw new Exception("Unable to resolve the value set reference "+ref+" but found it in load list");
           throw new Exception("Unable to resolve the value set reference "+ref);
         }
+        cd.setValueSet(vs);
+      }
+    }
+    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+      for (BindingSpecification cd : ig.getUnresolvedBindings()) {
+        ValueSet vs = page.getDefinitions().getValuesets().get(cd.getReference());
+        if (vs == null)
+          vs = ig.getValueSet(cd.getReference());
+        if (vs == null)
+          vs = page.getWorkerContext().getValueSets().get(cd.getReference());            
+        if (vs == null)
+          throw new Exception("unable to resolve value set "+cd.getReference());
         cd.setValueSet(vs);
       }
     }
