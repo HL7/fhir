@@ -779,7 +779,7 @@ public class Utilities {
       sdl.drain();
       sdl.stop();
       sdl.close();
-    } catch (LineUnavailableException e) {
+    } catch (Exception e) {
     }
   }
 }
