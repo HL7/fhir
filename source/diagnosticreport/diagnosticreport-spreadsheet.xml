@@ -1608,7 +1608,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(ImagingStudy|imagingObjectSelection)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(ImagingStudy|ImagingObjectSelection)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
