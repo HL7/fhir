@@ -33,7 +33,7 @@
     <gender value="male" /><!--The practitioner's administrative gender-->
     <birthDate value="1983-04-20"/>
 <!--    <photo>    
-        <reference value="Media/@JvG-203.bmp"/>
+        <reference value="Media/JvG-203.bmp"/>
         <display value="Picture_Juri_van_Gelder"/>
     </photo>-->
 		<practitionerRole>

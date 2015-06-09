@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 16:31+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1546,13 +1546,13 @@ public class Encounter extends DomainResource {
     protected EpisodeOfCare episodeOfCareTarget;
 
     /**
-     * The referral request that this encounter is satisfies (incoming referral).
+     * The referral request that this encounter satisfies (incoming referral).
      */
     @Child(name = "incomingReferralRequest", type = {ReferralRequest.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Incoming Referral Request", formalDefinition="The referral request that this encounter is satisfies (incoming referral)." )
+    @Description(shortDefinition="Incoming Referral Request", formalDefinition="The referral request that this encounter satisfies (incoming referral)." )
     protected List<Reference> incomingReferralRequest;
     /**
-     * The actual objects that are the target of the reference (The referral request that this encounter is satisfies (incoming referral).)
+     * The actual objects that are the target of the reference (The referral request that this encounter satisfies (incoming referral).)
      */
     protected List<ReferralRequest> incomingReferralRequestTarget;
 
@@ -1976,7 +1976,7 @@ The indication will typically be a Condition (with other resources referenced in
     }
 
     /**
-     * @return {@link #incomingReferralRequest} (The referral request that this encounter is satisfies (incoming referral).)
+     * @return {@link #incomingReferralRequest} (The referral request that this encounter satisfies (incoming referral).)
      */
     public List<Reference> getIncomingReferralRequest() { 
       if (this.incomingReferralRequest == null)
@@ -1994,7 +1994,7 @@ The indication will typically be a Condition (with other resources referenced in
     }
 
     /**
-     * @return {@link #incomingReferralRequest} (The referral request that this encounter is satisfies (incoming referral).)
+     * @return {@link #incomingReferralRequest} (The referral request that this encounter satisfies (incoming referral).)
      */
     // syntactic sugar
     public Reference addIncomingReferralRequest() { //3
@@ -2016,7 +2016,7 @@ The indication will typically be a Condition (with other resources referenced in
     }
 
     /**
-     * @return {@link #incomingReferralRequest} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The referral request that this encounter is satisfies (incoming referral).)
+     * @return {@link #incomingReferralRequest} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The referral request that this encounter satisfies (incoming referral).)
      */
     public List<ReferralRequest> getIncomingReferralRequestTarget() { 
       if (this.incomingReferralRequestTarget == null)
@@ -2026,7 +2026,7 @@ The indication will typically be a Condition (with other resources referenced in
 
     // syntactic sugar
     /**
-     * @return {@link #incomingReferralRequest} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The referral request that this encounter is satisfies (incoming referral).)
+     * @return {@link #incomingReferralRequest} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The referral request that this encounter satisfies (incoming referral).)
      */
     public ReferralRequest addIncomingReferralRequestTarget() { 
       ReferralRequest r = new ReferralRequest();
@@ -2445,7 +2445,7 @@ The indication will typically be a Condition (with other resources referenced in
         childrenList.add(new Property("type", "CodeableConcept", "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient present at the encounter.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("episodeOfCare", "Reference(EpisodeOfCare)", "Where a specific encounter should be classified as a part of a specific episode of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as govt reporting, or issue tracking.", 0, java.lang.Integer.MAX_VALUE, episodeOfCare));
-        childrenList.add(new Property("incomingReferralRequest", "Reference(ReferralRequest)", "The referral request that this encounter is satisfies (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferralRequest));
+        childrenList.add(new Property("incomingReferralRequest", "Reference(ReferralRequest)", "The referral request that this encounter satisfies (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferralRequest));
         childrenList.add(new Property("participant", "", "The main practitioner responsible for providing the service.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("fulfills", "Reference(Appointment)", "The appointment that scheduled this encounter.", 0, java.lang.Integer.MAX_VALUE, fulfills));
         childrenList.add(new Property("period", "Period", "The start and end time of the encounter.", 0, java.lang.Integer.MAX_VALUE, period));

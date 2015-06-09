@@ -381,6 +381,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
       }
     }
 
+    logger.log(" .... build jars", LogMessageType.Process);
     // now, we pack a jar with what we need for testing:
     Manifest manifest = new Manifest();
     manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
@@ -532,7 +533,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
               found = true;
               list.add(classes.get(s));
             }
-            s = s.substring(0, imp.lastIndexOf("."));
+            s = s.substring(0, s.lastIndexOf("."));
           }
         }
         if (!found)

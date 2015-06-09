@@ -37,7 +37,7 @@
     <gender value="male" /><!--The practitioner's administrative gender-->
     <birthDate value="1960-06-12"/>
 <!--    <photo>    
-        <reference value="Media/@LM-203.bmp"/>
+        <reference value="Media/LM-203.bmp"/>
         <display value="Picture_Luigi_Maas"/>
     </photo>-->
 		<practitionerRole>

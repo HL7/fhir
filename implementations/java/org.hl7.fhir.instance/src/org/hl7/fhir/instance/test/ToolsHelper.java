@@ -361,6 +361,10 @@ public class ToolsHelper {
       JsonParser json = new JsonParser();
       json.setOutputStyle(OutputStyle.PRETTY);
       json.compose(dest, r);
+      json = new JsonParser();
+      json.setOutputStyle(OutputStyle.CANONICAL);
+      dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.json"));
+      json.compose(dest, r);
     }
   }
 

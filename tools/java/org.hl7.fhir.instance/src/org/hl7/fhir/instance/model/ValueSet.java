@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 12:27+1000 for FHIR v0.5.0
+// Generated on Tue, Jun 9, 2015 16:31+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -3004,10 +3004,10 @@ public class ValueSet extends DomainResource {
   }
 
     /**
-     * An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and can be urn:uuid: or urn:oid:).
      */
     @Child(name = "url", type = {UriType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Globally unique logical id for  value set", formalDefinition="An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
+    @Description(shortDefinition="Globally unique logical id for  value set", formalDefinition="An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and can be urn:uuid: or urn:oid:)." )
     protected UriType url;
 
     /**
@@ -3154,7 +3154,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return {@link #url} (An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and can be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -3174,7 +3174,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and can be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ValueSet setUrlElement(UriType value) { 
       this.url = value;
@@ -3182,14 +3182,14 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @return An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and can be urn:uuid: or urn:oid:).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     * @param value An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and can be urn:uuid: or urn:oid:).
      */
     public ValueSet setUrl(String value) { 
       if (Utilities.noString(value))
@@ -3952,7 +3952,7 @@ public class ValueSet extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute uri that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique URI, and can be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name describing the value set.", 0, java.lang.Integer.MAX_VALUE, name));
