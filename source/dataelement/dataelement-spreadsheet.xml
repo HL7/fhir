@@ -1023,7 +1023,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Globally unique logical id for data element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">An absolute uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">An absolute uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and can be urn:uuid: or urn:oid:)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
