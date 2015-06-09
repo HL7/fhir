@@ -32,7 +32,6 @@ complexity that they require.
 </td>
 <td>
 <a href="#id">_id</a><br/>
-<a href="#language">_language</a><br/>
 <a href="#lastUpdated">_lastUpdated</a><br/>
 <a href="#tag">_tag</a><br/>
 <a href="#profile">_profile</a><br/>
@@ -116,18 +115,6 @@ read operation</a>:
 except that it returns a bundle with the requested resource, rather than the
 resource itself. Additional parameters can be added which may provide
 additional functionality on top of this base read equivalence.
-</p>
-<a name="language"> </a>
-<p>
-The search parameter _language refers to the base language of the resource:
-</p>
-<pre>
- GET [base]/Composition?_language=fr
-</pre>
-<p>
-This search finds any composition with a designated language of French.
-Note that this is the claimed language of the resource, not the actual
-language of the content.
 </p>
 <a name="lastUpdated"> </a>
 <p>
