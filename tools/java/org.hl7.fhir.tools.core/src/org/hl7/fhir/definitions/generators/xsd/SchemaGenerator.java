@@ -130,11 +130,13 @@ public class SchemaGenerator {
 	  }
     produceCombinedSchema(definitions, xsdDir, dstDir, srcDir);
 
-	  dir = new CSFile(xsdDir);
-	  for (File f : list) {
-		  if (!f.isDirectory())
-			  Utilities.copyFile(f, new CSFile(dstDir+f.getName()));
-	  }
+    if (!forCodeGeneration) {
+      dir = new CSFile(xsdDir);
+      for (File f : list) {
+        if (!f.isDirectory())
+          Utilities.copyFile(f, new CSFile(dstDir+f.getName()));
+      }
+    }
   }
 
   private void produceCombinedSchema(Definitions definitions, String xsdDir, String dstDir, String srcDir) throws Exception {
