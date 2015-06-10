@@ -1438,10 +1438,10 @@ public class Publisher implements URIResolver {
     processRDF();
 
     page.log("Produce Schemas", LogMessageType.Process);
+    new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir+"codegen"+File.separator, page.getFolders().dstDir,
+        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true);
     new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
         page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false);
-    new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir+"codegen//", page.getFolders().dstDir,
-        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true);
 
     if (buildFlags.get("all")) {
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
@@ -2924,7 +2924,7 @@ public class Publisher implements URIResolver {
     if (f.exists())
       f.delete();
     zip = new ZipGenerator(page.getFolders().tmpResDir + "fhir-codegen-xsd.zip");
-    zip.addFiles(page.getFolders().xsdDir+"codegen//", "", ".xsd", null);
+    zip.addFiles(page.getFolders().xsdDir+"codegen"+File.separator, "", ".xsd", null);
     zip.close();
     Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir-codegen-xsd.zip"), f);
   }
