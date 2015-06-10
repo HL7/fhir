@@ -1366,7 +1366,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //
 //    
 //    FileOutputStream outs = new FileOutputStream(folders.dstDir+ dst);
-//    OutputStreamWriter out = new OutputStreamWriter(outs);
+//    OutputStreamWriter out = new OutputStreamWriter(outs, "UTF-8");
 //    
 //    out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
 //    out.write("<head>\r\n");

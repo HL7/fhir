@@ -77,7 +77,7 @@ public class XhtmlGenerator {
     adorn = true; // till the xml trick is working
     
     FileOutputStream outs = new FileOutputStream(xhtml);
-    OutputStreamWriter out = new OutputStreamWriter(outs);
+    OutputStreamWriter out = new OutputStreamWriter(outs, "UTF-8");
     
     out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
     out.write("<head>\r\n");
@@ -136,7 +136,7 @@ public class XhtmlGenerator {
   public void generate(Document doc, OutputStream xhtml, String name, String desc, int level, boolean adorn, String filename) throws Exception {
     adorn = true; // till the xml trick is working
     
-		OutputStreamWriter out = new OutputStreamWriter(xhtml);
+		OutputStreamWriter out = new OutputStreamWriter(xhtml, "UTF-8");
 		
     out.write("<div class=\"example\">\r\n");
     out.write("<p>"+Utilities.escapeXml(desc)+"</p>\r\n"); 

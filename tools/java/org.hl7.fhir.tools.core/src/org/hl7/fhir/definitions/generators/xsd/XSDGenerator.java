@@ -190,7 +190,7 @@ public class XSDGenerator  {
 	}
 
 	private void generateAny(ElementDefn root, ElementDefn e) throws Exception {
-	  String close = ">";
+	  String close = " minOccurs=\"0\">";
 	  if (!forCodeGeneration) {
 	    write("          <xs:choice minOccurs=\""+e.getMinCardinality().toString()+"\" maxOccurs=\"1\">\r\n");
 	    if (e.hasDefinition()) {
@@ -199,7 +199,7 @@ public class XSDGenerator  {
 	      write("            </xs:annotation>\r\n");
 	    }
 	    close = "/>";
-	  }
+	  } 
 		for (TypeRef t : datatypes) {
 			if (t.isResourceReference()) {
 				write("           <xs:element name=\"Resource\" type=\"Reference\""+close+"\r\n");				
@@ -247,7 +247,7 @@ public class XSDGenerator  {
 		if (e.getTypes().size() > 1 || (e.getTypes().size() == 1 && e.getTypes().get(0).isWildcardType())) {
 			if (!e.getName().contains("[x]"))
 				throw new Exception("Element "+e.getName()+" in "+root.getName()+" has multiple types as a choice doesn't have a [x] in the element name");
-	    String close = ">";
+	    String close = " minOccurs=\"0\">";
 	    if (!forCodeGeneration) {
 	      write("<xs:choice minOccurs=\""+e.getMinCardinality().toString()+"\" maxOccurs=\""+(e.unbounded() ? "unbounded" : "1")+"\" ");
 	      write(">\r\n");

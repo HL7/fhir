@@ -69,7 +69,7 @@ public class SchemaGenerator {
     Collections.sort(names);
     for (String name : names) {
       ResourceDefn root = definitions.getResources().get(name);
-		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd"))), definitions, forCodeGeneration);
+		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd")), "UTF-8"), definitions, forCodeGeneration);
 		  sgen.setDataTypes(definitions.getKnownTypes());
 		  sgen.generate(root.getRoot(), version, genDate, true);
 		  sgen.getWriter().close();

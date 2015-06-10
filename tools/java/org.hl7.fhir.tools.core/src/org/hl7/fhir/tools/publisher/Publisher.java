@@ -495,11 +495,11 @@ public class Publisher implements URIResolver {
       buildFlags.put(singleResource.toLowerCase(), true);
     } 
     if (!buildFlags.get("all")) {
-      Utilities.tone(800, 20);
-      Utilities.tone(1000, 20);
-      Utilities.tone(1200, 20);
-      Utilities.tone(1400, 20);
-      Utilities.tone(1600, 20);
+      Utilities.tone(800, 10);
+      Utilities.tone(1000, 10);
+      Utilities.tone(1200, 10);
+      Utilities.tone(1400, 10);
+      Utilities.tone(1600, 10);
       page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (String n : buildFlags.keySet())
@@ -507,11 +507,11 @@ public class Publisher implements URIResolver {
           b.append(n);
       page.log("  Build: "+b.toString(), LogMessageType.Process);
     } else {
-      Utilities.tone(1600, 20);
-      Utilities.tone(1400, 20);
-      Utilities.tone(1200, 20);
-      Utilities.tone(1000, 20);
-      Utilities.tone(800, 20);
+      Utilities.tone(1600, 10);
+      Utilities.tone(1400, 10);
+      Utilities.tone(1200, 10);
+      Utilities.tone(1000, 10);
+      Utilities.tone(800, 10);
       page.log("Full Build", LogMessageType.Process);
     }
     Utilities.createDirectory(page.getFolders().dstDir);

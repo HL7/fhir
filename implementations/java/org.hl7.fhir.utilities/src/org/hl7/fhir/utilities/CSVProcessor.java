@@ -109,8 +109,8 @@ public class CSVProcessor {
 	}   
   }
 
-  public void setOutput(OutputStream out) {
-    this.out = new OutputStreamWriter(out);   
+  public void setOutput(OutputStream out) throws UnsupportedEncodingException {
+    this.out = new OutputStreamWriter(out, "UTF-8");   
   }
 
   public void process() throws Exception {

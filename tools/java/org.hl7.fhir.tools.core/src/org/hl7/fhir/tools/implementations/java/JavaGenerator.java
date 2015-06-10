@@ -264,7 +264,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
   private void generateResourceTypeEnum(String version, String svnRevision, Date genDate) throws Exception {
 
-    OutputStreamWriter output = new OutputStreamWriter(new FileOutputStream(javaDir+"ResourceType.java")); 
+    OutputStreamWriter output = new OutputStreamWriter(new FileOutputStream(javaDir+"ResourceType.java"), "UTF-8"); 
     output.write("package org.hl7.fhir.instance.model;\r\n");
     output.write("\r\n");
     output.write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");

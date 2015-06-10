@@ -141,15 +141,17 @@ public class XSDBaseGenerator {
           write("      <xs:annotation>\r\n");
           write("        <xs:documentation>(choose any one of the elements, but only one)</xs:documentation>\r\n");         
           write("      </xs:annotation>\r\n");
-        } else
-          write("    <xs:choice>\r\n");
-        for (String n : definitions.sortedResourceNames())
-          write("      <xs:element ref=\""+n+"\"/>\r\n");
-        write("      <xs:element ref=\"Parameters\"/>\r\n");
-        if (forCodeGeneration) 
+          for (String n : definitions.sortedResourceNames())
+            write("      <xs:element name=\""+n+"\" type=\""+n+"\" minOccurs=\"0\" maxOccurs=\"1\"/>\r\n");
+          write("      <xs:element name=\"Parameters\" type=\"Parameters\" minOccurs=\"0\" maxOccurs=\"1\"/>\r\n");
           write("    </xs:sequence>\r\n");
-        else
-          write("    </xs:choice>\r\n");
+        } else {
+          write("    <xs:choice>\r\n");
+          for (String n : definitions.sortedResourceNames())
+            write("      <xs:element ref=\""+n+"\"/>\r\n");
+          write("      <xs:element ref=\"Parameters\"/>\r\n");
+          write("    <xs:choice>\r\n");
+        }
         write("  </xs:complexType>\r\n");
     
   }
@@ -611,7 +613,7 @@ public class XSDBaseGenerator {
   }
 
   private void generateAny(ElementDefn root, ElementDefn e, String prefix) throws Exception {
-    String close = ">";
+    String close = " minOccurs=\"0\">";;
     if (!forCodeGeneration) {
       write("        <xs:choice minOccurs=\"" + e.getMinCardinality().toString() + "\" maxOccurs=\"1\">\r\n");
       if (e.hasDefinition()) {
@@ -652,7 +654,7 @@ public class XSDBaseGenerator {
       if ((types.size() == 1 && types.get(0).isWildcardType())) {
         generateAny(root, e, e.getName().replace("[x]", ""));
       } else {
-        String close = ">";
+        String close = " minOccurs=\"0\">";;
         if (!forCodeGeneration) {
           write("          <xs:choice minOccurs=\"" + e.getMinCardinality().toString() + "\">\r\n");
           if (e.hasDefinition()) {
