@@ -53,12 +53,14 @@ public class SchemaGenerator {
 	  this.genDate = genDate;
 	  this.version = version;
 
-	  File dir = new CSFile(xsdDir);
-	  File[] list = dir.listFiles();
-	  if (list != null) {
-	    for (File f : list) {
-	      if (!f.isDirectory())
-	        f.delete();
+	  if (!forCodeGeneration) {
+	    File dir = new CSFile(xsdDir);
+	    File[] list = dir.listFiles();
+	    if (list != null) {
+	      for (File f : list) {
+	        if (!f.isDirectory())
+	          f.delete();
+	      }
 	    }
 	  }
 
@@ -128,10 +130,12 @@ public class SchemaGenerator {
 		  xsd = processSchemaIncludes(definitions, n, xsd, false);
 		  TextFile.stringToFile(xsd, xsdDir + n);
 	  }
-    produceCombinedSchema(definitions, xsdDir, dstDir, srcDir);
 
     if (!forCodeGeneration) {
-      dir = new CSFile(xsdDir);
+      produceCombinedSchema(definitions, xsdDir, dstDir, srcDir);
+      
+      File dir = new CSFile(xsdDir);
+      File[] list = dir.listFiles();
       for (File f : list) {
         if (!f.isDirectory())
           Utilities.copyFile(f, new CSFile(dstDir+f.getName()));
