@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1009,7 +1009,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9865,16 +9864,15 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C14"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="27" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s129" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="186.75"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s129" ss:Width="51"/>
    <Column ss:StyleID="s129" ss:Width="67.5"/>
-   <Column ss:StyleID="s129" ss:Width="54"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="244.5"/>
    <Column ss:StyleID="s129" ss:Width="172.5"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="97.5"/>
@@ -9882,7 +9880,7 @@
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="172.5"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="165.75" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:Index="13" ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Binding Name</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -9899,10 +9897,6 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Conformance</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Must implementations use this value set?</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Extensible</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Can non-overlapping codes from outside the value set be used?</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Reference</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -9946,7 +9940,6 @@
     <Cell ss:StyleID="s95"><Data ss:Type="String">Value set for AllergyIntolerance Status.</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/vs/allergy-intolerance-status</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Values for specifying the status of an allergy that is present.</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">2.16.840.1.113883.4.642.2.503</Data></Cell>
@@ -9962,7 +9955,6 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">valueset-manifestation-c-cda-codes</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -9978,7 +9970,6 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s135"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">valueset-daf-substance</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Type of substance responsible for reaction.</Data></Cell>
     <Cell ss:StyleID="s135"/>
@@ -10002,29 +9993,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10050,29 +10023,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10098,29 +10053,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10146,29 +10083,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10194,29 +10113,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10242,29 +10143,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10290,6 +10173,20 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
@@ -10306,6 +10203,20 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
@@ -10313,6 +10224,65 @@
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10328,7 +10298,6 @@
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -10355,6 +10324,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -10375,19 +10345,12 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R26C5</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>&quot;Y,N&quot;</Value>
-  </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4:R26C4</Range>
    <Type>List</Type>
@@ -10400,11 +10363,11 @@
    <CellRangeList/>
    <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
   </DataValidation>
-  <AutoFilter x:Range="R1C1:R1C14"
+  <AutoFilter x:Range="R1C1:R1C13"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C3:R3C14,R2C1:R2C5,R2C7:R2C8,R2C10:R2C14,R4C1:R26C14</Range>
+   <Range>R2C1:R2C4,R2C6:R2C7,R2C9:R2C13,R3C3:R3C13,R4C1:R26C13</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -10418,35 +10381,35 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C3:R3C5,R2C2:R2C5,R4C2:R26C5</Range>
+   <Range>R3C3:R3C4,R2C2:R2C4,R4C2:R26C4</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C6:R26C6</Range>
+   <Range>R3C5:R26C5</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC3=&quot;unbound&quot;)&lt;&gt;(RC=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R26C7</Range>
+   <Range>R2C6:R26C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC&lt;&gt;&quot;&quot;)&lt;&gt;(RC3=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8,R2C10:R2C11,R3C8:R26C11</Range>
+   <Range>R2C7,R2C9:R2C10,R3C7:R26C10</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C3:R3C14,R2C1:R2C5,R2C7:R2C8,R2C10:R2C14,R4C1:R26C14</Range>
+   <Range>R2C1:R2C4,R2C6:R2C7,R2C9:R2C13,R3C3:R3C13,R4C1:R26C13</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -10474,16 +10437,16 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C2</Range>
+   <Range>R14C1,R4C1</Range>
    <Condition>
-    <Value1>AND(R[-1]C1&lt;&gt;&quot;&quot;,R[-1]C[16382]=&quot;&quot;)</Value1>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R14C1,R4C1</Range>
+   <Range>R3C2</Range>
    <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
+    <Value1>AND(R[-1]C1&lt;&gt;&quot;&quot;,R[-1]C[16381]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>

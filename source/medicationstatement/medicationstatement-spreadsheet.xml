@@ -20,7 +20,7 @@
   <WindowWidth>24855</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -6933,7 +6933,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7650,7 +7649,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">How is the set of codes defined?</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Example</Data><Comment
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Conformance</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Y = example, blank = incomplete.  Only relevant if binding is &quot;value set&quot;</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7695,7 +7694,7 @@
     <Cell ss:StyleID="s149"><Data ss:Type="String">MedicationStatementStatus</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">A set of codes indicating the current status of a MedicationStatement</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">#medication-statement-status</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
@@ -7710,7 +7709,7 @@
     <Cell ss:StyleID="s150"><Data ss:Type="String">MedicationAdministrationSite</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A coded concept describing the site location the medicine enters into or onto the body</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/approach-site-codes</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -7725,7 +7724,7 @@
     <Cell ss:StyleID="s150"><Data ss:Type="String">RouteOfAdministration</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/route-codes</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -7740,7 +7739,7 @@
     <Cell ss:StyleID="s150"><Data ss:Type="String">MedicationAdministrationMethod</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A coded concept describing the technique by which the medicine is administered</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/administration-method-codes</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -7770,7 +7769,7 @@
     <Cell ss:StyleID="s150"><Data ss:Type="String">MedicationAdministrationNegationReason</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A set of codes indicating the reason why the MedicationAdministration is negated</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/reason-medication-not-given-codes</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -8140,6 +8139,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8160,6 +8160,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8173,7 +8174,7 @@
    <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R30C4</Range>
+   <Range>R6C4,R8C4:R30C4</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y&quot;</Value>
@@ -8248,6 +8249,41 @@
    <Range>R2C5</Range>
    <Condition>
     <Value1>AND(R[1048560]C1&lt;&gt;&quot;&quot;,(R[1048560]C3=&quot;unbound&quot;)&lt;&gt;(R[1048560]C[16320]=&quot;&quot;))</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C4</Range>
+   <Condition>
+    <Value1>AND(R[1048560]C[16288]&lt;&gt;&quot;&quot;,R[1048560]C3&lt;&gt;&quot;code list&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C4</Range>
+   <Condition>
+    <Value1>AND(R[1048560]C[16288]&lt;&gt;&quot;&quot;,R[1048560]C3&lt;&gt;&quot;code list&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C4</Range>
+   <Condition>
+    <Value1>AND(R[1048560]C[16288]&lt;&gt;&quot;&quot;,R[1048560]C3&lt;&gt;&quot;code list&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R5C4</Range>
+   <Condition>
+    <Value1>AND(R[1048560]C[16288]&lt;&gt;&quot;&quot;,R[1048560]C3&lt;&gt;&quot;code list&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R7C4</Range>
+   <Condition>
+    <Value1>AND(R[1048560]C[16288]&lt;&gt;&quot;&quot;,R[1048560]C3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>

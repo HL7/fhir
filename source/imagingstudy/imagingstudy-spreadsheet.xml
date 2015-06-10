@@ -20,7 +20,7 @@
   <WindowWidth>26775</WindowWidth>
   <WindowTopX>900</WindowTopX>
   <WindowTopY>2400</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -7401,7 +7401,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7421,8 +7420,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7630,7 +7628,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">How is the set of codes defined?</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Example</Data><Comment
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Conformance</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Y = example, blank = incomplete.  Only relevant if binding is &quot;value set&quot;</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7675,7 +7673,7 @@
     <Cell ss:StyleID="s145"><Data ss:Type="String">Modality</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Type of data in the instance</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">#modality</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"><Data ss:Type="String">1.2.840.10008.6.1.811</Data></Cell>
@@ -7690,7 +7688,7 @@
     <Cell ss:StyleID="s146"><Data ss:Type="String">InstanceAvailability</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Availability of the resource</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">#instance-availability</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7705,7 +7703,7 @@
     <Cell ss:StyleID="s146"><Data ss:Type="String">ImagingModality</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Type of acquired image data in the instance</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">#imaging-modality</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">1.2.840.10008.6.1.19</Data></Cell>
@@ -7720,7 +7718,7 @@
     <Cell ss:StyleID="s146"><Data ss:Type="String">BodySite</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Codes describing anatomical locations. May include laterality</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">http://hl7.org/fhir/vs/body-site</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">SNOMED CT Body site concepts</Data></Cell>
     <Cell ss:StyleID="s117"/>
@@ -8120,6 +8118,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8139,8 +8138,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8154,7 +8152,7 @@
    <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R30C4</Range>
+   <Range>R6C4:R30C4</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y&quot;</Value>
@@ -8191,7 +8189,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R30C6</Range>
+   <Range>R2C6:R30C6,R2C4:R5C4</Range>
    <Condition>
     <Value1>AND(R[1048573]C1&lt;&gt;&quot;&quot;,(R[1048573]C[16369]&lt;&gt;&quot;&quot;)&lt;&gt;(R[1048573]C3=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>

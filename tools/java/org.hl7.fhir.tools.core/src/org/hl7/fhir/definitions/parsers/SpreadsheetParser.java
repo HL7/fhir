@@ -842,12 +842,11 @@ public class SpreadsheetParser {
       }
       
       cd.setDescription(sheet.getColumn(row, "Description"));
-      if (parseBoolean(sheet.getColumn(row, "Example"), row, false))
-        cd.setStrength(BindingStrength.EXAMPLE);
-      else if (parseBoolean(sheet.getColumn(row, "Extensible"), row, false))
-        cd.setStrength(BindingStrength.EXTENSIBLE);
-      else 
-        cd.setStrength(BindingsParser.readBindingStrength(sheet.getColumn(row, "Conformance")));
+      if (!Utilities.noString(sheet.getColumn(row, "Example")))
+          throw new Exception("The 'Example' column is no longer supported");
+      if (!Utilities.noString(sheet.getColumn(row, "Extensible")))
+        throw new Exception("The 'Extensible' column is no longer supported");
+      cd.setStrength(BindingsParser.readBindingStrength(sheet.getColumn(row, "Conformance")));
         
 			cd.setSource(name);
       cd.setUri(sheet.getColumn(row, "Uri"));

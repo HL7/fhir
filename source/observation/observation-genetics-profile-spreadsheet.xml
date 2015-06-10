@@ -21,7 +21,7 @@
   <WindowTopX>6825</WindowTopX>
   <WindowTopY>3945</WindowTopY>
   <TabRatio>788</TabRatio>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -8912,7 +8912,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -10301,16 +10300,15 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C14"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s129" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="170.25"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s129" ss:Width="51"/>
    <Column ss:StyleID="s129" ss:Width="67.5"/>
-   <Column ss:StyleID="s129" ss:Width="54"/>
    <Column ss:StyleID="s129" ss:Width="146.25"/>
    <Column ss:StyleID="s129" ss:Width="172.5"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="119.25"/>
@@ -10318,7 +10316,7 @@
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="172.5"/>
    <Column ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="165.75" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:Index="13" ss:StyleID="s129" ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Binding Name</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -10335,10 +10333,6 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Conformance</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Must implementations use this value set?</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Extensible</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Can non-overlapping codes from outside the value set be used?</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Reference</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -10382,7 +10376,6 @@
     <Cell ss:StyleID="s95"><Data ss:Type="String">International curated set of gene identifiers</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s153" ss:HRef="http://www.genenames.org/"><Data
       ss:Type="String">http://www.genenames.org</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Gene Identifiers Reference</Data></Cell>
@@ -10399,7 +10392,6 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">International nomenclature for variant naming</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s154" ss:HRef="http://www.hgvs.org/mutnomen/"><Data
       ss:Type="String">http://www.hgvs.org/mutnomen/</Data></Cell>
     <Cell><Data ss:Type="String">Sequence Variation Nomenclature</Data></Cell>
@@ -10416,7 +10408,6 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">NCBI central repository of reference sequences</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s154" ss:HRef="http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"><Data
       ss:Type="String">http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore</Data></Cell>
     <Cell><Data ss:Type="String">NCBI (the USA's National Center for Biotechnology Communication) Referene Sequence Identifiers</Data></Cell>
@@ -10433,7 +10424,6 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Laboratory LOINC codes for genetics</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s154" ss:HRef="http://loinc.org/"><Data ss:Type="String">http://loinc.org</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Laboratory LOINC</Data></Cell>
     <Cell ss:StyleID="s135"/>
@@ -10449,7 +10439,6 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">ENSEMBL central repository of reference sequences</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s154" ss:HRef="http://www.ensembl.org/"><Data
       ss:Type="String">http://www.ensembl.org/</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">ENSEMBL reference sequence identifiers maintained jointly by the European Bioinformatics Institute and Welcome Trust Sanger Institute. </Data></Cell>
@@ -10466,7 +10455,6 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">NCBI central respository of potentially clinically relevant variants</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s154" ss:HRef="http://www.ncbi.nlm.nih.gov/clinvar/variation"><Data
       ss:Type="String">http://www.ncbi.nlm.nih.gov/clinvar/variation</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">NCBI central respository for curating pathogenicity of potentially clinically relevant variants</Data></Cell>
@@ -10483,7 +10471,6 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Catalog of Somatic Mutations in Cancer</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s154" ss:HRef="http://cancer.sanger.ac.uk/cancergenome/projects/cosmic/"><Data
       ss:Type="String">http://cancer.sanger.ac.uk/cancergenome/projects/cosmic/</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Catalog of Somatic Mutations in Cancer maintained by the Welcome Trust Sanger Institute</Data></Cell>
@@ -10500,7 +10487,6 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">NCBI database of variants </Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s154" ss:HRef="http://www.ncbi.nlm.nih.gov/projects/SNP/"><Data
       ss:Type="String">http://www.ncbi.nlm.nih.gov/projects/SNP/</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">NCBI  central repository of variants, including germline and somatic variants</Data></Cell>
@@ -10517,7 +10503,6 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Sequence Ontology maintains terminologies for characterizing sequencing data</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s154" ss:HRef="http://www.sequenceontology.org/"><Data
       ss:Type="String">http://www.sequenceontology.org/</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">SO-Sequence Ontology  is a collaborative ontology project for the definition of sequence features used in biological sequence annotation.</Data></Cell>
@@ -10542,29 +10527,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10590,29 +10557,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10638,29 +10587,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10686,29 +10617,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10734,29 +10647,11 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s136"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10782,6 +10677,20 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
@@ -10798,6 +10707,20 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
@@ -10814,6 +10737,20 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
@@ -10821,6 +10758,35 @@
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -10836,7 +10802,6 @@
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -10863,6 +10828,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -10882,8 +10848,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10901,17 +10867,11 @@
    <CellRangeList/>
    <Value>&quot;required,preferred,example&quot;</Value>
   </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R30C5</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>&quot;Y,N&quot;</Value>
-  </DataValidation>
-  <AutoFilter x:Range="R1C1:R1C14"
+  <AutoFilter x:Range="R1C1:R1C13"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R30C14,R2C1:R30C6,R2C7,R10C8:R30C8,R5C7:R30C7,R6C8:R8C8</Range>
+   <Range>R2C8:R30C13,R2C6,R10C7:R30C7,R5C6:R30C6,R6C7:R8C7,R2C1:R30C5</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -10925,98 +10885,98 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R30C5</Range>
+   <Range>R2C2:R30C4</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R30C6</Range>
+   <Range>R2C5:R30C5</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC3=&quot;unbound&quot;)&lt;&gt;(RC=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7,R5C7:R30C7</Range>
+   <Range>R2C6,R5C6:R30C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC&lt;&gt;&quot;&quot;)&lt;&gt;(RC3=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R30C11,R10C8:R30C8,R6C8:R8C8</Range>
+   <Range>R2C8:R30C10,R10C7:R30C7,R6C7:R8C7</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R30C14,R2C1:R30C6,R2C7,R10C8:R30C8,R5C7:R30C7,R6C8:R8C8</Range>
+   <Range>R2C8:R30C13,R2C6,R10C7:R30C7,R5C6:R30C6,R6C7:R8C7,R2C1:R30C5</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C8</Range>
+   <Range>R5C7</Range>
    <Condition>
     <Value1>AND(R[-2]C1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C8</Range>
+   <Range>R5C7</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-2]C3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C8</Range>
+   <Range>R5C7</Range>
    <Condition>
     <Value1>LEFT(R[-2]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C7:R7C7</Range>
+   <Range>R6C6:R7C6</Range>
    <Condition>
     <Value1>AND(R[-3]C1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C7:R7C7</Range>
+   <Range>R6C6:R7C6</Range>
    <Condition>
     <Value1>AND(R[-3]C1&lt;&gt;&quot;&quot;,(RC&lt;&gt;&quot;&quot;)&lt;&gt;(R[-3]C3=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C7:R7C7</Range>
+   <Range>R6C6:R7C6</Range>
    <Condition>
     <Value1>LEFT(R[-3]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C8</Range>
+   <Range>R9C7</Range>
    <Condition>
     <Value1>AND(R[-5]C1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C8</Range>
+   <Range>R9C7</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-5]C3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C8</Range>
+   <Range>R9C7</Range>
    <Condition>
     <Value1>LEFT(R[-5]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>

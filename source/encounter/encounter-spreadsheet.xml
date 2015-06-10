@@ -25,7 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>655</TabRatio>
-  <ActiveSheet>6</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6667,7 +6667,6 @@
    </PageSetup>
    <Unsynced/>
    <Zoom>98</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7424,7 +7423,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">How is the set of codes defined?</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Example</Data><Comment
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Conformance</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"> <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Y = example, blank = incomplete.  Only relevant if binding is &quot;value set&quot;</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7469,7 +7468,7 @@
     <Cell ss:StyleID="s146"><Data ss:Type="String">EncounterState</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Current state of the encounter</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">#encounter-state</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
@@ -7484,7 +7483,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">EncounterType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of encounter</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-encounter-type</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">A specific code indicating type of service provided</Data></Cell>
     <Cell ss:StyleID="s118"/>
@@ -7499,7 +7498,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">EncounterClass</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Classification of the encounter</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">#encounter-class</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7514,7 +7513,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">ParticipantType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Role of participant in encounter</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-encounter-participant-type</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7529,7 +7528,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">Courtesies</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Special courtesies</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-encounter-special-courtesy</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7544,7 +7543,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">Arrangements</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Special arrangements</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-encounter-special-arrangements</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7559,7 +7558,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">PatientDiet</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medical, cultural or ethical food preferences to help with catering requirements</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-encounter-diet</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7574,7 +7573,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">Priority</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the urgency of the encounter</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-encounter-priority</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7589,7 +7588,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">AdmitSource</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">From where the patient was admitted</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-encounter-admit-source</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7604,7 +7603,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">DischargeDisp</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Discharge Disposition</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-encounter-discharge-disposition</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7619,7 +7618,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">EncounterReason</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Reason why the encounter takes place</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">valueset-encounter-reason</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7634,7 +7633,7 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">EncounterLocationStatus</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The status of the location</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">#encounter-location-status</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -7914,6 +7913,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7933,9 +7933,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R5</RangeSelection>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7949,7 +7947,7 @@
    <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R30C4</Range>
+   <Range>R14C4:R30C4</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y&quot;</Value>
@@ -7993,7 +7991,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R30C10</Range>
+   <Range>R2C7:R30C10,R2C4:R13C4</Range>
    <Condition>
     <Value1>AND(R[1048574]C[16372]&lt;&gt;&quot;&quot;,R[1048574]C3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>

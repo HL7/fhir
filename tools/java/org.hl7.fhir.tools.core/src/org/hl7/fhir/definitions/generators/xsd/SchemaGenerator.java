@@ -54,9 +54,12 @@ public class SchemaGenerator {
 	  this.version = version;
 
 	  File dir = new CSFile(xsdDir);
-	  for (File f : dir.listFiles()) {
-		  if (!f.isDirectory())
-			  f.delete();
+	  File[] list = dir.listFiles();
+	  if (list != null) {
+	    for (File f : list) {
+	      if (!f.isDirectory())
+	        f.delete();
+	    }
 	  }
 
 	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"), forCodeGeneration);
@@ -128,7 +131,7 @@ public class SchemaGenerator {
     produceCombinedSchema(definitions, xsdDir, dstDir, srcDir);
 
 	  dir = new CSFile(xsdDir);
-	  for (File f : dir.listFiles()) {
+	  for (File f : list) {
 		  if (!f.isDirectory())
 			  Utilities.copyFile(f, new CSFile(dstDir+f.getName()));
 	  }
