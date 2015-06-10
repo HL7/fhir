@@ -214,7 +214,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">stopped, aborted, failed</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Amended, replaced</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">completed, final, finished, achieved, done, dispensed, delivered</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">superceded, retired, not in use, inactive, off, refuted</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">superseded, retired, not in use, inactive, off, refuted</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">cancelled, withdrawn, not done, abandoned</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Miscellany</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">unconfirmed</Data></Cell>
@@ -674,7 +674,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">superceded</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">superseded</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
@@ -736,7 +736,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">superceded</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">superseded</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
@@ -966,7 +966,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">superceded</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">superseded</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationStatement.status</Data></Cell>

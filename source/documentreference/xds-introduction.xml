@@ -82,7 +82,7 @@ the relationships between the XDS tranasction and the FHIR resources.
   <td>Availability Status</td>
   <td>
     <p>Approved (available for patient care): DocumentReference/Manifest.status = current</p>
-    <p>Deprecated (obsolete): DocumentReference/Manifest.status = superceded</p>
+    <p>Deprecated (obsolete): DocumentReference/Manifest.status = superseded</p>
   </td>
  </tr>
 
@@ -106,8 +106,8 @@ The <a href="http.html">RESTful API</a> allows updates to the DocumentReference/
 <p>
 In the context of XDS, servers SHALL ensure that the masterIdentifier element of a DocumentReference is never changed after
 the resource is created. When a new document is created, a new DocumentReference SHALL be created. The server SHOULD ensure
-that the supercedes element is correctly populated, along with the status of any existing documents that are being
-superceded. It MAY choose to do this by requiring the clients to perform this operation, or simply performing the 
+that the supersedes element is correctly populated, along with the status of any existing documents that are being
+superseded. It MAY choose to do this by requiring the clients to perform this operation, or simply performing the 
 operation itself.
 </p>
 <p>

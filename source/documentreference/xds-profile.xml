@@ -1152,7 +1152,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s85"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Represents the status of the DocumentEntry.  A DocumentEntry shall have one of two availability statuses:&#10;Approved available for patient care&#10;Deprecated obsolete&#10;This attribute is omitted in a submission of new documents. It is always set to Approved as a result of the successful submission of new documents.  It may be changed to Deprecated under the primary responsibility of the creating entity &#10;If a DocumentEntry is deleted, there is no such state as &quot;the Document Entry is removed&quot; (only an audit trail is kept if such a deletion is allowed)&#10;</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Approved ==&gt; current, Deprecated ==&gt; superceded.&#10;&#10;FHIR requires this to be filled out with &quot;current&quot; in a submission of new documents</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Approved ==&gt; current, Deprecated ==&gt; superseded.&#10;&#10;FHIR requires this to be filled out with &quot;current&quot; in a submission of new documents</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s87">
     <Cell><Data ss:Type="String">n/a</Data></Cell>
@@ -1164,7 +1164,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">RPLC relationship</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">DocumentReference.supercedes</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">DocumentReference.supersedes</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s91"><Data ss:Type="String">Reference(DocumentReference)</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The current document is a replacement of the referenced document</Data></Cell>
@@ -1941,7 +1941,7 @@
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">The type of relationship that this document has with anther document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">supercedes | transforms | signs | appends</Data><NamedCell
+    <Cell ss:StyleID="s114"><Data ss:Type="String">supersedes | transforms | signs | appends</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">If this document appends another document, then the document cannot be fully understood without also accessing the referenced document</Data><NamedCell
@@ -4810,7 +4810,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.supercedes</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.supersedes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data><NamedCell

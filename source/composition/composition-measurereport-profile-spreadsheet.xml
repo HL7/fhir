@@ -1979,7 +1979,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">If this composition replaces another</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Identifies the composition this composition supersedes, if any. This composition supercedes another if this should be consulted in place of the other, and the only reason to retain the other is for audit completenedd</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Identifies the composition this composition supersedes, if any. This composition supersedes another if this should be consulted in place of the other, and the only reason to retain the other is for audit completenedd</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -136,7 +136,7 @@ Note that the RESTful API defines some <a href="operations.html">Operations</a> 
 <h4>Technical vs Business Versions</h4>
 <p>
 All resources are conceptually versioned, and each resource sits at the head of a linear list of past versions. 
-The past versions are superceded by the current version, and only available for audit/integrity purposes. 
+The past versions are superseded by the current version, and only available for audit/integrity purposes. 
 The current version is e.g. http://acme.org/fhir/ResourceType/id123, and a past version would be 
 http://acme.org/fhir/ResourceType/id123/_history/v2.
 </p>

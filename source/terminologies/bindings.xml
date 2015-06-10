@@ -1287,7 +1287,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Retired</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">This resource has been withdrawn or superceded and should no longer be used</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">This resource has been withdrawn or superseded and should no longer be used</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Marking a resource as &quot;retired&quot; is an assertion by the resource author/maintainer that a resource should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the resource, but best practice would be to phase its use out</Data></Cell>
@@ -1343,12 +1343,12 @@
     <Cell ss:StyleID="s100"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s102"><Data ss:Type="String">superceded</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">superseded</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">This reference has been superceded by another reference</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">This reference has been superseded by another reference</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">~ActStatus.obsolete</Data></Cell>
     <Cell ss:StyleID="s105"/>

@@ -1412,7 +1412,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">current | superceded | entered-in-error</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">current | superseded | entered-in-error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The status of this document reference </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7326,7 +7326,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"><Data ss:Type="String">This document logically replaces or supercedes the target document</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">This document logically replaces or supersedes the target document</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">~ActRelationship.RPLC</Data></Cell>
     <Cell ss:StyleID="s139"/>

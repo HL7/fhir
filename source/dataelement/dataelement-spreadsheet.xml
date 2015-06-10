@@ -1277,7 +1277,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">STATUS</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">(Administered_item).registration.state&#10;&#10;new = Incomplete, Candidate, Recorded, Qualified&#10;&#10;active = Standard, Preferred Standard, Application&#10;&#10;retired = Retired, Superceded, Historical</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(Administered_item).registration.state&#10;&#10;new = Incomplete, Candidate, Recorded, Qualified&#10;&#10;active = Standard, Preferred Standard, Application&#10;&#10;retired = Retired, Superseded, Historical</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
