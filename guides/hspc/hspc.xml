@@ -44,13 +44,17 @@
   <profile source="hspc-stdlabobsqty-spreadsheet.xml" type="spreadsheet"/>
   <profile source="location-hspc-servicedeliverylocation-spreadsheet.xml" type="spreadsheet"/>
   <profile source="observation-hspc-age-profile-spreadsheet.xml" type="spreadsheet"/>
-<!--  <profile source="observation-hspc-height-profile-spreadsheet.xml" type="spreadsheet"/> -->
+  <profile source="observation-hspc-height-profile-spreadsheet.xml" type="spreadsheet"/>
   <profile source="observation-hspc-standardlabobscoded-spreadsheet.xml" type="spreadsheet"/>
   <profile source="observation-hspc-standardlabobsivlpq.xml" type="spreadsheet"/>
   <profile source="observation-hspc-standardlabobsnarrative-spreadsheet.xml" type="spreadsheet"/>
   <profile source="observation-hspc-standardlabobsreal-spreadsheet.xml" type="spreadsheet"/>
   <profile source="observation-hspc-standardlabobstiter-spreadsheet.xml" type="spreadsheet"/>
   <profile source="observation-hspc-stdlabobsord-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="observation-hspc-weight-profile-spreadsheet.xml" type="spreadsheet"/>
+<!--  <profile source="observation-hspc-directahg-spreadsheet.xml" type="spreadsheet"/>  -->  
+  <profile source="observation-hspc-heartrate-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="organization-hspc-organization-spreadsheet.xml" type="spreadsheet"/>
 
   <!--
     dictionaries

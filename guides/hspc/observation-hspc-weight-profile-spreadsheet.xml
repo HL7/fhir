@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-06-10T16:15:48Z</LastSaved>
+  <LastSaved>2015-06-10T16:28:21Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>4080</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -890,16 +890,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s169">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -951,11 +941,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">observation-hspc-height</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">observation-hspc-bodyweight</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">HSPC Height Profile</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">HSPC Body Weight Profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">author.name</Data></Cell>
@@ -972,7 +962,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69.75">
     <Cell ss:StyleID="s76"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">The HSPC specific profile for the observation of one's height or body length.</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The HSPC specific profile for the observation of one's body weight.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">status</Data></Cell>
@@ -980,11 +970,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="DateTime">2015-05-18T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="DateTime">2015-06-01T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">hspcheight</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">hspcbodyweight</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">version</Data></Cell>
@@ -992,8 +982,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/StructureDefinition/observation-hspc-height"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/observation-hspc-height</Data></Cell>
+    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/StructureDefinition/observation-hspc-bodyweight"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/observation-hspc-bodyweight</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">introduction</Data></Cell>
@@ -1036,8 +1026,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>24</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1071,9 +1060,9 @@
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
- <Worksheet ss:Name="hspcheight">
+ <Worksheet ss:Name="hspcbodyweight">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=hspcheight!R1C1:R100C24"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=hspcbodyweight!R1C1:R100C24"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="101" x:FullColumns="1"
@@ -1087,7 +1076,7 @@
    <Column ss:StyleID="s86" ss:Width="34.5"/>
    <Column ss:StyleID="s86" ss:Width="548.25"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="29.25"/>
-   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:StyleID="s86" ss:Width="195"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="60" ss:Span="1"/>
    <Column ss:Index="13" ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="81"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="36.75"/>
@@ -1199,7 +1188,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s94"><Data ss:Type="String">HSPC Height</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">HSPC Body Weight</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1240,7 +1229,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">&lt;code&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;code value=&quot;8302-2&quot;/&gt;&lt;display value=&quot;Body height&quot;/&gt;&lt;/coding&gt;&lt;/code&gt;</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">&lt;code&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;code value=&quot;29463-7&quot;/&gt;&lt;display value=&quot;Body weight&quot;/&gt;&lt;/coding&gt;&lt;/code&gt;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1293,9 +1282,10 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">hspc-Ordinal-Abnormal-Union</Data><NamedCell
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Ordinal-Abnormal-Union</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1433,9 +1423,10 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">HeightMeasMethodDevice</Data><NamedCell
+    <Cell ss:StyleID="s65"><Data ss:Type="String">WeightMeasMethodDevice</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1546,7 +1537,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">ParticipantRole</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">ParticipantRole</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1725,7 +1716,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/observation-associatedPrecondition}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">HeightMeasAssociatedPrecondition</Data><NamedCell
+    <Cell ss:StyleID="s64"><Data ss:Type="String">BodyWeightMeasAssociatedPrecondition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3837,7 +3828,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3858,8 +3848,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R21</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3872,34 +3863,34 @@
    <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C20:R100C22</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>&quot;N/A&quot;</Value>
-   <ErrorHide/>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C10:R100C10</Range>
+   <Range>R2C10:R14C10,R15C10:R100C10</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C9:R100C9</Range>
+   <Range>R2C20:R14C22,R15C20:R100C22</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;N/A&quot;</Value>
+   <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C9:R14C9,R15C9:R100C9</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C8:R100C8</Range>
+   <Range>R3C8:R14C8,R15C8:R100C8</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R100C6</Range>
+   <Range>R2C6:R14C6,R15C6:R100C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;0..0,0..1,1..1,0..*,1..*,[n]..[m]&quot;</Value>
@@ -6871,9 +6862,9 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="28" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s135" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s135" ss:Width="195"/>
+   <Column ss:StyleID="s135" ss:Width="174.75"/>
    <Column ss:StyleID="s135" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s135" ss:Width="51"/>
    <Column ss:StyleID="s135" ss:Width="67.5"/>
@@ -6940,8 +6931,8 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">hspc-Ordinal-Abnormal-Union</Data></Cell>
-    <Cell><Data ss:Type="String">A set of codes that are a union of ordinal interpretations and abnormal interpretations</Data></Cell>
+    <Cell><Data ss:Type="String">Ordinal-Abnormal-Union</Data></Cell>
+    <Cell><Data ss:Type="String">A union of the abnormal and ordinal value sets to be used as interpretive values</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
     <Cell><Data ss:Type="String">valueset-hspc-Ordinal-Abnormal-Union</Data></Cell>
@@ -6955,11 +6946,26 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">HeightMeasMethodDevice</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">WeightMeasMethodDevice</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">A set of codes that describe the method or device used to measure an individual's height</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">valueset-observation-hspc-heightMeasMethodDevice</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">valueset-observation-hspc-weightMeasMethodDevice</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s141"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s108"><Data ss:Type="String">ParticipantRole</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">The kind of role the act participant plays.</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">valueset-hspc-participantRole</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -6985,6 +6991,21 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">hspc-DeltaFlag</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">A set of codes that describe the manner in which a value has changed from a previous value</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">valueset-hspc-DeltaFlag</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s141"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">dataOriginationModeVS</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">The description of how the data came into being</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">value set</Data></Cell>
@@ -7000,11 +7021,11 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">HeightMeasAssociatedPrecondition</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">BodyWeightMeasAssociatedPrecondition</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">The conditions during which an individual's height was measured</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">valueset-observation-hspc-heightPrecond</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">valueset-observation-hspc-weightPrecond</Data></Cell>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -7015,11 +7036,11 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">ParticipantRole</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">The list of codes that describe the type of role an individual plays in an act</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">valueset-hspc-participantRole</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -7030,11 +7051,11 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="String">hspc-DeltaFlag</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Indicates that the data value in the containing model is a change from a previous instance of the same model</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">valueset-hspc-DeltaFlag</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -7343,7 +7364,8 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>80</Zoom>
+   <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7363,27 +7385,26 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <RangeSelection>R8C2:R8C5</RangeSelection>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C4:R6C4,R8C4:R27C4</Range>
+   <Range>R3C4:R29C4</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;required,preferred,example&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C3:R6C3,R8C3:R27C3</Range>
+   <Range>R3C3:R29C3</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1:R7C5,R3C1:R6C1,R8C1</Range>
+   <Range>R3C1:R8C1</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
@@ -7393,109 +7414,59 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C7:R6C13,R9C1:R27C13,R5C2:R6C5,R4C2:R4C13,R3C2:R3C5,R7C6:R8C13</Range>
+   <Range>R7C7:R8C13,R9C1:R29C13,R7C2:R8C5,R5C2:R6C13,R3C2:R4C5</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C1:R27C1</Range>
+   <Range>R9C1:R29C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C2:R27C4,R3C2:R6C4</Range>
+   <Range>R3C2:R29C4</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C5:R27C5,R3C5:R6C5</Range>
+   <Range>R3C5:R29C5</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC3=&quot;unbound&quot;)&lt;&gt;(RC=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C6:R27C6,R4C6</Range>
+   <Range>R9C6:R29C6,R5C6:R6C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC&lt;&gt;&quot;&quot;)&lt;&gt;(RC3=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C7:R27C10</Range>
+   <Range>R5C7:R29C10</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C7:R6C13,R9C1:R27C13,R5C2:R6C5,R4C2:R4C13,R3C2:R3C5,R7C6:R8C13</Range>
+   <Range>R7C7:R8C13,R9C1:R29C13,R7C2:R8C5,R5C2:R6C13,R3C2:R4C5</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R6C1</Range>
+   <Range>R3C1:R8C1</Range>
    <Condition>
     <Value1>LEFT(RC4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R6C1</Range>
-   <Condition>
-    <Value1>RC5=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC4=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C2:R7C5</Range>
-   <Condition>
-    <Value1>LEFT(RC4,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C2:R7C5</Range>
-   <Condition>
-    <Value1>RC5=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC4=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7506,7 +7477,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C6:R3C13</Range>
+   <Range>R3C6:R4C13</Range>
    <Condition>
     <Value1>AND(#REF!=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7520,7 +7491,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C6</Range>
+   <Range>R3C6:R4C6</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,(RC&lt;&gt;&quot;&quot;)&lt;&gt;(#REF!=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7534,7 +7505,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C7:R3C10</Range>
+   <Range>R3C7:R4C10</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -7548,56 +7519,21 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C6:R3C13</Range>
+   <Range>R3C6:R4C13</Range>
    <Condition>
     <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1</Range>
+   <Range>R3C1:R8C1</Range>
    <Condition>
-    <Value1>RC6=&quot;0..0&quot;</Value1>
+    <Value1>RC5=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1</Range>
-   <Condition>
-    <Value1>LEFT(RC4,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C2:R8C5</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C2:R8C4</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C5</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC3=&quot;unbound&quot;)&lt;&gt;(RC=&quot;&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C2:R8C5</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
@@ -8272,22 +8208,23 @@
   </ConditionalFormatting>
  </Worksheet>
  <Worksheet ss:Name="Sheet10">
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
+   <Row ss:AutoFitHeight="0"/>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/observation-qicore-qicore-observation}</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">RoleType</Data></Cell>
    </Row>
-   <Row ss:Index="4" ss:AutoFitHeight="0" ss:StyleID="s86">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">DataOriginationMode</Data></Cell>
+   <Row ss:Index="5" ss:AutoFitHeight="0" ss:StyleID="s86">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Participant</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.extension</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.performer.practitionerRole</Data></Cell>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/observation-dataOriginationMode}</Data></Cell>
     <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">DataOriginationMode</Data></Cell>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
@@ -8303,30 +8240,47 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"/>
    </Row>
-   <Row ss:Index="7" ss:AutoFitHeight="0" ss:StyleID="s86">
-    <Cell ss:StyleID="s169"><Data ss:Type="String">dataOriginationMode</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Observation</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">DataOriginationMode</Data></Cell>
-    <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">dataOriginationModeVS</Data></Cell>
-    <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">DataOriginationMode</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">The description of how the data came into being</Data></Cell>
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s104"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s86">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">ParticipantRole</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.performer.practitionerRole.role</Data></Cell>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">RoleType</Data></Cell>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s112"/>
+   </Row>
+   <Row ss:Index="8" ss:AutoFitHeight="0" ss:StyleID="s135">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">RoleType</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">A set of codes that describe the kind of role played by an individual </Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">valueset-hspc-roleType</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s141"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -8339,56 +8293,68 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <RangeSelection>R6</RangeSelection>
+     <ActiveRow>7</ActiveRow>
+     <RangeSelection>R8</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C6,R4C6</Range>
+   <Range>R5C6:R6C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;0..0,0..1,1..1,0..*,1..*,[n]..[m]&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C8,R4C8</Range>
+   <Range>R5C8:R6C8</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C9,R4C9</Range>
+   <Range>R5C9:R6C9,R8C5</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C10,R4C10</Range>
+   <Range>R2C1,R5C10:R6C10,R8C1</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C19:R7C21,R4C20:R4C22</Range>
+   <Range>R5C20:R6C22</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;N/A&quot;</Value>
    <ErrorHide/>
   </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C3</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C4</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;required,preferred,example&quot;</Value>
+  </DataValidation>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C1:R4C24</Range>
+   <Range>R2C1,R6C10,R6C8</Range>
    <Condition>
     <Value1>LEFT(RC4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C1:R4C24</Range>
+   <Range>R2C1,R6C10,R6C8</Range>
    <Condition>
     <Value1>RC6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -8399,91 +8365,49 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C2:R4C3</Range>
+   <Range>R6C1:R6C3,R6C11:R6C24,R6C5:R6C7,R6C9</Range>
    <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C11:R4C14,R7C11:R7C13</Range>
-   <Condition>
-    <Value1>AND(SEARCH(&quot;|&quot;,RC8)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C14,R7C13</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(RC8,1),LOWER(LEFT(RC8,1)))))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C15:R4C16</Range>
-   <Condition>
-    <Value1>AND(RC15&lt;&gt;&quot;&quot;,RC15=RC16)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1:R7C23</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT(R[-1]C4,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C14</Range>
+   <Range>R6C1:R6C3,R6C11:R6C24,R6C5:R6C7,R6C9</Range>
    <Condition>
-    <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C1:R7C23</Range>
-   <Condition>
-    <Value1>RC6=&quot;0..0&quot;</Value1>
+    <Value1>R[-1]C6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Value1>AND(R[-1]C&lt;&gt;&quot;&quot;,R[-1]C4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C2</Range>
+   <Range>R6C2:R6C3</Range>
    <Condition>
-    <Value1>AND(RC[-1]&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;.&quot;,RC[-1])),RC=&quot;&quot;)</Value1>
+    <Value1>AND(R[-1]C1=&quot;&quot;,R[-1]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C3</Range>
+   <Range>R6C11:R6C14</Range>
    <Condition>
-    <Value1>(RC[-1]=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Value1>AND(SEARCH(&quot;|&quot;,R[-1]C8)&lt;&gt;0,R[-1]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C6,R7C15</Range>
+   <Range>R6C14</Range>
    <Condition>
-    <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Value1>AND(R[-1]C&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(R[-1]C8,1),LOWER(LEFT(R[-1]C8,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C14:R7C15</Range>
+   <Range>R6C15:R6C16</Range>
    <Condition>
-    <Value1>AND(RC14&lt;&gt;&quot;&quot;,RC14=RC15)</Value1>
+    <Value1>AND(R[-1]C15&lt;&gt;&quot;&quot;,R[-1]C15=R[-1]C16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C19:R7C20</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C)),RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <version value="0.01"/>
+    <name value="HSPC Vital Sign Associated Precondition"/>
+    <immutable value="true"/>
+    <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <description value="SELECT SNOMED CT code system values descending from 'Qualifier value' (362981000)."/>
+    <copyright value="TBD"/>
+    <status value="draft"/>
+    <extensible value="true"/>
+    <date value="2015-06-11"/>
+    <define>
+		<system value="Intermountain Healtcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="1942"/>
+			<display value="After cardioversion"/>
+			<definition value="Occurred after the cardioversion procedure"/>
+		</concept>
+		<concept>
+			<code value="1966"/>
+			<display value="Before cardioversion"/>
+			<definition value="Occurred before the cardioversion procedure"/>
+		</concept>
+		<concept>
+			<code value="2029"/>
+			<display value="During cardioversion"/>
+			<definition value="Occurred during the cardioversion procedure"/>
+		</concept>
+		<concept>
+			<code value="219101"/>
+			<display value="At birth"/>
+			<definition value="Occurred at birth"/>
+		</concept>
+	</define>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+				<code value="255214003"/>
+				<display value="after exercise"/>
+			</concept>
+			<concept>
+				<code value="307166007"/>
+				<display value="before exercise"/>
+			</concept>
+			<concept>
+				<code value="309604004"/>
+				<display value="during exercise"/>
+			</concept>
+			<concept>
+				<code value="263678003"/>
+				<display value="at rest"/>
+			</concept>
+			<concept>
+				<code value="276986009"/>
+				<display value="antepartum"/>
+			</concept>
+			<concept>
+				<code value="255410009"/>
+				<display value="postpartum"/>
+			</concept>
+			<concept>
+				<code value="307159006"/>
+				<display value="intrapartum"/>
+			</concept>
+			<concept>
+				<code value="255566006"/>
+				<display value="post-dose"/>
+			</concept>
+            <concept>
+				<code value="255235001"/>
+				<display value="pre-dose"/>
+			</concept>
+			<concept>
+				<code value="262068006"/>
+				<display value="preoperative"/>
+			</concept>
+			<concept>
+				<code value="262061000"/>
+				<display value="postoperative"/>
+			</concept>
+			<concept>
+				<code value="277671009"/>
+				<display value="intraoperative"/>
+			</concept>
+			<concept>
+				<code value="884001"/>
+				<display value="initial"/>
+			</concept>
+        </include>
+    </compose>
+</ValueSet>

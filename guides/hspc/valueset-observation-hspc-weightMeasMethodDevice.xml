@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="valueset-observation-hspc-weightMeasMethodDevice"/>
+  <version value="0.01"/>
+  <name value="HSPC Weight Meas Method Device"/>
+  <immutable value="true"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="The set of codes that describe the methods or devices used to measure an individual's weight."/>
+  <copyright value="Intermountain Healthcare"/>
+  <status value="draft"/>
+  <extensible value="true"/>
+  <date value="2015-06-01"/>
+  <define>
+		<system value="Internountain Healthcare HDD"/>
+		<caseSensitive value="true"/>
+		<concept>	
+			<code value="1964"/>
+			<display value="Bed scale"/>
+			<definition value="A scale that measures the weight of a patient by measuring the total mass of a bed and patient, then subtracts the known mass of the bed."/>
+		</concept>	
+		<concept>	
+			<code value="2007"/>
+			<display value="Chair scale"/>
+			<definition value="A scale that measures the weight of a patient by measuring the total mass of a chair and patient, then subtracts the known mass of the chair."/>
+		</concept>	
+		<concept>	
+			<code value="2139"/>
+			<display value="Sling scale"/>
+			<definition value="A scale for patients that are unable to stand, patients sit in a sling attached to a boom."/>
+		</concept>	
+		<concept>	
+			<code value="2142"/>
+			<display value="Standing scale"/>
+			<definition value="A scale upon which an individual will stand to measure body weight"/>
+		</concept>	
+		<concept>	
+			<code value="2179"/>
+			<display value="Weight, estimated by provider"/>
+			<definition value="An estimation of body weight made by a provider"/>
+		</concept>	
+		<concept>	
+			<code value="2180"/>
+			<display value="Weight, lean; immersion"/>
+			<definition value="A measurement of lean body weight made by immersing an individual in water and then measuring the mass of the displacement."/>
+		</concept>	
+		<concept>	
+			<code value="2181"/>
+			<display value="Weight, lean; skin fold"/>
+			<definition value="A measurement of lean body weight made by measuring the thickness of a fold of skin."/>
+		</concept>	
+		<concept>	
+			<code value="2182"/>
+			<display value="Weight, measured"/>
+			<definition value="The body weight was directly measured"/>
+		</concept>	
+		<concept>	
+			<code value="2185"/>
+			<display value="Weight, percentile"/>
+			<definition value="A body weight based on other measurements plotted on a percentile chart."/>
+		</concept>	
+		<concept>	
+			<code value="2187"/>
+			<display value="Weight, stated (reported)"/>
+			<definition value="The body weight was stated to the provider and not measured"/>
+		</concept>	
+		<concept>	
+			<code value="50550851"/>
+			<display value="Infant Scale"/>
+			<definition value="A scale designed for use with infants only"/>
+		</concept>	
+		<concept>	
+			<code value="521443011"/>
+			<display value="Broselow tape"/>
+			<definition value="A measuring tape created to relate a child's height, as measured by the tape to the child's weight"/>
+		</concept>	
+		<concept>	
+			<code value="525949867"/>
+			<display value="Estimated/stated"/>
+			<definition value="The body weight is an estimation reported to the provider"/>
+		</concept>
+  </define>
+</ValueSet>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <version value="0.01"/>
+  <name value="HSPC Observation Status, basic"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+  <description value="A set of codes that describe the state of the observation."/>
+  <status value="draft"/>
+  <extensible value="true"/>
+  <date value="2015-06-09"/>
+  <compose>
+	    <include>
+			<system value="http://hl7.org/fhir/observation-status"/>
+			<concept>	
+				<code value="final"/>
+			</concept>	
+			<concept>	
+				<code value="entered-in-error"/>
+			</concept>	
+			<concept>	
+				<code value="unknown"/>
+			</concept>	
+	    </include>
+  </compose>
+</ValueSet>

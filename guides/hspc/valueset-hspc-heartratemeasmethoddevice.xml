@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <version value="0.01"/>
+    <name value="HSPC Heart Rate Measurement Method Device"/>
+    <immutable value="true"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://healthcaresoa.org"/>
+  </telecom>
+  </contact>
+    <description value="SNOMED CT code system values."/>
+    <copyright value="TBD"/>
+    <status value="draft"/>
+    <extensible value="true"/>
+    <date value="2015-05-19"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="37931006"/>
+				<display value="Auscultation"/>
+			</concept>
+			<concept>
+				<code value="268447006"/>
+				<display value="Doppler studies (procedure)"/>
+			</concept>
+			<concept>
+				<code value="250865004"/>
+				<display value="Electrocardiogram waveform (observable entity)"/>
+			</concept>
+			<concept>
+				<code value="277917001"/>
+				<display value="Thoracic impedance cardiography (procedure)"/>
+			</concept>
+			<concept>
+				<code value="59181002"/>
+				<display value="Oxygen analyzer, device (physical object)"/>
+			</concept>
+			<concept>
+				<code value="260933004"/>
+				<display value="Pressure waveform (attribute)"/>
+			</concept>
+			<concept>
+				<code value="32750006"/>
+				<display value="Inspection (procedure)"/>
+			</concept>
+			<concept>
+				<code value="46825001"/>
+				<display value="Electrocardiographic monitoring (procedure)"/>
+			</concept>
+        </include>
+    </compose>
+</ValueSet>
