@@ -344,6 +344,12 @@ public class Publisher implements URIResolver {
   private Map<String, Example> processingList = new HashMap<String, Example>();
   
   private boolean genRDF;
+  int errorCount = 0;
+  int warningCount = 0;
+  int informationCount = 0;
+
+  private List<ValidationMessage> validationErrors = new ArrayList<ValidationMessage>();
+  private List<ValidationMessage> collectedValidationErrors = new ArrayList<ValidationMessage>();
 
   public static void main(String[] args) throws Exception {
     //
@@ -459,7 +465,6 @@ public class Publisher implements URIResolver {
     else
       page.log("Build local copy", LogMessageType.Process);
     page.setFolders(new FolderManager(folder));
-    validationErrors = new ArrayList<ValidationMessage>();
 
     if (isGenerate && page.getSvnRevision() == null)
       page.setSvnRevision(checkSubversion(folder));
@@ -554,6 +559,7 @@ public class Publisher implements URIResolver {
     validationProcess();
     if (isGenerate && buildFlags.get("all"))
       produceQA();
+    finalProcessValidationOutcomes();
     if (!buildFlags.get("all")) {
       page.log("This was a Partial Build", LogMessageType.Process);
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -1246,8 +1252,36 @@ public class Publisher implements URIResolver {
     }
     if (errorCount + warningCount + hintCount > 0)
       page.log("Errors: " + Integer.toString(errorCount) + ". Warnings: " + Integer.toString(warningCount) + ". Hints: " + Integer.toString(hintCount), LogMessageType.Process);
+    collectedValidationErrors.addAll(validationErrors);
     validationErrors.clear();
     return errorCount;
+  }
+
+  private void finalProcessValidationOutcomes() {
+    int hintCount = 0;
+    int warningCount = 0;
+    int errorCount = 0;
+    for (ValidationMessage e : validationErrors) {
+      if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
+        errorCount++;
+      }
+    }
+    if (errorCount == 0) {
+      for (ValidationMessage e : collectedValidationErrors) {
+        if (e.getLevel() == IssueSeverity.INFORMATION) {
+          page.log(e.summary(), LogMessageType.Hint);
+          hintCount++;
+        }
+      }
+      for (ValidationMessage e : collectedValidationErrors) {
+        if (e.getLevel() == IssueSeverity.WARNING) {
+          page.log(e.summary(), LogMessageType.Warning);
+          warningCount++;
+        }
+      }
+      if (warningCount + hintCount > 0)
+        page.log("Summary - Warnings: " + Integer.toString(warningCount) + ", Hints: " + Integer.toString(hintCount), LogMessageType.Process);
+    }
   }
 
   private boolean hasBuildFlag(String n) {
@@ -4196,11 +4230,6 @@ public class Publisher implements URIResolver {
       throw new Exception("File " + fileToCheck + " failed schema validation");
   }
 
-  int errorCount = 0;
-  int warningCount = 0;
-  int informationCount = 0;
-
-  private List<ValidationMessage> validationErrors;
 
   private void validationProcess() throws Exception {
     validateXml();
