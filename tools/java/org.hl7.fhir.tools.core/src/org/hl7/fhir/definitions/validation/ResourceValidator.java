@@ -106,7 +106,7 @@ public class ResourceValidator extends BaseValidator {
 
   public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) {
     rule(errors, "structure", structure.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
-    checkElement(errors, structure.getName(), structure, null, null, true, false, hasSummary(structure));
+    checkElement(errors, structure.getName(), structure, null, null, true, false, hasSummary(structure), new ArrayList<String>());
   }
   
   private boolean hasSummary(ElementDefn structure) {
@@ -126,6 +126,7 @@ public class ResourceValidator extends BaseValidator {
   }
   
   public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) throws Exception {
+    
     rule(errors, "structure", parent.getName(), !name.equals("Metadata"), "The name 'Metadata' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("Tag"), "The name 'Tag' is not a legal name for a resource");
@@ -142,7 +143,8 @@ public class ResourceValidator extends BaseValidator {
     String s = parent.getRoot().getMapping(Definitions.RIM_MAPPING);
     warning(errors, "required", parent.getName(), !Utilities.noString(s), "RIM Mapping is required");
 
-    checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equalsIgnoreCase("n/a"), false, hasSummary(parent.getRoot()));
+    List<String> vsWarns = new ArrayList<String>();
+    int vsWarnings = checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equalsIgnoreCase("n/a"), false, hasSummary(parent.getRoot()), vsWarns);
     
     if (!resourceIsTechnical(name)) { // these are exempt because identification is tightly managed
       ElementDefn id = parent.getRoot().getElementByName("identifier");
@@ -221,7 +223,8 @@ public class ResourceValidator extends BaseValidator {
       if (em.getLevel() == IssueSeverity.WARNING)
         warnings++;
     }
-    rule(errors, "structure", parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" cannot have a FMM level >1 if it has warnings ("+parent.getFmmLevel()+")");
+    if (rule(errors, "structure", parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has warnings"))
+      rule(errors, "structure", parent.getName(), vsWarnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
 
   private boolean parentHasOp(String rname, String opname) throws Exception {
@@ -260,13 +263,14 @@ public class ResourceValidator extends BaseValidator {
   
 	//todo: check that primitives *in datatypes* don't repeat
 	
-	private void checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping, boolean optionalParent, boolean hasSummary) {
+	private int checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping, boolean optionalParent, boolean hasSummary, List<String> vsWarns) {
 //	  for (TypeRef t : e.getTypes()) {
 //  	  if (!typeCounter.containsKey(t.getName()))
 //	      typeCounter.put(t.getName(), 1);
 //  	  else
 //  	    typeCounter.put(t.getName(), typeCounter.get(t.getName())+1);
 //	  }
+	  int vsWarnings = 0;
 	  if (!names.containsKey(e.getName()))
 	    names.put(e.getName(), 0);
     names.put(e.getName(), names.get(e.getName())+1);
@@ -336,6 +340,13 @@ public class ResourceValidator extends BaseValidator {
 			
 			if (cd != null) {
 			  check(errors, path, cd, sd, e);
+			  if (cd.getValueSet() != null) {
+			    Integer w = (Integer) cd.getValueSet().getUserData("warnings");
+			    if (w != null && w > 0 && !vsWarns.contains(cd.getValueSet().getId())) {
+			      vsWarnings++;
+			      vsWarns.add(cd.getValueSet().getId());
+			    }
+			  }
 			}
 		}
 
@@ -345,8 +356,9 @@ public class ResourceValidator extends BaseValidator {
     needsRimMapping = needsRimMapping && !"n/a".equalsIgnoreCase(s) && !Utilities.noString(s);
     
 		for (ElementDefn c : e.getElements()) {
-			checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping, optionalParent, hasSummary);
+		  vsWarnings = vsWarnings + checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping, optionalParent, hasSummary, vsWarns);
 		}
+		return vsWarnings;
 	}
 
 

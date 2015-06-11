@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.utils.WorkerContext;
@@ -21,6 +22,11 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   public void validate(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, boolean internal, boolean exemptFromCopyrightRule) {
+    int o_warnings = 0;
+    for (ValidationMessage em : errors) {
+      if (em.getLevel() == IssueSeverity.WARNING)
+        o_warnings++;
+    }
     if (Utilities.noString(vs.getCopyright()) && !exemptFromCopyrightRule) {
       Set<String> sources = getListOfSources(vs);
       for (String s : sources) {
@@ -47,6 +53,12 @@ public class ValueSetValidator extends BaseValidator {
               "V3 Value set "+nameForErrors+" ("+vs.getName()+") contains codes with missing display or definition");
       }
     }
+    int warnings = 0;
+    for (ValidationMessage em : errors) {
+      if (em.getLevel() == IssueSeverity.WARNING)
+        warnings++;
+    }
+    vs.setUserData("warnings", o_warnings - warnings);
   }
 
   private void checkCodesForSpaces(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {
