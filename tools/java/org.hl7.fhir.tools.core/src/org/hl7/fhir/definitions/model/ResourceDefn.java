@@ -58,6 +58,7 @@ public class ResourceDefn  {
 
   private String name = null;
   private String enteredInErrorStatus;
+  private String fmmLevel;
 
   private List<InheritedMapping> inheritedMappings = new ArrayList<InheritedMapping>();
 
@@ -238,4 +239,14 @@ public class ResourceDefn  {
     }
     return results;
   }
+
+  public String getFmmLevel() {
+    return fmmLevel;
+  }
+
+  public void setFmmLevel(String fmmLevel) {
+    this.fmmLevel = fmmLevel;
+  }
+  
+  
 }

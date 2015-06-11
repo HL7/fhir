@@ -134,6 +134,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", parent.getName(), !name.equals("Validation"), "The name 'Validation' is not a legal name for a resource");
     rule(errors, "required",  parent.getName(), translations.hasTranslation(name), "The name '"+name+"' is not found in the file translations.xml");
     rule(errors, "structure", parent.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
+    rule(errors, "structure", parent.getName(), !Utilities.noString(parent.getFmmLevel()), "Resource must have a maturity level");
 
     rule(errors, "required",  parent.getName(), parent.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     rule(errors, "required",  parent.getName(), parent.getWg() != null, "A resource must have a designated owner"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
@@ -214,6 +215,13 @@ public class ResourceValidator extends BaseValidator {
         }
       }
     }
+    // last check: if maturity level is 
+    int warnings = 0;
+    for (ValidationMessage em : errors) {
+      if (em.getLevel() == IssueSeverity.WARNING)
+        warnings++;
+    }
+    rule(errors, "structure", parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" cannot have a FMM level >1 if it has warnings ("+parent.getFmmLevel()+")");
 	}
 
   private boolean parentHasOp(String rname, String opname) throws Exception {
@@ -229,9 +237,12 @@ public class ResourceValidator extends BaseValidator {
 
   private boolean resourceIsTechnical(String name) {
     return 
+        name.equals("Binary") || 
+        name.equals("Bundle") || 
         name.equals("ConceptMap") || 
         name.equals("Conformance") || 
         name.equals("MessageHeader") || 
+        name.equals("Subscription") || 
         name.equals("DataElement") || 
         name.equals("Profile") || 
         name.equals("Query") || 
@@ -321,8 +332,6 @@ public class ResourceValidator extends BaseValidator {
 				  || e.typeCode().contains("CodeableConcept") || e.typeCode().equals("uri"), "Can only specify bindings for coded data types");
 		  if (e.getBinding().getValueSet() != null && e.getBinding().getValueSet().getName() == null)
 		    throw new Error("unnamed value set on "+e.getBinding().getName());
-		  if (e.getBinding().getValueSet() != null)
-        warning(errors, "structure", path, !e.getBinding().getValueSet().getName().toLowerCase().contains("code"), "Value Set name "+e.getBinding().getValueSet().getName()+" on " + e.getBinding().getName()+" a path "+path+" is invalid - contains 'code'");
 			BindingSpecification cd = e.getBinding();
 			
 			if (cd != null) {

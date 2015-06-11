@@ -210,7 +210,6 @@ public class SpreadsheetParser {
 	
 	private ResourceDefn parseCommonTypeColumns() throws Exception {
 		ResourceDefn resource = new ResourceDefn();
-		parseEnteredInError(resource);
 		
 		Sheet sheet = loadSheet("Bindings");
 		if (sheet != null)
@@ -227,6 +226,7 @@ public class SpreadsheetParser {
 		for (int row = 0; row < sheet.rows.size(); row++) {
 			processLine(resource, sheet, row, invariants, false, null);
 		}
+    parseMetadata(resource);
 
 		if (invariants != null) {
 		  for (Invariant inv : invariants.values()) {
@@ -256,13 +256,15 @@ public class SpreadsheetParser {
 	}
 	
 	
-	private void parseEnteredInError(ResourceDefn resource) {
+	private void parseMetadata(ResourceDefn resource) throws Exception {
     Sheet sheet = loadSheet("Instructions");
     
     if (sheet != null) {
       for (int row = 0; row < sheet.rows.size(); row++) {
         if (sheet.rows.get(row).size() >= 2 && "entered-in-error-status".equals(sheet.rows.get(row).get(0)))
           resource.setEnteredInErrorStatus(sheet.rows.get(row).get(1));
+        if (sheet.rows.get(row).size() >= 2 && "fmm".equals(sheet.rows.get(row).get(0)))
+          resource.setFmmLevel(sheet.rows.get(row).get(1));
       }
     }
   }
