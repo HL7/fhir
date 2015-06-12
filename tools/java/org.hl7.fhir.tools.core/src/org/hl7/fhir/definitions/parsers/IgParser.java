@@ -11,6 +11,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Dictionary;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ImplementationGuide;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
@@ -113,6 +114,17 @@ public class IgParser {
       } else if (e.getNodeName().equals("dictionary")) {
         Dictionary d = new Dictionary(e.getAttribute("id"), e.getAttribute("name"), ig.getCode(), Utilities.path(Utilities.path(file.getParent(), e.getAttribute("source"))));
         ig.getDictionaries().add(d);
+      } else if (e.getNodeName().equals("logicalModel")) {
+        String source = Utilities.path(file.getParent(), e.getAttribute("source"));
+        String id = ig.getCode()+"-"+e.getAttribute("id");
+        SpreadsheetParser sparser = new SpreadsheetParser(ig.getCode(), new CSFileInputStream(source), id, ig, rootDir, logger, null, context.getVersion(), context, genDate, false, ig.getExtensions(), pkp, false);
+        sparser.getBindings().putAll(commonBindings);
+        sparser.setFolder(Utilities.getDirectoryForFile(source));
+        LogicalModel lm = sparser.parseLogicalModel(source);
+        lm.setId(id);
+        lm.setSource(source);
+        lm.getResource().setName(lm.getId());
+        ig.getLogicalModels().add(lm);
       } else
         throw new Exception("Unknown element name in IG: "+e.getNodeName());
       e = XMLUtil.getNextSibling(e);

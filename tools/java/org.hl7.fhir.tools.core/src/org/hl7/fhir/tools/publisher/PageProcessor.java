@@ -74,6 +74,7 @@ import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.OperationTuplePart;
@@ -2352,6 +2353,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();   
   }
 
+  private String lmHeader(String n, String title, String mode) throws Exception {
+    StringBuilder b = new StringBuilder();
+
+    b.append("<ul class=\"nav nav-tabs\">");
+    
+    b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+
+    return b.toString();   
+  }
+
   private String abstractResHeader(String n, String title, String mode) throws Exception {
     StringBuilder b = new StringBuilder();
     if (n.contains("-"))
@@ -3510,6 +3524,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+resHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("aresheader"))
         src = s1+abstractResHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("lmheader"))
+        src = s1+lmHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
@@ -4359,9 +4375,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition, ResourceDefn resource, List<String> tabs) throws Exception {
     String filename;
-    if (new CSFile(folders.sndBoxDir + name).exists())
-      filename = folders.sndBoxDir + name+File.separatorChar+name+"-"+suffix+".xml";
-    else
+    if (definitions.hasLogicalModel(name)) {
+      LogicalModel lm = definitions.getLogicalModel(name);
+      filename = Utilities.changeFileExt(lm.getSource(), "-"+suffix+".xml");
+    } else
       filename = folders.srcDir + name+File.separatorChar+name+"-"+suffix+".xml";
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource, tabs);
   }

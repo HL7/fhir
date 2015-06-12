@@ -25,6 +25,7 @@ public class ImplementationGuide {
   private Map<String, String> tlas = new HashMap<String, String>();
   private Map<String, StructureDefinition> extensions = new HashMap<String, StructureDefinition>();
   private List<BindingSpecification> unresolvedBindings = new ArrayList<BindingSpecification>();
+  private List<LogicalModel> logicalModels = new ArrayList<LogicalModel>();
   
   public ImplementationGuide(String code, String name, String page, String source, boolean review) {
     super();
@@ -100,6 +101,17 @@ public class ImplementationGuide {
 
   public List<BindingSpecification> getUnresolvedBindings() {
     return unresolvedBindings ;
+  }
+
+  public List<LogicalModel> getLogicalModels() {
+    return logicalModels ;
+  }
+
+  public LogicalModel getLogicalModel(String id) {
+    for (LogicalModel lm : logicalModels) 
+      if (lm.getId().equals(id))
+        return lm;
+    return null;
   }
   
 }

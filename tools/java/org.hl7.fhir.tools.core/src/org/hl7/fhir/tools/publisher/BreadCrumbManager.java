@@ -516,7 +516,10 @@ public class BreadCrumbManager {
   }
 
   public String getIndexPrefixForReference(String name) {
-    return map.get(name.toLowerCase());
+    if (map.containsKey(name.toLowerCase()))
+      return map.get(name.toLowerCase());
+    else
+      return "??.??";
   }
 
   public void makeToc(XhtmlNode p) {

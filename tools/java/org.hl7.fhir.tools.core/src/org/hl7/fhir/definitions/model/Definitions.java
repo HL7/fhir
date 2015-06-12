@@ -35,6 +35,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
@@ -515,6 +516,42 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   @Override
   public boolean isResource(String name) {
     return hasResource(name);
+  }
+
+  public boolean hasLogicalModel(String name) {
+    for (ImplementationGuide ig : getSortedIgs()) {
+      for (LogicalModel lm : ig.getLogicalModels()) {
+        if (lm.getResource().getName().equals(name))
+          return true;
+        if (lm.getId().equals(name))
+          return true;
+      }
+    }
+    return false;
+  }
+
+  public ImplementationGuide getIGforLogicalModel(String name) {
+    for (ImplementationGuide ig : getSortedIgs()) {
+      for (LogicalModel lm : ig.getLogicalModels()) {
+        if (lm.getResource().getName().equals(name))
+          return ig;
+        if (lm.getId().equals(name))
+          return ig;
+      }
+    }
+    return null;
+  }
+
+  public LogicalModel getLogicalModel(String name) {
+    for (ImplementationGuide ig : getSortedIgs()) {
+      for (LogicalModel lm : ig.getLogicalModels()) {
+        if (lm.getResource().getName().equals(name))
+          return lm;
+        if (lm.getId().equals(name))
+          return lm;
+      }
+    }
+    return null;
   }
 
   

@@ -104,6 +104,7 @@ import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.ImplementationGuide;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.OperationTuplePart;
@@ -1574,7 +1575,11 @@ public class Publisher implements URIResolver {
       }
       test = XMLUtil.getNextSibling(test);
     }
-    processValidationOutcomes();
+    if (processValidationOutcomes() > 0) {
+        page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+        throw new Exception("Errors executing build. Details logged.");
+      }
+
   }
 
   private void produceArchive() throws Exception {
@@ -1694,6 +1699,12 @@ public class Publisher implements URIResolver {
       if (buildFlags.get("all")) { // || buildFlags.get("dict-" + n.toLowerCase())) {
         page.log(" ...dictionary " + n, LogMessageType.Process);
         produceDictionary(page.getDefinitions().getDictionaries().get(n));
+      }
+    }
+    for (ImplementationGuide ig : page.getDefinitions().getSortedIgs()) {
+      for (LogicalModel lm : ig.getLogicalModels()) {
+        page.log(" ...ig logical model " + lm.getId(), LogMessageType.Process);
+        produceLogicalModel(lm, ig);        
       }
     }
 
@@ -1906,11 +1917,13 @@ public class Publisher implements URIResolver {
       page.getEpub().produce();
       for (String t : page.getQa().getBrokenlinks())
         validationErrors.add(new ValidationMessage(Source.Publisher, "Structure", -1, -1, "spec", t, IssueSeverity.ERROR));
-        processValidationOutcomes();
+      if (processValidationOutcomes() > 0) {
+        page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+        throw new Exception("Errors executing build. Details logged.");
+      }
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
   }
-
 
   private void minify(String srcFile, String dstFile) throws Exception {
     CloseProtectedZipInputStream source = new CloseProtectedZipInputStream(new FileInputStream(srcFile));
@@ -3885,6 +3898,70 @@ public class Publisher implements URIResolver {
     src = page.processPageIncludesForBook(file, src, "page", null);
     cachePage(file, src, logicalName);
   }
+
+  private void produceLogicalModel(LogicalModel lm, ImplementationGuide ig) throws Exception {
+    String n = lm.getId();
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    XmlSpecGenerator gen = new XmlSpecGenerator(bs, n + "-definitions.html", null, page);
+    gen.generate(lm.getRoot(), true);
+    gen.close();
+    String xml = new String(bs.toByteArray());
+
+    bs = new ByteArrayOutputStream();
+    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, n + "-definitions.html", null, page);
+    genJ.generate(lm.getRoot(), true, true);
+    genJ.close();
+    String json = new String(bs.toByteArray());
+
+//    xmls.put(n, xml);
+//    jsons.put(n, json);
+
+    File tmp = Utilities.createTempFile("tmp", ".tmp");
+
+    TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
+    tgen.generate(lm.getRoot());
+    tgen.close();
+    String tx = TextFile.fileToString(tmp.getAbsolutePath());
+
+    DictHTMLGenerator dgen = new DictHTMLGenerator(new FileOutputStream(tmp), page);
+    dgen.generate(lm.getRoot());
+    dgen.close();
+    String dict = TextFile.fileToString(tmp.getAbsolutePath());
+
+    MappingsGenerator mgen = new MappingsGenerator(page.getDefinitions());
+    mgen.generate(lm.getResource());
+    String mappings = mgen.getMappings();
+    String mappingsList = mgen.getMappingsList();
+
+    SvgGenerator svg = new SvgGenerator(page);
+    svg.generate(lm.getResource(), page.getFolders().dstDir + n + ".svg");
+
+    String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(lm.getId());
+    SectionTracker st = new SectionTracker(prefix);
+    st.start("");
+    page.getSectionTrackerCache().put(n, st);
+
+    String template = "template-logical";
+    String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
+    src = insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "resource", n + ".html"), st, n + ".html");
+    TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
+    page.getEpub().registerFile(n + ".html", "Base Page for " + n, EPubManager.XHTML_TYPE);
+
+    src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-definitions.html");
+    TextFile.stringToFile(
+        insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html"), st, n
+            + "-definitions.html"), page.getFolders().dstDir + n + "-definitions.html");
+    page.getEpub().registerFile(n + "-definitions.html", "Detailed Descriptions for " + lm.getResource().getName(), EPubManager.XHTML_TYPE);
+
+    src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-mappings.html");
+    TextFile.stringToFile(
+        insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html"), st, n + "-mappings.html"),
+        page.getFolders().dstDir + n + "-mappings.html");
+    page.getEpub().registerFile(n + "-mappings.html", "Formal Mappings for " + n, EPubManager.XHTML_TYPE);
+
+    tmp.delete();
+  }
+
 
   private void produceDictionary(Dictionary d) throws Exception {
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-dictionary.html");

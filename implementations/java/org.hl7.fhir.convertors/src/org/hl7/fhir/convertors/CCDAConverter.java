@@ -42,7 +42,7 @@ import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceCritical
 import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceEventComponent;
 import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceStatus;
 import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceType;
-import org.hl7.fhir.instance.model.AllergyIntolerance.ReactionEventSeverity;
+import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceSeverity;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeableConcept;
@@ -69,7 +69,7 @@ import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.Observation;
 import org.hl7.fhir.instance.model.Observation.ObservationRelatedComponent;
-import org.hl7.fhir.instance.model.Observation.ObservationRelationshiptypes;
+import org.hl7.fhir.instance.model.Observation.ObservationRelationshipType;
 import org.hl7.fhir.instance.model.Observation.ObservationReliability;
 import org.hl7.fhir.instance.model.Observation.ObservationStatus;
 import org.hl7.fhir.instance.model.Organization;
@@ -917,9 +917,9 @@ public class CCDAConverter {
 		Element et = cda.getChild(so, "effectiveTime");
 		if (et != null) {
 			if (cda.getChild(et, "low") != null)
-				obs.setApplies(convert.makeDateTimeFromTS(cda.getChild(et, "low")));
+				obs.setEffective(convert.makeDateTimeFromTS(cda.getChild(et, "low")));
 			else
-				obs.setApplies(convert.makeDateTimeFromIVL(et));
+				obs.setEffective(convert.makeDateTimeFromIVL(et));
 		}
 
 		//	SHOULD contain zero or one [0..1] value (CONF:8559).
@@ -956,7 +956,7 @@ public class CCDAConverter {
 				obs.getContained().add(co);
 				ObservationRelatedComponent or = new ObservationRelatedComponent();
 				obs.getRelated().add(or);
-				or.setType(ObservationRelationshiptypes.HASCOMPONENT);
+				or.setType(ObservationRelationshipType.HASMEMBER);
 				or.setTarget(Factory.makeReference("#"+id));
 				co.setCode(Factory.newCodeableConcept("11778-8", "http://loinc.org", "Delivery date Estimated"));
 				co.setValue(convert.makeDateTimeFromTS(cda.getChild(dd, "value"))); // not legal, see gForge http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=3125&start=0 
@@ -1016,19 +1016,19 @@ public class CCDAConverter {
 	}
 
 
-	private ReactionEventSeverity readSeverity(String severity) {
+	private AllergyIntoleranceSeverity readSeverity(String severity) {
 		if ("255604002".equals(severity)) // Mild 
-			return ReactionEventSeverity.MILD; 
+			return AllergyIntoleranceSeverity.MILD; 
 		if ("371923003".equals(severity)) //  Mild to moderate 
-			return ReactionEventSeverity.MODERATE; 
+			return AllergyIntoleranceSeverity.MODERATE; 
 		if ("6736007".equals(severity)) // Moderate
-			return ReactionEventSeverity.MODERATE; 
+			return AllergyIntoleranceSeverity.MODERATE; 
 		if ("371924009".equals(severity)) // Moderate to severe
-			return ReactionEventSeverity.SEVERE; 
+			return AllergyIntoleranceSeverity.SEVERE; 
 		if ("24484000".equals(severity)) // Severe
-			return ReactionEventSeverity.SEVERE; 
+			return AllergyIntoleranceSeverity.SEVERE; 
 		if ("399166001".equals(severity)) // Fatal
-			return ReactionEventSeverity.SEVERE; 
+			return AllergyIntoleranceSeverity.SEVERE; 
 		return null;
 	}
 
@@ -1071,14 +1071,15 @@ public class CCDAConverter {
 		//  This code SHALL contain exactly one [1..1] @code="46680005" Vital signs (CodeSystem: SNOMED-CT 2.16.840.1.113883.6.96 STATIC) (CONF:19177).
 		obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(organizer, "code"))); 
 
+		
 		// SHALL contain exactly one [1..1] effectiveTime (CONF:7288).
-		obs.setApplies(convert.makeMatchingTypeFromIVL(cda.getChild(organizer, "effectiveTime")));
+		obs.setEffective(convert.makeMatchingTypeFromIVL(cda.getChild(organizer, "effectiveTime")));
 
 		// SHALL contain at least one [1..*] component (CONF:7285) such that it
 		// SHALL contain exactly one [1..1] Vital Sign Observation (templateId:2.16.840.1.113883.10.20.22.4.27) (CONF:15946).
 		for (Element e : cda.getChildren(organizer, "component")){
 			ObservationRelatedComponent ro = new ObservationRelatedComponent();
-			ro.setType(ObservationRelationshiptypes.HASCOMPONENT);
+			ro.setType(ObservationRelationshipType.HASMEMBER);
 			ro.setTarget(Factory.makeReference("#"+processVitalSignsObservation(e, list)));
 		}
 	}
@@ -1110,7 +1111,7 @@ public class CCDAConverter {
 		// ignore
 
 		// SHALL contain exactly one [1..1] effectiveTime (CONF:7304).
-		obs.setApplies(convert.makeMatchingTypeFromIVL(cda.getChild(observation, "effectiveTime")));
+		obs.setEffective(convert.makeMatchingTypeFromIVL(cda.getChild(observation, "effectiveTime")));
 
 		//	SHALL contain exactly one [1..1] value with @xsi:type="PQ" (CONF:7305).
 		obs.setValue(convert.makeQuantityFromPQ(cda.getChild(observation, "value")));

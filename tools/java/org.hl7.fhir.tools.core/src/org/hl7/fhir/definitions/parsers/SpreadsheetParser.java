@@ -57,6 +57,7 @@ import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
@@ -137,6 +138,7 @@ public class SpreadsheetParser {
   private ProfileKnowledgeProvider pkp;
   private ImplementationGuide ig;
   private String txFolder;
+  private boolean isLogicalModel;
   
 	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType) throws Exception {
 	  this.usageContext = usageContext;
@@ -1347,7 +1349,7 @@ public class SpreadsheetParser {
 			root.setDefinition(e.getDefinition());
 		} 
 		
-		if (isProfile)
+		if (isProfile || isLogicalModel)
 		  e.setMaxLength(sheet.getColumn(row, "Max Length"));
 		e.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
 		e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
@@ -1740,6 +1742,57 @@ public class SpreadsheetParser {
 
   public Map<String, BindingSpecification> getBindings() {
     return bindings;
+  }
+
+  public LogicalModel parseLogicalModel(String path) throws Exception {
+    ResourceDefn resource = new ResourceDefn();
+    isLogicalModel = true;
+    
+    Sheet sheet = loadSheet("Bindings");
+    if (sheet != null)
+      readBindings(sheet);
+      
+    sheet = loadSheet("Invariants");
+    Map<String,Invariant> invariants = null;
+    if (sheet != null)
+      invariants = readInvariants(sheet, title);
+    
+    sheet = loadSheet("Data Elements");
+    if (sheet == null)
+      throw new Exception("No Sheet found for Data Elements");
+    for (int row = 0; row < sheet.rows.size(); row++) {
+      processLine(resource, sheet, row, invariants, false, null);
+    }
+    parseMetadata(resource);
+
+    if (invariants != null) {
+      for (Invariant inv : invariants.values()) {
+        if (Utilities.noString(inv.getContext())) 
+          log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context", LogMessageType.Warning);
+        else {
+          ElementDefn ed = findContext(resource.getRoot(), inv.getContext(), "Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" Context");
+          if (ed.getName().endsWith("[x]") && !inv.getContext().endsWith("[x]"))
+            inv.setFixedName(inv.getContext().substring(inv.getContext().lastIndexOf(".")+1));
+          ed.getInvariants().put(inv.getId(), inv);
+          if (Utilities.noString(inv.getXpath()))
+            log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement", LogMessageType.Warning);
+          else if (inv.getXpath().contains("\""))
+            log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character", LogMessageType.Warning);
+        }
+      }
+    }
+    
+    //TODO: Will fail if type has no root. - GG: so? when could that be
+    // EK: Future types. But those won't get there.
+    if( bindings != null)
+      resource.getRoot().getNestedBindings().putAll(bindings);
+    
+    scanNestedTypes(resource, resource.getRoot(), resource.getName());
+    
+    LogicalModel lm = new LogicalModel();
+    lm.setRoot(resource.getRoot());
+    lm.setResource(resource);
+    return lm;
   }
 
 

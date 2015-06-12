@@ -1,0 +1,5 @@
+<ig code="hspc" title="HSPC">
+  <publishing homepage="nehta.html"/>
+  <logicalModel id="colorectal" source="colorectal-spreadsheet.xml" type="spreadsheet"/>
+  <page source="nehta.html"/>
+</ig>

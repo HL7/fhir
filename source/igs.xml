@@ -15,4 +15,5 @@
   <ig code="daf"      name="Data Access Framework" page="daf.html" review="" source="\guides\daf\daf.xml"/>
   <ig code="cqf"      name="Quality Improvement Core" page="qicore.html" review="" source="\guides\cqf\cqf.xml"/>
   <ig code="hspc"     name="Healthcare Services Platform Consortium" page="" review="" source="\guides\hspc\hspc.xml"/>
+  <ig code="nehta"    name="NEHTA Tooling/Method Evaluation" page="nehta.html" review="" source="\guides\nehta\nehta.xml"/>
 </igs>

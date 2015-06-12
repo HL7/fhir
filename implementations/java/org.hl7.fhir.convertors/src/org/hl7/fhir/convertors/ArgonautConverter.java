@@ -32,13 +32,13 @@ import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Organization;
 import org.hl7.fhir.instance.model.DocumentReference.DocumentReferenceContextComponent;
-import org.hl7.fhir.instance.model.DocumentReference.DocumentReferenceStatus;
+import org.hl7.fhir.instance.model.Enumerations.DocumentReferenceStatus;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Immunization;
 import org.hl7.fhir.instance.model.Immunization.ImmunizationExplanationComponent;
 import org.hl7.fhir.instance.model.Location;
 import org.hl7.fhir.instance.model.Medication;
-import org.hl7.fhir.instance.model.Condition.ConditionStatus;
+import org.hl7.fhir.instance.model.Condition.ConditionClinicalStatus;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Encounter;
 import org.hl7.fhir.instance.model.Encounter.EncounterClass;
@@ -55,7 +55,7 @@ import org.hl7.fhir.instance.model.MedicationStatement.MedicationStatementDosage
 import org.hl7.fhir.instance.model.MedicationStatement.MedicationStatementStatus;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.Observation;
-import org.hl7.fhir.instance.model.Observation.ObservationRelationshiptypes;
+import org.hl7.fhir.instance.model.Observation.ObservationRelationshipType;
 import org.hl7.fhir.instance.model.Observation.ObservationReliability;
 import org.hl7.fhir.instance.model.Observation.ObservationStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -353,7 +353,7 @@ public class ArgonautConverter extends ConverterBase {
 			stats.put(rn, new Stats());
 		}
 		
-		zips.get(rn).addBytes(resource.getId()+"xml", src, false);
+		zips.get(rn).addBytes(resource.getId()+".xml", src, false);
 		Stats ss = stats.get(rn);
 		ss.instances++;
 
@@ -781,7 +781,7 @@ public class ArgonautConverter extends ConverterBase {
 					cond.setAsserter(ref);
 				}
 				Element po = cda.getChild(cda.getChild(pca, "entryRelationship"), "observation"); // problem observation
-				cond.setClinicalStatus(ConditionStatus.UNKNOWN);
+				cond.setClinicalStatus(ConditionClinicalStatus.UNKNOWN);
 				cond.setCode(inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(po, "value")), null));
 				cond.setOnset(convert.makeDateTimeFromTS(cda.getChild(cda.getChild(po, "effectiveTime"), "low")));
 				Element pso = cda.getChild(cda.getChild(po, "entryRelationship"), "observation"); // problem status observation
@@ -896,9 +896,9 @@ public class ArgonautConverter extends ConverterBase {
 					list.addEntry().setItem(new Reference().setReference("Observation/"+obs.getId()));
 					obs.setStatus(ObservationStatus.FINAL);
 					obs.setReliability(ObservationReliability.OK);
-					obs.setApplies(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
+					obs.setEffective(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
 					String v = cda.getChild(o, "value").getAttribute("value");
-					if (!Utilities.IsDecimal(v)) {
+					if (!Utilities.isDecimal(v)) {
 						obs.setDataAbsentReason(inspectCode(new CodeableConcept().setText(v), null));
 					} else
 						obs.setValue(convert.makeQuantityFromPQ(cda.getChild(o, "value")));
@@ -947,17 +947,17 @@ public class ArgonautConverter extends ConverterBase {
 					panel.setCode(inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(org, "code")), null));
 					for (Element comp : cda.getChildren(org, "component")) {
 						Observation obs = processObservation(cda, convert, context, cda.getChild(comp, "observation"));
-						panel.addRelated().setType(ObservationRelationshiptypes.HASCOMPONENT).setTarget(new Reference().setReference("Observation/"+obs.getId()));
-						if (!panel.hasApplies())
-							panel.setApplies(obs.getApplies());
+						panel.addRelated().setType(ObservationRelationshipType.HASMEMBER).setTarget(new Reference().setReference("Observation/"+obs.getId()));
+						if (!panel.hasEffective())
+							panel.setEffective(obs.getEffective());
 						else {
-							if (!Base.compareDeep(panel.getApplies(), obs.getApplies(), false)) {
-								Period p = panel.getApplies() instanceof Period ? panel.getAppliesPeriod() : new Period().setStartElement(panel.getAppliesDateTimeType()).setEndElement(panel.getAppliesDateTimeType());
-								if (p.getStartElement().after(obs.getAppliesDateTimeType()))
-									p.setStartElement(obs.getAppliesDateTimeType());
-								if (p.getEndElement().before(obs.getAppliesDateTimeType()))
-									p.setEndElement(obs.getAppliesDateTimeType());
-								panel.setApplies(p);
+							if (!Base.compareDeep(panel.getEffective(), obs.getEffective(), false)) {
+								Period p = panel.getEffective() instanceof Period ? panel.getEffectivePeriod() : new Period().setStartElement(panel.getEffectiveDateTimeType()).setEndElement(panel.getEffectiveDateTimeType());
+								if (p.getStartElement().after(obs.getEffectiveDateTimeType()))
+									p.setStartElement(obs.getEffectiveDateTimeType());
+								if (p.getEndElement().before(obs.getEffectiveDateTimeType()))
+									p.setEndElement(obs.getEffectiveDateTimeType());
+								panel.setEffective(p);
 							}
 						}
 
@@ -982,7 +982,7 @@ public class ArgonautConverter extends ConverterBase {
 		obs.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
 		obs.setStatus(ObservationStatus.FINAL);
 		obs.setReliability(ObservationReliability.OK);
-		obs.setApplies(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
+		obs.setEffective(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
 		obs.setCode(inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(o, "code")), null));
 		obs.setInterpretation(inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(o, "interpretationCode")), null));
 		Element rr = cda.getChild(o, "referenceRange");
@@ -1000,7 +1000,7 @@ public class ArgonautConverter extends ConverterBase {
 		} else if ("PQ".equals(type)) {
 			obs.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobsquantity");
 			String va = cda.getChild(o, "value").getAttribute("value");
-			if (!Utilities.IsDecimal(va)) {
+			if (!Utilities.isDecimal(va)) {
 				obs.setDataAbsentReason(inspectCode(new CodeableConcept().setText(va), null));
 			} else
 			  obs.setValue(convert.makeQuantityFromPQ(cda.getChild(o, "value"), null));
@@ -1036,7 +1036,7 @@ public class ArgonautConverter extends ConverterBase {
 			if (!found) {
 				obs.setStatus(ObservationStatus.FINAL);
 				obs.setReliability(ObservationReliability.OK);
-				obs.setApplies(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
+				obs.setEffective(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
 				obs.setValue(inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(o, "value")), null));
 				saveResource(obs);
 			}
@@ -1298,7 +1298,7 @@ public class ArgonautConverter extends ConverterBase {
 		for (CodeableConcept cc : context.encounter.getType())
 			ref.getContext().addEvent(cc);
 		ref.setDescription(cda.getChild(doc, "title").getTextContent());
-		ref.setCustodian(new Reference().setReference("Organization/"+processOrganization(cda.getDescendent(doc, "custodian/assignedCustodian/representedCustodianOrganization"), cda, convert, context)));
+		ref.setCustodian(new Reference().setReference("Organization/"+processOrganization(cda.getDescendent(doc, "custodian/assignedCustodian/representedCustodianOrganization"), cda, convert, context).getId()));
 		Practitioner p = processPerformer(cda, convert, context, cda.getChild(doc, "legalAuthenticator"), "assignedEntity", "assignedPerson");
 		ref.setAuthenticator(new Reference().setReference("Practitioner/"+p.getId()).setDisplay(p.getUserString("display")));
 	  saveResource(ref);

@@ -51,7 +51,7 @@ import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.HumanName.NameUse;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.InstantType;
-import org.hl7.fhir.instance.model.Patient.AdministrativeGender;
+import org.hl7.fhir.instance.model.Enumerations.AdministrativeGender;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Range;
