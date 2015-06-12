@@ -74,13 +74,13 @@ public class RDFValidator {
     if (results.hasNext()) { 
       // Output query results 
       ByteArrayOutputStream ba = new ByteArrayOutputStream();
-      msgs.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf"+id, description, level));
+      msgs.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf:"+id, description, level));
       while (results.hasNext()) {
         QuerySolution row = results.next();
         String cell = row.getResource(results.getResultVars().get(0)).getURI();
         if (cell.startsWith("http://hl7.org/fhir/"))
           cell = cell.substring(20);
-        msgs.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf"+id, cell+": "+message, level));        
+        msgs.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf:"+id, cell+": "+message, level));        
       }
     }
     

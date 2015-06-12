@@ -71,6 +71,7 @@ import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.SearchParameter.SearchParameterContactComponent;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -85,6 +86,8 @@ import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -454,16 +457,16 @@ public class ProfileGenerator {
     pathNames.clear();  
   }
 
-  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, ImplementationGuide usage) throws Exception {
+  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, ImplementationGuide usage, List<ValidationMessage> issues) throws Exception {
     
     try {
-      return generate(pack, profile, resource, id, null, usage);
+      return generate(pack, profile, resource, id, null, usage, issues);
     } catch (Exception e) {
       throw new Exception("Error processing profile '"+id+"': "+e.getMessage(), e);
     }
   }
   
-  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, String html, ImplementationGuide usage) throws Exception {
+  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, String html, ImplementationGuide usage, List<ValidationMessage> issues) throws Exception {
     if (profile.getResource() != null)
       return profile.getResource();
     
@@ -519,19 +522,8 @@ public class ProfileGenerator {
     
     List<String> errors = new ArrayList<String>();
     new ProfileUtilities(context).sortDifferential(base, p, p.getName(), pkp, errors);
-    if (!errors.isEmpty()) {
-      boolean cont = true;
-      for (String s : errors) {
-        if (s.startsWith("!")) {
-          if (!s.contains(".extension"))
-            cont = false;
-          System.out.println(s.substring(1));
-        } else
-          System.out.println(s);
-      }
-      if (!cont)
-        throw new Exception("Unable to continue due to serious errors in profiles");
-    }
+    for (String s : errors)
+      issues.add(new ValidationMessage(Source.ProfileValidator, "Structure", -1, -1, p.getBase(), s, IssueSeverity.WARNING));
     reset();
     // ok, c is the differential. now we make the snapshot
     new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getType(), p.getName(), pkp);

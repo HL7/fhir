@@ -45,12 +45,9 @@ public class ValueSetValidator extends BaseValidator {
         checkCodeCaseDuplicates(errors, nameForErrors, vs, codes, vs.getDefine().getConcept());
         if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && !vs.getDefine().getSystem().startsWith("urn:uuid:")) {
           checkCodesForSpaces(errors, nameForErrors, vs, vs.getDefine().getConcept());
-          warning(errors, "business-rule", "ValueSet["+vs.getId()+"].define", checkCodesForDisplayAndDefinition(vs.getDefine().getConcept()),
-              "Value set "+nameForErrors+" ("+vs.getName()+") contains codes with missing display or definition");
         }
         if (vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/"))
-          warning(errors, "business-rule", "ValueSet["+vs.getId()+"].define", checkCodesForDisplayAndDefinition(vs.getDefine().getConcept()),
-              "V3 Value set "+nameForErrors+" ("+vs.getName()+") contains codes with missing display or definition");
+          checkCodesForDisplayAndDefinition(errors, "ValueSet["+vs.getId()+"].define", vs.getDefine().getConcept(), nameForErrors, vs.getName());
       }
     }
     int warnings = 0;
@@ -69,16 +66,15 @@ public class ValueSetValidator extends BaseValidator {
     }
   }
 
-  private boolean checkCodesForDisplayAndDefinition(List<ConceptDefinitionComponent> concept) {
+  private void checkCodesForDisplayAndDefinition(List<ValidationMessage> errors, String path, List<ConceptDefinitionComponent> concept, String nameForErrors, String vsName) {
+    int i = 0;
     for (ConceptDefinitionComponent cc : concept) {
-      if (cc.hasCode() && !cc.hasDisplay())
-        return false;
-      if (!cc.hasDefinition())
-        return false;
-      if (!checkCodesForDisplayAndDefinition(cc.getConcept()))
-        return false;
+      String p = path +"["+Integer.toString(i)+"]";
+      warning(errors, "business-rule", p, !cc.hasCode() || cc.hasDisplay(), "V3 Value set "+nameForErrors+" ("+vsName+") code '"+cc.getCode()+"' has no display");
+      warning(errors, "business-rule", p, cc.hasDefinition(), "V3 Value set "+nameForErrors+" ("+vsName+") code '"+cc.getCode()+"' has no definition");
+      checkCodesForDisplayAndDefinition(errors, p+".concept", cc.getConcept(), nameForErrors, vsName);
+      i++;
     }
-    return true;
   }
 
   private void checkCodeCaseDuplicates(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, Set<String> codes, List<ConceptDefinitionComponent> concepts) {

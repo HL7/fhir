@@ -34,12 +34,15 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DecimalType;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingStrength;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.rdf.TurtleGenerator;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -76,11 +79,13 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   private Deque<AnonTypeInfo> anonTypes = new ArrayDeque<AnonTypeInfo>();
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
   private Subject nilInstance;
+  private List<ValidationMessage> issues;
 
-  public FhirTurtleGenerator(OutputStream destination, Definitions definitions, WorkerContext context) {
+  public FhirTurtleGenerator(OutputStream destination, Definitions definitions, WorkerContext context, List<ValidationMessage> issues) {
     super(destination);
     this.definitions = definitions;
     this.context = context;
+    this.issues = issues;
   }
   
   /**
@@ -801,11 +806,11 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   protected void chckSubjects() {
     for (String s : sorted(predicateSet)) {
       if (s.startsWith("fhir:") && !subjectSet.contains(s))
-        System.out.println("Undefined predicate "+s);
+        issues.add(new ValidationMessage(Source.Ontology, "RDF", -1, -1, "turtle", "Undefined predicate "+s, IssueSeverity.WARNING));
     }
     for (String s : sorted(objectSet)) {
       if (s.startsWith("fhir:") && !subjectSet.contains(s))
-        System.out.println("Undefined object "+s);
+        issues.add(new ValidationMessage(Source.Ontology, "RDF", -1, -1, "turtle", "Undefined object "+s, IssueSeverity.WARNING));
     }
   }
 
