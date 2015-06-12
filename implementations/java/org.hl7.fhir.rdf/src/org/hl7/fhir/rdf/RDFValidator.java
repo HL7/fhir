@@ -2,9 +2,15 @@ package org.hl7.fhir.rdf;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
+import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 
 import arq.sparql;
@@ -13,8 +19,10 @@ import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.ResultSetFormatter;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 
 /**
@@ -54,23 +62,30 @@ public class RDFValidator {
     }
   }
   
-  public String assertion(String sparql) {
+  public List<ValidationMessage> assertion(String sparql, String id, String rowType, String message, String description, IssueSeverity level) {
+    List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
+    
     Query query = QueryFactory.create(prefixes+sparql);
 
     // Execute the query and obtain results
     QueryExecution qe = QueryExecutionFactory.create(query, model);
     ResultSet results = qe.execSelect();
-    String rows = null;
     
     if (results.hasNext()) { 
       // Output query results 
       ByteArrayOutputStream ba = new ByteArrayOutputStream();
-      ResultSetFormatter.out(ba, results, query);
-      rows = new String(ba.toByteArray());
+      msgs.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf"+id, description, level));
+      while (results.hasNext()) {
+        QuerySolution row = results.next();
+        String cell = row.getResource(results.getResultVars().get(0)).getURI();
+        if (cell.startsWith("http://hl7.org/fhir/"))
+          cell = cell.substring(20);
+        msgs.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf"+id, cell+": "+message, level));        
+      }
     }
     
     // Important - free up resources used running the query
     qe.close();
-    return rows;
+    return msgs;
   }
 }

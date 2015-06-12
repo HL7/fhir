@@ -1562,16 +1562,8 @@ public class Publisher implements URIResolver {
     test = XMLUtil.getFirstChild(test);
     while (test != null) {
       if (test.getNodeName().equals("assertion")) {
-        boolean error = "error".equals(test.getAttribute("level"));
-        boolean rows = "true".equals(test.getAttribute("expectation"));
-        String description = test.getAttribute("description");
         String sparql = test.getTextContent();
-        String rowSet = val.assertion(sparql);
-        boolean outcome = rows = (rowSet == null);
-        if (!outcome) {
-          System.out.println();
-          validationErrors.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf validation rules", description+"\r\n"+rowSet, error ? OperationOutcome.IssueSeverity.ERROR : OperationOutcome.IssueSeverity.WARNING));
-        }
+        validationErrors.addAll(val.assertion(sparql, test.getAttribute("id"), test.getAttribute("rowtype"), test.getAttribute("message"), test.getAttribute("description"), IssueSeverity.fromCode(test.getAttribute("level"))));
       }
       test = XMLUtil.getNextSibling(test);
     }
@@ -1582,6 +1574,7 @@ public class Publisher implements URIResolver {
 
   }
 
+    
   private void produceArchive() throws Exception {
     String target = page.getFolders().archiveDir + "v" + page.getVersion() + ".zip";
     File tf = new CSFile(target);
