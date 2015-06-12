@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -226,7 +226,7 @@ public class ConceptMap extends DomainResource {
          * A concept from the target value set that this concept maps to.
          */
         @Child(name = "target", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Target of this map", formalDefinition="A concept from the target value set that this concept maps to." )
+        @Description(shortDefinition="Concept in target system for element", formalDefinition="A concept from the target value set that this concept maps to." )
         protected List<TargetElementComponent> target;
 
         private static final long serialVersionUID = -458143877L;

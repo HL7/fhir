@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -70,7 +70,7 @@ public class MedicationPrescription extends DomainResource {
         /**
          * The prescription was replaced by a newer one, which encompasses all the information in the previous one.
          */
-        SUPERCEDED, 
+        SUPERSEDED, 
         /**
          * The prescription is not yet 'actionable', i.e. it is a work in progress, required sign-off, need to be run through decision support.
          */
@@ -92,8 +92,8 @@ public class MedicationPrescription extends DomainResource {
           return ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return STOPPED;
-        if ("superceded".equals(codeString))
-          return SUPERCEDED;
+        if ("superseded".equals(codeString))
+          return SUPERSEDED;
         if ("draft".equals(codeString))
           return DRAFT;
         throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
@@ -105,7 +105,7 @@ public class MedicationPrescription extends DomainResource {
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
             case STOPPED: return "stopped";
-            case SUPERCEDED: return "superceded";
+            case SUPERSEDED: return "superseded";
             case DRAFT: return "draft";
             default: return "?";
           }
@@ -117,7 +117,7 @@ public class MedicationPrescription extends DomainResource {
             case COMPLETED: return "http://hl7.org/fhir/medication-prescription-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/medication-prescription-status";
             case STOPPED: return "http://hl7.org/fhir/medication-prescription-status";
-            case SUPERCEDED: return "http://hl7.org/fhir/medication-prescription-status";
+            case SUPERSEDED: return "http://hl7.org/fhir/medication-prescription-status";
             case DRAFT: return "http://hl7.org/fhir/medication-prescription-status";
             default: return "?";
           }
@@ -129,7 +129,7 @@ public class MedicationPrescription extends DomainResource {
             case COMPLETED: return "All actions that are implied by the prescription have occurred (this will rarely be made explicit).";
             case ENTEREDINERROR: return "The prescription was entered in error and therefore nullified.";
             case STOPPED: return "Actions implied by the prescription have been permanently halted, before all of them occurred.";
-            case SUPERCEDED: return "The prescription was replaced by a newer one, which encompasses all the information in the previous one.";
+            case SUPERSEDED: return "The prescription was replaced by a newer one, which encompasses all the information in the previous one.";
             case DRAFT: return "The prescription is not yet 'actionable', i.e. it is a work in progress, required sign-off, need to be run through decision support.";
             default: return "?";
           }
@@ -141,7 +141,7 @@ public class MedicationPrescription extends DomainResource {
             case COMPLETED: return "Completed";
             case ENTEREDINERROR: return "Entered In Error";
             case STOPPED: return "Stopped";
-            case SUPERCEDED: return "Superceded";
+            case SUPERSEDED: return "Superseded";
             case DRAFT: return "Draft";
             default: return "?";
           }
@@ -163,8 +163,8 @@ public class MedicationPrescription extends DomainResource {
           return MedicationPrescriptionStatus.ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return MedicationPrescriptionStatus.STOPPED;
-        if ("superceded".equals(codeString))
-          return MedicationPrescriptionStatus.SUPERCEDED;
+        if ("superseded".equals(codeString))
+          return MedicationPrescriptionStatus.SUPERSEDED;
         if ("draft".equals(codeString))
           return MedicationPrescriptionStatus.DRAFT;
         throw new IllegalArgumentException("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
@@ -180,8 +180,8 @@ public class MedicationPrescription extends DomainResource {
         return "entered-in-error";
       if (code == MedicationPrescriptionStatus.STOPPED)
         return "stopped";
-      if (code == MedicationPrescriptionStatus.SUPERCEDED)
-        return "superceded";
+      if (code == MedicationPrescriptionStatus.SUPERSEDED)
+        return "superseded";
       if (code == MedicationPrescriptionStatus.DRAFT)
         return "draft";
       return "?";
@@ -1035,7 +1035,7 @@ public class MedicationPrescription extends DomainResource {
      * A code specifying the state of the order.  Generally this will be active or completed state.
      */
     @Child(name = "status", type = {CodeType.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="active | on-hold | completed | entered-in-error | stopped | superceded | draft", formalDefinition="A code specifying the state of the order.  Generally this will be active or completed state." )
+    @Description(shortDefinition="active | on-hold | completed | entered-in-error | stopped | superseded | draft", formalDefinition="A code specifying the state of the order.  Generally this will be active or completed state." )
     protected Enumeration<MedicationPrescriptionStatus> status;
 
     /**

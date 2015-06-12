@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -902,7 +902,7 @@ public class Immunization extends DomainResource {
      * Indicates if the vaccination was or was not given.
      */
     @Child(name = "wasNotGiven", type = {BooleanType.class}, order=4, min=1, max=1)
-    @Description(shortDefinition="Was immunization given?", formalDefinition="Indicates if the vaccination was or was not given." )
+    @Description(shortDefinition="Flag for whether immunization was given", formalDefinition="Indicates if the vaccination was or was not given." )
     protected BooleanType wasNotGiven;
 
     /**

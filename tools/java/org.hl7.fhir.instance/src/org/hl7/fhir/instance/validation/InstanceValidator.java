@@ -1193,7 +1193,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     		throw new Exception("Error in profile for "+path+" multiple types defined in slice discriminator");
     	StructureDefinition type;
     	if (ed.getType().get(0).hasProfile())
-    		type = context.getExtensionStructure(profile, ed.getType().get(0).getProfile());
+    		type = context.getExtensionStructure(profile, ed.getType().get(0).getProfile().get(0).getValue());
     	else
     		type = context.getExtensionStructure(profile, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode());
     	snapshot = type.getSnapshot().getElement();
@@ -1294,7 +1294,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           if (!type.hasProfile() || type.getProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource")) 
             ok = true;
           else {
-            String pr = type.getProfile();
+            String pr = type.getProfile().get(0).getValue();
 
             String bt = getBaseType(profile, pr);
             if (rule(errors, "structure", element.line(), element.col(), path, bt != null, "Unable to resolve the profile reference '"+pr+"'")) {

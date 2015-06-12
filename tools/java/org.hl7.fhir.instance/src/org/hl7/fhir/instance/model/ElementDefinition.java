@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -749,11 +749,11 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected CodeType code;
 
         /**
-         * Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
+         * Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them.
          */
-        @Child(name = "profile", type = {UriType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Profile.structure to apply", formalDefinition="Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile." )
-        protected UriType profile;
+        @Child(name = "profile", type = {UriType.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Profile.structure to apply", formalDefinition="Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them." )
+        protected List<UriType> profile;
 
         /**
          * If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
@@ -762,7 +762,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         @Description(shortDefinition="contained | referenced | bundled - how aggregated", formalDefinition="If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle." )
         protected List<Enumeration<AggregationMode>> aggregation;
 
-        private static final long serialVersionUID = -345007341L;
+        private static final long serialVersionUID = -988693373L;
 
     /*
      * Constructor
@@ -825,52 +825,57 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #profile} (Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
+         * @return {@link #profile} (Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them.)
          */
-        public UriType getProfileElement() { 
+        public List<UriType> getProfile() { 
           if (this.profile == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TypeRefComponent.profile");
-            else if (Configuration.doAutoCreate())
-              this.profile = new UriType(); // bb
+            this.profile = new ArrayList<UriType>();
           return this.profile;
         }
 
-        public boolean hasProfileElement() { 
-          return this.profile != null && !this.profile.isEmpty();
-        }
-
         public boolean hasProfile() { 
-          return this.profile != null && !this.profile.isEmpty();
+          if (this.profile == null)
+            return false;
+          for (UriType item : this.profile)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #profile} (Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
+         * @return {@link #profile} (Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them.)
          */
-        public TypeRefComponent setProfileElement(UriType value) { 
-          this.profile = value;
+    // syntactic sugar
+        public UriType addProfileElement() {//2 
+          UriType t = new UriType();
+          if (this.profile == null)
+            this.profile = new ArrayList<UriType>();
+          this.profile.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #profile} (Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them.)
+         */
+        public TypeRefComponent addProfile(String value) { //1
+          UriType t = new UriType();
+          t.setValue(value);
+          if (this.profile == null)
+            this.profile = new ArrayList<UriType>();
+          this.profile.add(t);
           return this;
         }
 
         /**
-         * @return Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
+         * @param value {@link #profile} (Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them.)
          */
-        public String getProfile() { 
-          return this.profile == null ? null : this.profile.getValue();
-        }
-
-        /**
-         * @param value Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
-         */
-        public TypeRefComponent setProfile(String value) { 
-          if (Utilities.noString(value))
-            this.profile = null;
-          else {
-            if (this.profile == null)
-              this.profile = new UriType();
-            this.profile.setValue(value);
-          }
-          return this;
+        public boolean hasProfile(String value) { 
+          if (this.profile == null)
+            return false;
+          for (UriType v : this.profile)
+            if (v.equals(value)) // uri
+              return true;
+          return false;
         }
 
         /**
@@ -930,7 +935,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Name of Data type or Resource that is a(or the) type used for this element.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("profile", "uri", "Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "uri", "Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation));
         }
 
@@ -938,7 +943,11 @@ public class ElementDefinition extends Type implements ICompositeType {
         TypeRefComponent dst = new TypeRefComponent();
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
-        dst.profile = profile == null ? null : profile.copy();
+        if (profile != null) {
+          dst.profile = new ArrayList<UriType>();
+          for (UriType i : profile)
+            dst.profile.add(i.copy());
+        };
         if (aggregation != null) {
           dst.aggregation = new ArrayList<Enumeration<AggregationMode>>();
           for (Enumeration<AggregationMode> i : aggregation)

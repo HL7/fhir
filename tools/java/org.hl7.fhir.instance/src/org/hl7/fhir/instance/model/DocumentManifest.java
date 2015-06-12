@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -357,7 +357,7 @@ public class DocumentManifest extends DomainResource {
      * The status of this document manifest.
      */
     @Child(name = "status", type = {CodeType.class}, order=8, min=1, max=1)
-    @Description(shortDefinition="current | superceded | entered-in-error", formalDefinition="The status of this document manifest." )
+    @Description(shortDefinition="current | superseded | entered-in-error", formalDefinition="The status of this document manifest." )
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
@@ -991,7 +991,7 @@ public class DocumentManifest extends DomainResource {
     return ResourceType.DocumentManifest;
    }
 
-  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered-in-error", type="token" )
+  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superseded | entered-in-error", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
   public static final String SP_SUBJECT = "subject";

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1009,7 +1009,7 @@ public class ValueSet extends DomainResource {
          * The language this designation is defined for.
          */
         @Child(name = "language", type = {CodeType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Language of the designation", formalDefinition="The language this designation is defined for." )
+        @Description(shortDefinition="Human language of the designation", formalDefinition="The language this designation is defined for." )
         protected CodeType language;
 
         /**
@@ -2433,7 +2433,7 @@ public class ValueSet extends DomainResource {
          * The value of the parameter.
          */
         @Child(name = "value", type = {StringType.class, BooleanType.class, IntegerType.class, DecimalType.class, UriType.class, CodeType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Value of the parameter", formalDefinition="The value of the parameter." )
+        @Description(shortDefinition="Value of the named parameter", formalDefinition="The value of the parameter." )
         protected Type value;
 
         private static final long serialVersionUID = 1172641169L;

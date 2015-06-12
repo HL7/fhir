@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -461,7 +461,7 @@ public class Enumerations {
          */
         ACTIVE, 
         /**
-         * This resource has been withdrawn or superceded and should no longer be used
+         * This resource has been withdrawn or superseded and should no longer be used
          */
         RETIRED, 
         /**
@@ -499,7 +499,7 @@ public class Enumerations {
           switch (this) {
             case DRAFT: return "This resource is still under development";
             case ACTIVE: return "This resource is ready for normal use";
-            case RETIRED: return "This resource has been withdrawn or superceded and should no longer be used";
+            case RETIRED: return "This resource has been withdrawn or superseded and should no longer be used";
             default: return "?";
           }
         }
@@ -743,9 +743,9 @@ public class Enumerations {
          */
         CURRENT, 
         /**
-         * This reference has been superceded by another reference
+         * This reference has been superseded by another reference
          */
-        SUPERCEDED, 
+        SUPERSEDED, 
         /**
          * This reference was created in error
          */
@@ -759,8 +759,8 @@ public class Enumerations {
                 return null;
         if ("current".equals(codeString))
           return CURRENT;
-        if ("superceded".equals(codeString))
-          return SUPERCEDED;
+        if ("superseded".equals(codeString))
+          return SUPERSEDED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
@@ -768,7 +768,7 @@ public class Enumerations {
         public String toCode() {
           switch (this) {
             case CURRENT: return "current";
-            case SUPERCEDED: return "superceded";
+            case SUPERSEDED: return "superseded";
             case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
@@ -776,7 +776,7 @@ public class Enumerations {
         public String getSystem() {
           switch (this) {
             case CURRENT: return "http://hl7.org/fhir/document-reference-status";
-            case SUPERCEDED: return "http://hl7.org/fhir/document-reference-status";
+            case SUPERSEDED: return "http://hl7.org/fhir/document-reference-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/document-reference-status";
             default: return "?";
           }
@@ -784,7 +784,7 @@ public class Enumerations {
         public String getDefinition() {
           switch (this) {
             case CURRENT: return "This is the current reference for this document";
-            case SUPERCEDED: return "This reference has been superceded by another reference";
+            case SUPERSEDED: return "This reference has been superseded by another reference";
             case ENTEREDINERROR: return "This reference was created in error";
             default: return "?";
           }
@@ -792,7 +792,7 @@ public class Enumerations {
         public String getDisplay() {
           switch (this) {
             case CURRENT: return "Current";
-            case SUPERCEDED: return "Superceded";
+            case SUPERSEDED: return "Superseded";
             case ENTEREDINERROR: return "Entered In Error";
             default: return "?";
           }
@@ -806,8 +806,8 @@ public class Enumerations {
                 return null;
         if ("current".equals(codeString))
           return DocumentReferenceStatus.CURRENT;
-        if ("superceded".equals(codeString))
-          return DocumentReferenceStatus.SUPERCEDED;
+        if ("superseded".equals(codeString))
+          return DocumentReferenceStatus.SUPERSEDED;
         if ("entered-in-error".equals(codeString))
           return DocumentReferenceStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown DocumentReferenceStatus code '"+codeString+"'");
@@ -815,8 +815,8 @@ public class Enumerations {
     public String toCode(DocumentReferenceStatus code) {
       if (code == DocumentReferenceStatus.CURRENT)
         return "current";
-      if (code == DocumentReferenceStatus.SUPERCEDED)
-        return "superceded";
+      if (code == DocumentReferenceStatus.SUPERSEDED)
+        return "superseded";
       if (code == DocumentReferenceStatus.ENTEREDINERROR)
         return "entered-in-error";
       return "?";

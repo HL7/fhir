@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -706,7 +706,7 @@ public class Practitioner extends DomainResource {
      * The date of birth for the practitioner.
      */
     @Child(name = "birthDate", type = {DateType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="The date  of birth for the practitioner", formalDefinition="The date of birth for the practitioner." )
+    @Description(shortDefinition="The date  oon which the practitioner was born", formalDefinition="The date of birth for the practitioner." )
     protected DateType birthDate;
 
     /**

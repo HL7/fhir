@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -745,10 +745,21 @@ public class JsonParser extends JsonParserBase {
       res.setCodeElement(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
       parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
-    if (json.has("profile"))
-      res.setProfileElement(parseUri(json.get("profile").getAsString()));
-    if (json.has("_profile"))
-      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
+    if (json.has("profile")) {
+      JsonArray array = json.getAsJsonArray("profile");
+      for (int i = 0; i < array.size(); i++) {
+        res.getProfile().add(parseUri(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_profile")) {
+      JsonArray array = json.getAsJsonArray("_profile");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getProfile().size())
+          res.getProfile().add(parseUri(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getProfile().get(i));
+      }
+    };
     if (json.has("aggregation")) {
       JsonArray array = json.getAsJsonArray("aggregation");
       for (int i = 0; i < array.size(); i++) {
@@ -4319,6 +4330,21 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("note")) {
+      JsonArray array = json.getAsJsonArray("note");
+      for (int i = 0; i < array.size(); i++) {
+        res.getNote().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_note")) {
+      JsonArray array = json.getAsJsonArray("_note");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getNote().size())
+          res.getNote().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getNote().get(i));
+      }
+    };
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Device.DeviceStatus.NULL, new Device.DeviceStatusEnumFactory()));
     if (json.has("_status"))
@@ -4694,8 +4720,8 @@ public class JsonParser extends JsonParserBase {
   protected DiagnosticReport parseDiagnosticReport(JsonObject json) throws Exception {
     DiagnosticReport res = new DiagnosticReport();
     parseDomainResourceProperties(json, res);
-    if (json.has("name"))
-      res.setName(parseCodeableConcept(json.getAsJsonObject("name")));
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), DiagnosticReport.DiagnosticReportStatus.NULL, new DiagnosticReport.DiagnosticReportStatusEnumFactory()));
     if (json.has("_status"))
@@ -7675,8 +7701,6 @@ public class JsonParser extends JsonParserBase {
     Type reason = parseType("reason", json);
     if (reason != null)
       res.setReason(reason);
-    if (json.has("authority"))
-      res.setAuthority(parseReference(json.getAsJsonObject("authority")));
     if (json.has("when"))
       res.setWhen(parseOrderOrderWhenComponent(json.getAsJsonObject("when"), res));
     if (json.has("detail")) {
@@ -7715,9 +7739,6 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("who"))
       res.setWho(parseReference(json.getAsJsonObject("who")));
-    Type authority = parseType("authority", json);
-    if (authority != null)
-      res.setAuthority(authority);
     if (json.has("orderStatus"))
       res.setOrderStatusElement(parseEnumeration(json.get("orderStatus").getAsString(), OrderResponse.OrderStatus.NULL, new OrderResponse.OrderStatusEnumFactory()));
     if (json.has("_orderStatus"))
@@ -12174,10 +12195,18 @@ public class JsonParser extends JsonParserBase {
         composeCodeCore("code", element.getCodeElement(), false);
         composeCodeExtras("code", element.getCodeElement(), false);
       }
-      if (element.hasProfileElement()) {
-        composeUriCore("profile", element.getProfileElement(), false);
-        composeUriExtras("profile", element.getProfileElement(), false);
-      }
+      if (element.hasProfile()) {
+        openArray("profile");
+        for (UriType e : element.getProfile()) 
+          composeUriCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getProfile())) {
+          openArray("_profile");
+          for (UriType e : element.getProfile()) 
+            composeUriExtras(null, e, true);
+          closeArray();
+        }
+      };
       if (element.hasAggregation()) {
         openArray("aggregation");
         for (Enumeration<ElementDefinition.AggregationMode> e : element.getAggregation()) 
@@ -16579,6 +16608,18 @@ public class JsonParser extends JsonParserBase {
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }
+      if (element.hasNote()) {
+        openArray("note");
+        for (StringType e : element.getNote()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getNote())) {
+          openArray("_note");
+          for (StringType e : element.getNote()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Device.DeviceStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new Device.DeviceStatusEnumFactory(), false);
@@ -17031,8 +17072,8 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeDiagnosticReportInner(DiagnosticReport element) throws Exception {
       composeDomainResourceElements(element);
-      if (element.hasName()) {
-        composeCodeableConcept("name", element.getName());
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
       }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new DiagnosticReport.DiagnosticReportStatusEnumFactory(), false);
@@ -20798,9 +20839,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasReason()) {
         composeType("reason", element.getReason());
       }
-      if (element.hasAuthority()) {
-        composeReference("authority", element.getAuthority());
-      }
       if (element.hasWhen()) {
         composeOrderOrderWhenComponent("when", element.getWhen());
       }
@@ -20854,9 +20892,6 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasWho()) {
         composeReference("who", element.getWho());
-      }
-      if (element.hasAuthority()) {
-        composeType("authority", element.getAuthority());
       }
       if (element.hasOrderStatusElement()) {
         composeEnumerationCore("orderStatus", element.getOrderStatusElement(), new OrderResponse.OrderStatusEnumFactory(), false);

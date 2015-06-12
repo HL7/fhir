@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 9, 2015 16:48+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 13, 2015 09:00+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -346,7 +346,7 @@ public class Person extends DomainResource {
      * The birth date for the person.
      */
     @Child(name = "birthDate", type = {DateTimeType.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="The birth date for the person", formalDefinition="The birth date for the person." )
+    @Description(shortDefinition="The date on which the person was born", formalDefinition="The birth date for the person." )
     protected DateTimeType birthDate;
 
     /**
