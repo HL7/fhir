@@ -11,11 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.jena.riot.RDFDataMgr;
 import org.hl7.fhir.rdf.TurtleLexer.TurtleTokenType;
 import org.hl7.fhir.utilities.Utilities;
-
-import com.hp.hpl.jena.rdf.model.Model;
 
 public class TurtleGenerator {
 

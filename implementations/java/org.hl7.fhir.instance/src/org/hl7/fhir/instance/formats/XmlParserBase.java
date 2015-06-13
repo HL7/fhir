@@ -38,8 +38,6 @@ import java.util.List;
 
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
-import org.hl7.fhir.instance.model.ExtensionHelper;
-import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;

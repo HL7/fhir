@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.utils.NameResolver;
 

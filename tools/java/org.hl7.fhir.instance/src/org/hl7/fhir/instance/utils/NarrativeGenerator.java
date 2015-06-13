@@ -89,14 +89,14 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.PrimitiveType;
-import org.hl7.fhir.instance.model.Range;
-import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Property;
 import org.hl7.fhir.instance.model.Quantity;
+import org.hl7.fhir.instance.model.Range;
 import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.Timing.EventTiming;
 import org.hl7.fhir.instance.model.Timing.TimingRepeatComponent;
@@ -119,7 +119,6 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
 import org.w3c.dom.Element;
-import org.xmlpull.v1.builder.XmlUnexpandedEntityReference;
 
 import com.github.rjeschke.txtmark.Processor;
 

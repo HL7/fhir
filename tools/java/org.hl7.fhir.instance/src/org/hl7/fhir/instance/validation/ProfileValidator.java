@@ -6,7 +6,6 @@ import java.util.List;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.utils.WorkerContext;
-import org.hl7.fhir.utilities.Utilities;
 
 public class ProfileValidator {
 
