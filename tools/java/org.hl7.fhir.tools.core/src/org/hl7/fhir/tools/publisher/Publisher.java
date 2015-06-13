@@ -1873,8 +1873,10 @@ public class Publisher implements URIResolver {
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt", null);
       zip.close();
 
-      page.log("....validator-min", LogMessageType.Process);
-      minify(page.getFolders().dstDir + "validation.zip", page.getFolders().dstDir + "validation-min.zip");
+      if (web) {
+        page.log("....validator-min", LogMessageType.Process);
+        minify(page.getFolders().dstDir + "validation.zip", page.getFolders().dstDir + "validation-min.zip");
+      }
 
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
       zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"), false);
@@ -1903,8 +1905,10 @@ public class Publisher implements URIResolver {
       zip.addFiles(page.getFolders().dstDir, "", ".json", null);
       zip.close();
 
-      page.log(" ...final zip", LogMessageType.Process);
-      produceZip();
+      if (web) {
+        page.log(" ...final zip", LogMessageType.Process);
+        produceZip();
+      }
 
       page.log("Produce .epub Form", LogMessageType.Process);
       page.getEpub().produce();

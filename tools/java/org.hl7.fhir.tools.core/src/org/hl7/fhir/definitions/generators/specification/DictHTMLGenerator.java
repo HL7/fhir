@@ -81,13 +81,13 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  for (ElementDefinition ec : profile.getSnapshot().getElement()) {
 	    if (isProfiledExtension(ec)) {
 	      String name = profile.getId()+"."+ makePathLink(ec);
-        StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile());
+        StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile().get(0).getValue());
 	      if (extDefn == null) {
-	        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+	        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        generateElementInner(profile,  ec, 1, null);
 	      } else {
-	        String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("filename") ? extDefn.getUserData("filename") : "extension-"+extDefn.getId().toLowerCase())+".html\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+	        String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("filename") ? extDefn.getUserData("filename") : "extension-"+extDefn.getId().toLowerCase())+".html\">"+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
 	        generateElementInner(extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
@@ -123,9 +123,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     for (ElementDefinition ec : ed.getSnapshot().getElement()) {
       if (isProfiledExtension(ec)) {
         String name = makePathLink(ec);
-        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? ed.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? ed.getUrl() : "")+ec.getType().get(0).getProfile()+")";
         write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-        StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile());
+        StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile().get(0).getValue());
         if (extDefn == null)
           generateElementInner(ed, ec, 1, null);
         else { 

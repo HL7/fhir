@@ -1482,7 +1482,7 @@ public class ProfileUtilities {
         if (ed.getType().isEmpty() || isAbstract(ed.getType().get(0).getCode()) || ed.getType().get(0).getCode().equals(ed.getPath())) { 
           ccmp = new ElementDefinitionComparer(true, cmp.snapshot, cmp.base, cmp.prefixLength, cmp.name, cmp.pkp);
         } else if (ed.getType().get(0).getCode().equals("Extension") && child.getSelf().getType().size() == 1 && child.getSelf().getType().get(0).hasProfile()) {
-          ccmp = new ElementDefinitionComparer(true, context.getExtensionDefinitions().get(child.getSelf().getType().get(0).getProfile()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+          ccmp = new ElementDefinitionComparer(true, context.getExtensionDefinitions().get(child.getSelf().getType().get(0).getProfile().get(0).getValue()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else if (ed.getType().size() == 1 && !ed.getType().get(0).getCode().equals("*")) {
           ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
         } else if (child.getSelf().getType().size() == 1) { 

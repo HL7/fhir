@@ -766,9 +766,9 @@ public class ProfileGenerator {
           }
           if (profile != null) {
             if (profile.startsWith("http:") || profile.startsWith("#")) {
-              type.setProfile(profile);
+              type.addProfile(profile);
             } else {
-              type.setProfile("http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile));
+              type.addProfile("http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile));
             }
           }
 
@@ -1003,7 +1003,7 @@ public class ProfileGenerator {
     ce.getType().get(0).setCode(src.typeCode());
     // this one should never be used
     if (!Utilities.noString(src.getTypes().get(0).getProfile()))
-      ce.getType().get(0).setProfile(src.getTypes().get(0).getProfile());
+      ce.getType().get(0).addProfile(src.getTypes().get(0).getProfile());
     // todo? conditions, constraints, binding, mapping
     if (src.hasModifier())
       ce.setIsModifier(src.isModifier());
@@ -1057,9 +1057,9 @@ public class ProfileGenerator {
           ElementDefinition.TypeRefComponent type = new ElementDefinition.TypeRefComponent();
           type.setCode(t.getName());
           if (t.hasProfile())
-            type.setProfile(t.getProfile()); // this should only happen if t.getParams().size() == 1
+            type.addProfile(t.getProfile()); // this should only happen if t.getParams().size() == 1
           else
-            type.setProfile("http://hl7.org/fhir/StructureDefinition/"+(tp.equals("Any") ? "Resource" : tp));
+            type.addProfile("http://hl7.org/fhir/StructureDefinition/"+(tp.equals("Any") ? "Resource" : tp));
           dst.getType().add(type);
         }
       } else {

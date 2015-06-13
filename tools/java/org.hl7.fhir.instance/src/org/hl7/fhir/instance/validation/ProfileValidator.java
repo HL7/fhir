@@ -31,13 +31,11 @@ public class ProfileValidator {
   }
 
   private void checkExtensions(StructureDefinition profile, List<String> errors, String kind, ElementDefinition ec) throws Exception {
-    if (!ec.getType().isEmpty() && ec.getType().get(0).getCode().equals("Extension")) {
+    if (!ec.getType().isEmpty() && ec.getType().get(0).getCode().equals("Extension") && ec.getType().get(0).hasProfile()) {
       String url = ec.getType().get(0).getProfile().get(0).getValue();
-      if (!Utilities.noString(url)) {
-        StructureDefinition defn = context.getExtensionStructure(null, url);
-        if (defn == null)
-          errors.add("Unable to find Extension '"+url+"' referenced at "+profile.getUrl()+" "+kind+" "+ec.getPath()+" ("+ec.getName()+")");
-      }
+      StructureDefinition defn = context.getExtensionStructure(null, url);
+      if (defn == null)
+        errors.add("Unable to find Extension '"+url+"' referenced at "+profile.getUrl()+" "+kind+" "+ec.getPath()+" ("+ec.getName()+")");
     }
   }
   

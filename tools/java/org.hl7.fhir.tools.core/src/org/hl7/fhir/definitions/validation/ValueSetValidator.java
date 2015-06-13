@@ -46,8 +46,8 @@ public class ValueSetValidator extends BaseValidator {
         if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && !vs.getDefine().getSystem().startsWith("urn:uuid:")) {
           checkCodesForSpaces(errors, nameForErrors, vs, vs.getDefine().getConcept());
         }
-        if (vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/"))
-          checkCodesForDisplayAndDefinition(errors, "ValueSet["+vs.getId()+"].define", vs.getDefine().getConcept(), nameForErrors, vs.getName());
+        if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/"))
+          checkCodesForDisplayAndDefinition(errors, "ValueSet["+vs.getId()+"].define", vs.getDefine().getConcept());
       }
     }
     int warnings = 0;
@@ -66,13 +66,13 @@ public class ValueSetValidator extends BaseValidator {
     }
   }
 
-  private void checkCodesForDisplayAndDefinition(List<ValidationMessage> errors, String path, List<ConceptDefinitionComponent> concept, String nameForErrors, String vsName) {
+  private void checkCodesForDisplayAndDefinition(List<ValidationMessage> errors, String path, List<ConceptDefinitionComponent> concept) {
     int i = 0;
     for (ConceptDefinitionComponent cc : concept) {
       String p = path +"["+Integer.toString(i)+"]";
-      warning(errors, "business-rule", p, !cc.hasCode() || cc.hasDisplay(), "V3 Value set "+nameForErrors+" ("+vsName+") code '"+cc.getCode()+"' has no display");
-      warning(errors, "business-rule", p, cc.hasDefinition(), "V3 Value set "+nameForErrors+" ("+vsName+") code '"+cc.getCode()+"' has no definition");
-      checkCodesForDisplayAndDefinition(errors, p+".concept", cc.getConcept(), nameForErrors, vsName);
+      warning(errors, "business-rule", p, !cc.hasCode() || cc.hasDisplay(), "code '"+cc.getCode()+"' has no display");
+      warning(errors, "business-rule", p, cc.hasDefinition(), "code '"+cc.getCode()+"' has no definition");
+      checkCodesForDisplayAndDefinition(errors, p+".concept", cc.getConcept());
       i++;
     }
   }

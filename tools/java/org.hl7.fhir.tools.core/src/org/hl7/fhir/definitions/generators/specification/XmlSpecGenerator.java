@@ -914,8 +914,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       w = w + t.getCode().length(); // again, could be wrong if this is an extension, but then it won't wrap
       if (t.getCode().equals("list"))
         write(t.getCode());
-      else if (t.getCode().equals("Extension") && !Utilities.noString(t.getProfile()))
-        write("<a href=\""+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
+      else if (t.getCode().equals("Extension") && t.hasProfile())
+        write("<a href=\""+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().get(0).getValue().substring(1)+"</span></a>");     
       else
         write("<a href=\"" + (dtRoot + definitions.getSrcFile(t.getCode())
             + ".html#" + t.getCode() + "\">" + t.getCode())

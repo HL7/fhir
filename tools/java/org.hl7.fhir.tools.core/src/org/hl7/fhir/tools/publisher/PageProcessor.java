@@ -4582,13 +4582,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             fixeds++;
           
           for (TypeRefComponent t : ed.getType()) {
-            if (t.hasProfile() && !definitions.hasType(t.getProfile().substring(40))) {
+            if (t.hasProfile() && !definitions.hasType(t.getProfile().get(0).getValue().substring(40))) {
               if (ed.getPath().endsWith(".extension"))
-                tryAdd(ext, summariseExtension(t.getProfile(), false));
+                tryAdd(ext, summariseExtension(t.getProfile().get(0).getValue(), false));
               else if (ed.getPath().endsWith(".modifierExtension"))
-                tryAdd(ext, summariseExtension(t.getProfile(), true));
+                tryAdd(ext, summariseExtension(t.getProfile().get(0).getValue(), true));
               else
-                tryAdd(refs, describeProfile(t.getProfile()));
+                tryAdd(refs, describeProfile(t.getProfile().get(0).getValue()));
             }
           }
 
