@@ -34,8 +34,8 @@
   <target depends="clean" name="cleanall">
     <ant antfile="build.xml" dir="${org.hl7.fhir.definitions.ecore.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="clean"/>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.implementation.location}" inheritAll="false" target="clean"/>
+    <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="clean"/>
   </target>
   <target depends="build-subprojects,build-project" name="build"/>
   <target name="build-subprojects">
@@ -49,12 +49,12 @@
         <propertyref name="build.compiler"/>
       </propertyset>
     </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="build-project">
+    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation.location}" inheritAll="false" target="build-project">
       <propertyset>
         <propertyref name="build.compiler"/>
       </propertyset>
     </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation.location}" inheritAll="false" target="build-project">
+    <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="build-project">
       <propertyset>
         <propertyref name="build.compiler"/>
       </propertyset>
