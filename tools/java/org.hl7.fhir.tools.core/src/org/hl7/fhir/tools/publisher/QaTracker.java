@@ -12,6 +12,8 @@ import java.util.Map;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -35,34 +37,9 @@ public class QaTracker {
   
   
   private SnapShot current = new SnapShot();
-  private List<String> uncovered = new ArrayList<String>();
-  private List<String> hints = new ArrayList<String>();
-  private List<String> warnings = new ArrayList<String>();
-  private List<String> brokenlinks = new ArrayList<String>();
-  
   
   private Map<Date, SnapShot> records = new HashMap<Date, SnapShot>();
   
-  public void notCovered(String path) {
-    current.uncovered++;
-    uncovered.add(path);
-  }
-
-  public void hint(String message) {
-    current.hints++;
-    hints.add(message);
-  }
-
-  public void warning(String message) {
-    current.warnings++;
-    warnings.add(message);
-  }
-
-  public void brokenlink(String message) {
-    current.brokenlinks++;
-    brokenlinks.add(message);
-  }
-
   public void countDefinitions(Definitions definitions) throws Exception {
     current.resources = definitions.getResources().size();
     current.types = definitions.getResources().size() + definitions.getTypes().size() + definitions.getStructures().size()  
@@ -96,7 +73,7 @@ public class QaTracker {
       countPaths(c);
   }
 
-  public String report() {
+  public String report(List<ValidationMessage> errors) {
     StringBuilder s = new StringBuilder();
     s.append("<h2>Build Stats</h2>\r\n");
     s.append("<table class=\"grid\">\r\n");
@@ -116,26 +93,16 @@ public class QaTracker {
     
     s.append("<h2>Warnings</h2>\r\n");
     s.append("<ul>\r\n");
-    for (String m : warnings)
-      s.append(" <li>"+Utilities.escapeXml(m)+"</li>\r\n");
+    for (ValidationMessage m : errors)
+      if (m.getLevel() == IssueSeverity.WARNING)
+        s.append(" <li>"+Utilities.escapeXml(m.getMessage())+"</li>\r\n");
     s.append("</ul>\r\n");
-    
-    s.append("<h2>Broken Links</h2>\r\n");
-    s.append("<ul>\r\n");
-    for (String m : brokenlinks)
-      s.append(" <li>"+Utilities.escapeXml(m)+"</li>\r\n");
-    s.append("</ul>\r\n");
-    
+        
     s.append("<h2>Hints</h2>\r\n");
     s.append("<ul>\r\n");
-    for (String m : hints)
-      s.append(" <li>"+Utilities.escapeXml(m)+"</li>\r\n");
-    s.append("</ul>\r\n");
-    
-    s.append("<h2>Paths not convered in examples</h2>\r\n");
-    s.append("<ul>\r\n");
-    for (String m : uncovered)
-      s.append(" <li>"+Utilities.escapeXml(m)+"</li>\r\n");
+    for (ValidationMessage m : errors)
+      if (m.getLevel() == IssueSeverity.INFORMATION)
+        s.append(" <li>"+Utilities.escapeXml(m.getMessage())+"</li>\r\n");
     s.append("</ul>\r\n");
     
     return s.toString();
@@ -163,10 +130,6 @@ public class QaTracker {
     ini.setIntegerProperty("uncovered", n, current.uncovered, null);   
     ini.setIntegerProperty("brokenlinks", n, current.brokenlinks, null);   
     ini.save();
-  }
-
-  public List<String> getBrokenlinks() {
-    return brokenlinks;
   }
 
 }

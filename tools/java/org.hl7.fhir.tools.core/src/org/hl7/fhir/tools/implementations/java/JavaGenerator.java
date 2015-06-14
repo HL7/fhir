@@ -365,7 +365,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     }
     
     options.addAll(Arrays.asList("-classpath",path.toString().substring(1)));
-    logger.log("Classpath: "+path.toString().substring(1), LogMessageType.Process);
+//    logger.log("Classpath: "+path.toString().substring(1), LogMessageType.Process);
     JavaCompiler.CompilationTask task = ToolProvider.getSystemJavaCompiler().getTask(null, null, diagnostics, options, null, units);
     Boolean result = task.call();
     if (!result) {

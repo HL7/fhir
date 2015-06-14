@@ -10,6 +10,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.tools.publisher.BreadCrumbManager.Page;
 import org.hl7.fhir.utilities.FileNotifier;
 import org.hl7.fhir.utilities.Utilities;
@@ -50,11 +53,13 @@ public class EPubManager implements FileNotifier {
   private List<Entry> entries = new ArrayList<EPubManager.Entry>();
   private List<String> externals = new ArrayList<String>();
   private String uuid;
+  private List<ValidationMessage> issues;
 
   
-  public EPubManager(PageProcessor page) {
+  public EPubManager(PageProcessor page, List<ValidationMessage> issues) {
     super();
     this.page = page;
+    this.issues = issues;
   }
 
   public void registerExternal(String filename) {
@@ -239,7 +244,7 @@ public class EPubManager implements FileNotifier {
         throw new Exception("Error parsing "+Utilities.path(page.getFolders().dstDir, e.filename), e1);
       }
     } else {
-      reportError("Unable to find file "+e.filename);
+      reportError(e.filename, "Unable to find file "+e.filename);
     }
   }
 
@@ -276,7 +281,7 @@ public class EPubManager implements FileNotifier {
       }
       else if (!"true".equals(node.getAttribute("ok"))) {
         String msg = "Invalid \"a\" link in "+e.filename+" - no href or name ("+node.allText()+")";
-        reportError(msg);      
+        reportError(e.filename, msg);      
       }
     }
     if (node.getAttributes().containsKey("id"))
@@ -285,9 +290,9 @@ public class EPubManager implements FileNotifier {
       checkAnchors(child, e);    
   }
 
-  private void reportError(String msg) {
+  private void reportError(String path, String msg) {
     if (!ok(msg)) {
-      page.getQa().brokenlink(msg);
+      issues.add(new ValidationMessage(Source.Publisher, "informational", -1, -1, path, msg, IssueSeverity.ERROR));
     }
   }
 
@@ -338,7 +343,7 @@ public class EPubManager implements FileNotifier {
       String target = collapse(base, path);
       if (target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".xsd") || target.endsWith(".txt") || target.endsWith(".sch") || target.endsWith(".pdf") || target.endsWith(".epub")) {
         if (!(new File(Utilities.path(page.getFolders().dstDir, target)).exists()))
-          reportError("Broken Link (1) in "+base+": '"+href+"' not found at \""+Utilities.path(page.getFolders().dstDir, target)+"\" ("+node.allText()+")");
+          reportError(base, "Broken Link (1) in "+base+": '"+href+"' not found at \""+Utilities.path(page.getFolders().dstDir, target)+"\" ("+node.allText()+")");
         node.setAttribute("href", "http://hl7.org/fhir/"+target.replace(File.separatorChar, '/'));
         e = null;
       } else if (externals.contains(target)) {
@@ -351,7 +356,7 @@ public class EPubManager implements FileNotifier {
             return;
           if (target.endsWith(".zip") || target.endsWith(".ttl"))
             return;
-          reportError("Broken Link (2) in "+base+": '"+href+"' not found at \""+target+"\"("+node.allText()+")");
+          reportError(base, "Broken Link (2) in "+base+": '"+href+"' not found at \""+target+"\"("+node.allText()+")");
           return;
         }
       }

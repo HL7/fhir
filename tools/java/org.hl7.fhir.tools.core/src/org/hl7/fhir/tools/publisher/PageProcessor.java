@@ -128,6 +128,7 @@ import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -219,6 +220,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private SpecificationTerminologyServices terminologyServices;
   private final String tsServer; // terminology to use
   private final WorkerContext workerContext;
+  private List<ValidationMessage> collectedValidationErrors = new ArrayList<ValidationMessage>();
+  private List<ValidationMessage> validationErrors = new ArrayList<ValidationMessage>();
 
   public PageProcessor(String tsServer) throws URISyntaxException {
     super();
@@ -687,7 +690,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("compartmentlist"))
         src = s1 + compartmentlist() + s3;
       else if (com[0].equals("qa"))
-        src = s1 + qa.report() + s3;
+        src = s1 + qa.report(collectedValidationErrors) + s3;
       else if (com[0].equals("comp-title"))
         src = s1 + compTitle(name) + s3;
       else if (com[0].equals("comp-desc"))
@@ -5152,7 +5155,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     this.folders = folders;
     terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.srcDir, "terminologies", "cache"), tsServer);
     workerContext.setTerminologyServices(terminologyServices);
-    epub = new EPubManager(this);
+    epub = new EPubManager(this, validationErrors);
   }
 
   public void setIni(IniFile ini) {
@@ -5171,6 +5174,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private long lastSecs = 0;
+
   
   @Override
   public void log(String content, LogMessageType type) {
@@ -5874,4 +5878,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       //      return "<!-- <!--6-->This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
     }
   }
+
+  public List<ValidationMessage> getCollectedValidationErrors() {
+    return collectedValidationErrors;
+  }
+
+  public List<ValidationMessage> getValidationErrors() {
+    return validationErrors;
+  }
+  
+  
 }

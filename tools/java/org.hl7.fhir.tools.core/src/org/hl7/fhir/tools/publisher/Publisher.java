@@ -340,8 +340,6 @@ public class Publisher implements URIResolver {
   int warningCount = 0;
   int informationCount = 0;
 
-  private List<ValidationMessage> validationErrors = new ArrayList<ValidationMessage>();
-  private List<ValidationMessage> collectedValidationErrors = new ArrayList<ValidationMessage>();
 
   public static void main(String[] args) throws Exception {
     //
@@ -378,27 +376,8 @@ public class Publisher implements URIResolver {
       pub.page.setPublicationType(PageProcessor.CI_PUB_NAME);
       pub.page.setPublicationNotice(PageProcessor.CI_PUB_NOTICE);      
     }
-    try {
-      String dir = hasParam(args, "-folder") ? getNamedParam(args, "-folder") : System.getProperty("user.dir");
-
-      pub.execute(dir);
-    } catch (Exception e) {
-      System.out.println("Error running build: " + e.getMessage());
-      File f;
-      try {
-        String errorFile = Utilities.appendSlash(System.getProperty("user.dir")) + "fhir-error-dump.txt";
-        f = new File(errorFile);
-        PrintStream p = new PrintStream(f);
-        e.printStackTrace(p);
-        System.out.println("Stack Trace saved as " +  errorFile);
-      } catch (IOException e1) {
-      }
-//      if (hasParam(args, "-debug"))
-        e.printStackTrace();
-
-      // Error status code set in case of any exception
-      System.exit(1);
-    }
+    String dir = hasParam(args, "-folder") ? getNamedParam(args, "-folder") : System.getProperty("user.dir");
+    pub.execute(dir);
   }
 
   /**
@@ -450,123 +429,152 @@ public class Publisher implements URIResolver {
    * @param folder
    * @throws Exception
    */
-  public void execute(String folder) throws Exception {
+  public void execute(String folder) {
     page.log("Publish FHIR in folder " + folder + " @ " + Config.DATE_FORMAT().format(page.getGenDate().getTime()), LogMessageType.Process);
     if (web)
       page.log("Build final copy for HL7 web site", LogMessageType.Process);
     else
       page.log("Build local copy", LogMessageType.Process);
-    page.setFolders(new FolderManager(folder));
+    try { 
+      page.setFolders(new FolderManager(folder));
 
-    if (isGenerate && page.getSvnRevision() == null)
-      page.setSvnRevision(checkSubversion(folder));
-    registerReferencePlatforms();
+      if (isGenerate && page.getSvnRevision() == null)
+        page.setSvnRevision(checkSubversion(folder));
+      registerReferencePlatforms();
 
-    if (!initialize(folder))
-      throw new Exception("Unable to publish as preconditions aren't met");
+      if (!initialize(folder))
+        throw new Exception("Unable to publish as preconditions aren't met");
 
-    page.log("Version " + page.getVersion() + "-" + page.getSvnRevision(), LogMessageType.Hint);
+      page.log("Version " + page.getVersion() + "-" + page.getSvnRevision(), LogMessageType.Hint);
 
-    cache = new IniFile(page.getFolders().rootDir + "temp" + File.separator + "build.cache");
-    loadSuppressedMessages(page.getFolders().rootDir);
-    boolean doAny = false;
-    for (String n : dates.keySet()) {
-      Long d = cache.getLongProperty("dates", n);
-      boolean b = d == null || (dates.get(n) > d);
-      cache.setLongProperty("dates", n, dates.get(n).longValue(), null);
-      buildFlags.put(n.toLowerCase(), b);
-      doAny = doAny || b;
-    }
-    cache.save();
-    // overriding build
-    
-    if (noPartialBuild || !doAny || !(new File(page.getFolders().dstDir + "qa.html").exists()))
-      buildFlags.put("all", true); // nothing - build all
-    if (singlePage != null) {
-      for (String n : buildFlags.keySet())
-        buildFlags.put(n, false);
-      buildFlags.put("page-"+singlePage.toLowerCase(), true);
-    } else if (singleResource != null) {
-      for (String n : buildFlags.keySet())
-        buildFlags.put(n, false);
-      buildFlags.put(singleResource.toLowerCase(), true);
-    } 
-    if (!buildFlags.get("all")) {
+      cache = new IniFile(page.getFolders().rootDir + "temp" + File.separator + "build.cache");
+      loadSuppressedMessages(page.getFolders().rootDir);
+      boolean doAny = false;
+      for (String n : dates.keySet()) {
+        Long d = cache.getLongProperty("dates", n);
+        boolean b = d == null || (dates.get(n) > d);
+        cache.setLongProperty("dates", n, dates.get(n).longValue(), null);
+        buildFlags.put(n.toLowerCase(), b);
+        doAny = doAny || b;
+      }
+      cache.save();
+      // overriding build
+
+      if (noPartialBuild || !doAny || !(new File(page.getFolders().dstDir + "qa.html").exists()))
+        buildFlags.put("all", true); // nothing - build all
+      if (singlePage != null) {
+        for (String n : buildFlags.keySet())
+          buildFlags.put(n, false);
+        buildFlags.put("page-"+singlePage.toLowerCase(), true);
+      } else if (singleResource != null) {
+        for (String n : buildFlags.keySet())
+          buildFlags.put(n, false);
+        buildFlags.put(singleResource.toLowerCase(), true);
+      } 
+      if (!buildFlags.get("all")) {
+        Utilities.tone(1000, 10);
+        Utilities.tone(1400, 10);
+        Utilities.tone(1800, 10);
+        Utilities.tone(1000, 10);
+        Utilities.tone(1400, 10);
+        Utilities.tone(1800, 10);
+        page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
+        CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+        for (String n : buildFlags.keySet())
+          if (buildFlags.get(n))
+            b.append(n);
+        page.log("  Build: "+b.toString(), LogMessageType.Process);
+      } else {
+        Utilities.tone(1200, 30);
+        page.log("Full Build", LogMessageType.Process);
+      }
+      Utilities.createDirectory(page.getFolders().dstDir);
+      Utilities.deleteTempFiles();
+
+      page.getBreadCrumbManager().parse(page.getFolders().srcDir + "heirarchy.xml");
+      page.loadSnomed();
+      page.loadLoinc();
+
+      prsr.parse(page.getGenDate());
+
+      if (buildFlags.get("all")) {
+        copyStaticContent();
+      }
+      loadValueSets1();
+      prsr.getRegistry().commit();
+
+
+      validate();
+      processProfiles();
+      checkAllOk();
+
+      if (isGenerate) {
+        if (web) {
+          page.log("Clear Directory", LogMessageType.Process);
+          Utilities.clearDirectory(page.getFolders().dstDir);
+        }
+        Utilities.createDirectory(page.getFolders().dstDir + "html");
+        Utilities.createDirectory(page.getFolders().dstDir + "examples");
+
+        String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
+        generateECore(prsr.getECoreParseResults(), eCorePath);
+        produceSpecification(eCorePath);
+        checkAllOk();
+      } else if (genRDF) 
+        processRDF();
+
+      validationProcess();
+      if (isGenerate && buildFlags.get("all"))
+        produceQA();
+      processWarnings();
+      if (!buildFlags.get("all")) {
+        page.log("This was a Partial Build", LogMessageType.Process);
+        CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+        for (String n : buildFlags.keySet())
+          if (buildFlags.get(n))
+            b.append(n);
+        page.log("  Build: "+b.toString(), LogMessageType.Process);
+      } else
+        page.log("This was a Full Build", LogMessageType.Process);
+      Utilities.tone(800, 10);
       Utilities.tone(1000, 10);
-      Utilities.tone(1400, 10);
-      Utilities.tone(1800, 10);
+      Utilities.tone(1200, 10);
       Utilities.tone(1000, 10);
-      Utilities.tone(1400, 10);
-      Utilities.tone(1800, 10);
-      page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
-      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-      for (String n : buildFlags.keySet())
-        if (buildFlags.get(n))
-          b.append(n);
-      page.log("  Build: "+b.toString(), LogMessageType.Process);
-    } else {
+      Utilities.tone(800, 10);
+      page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+    } catch (Exception e) {
+      processWarnings();
+      if (!buildFlags.get("all")) {
+        page.log("This was a Partial Build", LogMessageType.Process);
+        CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+        for (String n : buildFlags.keySet())
+          if (buildFlags.get(n))
+            b.append(n);
+        page.log("  Build: "+b.toString(), LogMessageType.Process);
+      } else
+        page.log("This was a Full Build", LogMessageType.Process);
+      Utilities.tone(800, 20);
+      Utilities.tone(1000, 20);
       Utilities.tone(1200, 20);
-      page.log("Full Build", LogMessageType.Process);
-    }
-    Utilities.createDirectory(page.getFolders().dstDir);
-    Utilities.deleteTempFiles();
-
-    page.getBreadCrumbManager().parse(page.getFolders().srcDir + "heirarchy.xml");
-    page.loadSnomed();
-    page.loadLoinc();
-
-    prsr.parse(page.getGenDate());
-
-    if (buildFlags.get("all")) {
-      copyStaticContent();
-    }
-    loadValueSets1();
-    prsr.getRegistry().commit();
-
-
-    if (!validate()) {
-      page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-      throw new Exception("Errors executing build. Details logged.");
-    }
-    processProfiles();
-
-    if (isGenerate) {
-      if (web) {
-        page.log("Clear Directory", LogMessageType.Process);
-        Utilities.clearDirectory(page.getFolders().dstDir);
+      try {
+        Thread.sleep(50);
+      } catch (InterruptedException e1) {
       }
-      Utilities.createDirectory(page.getFolders().dstDir + "html");
-      Utilities.createDirectory(page.getFolders().dstDir + "examples");
-
-      String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
-      generateECore(prsr.getECoreParseResults(), eCorePath);
-      produceSpecification(eCorePath);
-      if (processValidationOutcomes() > 0) {
-        page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-        throw new Exception("Errors executing build. Details logged.");
+      Utilities.tone(800, 20);
+      Utilities.tone(1000, 20);
+      Utilities.tone(1200, 20);
+      try {
+        Thread.sleep(50);
+      } catch (InterruptedException e1) {
       }
-    } else if (genRDF) 
-      processRDF();
-
-    validationProcess();
-    if (isGenerate && buildFlags.get("all"))
-      produceQA();
-    finalProcessValidationOutcomes();
-    if (!buildFlags.get("all")) {
-      page.log("This was a Partial Build", LogMessageType.Process);
-      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-      for (String n : buildFlags.keySet())
-        if (buildFlags.get(n))
-          b.append(n);
-      page.log("  Build: "+b.toString(), LogMessageType.Process);
-    } else
-      page.log("This was a Full Build", LogMessageType.Process);
-    Utilities.tone(800, 10);
-    Utilities.tone(1000, 10);
-    Utilities.tone(1200, 10);
-    Utilities.tone(1000, 10);
-    Utilities.tone(800, 10);
-    page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+      Utilities.tone(800, 20);
+      Utilities.tone(1000, 20);
+      Utilities.tone(1200, 20);
+      page.log("FHIR build failure @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+      System.out.println("Error: " + e.getMessage());
+      e.printStackTrace();
+      System.exit(1);
+    }
   }
 
   @SuppressWarnings("unchecked")
@@ -755,7 +763,7 @@ public class Publisher implements URIResolver {
     // what we're going to do:
     //  create StructureDefinition structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
-      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), validationErrors);
+      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
       p.setUserData("pack", ap);
       profile.setResource(p);
       page.getProfiles().put(p.getUrl(), p);
@@ -884,7 +892,7 @@ public class Publisher implements URIResolver {
     buildFeedsAndMaps();
 
     page.log(" ...vocab #1", LogMessageType.Process);
-    new ValueSetImporterV2(page, validationErrors).execute();
+    new ValueSetImporterV2(page, page.getValidationErrors()).execute();
     analyseV3();
     if (isGenerate) {
       generateConformanceStatement(true, "base");
@@ -1196,76 +1204,59 @@ public class Publisher implements URIResolver {
     return errors.size() == 0;
   }
 
-  private boolean validate() throws Exception {
+  private void validate() throws Exception {
     page.log("Validating", LogMessageType.Process);
     ResourceValidator val = new ResourceValidator(page.getDefinitions(), page.getTranslations(), page.getCodeSystems());
 
     for (String n : page.getDefinitions().getTypes().keySet())
-      validationErrors.addAll(val.checkStucture(n, page.getDefinitions().getTypes().get(n)));
+      page.getValidationErrors().addAll(val.checkStucture(n, page.getDefinitions().getTypes().get(n)));
     for (String n : page.getDefinitions().getStructures().keySet())
-      validationErrors.addAll(val.checkStucture(n, page.getDefinitions().getStructures().get(n)));
+      page.getValidationErrors().addAll(val.checkStucture(n, page.getDefinitions().getStructures().get(n)));
     for (String n : page.getDefinitions().sortedResourceNames())
       if (hasBuildFlag("page-" + n.toLowerCase()))
-        validationErrors.addAll(val.check(n, page.getDefinitions().getResources().get(n)));
+        page.getValidationErrors().addAll(val.check(n, page.getDefinitions().getResources().get(n)));
 
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
-      checkExampleLinks(validationErrors, r);
+      checkExampleLinks(page.getValidationErrors(), r);
     }
     val.report();
     val.dumpParams();
-    int errorCount = processValidationOutcomes();
-    return errorCount == 0;
+    checkAllOk();
   }
 
-  private int processValidationOutcomes() {
-    int hintCount = 0;
-    int warningCount = 0;
-    for (ValidationMessage e : validationErrors) {
-      if (e.getLevel() == IssueSeverity.INFORMATION) {
-        page.log(e.summary(), LogMessageType.Hint);
-        page.getQa().hint(e.summary());
-        hintCount++;
-      }
-    }
-    for (ValidationMessage e : validationErrors) {
-      if (e.getLevel() == IssueSeverity.WARNING) {
-        page.log(e.summary(), LogMessageType.Warning);
-        page.getQa().warning(e.summary());
-        warningCount++;
-      }
-    }
-    int errorCount = 0;
-    for (ValidationMessage e : validationErrors) {
+  private void checkAllOk() throws Exception {
+    page.getCollectedValidationErrors().addAll(page.getValidationErrors());
+    boolean mustDie = false;
+    for (ValidationMessage e : page.getValidationErrors()) {
       if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
         page.log(e.summary(), LogMessageType.Error);
-        errorCount++;
+        mustDie = true;
       }
     }
-    if (errorCount + warningCount + hintCount > 0)
-      page.log("Errors: " + Integer.toString(errorCount) + ". Warnings: " + Integer.toString(warningCount) + ". Hints: " + Integer.toString(hintCount), LogMessageType.Process);
-    collectedValidationErrors.addAll(validationErrors);
-    validationErrors.clear();
-    return errorCount;
+    if (mustDie) {
+      page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+      throw new Exception("Errors executing build. Details logged.");
+    }
   }
 
-  private void finalProcessValidationOutcomes() {
+  private void processWarnings() {
     int hintCount = 0;
     int warningCount = 0;
     int errorCount = 0;
-    for (ValidationMessage e : validationErrors) {
+    for (ValidationMessage e : page.getCollectedValidationErrors()) {
       if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
         errorCount++;
       }
     }
     if (errorCount == 0) {
-      for (ValidationMessage e : collectedValidationErrors) {
+      for (ValidationMessage e : page.getCollectedValidationErrors()) {
         if (e.getLevel() == IssueSeverity.INFORMATION) {
           page.log(e.summary(), LogMessageType.Hint);
           hintCount++;
         }
       }
-      for (ValidationMessage e : collectedValidationErrors) {
+      for (ValidationMessage e : page.getCollectedValidationErrors()) {
         if (e.getLevel() == IssueSeverity.WARNING) {
           page.log(e.summary(), LogMessageType.Warning);
           warningCount++;
@@ -1532,11 +1523,11 @@ public class Publisher implements URIResolver {
     // first, process the RIM file
     String rim = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "v3", "rim.ttl"));
     ByteArrayOutputStream tmp = new ByteArrayOutputStream();
-    FhirTurtleGenerator ttl = new FhirTurtleGenerator(tmp, page.getDefinitions(), page.getWorkerContext(), validationErrors);
+    FhirTurtleGenerator ttl = new FhirTurtleGenerator(tmp, page.getDefinitions(), page.getWorkerContext(), page.getValidationErrors());
     ttl.executeV3(page.getV3Valuesets());
     rim = rim + tmp.toString();
     TextFile.stringToFile(rim, Utilities.path(page.getFolders().dstDir, "rim.ttl"));
-    ttl = new FhirTurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions(), page.getWorkerContext(), validationErrors);
+    ttl = new FhirTurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions(), page.getWorkerContext(), page.getValidationErrors());
     ttl.executeMain();
     RDFValidator val = new RDFValidator();
     val.validate(Utilities.path(page.getFolders().dstDir, "fhir.ttl"));
@@ -1554,15 +1545,11 @@ public class Publisher implements URIResolver {
     while (test != null) {
       if (test.getNodeName().equals("assertion")) {
         String sparql = test.getTextContent();
-        validationErrors.addAll(val.assertion(sparql, test.getAttribute("id"), test.getAttribute("rowtype"), test.getAttribute("message"), test.getAttribute("description"), IssueSeverity.fromCode(test.getAttribute("level"))));
+        page.getValidationErrors().addAll(val.assertion(sparql, test.getAttribute("id"), test.getAttribute("rowtype"), test.getAttribute("message"), test.getAttribute("description"), IssueSeverity.fromCode(test.getAttribute("level"))));
       }
       test = XMLUtil.getNextSibling(test);
     }
-    if (processValidationOutcomes() > 0) {
-        page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-        throw new Exception("Errors executing build. Details logged.");
-      }
-
+    checkAllOk();
   }
 
     
@@ -1626,10 +1613,7 @@ public class Publisher implements URIResolver {
 
     for (StructureDefinition ae : page.getWorkerContext().getExtensionDefinitions().values()) 
       produceExtensionDefinition(ae);
-    if (processValidationOutcomes() > 0) {
-      page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-      throw new Exception("Errors executing build. Details logged.");
-    }
+    checkAllOk();
 
     page.log(" ...resource identities", LogMessageType.Process);
     for (String rname : page.getDefinitions().getBaseResources().keySet()) {
@@ -1718,10 +1702,7 @@ public class Publisher implements URIResolver {
         producePage("toc.html", null);
       }
 
-      if (processValidationOutcomes() > 0) {
-        page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-        throw new Exception("Errors executing build. Details logged.");
-      }
+      checkAllOk();
 
       page.log(" ...collections ", LogMessageType.Process);
 
@@ -1903,12 +1884,7 @@ public class Publisher implements URIResolver {
 
       page.log("Produce .epub Form", LogMessageType.Process);
       page.getEpub().produce();
-      for (String t : page.getQa().getBrokenlinks())
-        validationErrors.add(new ValidationMessage(Source.Publisher, "Structure", -1, -1, "spec", t, IssueSeverity.ERROR));
-      if (processValidationOutcomes() > 0) {
-        page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-        throw new Exception("Errors executing build. Details logged.");
-      }
+      checkAllOk();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
   }
@@ -2433,7 +2409,7 @@ public class Publisher implements URIResolver {
     vs.setText(new Narrative());
     vs.getText().setStatus(NarrativeStatus.GENERATED);
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "v3 valueset "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
 
     return vs;
   }
@@ -2575,7 +2551,7 @@ public class Publisher implements URIResolver {
 
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "v3 value set as code system "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), "v3 value set as code system "+id, vs, false, true);
     return vs;
   }
 
@@ -2671,7 +2647,7 @@ public class Publisher implements URIResolver {
     }
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "v3 valueset "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
     return vs;
 
   }
@@ -3391,7 +3367,7 @@ public class Publisher implements URIResolver {
     if (rt.equals("ValueSet")) {
       ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
       vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
-      new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, "Value set Example "+n, vs, false, false);
+      new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), "Value set Example "+n, vs, false, false);
       if (vs.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
       vs.setUserData("path", n + ".html");
@@ -4409,8 +4385,8 @@ public class Publisher implements URIResolver {
           //          page.log(
           //              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")",
           //              LogMessageType.Warning);
-          page.getQa().warning(
-              "Search Parameter '" + rn + "." + sp.getCode() + "' had no fond values in any example. Consider reviewing the path (" + sp.getXPath() + ")");
+          page.getValidationErrors().add(
+              new ValidationMessage(Source.Publisher, "informational", -1, -1, rn + "." + sp.getCode(), "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")", IssueSeverity.WARNING));
         }
       }
     }
@@ -4431,7 +4407,7 @@ public class Publisher implements URIResolver {
 
     if (!e.isCoveredByExample() && !Utilities.noString(path)) {
       //      page.log("The resource path " + path + e.getName() + " is not covered by any example", LogMessageType.Warning);
-      page.getQa().notCovered(path + e.getName());
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, "informational", -1, -1, path+e.getName(), "Path '" + path+e.getName() + "' had no found values in any example. Consider reviewing the path", IssueSeverity.WARNING));
     }
     for (ElementDefn c : e.getElements()) {
       produceCoverageWarning(path + e.getName() + "/", c);
@@ -4712,7 +4688,7 @@ public class Publisher implements URIResolver {
             && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
           new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
 
-        new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, name, vs, true, false);
+        new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), name, vs, true, false);
 
         addToResourceFeed(vs, valueSetsFeed, null); // todo - what should the Oids be
 
@@ -4755,7 +4731,7 @@ public class Publisher implements URIResolver {
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
       new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, n, vs, true, false);
+    new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), n, vs, true, false);
 
     if (isGenerate) {
 //       page.log(" ... "+n, LogMessageType.Process);
@@ -4808,7 +4784,7 @@ public class Publisher implements URIResolver {
         if (ToolingExtensions.getOID(vs.getDefine()) == null)
           throw new Exception("No OID on value set define for "+vs.getUrl());
       }
-      new ValueSetValidator(page.getWorkerContext()).validate(validationErrors, vs.getUserString("filename"), vs, true, false);
+      new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
 
       page.getValueSets().put(vs.getUrl(), vs);
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);

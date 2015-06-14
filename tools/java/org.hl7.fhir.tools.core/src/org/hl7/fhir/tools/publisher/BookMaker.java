@@ -38,6 +38,9 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -50,6 +53,7 @@ public class BookMaker {
 
   private PageProcessor page;
   private String target;
+  private List<ValidationMessage> issues;
   
   private Map<String, XhtmlDocument> pages = new HashMap<String, XhtmlDocument>();
 
@@ -59,9 +63,10 @@ public class BookMaker {
   }
 
   
-  public BookMaker(PageProcessor page) {
+  public BookMaker(PageProcessor page, List<ValidationMessage> issues) {
     super();
     this.page = page;
+    this.issues = issues;
   }
 
   private void produceBookForm() throws FileNotFoundException, Exception {
@@ -136,8 +141,7 @@ public class BookMaker {
 					  }
 				  }
 				  if (!found && !new File(page.getFolders().dstDir+href).exists() && !href.equals("qa.html")) {
-				    page.getQa().brokenlink("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>");
-					  page.log("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>", LogMessageType.Warning);
+				    issues.add(new ValidationMessage(Source.Publisher, "informational", -1, -1, name, "broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>", IssueSeverity.ERROR));
 				  }
 			  }
 		  }
