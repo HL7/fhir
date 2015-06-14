@@ -43,11 +43,11 @@ public class ValueSetValidator extends BaseValidator {
         rule(errors, "business-rule", "ValueSet["+vs.getId()+"].define", vs.getDefine().hasCaseSensitiveElement() && vs.getDefine().getCaseSensitive(), 
             "Value set "+nameForErrors+" ("+vs.getName()+"): All value sets that define codes must mark them as case sensitive");
         checkCodeCaseDuplicates(errors, nameForErrors, vs, codes, vs.getDefine().getConcept());
-        if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && !vs.getDefine().getSystem().startsWith("urn:uuid:")) {
-          checkCodesForSpaces(errors, nameForErrors, vs, vs.getDefine().getConcept());
+        if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && 
+            !vs.getDefine().getSystem().startsWith("urn:uuid:") && 
+            !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/")) {
+          checkCodesForSpaces(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
         }
-        if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/"))
-          checkCodesForDisplayAndDefinition(errors, "ValueSet["+vs.getId()+"].define", vs.getDefine().getConcept());
       }
     }
     int warnings = 0;
