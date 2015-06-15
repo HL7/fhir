@@ -420,6 +420,20 @@ public class GeneratorUtils {
 				 "." + GeneratorUtils.generateCSharpTypeName(nameParts[1]);
 	}
 
+	public static String buildFullyScopedBindingTypeName( String fullName ) throws Exception
+  {   
+    //String[] nameParts = fullName == null ? "DomainResource".split("\\.") : fullName.split("\\.");
+    String[] nameParts = fullName.split("\\.");
+    
+    if( nameParts.length == 1 )
+      // Globally defined name
+      return HL7NAMESPACE + "." + GeneratorUtils.generateCSharpTypeName(Utilities.capitalize(nameParts[0]));
+    else
+      return HL7NAMESPACE + "." + GeneratorUtils.generateCSharpTypeName(nameParts[0]) +
+         "." + GeneratorUtils.generateCSharpTypeName(Utilities.capitalize(nameParts[1]));
+  }
+	
+	
 	public static String buildFullyScopedSerializerTypeName( String fullName ) throws Exception
 	{		
 		String[] nameParts = fullName.split("\\.");

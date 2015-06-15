@@ -49,6 +49,7 @@ import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
 import org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl;
 import org.hl7.fhir.tools.implementations.GenBlock;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
+import org.hl7.fhir.utilities.Utilities;
 
 
 public class CSharpModelGenerator extends GenBlock
@@ -405,7 +406,7 @@ public class CSharpModelGenerator extends GenBlock
     
     if( GeneratorUtils.isCodeWithCodeList( getDefinitions(), tref ) )
       // Strongly typed enums use a special Code<T> type
-      memberCsType = "Code<" + GeneratorUtils.buildFullyScopedTypeName(tref.getFullBindingRef()) + ">"; 
+      memberCsType = "Code<" + GeneratorUtils.buildFullyScopedBindingTypeName(tref.getFullBindingRef()) + ">"; 
     else if( needsNativeProperty )
       // Primitive elements' value property maps directly to a C# type
       memberCsType = GeneratorUtils.mapPrimitiveToCSharpType(tref.getName());
@@ -580,7 +581,7 @@ public class CSharpModelGenerator extends GenBlock
 	  String simpleMemberName = GeneratorUtils.generateCSharpMemberName(member);
 	  
 	  if( isTypedEnum  )
-	    csType = GeneratorUtils.buildFullyScopedTypeName(tref.getFullBindingRef()) + "?";
+	    csType = GeneratorUtils.buildFullyScopedBindingTypeName(tref.getFullBindingRef()) + "?";
 	  else
 	    csType = GeneratorUtils.mapPrimitiveToCSharpType(tref.getName() );
 	  
@@ -812,7 +813,7 @@ public class CSharpModelGenerator extends GenBlock
 
 		generateDocComment(binding.getDefinition());
 		ln("[FhirEnumeration(\"" + binding.getName() + "\")]");
-		ln("public enum " + GeneratorUtils.generateCSharpTypeName(binding.getName()));
+		ln("public enum " + Utilities.capitalize(binding.getName()));
 		bs("{");
 			for( DefinedCode code : binding.getCode() ) 
 			{
