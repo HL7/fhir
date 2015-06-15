@@ -1431,12 +1431,12 @@
     <resource>
       <!-- CDA inFulFillmentOf -->
       <StructureDefinition xmlns="http://hl7.org/fhir">
-        <id value="cda-inFulFillmentOf"/>
+        <id value="cda-inFulFillmentOfDxOrder"/>
         <meta>
           <lastUpdated value="2014-11-05T20:31:00Z"/>
         </meta>
         <!-- build tool to fill out narrative -->
-        <url value="http://hl7.org/fhir/StructureDefinition/cda-inFulFillmentOf"/>
+        <url value="http://hl7.org/fhir/StructureDefinition/cda-inFulFillmentOfDxOrder"/>
         <name value="inFulFillmentOfDiagnosticOrder"/>
         <publisher value="HL7 FHIR Project"/>
         <contact>
