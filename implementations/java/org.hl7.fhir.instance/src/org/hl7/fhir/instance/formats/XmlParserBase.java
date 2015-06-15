@@ -32,7 +32,7 @@ import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -152,7 +152,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
   /* -- xml routines --------------------------------------------------- */
   
   protected XmlPullParser loadXml(String source) throws Exception {
-    return loadXml(new ByteArrayInputStream(source.getBytes(StandardCharsets.UTF_8)));
+    return loadXml(new ByteArrayInputStream(source.getBytes("UTF-8")));
   }
 
 	protected XmlPullParser loadXml(InputStream stream) throws Exception {
