@@ -44,7 +44,7 @@ and very few resource elements start off with a minimum cardinality other than "
 </p>
 <p>
 In the case of extensions, the very nature of a concept being an extension means that the designers of the 
-specification expected that fewer than "most" systems would support the element, though support might very 
+specification expected that fewer than "most" systems would support the element, though support might vary 
 widely by context.  An extension might be used by 100% of systems in some country, discipline, etc. while be 
 used by absolutely no systems in another context.  In any event, there is no guarantee that an arbitrary 
 receiver will recognize and be able to persist any given extension.
@@ -53,7 +53,7 @@ receiver will recognize and be able to persist any given extension.
 In order to know whether a particular data element is likely to be stored by a given server, a client should 
 check the <a href="conformance.html">Conformance statement</a> of that server.  If, for a given resource, 
 the <a href="structuredefinition.html">StructureDefinition</a> pointed to indicates that the element or 
-extension is "mustSupport=true", then and the server is capable of storing and returning data in general, 
+extension is "mustSupport=true", and the server is capable of storing and returning data in general, 
 then it would be expected that the system will be capable of storing and returning that data element.  
 (Some servers such as decision support system might not be capable of storing or returning any received data.)
 </p>
