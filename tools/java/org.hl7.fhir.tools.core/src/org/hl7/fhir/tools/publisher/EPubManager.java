@@ -394,6 +394,8 @@ public class EPubManager implements FileNotifier {
   }
 
   private String collapse(String base, String path) throws Exception {
+    if (path.contains("?"))
+      path = path.substring(0, path.indexOf("?"));
     String mBase = base;
     String mPath = path;
     if (base.contains(File.separator))
