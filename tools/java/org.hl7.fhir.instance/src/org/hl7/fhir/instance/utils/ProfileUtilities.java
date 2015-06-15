@@ -540,7 +540,7 @@ public class ProfileUtilities {
       if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
         result.add(context.getElement().get(i));
       } else if (result.isEmpty()) {
-        // System.out.println("ignoring "+statedPath+" in differential of "+profileName);
+//        System.out.println("ignoring "+statedPath+" in differential of "+profileName);
       }
     }
     return result;
@@ -1399,7 +1399,7 @@ public class ProfileUtilities {
         String p = snapshot.get(i).getPath();
         if (p.equals(actual))
           return i;
-        if (p.endsWith("[x]") && actual.startsWith(p.substring(0, p.length()-3)) && !actual.substring(p.length()-3).contains("."))
+        if (p.endsWith("[x]") && actual.startsWith(p.substring(0, p.length()-3)) && !(actual.endsWith("[x]")) && !actual.substring(p.length()-3).contains("."))
           return i;
       }
       if (prefixLength == 0)
