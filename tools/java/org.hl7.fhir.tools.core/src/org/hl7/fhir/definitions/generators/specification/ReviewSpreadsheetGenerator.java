@@ -67,7 +67,7 @@ public class ReviewSpreadsheetGenerator {
   private String sanitize(String name) {
     StringBuilder b = new StringBuilder();
     for (char c : name.toCharArray())
-      if (Character.isAlphabetic(c) || Character.isDigit(c))
+      if (Character.isLetter(c) || Character.isDigit(c))
         b.append(c);
       else
         b.append(' ');

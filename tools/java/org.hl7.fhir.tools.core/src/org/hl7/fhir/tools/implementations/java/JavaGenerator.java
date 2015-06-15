@@ -252,7 +252,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     boolean capitalize = true;
     boolean first = true;
     for (char c : id.toCharArray()) {
-      if (Character.isAlphabetic(c) || (!first && Character.isDigit(c))) {
+      if (Character.isLetter(c) || (!first && Character.isDigit(c))) {
         if (capitalize)
           b.append(Character.toUpperCase(c));
         else

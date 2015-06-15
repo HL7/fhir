@@ -370,7 +370,7 @@ public class ResourceValidator extends BaseValidator {
       if (!isValidChar(c))
         return false;
     }
-    if (!Character.isAlphabetic(name.charAt(0)))
+    if (!Character.isLetter(name.charAt(0)))
       return false;
     if (root && !Character.isUpperCase(name.charAt(0)))
       return false;

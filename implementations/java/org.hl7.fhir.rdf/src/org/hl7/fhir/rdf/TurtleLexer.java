@@ -30,7 +30,7 @@ public class TurtleLexer {
       throw new Exception("not supported yet");
     else if (source.charAt(cursor) == ';' || source.charAt(cursor) == '.' || source.charAt(cursor) == ',')
       readDelimiter();
-    else if (Character.isAlphabetic(source.charAt(cursor)))
+    else if (Character.isLetter(source.charAt(cursor)))
       readToken();
     
   }
@@ -84,7 +84,7 @@ public class TurtleLexer {
   }
 
   private boolean isValidTokenChar(char c) {
-    return Character.isAlphabetic(c) || Character.isDigit(c) || c == ':' || c == '\\' || c == '.';
+    return Character.isLetter(c) || Character.isDigit(c) || c == ':' || c == '\\' || c == '.';
   }
 
   public boolean done() {
