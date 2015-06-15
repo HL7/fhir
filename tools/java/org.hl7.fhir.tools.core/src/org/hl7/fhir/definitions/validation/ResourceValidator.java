@@ -298,7 +298,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.STRUCTURE, path, e.getDefinition().endsWith(".") || e.getDefinition().endsWith("?") , "Definition should end with '.' or '?', but is '"+e.getDefinition()+"'");
     if (e.usesType("string") && e.usesType("CodeableConcept"))
       rule(errors, IssueType.STRUCTURE, path, e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
-
+    hint(errors, IssueType.BUSINESSRULE, path, Utilities.noString(e.getTodo()), "Element has a todo associated with it ("+e.getTodo()+")");
 //    if (needsRimMapping)
 //      warning(errors, IssueType.REQUIRED, path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
 
@@ -596,10 +596,13 @@ public class ResourceValidator extends BaseValidator {
         rule(errors, IssueType.STRUCTURE, path, cd.getStrength() != BindingStrength.REQUIRED || cd.getAllCodes().size() > 20 || cd.getAllCodes().size() == 1 || !hasGoodCode(cd.getAllCodes()) || isExemptFromCodeList(path), "The short description of an element with a code list should have the format code | code | etc");
     }
     boolean isComplex = !e.typeCode().equals("code");
-//  quality scan for heather:       
-//    if (isComplex && cd.getReferredValueSet() != null && cd.getReferredValueSet().getDefine() != null && !cd.isExample() &&
-//        !cd.getReferredValueSet().getIdentifierSimple().contains("/v2/") && !cd.getReferredValueSet().getIdentifierSimple().contains("/v3/"))
-//      System.out.println("Complex value set defines codes @ "+path+": "+cd.getReferredValueSet().getIdentifierSimple());
+
+    if (isComplex && cd.getValueSet() != null && cd.getValueSet().getDefine() != null && cd.getStrength() != BindingStrength.EXAMPLE && 
+          !cd.getValueSet().getUrl().contains("/v2/") && !cd.getValueSet().getUrl().contains("/v3/")) {// && cd.getValueSet().getUserData("vs-val-warned") == null) {
+      hint(errors, IssueType.BUSINESSRULE, path, false, "The value "+cd.getValueSet().getUrl()+" defines codes, but is used by a Coding/CodeableConcept @ "+path+", so it should not use FHIR defined codes");
+      cd.getValueSet().setUserData("vs-val-warned", true);
+    }
+    
     if (cd.getElementType() == ElementType.Unknown) {
       if (isComplex)
         cd.setElementType(ElementType.Complex);

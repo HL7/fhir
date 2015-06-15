@@ -787,6 +787,7 @@ public class ProfileGenerator {
     ce.setFixed(e.getFixed());
     ce.setPattern(e.getPattern());
     ce.setDefaultValue(e.getDefaultValue());
+    ce.setMeaningWhenMissing(e.getMeaningWhenMissing());
     ce.setExample(e.getExample());
     ce.setRequirements(e.getRequirements());
     for (String s : e.getAliases())
