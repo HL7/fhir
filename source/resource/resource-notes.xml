@@ -237,7 +237,7 @@ Not all of the content of the resource has to be in the specified language.
 <p>
 If a language is specified, it should also be specified on the <a href="narrative.html#Narrative">Narrative Text</a>. 
 The html language tag in the narrative is used when processing the narrative. The language tag on the resource is provided 
-for use to specify the language of alternate presentations generated from the data in the resource
+so that applications processing the data in the resource can specify the language of any alternate presentations generated from the data.
 </p>
 
 <a name="tags"> </a>
