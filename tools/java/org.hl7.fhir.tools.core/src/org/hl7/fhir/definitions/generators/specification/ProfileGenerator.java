@@ -155,7 +155,7 @@ public class ProfileGenerator {
     
     ec = new ElementDefinition();
     p.getDifferential().getElement().add(ec);
-    ec.setPath("value");
+    ec.setPath(type.getCode()+".value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     ec.setShort("Primitive value for " +type.getCode());
     ec.setDefinition("Primitive value for " +type.getCode());
@@ -176,11 +176,21 @@ public class ProfileGenerator {
     ec.setMin(0);
     ec.setMax("*");
 
+    ec = new ElementDefinition();
+    p.getSnapshot().getElement().add(ec);
+    ec.setPath(type.getCode()+".id");
+    ec.addRepresentation(PropertyRepresentation.XMLATTR);
+    ec.setDefinition("unique id for the element within a resource (for internal references)");
+    ec.setMin(0);
+    ec.setMax("1");
+    ec.setShort("xml:id (or equivalent in JSON)");
+    ec.getType().add(new TypeRefComponent().setCode("id"));
+    
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
         
     ec = new ElementDefinition();
     p.getSnapshot().getElement().add(ec);
-    ec.setPath("value");
+    ec.setPath(type.getCode()+".value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     ec.setDefinition("The actual value");
     ec.setMin(0);
