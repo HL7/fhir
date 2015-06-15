@@ -8,6 +8,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -30,17 +31,17 @@ public class ValueSetValidator extends BaseValidator {
     if (Utilities.noString(vs.getCopyright()) && !exemptFromCopyrightRule) {
       Set<String> sources = getListOfSources(vs);
       for (String s : sources) {
-        rule(errors, "business-rule", "ValueSet["+vs.getId()+"].copyright", !s.equals("http://snomed.info/sct") && !s.equals("http://loinc.org"), 
+        rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].copyright", !s.equals("http://snomed.info/sct") && !s.equals("http://loinc.org"), 
            "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement is required for any value set that includes Snomed or Loinc codes");
-        warning(errors, "business-rule", "ValueSet["+vs.getId()+"].copyright", s.startsWith("http://hl7.org") || s.startsWith("urn:iso") || s.startsWith("urn:ietf") || s.startsWith("http://need.a.uri.org")
+        warning(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].copyright", s.startsWith("http://hl7.org") || s.startsWith("urn:iso") || s.startsWith("urn:ietf") || s.startsWith("http://need.a.uri.org")
             || s.contains("cdc.gov") || s.startsWith("urn:oid:"),
            "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement should be present for any value set that includes non-HL7 sourced codes ("+s+")");
       }
     }
     if (vs.hasDefine()) {
       Set<String> codes = new HashSet<String>();
-      if (rule(errors, "business-rule", "ValueSet["+vs.getId()+"].define", vs.getDefine().hasSystem(), "If a value set has a define, it must have a system")) {
-        rule(errors, "business-rule", "ValueSet["+vs.getId()+"].define", vs.getDefine().hasCaseSensitiveElement() && vs.getDefine().getCaseSensitive(), 
+      if (rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", vs.getDefine().hasSystem(), "If a value set has a define, it must have a system")) {
+        rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", vs.getDefine().hasCaseSensitiveElement() && vs.getDefine().getCaseSensitive(), 
             "Value set "+nameForErrors+" ("+vs.getName()+"): All value sets that define codes must mark them as case sensitive");
         checkCodeCaseDuplicates(errors, nameForErrors, vs, codes, vs.getDefine().getConcept());
         if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && 
@@ -60,7 +61,7 @@ public class ValueSetValidator extends BaseValidator {
 
   private void checkCodesForSpaces(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {
     for (ConceptDefinitionComponent cc : concept) {
-      rule(errors, "business-rule", "ValueSet["+vs.getId()+"].define", !cc.hasCode() || !cc.getCode().contains(" "), 
+      rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !cc.hasCode() || !cc.getCode().contains(" "), 
          "Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes cannot include spaces: "+cc.getCode());
       checkCodesForSpaces(errors, nameForErrors, vs, cc.getConcept());  
     }
@@ -70,8 +71,8 @@ public class ValueSetValidator extends BaseValidator {
     int i = 0;
     for (ConceptDefinitionComponent cc : concept) {
       String p = path +"["+Integer.toString(i)+"]";
-      warning(errors, "business-rule", p, !cc.hasCode() || cc.hasDisplay(), "code '"+cc.getCode()+"' has no display");
-      warning(errors, "business-rule", p, cc.hasDefinition(), "code '"+cc.getCode()+"' has no definition");
+      warning(errors, IssueType.BUSINESSRULE, p, !cc.hasCode() || cc.hasDisplay(), "code '"+cc.getCode()+"' has no display");
+      warning(errors, IssueType.BUSINESSRULE, p, cc.hasDefinition(), "code '"+cc.getCode()+"' has no definition");
       checkCodesForDisplayAndDefinition(errors, p+".concept", cc.getConcept());
       i++;
     }
@@ -80,7 +81,7 @@ public class ValueSetValidator extends BaseValidator {
   private void checkCodeCaseDuplicates(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, Set<String> codes, List<ConceptDefinitionComponent> concepts) {
     for (ConceptDefinitionComponent c : concepts) {
       String cc = c.getCode().toLowerCase();
-        rule(errors, "business-rule", "ValueSet["+vs.getId()+"].define", !codes.contains(cc), 
+        rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", !codes.contains(cc), 
           "Value set "+nameForErrors+" ("+vs.getName()+"): Code '"+cc+"' is defined twice, different by case - this is not allowed in a FHIR definition");
       if (c.hasConcept())
         checkCodeCaseDuplicates(errors, nameForErrors, vs, codes, c.getConcept());

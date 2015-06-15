@@ -29,18 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Block;
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
  */

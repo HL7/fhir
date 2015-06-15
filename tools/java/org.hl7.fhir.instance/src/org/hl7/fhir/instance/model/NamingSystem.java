@@ -29,21 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
-import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatusEnumFactory;
-import org.hl7.fhir.instance.model.annotations.Block;
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
  */
@@ -1451,10 +1448,10 @@ public class NamingSystem extends DomainResource {
   public static final String SP_CATEGORY = "category";
   @SearchParamDefinition(name="name", path="NamingSystem.name", description="Human-readable label", type="string" )
   public static final String SP_NAME = "name";
-  @SearchParamDefinition(name="value", path="NamingSystem.uniqueId.value", description="The unique identifier", type="string" )
-  public static final String SP_VALUE = "value";
   @SearchParamDefinition(name="telecom", path="NamingSystem.contact.telecom", description="Contact details for individual or publisher", type="token" )
   public static final String SP_TELECOM = "telecom";
+  @SearchParamDefinition(name="value", path="NamingSystem.uniqueId.value", description="The unique identifier", type="string" )
+  public static final String SP_VALUE = "value";
 
 }
 

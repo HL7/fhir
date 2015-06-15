@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.tools.publisher.BreadCrumbManager.Page;
@@ -292,7 +293,7 @@ public class EPubManager implements FileNotifier {
 
   private void reportError(String path, String msg) {
     if (!ok(msg)) {
-      issues.add(new ValidationMessage(Source.Publisher, "informational", -1, -1, path, msg, IssueSeverity.ERROR));
+      issues.add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path, msg, IssueSeverity.ERROR));
     }
   }
 

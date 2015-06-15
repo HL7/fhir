@@ -32,58 +32,59 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.util.List;
 
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 
 public class BaseValidator {
 
   protected Source source;
   
-  protected boolean fail(List<ValidationMessage> errors, String type, int line, int col, String path, boolean b, String msg) {
+  protected boolean fail(List<ValidationMessage> errors, IssueType type, int line, int col, String path, boolean b, String msg) {
     if (!b)
       errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.FATAL));
     return b;
   }
 
   
-  protected boolean rule(List<ValidationMessage> errors, String type, int line, int col, String path, boolean b, String msg) {
+  protected boolean rule(List<ValidationMessage> errors, IssueType type, int line, int col, String path, boolean b, String msg) {
   	if (!b)
   		errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.ERROR));
   	return b;
   }
 
-  protected boolean hint(List<ValidationMessage> errors, String type, int line, int col, String path, boolean b, String msg) {
+  protected boolean hint(List<ValidationMessage> errors, IssueType type, int line, int col, String path, boolean b, String msg) {
     if (!b)
       errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.INFORMATION));
     return b;
   }
 
-  protected boolean warning(List<ValidationMessage> errors, String type, int line, int col, String path, boolean b, String msg) {
+  protected boolean warning(List<ValidationMessage> errors, IssueType type, int line, int col, String path, boolean b, String msg) {
     if (!b)
       errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.WARNING));
     return b;
     
   }
 
-  protected boolean fail(List<ValidationMessage> errors, String type, String path, boolean b, String msg) {
+  protected boolean fail(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg) {
     if (!b)
       errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.FATAL));
     return b;
   }
 
   
-  protected boolean rule(List<ValidationMessage> errors, String type, String path, boolean b, String msg) {
+  protected boolean rule(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg) {
     if (!b)
       errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.ERROR));
     return b;
   }
 
-  protected boolean hint(List<ValidationMessage> errors, String type, String path, boolean b, String msg) {
+  protected boolean hint(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg) {
     if (!b)
       errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.INFORMATION));
     return b;
   }
 
-  protected boolean warning(List<ValidationMessage> errors, String type, String path, boolean b, String msg) {
+  protected boolean warning(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg) {
     if (!b)
       errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.WARNING));
     return b;

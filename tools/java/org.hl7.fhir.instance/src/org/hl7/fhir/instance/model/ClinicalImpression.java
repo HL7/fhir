@@ -29,19 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Block;
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
  */
@@ -1635,34 +1633,34 @@ public class ClinicalImpression extends DomainResource {
     return ResourceType.ClinicalImpression;
    }
 
+  @SearchParamDefinition(name="assessor", path="ClinicalImpression.assessor", description="The clinician performing the assessment", type="reference" )
+  public static final String SP_ASSESSOR = "assessor";
   @SearchParamDefinition(name="trigger", path="ClinicalImpression.triggerReference", description="Request or event that necessitated this assessment", type="reference" )
   public static final String SP_TRIGGER = "trigger";
+  @SearchParamDefinition(name="patient", path="ClinicalImpression.patient", description="The patient being assessed", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="plan", path="ClinicalImpression.plan", description="Plan of action after assessment", type="reference" )
+  public static final String SP_PLAN = "plan";
+  @SearchParamDefinition(name="resolved", path="ClinicalImpression.resolved", description="Diagnosies/conditions resolved since previous assessment", type="token" )
+  public static final String SP_RESOLVED = "resolved";
+  @SearchParamDefinition(name="trigger-code", path="ClinicalImpression.triggerCodeableConcept", description="Request or event that necessitated this assessment", type="token" )
+  public static final String SP_TRIGGERCODE = "trigger-code";
   @SearchParamDefinition(name="previous", path="ClinicalImpression.previous", description="Reference to last assessment", type="reference" )
   public static final String SP_PREVIOUS = "previous";
   @SearchParamDefinition(name="status", path="ClinicalImpression.status", description="in-progress | completed | entered-in-error", type="token" )
   public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Actions taken during assessment", type="reference" )
+  public static final String SP_ACTION = "action";
+  @SearchParamDefinition(name="finding", path="ClinicalImpression.finding.item", description="Specific text or code for finding", type="token" )
+  public static final String SP_FINDING = "finding";
+  @SearchParamDefinition(name="investigation", path="ClinicalImpression.investigations.item", description="Record of a specific investigation", type="reference" )
+  public static final String SP_INVESTIGATION = "investigation";
   @SearchParamDefinition(name="problem", path="ClinicalImpression.problem", description="General assessment of patient state", type="reference" )
   public static final String SP_PROBLEM = "problem";
   @SearchParamDefinition(name="date", path="ClinicalImpression.date", description="When the assessment occurred", type="date" )
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="ruledout", path="ClinicalImpression.ruledOut.item", description="Specific text of code for diagnosis", type="token" )
   public static final String SP_RULEDOUT = "ruledout";
-  @SearchParamDefinition(name="assessor", path="ClinicalImpression.assessor", description="The clinician performing the assessment", type="reference" )
-  public static final String SP_ASSESSOR = "assessor";
-  @SearchParamDefinition(name="patient", path="ClinicalImpression.patient", description="The patient being assessed", type="reference" )
-  public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="trigger-code", path="ClinicalImpression.triggerCodeableConcept", description="Request or event that necessitated this assessment", type="token" )
-  public static final String SP_TRIGGERCODE = "trigger-code";
-  @SearchParamDefinition(name="resolved", path="ClinicalImpression.resolved", description="Diagnosies/conditions resolved since previous assessment", type="token" )
-  public static final String SP_RESOLVED = "resolved";
-  @SearchParamDefinition(name="plan", path="ClinicalImpression.plan", description="Plan of action after assessment", type="reference" )
-  public static final String SP_PLAN = "plan";
-  @SearchParamDefinition(name="finding", path="ClinicalImpression.finding.item", description="Specific text or code for finding", type="token" )
-  public static final String SP_FINDING = "finding";
-  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Actions taken during assessment", type="reference" )
-  public static final String SP_ACTION = "action";
-  @SearchParamDefinition(name="investigation", path="ClinicalImpression.investigations.item", description="Record of a specific investigation", type="reference" )
-  public static final String SP_INVESTIGATION = "investigation";
 
 }
 

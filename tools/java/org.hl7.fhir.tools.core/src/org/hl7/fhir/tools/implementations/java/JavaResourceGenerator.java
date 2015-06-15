@@ -499,7 +499,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		BindingSpecification cd = e.getBinding();
 		if (cd.isShared())
 		  return;
-		
+		cd.getValueSet().setUserData("java-generated", true);
 		List<DefinedCode> codes = cd.getAllCodes();
 		
 		write("    public enum "+tns+" {\r\n");
@@ -605,37 +605,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("    }\r\n"); 
     write("\r\n");
 	}
-
-  private String makeConst(String cc) {
-    if (Utilities.isInteger(cc))
-      cc = "_"+cc;
-    if (cc.equals("<"))
-    	cc = "less_Than";
-    else if (cc.equals("<="))
-    	cc = "less_Or_Equal";
-    else if (cc.equals(">"))
-    	cc = "greater_Than";
-    else if (cc.equals(">="))
-    	cc = "greater_Or_Equal";
-    else if (cc.equals("="))
-      cc = "equal";
-    else if (allPlusMinus(cc))
-      cc = cc.replace("-", "Minus").replace("+", "Plus");
-    else
-    	cc = cc.replace("-", "").replace("+", "");
-    cc = cc.replace("(", "_").replace(")", "_");
-    cc = cc.toUpperCase();
-    if (GeneratorUtils.isJavaReservedWord(cc))
-      cc = cc + "_";
-    return cc;
-  }
-
-	private boolean allPlusMinus(String cc) {
-	  for (char c : cc.toCharArray())
-	    if (!(c == '-' || c == '+'))
-	      return false;
-    return true;
-  }
 
   private void generateType(ElementDefn e, JavaGenClass clss) throws Exception {
 		String tn = typeNames.get(e);

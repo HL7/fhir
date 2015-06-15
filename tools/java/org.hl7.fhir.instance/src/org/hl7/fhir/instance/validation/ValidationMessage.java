@@ -34,6 +34,7 @@ import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 
 public class ValidationMessage 
@@ -54,11 +55,11 @@ public class ValidationMessage
   private int col; 
   private String location;
   private String message;
-  private String type;
+  private IssueType type;
   private IssueSeverity level;
   
   
-  public ValidationMessage(Source source, String type, int line, int col, String path, String message, IssueSeverity level) {
+  public ValidationMessage(Source source, IssueType type, int line, int col, String path, String message, IssueSeverity level) {
     super();
     this.line = line;
     this.col = col;
@@ -100,11 +101,11 @@ public class ValidationMessage
     this.location = location;
   }
 
-  public String getType() {
+  public IssueType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(IssueType type) {
     this.type = type;
   }
 
@@ -115,7 +116,7 @@ public class ValidationMessage
   public OperationOutcomeIssueComponent asIssue(OperationOutcome op) throws Exception {
     OperationOutcomeIssueComponent issue = new OperationOutcome.OperationOutcomeIssueComponent();
     issue.setCode(new CodeableConcept());
-    issue.getCode().addCoding().setSystem("http://hl7.org/fhir/issue-type").setCode(type);
+    issue.getCode().addCoding().setSystem(type.getSystem()).setCode(type.toCode());
     if (location != null) {
       StringType s = new StringType();
       s.setValue(location+(line>= 0 && col >= 0 ? " (line "+Integer.toString(line)+", col"+Integer.toString(col)+")" : "") );

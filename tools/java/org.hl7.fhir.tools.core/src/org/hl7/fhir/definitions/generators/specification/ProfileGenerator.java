@@ -79,6 +79,7 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionDiffer
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
@@ -522,7 +523,7 @@ public class ProfileGenerator {
     List<String> errors = new ArrayList<String>();
     new ProfileUtilities(context).sortDifferential(base, p, p.getName(), pkp, errors);
     for (String s : errors)
-      issues.add(new ValidationMessage(Source.ProfileValidator, "Structure", -1, -1, p.getBase(), s, IssueSeverity.WARNING));
+      issues.add(new ValidationMessage(Source.ProfileValidator, IssueType.STRUCTURE, -1, -1, p.getBase(), s, IssueSeverity.WARNING));
     reset();
     // ok, c is the differential. now we make the snapshot
     new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getType(), p.getName(), pkp);

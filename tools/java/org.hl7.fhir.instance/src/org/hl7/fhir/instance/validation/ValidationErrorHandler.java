@@ -31,6 +31,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.util.List;
 
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
@@ -47,7 +48,7 @@ public class ValidationErrorHandler implements ErrorHandler {
   @Override
 public void error(SAXParseException arg0) throws SAXException {
     ValidationMessage o = new ValidationMessage();
-    o.setType("invalid");
+    o.setType(IssueType.INVALID);
     o.setLevel(IssueSeverity.ERROR);
     o.setLocation("line "+Integer.toString(arg0.getLineNumber())+", column "+Integer.toString(arg0.getColumnNumber()));
     o.setMessage(arg0.getMessage());
@@ -58,7 +59,7 @@ public void error(SAXParseException arg0) throws SAXException {
   @Override
 public void fatalError(SAXParseException arg0) throws SAXException {
     ValidationMessage o = new ValidationMessage();
-    o.setType("invalid");
+    o.setType(IssueType.INVALID);
     o.setLevel(IssueSeverity.FATAL);
     o.setLocation("line "+Integer.toString(arg0.getLineNumber())+", column "+Integer.toString(arg0.getColumnNumber()));
     o.setMessage(arg0.getMessage());
@@ -69,7 +70,7 @@ public void fatalError(SAXParseException arg0) throws SAXException {
   @Override
 public void warning(SAXParseException arg0) throws SAXException {
     ValidationMessage o = new ValidationMessage();
-    o.setType("invalid");
+    o.setType(IssueType.INVALID);
     o.setLevel(IssueSeverity.WARNING);
     o.setLocation("line "+Integer.toString(arg0.getLineNumber())+", column "+Integer.toString(arg0.getColumnNumber()));
     o.setMessage(arg0.getMessage());

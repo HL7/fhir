@@ -29,9 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
 
+import org.hl7.fhir.instance.model.api.*;
 
 public class Enumerations {
 

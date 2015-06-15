@@ -29,21 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
-import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatusEnumFactory;
-import org.hl7.fhir.instance.model.annotations.Block;
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
  */
@@ -2316,10 +2313,10 @@ public class StructureDefinition extends DomainResource {
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="base", path="StructureDefinition.base", description="Structure that this set of constraints applies to", type="uri" )
   public static final String SP_BASE = "base";
-  @SearchParamDefinition(name="path", path="StructureDefinition.snapshot.element.path|StructureDefinition.differential.element.path", description="A path that is constrained in the profile", type="token" )
-  public static final String SP_PATH = "path";
   @SearchParamDefinition(name="context", path="StructureDefinition.useContext", description="A use context assigned to the structure", type="token" )
   public static final String SP_CONTEXT = "context";
+  @SearchParamDefinition(name="path", path="StructureDefinition.snapshot.element.path|StructureDefinition.differential.element.path", description="A path that is constrained in the profile", type="token" )
+  public static final String SP_PATH = "path";
   @SearchParamDefinition(name="identifier", path="StructureDefinition.identifier", description="The identifier of the profile", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 

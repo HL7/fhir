@@ -29,20 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.Enumerations.AdministrativeGender;
-import org.hl7.fhir.instance.model.Enumerations.AdministrativeGenderEnumFactory;
-import org.hl7.fhir.instance.model.annotations.Block;
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * Demographics and other administrative information about an individual or animal receiving care or other health-related services.
  */
@@ -1944,10 +1942,10 @@ public class Patient extends DomainResource {
   public static final String SP_TELECOM = "telecom";
   @SearchParamDefinition(name="birthdate", path="Patient.birthDate", description="The patient's date of birth", type="date" )
   public static final String SP_BIRTHDATE = "birthdate";
-  @SearchParamDefinition(name="gender", path="Patient.gender", description="Gender of the patient", type="token" )
-  public static final String SP_GENDER = "gender";
   @SearchParamDefinition(name="active", path="Patient.active", description="Whether the patient record is active", type="token" )
   public static final String SP_ACTIVE = "active";
+  @SearchParamDefinition(name="gender", path="Patient.gender", description="Gender of the patient", type="token" )
+  public static final String SP_GENDER = "gender";
   @SearchParamDefinition(name="deceased", path="Patient.deceased[x]", description="This patient has been marked as deceased, or as a death date entered", type="token" )
   public static final String SP_DECEASED = "deceased";
   @SearchParamDefinition(name="language", path="Patient.communication.language", description="Language code (irrespective of use value)", type="token" )

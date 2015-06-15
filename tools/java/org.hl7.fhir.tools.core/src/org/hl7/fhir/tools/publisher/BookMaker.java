@@ -39,9 +39,9 @@ import java.util.Set;
 
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
-import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -141,7 +141,7 @@ public class BookMaker {
 					  }
 				  }
 				  if (!found && !new File(page.getFolders().dstDir+href).exists() && !href.equals("qa.html")) {
-				    issues.add(new ValidationMessage(Source.Publisher, "informational", -1, -1, name, "broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>", IssueSeverity.ERROR));
+				    issues.add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, name, "broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>", IssueSeverity.ERROR));
 				  }
 			  }
 		  }

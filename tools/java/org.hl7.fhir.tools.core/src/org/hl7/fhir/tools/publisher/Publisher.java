@@ -39,7 +39,6 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -174,6 +173,7 @@ import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
@@ -1284,7 +1284,7 @@ public class Publisher implements URIResolver {
           listLinks(e.getXml().getDocumentElement(), refs);
           for (ExampleReference ref : refs) {
             if (!ref.getId().startsWith("cid:") && !ref.getId().startsWith("urn:") && !ref.getId().startsWith("http:") && !resolveLink(ref)) {
-              errors.add(new ValidationMessage(Source.ExampleValidator, "business-rule", -1, -1, ref.getPath(), "Unable to resolve example reference to "
+              errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, ref.getPath(), "Unable to resolve example reference to "
                   + ref.describe() + " in " + e.getPath() + "\r\n   Possible Ids: " + listTargetIds(ref.getType()), IssueSeverity.ERROR));
             }
           }
@@ -4386,7 +4386,7 @@ public class Publisher implements URIResolver {
           //              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")",
           //              LogMessageType.Warning);
           page.getValidationErrors().add(
-              new ValidationMessage(Source.Publisher, "informational", -1, -1, rn + "." + sp.getCode(), "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")", IssueSeverity.WARNING));
+              new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, rn + "." + sp.getCode(), "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")", IssueSeverity.WARNING));
         }
       }
     }
@@ -4407,7 +4407,7 @@ public class Publisher implements URIResolver {
 
     if (!e.isCoveredByExample() && !Utilities.noString(path)) {
       //      page.log("The resource path " + path + e.getName() + " is not covered by any example", LogMessageType.Warning);
-      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, "informational", -1, -1, path+e.getName(), "Path '" + path+e.getName() + "' had no found values in any example. Consider reviewing the path", IssueSeverity.WARNING));
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path '" + path+e.getName() + "' had no found values in any example. Consider reviewing the path", IssueSeverity.WARNING));
     }
     for (ElementDefn c : e.getElements()) {
       produceCoverageWarning(path + e.getName() + "/", c);

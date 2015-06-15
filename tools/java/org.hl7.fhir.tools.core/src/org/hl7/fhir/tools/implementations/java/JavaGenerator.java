@@ -63,9 +63,11 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.Constants;
+import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.test.ToolsHelper;
 import org.hl7.fhir.instance.utils.Version;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
+import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.tools.implementations.java.JavaResourceGenerator.JavaGenClass;
 import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
@@ -190,7 +192,18 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       jFactoryGen.registerType(n,  root.getName());
       jgen.close();
     }
-    
+
+    for (ValueSet vs : definitions.getValuesets().values()) {
+      if (vs.getUserData("java-generated") == null && vs.hasDefine() && !vs.hasCompose() && !vs.getId().startsWith("v2-")) {
+        String tns = tokenize(vs.getId());
+        JavaValueSetGenerator vsgen = new JavaValueSetGenerator(new FileOutputStream(Utilities.path(javaDir, "valuesets", tns+".java"))); 
+        vsgen.generate(genDate, version, vs, tns);
+        vsgen.close();
+        JavaValueSetFactoryGenerator vsfgen = new JavaValueSetFactoryGenerator(new FileOutputStream(Utilities.path(javaDir, "valuesets", tns+"EnumFactory.java"))); 
+        vsfgen.generate(genDate, version, vs, tns);
+        vsfgen.close();
+      }        
+    }
     // delete old files to save people finding and deleting them
     deleteOldFile("XmlComposer");
     deleteOldFile("XmlBaseComposer");
@@ -232,6 +245,29 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jParserGenX.close();
     jParserGenJ.close();
     jFactoryGen.close();
+  }
+
+  private String tokenize(String id) {
+    StringBuilder b = new StringBuilder();
+    boolean capitalize = true;
+    boolean first = true;
+    for (char c : id.toCharArray()) {
+      if (Character.isAlphabetic(c) || (!first && Character.isDigit(c))) {
+        if (capitalize)
+          b.append(Character.toUpperCase(c));
+        else
+          b.append(c);
+        first = false;
+        capitalize = false;
+      } else
+        capitalize = true;
+    }
+    String s = b.toString();
+    if (s.startsWith("Valueset") || s.startsWith("ValueSet"))
+      s = s.substring(8);
+    if (GeneratorUtils.isJavaReservedWord(s))
+      s = s + "_";
+    return s;
   }
 
   private void deleteOldFile(String name) {

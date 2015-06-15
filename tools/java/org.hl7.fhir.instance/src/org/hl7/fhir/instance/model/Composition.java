@@ -29,19 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Block;
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement.
  */
@@ -1744,12 +1742,12 @@ public class Composition extends DomainResource {
   public static final String SP_CLASS = "class";
   @SearchParamDefinition(name="encounter", path="Composition.encounter", description="Context of the conposition", type="reference" )
   public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="period", path="Composition.event.period", description="The period covered by the documentation", type="date" )
+  public static final String SP_PERIOD = "period";
   @SearchParamDefinition(name="type", path="Composition.type", description="Kind of composition (LOINC if possible)", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="date", path="Composition.date", description="Composition editing time", type="date" )
   public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="period", path="Composition.event.period", description="The period covered by the documentation", type="date" )
-  public static final String SP_PERIOD = "period";
   @SearchParamDefinition(name="section", path="Composition.section.content", description="The Content of the section (narrative + data entries)", type="reference" )
   public static final String SP_SECTION = "section";
   @SearchParamDefinition(name="author", path="Composition.author", description="Who and/or what authored the composition", type="reference" )

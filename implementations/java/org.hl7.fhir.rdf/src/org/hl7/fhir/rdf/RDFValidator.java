@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
@@ -69,13 +70,13 @@ public class RDFValidator {
     if (results.hasNext()) { 
       // Output query results 
       ByteArrayOutputStream ba = new ByteArrayOutputStream();
-      msgs.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf:"+id, description, level));
+      msgs.add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "rdf:"+id, description, level));
       while (results.hasNext()) {
         QuerySolution row = results.next();
         String cell = row.getResource(results.getResultVars().get(0)).getURI();
         if (cell.startsWith("http://hl7.org/fhir/"))
           cell = cell.substring(20);
-        msgs.add(new ValidationMessage(Source.Publisher, "rdf", -1, -1, "rdf:"+id, cell+": "+message, level));        
+        msgs.add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "rdf:"+id, cell+": "+message, level));        
       }
     }
     

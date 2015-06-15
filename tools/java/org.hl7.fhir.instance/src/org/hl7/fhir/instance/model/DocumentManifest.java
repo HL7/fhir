@@ -29,21 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.Enumerations.DocumentReferenceStatus;
-import org.hl7.fhir.instance.model.Enumerations.DocumentReferenceStatusEnumFactory;
-import org.hl7.fhir.instance.model.annotations.Block;
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A manifest that defines a set of documents.
  */
@@ -994,16 +991,6 @@ public class DocumentManifest extends DomainResource {
     return ResourceType.DocumentManifest;
    }
 
-  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superseded | entered-in-error", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
-  public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
-  public static final String SP_RECIPIENT = "recipient";
-  @SearchParamDefinition(name="relatedid", path="DocumentManifest.related.identifier", description="Related Identifier", type="token" )
-  public static final String SP_RELATEDID = "relatedid";
   @SearchParamDefinition(name="author", path="DocumentManifest.author", description="Who and/or what authored the document", type="reference" )
   public static final String SP_AUTHOR = "author";
   @SearchParamDefinition(name="relatedref", path="DocumentManifest.related.ref", description="Related Resource", type="reference" )
@@ -1012,14 +999,24 @@ public class DocumentManifest extends DomainResource {
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="source", path="DocumentManifest.source", description="The source system/application/software", type="uri" )
   public static final String SP_SOURCE = "source";
+  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superseded | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="created", path="DocumentManifest.created", description="When this document manifest created", type="date" )
   public static final String SP_CREATED = "created";
   @SearchParamDefinition(name="description", path="DocumentManifest.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
+  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="contentref", path="DocumentManifest.content.pReference", description="Contents of this set of documents", type="reference" )
   public static final String SP_CONTENTREF = "contentref";
+  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
+  public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier|DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
+  public static final String SP_RECIPIENT = "recipient";
+  @SearchParamDefinition(name="relatedid", path="DocumentManifest.related.identifier", description="Related Identifier", type="token" )
+  public static final String SP_RELATEDID = "relatedid";
 
 }
 

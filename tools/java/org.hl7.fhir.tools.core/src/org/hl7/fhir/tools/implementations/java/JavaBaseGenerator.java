@@ -30,10 +30,14 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -107,4 +111,57 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 	protected String getTitle(String name) {
 		return Utilities.noString(name) ? "Value" : name.substring(0, 1).toUpperCase()+ name.substring(1);
 	}
+	
+
+  protected List<ConceptDefinitionComponent> listAllCodes(ValueSet vs) {
+    List<ConceptDefinitionComponent> result = new ArrayList<ValueSet.ConceptDefinitionComponent>();
+    addAllCodes(result, vs.getDefine().getConcept());
+    return result;
+  }
+
+  private void addAllCodes(List<ConceptDefinitionComponent> result, List<ConceptDefinitionComponent> concept) {
+    for (ConceptDefinitionComponent c : concept) {
+      result.add(c);
+      addAllCodes(result, c.getConcept());
+    }
+  }
+
+  protected String makeConst(String cc) {
+    if (cc.equals("*"))
+      cc = "ASTERISK";
+    if (Utilities.isOid(cc))
+      cc = "OID_"+cc;
+    if (cc.equals("<"))
+      cc = "less_Than";
+    else if (cc.equals("<="))
+      cc = "less_Or_Equal";
+    else if (cc.equals(">"))
+      cc = "greater_Than";
+    else if (cc.equals(">="))
+      cc = "greater_Or_Equal";
+    else if (cc.equals("="))
+      cc = "equal";
+    else if (allPlusMinus(cc))
+      cc = cc.replace("-", "Minus").replace("+", "Plus");
+    else
+      cc = cc.replace("-", "").replace("+", "");
+    cc = cc.replace("(", "_").replace(")", "_");
+    cc = cc.replace("{", "_").replace("}", "_");
+    cc = cc.replace("<", "_").replace(">", "_");
+    cc = cc.replace(".", "_").replace("/", "_");
+    if (Utilities.isInteger(cc.substring(0, 1)))
+      cc = "_"+cc;
+    cc = cc.toUpperCase();
+    if (GeneratorUtils.isJavaReservedWord(cc))
+      cc = cc + "_";
+    return cc;
+  }
+
+  private boolean allPlusMinus(String cc) {
+    for (char c : cc.toCharArray())
+      if (!(c == '-' || c == '+'))
+        return false;
+    return true;
+  }
+	
 }

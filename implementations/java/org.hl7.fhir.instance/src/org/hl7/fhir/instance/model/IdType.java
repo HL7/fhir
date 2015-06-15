@@ -2,30 +2,30 @@ package org.hl7.fhir.instance.model;
 
 /*
   Copyright (c) 2011+, HL7, Inc.
-  All rights reserved.
+All rights reserved.
 
-  Redistribution and use in source and binary forms, with or without modification,
-  are permitted provided that the following conditions are met:
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
 
-   * Redistributions of source code must retain the above copyright notice, this
-     list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
-     and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
-     prior written permission.
+ * Redistributions of source code must retain the above copyright notice, this 
+   list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation 
+   and/or other materials provided with the distribution.
+ * Neither the name of HL7 nor the names of its contributors may be used to 
+   endorse or promote products derived from this software without specific 
+   prior written permission.
 
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+POSSIBILITY OF SUCH DAMAGE.
 
 */
 
@@ -175,14 +175,14 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
 	 *            The version ID ("e.g. "456")
 	 */
 	public IdType(String theResourceType, String theId, String theVersionId) {
-		this(null, theResourceType, theId, theVersionId);
+		this(null,theResourceType,theId,theVersionId);
 	}
 
 	/**
 	 * Constructor
 	 * 
 	 * @param theBaseUrl
-	 *            The server base URL (e.g. "http://example.com/fhir")
+	 * 	The server base URL (e.g. "http://example.com/fhir")
 	 * @param theResourceType
 	 *            The resource type (e.g. "Patient")
 	 * @param theId
@@ -248,6 +248,7 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
 		}
 		return ObjectUtils.equals(getResourceType(), theId.getResourceType()) && ObjectUtils.equals(getIdPart(), theId.getIdPart()) && ObjectUtils.equals(getVersionIdPart(), theId.getVersionIdPart());
 	}
+
 
 	/**
 	 * Returns the portion of this resource ID which corresponds to the server base URL. For example given the resource ID <code>http://example.com/fhir/Patient/123</code> the base URL would be
@@ -315,19 +316,19 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
 			StringBuilder b = new StringBuilder();
 			if (isNotBlank(myBaseUrl)) {
 				b.append(myBaseUrl);
-				if (myBaseUrl.charAt(myBaseUrl.length() - 1) != '/') {
+				if (myBaseUrl.charAt(myBaseUrl.length()-1)!='/') {
 					b.append('/');
 				}
 			}
-
+			
 			if (isNotBlank(myResourceType)) {
 				b.append(myResourceType);
 			}
-
+			
 			if (b.length() > 0) {
 				b.append('/');
 			}
-
+			
 			b.append(myUnqualifiedId);
 			if (isNotBlank(myUnqualifiedVersionId)) {
 				b.append('/');
@@ -454,10 +455,10 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
 			myUnqualifiedId = null;
 			myUnqualifiedVersionId = null;
 			myResourceType = null;
-		} else if (theValue.charAt(0) == '#') {
+		} else if (theValue.charAt(0)== '#') {
 			super.setValue(theValue);
 			myUnqualifiedId = theValue;
-			myUnqualifiedVersionId = null;
+			myUnqualifiedVersionId=null;
 			myResourceType = null;
 			myHaveComponentParts = true;
 		} else {
@@ -606,7 +607,7 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
 		}
 		return theIdPart.toPlainString();
 	}
-	
+
 	private static String toPlainStringWithNpeThrowIfNeeded(Long theIdPart) {
 		if (theIdPart == null) {
 			throw new NullPointerException("Long ID can not be null");

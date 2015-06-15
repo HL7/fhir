@@ -91,6 +91,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
 	private void generateEnum(BindingSpecification cd) throws Exception {
     String tns = cd.getValueSet().getName();
+    cd.getValueSet().setUserData("java-generated", true);
 	  
 		write("    public enum "+tns+" {\r\n");
 		int l = cd.getAllCodes().size();
@@ -195,36 +196,5 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     write("    }\r\n"); 
     write("\r\n");
 	}
-
-  private String makeConst(String cc) {
-    if (Utilities.isInteger(cc))
-      cc = "_"+cc;
-    if (cc.equals("<"))
-    	cc = "less_Than";
-    else if (cc.equals("<="))
-    	cc = "less_Or_Equal";
-    else if (cc.equals(">"))
-    	cc = "greater_Than";
-    else if (cc.equals(">="))
-    	cc = "greater_Or_Equal";
-    else if (cc.equals("="))
-      cc = "equal";
-    else if (allPlusMinus(cc))
-      cc = cc.replace("-", "Minus").replace("+", "Plus");
-    else
-    	cc = cc.replace("-", "").replace("+", "");
-    cc = cc.replace("(", "_").replace(")", "_");
-    cc = cc.toUpperCase();
-    if (GeneratorUtils.isJavaReservedWord(cc))
-      cc = cc + "_";
-    return cc;
-  }
-
-	private boolean allPlusMinus(String cc) {
-	  for (char c : cc.toCharArray())
-	    if (!(c == '-' || c == '+'))
-	      return false;
-    return true;
-  }
 
 }

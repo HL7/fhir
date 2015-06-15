@@ -29,18 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Block;
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A request to convey information. E.g., the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
  */
@@ -1144,32 +1143,32 @@ public class CommunicationRequest extends DomainResource {
     return ResourceType.CommunicationRequest;
    }
 
-  @SearchParamDefinition(name="requester", path="CommunicationRequest.requester", description="Requester of communication", type="reference" )
-  public static final String SP_REQUESTER = "requester";
-  @SearchParamDefinition(name="status", path="CommunicationRequest.status", description="proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed", type="token" )
-  public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="subject", path="CommunicationRequest.subject", description="Focus of message", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="encounter", path="CommunicationRequest.encounter", description="Encounter leading to message", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
-  @SearchParamDefinition(name="recipient", path="CommunicationRequest.recipient", description="Message recipient", type="reference" )
-  public static final String SP_RECIPIENT = "recipient";
-  @SearchParamDefinition(name="medium", path="CommunicationRequest.medium", description="Communication medium", type="token" )
-  public static final String SP_MEDIUM = "medium";
   @SearchParamDefinition(name="sender", path="CommunicationRequest.sender", description="Message sender", type="reference" )
   public static final String SP_SENDER = "sender";
-  @SearchParamDefinition(name="category", path="CommunicationRequest.category", description="Message category", type="token" )
-  public static final String SP_CATEGORY = "category";
   @SearchParamDefinition(name="time", path="CommunicationRequest.scheduledTime", description="When scheduled", type="date" )
   public static final String SP_TIME = "time";
+  @SearchParamDefinition(name="requester", path="CommunicationRequest.requester", description="Requester of communication", type="reference" )
+  public static final String SP_REQUESTER = "requester";
+  @SearchParamDefinition(name="category", path="CommunicationRequest.category", description="Message category", type="token" )
+  public static final String SP_CATEGORY = "category";
   @SearchParamDefinition(name="patient", path="CommunicationRequest.subject", description="Focus of message", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="ordered", path="CommunicationRequest.orderedOn", description="When ordered or proposed", type="date" )
-  public static final String SP_ORDERED = "ordered";
+  @SearchParamDefinition(name="status", path="CommunicationRequest.status", description="proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed", type="token" )
+  public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="priority", path="CommunicationRequest.priority", description="Message urgency", type="token" )
   public static final String SP_PRIORITY = "priority";
+  @SearchParamDefinition(name="subject", path="CommunicationRequest.subject", description="Focus of message", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="ordered", path="CommunicationRequest.orderedOn", description="When ordered or proposed", type="date" )
+  public static final String SP_ORDERED = "ordered";
+  @SearchParamDefinition(name="encounter", path="CommunicationRequest.encounter", description="Encounter leading to message", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
   @SearchParamDefinition(name="identifier", path="CommunicationRequest.identifier", description="Unique identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="medium", path="CommunicationRequest.medium", description="Communication medium", type="token" )
+  public static final String SP_MEDIUM = "medium";
+  @SearchParamDefinition(name="recipient", path="CommunicationRequest.recipient", description="Message recipient", type="reference" )
+  public static final String SP_RECIPIENT = "recipient";
 
 }
 

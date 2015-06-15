@@ -34,6 +34,7 @@ import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -800,11 +801,11 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   protected void chckSubjects() {
     for (String s : sorted(predicateSet)) {
       if (s.startsWith("fhir:") && !subjectSet.contains(s))
-        issues.add(new ValidationMessage(Source.Ontology, "RDF", -1, -1, "turtle", "Undefined predicate "+s, IssueSeverity.WARNING));
+        issues.add(new ValidationMessage(Source.Ontology, IssueType.INVALID, -1, -1, "turtle", "Undefined predicate "+s, IssueSeverity.WARNING));
     }
     for (String s : sorted(objectSet)) {
       if (s.startsWith("fhir:") && !subjectSet.contains(s))
-        issues.add(new ValidationMessage(Source.Ontology, "RDF", -1, -1, "turtle", "Undefined object "+s, IssueSeverity.WARNING));
+        issues.add(new ValidationMessage(Source.Ontology, IssueType.INVALID, -1, -1, "turtle", "Undefined object "+s, IssueSeverity.WARNING));
     }
   }
 

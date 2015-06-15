@@ -1,7 +1,6 @@
 package org.hl7.fhir.tools.publisher;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;

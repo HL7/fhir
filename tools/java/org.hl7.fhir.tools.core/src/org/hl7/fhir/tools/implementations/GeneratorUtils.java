@@ -205,7 +205,8 @@ public class GeneratorUtils {
 		if (word.equals("try")) return true; 	
 		if (word.equals("void")) return true; 	
 		if (word.equals("volatile")) return true;
-		if (word.equals("while")) return true;
+    if (word.equals("while")) return true;
+    if (word.equals("Exception")) return true;
 		return false;
 	}
 

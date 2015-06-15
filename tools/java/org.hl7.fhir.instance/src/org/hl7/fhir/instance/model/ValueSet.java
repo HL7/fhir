@@ -29,21 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 13, 2015 10:53+1000 for FHIR v0.5.0
+// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
-import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatusEnumFactory;
-import org.hl7.fhir.instance.model.annotations.Block;
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.Enumerations.*;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.api.*;
 /**
  * A value set specifies a set of codes drawn from one or more code systems.
  */
@@ -4060,32 +4057,32 @@ public class ValueSet extends DomainResource {
     return ResourceType.ValueSet;
    }
 
+  @SearchParamDefinition(name="system", path="ValueSet.define.system", description="The system for any codes defined by this value set", type="uri" )
+  public static final String SP_SYSTEM = "system";
   @SearchParamDefinition(name="expansion", path="ValueSet.expansion.identifier", description="Uniquely identifies this expansion", type="uri" )
   public static final String SP_EXPANSION = "expansion";
   @SearchParamDefinition(name="status", path="ValueSet.status", description="The status of the value set", type="token" )
   public static final String SP_STATUS = "status";
-  @SearchParamDefinition(name="code", path="ValueSet.define.concept.code", description="A code defined in the value set", type="token" )
-  public static final String SP_CODE = "code";
-  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
-  public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="url", path="ValueSet.url", description="The logical url for the value set", type="uri" )
-  public static final String SP_URL = "url";
-  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="uri" )
-  public static final String SP_REFERENCE = "reference";
-  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
-  public static final String SP_VERSION = "version";
-  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
-  @SearchParamDefinition(name="system", path="ValueSet.define.system", description="The system for any codes defined by this value set", type="uri" )
-  public static final String SP_SYSTEM = "system";
   @SearchParamDefinition(name="description", path="ValueSet.description", description="Text search in the description of the value set", type="string" )
   public static final String SP_DESCRIPTION = "description";
   @SearchParamDefinition(name="name", path="ValueSet.name", description="The name of the value set", type="string" )
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="context", path="ValueSet.useContext", description="A use context assigned to the value set", type="token" )
   public static final String SP_CONTEXT = "context";
+  @SearchParamDefinition(name="code", path="ValueSet.define.concept.code", description="A code defined in the value set", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="date", path="ValueSet.date", description="The value set publication date", type="date" )
+  public static final String SP_DATE = "date";
   @SearchParamDefinition(name="identifier", path="ValueSet.identifier", description="The identifier for the value set", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="uri" )
+  public static final String SP_REFERENCE = "reference";
+  @SearchParamDefinition(name="url", path="ValueSet.url", description="The logical url for the value set", type="uri" )
+  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="version", path="ValueSet.version", description="The version identifier of the value set", type="token" )
+  public static final String SP_VERSION = "version";
 
 }
 

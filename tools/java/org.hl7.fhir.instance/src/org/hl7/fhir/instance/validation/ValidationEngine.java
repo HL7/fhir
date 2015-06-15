@@ -62,6 +62,7 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
@@ -192,7 +193,7 @@ public class ValidationEngine {
 		try {
     new XmlParser().parse(new ByteArrayInputStream(source));
 		} catch (Exception e) {
-			outputs.add(new ValidationMessage(Source.InstanceValidator, "structure", -1, -1, "??", e.getMessage(), IssueSeverity.ERROR));
+			outputs.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, -1, -1, "??", e.getMessage(), IssueSeverity.ERROR));
 		}
         
     OperationOutcome op = new OperationOutcome();
@@ -228,7 +229,7 @@ public class ValidationEngine {
 		try {
 		  new JsonParser().parse(new ByteArrayInputStream(source));
 		} catch (Exception e) {
-			outputs.add(new ValidationMessage(Source.InstanceValidator, "structure", -1, -1, "??", e.getMessage(), IssueSeverity.ERROR));
+			outputs.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, -1, -1, "??", e.getMessage(), IssueSeverity.ERROR));
 		}
 
 		OperationOutcome op = new OperationOutcome();
@@ -282,7 +283,7 @@ public class ValidationEngine {
         Element e = (Element) nl.item(i);
         ValidationMessage o = new ValidationMessage();
         o.setSource(Source.Schematron);
-        o.setType("invariant");
+        o.setType(IssueType.INVARIANT);
         o.setLevel(IssueSeverity.ERROR);
         o.setLocation(e.getAttribute("location"));
         o.setMessage(e.getTextContent());

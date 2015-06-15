@@ -61,6 +61,8 @@ public class Utilities {
 //	 private static final String TOKEN_REGEX = "^a-z[A-Za-z0-9]*$";
 
 
+  private static final String OID_REGEX = "[0-2](\\.(0|[1-9]([0-9])*))*";
+
   /**
      * Returns the plural form of the word in the string.
      * 
@@ -783,5 +785,10 @@ public class Utilities {
       sdl.close();
     } catch (Exception e) {
     }
+  }
+
+
+  public static boolean isOid(String cc) {
+    return cc.matches(OID_REGEX) && cc.lastIndexOf('.') > 5;
   }
 }
