@@ -715,7 +715,7 @@ public class Utilities {
     StringBuilder b = new StringBuilder();
     boolean lastBreak = true;
     for (char c : code.toCharArray()) {
-      if (Character.isAlphabetic(c)) {
+      if (Character.isLetter(c)) {
         if (lastBreak)
           b.append(Character.toUpperCase(c));
         else { 
