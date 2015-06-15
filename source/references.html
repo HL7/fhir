@@ -235,7 +235,7 @@ However FHIR provides no mechanism for defining or constraining any conduction o
 from a containing resource into any contained resource - not even by declaring the use of a particular profile.
 Best practice is to explicitly include all known properties on contained resources, even if redundant with 
 properties on the containing resource.  E.g. If the containing resource and contained resource both have a 
-"subject" element, both elements should be present, even if they reference the same resouce.  Applications that 
+"subject" element, both elements should be present, even if they reference the same resource.  Applications that 
 choose to omit redundant elements on contained resources should not expect other applications to infer 
 (or correctly infer) the intended meaning in this case.  Applications cannot safely presume that omitted 
 elements in contained resources can safely be inferred to be the same as the containing resource.  

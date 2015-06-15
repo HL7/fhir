@@ -2,7 +2,7 @@
 
 <!-- insert xhtml content here -->
 <p>
-Note: for technical compatibility reasons, the <i>Parameters</i> resouce inherits from 
+Note: for technical compatibility reasons, the <i>Parameters</i> resource inherits from 
 <a href="resource.html">Resource</a>, but since the parameter exchange format has no
 end point and/or persistence, it never has an id, a versionId, or a lastUpdated. 
 The other features of Resource (tags, profiles, security labels, language etc) may
