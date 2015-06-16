@@ -4654,7 +4654,7 @@ public class Publisher implements URIResolver {
 
     if (!TextFile.fileToString(tmp1.getAbsolutePath()).equals(TextFile.fileToString(tmp2.getAbsolutePath()))) {
       page.getValidationErrors().add(
-              new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, r, "file " + t + " did not round trip perfectly in XML in platform " + n, IssueSeverity.WARNING));
+              new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, "Reference Implementation", "file " + t + " did not round trip perfectly in XML in platform " + n, IssueSeverity.WARNING));
       String diff = diffProgram != null ? diffProgram : System.getenv("ProgramFiles(X86)") + sc + "WinMerge" + sc + "WinMergeU.exe";
 //      if (new CSFile(diff).exists()) {
 //        List<String> command = new ArrayList<String>();
