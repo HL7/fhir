@@ -183,7 +183,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private void generateElementInner(StructureDefinition profile, ElementDefinition d, int mode, ElementDefinition value) throws Exception {
-    tableRowNE("Definition", null, page.processMarkdown(d.getDefinition()));
+    tableRowNE("Definition", null, page.processMarkdown(profile.getName(), d.getDefinition()));
     tableRowNE("Note", null, businessIdWarning(tail(d.getPath())));
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
     tableRowNE("Binding", "terminologies.html", describeBinding(d));
@@ -193,9 +193,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       tableRowNE("Type", "datatypes.html", describeTypes(d.getType()) + processSecondary(mode, value));
     tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()));
     tableRow("Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
-    tableRowNE("Requirements",  null, page.processMarkdown(d.getRequirements()));
+    tableRowNE("Requirements",  null, page.processMarkdown(profile.getName(), d.getRequirements()));
     tableRowHint("Alternate Names", "Other names by which this resource/element may be known", null, describeAliases(d.getAlias()));
-    tableRowNE("Comments",  null, page.processMarkdown(d.getComments()));
+    tableRowNE("Comments",  null, page.processMarkdown(profile.getName(), d.getComments()));
     tableRow("Max Length", null, !d.hasMaxLengthElement() ? null : Integer.toString(d.getMaxLength()));
     tableRowNE("Default Value", null, encodeValue(d.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, d.getMeaningWhenMissing());
@@ -407,7 +407,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private void writeEntry(String path, String cardinality, String type, BindingSpecification bs, ElementDefn e) throws Exception {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"> </a><b>"+path+"</b></td></tr>\r\n");
-		tableRowNE("Definition", null, page.processMarkdown(e.getDefinition()));
+		tableRowNE("Definition", null, page.processMarkdown(path, e.getDefinition()));
     tableRowNE("Note", null, businessIdWarning(e.getName()));
 		tableRow("Control", "conformance-rules.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
 		tableRowNE("Binding", "terminologies.html", describeBinding(path, e));
@@ -419,11 +419,11 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRowNE("Default Value", null, encodeValue(e.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, e.getMeaningWhenMissing());
 
-		tableRowNE("Requirements", null, page.processMarkdown(e.getRequirements()));
+		tableRowNE("Requirements", null, page.processMarkdown(path, e.getRequirements()));
 		tableRowHint("Alternate Names", "Other names by which this resource/element may be known", null, toSeperatedString(e.getAliases()));
     if (e.hasSummaryItem())
       tableRow("Summary", "search.html#summary", Boolean.toString(e.isSummaryItem()));
-    tableRowNE("Comments", null, page.processMarkdown(e.getComments()));
+    tableRowNE("Comments", null, page.processMarkdown(path, e.getComments()));
     tableRowNE("Invariants", null, invariants(e.getInvariants(), e.getStatedInvariants()));
     tableRow("LOINC Code", null, e.getMapping(Definitions.LOINC_MAPPING));
     tableRow("SNOMED-CT Code", null, e.getMapping(Definitions.SNOMED_MAPPING));

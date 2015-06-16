@@ -232,16 +232,17 @@ public class SpreadsheetParser {
 		if (invariants != null) {
 		  for (Invariant inv : invariants.values()) {
 		    if (Utilities.noString(inv.getContext())) 
-		      log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context", LogMessageType.Warning);
+		      throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context");
 		    else {
 		      ElementDefn ed = findContext(resource.getRoot(), inv.getContext(), "Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" Context");
 		      if (ed.getName().endsWith("[x]") && !inv.getContext().endsWith("[x]"))
 		        inv.setFixedName(inv.getContext().substring(inv.getContext().lastIndexOf(".")+1));
 		      ed.getInvariants().put(inv.getId(), inv);
-		      if (Utilities.noString(inv.getXpath()))
-		        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement", LogMessageType.Warning);
+		      if (Utilities.noString(inv.getXpath())) {
+		        throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement");
+          }
 		      else if (inv.getXpath().contains("\""))
-		        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character", LogMessageType.Warning);
+		        throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character");
 		    }
 		  }
 		}
@@ -1075,17 +1076,18 @@ public class SpreadsheetParser {
 		if (invariants != null) {
 			for (Invariant inv : invariants.values()) {
 			  if (Utilities.noString(inv.getContext())) 
-			    log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context", LogMessageType.Warning);
+			    throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context");
 			  else {
 			    ElementDefn ed = findContext(resource.getRoot(), inv.getContext(), "Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" Context");
 			    // TODO: Need to resolve context based on element name, not just path
 			    if (ed.getName().endsWith("[x]") && !inv.getContext().endsWith("[x]"))
 			      inv.setFixedName(inv.getContext().substring(inv.getContext().lastIndexOf(".")+1));
 			    ed.getInvariants().put(inv.getId(), inv);
-			    if (Utilities.noString(inv.getXpath()))
-		        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement", LogMessageType.Warning);
+			    if (Utilities.noString(inv.getXpath())) {
+		        throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement");
+          }
 			    else if (inv.getXpath().contains("\""))
-	          log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character", LogMessageType.Warning);
+	          throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character");
 			  }
 			}
 		}
@@ -1767,16 +1769,17 @@ public class SpreadsheetParser {
     if (invariants != null) {
       for (Invariant inv : invariants.values()) {
         if (Utilities.noString(inv.getContext())) 
-          log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context", LogMessageType.Warning);
+          throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context");
         else {
           ElementDefn ed = findContext(resource.getRoot(), inv.getContext(), "Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" Context");
           if (ed.getName().endsWith("[x]") && !inv.getContext().endsWith("[x]"))
             inv.setFixedName(inv.getContext().substring(inv.getContext().lastIndexOf(".")+1));
           ed.getInvariants().put(inv.getId(), inv);
-          if (Utilities.noString(inv.getXpath()))
-            log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement", LogMessageType.Warning);
+          if (Utilities.noString(inv.getXpath())) {
+            throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement");
+          }
           else if (inv.getXpath().contains("\""))
-            log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character", LogMessageType.Warning);
+            throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character");
         }
       }
     }

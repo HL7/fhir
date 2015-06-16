@@ -36,6 +36,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueCompone
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
+import org.hl7.fhir.utilities.Utilities;
 
 public class ValidationMessage 
 {
@@ -128,6 +129,10 @@ public class ValidationMessage
       issue.getExtension().add(ToolingExtensions.makeIssueSource(source));      
     }
     return issue;
+  }
+  
+  public String toXML() {
+  	return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + location + "\" type=\"" + type + "\" level=\"" + level + "\">" + Utilities.escapeXml(message) + "</message>";
   }
   
 }

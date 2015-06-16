@@ -417,7 +417,7 @@ public class ProfileGenerator {
 
     ToolResourceUtilities.updateUsage(p, usage);
     p.setName(r.getRoot().getName());
-    p.setPublisher("HL7 FHIR Project"+(r.getWg() == null ? "" : " ("+r.getWg().getName()+")"));
+    p.setPublisher("Health Level Seven International"+(r.getWg() == null ? "" : " ("+r.getWg().getName()+")"));
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     if (r.getWg() != null)
       p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, r.getWg().getUrl()));

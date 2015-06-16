@@ -5,7 +5,7 @@
   <id value="example"/>
   <url value="http://hl7.org/fhir/SearchParameter/example"/>
   <name value="Example Search Parameter"/>
-  <publisher value="HL7 FHIR Project"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
   <contact>
     <telecom>
     <system value="url"/>

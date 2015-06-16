@@ -316,6 +316,7 @@ public class Publisher implements URIResolver {
   private boolean web;
   private String diffProgram;
   private Bundle profileFeed;
+  private Bundle profileOthersFeed;
   private Bundle typeFeed;
   private Bundle valueSetsFeed;
   private Bundle conceptMapsFeed;
@@ -526,6 +527,7 @@ public class Publisher implements URIResolver {
       validationProcess();
       if (isGenerate && buildFlags.get("all"))
         produceQA();
+        
       processWarnings();
       if (!buildFlags.get("all")) {
         page.log("This was a Partial Build", LogMessageType.Process);
@@ -543,7 +545,14 @@ public class Publisher implements URIResolver {
       Utilities.tone(800, 10);
       page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
     } catch (Exception e) {
-      processWarnings();
+
+    	try {
+      	processWarnings();
+      } catch (Exception e2) {
+      	page.log("  ERROR: Unable to process warnings: " + e.getMessage(), LogMessageType.Error);
+				e.printStackTrace();
+      }
+      
       if (!buildFlags.get("all")) {
         page.log("This was a Partial Build", LogMessageType.Process);
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -952,6 +961,12 @@ public class Publisher implements URIResolver {
     profileFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
     profileFeed.setBase("http://hl7.org/fhir");
 
+    profileOthersFeed = new Bundle();
+    profileOthersFeed.setId("profiles-others");
+    profileOthersFeed.setType(BundleType.COLLECTION);
+    profileOthersFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+    profileOthersFeed.setBase("http://hl7.org/fhir");
+
     typeFeed = new Bundle();
     typeFeed.setId("types");
     typeFeed.setType(BundleType.COLLECTION);
@@ -1226,7 +1241,7 @@ public class Publisher implements URIResolver {
   }
 
   private void checkAllOk() throws Exception {
-    page.getCollectedValidationErrors().addAll(page.getValidationErrors());
+//    page.getCollectedValidationErrors().addAll(page.getValidationErrors());
     boolean mustDie = false;
     for (ValidationMessage e : page.getValidationErrors()) {
       if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
@@ -1240,10 +1255,36 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void processWarnings() {
+  private void processWarnings() throws Exception {
+    String xslt = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "OwnerResources.xslt");
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "warnings.xml");
+    s.write("<warnings>".getBytes());
+
+    s.write(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-resources.xml", xslt).getBytes("UTF8"));
+    s.write(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt).getBytes("UTF8"));
+    s.write(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt).getBytes("UTF8"));
+
+    for (ValidationMessage e : page.getValidationErrors()) {
+    	s.write(e.toXML().getBytes());
+    }
+
+    s.write("</warnings>".getBytes());
+    s.flush();
+    s.close();
+
+    String xslt2 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "CategorizeWarnings.xslt");
+    FileOutputStream s2 = new FileOutputStream(page.getFolders().dstDir + "work-group-warnings.xml");
+    s2.write(Utilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
+    s2.flush();
+    s2.close();
+
+    String xslt3 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "RenderWarnings.xslt");
+    page.log(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3), LogMessageType.Process);
+/*
     int hintCount = 0;
     int warningCount = 0;
     int errorCount = 0;
+
     for (ValidationMessage e : page.getCollectedValidationErrors()) {
       if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
         errorCount++;
@@ -1264,7 +1305,7 @@ public class Publisher implements URIResolver {
       }
       if (warningCount + hintCount > 0)
         page.log("Summary - Warnings: " + Integer.toString(warningCount) + ", Hints: " + Integer.toString(hintCount), LogMessageType.Process);
-    }
+    }*/
   }
 
   private boolean hasBuildFlag(String n) {
@@ -1759,11 +1800,6 @@ public class Publisher implements URIResolver {
       s.close();
       Utilities.copyFile(page.getFolders().dstDir + "search-parameters.xml", page.getFolders().dstDir + "examples" + File.separator + "search-parameters.xml");
 
-      Bundle profileOthersFeed = new Bundle();
-      profileOthersFeed.setId("profiles-others");
-      profileOthersFeed.setType(BundleType.COLLECTION);
-      profileOthersFeed.setBase("http://hl7.org/fhir");
-      profileOthersFeed.setMeta(new Meta().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
         addOtherProfiles(profileOthersFeed, rd);
       for (Profile cp : page.getDefinitions().getPackList()) {
@@ -2057,7 +2093,7 @@ public class Publisher implements URIResolver {
         StructureDefinition p = new StructureDefinition();
         p.setType(StructureDefinitionType.CONSTRAINT);
         p.setAbstract(true);
-        p.setPublisher("HL7 FHIR Project");
+        p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
         p.setName(rd.getName());
         p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
         SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
@@ -3726,7 +3762,7 @@ public class Publisher implements URIResolver {
     page.getEpub().registerFile(title + "-mappings.html", "Mappings for StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-mappings.html");
 
-    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls"), "HL7 FHIR Project", page.getGenDate(), profile.getResource(), page);
+    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls"), "Health Level Seven International", page.getGenDate(), profile.getResource(), page);
 
     //
     // src = Utilities.fileToString(page.getFolders().srcDir +
@@ -4036,7 +4072,7 @@ public class Publisher implements URIResolver {
     json.compose(s, p);
     s.close();
     jsonToXhtml(file+".profile", "Source for Dictionary based StructureDefinition" + page.getDefinitions().getDictionaries().get(file), resource2Json(p), "dict-instance", "Profile");
-    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + file+ "-review.xls", "HL7 FHIR Project", page.getGenDate(), p, page);
+    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + file+ "-review.xls", "Health Level Seven International", page.getGenDate(), p, page);
   }
 
   private String processTemplate(String template, Map<String, String> variables) {
@@ -4373,10 +4409,16 @@ public class Publisher implements URIResolver {
       }
     }
     
-    for (String n : processingList.keySet()) {    
-      page.log(" ...test " + n, LogMessageType.Process);
-      validateRoundTrip(n);
-    }
+    for (String rname : page.getDefinitions().sortedResourceNames()) {
+      ResourceDefn r = page.getDefinitions().getResources().get(rname);
+      if (wantBuild(rname)) {
+        for (Example e : r.getExamples()) {
+          String n = e.getFileTitle();
+		      page.log(" ...test " + n, LogMessageType.Process);
+		      validateRoundTrip(rname, n);
+		    }
+		  }
+		}
 
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
@@ -4531,11 +4573,11 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void validateRoundTrip(String n) throws Exception {
+  private void validateRoundTrip(String r, String n) throws Exception {
     testSearchParameters(page.getFolders().dstDir + n + ".xml");
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
       if (gen.doesTest()) {
-        compareXml(n, gen.getName(), page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n + "."+gen.getName()+".xml");
+        compareXml(r, n, gen.getName(), page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n + "."+gen.getName()+".xml");
       }
     }
   }
@@ -4587,7 +4629,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void compareXml(String t, String n, String fn1, String fn2) throws Exception {
+  private void compareXml(String r, String t, String n, String fn1, String fn2) throws Exception {
     char sc = File.separatorChar;
     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
     dbf.setNamespaceAware(true);
@@ -4611,7 +4653,8 @@ public class Publisher implements URIResolver {
     xmlgen.generate(doc2.getDocumentElement(), tmp2, doc2.getDocumentElement().getNamespaceURI(), doc2.getDocumentElement().getLocalName());
 
     if (!TextFile.fileToString(tmp1.getAbsolutePath()).equals(TextFile.fileToString(tmp2.getAbsolutePath()))) {
-      page.log("file " + t + " did not round trip perfectly in XML in platform " + n, LogMessageType.Warning);
+      page.getValidationErrors().add(
+              new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, r, "file " + t + " did not round trip perfectly in XML in platform " + n, IssueSeverity.WARNING));
       String diff = diffProgram != null ? diffProgram : System.getenv("ProgramFiles(X86)") + sc + "WinMerge" + sc + "WinMergeU.exe";
 //      if (new CSFile(diff).exists()) {
 //        List<String> command = new ArrayList<String>();

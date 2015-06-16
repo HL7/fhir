@@ -317,6 +317,17 @@ public class Utilities {
     
   }
 
+  public static String saxonTransform(String source, String xslt) throws Exception {
+    TransformerFactoryImpl f = new net.sf.saxon.TransformerFactoryImpl();
+    f.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
+    StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
+    Transformer t = f.newTransformer(xsrc);
+    StreamSource src = new StreamSource(new FileInputStream(source));
+    StreamResult res = new StreamResult(new ByteArrayOutputStream());
+    t.transform(src, res);
+    return res.getOutputStream().toString();   
+  }
+
   public static void saxonTransform(String xsltDir, String source, String xslt, String dest, URIResolver alt) throws Exception {
   	saxonTransform(xsltDir, source, xslt, dest, alt, null);
   }
