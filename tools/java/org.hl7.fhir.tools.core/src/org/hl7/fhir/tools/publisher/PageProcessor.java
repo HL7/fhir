@@ -693,7 +693,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("compartmentlist"))
         src = s1 + compartmentlist() + s3;
       else if (com[0].equals("qa"))
-        src = s1 + qa.report(validationErrors) + s3;
+        src = s1 + qa.report(this, validationErrors) + s3;
       else if (com[0].equals("comp-title"))
         src = s1 + compTitle(name) + s3;
       else if (com[0].equals("comp-desc"))

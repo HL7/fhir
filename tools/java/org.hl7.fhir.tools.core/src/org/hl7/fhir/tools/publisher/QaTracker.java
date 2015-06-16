@@ -72,7 +72,7 @@ public class QaTracker {
       countPaths(c);
   }
 
-  public String report(List<ValidationMessage> errors) {
+  public String report(PageProcessor page, List<ValidationMessage> errors) throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<h2>Build Stats</h2>\r\n");
     s.append("<table class=\"grid\">\r\n");
@@ -90,19 +90,8 @@ public class QaTracker {
     s.append(" <tr><td>broken Links</td><td>"+Integer.toString(current.brokenlinks)+"</td></tr>\r\n");
     s.append("</table>\r\n");
     
-    s.append("<h2>Warnings</h2>\r\n");
-    s.append("<ul>\r\n");
-    for (ValidationMessage m : errors)
-      if (m.getLevel() == IssueSeverity.WARNING)
-        s.append(" <li>"+Utilities.escapeXml(m.getMessage())+"</li>\r\n");
-    s.append("</ul>\r\n");
-        
-    s.append("<h2>Hints</h2>\r\n");
-    s.append("<ul>\r\n");
-    for (ValidationMessage m : errors)
-      if (m.getLevel() == IssueSeverity.INFORMATION)
-        s.append(" <li>"+Utilities.escapeXml(m.getMessage())+"</li>\r\n");
-    s.append("</ul>\r\n");
+    String xslt = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "WarningsToQA.xslt");
+    s.append(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt));
     
     return s.toString();
     
