@@ -2,12 +2,12 @@
 <Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/basic.xsd">
   <id value="basic-example-adverseevent-qicore"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause">
-    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause-item">
+    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause#item">
       <valueReference>
         <reference value="Medication/example"/>
       </valueReference>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause-certainty">
+    <extension url="http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause#certainty">
       <valueCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>
