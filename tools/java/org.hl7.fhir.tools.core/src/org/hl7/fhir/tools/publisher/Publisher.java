@@ -525,10 +525,10 @@ public class Publisher implements URIResolver {
         processRDF();
 
       validationProcess();
+      processWarnings();
       if (isGenerate && buildFlags.get("all"))
         produceQA();
         
-      processWarnings();
       if (!buildFlags.get("all")) {
         page.log("This was a Partial Build", LogMessageType.Process);
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
