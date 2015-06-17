@@ -3,7 +3,7 @@ package org.hl7.fhir.tools.implementations.go;
 /*
 Contributed by Mitre Corporation
 
-Copyright (c) 2011-2014, HL7, Inc & The MITRE Corporation
+Copyright (c) 2011-2015, HL7, Inc & The MITRE Corporation
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -44,6 +45,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
+import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
@@ -65,7 +67,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
   }
 
   @Override
-  public String getDescription() {
+  public String getDescription(String version, String svnRevision) {
     return "Generates mgo models for FHIR resources";
   }
 
@@ -258,15 +260,19 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
   }
 
   @Override
-  public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception {
+  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
     // TODO Auto-generated method stub
-
   }
 
   @Override
-  public String checkFragments(String rootDir, String fragmentsXml, boolean inProcess) throws Exception {
+  public String checkFragments(FolderManager folders, String fragmentsXml) throws Exception {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  @Override
+  public void test(FolderManager folders, Collection<String> names) throws Exception {
+    // TODO Auto-generated method stub
   }
 
   @Override
