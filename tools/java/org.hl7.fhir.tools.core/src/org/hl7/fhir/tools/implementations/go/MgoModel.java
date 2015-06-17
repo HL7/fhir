@@ -3,7 +3,7 @@ package org.hl7.fhir.tools.implementations.go;
 /*
 Contributed by Mitre Corporation
 
-Copyright (c) 2011-2014, HL7, Inc & The MITRE Corporation
+Copyright (c) 2011-2015, HL7, Inc & The MITRE Corporation
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
@@ -35,7 +35,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -46,7 +45,6 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GenBlock;
-import org.hl7.fhir.tools.implementations.ruby.ResourceGenerator;
 
 public class MgoModel extends ResourceGenerator {
 
@@ -187,7 +185,7 @@ public class MgoModel extends ResourceGenerator {
 
     @Override
     protected void generateMainHeader(GenBlock fileBlock) {
-      fileBlock.ln("// Copyright (c) 2011-2014, HL7, Inc & The MITRE Corporation");
+      fileBlock.ln("// Copyright (c) 2011-2015, HL7, Inc & The MITRE Corporation");
       fileBlock.ln("// All rights reserved.");
       fileBlock.ln("// ");
       fileBlock.ln("// Redistribution and use in source and binary forms, with or without modification, ");
