@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="publish" level="project" />
+    <orderEntry type="library" name="imports" level="project" />
+    <orderEntry type="module" module-name="org.hl7.fhir.dstu3" />
+    <orderEntry type="module" module-name="org.hl7.fhir.igtools" />
+    <orderEntry type="module" module-name="org.hl7.fhir.dstu2" />
+    <orderEntry type="module" module-name="org.hl7.fhir.utilities" />
+    <orderEntry type="module" module-name="org.hl7.fhir.rdf" />
+    <orderEntry type="module" module-name="org.hl7.fhir.convertors" />
+  </component>
+</module>

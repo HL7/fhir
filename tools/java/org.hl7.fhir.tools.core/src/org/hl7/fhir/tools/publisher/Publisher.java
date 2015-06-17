@@ -3189,7 +3189,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           checkElement(sd, ed, false);
       }
     }
-    
+
   }
 
   private void checkElement(StructureDefinition sd, ElementDefinition ed, boolean inDiff) {
@@ -3264,7 +3264,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     case LOGICAL: return checkLogical(sd);
     default:
       check(false, sd, "Unknown kind");
-      return false;    
+      return false;
     }
   }
 
@@ -3304,7 +3304,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void check(boolean pass, StructureDefinition sd, String msg) {
     if (!pass)
-      System.out.println("Error in StructureDefinition "+sd.getId()+": "+msg);    
+      System.out.println("Error in StructureDefinition "+sd.getId()+": "+msg);
   }
 
   private String tail(String url) {
@@ -4984,6 +4984,7 @@ public class Publisher implements URIResolver, SectionNumberer {
             throw new Exception("Unable to determine resource name - profile mismatch "+resourceName+"/"+pack.getProfiles().get(i).getDefn().getName());
       }
     }
+
     ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(pack.getCategory());
     String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
 
