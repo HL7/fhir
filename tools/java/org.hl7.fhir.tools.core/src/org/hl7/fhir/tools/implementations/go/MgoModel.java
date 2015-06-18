@@ -54,7 +54,6 @@ public class MgoModel extends ResourceGenerator {
         this.imports = imports;
     }
 
-    @Override
     public void generate() throws Exception {
       
       outputFile.createNewFile();
@@ -66,24 +65,16 @@ public class MgoModel extends ResourceGenerator {
       TypeDefn root = getRootDefinition();    
 
       // first loop through and generate the field elements
-      for (Iterator<ElementDefn> iterator = root.getElements().iterator(); iterator.hasNext();) {
-        ElementDefn elementDefinition = iterator.next();
-        generateElement(fileBlock, elementDefinition);
+      for (ElementDefn elementDefinition : root.getElements()) {
+        generateElement(fileBlock, elementDefinition, name);
       }
 
-      generateResourceFooter(fileBlock);
       generateMainFooter(fileBlock);
       
       // next loop through and generate all of the embedded types from this schema
-      if(!root.getName().equals("Questionnaire")){
-        for (Iterator<ElementDefn> iterator = root.getElements().iterator(); iterator.hasNext();) {
-          ElementDefn elementDefinition = iterator.next();
-          generateEmbeddedType(outputFile.getParentFile(), fileBlock, elementDefinition);
-        }
+      for (ElementDefn elementDefinition : root.getElements()) {
+        generateEmbeddedType(fileBlock, elementDefinition, name);
       }
-      
-      generatePostEmbedded(fileBlock);
-      
 
       Writer modelFile = new BufferedWriter(new FileWriter(outputFile));
       modelFile.write(fileBlock.toString());
@@ -92,68 +83,69 @@ public class MgoModel extends ResourceGenerator {
 
     }
 
-    @Override
-    protected void generateElement(GenBlock block, ElementDefn elementDefinition) {
+    protected void generateElement(GenBlock block, ElementDefn elementDefinition, String resourceName) {
       List<TypeRef> types = elementDefinition.getTypes();
       if(types.size() > 0) {
-        for (Iterator<TypeRef> iterator = types.iterator(); iterator.hasNext();) {
-          
-          TypeRef typeRef = iterator.next();
+        for (TypeRef typeRef : types) {
+
           String elementType = typeRef.getName();
-          
-          if(elementType.startsWith("@")){
-           elementType = typeRef.getResolvedTypeName();
+
+          if (elementType.startsWith("@")) {
+              elementType = typeRef.getResolvedTypeName();
           }
-          
-          String generatedName = generateTypeName(elementDefinition,typeRef);
+
+          String generatedName = generateTypeName(elementDefinition, typeRef);
           String titleizedName = generatedName.substring(0, 1).toUpperCase() + generatedName.substring(1);
-          
+
           Integer card = elementDefinition.getMaxCardinality();
           String cardString = "";
           String pointerString = "";
-          if(card == null || card > 1){ 
-            cardString = "[]";
+          if (card == null || card > 1) {
+              cardString = "[]";
           } else {
-            pointerString = "*";
+              pointerString = "*";
           }
-          
-          if(elementType.equals("*")){
-            //block.ln("field :"+generateTypeName(elementDefinition,typeRef) + ", type: Hash");
-            block.ln(titleizedName + "String " + cardString + "string " + "  `bson:\"" + generatedName + "string,omitempty\" json:\"" + generatedName +"string,omitempty\"`");
-            block.ln(titleizedName + "Integer " + cardString + "int32 " + "  `bson:\"" + generatedName + "integer,omitempty\" json:\"" + generatedName +"integer,omitempty\"`");
-            block.ln(titleizedName + "DateTime " + cardString + "*FHIRDateTime " + "  `bson:\"" + generatedName + "datetime,omitempty\" json:\"" + generatedName +"datetime,omitempty\"`");
-            block.ln(titleizedName + "Boolean " + cardString + "*bool " + "  `bson:\"" + generatedName + "boolean,omitempty\" json:\"" + generatedName +"boolean,omitempty\"`");
-            block.ln(titleizedName + "CodeableConcept *" + cardString + "CodeableConcept " + "  `bson:\"" + generatedName + "codeableconcept,omitempty\" json:\"" + generatedName +"codeableconcept,omitempty\"`");
-            block.ln(titleizedName + "Range " + cardString + "*Range " + "  `bson:\"" + generatedName + "range,omitempty\" json:\"" + generatedName + "range,omitempty\"`");
-          } else if (elementType.equals("base64Binary")){
-            block.ln(titleizedName + " " + cardString + "string " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
+
+          if (elementType.equals("*")) {
+              //block.ln("field :"+generateTypeName(elementDefinition,typeRef) + ", type: Hash");
+              block.ln(titleizedName + "String " + cardString + "string " + "  `bson:\"" + generatedName + "string,omitempty\" json:\"" + generatedName + "string,omitempty\"`");
+              block.ln(titleizedName + "Integer " + cardString + "int32 " + "  `bson:\"" + generatedName + "integer,omitempty\" json:\"" + generatedName + "integer,omitempty\"`");
+              block.ln(titleizedName + "DateTime " + cardString + "*FHIRDateTime " + "  `bson:\"" + generatedName + "datetime,omitempty\" json:\"" + generatedName + "datetime,omitempty\"`");
+              block.ln(titleizedName + "Boolean " + cardString + "*bool " + "  `bson:\"" + generatedName + "boolean,omitempty\" json:\"" + generatedName + "boolean,omitempty\"`");
+              block.ln(titleizedName + "CodeableConcept *" + cardString + "CodeableConcept " + "  `bson:\"" + generatedName + "codeableconcept,omitempty\" json:\"" + generatedName + "codeableconcept,omitempty\"`");
+              block.ln(titleizedName + "Range " + cardString + "*Range " + "  `bson:\"" + generatedName + "range,omitempty\" json:\"" + generatedName + "range,omitempty\"`");
+          } else if (elementType.equals("base64Binary")) {
+              block.ln(titleizedName + " " + cardString + "string " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
           } else if (elementType.equals("boolean")) {
-            block.ln(titleizedName + " *" + cardString + "bool " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
-          } else if(elementType.equals("integer")) {
-            block.ln(titleizedName + " " + cardString + "int32 " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
-          } else if(elementType.equals("unsignedInt") || elementType.equals("positiveInt")) {
-              block.ln(titleizedName + " " + cardString + "uint32 " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
-          } else if(elementType.equals("decimal")) {
-              block.ln(titleizedName + " " + cardString + "float64 " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
-          } else if(elementType.equals("instant") || elementType.equals("date") || elementType.equals("dateTime") || elementType.equals("time")) {
-           block.ln(titleizedName + " *" + cardString + "FHIRDateTime " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
-          } else if(elementType.equals("string") || elementType.equals("uri") || elementType.equals("code") || elementType.equals("id") || elementType.equals("oid") || elementType.equals("xhtml")) {
-            if(!titleizedName.equals("Gender")) 
-              block.ln(titleizedName + " " + cardString + "string " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
-            else
-              block.ln(titleizedName + " *CodeableConcept " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
-          }else if(elementType.equals("Resource") || elementType.equals("idref")) {     
-              block.ln(titleizedName + " " + cardString + "*Reference " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
-          } else if(elementType.equals("Age")  || elementType.equals("Count") || elementType.equals("Duration") || elementType.equals("Money")) {
-            block.ln(titleizedName + " *Quantity " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
+              block.ln(titleizedName + " *" + cardString + "bool " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
+          } else if (elementType.equals("integer")) {
+              block.ln(titleizedName + " " + cardString + "int32 " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
+          } else if (elementType.equals("unsignedInt") || elementType.equals("positiveInt")) {
+              block.ln(titleizedName + " " + cardString + "uint32 " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
+          } else if (elementType.equals("decimal")) {
+              block.ln(titleizedName + " " + cardString + "float64 " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
+          } else if (elementType.equals("instant") || elementType.equals("date") || elementType.equals("dateTime") || elementType.equals("time")) {
+              block.ln(titleizedName + " *" + cardString + "FHIRDateTime " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
+          } else if (elementType.equals("string") || elementType.equals("uri") || elementType.equals("code") || elementType.equals("id") || elementType.equals("oid") || elementType.equals("xhtml")) {
+              if (titleizedName.equals("Gender"))
+                  block.ln(titleizedName + " *CodeableConcept " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
+              else if (!titleizedName.equals("Id"))
+                  block.ln(titleizedName + " " + cardString + "string " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
+          } else if (elementType.equals("Resource") || elementType.equals("idref")) {
+              block.ln(titleizedName + " " + cardString + "*Reference " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
+          } else if (elementType.equals("Age") || elementType.equals("Count") || elementType.equals("Duration") || elementType.equals("Money")) {
+              block.ln(titleizedName + " *Quantity " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
           } else {
-             block.ln(titleizedName + " " + pointerString + cardString + elementType + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName +",omitempty\"`");
+              if (typeRef.isElementReference()) {
+                  elementType = resourceName + elementType;
+              }
+              block.ln(titleizedName + " " + pointerString + cardString + elementType + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
           }
         }
        } else if(types.size() == 0) {
           String typeName = generateTypeName(elementDefinition, null);
           String titleizedName = typeName.substring(0, 1).toUpperCase() + typeName.substring(1);
-          String className = getEmbeddedClassName(elementDefinition, null);
+          String className = getEmbeddedClassName(elementDefinition, resourceName);
           Integer card = elementDefinition.getMaxCardinality();
           if( card == null || card > 1){
             block.ln(titleizedName + "  []" + className + "  `bson:\"" + typeName + ",omitempty\" json:\"" + typeName +",omitempty\"`");
@@ -165,28 +157,24 @@ public class MgoModel extends ResourceGenerator {
 
     }
 
-    @Override
-    protected void generateEmbeddedType(File parentTemplate, GenBlock block, ElementDefn elementDefinition) {
+    protected void generateEmbeddedType(GenBlock block, ElementDefn elementDefinition, String resourceName) {
       List<TypeRef> types = elementDefinition.getTypes();
       if(types.size() == 0) {
-          for (Iterator<ElementDefn> iterator1 = elementDefinition.getElements().iterator(); iterator1.hasNext();) {
-            ElementDefn nestedElement = iterator1.next();
-            generateEmbeddedType(parentTemplate, block, nestedElement);
-          }
-
           block.ln(String.format("// This is an ugly hack to deal with the embedded %s structure", generateTypeName(elementDefinition, null)));
-          String className = getEmbeddedClassName(elementDefinition, null);
+          String className = getEmbeddedClassName(elementDefinition, resourceName);
           block.bs(String.format("type %s struct {", className));
-          for (Iterator<ElementDefn> iterator1 = elementDefinition.getElements().iterator(); iterator1.hasNext();) {
-              ElementDefn nestedElement = iterator1.next();
-              generateElement(block, nestedElement);
+          for (ElementDefn nestedElement : elementDefinition.getElements()) {
+            generateElement(block, nestedElement, resourceName);
           }
           block.es("}");
+
+          for (ElementDefn nestedElement : elementDefinition.getElements()) {
+            generateEmbeddedType(block, nestedElement, resourceName);
+          }
       }
 
     }
 
-    @Override
     protected void generateMainHeader(GenBlock fileBlock) {
       fileBlock.ln("// Copyright (c) 2011-2015, HL7, Inc & The MITRE Corporation");
       fileBlock.ln("// All rights reserved.");
@@ -229,12 +217,10 @@ public class MgoModel extends ResourceGenerator {
       }
     }
 
-    @Override
     protected void generateMainFooter(GenBlock fileBlock) {
       fileBlock.es("}");
     }
 
-    @Override
     protected void generateResourceHeader(GenBlock fileBlock) {
       fileBlock.bs("type " + name + " struct {");
       fileBlock.ln("Id string `json:\"-\" bson:\"_id\"`");
@@ -248,9 +234,7 @@ public class MgoModel extends ResourceGenerator {
         block.ln("type searchParams string");
         block.ln("const (");
         block.bs("_ = iota");
-        Iterator<String> iter = params.iterator();
-        while(iter.hasNext()){
-          String param = iter.next();
+        for (String param : params) {
           block.ln(param);
         }
         block.es(")");
@@ -266,17 +250,6 @@ public class MgoModel extends ResourceGenerator {
         elementName += typeName;
       }
       return elementName;
-    }
-
-    @Override
-    protected void generateResourceFooter(GenBlock fileBlock) {
-    }
-
-    @Override protected void generatePostEmbedded(GenBlock fileBlock) { }
-    @Override
-    protected void handleField(GenBlock block, FieldType fieldType, boolean multipleCardinality, ElementDefn elementDefinition, TypeRef typeRef) {
-      // TODO Auto-generated method stub
-      
     }
 
 }
