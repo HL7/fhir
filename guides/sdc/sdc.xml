@@ -53,11 +53,11 @@
    <example name="CCDA-Gender" description="FHIR Gender with mapping to CCDA" source="dataelement-sdc-profile-example.xml"/>
  </profile>
  <profile source="questionnaireanswers-sdc-profile-spreadsheet.xml" type="spreadsheet">
-   <example name="SDC" description="Set of several examples - medication, AHRQ and NCI forms" source="questionnaire-sdc-profile-example.xml"/>
+   <example name="SDC" description="Stand-alone answer set" source="questionnaireanswers-sdc-profile-example.xml"/>
    <example name="SDC-LOINC" description="Set of several examples - medication, AHRQ and NCI formsSDC medication example with LOINC codes populated" source="questionnaire-sdc-profile-example-loinc.xml"/>
  </profile>
  <profile source="questionnaire-sdc-profile-spreadsheet.xml" type="spreadsheet">
-   <example name="SDC" description="Stand-alone answer set" source="questionnaireanswers-sdc-profile-example.xml"/>
+   <example name="SDC" description="Set of several examples - medication, AHRQ and NCI forms" source="questionnaire-sdc-profile-example.xml"/>
  </profile>
  <profile source="valueset-sdc-profile-spreadsheet.xml" type="spreadsheet"/>
   
