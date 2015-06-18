@@ -1280,32 +1280,12 @@ public class Publisher implements URIResolver {
 
     String xslt3 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "RenderWarnings.xslt");
     page.log(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3), LogMessageType.Process);
-/*
-    int hintCount = 0;
-    int warningCount = 0;
-    int errorCount = 0;
 
-    for (ValidationMessage e : page.getCollectedValidationErrors()) {
+    for (ValidationMessage e : page.getValidationErrors()) {
       if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
-        errorCount++;
+        page.log(e.summary(), LogMessageType.Hint);
       }
     }
-    if (errorCount == 0) {
-      for (ValidationMessage e : page.getCollectedValidationErrors()) {
-        if (e.getLevel() == IssueSeverity.INFORMATION) {
-          page.log(e.summary(), LogMessageType.Hint);
-          hintCount++;
-        }
-      }
-      for (ValidationMessage e : page.getCollectedValidationErrors()) {
-        if (e.getLevel() == IssueSeverity.WARNING) {
-          page.log(e.summary(), LogMessageType.Warning);
-          warningCount++;
-        }
-      }
-      if (warningCount + hintCount > 0)
-        page.log("Summary - Warnings: " + Integer.toString(warningCount) + ", Hints: " + Integer.toString(hintCount), LogMessageType.Process);
-    }*/
   }
 
   private boolean hasBuildFlag(String n) {

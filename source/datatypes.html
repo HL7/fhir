@@ -69,11 +69,12 @@ all types, they have <a href="extensibility.html">extensions</a>).
    <td>xs:boolean, except that <b>0 and 1 are not valid values</b></td>
    <td>JSON boolean (true or false)</td>
  </tr>
+ <!-- leading 0s -->
  <tr>
    <td>integer<a name="integer"> </a></td>
    <td>A signed 32-bit integer (for larger values, use decimal)</td>
-   <td>xs:int</td>
-   <td>JSON number</td>
+   <td>xs:int, except that <b>leading 0 digits are not allowed</b></td>
+   <td>JSON number (with no decimal point)</td>
  </tr>
  <tr>
    <td>string<a name="string"> </a></td>
@@ -88,8 +89,8 @@ all types, they have <a href="extensibility.html">extensions</a>).
  <tr>
    <td>decimal<a name="decimal"> </a></td>
    <td>Rational numbers that have a decimal representation. See below about the precision of the number</td>
-   <td>xs:decimal, except that <b>decimals may not use exponents</b></td>
-   <td>A JSON number, but without exponents</td>
+   <td>xs:decimal, except that <b>decimals may not use exponents, and leading 0 digits are not allowed</b></td>
+   <td>A JSON number, except that <b>exponents are not allowed</b></td>
  </tr>
  <tr>
    <td>uri<a name="uri"> </a></td>

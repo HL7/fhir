@@ -277,6 +277,10 @@ public class XSDBaseGenerator {
             write("    <xs:restriction base=\"xs:"+pt.getSchemaType()+"\">\r\n");
             write("      <xs:minLength value=\"1\"/>\r\n");
             write("    </xs:restriction>\r\n");
+          } else if (!Utilities.noString(pt.getRegEx())) {
+            write("    <xs:restriction base=\"xs:"+pt.getSchemaType()+"\">\r\n");
+            write("      <xs:pattern value=\""+pt.getRegEx()+"\"/>\r\n");
+            write("    </xs:restriction>\r\n");
           } else {
             write("    <xs:restriction base=\"xs:"+pt.getSchemaType()+"\"/>\r\n");
           }
@@ -306,6 +310,9 @@ public class XSDBaseGenerator {
           write("    <xs:restriction base=\""+sp.getSchema()+"\">\r\n");
           if (!sp.getSchema().contains("Integer")) {
              write("      <xs:minLength value=\"1\"/>\r\n");
+          }
+          if (!Utilities.noString(sp.getRegex())) {
+            write("      <xs:pattern value=\""+sp.getRegex()+"\"/>\r\n");
           }
           write("    </xs:restriction>\r\n");
           write("  </xs:simpleType>\r\n");        

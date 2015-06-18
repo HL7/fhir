@@ -10,16 +10,16 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-21T19:16:26Z</Created>
   <LastSaved>2015-03-30T11:54:36Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9120</WindowHeight>
-  <WindowWidth>15270</WindowWidth>
-  <WindowTopX>630</WindowTopX>
-  <WindowTopY>780</WindowTopY>
+  <WindowHeight>13275</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <DoNotCalculateBeforeSave/>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -78,6 +78,7 @@
     <Cell><Data ss:Type="String">A whole number</Data></Cell>
     <Cell><Data ss:Type="String">32 bit number; for values larger than this, use decimal</Data></Cell>
     <Cell><Data ss:Type="String">int</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">-?([0]|([1-9][0-9]*))</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">INT</Data></Cell>
     <Cell><Data ss:Type="String">~NM/~SI</Data></Cell>
    </Row>
@@ -86,6 +87,7 @@
     <Cell><Data ss:Type="String">A rational number with implicit precision</Data></Cell>
     <Cell><Data ss:Type="String">Do not use a IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)</Data></Cell>
     <Cell><Data ss:Type="String">decimal</Data></Cell>
+    <Cell><Data ss:Type="String">-?([0]|([1-9][0-9]*))(\.[0-9]+)?</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">REAL</Data></Cell>
     <Cell><Data ss:Type="String">~NM</Data></Cell>
    </Row>
@@ -163,8 +165,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -232,14 +234,14 @@
     <Cell><Data ss:Type="String">An integer with a value that is not negative (e.g. &gt;= 0)</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">integer</Data></Cell>
     <Cell><Data ss:Type="String">xs:nonNegativeInteger </Data></Cell>
-    <Cell><Data ss:Type="String">[0-9]+</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">[0]|([1-9][0-9]*)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">positiveInt</Data></Cell>
     <Cell><Data ss:Type="String">An integer with a value that is positive (e.g. &gt;0)</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">integer</Data></Cell>
     <Cell><Data ss:Type="String">xs:positiveInteger</Data></Cell>
-    <Cell><Data ss:Type="String">[1-9][0-9]+</Data></Cell>
+    <Cell><Data ss:Type="String">[1-9][0-9]*</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -258,8 +260,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

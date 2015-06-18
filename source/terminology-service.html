@@ -371,7 +371,7 @@ value sets by providing the URI for the code system itself.
 Simple validation of a code/system against a known value set:
 </p>
 <pre class="http">
-GET [base]/ValueSet/23/$validate?system=http://loinc.org&amp;code=1963-8&amp;display=test
+GET [base]/ValueSet/23/$validate-code?system=http://loinc.org&amp;code=1963-8&amp;display=test
 </pre>
 <p>
 Validate a CodeableConcept against a client specified value set (this example in JSON):
@@ -452,7 +452,7 @@ codes subsumed by a code.
 Test whether a Snomed Concept 399211009 (History of myocardial infarction) is subsumed by 22298006 (Myocardial infarction):
 </p>
 <pre class="http">
-GET [base]/ValueSet/$validate?system=http://snomed.info/sct&amp;code=X&amp;uri=http://hl7.org/fhir/ValueSet/snomedct?base=Y
+GET [base]/ValueSet/$validate-code?system=http://snomed.info/sct&code=399211009&identifier=http://snomed.info/sct?fhir_vs%3Disa/22298006
 </pre>
 <p>
 Server response:
@@ -618,7 +618,7 @@ Translate from FHIR Composition status to V3 Act Status (based on
 <a href="composition-status-map-v3.html">this defined concept map</a>:
 </p>
 <pre class="http">
-GET [base]/ConceptMap/$validate?system=http://hl7.org/fhir/composition-status
+GET [base]/ConceptMap/$validate-code?system=http://hl7.org/fhir/composition-status
   &amp;code=preliminary&amp;valueSet= http://hl7.org/fhir/vs/composition-status
   &amp;target=http://hl7.org/fhir/v3/vs/ActStatus
 </pre>
