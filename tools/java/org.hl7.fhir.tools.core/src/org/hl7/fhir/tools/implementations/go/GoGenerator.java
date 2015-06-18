@@ -118,7 +118,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
     generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
     
     for (String name : namesAndDefinitions.keySet()) {
-      generateMgoModel(name, dirs.get("modelDir"), definitions);
+      generateMgoModel(name, dirs.get("modelDir"), definitions, "time");
       generateBundleStructs(name, dirs.get("modelDir"), genericBundleTemplate);
       generateGoController(name, dirs.get("serverDir"), genericControllerTemplate);
     }
@@ -142,9 +142,9 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
     }
   }
 
-  private void generateMgoModel(String name, String modelDir, Definitions definitions) throws Exception {
+  private void generateMgoModel(String name, String modelDir, Definitions definitions, String... imports) throws Exception {
     File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
-    MgoModel model = new MgoModel(name, definitions, modelFile);
+    MgoModel model = new MgoModel(name, definitions, modelFile, imports);
     model.generate();
   }
   
