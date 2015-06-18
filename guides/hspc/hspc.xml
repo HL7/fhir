@@ -55,6 +55,11 @@
 <!--  <profile source="observation-hspc-directahg-spreadsheet.xml" type="spreadsheet"/>  -->  
   <profile source="observation-hspc-heartrate-profile-spreadsheet.xml" type="spreadsheet"/>
   <profile source="organization-hspc-organization-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="hspc-headcircumference-profile-spreadsheet.xml" type="spreadsheet"/>  
+  <profile source="hspc-estimatedduedate-profile-spreadsheet.xml" type="spreadsheet"/>  
+  <profile source="hspc-boneage-profile-spreadsheet.xml" type="spreadsheet"/>  
+  <profile source="hspc-bmi-profile-spreadsheet.xml" type="spreadsheet"/>
+  <profile source="hspc-respiratoryrate-profile-spreadsheet.xml" type="spreadsheet"/>
 
   <!--
     dictionaries
