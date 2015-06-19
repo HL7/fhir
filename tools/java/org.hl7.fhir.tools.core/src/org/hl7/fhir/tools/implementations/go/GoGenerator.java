@@ -30,6 +30,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
  */
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -55,231 +56,215 @@ import org.stringtemplate.v4.ST;
 
 public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
-  @Override
-  public String getName() {
-    return "go";
-  }
-
-  @Override
-  public String getTitle() {
-    // TODO Auto-generated method stub
-    return "Go";
-  }
-
-  @Override
-  public String getDescription(String version, String svnRevision) {
-    return "Generates mgo models for FHIR resources";
-  }
-
-  @Override
-  public String getVersion() {
-    // TODO Auto-generated method stub
-    return "0.1";
-  }
-
-  @Override
-  public boolean isECoreGenerator() {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  @Override
-  public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision)
-      throws Exception {
-    final String basedDir = Utilities.path(implDir, "base");
-
-    Map<String, String> dirs = new HashMap<String, String>() {{
-      put("modelDir", Utilities.path(basedDir, "app", "models"));
-      put("serverDir", Utilities.path(basedDir, "app", "server"));
-    }};
-
-    createDirStructrue(dirs);
-    //Utilities.copyDirectory(resourcesDir, basedDir, null);
-
-    Map<String, TypeDefn> typeDefs = definitions.getTypes();
-    for(String name: typeDefs.keySet()){
-      generateMgoModel(name, dirs.get("modelDir"), definitions);
+    @Override
+    public String getName() {
+        return "go";
     }
 
-    Map<String, TypeDefn> infDefs = definitions.getInfrastructure();
-    for(String name: infDefs.keySet()){
-      generateMgoModel(name, dirs.get("modelDir"), definitions);
+    @Override
+    public String getTitle() {
+        return "Go";
     }
 
-    Map<String, TypeDefn> structs = definitions.getStructures();
-    for(String name: structs.keySet()){
-      generateMgoModel(name, dirs.get("modelDir"), definitions);
+    @Override
+    public String getDescription(String version, String svnRevision) {
+        return "Generates mgo models for FHIR resources";
     }
 
-    String genericControllerTemplate = TextFile.fileToString(Utilities.path(basedDir, "templates", "generic_controller.go.st"));
-    String genericBundleTemplate = TextFile.fileToString(Utilities.path(basedDir, "templates", "generic_bundle.go.st"));
-    
-    Map<String, ResourceDefn> namesAndDefinitions = definitions.getResources();
-    generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
-    
-    for (String name : namesAndDefinitions.keySet()) {
-      generateMgoModel(name, dirs.get("modelDir"), definitions, "time");
-      generateBundleStructs(name, dirs.get("modelDir"), genericBundleTemplate);
-      generateGoController(name, dirs.get("serverDir"), genericControllerTemplate);
+    @Override
+    public String getVersion() {
+        return "0.1";
     }
-    
-    Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
-    Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference.go")), new File(dirs.get("modelDir")));
-    Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "fhirdatetime.go")), new File(dirs.get("modelDir")));
-    Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "config.go")), new File(dirs.get("serverDir")));
-    Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
-    Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server.go")), new File(Utilities.path(basedDir, "app")));
 
-    ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
-    zip.addFolder(implDir, "mgo", false);
-    zip.close();
-  }
-
-  private void createDirStructrue(Map<String, String> dirs) throws IOException {
-    for (String dir : dirs.values()) {
-      Utilities.createDirectory(Utilities.path(dir));
-      Utilities.clearDirectory(Utilities.path(dir));
+    @Override
+    public boolean isECoreGenerator() {
+        return false;
     }
-  }
 
-  private void generateMgoModel(String name, String modelDir, Definitions definitions, String... imports) throws Exception {
-    File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
-    MgoModel model = new MgoModel(name, definitions, modelFile, imports);
-    model.generate();
-  }
-  
-  private void generateBundleStructs(String name, String modelDir, String genericBundleTemplate) throws IOException {
-    File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
-    ST bundleTemplate = new ST(genericBundleTemplate);
-    
-    bundleTemplate.add("ModelName", name);
-    
-    Writer bundleWriter = new BufferedWriter(new FileWriter(modelFile, true));
-    bundleWriter.write(bundleTemplate.render());
-    bundleWriter.flush();
-    bundleWriter.close();
-  }
-  
-  private void generateGoController(String name, String controllerDir, String genericControllerTemplate) throws IOException {
-    File controllerFile = new File(Utilities.path(controllerDir, name.toLowerCase() + ".go"));
-    ST controllerTemplate = new ST(genericControllerTemplate);
-    
-    boolean searchBySubject = false;
-    boolean searchByPatient = false;
-    boolean searchByCode = false;
-    
-    if(name.equals("Condition") || name.equals("Observation") || name.equals("MedicationStatement") || name.equals("Encounter")) {
-      searchBySubject = true;
+    @Override
+    public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision)
+            throws Exception {
+        final String basedDir = Utilities.path(implDir, "base");
+
+        Map<String, String> dirs = new HashMap<String, String>() {{
+            put("modelDir", Utilities.path(basedDir, "app", "models"));
+            put("serverDir", Utilities.path(basedDir, "app", "server"));
+        }};
+
+        createDirStructure(dirs);
+
+        Map<String, TypeDefn> typeDefs = definitions.getTypes();
+        for (String name : typeDefs.keySet()) {
+            generateMgoModel(name, dirs.get("modelDir"), definitions);
+        }
+
+        Map<String, TypeDefn> infDefs = definitions.getInfrastructure();
+        for (String name : infDefs.keySet()) {
+            generateMgoModel(name, dirs.get("modelDir"), definitions);
+        }
+
+        Map<String, TypeDefn> structs = definitions.getStructures();
+        for (String name : structs.keySet()) {
+            generateMgoModel(name, dirs.get("modelDir"), definitions);
+        }
+
+        String genericControllerTemplate = TextFile.fileToString(Utilities.path(basedDir, "templates", "generic_controller.go.st"));
+        String genericBundleTemplate = TextFile.fileToString(Utilities.path(basedDir, "templates", "generic_bundle.go.st"));
+
+        Map<String, ResourceDefn> namesAndDefinitions = definitions.getResources();
+        generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
+
+        for (String name : namesAndDefinitions.keySet()) {
+            generateMgoModel(name, dirs.get("modelDir"), definitions, "time");
+            generateBundleStructs(name, dirs.get("modelDir"), genericBundleTemplate);
+            generateGoController(name, dirs.get("serverDir"), genericControllerTemplate);
+        }
+
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference.go")), new File(dirs.get("modelDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "fhirdatetime.go")), new File(dirs.get("modelDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "config.go")), new File(dirs.get("serverDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server.go")), new File(Utilities.path(basedDir, "app")));
+
+        ZipGenerator zip = new ZipGenerator(destDir + getReference(version));
+        zip.addFolder(implDir, "mgo", false);
+        zip.close();
     }
-    if(name.equals("MedicationStatement")) {
-      searchByPatient = true;
+
+    private void createDirStructure(Map<String, String> dirs) throws IOException {
+        for (String dir : dirs.values()) {
+            Utilities.createDirectory(Utilities.path(dir));
+            Utilities.clearDirectory(Utilities.path(dir));
+        }
     }
-    if(name.equals("Medication")) {
-      searchByCode = true;
+
+    private void generateMgoModel(String name, String modelDir, Definitions definitions, String... imports) throws Exception {
+        File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
+        MgoModel model = new MgoModel(name, definitions, modelFile, imports);
+        model.generate();
     }
-    
-    controllerTemplate.add("searchBySubject", searchBySubject);
-    controllerTemplate.add("searchByPatient", searchByPatient);
-    controllerTemplate.add("searchByCode", searchByCode);
-    controllerTemplate.add("ModelName", name);
-    controllerTemplate.add("LowerCaseModelName", name.toLowerCase());
-    
-    Writer controllerWriter = new BufferedWriter(new FileWriter(controllerFile));
-    controllerWriter.write(controllerTemplate.render());
-    controllerWriter.flush();
-    controllerWriter.close();
-  }
-  
-  private void generateGoRouting(Map<String, ResourceDefn> namesAndDefinitions, String serverDir) throws IOException {
-    File serverFile = new File(Utilities.path(serverDir, "routing.go"));
-    
-    BufferedWriter serverWriter = new BufferedWriter(new FileWriter(serverFile));
-    
-    serverWriter.write("package server");
-    serverWriter.newLine();
-    serverWriter.newLine();
-    serverWriter.write("import (");
-    serverWriter.newLine();
-    serverWriter.write("\"github.com/codegangsta/negroni\"");
-    serverWriter.newLine();
-    serverWriter.write("\"github.com/gorilla/mux\"");
-    serverWriter.newLine();
-    serverWriter.write(")");
-    serverWriter.newLine();
-    serverWriter.write("func RegisterRoutes(router *mux.Router, config map[string][]negroni.Handler) {");
-    serverWriter.newLine();
-    serverWriter.newLine();
-     
-    for (String name : namesAndDefinitions.keySet()) {
-      String lower = name.toLowerCase();
-      serverWriter.write(lower + "Base := router.Path(\"/" + name + "\").Subrouter()");
-      serverWriter.newLine();
-      //serverWriter.write(lower + "Base.Methods(\"GET\").HandlerFunc(" + name + "IndexHandler)");
-      serverWriter.write(lower + "Base.Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Index\"], negroni.HandlerFunc(" + name + "IndexHandler))...))");
-      serverWriter.newLine();
-      //serverWriter.write(lower + "Base.Methods(\"POST\").HandlerFunc(" + name + "CreateHandler)");
-      serverWriter.write(lower + "Base.Methods(\"POST\").Handler(negroni.New(append(config[\"" + name + "Create\"], negroni.HandlerFunc(" + name + "CreateHandler))...))");
-      serverWriter.newLine();
-      serverWriter.newLine();
-      serverWriter.write(lower + " := router.Path(\"/" + name + "/{id}\").Subrouter()");
-      serverWriter.newLine();
-      //serverWriter.write(lower + ".Methods(\"GET\").HandlerFunc(" + name + "ShowHandler)");
-      serverWriter.write(lower + ".Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Show\"], negroni.HandlerFunc(" + name + "ShowHandler))...))");
-      serverWriter.newLine();
-      //serverWriter.write(lower + ".Methods(\"PUT\").HandlerFunc(" + name + "UpdateHandler)");
-      serverWriter.write(lower + ".Methods(\"PUT\").Handler(negroni.New(append(config[\"" + name + "Update\"], negroni.HandlerFunc(" + name + "UpdateHandler))...))");
-      serverWriter.newLine();
-      //serverWriter.write(lower + ".Methods(\"DELETE\").HandlerFunc(" + name + "DeleteHandler)");
-      serverWriter.write(lower + ".Methods(\"DELETE\").Handler(negroni.New(append(config[\"" + name + "Delete\"], negroni.HandlerFunc(" + name + "DeleteHandler))...))");
-      serverWriter.newLine();
-      serverWriter.newLine();
+
+    private void generateBundleStructs(String name, String modelDir, String genericBundleTemplate) throws IOException {
+        File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
+        ST bundleTemplate = new ST(genericBundleTemplate);
+
+        bundleTemplate.add("ModelName", name);
+
+        Writer bundleWriter = new BufferedWriter(new FileWriter(modelFile, true));
+        bundleWriter.write(bundleTemplate.render());
+        bundleWriter.flush();
+        bundleWriter.close();
     }
-    
-    serverWriter.write("}");
-    
-    serverWriter.flush();
-    serverWriter.close();
-  }
 
-  @Override
-  public boolean doesCompile() {
-    // TODO Auto-generated method stub
-    return false;
-  }
+    private void generateGoController(String name, String controllerDir, String genericControllerTemplate) throws IOException {
+        File controllerFile = new File(Utilities.path(controllerDir, name.toLowerCase() + ".go"));
+        ST controllerTemplate = new ST(genericControllerTemplate);
 
-  @Override
-  public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
-    // TODO Auto-generated method stub
-    return false;
-  }
+        boolean searchBySubject = false;
+        boolean searchByPatient = false;
+        boolean searchByCode = false;
 
-  @Override
-  public boolean doesTest() {
-    // TODO Auto-generated method stub
-    return false;
-  }
+        if (name.equals("Condition") || name.equals("Observation") || name.equals("MedicationStatement") || name.equals("Encounter")) {
+            searchBySubject = true;
+        }
+        if (name.equals("MedicationStatement")) {
+            searchByPatient = true;
+        }
+        if (name.equals("Medication")) {
+            searchByCode = true;
+        }
 
-  @Override
-  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
-    // TODO Auto-generated method stub
-  }
+        controllerTemplate.add("searchBySubject", searchBySubject);
+        controllerTemplate.add("searchByPatient", searchByPatient);
+        controllerTemplate.add("searchByCode", searchByCode);
+        controllerTemplate.add("ModelName", name);
+        controllerTemplate.add("LowerCaseModelName", name.toLowerCase());
 
-  @Override
-  public String checkFragments(FolderManager folders, String fragmentsXml) throws Exception {
-    // TODO Auto-generated method stub
-    return null;
-  }
+        Writer controllerWriter = new BufferedWriter(new FileWriter(controllerFile));
+        controllerWriter.write(controllerTemplate.render());
+        controllerWriter.flush();
+        controllerWriter.close();
+    }
 
-  @Override
-  public void test(FolderManager folders, Collection<String> names) throws Exception {
-    // TODO Auto-generated method stub
-  }
+    private void generateGoRouting(Map<String, ResourceDefn> namesAndDefinitions, String serverDir) throws IOException {
+        File serverFile = new File(Utilities.path(serverDir, "routing.go"));
 
-  @Override
-  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, String version, Date genDate,
-      Logger logger, String svnRevision) throws Exception {
-    // TODO Auto-generated method stub
-    
-  }
+        BufferedWriter serverWriter = new BufferedWriter(new FileWriter(serverFile));
 
+        serverWriter.write("package server");
+        serverWriter.newLine();
+        serverWriter.newLine();
+        serverWriter.write("import (");
+        serverWriter.newLine();
+        serverWriter.write("\"github.com/codegangsta/negroni\"");
+        serverWriter.newLine();
+        serverWriter.write("\"github.com/gorilla/mux\"");
+        serverWriter.newLine();
+        serverWriter.write(")");
+        serverWriter.newLine();
+        serverWriter.write("func RegisterRoutes(router *mux.Router, config map[string][]negroni.Handler) {");
+        serverWriter.newLine();
+        serverWriter.newLine();
+
+        for (String name : namesAndDefinitions.keySet()) {
+            String lower = name.toLowerCase();
+            serverWriter.write(lower + "Base := router.Path(\"/" + name + "\").Subrouter()");
+            serverWriter.newLine();
+            //serverWriter.write(lower + "Base.Methods(\"GET\").HandlerFunc(" + name + "IndexHandler)");
+            serverWriter.write(lower + "Base.Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Index\"], negroni.HandlerFunc(" + name + "IndexHandler))...))");
+            serverWriter.newLine();
+            //serverWriter.write(lower + "Base.Methods(\"POST\").HandlerFunc(" + name + "CreateHandler)");
+            serverWriter.write(lower + "Base.Methods(\"POST\").Handler(negroni.New(append(config[\"" + name + "Create\"], negroni.HandlerFunc(" + name + "CreateHandler))...))");
+            serverWriter.newLine();
+            serverWriter.newLine();
+            serverWriter.write(lower + " := router.Path(\"/" + name + "/{id}\").Subrouter()");
+            serverWriter.newLine();
+            //serverWriter.write(lower + ".Methods(\"GET\").HandlerFunc(" + name + "ShowHandler)");
+            serverWriter.write(lower + ".Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Show\"], negroni.HandlerFunc(" + name + "ShowHandler))...))");
+            serverWriter.newLine();
+            //serverWriter.write(lower + ".Methods(\"PUT\").HandlerFunc(" + name + "UpdateHandler)");
+            serverWriter.write(lower + ".Methods(\"PUT\").Handler(negroni.New(append(config[\"" + name + "Update\"], negroni.HandlerFunc(" + name + "UpdateHandler))...))");
+            serverWriter.newLine();
+            //serverWriter.write(lower + ".Methods(\"DELETE\").HandlerFunc(" + name + "DeleteHandler)");
+            serverWriter.write(lower + ".Methods(\"DELETE\").Handler(negroni.New(append(config[\"" + name + "Delete\"], negroni.HandlerFunc(" + name + "DeleteHandler))...))");
+            serverWriter.newLine();
+            serverWriter.newLine();
+        }
+
+        serverWriter.write("}");
+
+        serverWriter.flush();
+        serverWriter.close();
+    }
+
+    @Override
+    public boolean doesCompile() {
+        return false;
+    }
+
+    @Override
+    public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
+        return false;
+    }
+
+    @Override
+    public boolean doesTest() {
+        return false;
+    }
+
+    @Override
+    public void test(FolderManager folders, Collection<String> names) throws Exception {}
+
+    @Override
+    public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {}
+
+    @Override
+    public String checkFragments(FolderManager folders, String fragmentsXml) throws Exception {
+        return null;
+    }
+
+    @Override
+    public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, String version, Date genDate,
+                         Logger logger, String svnRevision) throws Exception {}
 }
