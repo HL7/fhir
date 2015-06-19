@@ -6,7 +6,9 @@ import (
 	"net/http"
 	"os"
 	"time"
+	<if(searchBySubject || searchByCode)>
 	"strings"
+	<endif>
 	"errors"
 
 	"github.com/gorilla/context"
