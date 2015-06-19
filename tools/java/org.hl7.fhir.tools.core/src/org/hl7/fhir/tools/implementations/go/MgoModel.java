@@ -35,9 +35,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -46,210 +43,224 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GenBlock;
 
-public class MgoModel extends ResourceGenerator {
+public class MgoModel {
+    private String name;
+    private File outputFile;
+    private Definitions definitions;
     private String[] imports;
 
     public MgoModel(String name, Definitions definitions, File outputFile, String... imports) {
-        super(name, definitions, outputFile);
+        this.name = name;
+        this.definitions = definitions;
+        this.outputFile = outputFile;
         this.imports = imports;
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public void generate() throws Exception {
-      
-      outputFile.createNewFile();
-      GenBlock fileBlock = new GenBlock();
-      
-      generateMainHeader(fileBlock);
-      generateResourceHeader(fileBlock);
+        GenBlock fileBlock = new GenBlock();
+        generateHeader(fileBlock);
+        generateResourceStruct(fileBlock);
+        generateComponentStructs(fileBlock);
 
-      TypeDefn root = getRootDefinition();    
-
-      // first loop through and generate the field elements
-      for (ElementDefn elementDefinition : root.getElements()) {
-        generateElement(fileBlock, elementDefinition, name);
-      }
-
-      generateMainFooter(fileBlock);
-      
-      // next loop through and generate all of the embedded types from this schema
-      for (ElementDefn elementDefinition : root.getElements()) {
-        generateEmbeddedType(fileBlock, elementDefinition, name);
-      }
-
-      Writer modelFile = new BufferedWriter(new FileWriter(outputFile));
-      modelFile.write(fileBlock.toString());
-      modelFile.flush();
-      modelFile.close();
-
+        outputFile.createNewFile();
+        Writer modelFile = new BufferedWriter(new FileWriter(outputFile));
+        modelFile.write(fileBlock.toString());
+        modelFile.flush();
+        modelFile.close();
     }
 
-    protected void generateElement(GenBlock block, ElementDefn elementDefinition, String resourceName) {
-      List<TypeRef> types = elementDefinition.getTypes();
-      if(types.size() > 0) {
-        for (TypeRef typeRef : types) {
-
-          String elementType = typeRef.getName();
-
-          if (elementType.startsWith("@")) {
-              elementType = typeRef.getResolvedTypeName();
-          }
-
-          String generatedName = generateTypeName(elementDefinition, typeRef);
-          String titleizedName = generatedName.substring(0, 1).toUpperCase() + generatedName.substring(1);
-
-          Integer card = elementDefinition.getMaxCardinality();
-          String cardString = "";
-          String pointerString = "";
-          if (card == null || card > 1) {
-              cardString = "[]";
-          } else {
-              pointerString = "*";
-          }
-
-          if (elementType.equals("*")) {
-              //block.ln("field :"+generateTypeName(elementDefinition,typeRef) + ", type: Hash");
-              block.ln(titleizedName + "String " + cardString + "string " + "  `bson:\"" + generatedName + "string,omitempty\" json:\"" + generatedName + "string,omitempty\"`");
-              block.ln(titleizedName + "Integer " + cardString + "int32 " + "  `bson:\"" + generatedName + "integer,omitempty\" json:\"" + generatedName + "integer,omitempty\"`");
-              block.ln(titleizedName + "DateTime " + cardString + "*FHIRDateTime " + "  `bson:\"" + generatedName + "datetime,omitempty\" json:\"" + generatedName + "datetime,omitempty\"`");
-              block.ln(titleizedName + "Boolean " + cardString + "*bool " + "  `bson:\"" + generatedName + "boolean,omitempty\" json:\"" + generatedName + "boolean,omitempty\"`");
-              block.ln(titleizedName + "CodeableConcept *" + cardString + "CodeableConcept " + "  `bson:\"" + generatedName + "codeableconcept,omitempty\" json:\"" + generatedName + "codeableconcept,omitempty\"`");
-              block.ln(titleizedName + "Range " + cardString + "*Range " + "  `bson:\"" + generatedName + "range,omitempty\" json:\"" + generatedName + "range,omitempty\"`");
-          } else if (elementType.equals("base64Binary")) {
-              block.ln(titleizedName + " " + cardString + "string " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          } else if (elementType.equals("boolean")) {
-              block.ln(titleizedName + " *" + cardString + "bool " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          } else if (elementType.equals("integer")) {
-              block.ln(titleizedName + " " + cardString + "int32 " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          } else if (elementType.equals("unsignedInt") || elementType.equals("positiveInt")) {
-              block.ln(titleizedName + " " + cardString + "uint32 " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          } else if (elementType.equals("decimal")) {
-              block.ln(titleizedName + " " + cardString + "float64 " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          } else if (elementType.equals("instant") || elementType.equals("date") || elementType.equals("dateTime") || elementType.equals("time")) {
-              block.ln(titleizedName + " *" + cardString + "FHIRDateTime " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          } else if (elementType.equals("string") || elementType.equals("uri") || elementType.equals("code") || elementType.equals("id") || elementType.equals("oid") || elementType.equals("xhtml")) {
-              if (titleizedName.equals("Gender"))
-                  block.ln(titleizedName + " *CodeableConcept " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-              else if (!titleizedName.equals("Id"))
-                  block.ln(titleizedName + " " + cardString + "string " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          } else if (elementType.equals("Resource") || elementType.equals("idref")) {
-              block.ln(titleizedName + " " + cardString + "*Reference " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          } else if (elementType.equals("Age") || elementType.equals("Count") || elementType.equals("Duration") || elementType.equals("Money")) {
-              block.ln(titleizedName + " *Quantity " + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          } else {
-              if (typeRef.isElementReference()) {
-                  elementType = resourceName + elementType;
-              }
-              block.ln(titleizedName + " " + pointerString + cardString + elementType + "  `bson:\"" + generatedName + ",omitempty\" json:\"" + generatedName + ",omitempty\"`");
-          }
+    private void generateHeader(GenBlock fileBlock) {
+        fileBlock.ln(COPYRIGHT);
+        fileBlock.ln();
+        fileBlock.ln("package models");
+        fileBlock.ln();
+        if (imports.length == 1) {
+            fileBlock.ln(String.format("import \"%s\"", imports[0]));
+            fileBlock.ln();
+        } else if (imports.length > 1) {
+            fileBlock.bs("import (");
+            for (String i : imports) {
+                fileBlock.ln(String.format("\"%s\"",i));
+            }
+            fileBlock.es(")");
+            fileBlock.ln();
         }
-       } else if(types.size() == 0) {
-          String typeName = generateTypeName(elementDefinition, null);
-          String titleizedName = typeName.substring(0, 1).toUpperCase() + typeName.substring(1);
-          String className = getEmbeddedClassName(elementDefinition, resourceName);
-          Integer card = elementDefinition.getMaxCardinality();
-          if( card == null || card > 1){
-            block.ln(titleizedName + "  []" + className + "  `bson:\"" + typeName + ",omitempty\" json:\"" + typeName +",omitempty\"`");
-          }else{
-            block.ln(titleizedName + "  *" + className + "  `bson:\"" + typeName + ",omitempty\" json:\"" + typeName +",omitempty\"`");
-          }
-
-      }
-
     }
 
-    protected void generateEmbeddedType(GenBlock block, ElementDefn elementDefinition, String resourceName) {
-      List<TypeRef> types = elementDefinition.getTypes();
-      if(types.size() == 0) {
-          block.ln(String.format("// This is an ugly hack to deal with the embedded %s structure", generateTypeName(elementDefinition, null)));
-          String className = getEmbeddedClassName(elementDefinition, resourceName);
-          block.bs(String.format("type %s struct {", className));
-          for (ElementDefn nestedElement : elementDefinition.getElements()) {
-            generateElement(block, nestedElement, resourceName);
-          }
-          block.es("}");
-
-          for (ElementDefn nestedElement : elementDefinition.getElements()) {
-            generateEmbeddedType(block, nestedElement, resourceName);
-          }
-      }
-
-    }
-
-    protected void generateMainHeader(GenBlock fileBlock) {
-      fileBlock.ln("// Copyright (c) 2011-2015, HL7, Inc & The MITRE Corporation");
-      fileBlock.ln("// All rights reserved.");
-      fileBlock.ln("// ");
-      fileBlock.ln("// Redistribution and use in source and binary forms, with or without modification, ");
-      fileBlock.ln("// are permitted provided that the following conditions are met:");
-      fileBlock.ln("// ");
-      fileBlock.ln("//     * Redistributions of source code must retain the above copyright notice, this ");
-      fileBlock.ln("//       list of conditions and the following disclaimer.");
-      fileBlock.ln("//     * Redistributions in binary form must reproduce the above copyright notice, ");
-      fileBlock.ln("//       this list of conditions and the following disclaimer in the documentation ");
-      fileBlock.ln("//       and/or other materials provided with the distribution.");
-      fileBlock.ln("//     * Neither the name of HL7 nor the names of its contributors may be used to ");
-      fileBlock.ln("//       endorse or promote products derived from this software without specific ");
-      fileBlock.ln("//       prior written permission.");
-      fileBlock.ln("// ");
-      fileBlock.ln("// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ");
-      fileBlock.ln("// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED ");
-      fileBlock.ln("// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. ");
-      fileBlock.ln("// IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, ");
-      fileBlock.ln("// INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT ");
-      fileBlock.ln("// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR ");
-      fileBlock.ln("// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, ");
-      fileBlock.ln("// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ");
-      fileBlock.ln("// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE ");
-      fileBlock.ln("// POSSIBILITY OF SUCH DAMAGE.");
-      fileBlock.ln();
-      fileBlock.ln("package models");
-      fileBlock.ln();
-      if (imports.length == 1) {
-          fileBlock.ln(String.format("import \"%s\"", imports[0]));
-          fileBlock.ln();
-      } else if (imports.length > 1) {
-          fileBlock.bs("import (");
-          for (String i : imports) {
-              fileBlock.ln(String.format("\"%s\"",i));
-          }
-          fileBlock.es(")");
-          fileBlock.ln();
-      }
-    }
-
-    protected void generateMainFooter(GenBlock fileBlock) {
-      fileBlock.es("}");
-    }
-
-    protected void generateResourceHeader(GenBlock fileBlock) {
-      fileBlock.bs("type " + name + " struct {");
-      fileBlock.ln("Id string `json:\"-\" bson:\"_id\"`");
-      //generateSearchParams(fileBlock);
-    }
-
-    private void generateSearchParams(GenBlock block){
-      ResourceDefn resource = definitions.getResources().get(name);
-      if(resource !=null){
-        Set<String> params = resource.getSearchParams().keySet();
-        block.ln("type searchParams string");
-        block.ln("const (");
-        block.bs("_ = iota");
-        for (String param : params) {
-          block.ln(param);
+    private void generateResourceStruct(GenBlock fileBlock) {
+        fileBlock.bs("type " + name + " struct {");
+        fileBlock.ln("Id string `json:\"-\" bson:\"_id\"`");
+        for (ElementDefn elementDefinition : getRootDefinition().getElements()) {
+            generateFields(fileBlock, elementDefinition);
         }
-        block.es(")");
-      }
-    }
-    
-    @Override
-    protected String generateTypeName(ElementDefn elementDefinition, TypeRef type) {
-      String elementName = elementDefinition.getName().replace("[x]", "");
-      if (elementDefinition.getTypes().size() > 1) {
-        String typeName = type.getName();
-        typeName = Character.toUpperCase(typeName.charAt(0)) + typeName.substring(1);
-        elementName += typeName;
-      }
-      return elementName;
+        fileBlock.es("}");
     }
 
+    private void generateComponentStructs(GenBlock fileBlock) {
+        for (ElementDefn elementDefinition : getRootDefinition().getElements()) {
+            generateComponentStruct(fileBlock, elementDefinition);
+        }
+    }
+
+    private void generateFields(GenBlock block, ElementDefn elementDefinition) {
+        if (isComponent(elementDefinition)) {
+            String fieldName = getFieldName(elementDefinition, null);
+            String structName = getComponentStructName(elementDefinition);
+            Integer card = elementDefinition.getMaxCardinality();
+            String modifier = card == null || card > 1 ? "[]" : "*";
+            block.ln(getFieldDefinition(fieldName, modifier, structName));
+        } else {
+            for (TypeRef typeRef : elementDefinition.getTypes()) {
+                String elementType = typeRef.getName();
+                if (elementType.startsWith("@")) {
+                    elementType = typeRef.getResolvedTypeName();
+                }
+
+                String fieldName = getFieldName(elementDefinition, typeRef);
+                Modifier m = new Modifier(elementDefinition);
+
+                if (elementType.equals("*")) {
+                    block.ln(getFieldDefinition(fieldName.concat("String"), m.typify("string")));
+                    block.ln(getFieldDefinition(fieldName.concat("Integer"), m.typify("int32")));
+                    block.ln(getFieldDefinition(fieldName.concat("DateTime"), m.typify("FHIRDateTime")));
+                    block.ln(getFieldDefinition(fieldName.concat("Boolean"), m.typify("bool")));
+                    block.ln(getFieldDefinition(fieldName.concat("CodeableConcept"), m.typify("CodeableConcept")));
+                    block.ln(getFieldDefinition(fieldName.concat("Range"), m.typify("Range")));
+                } else if (elementType.equals("base64Binary")) {
+                    block.ln(getFieldDefinition(fieldName, m.typify("string")));
+                } else if (elementType.equals("boolean")) {
+                    block.ln(getFieldDefinition(fieldName, m.typify("bool")));
+                } else if (elementType.equals("integer")) {
+                    block.ln(getFieldDefinition(fieldName, m.typify("int32")));
+                } else if (elementType.equals("unsignedInt") || elementType.equals("positiveInt")) {
+                    block.ln(getFieldDefinition(fieldName, m.typify("uint32")));
+                } else if (elementType.equals("decimal")) {
+                    block.ln(getFieldDefinition(fieldName, m.typify("float64")));
+                } else if (elementType.equals("instant") || elementType.equals("date") || elementType.equals("dateTime") || elementType.equals("time")) {
+                    block.ln(getFieldDefinition(fieldName, m.typify("FHIRDateTime")));
+                } else if (elementType.equals("string") || elementType.equals("uri") || elementType.equals("code") || elementType.equals("id") || elementType.equals("oid") || elementType.equals("xhtml")) {
+                    if (fieldName.equals("Gender")) {
+                        block.ln(getFieldDefinition(fieldName, m.typify("CodeableConcept")));
+                    } else if (!fieldName.equals("Id")) {
+                        block.ln(getFieldDefinition(fieldName, m.typify("string")));
+                    }
+                } else if (elementType.equals("Resource") || elementType.equals("idref")) {
+                    block.ln(getFieldDefinition(fieldName, m.typify("Reference")));
+                } else if (elementType.equals("Age") || elementType.equals("Count") || elementType.equals("Duration") || elementType.equals("Money")) {
+                    block.ln(getFieldDefinition(fieldName, m.typify("Quantity")));
+                } else {
+                    if (typeRef.isElementReference()) {
+                        elementType = this.name + elementType;
+                    }
+                    block.ln(getFieldDefinition(fieldName, m.typify(elementType)));
+                }
+            }
+        }
+    }
+
+    private static final class Modifier {
+        private final boolean isSlice;
+
+        public Modifier(ElementDefn el) {
+            this.isSlice = el.getMaxCardinality() == null || el.getMaxCardinality() > 1;
+        }
+
+        public String typify(String type) {
+            String result = type;
+            if (isSlice) {
+                result = "[]".concat(type);
+            } else if (! "string".equals(type)) {
+                result = "*".concat(type);
+            }
+            return result;
+        }
+    }
+
+    private String getFieldName(ElementDefn elementDefinition, TypeRef type) {
+        StringBuilder elementName = new StringBuilder(elementDefinition.getName().replace("[x]", ""));
+        if (elementDefinition.getTypes().size() > 1) {
+            elementName.append(capitalize(type.getName()));
+        }
+        return capitalize(elementName.toString());
+    }
+
+    private String getFieldDefinition(String fieldName, String fieldTypeModifier, String fieldType) {
+        String typeName = Character.toLowerCase(fieldName.charAt(0)) + (fieldName.length() > 1 ? fieldName.substring(1) : "");
+        return String.format("%s %s%s `bson:\"%s,omitempty\" json:\"%s,omitempty\"`", fieldName, fieldTypeModifier, fieldType, typeName, typeName);
+    }
+
+    private String getFieldDefinition(String fieldName, String fieldType) {
+        String typeName = Character.toLowerCase(fieldName.charAt(0)) + (fieldName.length() > 1 ? fieldName.substring(1) : "");
+        return String.format("%s %s `bson:\"%s,omitempty\" json:\"%s,omitempty\"`", fieldName, fieldType, typeName, typeName);
+    }
+
+    private boolean isComponent(ElementDefn elementDefinition) {
+        return elementDefinition.getTypes().isEmpty();
+    }
+
+    private String getComponentStructName(ElementDefn elementDefinition) {
+        return name.concat(capitalize(elementDefinition.getDeclaredTypeName()));
+    }
+
+    private void generateComponentStruct(GenBlock block, ElementDefn elementDefinition) {
+        if(isComponent(elementDefinition)) {
+            block.bs(String.format("type %s struct {", getComponentStructName(elementDefinition)));
+            for (ElementDefn nestedElement : elementDefinition.getElements()) {
+                generateFields(block, nestedElement);
+            }
+            block.es("}");
+
+            for (ElementDefn nestedElement : elementDefinition.getElements()) {
+                generateComponentStruct(block, nestedElement);
+            }
+        }
+
+    }
+
+    private String capitalize(String str) {
+        return Character.toUpperCase(str.charAt(0)) + (str.length() > 1 ? str.substring(1) : "");
+    }
+
+    private TypeDefn getRootDefinition() {
+        TypeDefn el;
+        ResourceDefn resource = definitions.getResources().get(name);
+        if (resource != null) {
+            el = resource.getRoot();
+        } else {
+            el = definitions.getInfrastructure().get(name);
+            if (el == null)
+                el = definitions.getTypes().get(name);
+            if (el == null)
+                el =  definitions.getStructures().get(name);
+        }
+        return el;
+    }
+
+    private static final String COPYRIGHT =
+            "// Copyright (c) 2011-2015, HL7, Inc & The MITRE Corporation\n" +
+            "// All rights reserved.\n" +
+            "//\n" +
+            "// Redistribution and use in source and binary forms, with or without modification,\n" +
+            "// are permitted provided that the following conditions are met:\n" +
+            "//\n" +
+            "//     * Redistributions of source code must retain the above copyright notice, this\n" +
+            "//       list of conditions and the following disclaimer.\n" +
+            "//     * Redistributions in binary form must reproduce the above copyright notice,\n" +
+            "//       this list of conditions and the following disclaimer in the documentation\n" +
+            "//       and/or other materials provided with the distribution.\n" +
+            "//     * Neither the name of HL7 nor the names of its contributors may be used to\n" +
+            "//       endorse or promote products derived from this software without specific\n" +
+            "//       prior written permission.\n" +
+            "//\n" +
+            "// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\n" +
+            "// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n" +
+            "// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.\n" +
+            "// IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,\n" +
+            "// INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT\n" +
+            "// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR\n" +
+            "// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,\n" +
+            "// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\n" +
+            "// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n" +
+            "// POSSIBILITY OF SUCH DAMAGE.";
 }
