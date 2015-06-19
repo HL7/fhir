@@ -151,7 +151,7 @@ public class MgoModel {
                     block.ln(getFieldDefinition(fieldName, m.typify("Quantity")));
                 } else {
                     if (typeRef.isElementReference()) {
-                        elementType = this.name + elementType;
+                        elementType = getComponentStructName(elementType);
                     }
                     block.ln(getFieldDefinition(fieldName, m.typify(elementType)));
                 }
@@ -200,7 +200,15 @@ public class MgoModel {
     }
 
     private String getComponentStructName(ElementDefn elementDefinition) {
-        return name.concat(capitalize(elementDefinition.getDeclaredTypeName()));
+        return getComponentStructName(elementDefinition.getDeclaredTypeName());
+    }
+
+    private String getComponentStructName(String typeName) {
+        typeName = capitalize(typeName);
+        if (! typeName.startsWith(name)) {
+            typeName = name.concat(typeName);
+        }
+        return typeName;
     }
 
     private void generateComponentStruct(GenBlock block, ElementDefn elementDefinition) {
