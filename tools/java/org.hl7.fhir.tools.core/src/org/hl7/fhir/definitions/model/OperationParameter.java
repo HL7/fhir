@@ -12,7 +12,7 @@ public class OperationParameter {
   private String max;
   private String type;
   private String profile;
-  private List<OperationTuplePart> parts;
+  private List<OperationParameter> parts;
 
   public OperationParameter(String name, String use, String doco, int min, String max, String type, String profile) {
     this.name = name; 
@@ -23,7 +23,7 @@ public class OperationParameter {
     this.type = type;
     this.profile = profile;
     if (type.equals("Tuple"))
-      parts = new ArrayList<OperationTuplePart>();
+      parts = new ArrayList<OperationParameter>();
   }
 
   public String getName() {
@@ -86,7 +86,7 @@ public class OperationParameter {
     return Integer.toString(min)+".."+max;
   }
 
-  public List<OperationTuplePart> getParts() {
+  public List<OperationParameter> getParts() {
     return parts;
   }
 

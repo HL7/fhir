@@ -74,7 +74,7 @@ edited by Eric Haas Health eData Inc
 				<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
 				<code value="PO"/>
 				<display value="Swallow, oral"/>
-				<primary value="true"/>
+				<userSelected value="true"/>
 			</coding>
 		</routeofAdministration>
 		<administration>

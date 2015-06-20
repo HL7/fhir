@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 20, 2015 09:23+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -224,10 +224,10 @@ public class JsonParser extends JsonParserBase {
       res.setDisplayElement(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
       parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayElement());
-    if (json.has("primary"))
-      res.setPrimaryElement(parseBoolean(json.get("primary").getAsBoolean()));
-    if (json.has("_primary"))
-      parseElementProperties(json.getAsJsonObject("_primary"), res.getPrimaryElement());
+    if (json.has("userSelected"))
+      res.setUserSelectedElement(parseBoolean(json.get("userSelected").getAsBoolean()));
+    if (json.has("_userSelected"))
+      parseElementProperties(json.getAsJsonObject("_userSelected"), res.getUserSelectedElement());
     return res;
   }
 
@@ -1123,24 +1123,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("part")) {
       JsonArray array = json.getAsJsonArray("part");
       for (int i = 0; i < array.size(); i++) {
-        res.getPart().add(parseParametersParametersParameterPartComponent(array.get(i).getAsJsonObject(), owner));
+        res.getPart().add(parseParametersParametersParameterComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
-    return res;
-  }
-
-  protected Parameters.ParametersParameterPartComponent parseParametersParametersParameterPartComponent(JsonObject json, Parameters owner) throws Exception {
-    Parameters.ParametersParameterPartComponent res = new Parameters.ParametersParameterPartComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    Type value = parseType("value", json);
-    if (value != null)
-      res.setValue(value);
-    if (json.has("resource"))
-      res.setResource(parseResource(json.getAsJsonObject("resource")));
     return res;
   }
 
@@ -7602,37 +7587,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("part")) {
       JsonArray array = json.getAsJsonArray("part");
       for (int i = 0; i < array.size(); i++) {
-        res.getPart().add(parseOperationDefinitionOperationDefinitionParameterPartComponent(array.get(i).getAsJsonObject(), owner));
+        res.getPart().add(parseOperationDefinitionOperationDefinitionParameterComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
-    return res;
-  }
-
-  protected OperationDefinition.OperationDefinitionParameterPartComponent parseOperationDefinitionOperationDefinitionParameterPartComponent(JsonObject json, OperationDefinition owner) throws Exception {
-    OperationDefinition.OperationDefinitionParameterPartComponent res = new OperationDefinition.OperationDefinitionParameterPartComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("name"))
-      res.setNameElement(parseCode(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("min"))
-      res.setMinElement(parseUnsignedInt(json.get("min").getAsString()));
-    if (json.has("_min"))
-      parseElementProperties(json.getAsJsonObject("_min"), res.getMinElement());
-    if (json.has("max"))
-      res.setMaxElement(parseString(json.get("max").getAsString()));
-    if (json.has("_max"))
-      parseElementProperties(json.getAsJsonObject("_max"), res.getMaxElement());
-    if (json.has("documentation"))
-      res.setDocumentationElement(parseString(json.get("documentation").getAsString()));
-    if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationElement());
-    if (json.has("type"))
-      res.setTypeElement(parseCode(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("profile"))
-      res.setProfile(parseReference(json.getAsJsonObject("profile")));
     return res;
   }
 
@@ -9588,14 +9545,24 @@ public class JsonParser extends JsonParserBase {
   protected Substance parseSubstance(JsonObject json) throws Exception {
     Substance res = new Substance();
     parseDomainResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    if (json.has("instance"))
-      res.setInstance(parseSubstanceSubstanceInstanceComponent(json.getAsJsonObject("instance"), res));
+    if (json.has("instance")) {
+      JsonArray array = json.getAsJsonArray("instance");
+      for (int i = 0; i < array.size(); i++) {
+        res.getInstance().add(parseSubstanceSubstanceInstanceComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
     if (json.has("ingredient")) {
       JsonArray array = json.getAsJsonArray("ingredient");
       for (int i = 0; i < array.size(); i++) {
@@ -11574,9 +11541,9 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("display", element.getDisplayElement(), false);
         composeStringExtras("display", element.getDisplayElement(), false);
       }
-      if (element.hasPrimaryElement()) {
-        composeBooleanCore("primary", element.getPrimaryElement(), false);
-        composeBooleanExtras("primary", element.getPrimaryElement(), false);
+      if (element.hasUserSelectedElement()) {
+        composeBooleanCore("userSelected", element.getUserSelectedElement(), false);
+        composeBooleanExtras("userSelected", element.getUserSelectedElement(), false);
       }
   }
 
@@ -12619,34 +12586,10 @@ public class JsonParser extends JsonParserBase {
         }
       if (element.hasPart()) {
         openArray("part");
-        for (Parameters.ParametersParameterPartComponent e : element.getPart()) 
-          composeParametersParametersParameterPartComponent(null, e);
+        for (Parameters.ParametersParameterComponent e : element.getPart()) 
+          composeParametersParametersParameterComponent(null, e);
         closeArray();
       };
-  }
-
-  protected void composeParametersParametersParameterPartComponent(String name, Parameters.ParametersParameterPartComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeParametersParametersParameterPartComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeParametersParametersParameterPartComponentInner(Parameters.ParametersParameterPartComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasValue()) {
-        composeType("value", element.getValue());
-      }
-        if (element.hasResource()) {
-          open("resource");
-          composeResource(element.getResource());
-          close();
-        }
   }
 
   protected void composeResourceElements(Resource element) throws Exception {
@@ -20715,45 +20658,10 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasPart()) {
         openArray("part");
-        for (OperationDefinition.OperationDefinitionParameterPartComponent e : element.getPart()) 
-          composeOperationDefinitionOperationDefinitionParameterPartComponent(null, e);
+        for (OperationDefinition.OperationDefinitionParameterComponent e : element.getPart()) 
+          composeOperationDefinitionOperationDefinitionParameterComponent(null, e);
         closeArray();
       };
-  }
-
-  protected void composeOperationDefinitionOperationDefinitionParameterPartComponent(String name, OperationDefinition.OperationDefinitionParameterPartComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeOperationDefinitionOperationDefinitionParameterPartComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeOperationDefinitionOperationDefinitionParameterPartComponentInner(OperationDefinition.OperationDefinitionParameterPartComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasNameElement()) {
-        composeCodeCore("name", element.getNameElement(), false);
-        composeCodeExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasMinElement()) {
-        composeUnsignedIntCore("min", element.getMinElement(), false);
-        composeUnsignedIntExtras("min", element.getMinElement(), false);
-      }
-      if (element.hasMaxElement()) {
-        composeStringCore("max", element.getMaxElement(), false);
-        composeStringExtras("max", element.getMaxElement(), false);
-      }
-      if (element.hasDocumentationElement()) {
-        composeStringCore("documentation", element.getDocumentationElement(), false);
-        composeStringExtras("documentation", element.getDocumentationElement(), false);
-      }
-      if (element.hasTypeElement()) {
-        composeCodeCore("type", element.getTypeElement(), false);
-        composeCodeExtras("type", element.getTypeElement(), false);
-      }
-      if (element.hasProfile()) {
-        composeReference("profile", element.getProfile());
-      }
   }
 
   protected void composeOperationOutcome(String name, OperationOutcome element) throws Exception {
@@ -23178,6 +23086,12 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeSubstanceInner(Substance element) throws Exception {
       composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }
@@ -23186,8 +23100,11 @@ public class JsonParser extends JsonParserBase {
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
       if (element.hasInstance()) {
-        composeSubstanceSubstanceInstanceComponent("instance", element.getInstance());
-      }
+        openArray("instance");
+        for (Substance.SubstanceInstanceComponent e : element.getInstance()) 
+          composeSubstanceSubstanceInstanceComponent(null, e);
+        closeArray();
+      };
       if (element.hasIngredient()) {
         openArray("ingredient");
         for (Substance.SubstanceIngredientComponent e : element.getIngredient()) 

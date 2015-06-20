@@ -102,7 +102,6 @@ import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
-import org.hl7.fhir.definitions.model.OperationTuplePart;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ProfiledType;
@@ -152,7 +151,6 @@ import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationDefinition;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
-import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterPartComponent;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationKind;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUse;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -3131,40 +3129,7 @@ public class Publisher implements URIResolver {
       opd.addType(r.getName());
     opd.setInstance(op.isInstance());
     for (OperationParameter p : op.getParameters()) {
-      OperationDefinitionParameterComponent pp = new OperationDefinitionParameterComponent();
-      pp.setName(p.getName());
-      if (p.getUse().equals("in"))
-        pp.setUse(OperationParameterUse.IN);
-      else if (p.getUse().equals("out"))
-        pp.setUse(OperationParameterUse.OUT);
-      else
-        throw new Exception("Unable to determine parameter use: "+p.getUse()); // but this is validated elsewhere
-      pp.setDocumentation(p.getDoc());
-      pp.setMin(p.getMin());
-      pp.setMax(p.getMax());
-      Reference ref = new Reference();
-      if (p.getProfile() != null) {
-        ref.setReference(p.getProfile());
-        pp.setProfile(ref);
-      }
-      opd.getParameter().add(pp);
-      if (p.getType().equals("Tuple")) {
-        for (OperationTuplePart part : p.getParts()) {
-          OperationDefinitionParameterPartComponent ppart = new OperationDefinitionParameterPartComponent();
-          ppart.setName(part.getName());
-          ppart.setDocumentation(part.getDoc());
-          ppart.setMin(part.getMin());
-          ppart.setMax(part.getMax());
-          ppart.setType(part.getType());
-          ref = new Reference();
-          if (part.getProfile() != null) {
-            ref.setReference(part.getProfile());
-            ppart.setProfile(ref);
-          }
-          pp.getPart().add(ppart);
-        }
-      } else
-        pp.setType(p.getType());
+      produceOpParam(op.getName(), opd.getParameter(), p, null);
     }
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(opd);
@@ -3195,6 +3160,34 @@ public class Publisher implements URIResolver {
     page.getEpub().registerExternal("operation-" + name + ".html");
     page.getEpub().registerExternal("operation-" + name + ".json.html");
     page.getEpub().registerExternal("operation-" + name + ".xml.html");
+  }
+
+  private void produceOpParam(String path, List<OperationDefinitionParameterComponent> opd, OperationParameter p, OperationParameterUse defUse) throws Exception {
+    OperationDefinitionParameterComponent pp = new OperationDefinitionParameterComponent();
+    pp.setName(p.getName());
+    if (p.getUse().equals("in"))
+      pp.setUse(OperationParameterUse.IN);
+    else if (p.getUse().equals("out"))
+      pp.setUse(OperationParameterUse.OUT);
+    else if (path.contains("."))
+      pp.setUse(defUse);
+    else
+      throw new Exception("Unable to determine parameter use: "+p.getUse()+" at "+path+"."+p.getName()); // but this is validated elsewhere
+    pp.setDocumentation(p.getDoc());
+    pp.setMin(p.getMin());
+    pp.setMax(p.getMax());
+    Reference ref = new Reference();
+    if (p.getProfile() != null) {
+      ref.setReference(p.getProfile());
+      pp.setProfile(ref);
+    }
+    opd.add(pp);
+    if (p.getType().equals("Tuple")) {
+      for (OperationParameter part : p.getParts()) {
+        produceOpParam(path+"."+p.getName(), pp.getPart(), part, pp.getUse());
+      }
+    } else
+      pp.setType(p.getType());
   }
 
   /*

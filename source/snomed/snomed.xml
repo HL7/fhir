@@ -952,6 +952,12 @@
     <display value="CT of thorax"/>
     <display value="CT of chest (procedure)"/>
   </concept>
+  <concept id="17120007" display="Biofeedback, strain gage">
+    <display value="Biofeedback, strain gage (regime/therapy)"/>
+    <display value="Biofeedback, strain gage"/>
+    <display value="Biofeedback, strain gauge"/>
+    <display value="Biofeedback, strain gage (procedure)"/>
+  </concept>
   <concept id="17162000" display="Certain">
     <display value="Certain"/>
     <display value="Certainty"/>
@@ -2007,6 +2013,10 @@
     <display value="Ambient temperature"/>
     <display value="Ambient temperature (observable entity)"/>
   </concept>
+  <concept id="250863006" display="Capnograph waveform (observable entity)">
+    <display value="Capnograph waveform"/>
+    <display value="Capnograph waveform (observable entity)"/>
+  </concept>
   <concept id="250865004" display="Electrocardiogram waveform (observable entity)">
     <display value="Observation of ECG waveform"/>
     <display value="Electrocardiogram waveform (observable entity)"/>
@@ -3018,6 +3028,11 @@
     <display value="Urine appearance"/>
     <display value="Urine appearance (observable entity)"/>
   </concept>
+  <concept id="268445003" display="Ultrasound scan - obstetric (procedure)">
+    <display value="Ultrasound scan - obstetric"/>
+    <display value="Obstetric US scan"/>
+    <display value="Ultrasound scan - obstetric (procedure)"/>
+  </concept>
   <concept id="268447006" display="Doppler studies (procedure)">
     <display value="Doppler"/>
     <display value="Doppler studies"/>
@@ -3904,6 +3919,13 @@
     <display value="Renal disease diet"/>
     <display value="Renal disease diet, NOS"/>
     <display value="Renal disease diet (finding)"/>
+  </concept>
+  <concept id="334990001" display="Peak flow meter (physical object)">
+    <display value="Peak flow metre"/>
+    <display value="PFM - Peak flow metre"/>
+    <display value="Peak flow meter"/>
+    <display value="PFM - Peak flow meter"/>
+    <display value="Peak flow meter (physical object)"/>
   </concept>
   <concept id="33526004" display="Laboratory reporting, computer">
     <display value="Laboratory reporting, electronic"/>
@@ -6578,6 +6600,10 @@
   <concept id="46255001" display="Pharmacist (occupation)">
     <display value="Pharmacist"/>
     <display value="Pharmacist (occupation)"/>
+  </concept>
+  <concept id="463698006" display="Pneumograph (physical object)">
+    <display value="Pneumograph (physical object)"/>
+    <display value="Pneumograph"/>
   </concept>
   <concept id="46511006" display="Chloride measurement">
     <display value="Chloride measurement"/>

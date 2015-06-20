@@ -6,7 +6,7 @@
 			<system value="http://hl7.org/fhir/supply-type"/>
 			<code value="central"/>
 			<display value="Central Supply"/>
-			<primary value="true"/>
+			<userSelected value="true"/>
 		</coding>
 	</kind>
 	<identifier>
@@ -38,7 +38,7 @@
 				<system value="http://hl7.org/fhir/supply-item-type"/>
 				<code value="device"/>
 				<display value="Device"/>
-				<primary value="true"/>
+				<userSelected value="true"/>
 			</coding>
 		</type>
 		<quantity>

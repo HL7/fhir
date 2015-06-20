@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 20, 2015 09:23+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -409,11 +409,11 @@ public class OperationDefinition extends DomainResource {
         /**
          * The parts of a Tuple Parameter.
          */
-        @Child(name = "part", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "part", type = {OperationDefinitionParameterComponent.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Parts of a Tuple Parameter", formalDefinition="The parts of a Tuple Parameter." )
-        protected List<OperationDefinitionParameterPartComponent> part;
+        protected List<OperationDefinitionParameterComponent> part;
 
-        private static final long serialVersionUID = 633191560L;
+        private static final long serialVersionUID = -506690891L;
 
     /*
      * Constructor
@@ -758,16 +758,16 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #part} (The parts of a Tuple Parameter.)
          */
-        public List<OperationDefinitionParameterPartComponent> getPart() { 
+        public List<OperationDefinitionParameterComponent> getPart() { 
           if (this.part == null)
-            this.part = new ArrayList<OperationDefinitionParameterPartComponent>();
+            this.part = new ArrayList<OperationDefinitionParameterComponent>();
           return this.part;
         }
 
         public boolean hasPart() { 
           if (this.part == null)
             return false;
-          for (OperationDefinitionParameterPartComponent item : this.part)
+          for (OperationDefinitionParameterComponent item : this.part)
             if (!item.isEmpty())
               return true;
           return false;
@@ -777,20 +777,20 @@ public class OperationDefinition extends DomainResource {
          * @return {@link #part} (The parts of a Tuple Parameter.)
          */
     // syntactic sugar
-        public OperationDefinitionParameterPartComponent addPart() { //3
-          OperationDefinitionParameterPartComponent t = new OperationDefinitionParameterPartComponent();
+        public OperationDefinitionParameterComponent addPart() { //3
+          OperationDefinitionParameterComponent t = new OperationDefinitionParameterComponent();
           if (this.part == null)
-            this.part = new ArrayList<OperationDefinitionParameterPartComponent>();
+            this.part = new ArrayList<OperationDefinitionParameterComponent>();
           this.part.add(t);
           return t;
         }
 
     // syntactic sugar
-        public OperationDefinitionParameterComponent addPart(OperationDefinitionParameterPartComponent t) { //3
+        public OperationDefinitionParameterComponent addPart(OperationDefinitionParameterComponent t) { //3
           if (t == null)
             return this;
           if (this.part == null)
-            this.part = new ArrayList<OperationDefinitionParameterPartComponent>();
+            this.part = new ArrayList<OperationDefinitionParameterComponent>();
           this.part.add(t);
           return this;
         }
@@ -804,7 +804,7 @@ public class OperationDefinition extends DomainResource {
           childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("type", "code", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
-          childrenList.add(new Property("part", "", "The parts of a Tuple Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
+          childrenList.add(new Property("part", "@OperationDefinition.parameter", "The parts of a Tuple Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
         }
 
       public OperationDefinitionParameterComponent copy() {
@@ -818,8 +818,8 @@ public class OperationDefinition extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.profile = profile == null ? null : profile.copy();
         if (part != null) {
-          dst.part = new ArrayList<OperationDefinitionParameterPartComponent>();
-          for (OperationDefinitionParameterPartComponent i : part)
+          dst.part = new ArrayList<OperationDefinitionParameterComponent>();
+          for (OperationDefinitionParameterComponent i : part)
             dst.part.add(i.copy());
         };
         return dst;
@@ -854,401 +854,6 @@ public class OperationDefinition extends DomainResource {
            && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty())
            && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty()) && (part == null || part.isEmpty())
           ;
-      }
-
-  }
-
-    @Block()
-    public static class OperationDefinitionParameterPartComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The name of used to identify the parameter.
-         */
-        @Child(name = "name", type = {CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="Name of the parameter", formalDefinition="The name of used to identify the parameter." )
-        protected CodeType name;
-
-        /**
-         * The minimum number of times this parameter SHALL appear in the request or response.
-         */
-        @Child(name = "min", type = {UnsignedIntType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="Minimum Cardinality", formalDefinition="The minimum number of times this parameter SHALL appear in the request or response." )
-        protected UnsignedIntType min;
-
-        /**
-         * The maximum number of times this element is permitted to appear in the request or response.
-         */
-        @Child(name = "max", type = {StringType.class}, order=3, min=1, max=1)
-        @Description(shortDefinition="Maximum Cardinality (a number or *)", formalDefinition="The maximum number of times this element is permitted to appear in the request or response." )
-        protected StringType max;
-
-        /**
-         * Describes the meaning or use of this parameter.
-         */
-        @Child(name = "documentation", type = {StringType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Description of meaning/use", formalDefinition="Describes the meaning or use of this parameter." )
-        protected StringType documentation;
-
-        /**
-         * The type for this parameter.
-         */
-        @Child(name = "type", type = {CodeType.class}, order=5, min=1, max=1)
-        @Description(shortDefinition="What type this parameter hs", formalDefinition="The type for this parameter." )
-        protected CodeType type;
-
-        /**
-         * A profile the specifies the rules that this parameter must conform to.
-         */
-        @Child(name = "profile", type = {StructureDefinition.class}, order=6, min=0, max=1)
-        @Description(shortDefinition="Profile on the type", formalDefinition="A profile the specifies the rules that this parameter must conform to." )
-        protected Reference profile;
-
-        /**
-         * The actual object that is the target of the reference (A profile the specifies the rules that this parameter must conform to.)
-         */
-        protected StructureDefinition profileTarget;
-
-        private static final long serialVersionUID = -856151797L;
-
-    /*
-     * Constructor
-     */
-      public OperationDefinitionParameterPartComponent() {
-        super();
-      }
-
-    /*
-     * Constructor
-     */
-      public OperationDefinitionParameterPartComponent(CodeType name, UnsignedIntType min, StringType max, CodeType type) {
-        super();
-        this.name = name;
-        this.min = min;
-        this.max = max;
-        this.type = type;
-      }
-
-        /**
-         * @return {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public CodeType getNameElement() { 
-          if (this.name == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.name");
-            else if (Configuration.doAutoCreate())
-              this.name = new CodeType(); // bb
-          return this.name;
-        }
-
-        public boolean hasNameElement() { 
-          return this.name != null && !this.name.isEmpty();
-        }
-
-        public boolean hasName() { 
-          return this.name != null && !this.name.isEmpty();
-        }
-
-        /**
-         * @param value {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public OperationDefinitionParameterPartComponent setNameElement(CodeType value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return The name of used to identify the parameter.
-         */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value The name of used to identify the parameter.
-         */
-        public OperationDefinitionParameterPartComponent setName(String value) { 
-            if (this.name == null)
-              this.name = new CodeType();
-            this.name.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
-         */
-        public UnsignedIntType getMinElement() { 
-          if (this.min == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.min");
-            else if (Configuration.doAutoCreate())
-              this.min = new UnsignedIntType(); // bb
-          return this.min;
-        }
-
-        public boolean hasMinElement() { 
-          return this.min != null && !this.min.isEmpty();
-        }
-
-        public boolean hasMin() { 
-          return this.min != null && !this.min.isEmpty();
-        }
-
-        /**
-         * @param value {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
-         */
-        public OperationDefinitionParameterPartComponent setMinElement(UnsignedIntType value) { 
-          this.min = value;
-          return this;
-        }
-
-        /**
-         * @return The minimum number of times this parameter SHALL appear in the request or response.
-         */
-        public int getMin() { 
-          return this.min == null || this.min.isEmpty() ? 0 : this.min.getValue();
-        }
-
-        /**
-         * @param value The minimum number of times this parameter SHALL appear in the request or response.
-         */
-        public OperationDefinitionParameterPartComponent setMin(int value) { 
-            if (this.min == null)
-              this.min = new UnsignedIntType();
-            this.min.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
-         */
-        public StringType getMaxElement() { 
-          if (this.max == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.max");
-            else if (Configuration.doAutoCreate())
-              this.max = new StringType(); // bb
-          return this.max;
-        }
-
-        public boolean hasMaxElement() { 
-          return this.max != null && !this.max.isEmpty();
-        }
-
-        public boolean hasMax() { 
-          return this.max != null && !this.max.isEmpty();
-        }
-
-        /**
-         * @param value {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
-         */
-        public OperationDefinitionParameterPartComponent setMaxElement(StringType value) { 
-          this.max = value;
-          return this;
-        }
-
-        /**
-         * @return The maximum number of times this element is permitted to appear in the request or response.
-         */
-        public String getMax() { 
-          return this.max == null ? null : this.max.getValue();
-        }
-
-        /**
-         * @param value The maximum number of times this element is permitted to appear in the request or response.
-         */
-        public OperationDefinitionParameterPartComponent setMax(String value) { 
-            if (this.max == null)
-              this.max = new StringType();
-            this.max.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
-         */
-        public StringType getDocumentationElement() { 
-          if (this.documentation == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.documentation");
-            else if (Configuration.doAutoCreate())
-              this.documentation = new StringType(); // bb
-          return this.documentation;
-        }
-
-        public boolean hasDocumentationElement() { 
-          return this.documentation != null && !this.documentation.isEmpty();
-        }
-
-        public boolean hasDocumentation() { 
-          return this.documentation != null && !this.documentation.isEmpty();
-        }
-
-        /**
-         * @param value {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
-         */
-        public OperationDefinitionParameterPartComponent setDocumentationElement(StringType value) { 
-          this.documentation = value;
-          return this;
-        }
-
-        /**
-         * @return Describes the meaning or use of this parameter.
-         */
-        public String getDocumentation() { 
-          return this.documentation == null ? null : this.documentation.getValue();
-        }
-
-        /**
-         * @param value Describes the meaning or use of this parameter.
-         */
-        public OperationDefinitionParameterPartComponent setDocumentation(String value) { 
-          if (Utilities.noString(value))
-            this.documentation = null;
-          else {
-            if (this.documentation == null)
-              this.documentation = new StringType();
-            this.documentation.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #type} (The type for this parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
-         */
-        public CodeType getTypeElement() { 
-          if (this.type == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.type");
-            else if (Configuration.doAutoCreate())
-              this.type = new CodeType(); // bb
-          return this.type;
-        }
-
-        public boolean hasTypeElement() { 
-          return this.type != null && !this.type.isEmpty();
-        }
-
-        public boolean hasType() { 
-          return this.type != null && !this.type.isEmpty();
-        }
-
-        /**
-         * @param value {@link #type} (The type for this parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
-         */
-        public OperationDefinitionParameterPartComponent setTypeElement(CodeType value) { 
-          this.type = value;
-          return this;
-        }
-
-        /**
-         * @return The type for this parameter.
-         */
-        public String getType() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value The type for this parameter.
-         */
-        public OperationDefinitionParameterPartComponent setType(String value) { 
-            if (this.type == null)
-              this.type = new CodeType();
-            this.type.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
-         */
-        public Reference getProfile() { 
-          if (this.profile == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.profile");
-            else if (Configuration.doAutoCreate())
-              this.profile = new Reference(); // cc
-          return this.profile;
-        }
-
-        public boolean hasProfile() { 
-          return this.profile != null && !this.profile.isEmpty();
-        }
-
-        /**
-         * @param value {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
-         */
-        public OperationDefinitionParameterPartComponent setProfile(Reference value) { 
-          this.profile = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
-         */
-        public StructureDefinition getProfileTarget() { 
-          if (this.profileTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.profile");
-            else if (Configuration.doAutoCreate())
-              this.profileTarget = new StructureDefinition(); // aa
-          return this.profileTarget;
-        }
-
-        /**
-         * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
-         */
-        public OperationDefinitionParameterPartComponent setProfileTarget(StructureDefinition value) { 
-          this.profileTarget = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "code", "The name of used to identify the parameter.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("min", "unsignedInt", "The minimum number of times this parameter SHALL appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, min));
-          childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, max));
-          childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("type", "code", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
-        }
-
-      public OperationDefinitionParameterPartComponent copy() {
-        OperationDefinitionParameterPartComponent dst = new OperationDefinitionParameterPartComponent();
-        copyValues(dst);
-        dst.name = name == null ? null : name.copy();
-        dst.min = min == null ? null : min.copy();
-        dst.max = max == null ? null : max.copy();
-        dst.documentation = documentation == null ? null : documentation.copy();
-        dst.type = type == null ? null : type.copy();
-        dst.profile = profile == null ? null : profile.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof OperationDefinitionParameterPartComponent))
-          return false;
-        OperationDefinitionParameterPartComponent o = (OperationDefinitionParameterPartComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(min, o.min, true) && compareDeep(max, o.max, true)
-           && compareDeep(documentation, o.documentation, true) && compareDeep(type, o.type, true) && compareDeep(profile, o.profile, true)
-          ;
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof OperationDefinitionParameterPartComponent))
-          return false;
-        OperationDefinitionParameterPartComponent o = (OperationDefinitionParameterPartComponent) other;
-        return compareValues(name, o.name, true) && compareValues(min, o.min, true) && compareValues(max, o.max, true)
-           && compareValues(documentation, o.documentation, true) && compareValues(type, o.type, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (min == null || min.isEmpty())
-           && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty()) && (type == null || type.isEmpty())
-           && (profile == null || profile.isEmpty());
       }
 
   }

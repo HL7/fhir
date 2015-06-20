@@ -61,7 +61,6 @@ import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
-import org.hl7.fhir.definitions.model.OperationTuplePart;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
@@ -410,38 +409,38 @@ public class SpreadsheetParser {
             root.getOperations().add(op);
             ops.put(name, op);
 	        } else {
-	          String[] parts = name.split("\\.");
-	          if (parts.length == 3) {
+            String context = name.substring(0, name.lastIndexOf('.'));
+            String pname = name.substring(name.lastIndexOf('.')+1);
+            Operation operation;
+            List<OperationParameter> plist;
+	          if (context.contains(".")) {
+	            String opname = name.substring(0, name.indexOf('.'));
               // inside of a tuple
               if (!Utilities.noString(use))
                 throw new Exception("Tuple parameters: use must be blank at "+getLocation(row));
-              Operation operation = ops.get(parts[0]);
+              operation = ops.get(opname);
               if (operation == null)
-                throw new Exception("Unknown Operation '"+parts[0]+"' at "+getLocation(row));
-              OperationParameter param = params.get(parts[1]);
+                throw new Exception("Unknown Operation '"+opname+"' at "+getLocation(row));
+              OperationParameter param = params.get(context);
               if (param == null)
-                throw new Exception("Tuple parameter '"+parts[0]+"."+parts[1]+"' not found at "+getLocation(row));
+                throw new Exception("Tuple parameter '"+context+"' not found at "+getLocation(row));
               if (!param.getType().equals("Tuple"))
-                throw new Exception("Tuple parameter '"+parts[0]+"."+parts[1]+"' type must be Tuple at "+getLocation(row));
-              String profile = sheet.getColumn(row, "StructureDefinition");
-              String min = sheet.getColumn(row, "Min");
-              String max = sheet.getColumn(row, "Max");
-              param.getParts().add(new OperationTuplePart(parts[2], doco, Integer.parseInt(min), max, type, profile));
+                throw new Exception("Tuple parameter '"+context+"' type must be Tuple at "+getLocation(row));
+              plist = param.getParts();
 	          } else {
-              if (parts.length != 2)
-                throw new Exception("Parameters: only one '.' in a parameter name at "+getLocation(row));
 	            if (!use.equals("in") && !use.equals("out"))
 	              throw new Exception("Only allowed use is 'in' or 'out' at "+getLocation(row));
-	            Operation operation = ops.get(parts[0]);
+	            operation = ops.get(context);
 	            if (operation == null)
-	              throw new Exception("Unknown Operation '"+parts[0]+"' at "+getLocation(row));
-	            String profile = sheet.getColumn(row, "StructureDefinition");
-	            String min = sheet.getColumn(row, "Min");
-	            String max = sheet.getColumn(row, "Max");
-	            OperationParameter p = new OperationParameter(parts[1], use, doco, Integer.parseInt(min), max, type, profile);
-              operation.getParameters().add(p);
-              params.put(parts[1], p);
+	              throw new Exception("Unknown Operation '"+context+"' at "+getLocation(row));
+	            plist = operation.getParameters();
 	          }
+            String profile = sheet.getColumn(row, "StructureDefinition");
+            String min = sheet.getColumn(row, "Min");
+            String max = sheet.getColumn(row, "Max");
+            OperationParameter p = new OperationParameter(pname, use, doco, Integer.parseInt(min), max, type, profile);
+            plist.add(p);
+            params.put(name, p);
 	        }
 	      }
       }

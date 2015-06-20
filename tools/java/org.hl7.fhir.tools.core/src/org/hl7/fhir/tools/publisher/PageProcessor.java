@@ -76,7 +76,6 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
-import org.hl7.fhir.definitions.model.OperationTuplePart;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ProfiledType;
@@ -3695,12 +3694,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (hasParameters(op.getParameters(), "In")) {
           genParameterHeader(b, "In");
           for (OperationParameter p : op.getParameters()) 
-            genOperationParameter(resource.getName(), "In", b, op, p);
+            genOperationParameter(resource.getName(), "In", "", b, op, p);
         }
         if (hasParameters(op.getParameters(), "Out")) {
           genParameterHeader(b, "Out");
           for (OperationParameter p : op.getParameters()) 
-            genOperationParameter(resource.getName(), "Out", b, op, p);
+            genOperationParameter(resource.getName(), "Out", "", b, op, p);
         }
         b.append("</table>\r\n");
       }
@@ -3733,12 +3732,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("</td></tr>");
   }
 
-  private void genOperationParameter(String resource, String mode, StringBuilder b, Operation op, OperationParameter p) throws Exception {
-    if (!mode.equalsIgnoreCase(p.getUse()))
+  private void genOperationParameter(String resource, String mode, String path, StringBuilder b, Operation op, OperationParameter p) throws Exception {
+    if (!Utilities.noString(p.getUse()) && !mode.equalsIgnoreCase(p.getUse()))
       return;
     
     b.append("<tr><td>");
-    b.append(p.getName());
+    b.append(path+p.getName());
     b.append("</td><td>");
     b.append(p.describeCardinality());
     b.append("</td><td>");
@@ -3794,67 +3793,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && definitions.hasResource(t))
       b.append("<p>Note: as this the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
     b.append("</td></tr>");
-    if (t.equals("Tuple"))
-      for (OperationTuplePart pp : p.getParts()) {
-        b.append("<tr><td>");
-        b.append("&nbsp;");
-        b.append("</td><td>");
-        b.append("&nbsp;&nbsp;").append(pp.getName());
-        b.append("</td><td>");
-        b.append(pp.describeCardinality());
-        b.append("</td><td>");
-        t = pp.getType();
-        if (definitions.hasResource(t)) {
-          b.append("<a href=\"");
-          b.append(t.toLowerCase());
-          b.append(".html\">");
-          b.append(t);
-          b.append("</a>");
-
-        } else if (definitions.hasPrimitiveType(t)) {
-          b.append("<a href=\"datatypes.html#");
-          b.append(t);
-          b.append("\">");
-          b.append(t);
-          b.append("</a>");
-
-        } else if (definitions.hasElementDefn(t)) {
-          b.append("<a href=\"");
-          b.append(definitions.getSrcFile(t));
-          b.append(".html#");
-          b.append(t);
-          b.append("\">");
-          b.append(t);
-          b.append("</a>");
-
-        } else if (t.startsWith("Reference(")) {
-          b.append("<a href=\"references.html#Reference\">Reference</a>");
-          String pn = t.substring(0, t.length()-1).substring(10);
-          b.append("(");
-          boolean first = true;
-          for (String tn : pn.split("\\|")) {
-            if (first)
-              first = false;
-            else
-              b.append("|");
-            b.append("<a href=\"");
-            b.append(tn.toLowerCase());
-            b.append(".html\">");
-            b.append(tn);
-            b.append("</a>");
-          }
-          b.append(")");
-        } else {
-          b.append(t);
-        }
-        b.append("</td><td>");
-        if (pp.getProfile() != null) {
-          b.append(pp.getProfile());
-        }
-        b.append("</td><td>");
-        b.append(processMarkdown(resource, pp.getDoc()));
-        b.append("</td></tr>");
-      }
+    if (p.getParts() != null)
+      for (OperationParameter pp : p.getParts())
+        genOperationParameter(resource, mode, path+p.getName()+".", b, op, pp);
   }
 
 

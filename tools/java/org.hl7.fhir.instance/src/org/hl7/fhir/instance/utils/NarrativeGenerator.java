@@ -83,7 +83,6 @@ import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationDefinition;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
-import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterPartComponent;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
@@ -2562,26 +2561,26 @@ public class NarrativeGenerator implements INarrativeGenerator {
     tr.addTag("td").addTag("b").addText("Type");
     tr.addTag("td").addTag("b").addText("Documentation");
     for (OperationDefinitionParameterComponent p : opd.getParameter()) {
-      tr = tbl.addTag("tr");
-      tr.addTag("td").addText(p.getUse().toString());
-      tr.addTag("td").addText(p.getName());
-      tr.addTag("td").addText(Integer.toString(p.getMin())+".."+p.getMax());
-      tr.addTag("td").addText(p.hasType() ? p.getType() : "");
-      addMarkdown(tr.addTag("td"), p.getDocumentation());
-      if (!p.hasType()) {
-        for (OperationDefinitionParameterPartComponent pp : p.getPart()) {
-          tr = tbl.addTag("tr");
-          tr.addTag("td");
-          tr.addTag("td").addText(pp.getName());
-          tr.addTag("td").addText(Integer.toString(pp.getMin())+".."+pp.getMax());
-          tr.addTag("td").addText(pp.getType());
-          addMarkdown(tr.addTag("td"), pp.getDocumentation());
-        }
-      }
+      genOpParam(tbl, "", p);
     }
     addMarkdown(x, opd.getNotes());
     inject(opd, x, NarrativeStatus.GENERATED);
 	}
+
+	private void genOpParam(XhtmlNode tbl, String path, OperationDefinitionParameterComponent p) throws Exception {
+		XhtmlNode tr;
+      tr = tbl.addTag("tr");
+      tr.addTag("td").addText(p.getUse().toString());
+		tr.addTag("td").addText(path+p.getName());
+      tr.addTag("td").addText(Integer.toString(p.getMin())+".."+p.getMax());
+      tr.addTag("td").addText(p.hasType() ? p.getType() : "");
+      addMarkdown(tr.addTag("td"), p.getDocumentation());
+      if (!p.hasType()) {
+			for (OperationDefinitionParameterComponent pp : p.getPart()) {
+				genOpParam(tbl, path+p.getName()+".", pp);
+        }
+      }
+    }
 	
 	private void addMarkdown(XhtmlNode x, String text) throws Exception {
 	  if (text != null) {	    

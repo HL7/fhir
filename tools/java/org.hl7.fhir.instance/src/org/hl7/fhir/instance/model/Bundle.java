@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 15, 2015 10:54+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 20, 2015 09:23+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -989,10 +989,10 @@ public class Bundle extends Resource implements IBaseBundle {
         protected Enumeration<HTTPVerb> method;
 
         /**
-         * A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).
+         * The URL for this transaction, relative to the root.
          */
         @Child(name = "url", type = {UriType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="The URL for the transaction", formalDefinition="A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation)." )
+        @Description(shortDefinition="The URL for the transaction", formalDefinition="The URL for this transaction, relative to the root." )
         protected UriType url;
 
         /**
@@ -1087,7 +1087,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return {@link #url} (A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @return {@link #url} (The URL for this transaction, relative to the root.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public UriType getUrlElement() { 
           if (this.url == null)
@@ -1107,7 +1107,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @param value {@link #url} (A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         * @param value {@link #url} (The URL for this transaction, relative to the root.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public BundleEntryTransactionComponent setUrlElement(UriType value) { 
           this.url = value;
@@ -1115,14 +1115,14 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).
+         * @return The URL for this transaction, relative to the root.
          */
         public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
-         * @param value A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).
+         * @param value The URL for this transaction, relative to the root.
          */
         public BundleEntryTransactionComponent setUrl(String value) { 
             if (this.url == null)
@@ -1330,7 +1330,7 @@ public class Bundle extends Resource implements IBaseBundle {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("method", "code", "The HTTP verb for this entry in either a update history, or a transaction/ transaction response.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("url", "uri", "A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("url", "uri", "The URL for this transaction, relative to the root.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("ifNoneMatch", "string", "If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.", 0, java.lang.Integer.MAX_VALUE, ifNoneMatch));
           childrenList.add(new Property("ifMatch", "string", "Only perform the operation if the Etag value matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifMatch));
           childrenList.add(new Property("ifModifiedSince", "instant", "Only perform the operation if the last updated date matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifModifiedSince));

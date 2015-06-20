@@ -423,9 +423,9 @@ If the version information is missing, or the <i>system</i>, <i>version</i> or t
 how they codes are related can only be determined by consulting the definitions of the system(s) and any <a href="conceptmap.html">mappings</a> available.
 </p>
 <p>
-A coding may be marked as a "primary" if a user selected the particular coded value 
-in a user interface (e.g. the user selects an item in a pick-list). A primary
-is the preferred choice for performing translations etc. 
+A coding may be marked as a "userSelected" if a user selected the particular coded value 
+in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, 
+it is the preferred choice for performing translations etc. 
 </p>
 <p>
 A reference to a <a href="valueset.html">value set</a> may be provided to help a user or system processing the code
@@ -531,8 +531,8 @@ Whether or not <i>coding</i> elements are present, the <i>text</i>
 is the representation of the concept as entered or chosen by the user, and which most closely 
 represents the intended meaning of the user or concept. Very often the <i>text</i> 
 is the same as a <i>display</i> of one of the codings. One of the codings 
-may be flagged as the primary - the code or concept that the user actually selected directly. 
-When none of the <i>coding</i> elements is marked as primary, the text (if present)
+may be flagged as the userSelected - the code or concept that the user actually selected directly. 
+When none of the <i>coding</i> elements is marked as userSelected, the text (if present)
 is the preferred source of meaning. 
 </p>
 

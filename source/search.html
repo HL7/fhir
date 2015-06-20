@@ -38,6 +38,7 @@ complexity that they require.
 <a href="#security">_security</a><br/>
 <a href="#text">_text</a><br/>
 <a href="#content">_content</a><br/>
+<a href="#list">_list</a><br/>
 <a href="#query">_query</a><br/>
 </td>
 <td>
@@ -52,7 +53,7 @@ complexity that they require.
 </tr>
 </table>
 <p>
-In addition, there is the special search parameter <a href="#filter">_filter</a> that allows a different method of searching.
+In addition, there is a special search parameter <a href="#filter">_filter</a> that allows a different method of searching.
 </p>
 
 <h3>Introduction</h3>
@@ -599,12 +600,48 @@ for related words as well.
 <p><b>DSTU Note</b>: The issues around standardizing text search are not fully resolved.
 During the trial use period for this specification, we recommend that systems use
 the rules specified by <a href="http://docs.oasis-open.org/odata/odata/v4.0/cs01/part1-protocol/odata-v4.0-cs01-part1-protocol.html#_The_$search_System">
-a forth coming release of the OData specification for the $search parameter</a>.
+the OData specification for the $search parameter</a>.
 Typical implementations would use Lucene, an sql-based full text search,
 or some indexing service. Feedback about consistent implementation in this area
 is welcome.
 </p>
 </blockquote>
+
+<a name="list"> </a>
+<h4>Searching by list</h4>
+
+<p>
+The _list parameter allows for the retrieval of resources that are referenced by s <a href="list.html">List</a>
+resource. 
+</p>
+<pre>
+ GET [base]/Patient?_list=42
+</pre>
+<p>
+This returns all resources that are referenced from the list found at [nase]/List/42) in List.entry.item.
+While it is possible to retrieve the list, and then iterate the entries in the list, fetching the 
+patients, using this search parameter allows for additional search criteria to be specified. For 
+instance:
+</p>
+<pre>
+ GET [base]/Patient?_list=42&amp;gender=female
+</pre>
+<p>
+Select all the female patients in the list. 
+The server can return the list referred as an included resource,
+but is not required to do so. 
+In addition, a system can support searching by lists 
+by their logical function. For example:  
+</p>
+<pre>
+ GET [base]/AllergyIntolerance?patient=42&amp;_list=$current
+</pre>
+<p>
+This is a request to fetch all the allergies in the patient's "Currrent Allergy List".
+The server returns all the relevant AllergyIntolerance resources, and can also choose
+to return the list 
+See the <a href="lifecycle.html">definition of "$current"</a>.
+</p>
 
 <a name="filter"> </a>
 <a name="_filter"> </a>

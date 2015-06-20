@@ -1337,6 +1337,7 @@ public class ProfileUtilities {
 
 
   public static class ElementDefinitionHolder {
+    private String name;
     private ElementDefinition self;
     private int baseIndex = 0;
     private List<ElementDefinitionHolder> children;
@@ -1344,6 +1345,7 @@ public class ProfileUtilities {
     public ElementDefinitionHolder(ElementDefinition self) {
       super();
       this.self = self;
+      this.name = self.getPath();
       children = new ArrayList<ElementDefinitionHolder>();
     }
 
@@ -1399,7 +1401,7 @@ public class ProfileUtilities {
         String p = snapshot.get(i).getPath();
         if (p.equals(actual))
           return i;
-        if (p.endsWith("[x]") && actual.startsWith(p.substring(0, p.length()-3)) && !actual.substring(p.length()-3).contains("."))
+        if (p.endsWith("[x]") && actual.startsWith(p.substring(0, p.length()-3)) && !(actual.endsWith("[x]")) && !actual.substring(p.length()-3).contains("."))
           return i;
       }
       if (prefixLength == 0)
@@ -1470,11 +1472,15 @@ public class ProfileUtilities {
   }
 
   private void sortElements(ElementDefinitionHolder edh, ElementDefinitionComparer cmp, List<String> errors) {
+    if (edh.getChildren().size() == 1)
+      // special case - sort needsto allocate base numbers, but there'll be no sort if there's only 1 child. So in that case, we just go ahead and allocated base number directly
+      edh.getChildren().get(0).baseIndex = cmp.find(edh.getChildren().get(0).getSelf().getPath());
+    else
     Collections.sort(edh.getChildren(), cmp);
     cmp.checkForErrors(errors);
     
     for (ElementDefinitionHolder child : edh.getChildren()) {
-      if (child.getChildren().size() > 1) {
+      if (child.getChildren().size() > 0) {
         // what we have to check for here is running off the base profile into a data type profile
         ElementDefinition ed = cmp.snapshot.get(child.getBaseIndex());
         ElementDefinitionComparer ccmp;
