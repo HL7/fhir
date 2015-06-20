@@ -698,6 +698,9 @@ there can be multiple values for a given search parameter for a single
 resource. In this case, the sort is based on the item in the set of
 multiple parameters that comes earliest in the specified sort order
 when ordering the returned resources. </li>
+  <li>When sorting on string search parameters, sorting SHOULD be performed on a case-insensitive basis. Accents may either be ignored or sorted as per realm convention. Note: 
+   Consistency of sorting across servers isn't as essential as consistency of filtering (even that is variable). The purpose of sorting is to provide data in a "reasonable" order for end users. 
+   "Reasonable" may vary by realm, particularly for accented characters.</li>
 </ul>
 
 <a name="count"> </a>
