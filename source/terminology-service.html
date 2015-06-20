@@ -340,7 +340,7 @@ One of the ways to determine whether a code is in a value set is to expand the v
 (as described above), and then look at the returned codes to see if the code is in the expansion.
 However this is not an efficient way to test whether a code is valid, and for some value sets
 (e.g. with infinite number of members), it cannot work. Instead, a FHIR terminology server
-provides <a href="valueset-operations.html#validate">a "validate" operation</a>. The client passes the server the following information:
+provides <a href="valueset-operations.html#validate-code">a "validate-code" operation</a>. The client passes the server the following information:
 </p>
 <ul>
  <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definitions.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
@@ -377,7 +377,7 @@ GET [base]/ValueSet/23/$validate-code?system=http://loinc.org&amp;code=1963-8&am
 Validate a CodeableConcept against a client specified value set (this example in JSON):
 </p>
 <pre class="http">
-POST [base]/ValueSet/$validate
+POST [base]/ValueSet/$validate-code
 [other headers]
 
 {
@@ -493,7 +493,7 @@ all the codes in the code system  (as described for the validation operation).
 
 <p>
 The server returns a series of parameters, one for each submitted item, each of
-which has a result, a message, and a display (same as for the $validate operation).
+which has a result, a message, and a display (same as for the $validate-code operation).
 </p>
 <p>
 This operation could be used, for instance, to validate a set of codes in a
@@ -618,7 +618,7 @@ Translate from FHIR Composition status to V3 Act Status (based on
 <a href="composition-status-map-v3.html">this defined concept map</a>:
 </p>
 <pre class="http">
-GET [base]/ConceptMap/$validate-code?system=http://hl7.org/fhir/composition-status
+GET [base]/ConceptMap/$translate?system=http://hl7.org/fhir/composition-status
   &amp;code=preliminary&amp;valueSet= http://hl7.org/fhir/vs/composition-status
   &amp;target=http://hl7.org/fhir/v3/vs/ActStatus
 </pre>
@@ -673,7 +673,7 @@ which has a result, a message, and an outcome (same as for the $translate operat
 A request to translate 2 concepts from a CDA document, with OIDs for value set identifiers:
 </p>
 <pre class="http">
-POST [base]/ConceptMap/$batch
+POST [base]/ConceptMap/$batch-translate
 [other headers]
 
 {
