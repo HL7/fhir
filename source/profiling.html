@@ -224,15 +224,20 @@ is published. The following kinds of statements can be made about how an element
  <li>Restricting the types for an element that allows multiple types</li>
  <li>Requiring a typed element or the target of a resource reference to conform to another structure profile (declared in the same profile, or elsewhere)</li>
  <li>Specifying a binding to a different terminology value set (see below)</li>
- <li>Providing alternative definitions and examples for the elements defined in a Resource to explain how they are used in the context of the Profile</li>
+ <li>Providing alternative definitions, comments/usage notes and examples for the elements defined in a Resource to explain how they are used in the context of the Profile</li>
  <li>Providing more specific or additional mappings (e.g. to v2 or v3) for the resource when used in a particular context</li>
  <li>Declaring that one or more elements in the structure must be 'supported' (see below)</li>
+ <li>
 </ul>
 <p>
-All of these changed definitions SHALL be restrictions that are consistent with the
+Any changed definitions SHALL be restrictions that are consistent with the
 rules defined in the base resource in the FHIR Specification. Note that some of 
 these restrictions can be enforced by tooling (and are by the FHIR tooling), but 
 others (e.g. alignment of changes to descriptive text) cannot be automatically enforced.
+</p>
+<p>
+Note that structure definitions cannot 'remove' mappings and constraints that are defined in the base structure, 
+but for purposes of clarity, they can refrain from repeating them.
 </p>
 <p>
 A structure definition contains a linear list of element declarations. The inherent
@@ -289,7 +294,8 @@ impossible if the base structure is not available), a StructureDefinition
 can also carry a "snapshot" - a fully calculated form of the
 structure that is not dependent on any other structure. The FHIR
 project provides tools for the common platforms that can populate
-a snapshot from a differential.
+a snapshot from a differential (note that this tool generates complete 
+verbose snapshots; it does not support suppressing mappings or constraints).
 </p>
 <p>
 StructureDefinitions can contain both a differential and a snapshot view.
