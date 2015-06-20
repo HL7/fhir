@@ -2450,7 +2450,7 @@ public class Publisher implements URIResolver {
 
       if (e.getNodeName().equals("codeSystem")) {
         Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
-        if (!ini.getBooleanProperty("Exclude", e.getAttribute("name"))) {
+        if (!ini.getBooleanProperty("Exclude", e.getAttribute("name")) && !deprecated(e)) {
           String id = e.getAttribute("name");
           if (cslist.contains(id))
             throw new Exception("Duplicate v3 name: "+id);
@@ -2505,6 +2505,13 @@ public class Publisher implements URIResolver {
       }
       e = XMLUtil.getNextSibling(e);
     }
+  }
+
+  private boolean deprecated(Element cs) {
+    Element e = XMLUtil.getNamedChild(cs, "annotations"); 
+    e = XMLUtil.getNamedChild(e, "appInfo"); 
+    e = XMLUtil.getNamedChild(e, "deprecationInfo"); 
+    return e != null;
   }
 
   private String getVSForCodeSystem(Element documentElement, String oid) {
@@ -2682,7 +2689,7 @@ public class Publisher implements URIResolver {
     Element e = XMLUtil.getFirstChild(page.getV3src().getDocumentElement());
     while (e != null) {
       if (e.getNodeName().equals("codeSystem")) {
-        if (!ini.getBooleanProperty("Exclude", e.getAttribute("name"))) {
+        if (!ini.getBooleanProperty("Exclude", e.getAttribute("name")) && !deprecated(e)) {
           Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
           if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", e.getAttribute("name"))) {
             String id = e.getAttribute("name");
@@ -4196,15 +4203,20 @@ public class Publisher implements URIResolver {
     private boolean trackErrors;
     private List<String> errors = new ArrayList<String>();
     private Publisher pub;
+    private List<ValidationMessage> list;
+    private String path;
 
-    public MyErrorHandler(boolean trackErrors, Publisher pub) {
+    public MyErrorHandler(boolean trackErrors, Publisher pub, List<ValidationMessage> list, String path) {
       this.trackErrors = trackErrors;
       this.pub = pub;
+      this.list = list; 
+      this.path = path;
     }
 
     @Override
     public void error(SAXParseException arg0) throws SAXException {
       if (trackErrors) {
+        list.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, arg0.getLineNumber(), arg0.getColumnNumber(), path == null ? arg0.getSystemId() : path, arg0.getMessage(), IssueSeverity.ERROR));
         pub.logError("error: " + arg0.toString(), LogMessageType.Error);
         errors.add(arg0.toString());
       }
@@ -4213,12 +4225,13 @@ public class Publisher implements URIResolver {
 
     @Override
     public void fatalError(SAXParseException arg0) throws SAXException {
+      list.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, arg0.getLineNumber(), arg0.getColumnNumber(), path == null ? arg0.getSystemId() : path, arg0.getMessage(), IssueSeverity.FATAL));
       pub.logError("fatal error: " + arg0.toString(), LogMessageType.Error);
-
     }
 
     @Override
     public void warning(SAXParseException arg0) throws SAXException {
+      list.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, arg0.getLineNumber(), arg0.getColumnNumber(), path == null ? arg0.getSystemId() : path, arg0.getMessage(), IssueSeverity.WARNING));
       // System.out.println("warning: " + arg0.toString());
 
     }
@@ -4227,6 +4240,15 @@ public class Publisher implements URIResolver {
       return errors;
     }
 
+    public String getPath() {
+      return path;
+    }
+
+    public void setPath(String path) {
+      this.path = path;
+    }
+
+    
   }
 
   public static class MyResourceResolver implements LSResourceResolver {
@@ -4264,7 +4286,7 @@ public class Publisher implements URIResolver {
       i++;
     }
     SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    schemaFactory.setErrorHandler(new MyErrorHandler(false, this));
+    schemaFactory.setErrorHandler(new MyErrorHandler(false, this, page.getValidationErrors(), null));
     schemaFactory.setResourceResolver(new MyResourceResolver(page.getFolders().dstDir));
     Schema schema = schemaFactory.newSchema(sources);
 
@@ -4273,7 +4295,7 @@ public class Publisher implements URIResolver {
     factory.setValidating(false);
     factory.setSchema(schema);
     DocumentBuilder builder = factory.newDocumentBuilder();
-    MyErrorHandler err = new MyErrorHandler(true, this);
+    MyErrorHandler err = new MyErrorHandler(true, this, page.getValidationErrors(), fileToCheck);
     builder.setErrorHandler(err);
     builder.parse(new CSFileInputStream(new CSFile(fileToCheck)));
     if (err.getErrors().size() > 0)
@@ -4294,7 +4316,7 @@ public class Publisher implements URIResolver {
     StreamSource[] sources = new StreamSource[1];
     sources[0] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-all.xsd"));
     SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    schemaFactory.setErrorHandler(new MyErrorHandler(false, this));
+    schemaFactory.setErrorHandler(new MyErrorHandler(false, this, page.getValidationErrors(), null));
     schemaFactory.setResourceResolver(new MyResourceResolver(page.getFolders().dstDir));
     Schema schema = schemaFactory.newSchema(sources);
     InstanceValidator validator = new InstanceValidator(page.getWorkerContext());
@@ -4436,7 +4458,7 @@ public class Publisher implements URIResolver {
     factory.setValidating(false);
     factory.setSchema(schema);
     DocumentBuilder builder = factory.newDocumentBuilder();
-    MyErrorHandler err = new MyErrorHandler(true, this);
+    MyErrorHandler err = new MyErrorHandler(true, this, page.getValidationErrors(), n);
     builder.setErrorHandler(err);
     Document doc = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().dstDir + n + ".xml")));
     Element root = doc.getDocumentElement();

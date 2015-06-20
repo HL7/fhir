@@ -35,7 +35,7 @@
           <version value="1.9"/>
           <code value="s"/>
           <display value="second"/>
-          <primary value="true"/>
+          <userSelected value="true"/>
         </coding>
         <text value="second"/>
       </valueCodeableConcept>
