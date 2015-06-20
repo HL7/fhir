@@ -101,22 +101,23 @@ following the basic concepts for extension that are described in <a href="extens
 For implementer convenience, the specification itself publishes its base definitions using these same resources.
 </p>
 
+<a name="profile-uses"> </a>
 <h3>Two uses of Profiles</h3>
 <p>
 The <a href="conformance.html">Conformance</a> resource describes two different uses for profiles on resources:
 Resource Profiles and System Profiles. Resource Profiles are specified using <i>Conformance.rest.resource.profile</i> element 
 and System Profiles are specified using <i>Conformance.profile</i> element. 
 </p>
-<h4>Resource Profiles</h4>
+<h4>Conformance.rest.resource.profile</h4>
 <p>
 These profiles describe the general features that are supported by the system for each kind of 
 resource. Typically, this is the superset of all the different use-cases implemented by the system. 
 This is a resource-level perspective of the system functionality. 
 </p>
-<h4>System Profiles</h4>
+<h4>Conformance.profile</h4>
 <p>
 These profiles describe the information handled/produced by the system on a per use case basis.
-Some examples of the uses for system profiles:
+Some examples of the uses for these kind of profiles:
 </p>
 <ul>
  <li>A Laboratory service producing a set of different reports - general chemistry, blood count, etc. Typical labs would support several hundred different reports</li>
@@ -151,11 +152,11 @@ One possible option is for the expert system to receive every single
 report coming from the lab system, check whether it conforms to the 
 profile or not, and then decide whether to process it. Checking whether
 a resource conforms to a particular profile or not is a straight 
-forward operation (on option is to use the <a href="downloads.html">provided tools for this</a>),
+forward operation (one option is to use the <a href="downloads.html">provided tools for this</a>),
 but this is very inefficient way - the expert system has to receive 
 and process 100 times many resources as it uses. To help a consumer 
-find the correct set of reports for a use-case, the producer of the 
-resources also SHALL:
+find the correct set of reports for a use-case, a producer of  
+resources also SHALL, for any profile declared in Conformance.profile:
 </p>
 <ol>
  <li><a href="resource.html#meta">Mark resources</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
@@ -169,8 +170,8 @@ to conform to the declared profiles SHOULD be published in this form.
 <a name="dstu"> </a>
 <blockquote>
 <p>
-DSTU note: there are many uninvestigated issues associated with system profiles. 
-HL7 is actively seeking feedback from users who experiment with system profiles, and users
+DSTU note: there are many uninvestigated issues associated with this use of profiles. 
+HL7 is actively seeking feedback from users who experiment in this area, and users
 should be prepared for changes to features and obligations in this area in the future.
 </p>
 </blockquote>
@@ -262,7 +263,6 @@ is published. The following kinds of statements can be made about how an element
  <li>Providing alternative definitions, comments/usage notes and examples for the elements defined in a Resource to explain how they are used in the context of the Profile</li>
  <li>Providing more specific or additional mappings (e.g. to v2 or v3) for the resource when used in a particular context</li>
  <li>Declaring that one or more elements in the structure must be 'supported' (see below)</li>
- <li>
 </ul>
 <p>
 Any changed definitions SHALL be restrictions that are consistent with the
