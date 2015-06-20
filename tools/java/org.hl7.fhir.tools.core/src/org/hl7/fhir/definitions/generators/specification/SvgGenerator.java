@@ -614,6 +614,8 @@ public class SvgGenerator extends BaseGenerator {
   }
 
   private ClassItem drawElement(XMLWriter xml, String[] classNames) throws Exception {
+    boolean onlyElement = classNames.length == 1 && classNames[0].equals("Element");
+    
     ClassItem item = classes.get(null);
     String tn = "Element";
     xml.attribute("x", Double.toString(item.left));
@@ -632,7 +634,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("class", "diagram-class-title");
     xml.element("text", tn);
     
-    if ("true".equals(ini.getStringProperty("diagram", "element-attributes"))) {
+    if ("true".equals(ini.getStringProperty("diagram", "element-attributes")) || onlyElement) {
       xml.attribute("x1", Double.toString(item.left));
       xml.attribute("y1", Double.toString(item.top+HEADER_HEIGHT + GAP_HEIGHT*2));
       xml.attribute("x2", Double.toString(item.left+item.width));
@@ -655,7 +657,7 @@ public class SvgGenerator extends BaseGenerator {
         ElementDefn fake = fakes.get(cn);
         ClassItem parent = classes.get(definitions.getElementDefn(cd.getBaseType()));
         links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, null), null, null, PointKind.unknown, null, null));        
-      } else 
+      } else if (!onlyElement) 
         links.add(new Link(item, drawClass(xml, definitions.getElementDefn(cn), false, null, true, cn, null), null, null, PointKind.unknown, null, null));        
     }
     return item;
