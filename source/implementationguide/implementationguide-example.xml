@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/implementationguide.xsd">
+	<id value="example"/>
+	<url value="http://hl7.org/fhir/daf"/>
+	<version value="0"/>
+	<name value="Data Access Framework (DAF)"/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+		</coding>
+	</useContext>
+	<publisher value="ONC / HL7 Joint project"/>
+	<contact>
+		<name value="ONC"/>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.healthit.gov"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="HL7"/>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="The Data Access Framework (DAF) Initiative leverages the HL7 FHIR standards to standardize access to Meaningful Use Stage 2 structured information both within the organization and from external organizations"/>
+	<copyright value="Published by ONC under the standard FHIR license (CC0)"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<date value="2015-01-01"/>
+	<fhirVersion value="0.5.0"/>
+	<page>
+		<source value="pages\daf.html"/>
+		<purpose value="home"/>
+	</page>
+	<page>
+		<source value="pages\daf-intro.html"/>
+		<purpose value="intro"/>
+	</page>
+	<page>
+		<source value="pages\daf-medicationusage.html"/>
+		<purpose value="content"/>
+	</page>
+	<page>
+		<source value="pages\daf-outstandingissues.html"/>
+		<purpose value="content"/>
+	</page>
+	<page>
+		<source value="pages\daf-security.html"/>
+		<purpose value="security"/>
+	</page>
+	<package>
+		<name value="DAF Contents"/>
+		<item>
+			<content>
+				<reference value="profiles\valueset-daf-substance-ndfrt.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\valueset-daf-substance-rxnorm.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\valueset-daf-substance-sct.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\valueset-daf-substance-unii.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\allergyintolerance-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\condition-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\diagnosticorder-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\diagnosticreport-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\encounter-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\familymemberhistory-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\immunization-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\list-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\location-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\medication-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\medicationadministration-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\medicationdispense-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\medicationprescription-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\medicationstatement-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\observation-daf-vitalsigns-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\observation-daf-results-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\observation-daf-smokingstatus-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\observation-daf-resultsv2-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\organization-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\patient-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\practitioner-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\procedure-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\relatedperson-daf-profile.xml"/>
+			</content>
+		</item>
+		<item>
+			<content>
+				<reference value="profiles\substance-daf-profile.xml"/>
+			</content>
+		</item>
+	</package>
+</ImplementationGuide>

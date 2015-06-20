@@ -1,0 +1,41 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+An "implementation guide" defines a particular scope of usage for FHIR, and sets a bounded set of expectations 
+for implementations to comply to. 
+</p>
+<p>
+The significant conformance expectation introduced by the ImplementationGuide resource is the idea 
+of <a href="#default">Default Profiles</a>. Implementations may conform to multiple implementation guides
+at once, but this requires that the implementation guides are compatible (see <a href="#compatibility">below</a>).
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Implementation Guides contain two different types of resource references: .
+</p>
+<ul>
+ <li>Contents: A set of logical statements which implementations must conformn to. These are almost always <a href="infrastructure.html#conformance">conformnce resources</a></li>
+ <li>Examples: Examples that illustrate the intent of the profiles defined in the implementation guide. These can be any kind of resource</li>
+</ul>
+<p>
+An applications <a href="conformance.html">Conformance Statement</a> may identify one or more implementation guides that an application conformns to.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+The ImplementationGuide resource is defined for two principle reasons:
+</p>
+<ul>
+ <li>As a logical statement of the implementation guide contents for conformance tools to use to evaluate conformance</li>
+ <li>For the FHIR project tools, to support publishing implementation guides</li>
+</ul>
+</div>
+
+</div>

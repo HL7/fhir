@@ -1,0 +1,28 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<a name="default"> </a>
+<h3>Default Profiles</h3>
+<p>
+An implementation guide can define default profiles - these are profiles that apply to any resource that
+does not otherwise have an explicit profile assigned by the implementation guide. Default profiles 
+are always references to profiles (<a href="structuredefinition.html">StructureDefinition</a> resources)
+that are also contained in the resources. By defining default profiles, an implementation guide
+can save itself from exhaustively defining profiles on every resource type just to profile every
+reference to a particular resource type. 
+</p>
+<p>
+Note that a resource can conform to the default profile by conforming to any profile derived from it. 
+</p>
+
+<a name="compatibility"> </a>
+<h3>Compatibility list</h3>
+<p>
+This table declares the compatibility between the various resources as determined
+by the Implementation Guide comparison tool:
+</p>
+<p>
+<i>Yet to be done</i>
+</p>
+
+
+</div>

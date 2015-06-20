@@ -38,9 +38,44 @@ contexts of use. Typically, these adaptations specify:
 Note that because of the nature of the healthcare eco-system, there may be multiple
 overlapping sets of adaptations - by healthcare domain, by country, by institution, and/or by vendor/implementation.
 </p>
+<a name="glossary"> </a>
+<h3>Glossary</h3>
 <p>
-Typically, adaptations (either actual implementations or specifications - often called "Implementation Guides")
-both restrict and extend APIs, resources and terminologies. FHIR provides a set of resources that
+FHIR defines a cascade of artifacts for this purpose:
+</p>
+<table class="grid">
+ <tr>
+  <td><b>Artifact</b></td>
+  <td><b>Description</b></td>
+  <td><b><a href="daf.html">DAF</a> example</b></td>
+ </tr>
+ <tr>
+  <td>Implementation Guide</td>
+  <td>A coherent and bounded set of adaptations that are published as a single unit. Validation occurs within the contextz of the Implementation Guide</td>
+  <td><a href="daf.html">DAF IG</a></td>
+ </tr>
+ <tr>
+  <td>Package</td>
+  <td>A group of related adaptations that are published as a group within an Implementation Guide</td>
+  <td><a href="daf-medicationusage.html">DAF Medication Usage</a></td>
+ </tr>
+ <tr>
+  <td>Conformance Item</td>
+  <td>A single resource in a package that makes rules about how an implementation works. These are described below</td>
+  <td><a href="medicationprescription-daf.html">DAF Prescription</a></td>
+ </tr>
+</table>
+<p>
+The term "profile" is general one that is used about either a "package" or an "item". 
+"Profiling" is a general term that describes the process of creating an implementation guide,
+or any of the resources found in one. 
+</p>
+
+<a name="conf-res"> </a>
+<h3>Conformance Resources</h3>
+
+<p>
+Typically, Implementation Guides both restrict and extend APIs, resources and terminologies. FHIR provides a set of resources that
 can be used to represent and share the decisions that have been made, and allows implementers to build useful services from them. These
 resources are known as the conformance resources. These conformance resources allow implementers to:
 </p>
