@@ -1493,7 +1493,7 @@ not a substitute for a valid value. If the actual value of the QTY is not valid,
 irrespective of whether originalText has a value or not.
 The original text shall be an excerpt of the relevant information in the original sources, rather than a pointer or 
 exact reproduction. Thus the original text  shall  be represented in plain text form. In specific circumstances, 
-when clearly descirbed  in  the context of use, the originalText may be a reference to some other text artefact 
+when clearly descirbed  in  the context of use, the originalText may be a reference to some other text artifact 
 for which the resolution scope is clearly described.
 NOTE  The details of the link in the originalText.reference between different artifacts of medical information (e.g., 
 document and coded result) is outside the scope of  this International Standard  and may be further proscribed in 
@@ -3202,7 +3202,7 @@ actual content of the  QSET  is not valid, then the  QSET  shall  be nullFlavore
 originalText has a value or not.
 The original text shall be an excerpt of the relevant information in the original sources, rather than a pointer or 
 exact reproduction. Thus the original text  shall  be represented in plain text form. In specific circumstances, 
-when clearly descirbed the context of use, the originalText may be a reference to some other text artefact for 
+when clearly descirbed the context of use, the originalText may be a reference to some other text artifact for 
 which the resolution scope is clearly described.
 NOTE  The details of the link in the originalText.reference between different artifacts of medical information (e.g ., 
 document and coded result) is outside the scope of  this International Standard  and  can  be further proscribed in 

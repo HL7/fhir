@@ -1653,7 +1653,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">11/6/2014 EH:  this maps to FHIR better as 1..* obs. With 1..1 value instead of 1..1 obs with 1..* values.  Or map to LIST resoure which could point to 1..* Obs. -discuss</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">11/6/2014 EH:  this maps to FHIR better as 1..* obs. With 1..1 value instead of 1..1 obs with 1..* values.  Or map to LIST resource which could point to 1..* Obs. -discuss</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4173,7 +4173,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">11/6/2014 EH:  this maps to FHIR better as 1..* obs. With 1..1 value instead of 1..1 obs with 1..* values.  Or map to LIST resoure which could point to 1..* Obs. -discuss same note in CCDA AssessmentScaleObservation</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">11/6/2014 EH:  this maps to FHIR better as 1..* obs. With 1..1 value instead of 1..1 obs with 1..* values.  Or map to LIST resource which could point to 1..* Obs. -discuss same note in CCDA AssessmentScaleObservation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
