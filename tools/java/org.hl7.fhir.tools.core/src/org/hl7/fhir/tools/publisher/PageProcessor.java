@@ -549,6 +549,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       } else if (com[0].equals("w5")) {
           src = s1+genW5("true".equals(com[1]))+s3;
+      } else if (com[0].equals("res-ref-list")) {
+        src = s1+genResRefList(com[1])+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -3241,6 +3243,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       }  else if (com[0].equals("reflink")) {
         src = s1 + reflink(com[1]) + s3;      
+      } else if (com[0].equals("res-ref-list")) {
+        src = s1+genResRefList(com[1])+s3;
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -5832,5 +5836,28 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return validationErrors;
   }
   
-  
+  private String genResRefList(String n) throws Exception {
+    ResourceDefn e = definitions.getResourceByName(n);
+    StringBuilder b = new StringBuilder();
+    b.append("<ul>\r\n");
+    for (ElementDefn c : e.getRoot().getElements())
+      genResRefItem(b, n.toLowerCase(), n, c);
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+  private void genResRefItem(StringBuilder b, String base, String path, ElementDefn e) {
+    path = path+"."+e.getName();
+    if (e.typeCode().startsWith("Reference(")) {
+      b.append(" <li><a href=\"");
+      b.append(base);
+      b.append("-definitions.htm#");
+      b.append(path);
+      b.append("\">");
+      b.append(path);
+      b.append("</a></li>\r\n");
+    }
+    for (ElementDefn c : e.getElements())
+      genResRefItem(b, base, path, c);
+  }
 }
