@@ -308,6 +308,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">RecomendaciónInmunización</translation>
         <translation lang="fr">RecommendationImmunisation</translation>
     </item>
+    <item id="ImplementationGuide">
+        <translation lang="en">ImplementationGuide</translation>
+	</item>
     <item id="InstitutionalClaim">
         <translation lang="en">InstitutionalClaim</translation>
         <translation lang="fr">RéclamationInstitutionelle</translation>

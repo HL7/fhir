@@ -60,6 +60,7 @@ public class XSDBaseGenerator {
 
   private Map<String, ElementDefn> structures = new HashMap<String, ElementDefn>();
   private List<String> typenames = new ArrayList<String>();
+  private Map<ElementDefn, String> types = new HashMap<ElementDefn, String>();
   // private List<TypeDefn> datatypes = new ArrayList<TypeDefn>();
   // private Map<String, ConceptDomain> tx;
   private List<BindingSpecification> enums = new ArrayList<BindingSpecification>();
@@ -699,9 +700,13 @@ public class XSDBaseGenerator {
         write("<xs:element name=\"" + e.getName() + "\" type=\"Extension\" ");
       else if ("div".equals(e.getName()) && e.typeCode().equals("xhtml"))
         write("<xs:element ref=\"xhtml:div\" ");
-      else if (e.usesCompositeType())
-        write("<xs:element name=\"" + e.getName() + "\" type=\"" + e.typeCode().substring(1) + "\" ");
-      else if (types.size() == 0 && e.getElements().size() > 0) {
+      else if (e.usesCompositeType()) {
+        ElementDefn ref = root.getElementByName(e.typeCode().substring(1));
+        String rtn = this.types.get(ref);
+        if (rtn == null)
+          throw new Exception("logic error in schema generator (null composite reference in "+types.toString()+")");
+        write("<xs:element name=\"" + e.getName() + "\" type=\"" + rtn + "\" ");
+      } else if (types.size() == 0 && e.getElements().size() > 0) {
         int i = 0;
         String tn = root.getName() + "." + upFirst(e.getName()) + (i == 0 ? "" : Integer.toString(i));
         // while (typenames.contains(tn)) {
@@ -711,6 +716,7 @@ public class XSDBaseGenerator {
         // }
         write("<xs:element name=\"" + e.getName() + "\" type=\"" + tn + "\" ");
         structures.put(tn, e);
+        this.types.put(e, tn);
         typenames.add(tn);
       } else if (types.size() == 1) {
         if (types.get(0).isUnboundGenericParam() && paramType != null)

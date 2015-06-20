@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Jun 20, 2015 09:23+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 20, 2015 17:43+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -6285,6 +6285,186 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  protected ImplementationGuide parseImplementationGuide(JsonObject json) throws Exception {
+    ImplementationGuide res = new ImplementationGuide();
+    parseDomainResourceProperties(json, res);
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    if (json.has("version"))
+      res.setVersionElement(parseString(json.get("version").getAsString()));
+    if (json.has("_version"))
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionElement());
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
+      for (int i = 0; i < array.size(); i++) {
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("publisher"))
+      res.setPublisherElement(parseString(json.get("publisher").getAsString()));
+    if (json.has("_publisher"))
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherElement());
+    if (json.has("contact")) {
+      JsonArray array = json.getAsJsonArray("contact");
+      for (int i = 0; i < array.size(); i++) {
+        res.getContact().add(parseImplementationGuideImplementationGuideContactComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("copyright"))
+      res.setCopyrightElement(parseString(json.get("copyright").getAsString()));
+    if (json.has("_copyright"))
+      parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyrightElement());
+    if (json.has("code")) {
+      JsonArray array = json.getAsJsonArray("code");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCode().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.ConformanceResourceStatus.NULL, new Enumerations.ConformanceResourceStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("experimental"))
+      res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
+    if (json.has("_experimental"))
+      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
+    if (json.has("fhirVersion"))
+      res.setFhirVersionElement(parseId(json.get("fhirVersion").getAsString()));
+    if (json.has("_fhirVersion"))
+      parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionElement());
+    if (json.has("page")) {
+      JsonArray array = json.getAsJsonArray("page");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPage().add(parseImplementationGuideImplementationGuidePageComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("package")) {
+      JsonArray array = json.getAsJsonArray("package");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPackage().add(parseImplementationGuideImplementationGuidePackageComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("default")) {
+      JsonArray array = json.getAsJsonArray("default");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDefault().add(parseImplementationGuideImplementationGuideDefaultComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    return res;
+  }
+
+  protected ImplementationGuide.ImplementationGuideContactComponent parseImplementationGuideImplementationGuideContactComponent(JsonObject json, ImplementationGuide owner) throws Exception {
+    ImplementationGuide.ImplementationGuideContactComponent res = new ImplementationGuide.ImplementationGuideContactComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("telecom")) {
+      JsonArray array = json.getAsJsonArray("telecom");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
+      }
+    };
+    return res;
+  }
+
+  protected ImplementationGuide.ImplementationGuidePageComponent parseImplementationGuideImplementationGuidePageComponent(JsonObject json, ImplementationGuide owner) throws Exception {
+    ImplementationGuide.ImplementationGuidePageComponent res = new ImplementationGuide.ImplementationGuidePageComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("source"))
+      res.setSourceElement(parseUri(json.get("source").getAsString()));
+    if (json.has("_source"))
+      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
+    if (json.has("purpose"))
+      res.setPurposeElement(parseEnumeration(json.get("purpose").getAsString(), ImplementationGuide.PagePurpose.NULL, new ImplementationGuide.PagePurposeEnumFactory()));
+    if (json.has("_purpose"))
+      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
+    return res;
+  }
+
+  protected ImplementationGuide.ImplementationGuidePackageComponent parseImplementationGuideImplementationGuidePackageComponent(JsonObject json, ImplementationGuide owner) throws Exception {
+    ImplementationGuide.ImplementationGuidePackageComponent res = new ImplementationGuide.ImplementationGuidePackageComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("item")) {
+      JsonArray array = json.getAsJsonArray("item");
+      for (int i = 0; i < array.size(); i++) {
+        res.getItem().add(parseImplementationGuideImplementationGuidePackageItemComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("page")) {
+      JsonArray array = json.getAsJsonArray("page");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPage().add(parseImplementationGuideImplementationGuidePageComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  protected ImplementationGuide.ImplementationGuidePackageItemComponent parseImplementationGuideImplementationGuidePackageItemComponent(JsonObject json, ImplementationGuide owner) throws Exception {
+    ImplementationGuide.ImplementationGuidePackageItemComponent res = new ImplementationGuide.ImplementationGuidePackageItemComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("content"))
+      res.setContent(parseReference(json.getAsJsonObject("content")));
+    if (json.has("example")) {
+      JsonArray array = json.getAsJsonArray("example");
+      for (int i = 0; i < array.size(); i++) {
+        res.getExample().add(parseImplementationGuideImplementationGuidePackageItemExampleComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  protected ImplementationGuide.ImplementationGuidePackageItemExampleComponent parseImplementationGuideImplementationGuidePackageItemExampleComponent(JsonObject json, ImplementationGuide owner) throws Exception {
+    ImplementationGuide.ImplementationGuidePackageItemExampleComponent res = new ImplementationGuide.ImplementationGuidePackageItemExampleComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("target"))
+      res.setTarget(parseReference(json.getAsJsonObject("target")));
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    return res;
+  }
+
+  protected ImplementationGuide.ImplementationGuideDefaultComponent parseImplementationGuideImplementationGuideDefaultComponent(JsonObject json, ImplementationGuide owner) throws Exception {
+    ImplementationGuide.ImplementationGuideDefaultComponent res = new ImplementationGuide.ImplementationGuideDefaultComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseCode(json.get("type").getAsString()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("profile"))
+      res.setProfile(parseReference(json.getAsJsonObject("profile")));
+    return res;
+  }
+
   protected List_ parseList_(JsonObject json) throws Exception {
     List_ res = new List_();
     parseDomainResourceProperties(json, res);
@@ -10574,6 +10754,8 @@ public class JsonParser extends JsonParserBase {
       return parseImmunization(json);
     else if (t.equals("ImmunizationRecommendation"))
       return parseImmunizationRecommendation(json);
+    else if (t.equals("ImplementationGuide"))
+      return parseImplementationGuide(json);
     else if (t.equals("List"))
       return parseList_(json);
     else if (t.equals("Location"))
@@ -11001,6 +11183,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Immunization"))
       return true;
     if (json.has(prefix+"ImmunizationRecommendation"))
+      return true;
+    if (json.has(prefix+"ImplementationGuide"))
       return true;
     if (json.has(prefix+"List"))
       return true;
@@ -18987,6 +19171,230 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
+  protected void composeImplementationGuide(String name, ImplementationGuide element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeImplementationGuideInner(element);
+    }
+  }
+
+  protected void composeImplementationGuideInner(ImplementationGuide element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.hasUrlElement()) {
+        composeUriCore("url", element.getUrlElement(), false);
+        composeUriExtras("url", element.getUrlElement(), false);
+      }
+      if (element.hasVersionElement()) {
+        composeStringCore("version", element.getVersionElement(), false);
+        composeStringExtras("version", element.getVersionElement(), false);
+      }
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasPublisherElement()) {
+        composeStringCore("publisher", element.getPublisherElement(), false);
+        composeStringExtras("publisher", element.getPublisherElement(), false);
+      }
+      if (element.hasContact()) {
+        openArray("contact");
+        for (ImplementationGuide.ImplementationGuideContactComponent e : element.getContact()) 
+          composeImplementationGuideImplementationGuideContactComponent(null, e);
+        closeArray();
+      };
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasCopyrightElement()) {
+        composeStringCore("copyright", element.getCopyrightElement(), false);
+        composeStringExtras("copyright", element.getCopyrightElement(), false);
+      }
+      if (element.hasCode()) {
+        openArray("code");
+        for (Coding e : element.getCode()) 
+          composeCoding(null, e);
+        closeArray();
+      };
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new Enumerations.ConformanceResourceStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new Enumerations.ConformanceResourceStatusEnumFactory(), false);
+      }
+      if (element.hasExperimentalElement()) {
+        composeBooleanCore("experimental", element.getExperimentalElement(), false);
+        composeBooleanExtras("experimental", element.getExperimentalElement(), false);
+      }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
+      if (element.hasFhirVersionElement()) {
+        composeIdCore("fhirVersion", element.getFhirVersionElement(), false);
+        composeIdExtras("fhirVersion", element.getFhirVersionElement(), false);
+      }
+      if (element.hasPage()) {
+        openArray("page");
+        for (ImplementationGuide.ImplementationGuidePageComponent e : element.getPage()) 
+          composeImplementationGuideImplementationGuidePageComponent(null, e);
+        closeArray();
+      };
+      if (element.hasPackage()) {
+        openArray("package");
+        for (ImplementationGuide.ImplementationGuidePackageComponent e : element.getPackage()) 
+          composeImplementationGuideImplementationGuidePackageComponent(null, e);
+        closeArray();
+      };
+      if (element.hasDefault()) {
+        openArray("default");
+        for (ImplementationGuide.ImplementationGuideDefaultComponent e : element.getDefault()) 
+          composeImplementationGuideImplementationGuideDefaultComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeImplementationGuideImplementationGuideContactComponent(String name, ImplementationGuide.ImplementationGuideContactComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeImplementationGuideImplementationGuideContactComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImplementationGuideImplementationGuideContactComponentInner(ImplementationGuide.ImplementationGuideContactComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTelecom()) {
+        openArray("telecom");
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeImplementationGuideImplementationGuidePageComponent(String name, ImplementationGuide.ImplementationGuidePageComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeImplementationGuideImplementationGuidePageComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImplementationGuideImplementationGuidePageComponentInner(ImplementationGuide.ImplementationGuidePageComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasSourceElement()) {
+        composeUriCore("source", element.getSourceElement(), false);
+        composeUriExtras("source", element.getSourceElement(), false);
+      }
+      if (element.hasPurposeElement()) {
+        composeEnumerationCore("purpose", element.getPurposeElement(), new ImplementationGuide.PagePurposeEnumFactory(), false);
+        composeEnumerationExtras("purpose", element.getPurposeElement(), new ImplementationGuide.PagePurposeEnumFactory(), false);
+      }
+  }
+
+  protected void composeImplementationGuideImplementationGuidePackageComponent(String name, ImplementationGuide.ImplementationGuidePackageComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeImplementationGuideImplementationGuidePackageComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImplementationGuideImplementationGuidePackageComponentInner(ImplementationGuide.ImplementationGuidePackageComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasItem()) {
+        openArray("item");
+        for (ImplementationGuide.ImplementationGuidePackageItemComponent e : element.getItem()) 
+          composeImplementationGuideImplementationGuidePackageItemComponent(null, e);
+        closeArray();
+      };
+      if (element.hasPage()) {
+        openArray("page");
+        for (ImplementationGuide.ImplementationGuidePageComponent e : element.getPage()) 
+          composeImplementationGuideImplementationGuidePageComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeImplementationGuideImplementationGuidePackageItemComponent(String name, ImplementationGuide.ImplementationGuidePackageItemComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeImplementationGuideImplementationGuidePackageItemComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImplementationGuideImplementationGuidePackageItemComponentInner(ImplementationGuide.ImplementationGuidePackageItemComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasContent()) {
+        composeReference("content", element.getContent());
+      }
+      if (element.hasExample()) {
+        openArray("example");
+        for (ImplementationGuide.ImplementationGuidePackageItemExampleComponent e : element.getExample()) 
+          composeImplementationGuideImplementationGuidePackageItemExampleComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeImplementationGuideImplementationGuidePackageItemExampleComponent(String name, ImplementationGuide.ImplementationGuidePackageItemExampleComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeImplementationGuideImplementationGuidePackageItemExampleComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImplementationGuideImplementationGuidePackageItemExampleComponentInner(ImplementationGuide.ImplementationGuidePackageItemExampleComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTarget()) {
+        composeReference("target", element.getTarget());
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+  }
+
+  protected void composeImplementationGuideImplementationGuideDefaultComponent(String name, ImplementationGuide.ImplementationGuideDefaultComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeImplementationGuideImplementationGuideDefaultComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeImplementationGuideImplementationGuideDefaultComponentInner(ImplementationGuide.ImplementationGuideDefaultComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasTypeElement()) {
+        composeCodeCore("type", element.getTypeElement(), false);
+        composeCodeExtras("type", element.getTypeElement(), false);
+      }
+      if (element.hasProfile()) {
+        composeReference("profile", element.getProfile());
+      }
+  }
+
   protected void composeList_(String name, List_ element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -24339,6 +24747,8 @@ public class JsonParser extends JsonParserBase {
       composeImmunization("Immunization", (Immunization)resource);
     else if (resource instanceof ImmunizationRecommendation)
       composeImmunizationRecommendation("ImmunizationRecommendation", (ImmunizationRecommendation)resource);
+    else if (resource instanceof ImplementationGuide)
+      composeImplementationGuide("ImplementationGuide", (ImplementationGuide)resource);
     else if (resource instanceof List_)
       composeList_("List", (List_)resource);
     else if (resource instanceof Location)
@@ -24532,6 +24942,8 @@ public class JsonParser extends JsonParserBase {
       composeImmunization(name, (Immunization)resource);
     else if (resource instanceof ImmunizationRecommendation)
       composeImmunizationRecommendation(name, (ImmunizationRecommendation)resource);
+    else if (resource instanceof ImplementationGuide)
+      composeImplementationGuide(name, (ImplementationGuide)resource);
     else if (resource instanceof List_)
       composeList_(name, (List_)resource);
     else if (resource instanceof Location)

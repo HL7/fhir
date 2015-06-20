@@ -4478,9 +4478,9 @@ public class Publisher implements URIResolver {
     // if (profile != null)
     // validator.validateInstanceByProfile(issues, root, profile);
     for (ValidationMessage m : issues) {
-      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
-        logError("  " + m.summary(), typeforSeverity(m.getLevel()));
-
+      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING)) {
+        page.getValidationErrors().add(m);
+      }
       if (m.getLevel() == IssueSeverity.WARNING)
         warningCount++;
       else if (m.getLevel() == IssueSeverity.INFORMATION)
