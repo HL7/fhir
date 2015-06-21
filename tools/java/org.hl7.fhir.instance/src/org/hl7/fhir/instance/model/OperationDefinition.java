@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 20, 2015 17:43+1000 for FHIR v0.5.0
+// Generated on Sun, Jun 21, 2015 12:43+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -407,13 +407,20 @@ public class OperationDefinition extends DomainResource {
         protected StructureDefinition profileTarget;
 
         /**
+         * Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).
+         */
+        @Child(name = "binding", type = {}, order=8, min=0, max=1)
+        @Description(shortDefinition="ValueSet details if this is coded", formalDefinition="Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)." )
+        protected OperationDefinitionParameterBindingComponent binding;
+
+        /**
          * The parts of a Tuple Parameter.
          */
-        @Child(name = "part", type = {OperationDefinitionParameterComponent.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name = "part", type = {OperationDefinitionParameterComponent.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Parts of a Tuple Parameter", formalDefinition="The parts of a Tuple Parameter." )
         protected List<OperationDefinitionParameterComponent> part;
 
-        private static final long serialVersionUID = -506690891L;
+        private static final long serialVersionUID = -1514145741L;
 
     /*
      * Constructor
@@ -756,6 +763,30 @@ public class OperationDefinition extends DomainResource {
         }
 
         /**
+         * @return {@link #binding} (Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).)
+         */
+        public OperationDefinitionParameterBindingComponent getBinding() { 
+          if (this.binding == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.binding");
+            else if (Configuration.doAutoCreate())
+              this.binding = new OperationDefinitionParameterBindingComponent(); // cc
+          return this.binding;
+        }
+
+        public boolean hasBinding() { 
+          return this.binding != null && !this.binding.isEmpty();
+        }
+
+        /**
+         * @param value {@link #binding} (Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).)
+         */
+        public OperationDefinitionParameterComponent setBinding(OperationDefinitionParameterBindingComponent value) { 
+          this.binding = value;
+          return this;
+        }
+
+        /**
          * @return {@link #part} (The parts of a Tuple Parameter.)
          */
         public List<OperationDefinitionParameterComponent> getPart() { 
@@ -804,6 +835,7 @@ public class OperationDefinition extends DomainResource {
           childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("type", "code", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("binding", "", "Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, binding));
           childrenList.add(new Property("part", "@OperationDefinition.parameter", "The parts of a Tuple Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
         }
 
@@ -817,6 +849,7 @@ public class OperationDefinition extends DomainResource {
         dst.documentation = documentation == null ? null : documentation.copy();
         dst.type = type == null ? null : type.copy();
         dst.profile = profile == null ? null : profile.copy();
+        dst.binding = binding == null ? null : binding.copy();
         if (part != null) {
           dst.part = new ArrayList<OperationDefinitionParameterComponent>();
           for (OperationDefinitionParameterComponent i : part)
@@ -834,7 +867,8 @@ public class OperationDefinition extends DomainResource {
         OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(use, o.use, true) && compareDeep(min, o.min, true)
            && compareDeep(max, o.max, true) && compareDeep(documentation, o.documentation, true) && compareDeep(type, o.type, true)
-           && compareDeep(profile, o.profile, true) && compareDeep(part, o.part, true);
+           && compareDeep(profile, o.profile, true) && compareDeep(binding, o.binding, true) && compareDeep(part, o.part, true)
+          ;
       }
 
       @Override
@@ -852,7 +886,164 @@ public class OperationDefinition extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (use == null || use.isEmpty())
            && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty()) && (part == null || part.isEmpty())
+           && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty()) && (binding == null || binding.isEmpty())
+           && (part == null || part.isEmpty());
+      }
+
+  }
+
+    @Block()
+    public static class OperationDefinitionParameterBindingComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
+         */
+        @Child(name = "strength", type = {CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="required | extensible | preferred | example", formalDefinition="Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances." )
+        protected Enumeration<BindingStrength> strength;
+
+        /**
+         * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.
+         */
+        @Child(name = "valueSet", type = {UriType.class, ValueSet.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used." )
+        protected Type valueSet;
+
+        private static final long serialVersionUID = 857140521L;
+
+    /*
+     * Constructor
+     */
+      public OperationDefinitionParameterBindingComponent() {
+        super();
+      }
+
+    /*
+     * Constructor
+     */
+      public OperationDefinitionParameterBindingComponent(Enumeration<BindingStrength> strength, Type valueSet) {
+        super();
+        this.strength = strength;
+        this.valueSet = valueSet;
+      }
+
+        /**
+         * @return {@link #strength} (Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.). This is the underlying object with id, value and extensions. The accessor "getStrength" gives direct access to the value
+         */
+        public Enumeration<BindingStrength> getStrengthElement() { 
+          if (this.strength == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterBindingComponent.strength");
+            else if (Configuration.doAutoCreate())
+              this.strength = new Enumeration<BindingStrength>(new BindingStrengthEnumFactory()); // bb
+          return this.strength;
+        }
+
+        public boolean hasStrengthElement() { 
+          return this.strength != null && !this.strength.isEmpty();
+        }
+
+        public boolean hasStrength() { 
+          return this.strength != null && !this.strength.isEmpty();
+        }
+
+        /**
+         * @param value {@link #strength} (Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.). This is the underlying object with id, value and extensions. The accessor "getStrength" gives direct access to the value
+         */
+        public OperationDefinitionParameterBindingComponent setStrengthElement(Enumeration<BindingStrength> value) { 
+          this.strength = value;
+          return this;
+        }
+
+        /**
+         * @return Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
+         */
+        public BindingStrength getStrength() { 
+          return this.strength == null ? null : this.strength.getValue();
+        }
+
+        /**
+         * @param value Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
+         */
+        public OperationDefinitionParameterBindingComponent setStrength(BindingStrength value) { 
+            if (this.strength == null)
+              this.strength = new Enumeration<BindingStrength>(new BindingStrengthEnumFactory());
+            this.strength.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
+         */
+        public Type getValueSet() { 
+          return this.valueSet;
+        }
+
+        /**
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
+         */
+        public UriType getValueSetUriType() throws Exception { 
+          if (!(this.valueSet instanceof UriType))
+            throw new Exception("Type mismatch: the type UriType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
+          return (UriType) this.valueSet;
+        }
+
+        /**
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
+         */
+        public Reference getValueSetReference() throws Exception { 
+          if (!(this.valueSet instanceof Reference))
+            throw new Exception("Type mismatch: the type Reference was expected, but "+this.valueSet.getClass().getName()+" was encountered");
+          return (Reference) this.valueSet;
+        }
+
+        public boolean hasValueSet() { 
+          return this.valueSet != null && !this.valueSet.isEmpty();
+        }
+
+        /**
+         * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
+         */
+        public OperationDefinitionParameterBindingComponent setValueSet(Type value) { 
+          this.valueSet = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, java.lang.Integer.MAX_VALUE, strength));
+          childrenList.add(new Property("valueSet[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, valueSet));
+        }
+
+      public OperationDefinitionParameterBindingComponent copy() {
+        OperationDefinitionParameterBindingComponent dst = new OperationDefinitionParameterBindingComponent();
+        copyValues(dst);
+        dst.strength = strength == null ? null : strength.copy();
+        dst.valueSet = valueSet == null ? null : valueSet.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OperationDefinitionParameterBindingComponent))
+          return false;
+        OperationDefinitionParameterBindingComponent o = (OperationDefinitionParameterBindingComponent) other;
+        return compareDeep(strength, o.strength, true) && compareDeep(valueSet, o.valueSet, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OperationDefinitionParameterBindingComponent))
+          return false;
+        OperationDefinitionParameterBindingComponent o = (OperationDefinitionParameterBindingComponent) other;
+        return compareValues(strength, o.strength, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (strength == null || strength.isEmpty()) && (valueSet == null || valueSet.isEmpty())
           ;
       }
 

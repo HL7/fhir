@@ -67,7 +67,12 @@ in the RESTful framework:
 <p>
 For this RESTful search (see <a href="http.html#search">definition in RESTful API</a>), the parameters are a series
 of name=[value] pairs encoded in the URL or as an
-application/x-www-form-urlencoded submission for a POST.
+application/x-www-form-urlencoded submission for a POST:
+</p>
+<pre>
+ POST  [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
+</pre>
+<p>
 The server returns the results in the HTTP response as a <a href="bundle.html">bundle</a>
 which includes the resources that are the results of the search. The server can also
 include additional resources in the result set, such as <a href="operationoutcome.html">OperationOutcome</a>

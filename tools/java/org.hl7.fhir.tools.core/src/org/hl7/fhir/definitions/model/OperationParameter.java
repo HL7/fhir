@@ -13,6 +13,7 @@ public class OperationParameter {
   private String type;
   private String profile;
   private List<OperationParameter> parts;
+  private BindingSpecification bs;
 
   public OperationParameter(String name, String use, String doco, int min, String max, String type, String profile) {
     this.name = name; 
@@ -88,6 +89,14 @@ public class OperationParameter {
 
   public List<OperationParameter> getParts() {
     return parts;
+  }
+
+  public BindingSpecification getBs() {
+    return bs;
+  }
+
+  public void setBs(BindingSpecification bs) {
+    this.bs = bs;
   }
 
 }

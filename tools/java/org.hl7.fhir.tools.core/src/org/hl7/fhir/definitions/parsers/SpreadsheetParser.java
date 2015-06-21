@@ -439,6 +439,9 @@ public class SpreadsheetParser {
             String min = sheet.getColumn(row, "Min");
             String max = sheet.getColumn(row, "Max");
             OperationParameter p = new OperationParameter(pname, use, doco, Integer.parseInt(min), max, type, profile);
+            String bs = sheet.getColumn(row, "Binding");
+            if (!Utilities.noString(bs))
+              p.setBs(bindings.get(bs));
             plist.add(p);
             params.put(name, p);
 	        }

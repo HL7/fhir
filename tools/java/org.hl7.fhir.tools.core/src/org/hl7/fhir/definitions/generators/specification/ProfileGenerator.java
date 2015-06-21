@@ -45,6 +45,8 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.Operation;
+import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ProfiledType;
@@ -70,6 +72,12 @@ import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterBindingComponent;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationKind;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUse;
+import org.hl7.fhir.instance.model.OperationDefinition;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.SearchParameter.SearchParameterContactComponent;
@@ -82,6 +90,7 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionType;
 import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
+import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
@@ -1143,5 +1152,69 @@ public class ProfileGenerator {
     }
     return false;
   }
+
+  public OperationDefinition generate(ResourceDefn r, Operation op) throws Exception {
+    String name = r.getName().toLowerCase()+"-"+op.getName();
+    OperationDefinition opd = new OperationDefinition();
+    opd.setId(FormatUtilities.makeId(r.getName()+"-"+op.getName()));
+    opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+r.getName()+"-"+op.getName());
+    opd.setName(op.getTitle());
+    opd.setPublisher("HL7 (FHIR Project)");
+    opd.addContact().getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    opd.getContact().get(0).getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
+    opd.setDescription(op.getDoco());
+    opd.setStatus(ConformanceResourceStatus.DRAFT);
+    opd.setDate(genDate.getTime());
+    if (op.getKind().toLowerCase().equals("operation"))
+      opd.setKind(OperationKind.OPERATION);
+    else if (op.getKind().toLowerCase().equals("query"))
+      opd.setKind(OperationKind.QUERY);
+    else {
+      throw new Exception("Unrecognized operation kind: '" + op.getKind() + "' for operation " + name);
+    }
+    opd.setCode(op.getName());
+    opd.setNotes(op.getFooter());
+    opd.setSystem(op.isSystem());
+    if (op.isType())
+      opd.addType(r.getName());
+    opd.setInstance(op.isInstance());
+    for (OperationParameter p : op.getParameters()) {
+      produceOpParam(op.getName(), opd.getParameter(), p, null);
+    }
+    NarrativeGenerator gen = new NarrativeGenerator("", context);
+    gen.generate(opd);
+    return opd;
+  }
+
+  private void produceOpParam(String path, List<OperationDefinitionParameterComponent> opd, OperationParameter p, OperationParameterUse defUse) throws Exception {
+    OperationDefinitionParameterComponent pp = new OperationDefinitionParameterComponent();
+    pp.setName(p.getName());
+    if (p.getUse().equals("in"))
+      pp.setUse(OperationParameterUse.IN);
+    else if (p.getUse().equals("out"))
+      pp.setUse(OperationParameterUse.OUT);
+    else if (path.contains("."))
+      pp.setUse(defUse);
+    else
+      throw new Exception("Unable to determine parameter use: "+p.getUse()+" at "+path+"."+p.getName()); // but this is validated elsewhere
+    pp.setDocumentation(p.getDoc());
+    pp.setMin(p.getMin());
+    pp.setMax(p.getMax());
+    if (p.getBs() != null)
+      pp.setBinding(new OperationDefinitionParameterBindingComponent().setStrength(p.getBs().getStrength()).setValueSet(buildReference(p.getBs())));
+    Reference ref = new Reference();
+    if (p.getProfile() != null) {
+      ref.setReference(p.getProfile());
+      pp.setProfile(ref);
+    }
+    opd.add(pp);
+    if (p.getType().equals("Tuple")) {
+      for (OperationParameter part : p.getParts()) {
+        produceOpParam(path+"."+p.getName(), pp.getPart(), part, pp.getUse());
+      }
+    } else
+      pp.setType(p.getType());
+  }
+
 
 }

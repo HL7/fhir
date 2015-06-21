@@ -81,6 +81,19 @@ The interactions on this page are defined like this:
 Implementations constructing URLs using these patterns SHOULD conform to <a href="https://tools.ietf.org/html/rfc3986#appendix-A">RFC 3986 Section 6 Appendix A</a>
 which requires percent-encoding for a number of characters that occasionally appear in the URLs (mainly in search parameters).
 </p>
+<p>
+This specification uses the undescore as a prefix to disambiguate reserved names from other names in 3 cases:
+</p>
+<ul>
+ <li>To differentiate system wide history and search interactions from interactions on Resource Types</li>
+ <li>To differentiate search, history etc interactions from instances of a resource type</li>
+ <li>To differentiate search parameters defined for all reosurces from those defined for specific resource types</li>
+</ul>
+<p>
+In addition, the character "$" is used as a prefix to operation names that are RPC-like additions to the base
+API defined, either by this specification or by implementers.
+</p>
+
 <a name="root"> </a>
 <a name="general"> </a>
 <h3>Service Root URL</h3>

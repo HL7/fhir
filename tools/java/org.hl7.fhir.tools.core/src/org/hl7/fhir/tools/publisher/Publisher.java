@@ -3112,34 +3112,7 @@ public class Publisher implements URIResolver {
 
   private void produceOperation(ResourceDefn r, Operation op) throws Exception {
     String name = r.getName().toLowerCase()+"-"+op.getName();
-    OperationDefinition opd = new OperationDefinition();
-    opd.setId(FormatUtilities.makeId(r.getName()+"-"+op.getName()));
-    opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+r.getName()+"-"+op.getName());
-    opd.setName(op.getTitle());
-    opd.setPublisher("HL7 (FHIR Project)");
-    opd.addContact().getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
-    opd.getContact().get(0).getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
-    opd.setDescription(op.getDoco());
-    opd.setStatus(ConformanceResourceStatus.DRAFT);
-    opd.setDate(page.getGenDate().getTime());
-    if (op.getKind().toLowerCase().equals("operation"))
-      opd.setKind(OperationKind.OPERATION);
-    else if (op.getKind().toLowerCase().equals("query"))
-      opd.setKind(OperationKind.QUERY);
-    else {
-      throw new Exception("Unrecognized operation kind: '" + op.getKind() + "' for operation " + name);
-    }
-    opd.setCode(op.getName());
-    opd.setNotes(op.getFooter());
-    opd.setSystem(op.isSystem());
-    if (op.isType())
-      opd.addType(r.getName());
-    opd.setInstance(op.isInstance());
-    for (OperationParameter p : op.getParameters()) {
-      produceOpParam(op.getName(), opd.getParameter(), p, null);
-    }
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
-    gen.generate(opd);
+    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(r, op);
 
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".xml");
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, opd);
@@ -3167,34 +3140,6 @@ public class Publisher implements URIResolver {
     page.getEpub().registerExternal("operation-" + name + ".html");
     page.getEpub().registerExternal("operation-" + name + ".json.html");
     page.getEpub().registerExternal("operation-" + name + ".xml.html");
-  }
-
-  private void produceOpParam(String path, List<OperationDefinitionParameterComponent> opd, OperationParameter p, OperationParameterUse defUse) throws Exception {
-    OperationDefinitionParameterComponent pp = new OperationDefinitionParameterComponent();
-    pp.setName(p.getName());
-    if (p.getUse().equals("in"))
-      pp.setUse(OperationParameterUse.IN);
-    else if (p.getUse().equals("out"))
-      pp.setUse(OperationParameterUse.OUT);
-    else if (path.contains("."))
-      pp.setUse(defUse);
-    else
-      throw new Exception("Unable to determine parameter use: "+p.getUse()+" at "+path+"."+p.getName()); // but this is validated elsewhere
-    pp.setDocumentation(p.getDoc());
-    pp.setMin(p.getMin());
-    pp.setMax(p.getMax());
-    Reference ref = new Reference();
-    if (p.getProfile() != null) {
-      ref.setReference(p.getProfile());
-      pp.setProfile(ref);
-    }
-    opd.add(pp);
-    if (p.getType().equals("Tuple")) {
-      for (OperationParameter part : p.getParts()) {
-        produceOpParam(path+"."+p.getName(), pp.getPart(), part, pp.getUse());
-      }
-    } else
-      pp.setType(p.getType());
   }
 
   /*

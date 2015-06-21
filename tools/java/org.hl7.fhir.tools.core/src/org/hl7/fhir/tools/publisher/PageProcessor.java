@@ -52,6 +52,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.Config;
+import org.hl7.fhir.definitions.generators.specification.BaseGenerator;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.JsonSpecGenerator;
@@ -83,6 +84,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
@@ -139,6 +141,7 @@ import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Piece;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -1721,8 +1724,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String generateBSUsage(ValueSet vs) throws Exception {        
     StringBuilder b = new StringBuilder();
+    for (ResourceDefn r : definitions.getBaseResources().values()) {
+      scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def");
+      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operations.html#");
+      scanForProfileUsage(b, vs, r);
+    }
     for (ResourceDefn r : definitions.getResources().values()) {
       scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def");
+      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operations.html#");
       scanForProfileUsage(b, vs, r);
     }
     for (ElementDefn e : definitions.getInfrastructure().values()) {
@@ -1744,9 +1753,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           scanForUsage(b, vs, e, "datatypes.html#"+e.getName());
       }
     for (ElementDefn e : definitions.getStructures().values())
-      if (!e.getName().equals("DocumentInformation"))
-        if (!definitions.dataTypeIsSharedInfo(e.getName()))
-          scanForUsage(b, vs, e, "datatypes.html#"+e.getName());
+      if (!definitions.dataTypeIsSharedInfo(e.getName()))
+        scanForUsage(b, vs, e, "datatypes.html#"+e.getName());
 
     for (ValueSet vsi : valueSets.values()) {
       String path = (String) vsi.getUserData("path");
@@ -1769,6 +1777,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "<p>\r\nThis value set is not currently used\r\n</p>\r\n";
     else
       return "<p>\r\nThis value set is used in the following places:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
+  }
+
+  private void scanForOperationUsage(StringBuilder b, ValueSet vs, ResourceDefn r, String page) {
+    for (Operation op : r.getOperations()) {
+      for (OperationParameter p : op.getParameters()) {
+        if (p.getBs() != null && p.getBs().getValueSet() == vs) {
+          b.append(" <li><a href=\"").append(page).append(op.getName()).append("\">Operation Parameter $")          
+          .append(op.getName()).append(".").append(p.getName()).append("</a> ").append("</li>\r\n");
+        }
+      }
+    }    
   }
 
   private void scanForProfileUsage(StringBuilder b, ValueSet vs, ResourceDefn r) {
@@ -3730,8 +3749,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("</td><td>");
     b.append("<b>Type</b>");
     b.append("</td><td>");
-    b.append("<b>StructureDefinition</b>");
+    b.append("<b>Binding</b>");
     b.append("</td><td>");
+//    b.append("<b>StructureDefinition</b>");
+//    b.append("</td><td>");
     b.append("<b>Documentation</b>");
     b.append("</td></tr>");
   }
@@ -3789,8 +3810,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append(t);
     }
     b.append("</td><td>");
-    if (p.getProfile() != null) {
-      b.append(p.getProfile());
+    if (p.getBs() != null && p.getBs().getBinding() != BindingMethod.Unbound) {
+      b.append("<a href=\""+BaseGenerator.getBindingLink(p.getBs())+"\">"+(p.getBs().getValueSet() != null ? p.getBs().getValueSet().getName() : p.getBs().getName())+"</a>");
+      b.append(" (<a href=\"terminologies.html#"+p.getBs().getStrength().toCode()+"\">"+p.getBs().getStrength().getDisplay()+"</a>)");
+    }
+//    b.append("</td><td>");
+    if (!Utilities.noString(p.getProfile())) {
+//      b.append(p.getProfile());
+      throw new Exception("need to add the structure definition column back in ");
     }
     b.append("</td><td>");
     b.append(processMarkdown(resource, p.getDoc()));
@@ -5851,7 +5878,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (e.typeCode().startsWith("Reference(")) {
       b.append(" <li><a href=\"");
       b.append(base);
-      b.append("-definitions.htm#");
+      b.append("-definitions.html#");
       b.append(path);
       b.append("\">");
       b.append(path);

@@ -9,8 +9,12 @@ public class BaseGenerator {
   protected PageProcessor page;
   protected Definitions definitions;
 
-  protected String getBindingLink(ElementDefn e) throws Exception {
+  public static String getBindingLink(ElementDefn e) throws Exception {
     BindingSpecification bs = e.getBinding();
+    return getBindingLink(bs);
+  }
+  
+  public static String getBindingLink(BindingSpecification bs) throws Exception {
     if (bs.getValueSet() != null) 
       return bs.getValueSet().getUserString("path");
     else if (bs.getReference() != null)
@@ -18,6 +22,5 @@ public class BaseGenerator {
     else 
       return "(unbound)";
   }
-
 
 }
