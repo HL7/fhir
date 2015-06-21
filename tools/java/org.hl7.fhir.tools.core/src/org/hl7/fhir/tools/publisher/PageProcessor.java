@@ -3471,9 +3471,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : definitions.sortedResourceNames()) {
       String s = definitions.getResourceByName(n).getEnteredInErrorStatus();
       if (Utilities.noString(s))
-        b.append("<tr><td>"+n+"</td><td><i>Unknown - not stated by committee</i></td></tr>");
+        b.append("<tr><td><a href=\""+n.toLowerCase()+".html\">"+n+"</a></td><td><i>Unknown - not stated by committee</i></td></tr>");
       else
-        b.append("<tr><td>"+n+"</td><td>"+Utilities.escapeXml(s)+"</td></tr>");
+        b.append("<tr><td><a href=\""+n.toLowerCase()+".html\">"+n+"</a></td><td>"+Utilities.escapeXml(s)+"</td></tr>");
     }
     b.append("</table>\r\n");
     return b.toString();

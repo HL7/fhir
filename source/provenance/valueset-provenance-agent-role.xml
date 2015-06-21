@@ -27,7 +27,7 @@
         <valueString value="The data entry person is collected optionally for internal quality control purposes. This includes the transcriptionist for dictated text"/>
       </extension>
       <code value="enterer"/>
-      <displayevalue="Enterer"/>
+      <display value="Enterer"/>
       <definition value="A person entering the data into the originating system"/>
     </concept>
     <concept>

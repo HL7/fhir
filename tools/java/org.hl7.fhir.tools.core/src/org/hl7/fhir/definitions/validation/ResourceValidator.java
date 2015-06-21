@@ -50,6 +50,7 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.validation.BaseValidator;
@@ -141,6 +142,16 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.REQUIRED,  parent.getName(), parent.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     rule(errors, IssueType.REQUIRED,  parent.getName(), parent.getWg() != null, "A resource must have a designated owner"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     
+    if (Utilities.noString(parent.getEnteredInErrorStatus()))
+      if (hasStatus(parent, "entered-in-error"))
+        parent.setEnteredInErrorStatus(".status = entered-in-error");
+      else if (hasStatus(parent, "retired"))
+        parent.setEnteredInErrorStatus(".status = retired");
+      else if (hasActivFalse(parent))
+        parent.setEnteredInErrorStatus(".active = false");
+      else 
+        hint(errors, IssueType.REQUIRED,  parent.getName(), false, "A resource must have an 'entered in error' status"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
+        
     String s = parent.getRoot().getMapping(Definitions.RIM_MAPPING);
     warning(errors, IssueType.REQUIRED, parent.getName(), !Utilities.noString(s), "RIM Mapping is required");
 
@@ -227,6 +238,28 @@ public class ResourceValidator extends BaseValidator {
     if (rule(errors, IssueType.STRUCTURE, parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has warnings"))
       rule(errors, IssueType.STRUCTURE, parent.getName(), vsWarnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
+
+  private boolean hasActivFalse(ResourceDefn parent) {
+    ElementDefn e = parent.getRoot().getElementByName("active");
+    if (e != null) {
+      if (e.typeCode().equals("boolean"))
+        return true;
+    }
+    return false;
+  }
+
+  private boolean hasStatus(ResourceDefn parent, String code) {
+    ElementDefn e = parent.getRoot().getElementByName("status");
+    if (e != null) {
+      if (e.hasBinding() && e.getBinding().getValueSet() != null && e.getBinding().getValueSet().hasDefine()) {
+        for (ConceptDefinitionComponent cc : e.getBinding().getValueSet().getDefine().getConcept()) {
+          if (cc.getCode().equals(code))
+            return true;
+        }
+      } 
+    }
+    return false;
+  }
 
   private boolean parentHasOp(String rname, String opname) throws Exception {
     if (Utilities.noString(rname))
