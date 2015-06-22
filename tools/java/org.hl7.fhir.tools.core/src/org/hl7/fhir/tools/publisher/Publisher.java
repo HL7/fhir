@@ -4525,6 +4525,7 @@ public class Publisher implements URIResolver {
   private void testSearchParameters(String filename) throws Exception {
     // load the xml
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(true);
     DocumentBuilder builder = factory.newDocumentBuilder();
     Document xml = builder.parse(new CSFileInputStream(new CSFile(filename)));
 
@@ -4535,30 +4536,29 @@ public class Publisher implements URIResolver {
           Element grandchild = XMLUtil.getFirstChild(xml.getDocumentElement());
           while (grandchild != null) {
             if (grandchild.getNodeName().equals("content"))
-              testSearchParameters(XMLUtil.getFirstChild(grandchild));
+              testSearchParameters(XMLUtil.getFirstChild(grandchild), "?");
             grandchild = XMLUtil.getNextSibling(grandchild);
           }
         }
         child = XMLUtil.getNextSibling(child);
       }
-    } else
-      testSearchParameters(xml.getDocumentElement());
+    } else {
+      testSearchParameters(xml.getDocumentElement(), xml.getDocumentElement().getNodeName());
+    }
   }
 
-  private void testSearchParameters(Element e) throws Exception {
-    ResourceDefn r = page.getDefinitions().getResourceByName(e.getNodeName());
+  private void testSearchParameters(Node e, String name) throws Exception {
+    ResourceDefn r = page.getDefinitions().getResourceByName(name);
     for (SearchParameterDefn sp : r.getSearchParams().values()) {
 
       if (sp.getXPath() != null) {
         try {
-          NamespaceContext context = new NamespaceContextMap("f", "http://hl7.org/fhir", "h", "http://www.w3.org/1999/xhtml", "a",
-              "http://www.w3.org/2005/Atom");
-
+          NamespaceContext context = new NamespaceContextMap("f", "http://hl7.org/fhir", "h", "http://www.w3.org/1999/xhtml");
           XPathFactory factory = XPathFactory.newInstance();
           XPath xpath = factory.newXPath();
           xpath.setNamespaceContext(context);
           XPathExpression expression;
-          expression = xpath.compile("/" + sp.getXPath());
+          expression = xpath.compile("/"+sp.getXPath());
           NodeList resultNodes = (NodeList) expression.evaluate(e, XPathConstants.NODESET);
           if (resultNodes.getLength() > 0)
             sp.setWorks(true);

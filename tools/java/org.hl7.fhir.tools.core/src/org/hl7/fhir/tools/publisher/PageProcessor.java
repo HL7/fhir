@@ -554,6 +554,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           src = s1+genW5("true".equals(com[1]))+s3;
       } else if (com[0].equals("res-ref-list")) {
         src = s1+genResRefList(com[1])+s3;
+      } else if (com[0].equals("sclist")) {
+        src = s1+genScList(com[1])+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -788,6 +790,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genScList(String path) throws Exception {
+    ResourceDefn r = definitions.getResourceByName(path.substring(0, path.indexOf(".")));
+    if (r == null)
+      throw new Exception("Unable to process sclist (1): "+path);
+    ElementDefn e = r.getRoot().getElementByName(path.substring(path.indexOf(".")+1));
+    if (e == null)
+      throw new Exception("Unable to process sclist (2): "+path);
+    if (e.typeCode().equals("boolean"))
+      return "true | false";
+    else {
+      StringBuilder b = new StringBuilder();
+      boolean first = true;
+      for (ConceptDefinitionComponent cc : e.getBinding().getValueSet().getDefine().getConcept()) {
+        if (first)
+          first = false;
+        else
+          b.append(" | ");
+        b.append("<span title=\""+cc.getDisplay()+": "+Utilities.escapeXml(cc.getDefinition())+"\">"+cc.getCode()+"</span>");
+      }
+      return b.toString();
+    }      
   }
 
   private String txsummary(ValueSet vs) {
@@ -3264,6 +3289,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + reflink(com[1]) + s3;      
       } else if (com[0].equals("res-ref-list")) {
         src = s1+genResRefList(com[1])+s3;
+      } else if (com[0].equals("sclist")) {
+        src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;

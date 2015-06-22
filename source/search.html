@@ -616,36 +616,35 @@ is welcome.
 <h4>Searching by list</h4>
 
 <p>
-The _list parameter allows for the retrieval of resources that are referenced by s <a href="list.html">List</a>
+The _list parameter allows for the retrieval of resources that are referenced by a <a href="list.html">List</a>
 resource. 
 </p>
 <pre>
  GET [base]/Patient?_list=42
 </pre>
 <p>
-This returns all resources that are referenced from the list found at [nase]/List/42) in List.entry.item.
-While it is possible to retrieve the list, and then iterate the entries in the list, fetching the 
-patients, using this search parameter allows for additional search criteria to be specified. For 
+This returns all patient resources that are referenced from the list found at [base]/List/42) in List.entry.item.
+While it is possible to retrieve the list, and then iterate the entries in the list fetching each
+patient, using a list as a search criteria allows for additional search criteria to be specified. For 
 instance:
 </p>
 <pre>
  GET [base]/Patient?_list=42&amp;gender=female
 </pre>
 <p>
-Select all the female patients in the list. 
-The server can return the list referred as an included resource,
-but is not required to do so. 
-In addition, a system can support searching by lists 
-by their logical function. For example:  
+which means, welect all the female patients in the list. The server can return the list referred 
+to in the search parameter as an included resource, but is not required to do so. 
+In addition, a system can support searching by lists by their logical function. For example:  
 </p>
 <pre>
- GET [base]/AllergyIntolerance?patient=42&amp;_list=$current
+ GET [base]/AllergyIntolerance?patient=42&amp;_list=$current-allergies
 </pre>
 <p>
-This is a request to fetch all the allergies in the patient's "Currrent Allergy List".
+This is a request to fetch all the allergies in the patient 42's "Currrent Allergy List".
 The server returns all the relevant AllergyIntolerance resources, and can also choose
-to return the list 
-See the <a href="lifecycle.html">definition of "$current"</a>.
+to return the list. For further information, refer to the <a href="lifecycle.html#current">definition of "$current-allergies"</a>.
+Note that servers are not required to make these lists available to the clients as list resources,
+but may choose to do so.
 </p>
 
 <a name="filter"> </a>
