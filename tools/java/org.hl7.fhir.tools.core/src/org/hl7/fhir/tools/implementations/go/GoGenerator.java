@@ -114,10 +114,10 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         Map<String, ResourceDefn> namesAndDefinitions = definitions.getResources();
         generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
 
-        for (String name : namesAndDefinitions.keySet()) {
-            generateMgoModel(name, dirs.get("modelDir"), definitions, "time");
-            generateBundleStructs(name, dirs.get("modelDir"), genericBundleTemplate);
-            generateGoController(name, dirs.get("serverDir"), genericControllerTemplate);
+        for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
+            generateMgoModel(entry.getKey(), dirs.get("modelDir"), definitions, "time");
+            generateBundleStructs(entry.getKey(), dirs.get("modelDir"), genericBundleTemplate);
+            generateGoController(entry.getKey(), entry.getValue(), dirs.get("serverDir"), genericControllerTemplate);
         }
 
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
@@ -157,7 +157,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         bundleWriter.close();
     }
 
-    private void generateGoController(String name, String controllerDir, String genericControllerTemplate) throws IOException {
+    private void generateGoController(String name, ResourceDefn def, String controllerDir, String genericControllerTemplate) throws IOException {
         File controllerFile = new File(Utilities.path(controllerDir, name.toLowerCase() + ".go"));
         ST controllerTemplate = new ST(genericControllerTemplate);
 
@@ -165,13 +165,13 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         boolean searchByPatient = false;
         boolean searchByCode = false;
 
-        if (name.equals("Condition") || name.equals("Observation") || name.equals("MedicationStatement") || name.equals("Encounter")) {
+        // This algorithm for generating search controllers is better than before, but should
+        // eventually be replaced by a much more comprehensive solution.
+        if (def.getRoot().getElementByName("subject") != null) {
             searchBySubject = true;
-        }
-        if (name.equals("MedicationStatement")) {
+        } else if (def.getRoot().getElementByName("patient") != null) {
             searchByPatient = true;
-        }
-        if (name.equals("Medication")) {
+        } else if (def.getRoot().getElementByName("code") != null) {
             searchByCode = true;
         }
 
