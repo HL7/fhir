@@ -8381,6 +8381,7 @@
   <name value="DICOM Code Definitions (DCM)"/>
   <publisher value="NEMA/DICOM"/>
   <description value="The meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard (OID = 1.2.840.10008.2.16.4)"/>
+	<requirements value="THis value is published as part of FHIR in order to make the codes available to FHIR terminology services and so implementers can easily leverage the codes"/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <status value="active"/>
   <date value="2010-08-26"/>

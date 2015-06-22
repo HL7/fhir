@@ -1,11 +1,23 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <name value="ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2"/>
+	<useContext>
+	  <coding>
+		  <system value="urn:iso:std:iso:3166"/>
+			<code value="AU"/>
+		</coding>
+	</useContext>
+	<useContext>
+	  <coding>
+		  <system value="urn:iso:std:iso:3166"/>
+			<code value="NZ"/>
+		</coding>
+	</useContext>
   <publisher value="Australian Bureau of Statistics"/>
   <contact>
     <telecom>
-    <system value="url"/>
-    <value value="http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0"/>
-  </telecom>
+      <system value="url"/>
+      <value value="http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0"/>
+    </telecom>
   </contact>
   <description value="Developed for use in the collection, analysis and dissemination of occupation statistics in Australia and New Zealand"/>
   <copyright value="Copyright Australian Bureau of Statistics"/>

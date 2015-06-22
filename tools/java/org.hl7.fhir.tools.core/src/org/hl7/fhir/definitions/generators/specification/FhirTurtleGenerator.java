@@ -550,6 +550,8 @@ public class FhirTurtleGenerator extends TurtleGenerator {
     else
       section.triple("fhir:"+t.getName(), "rdfs:subClassOf", processType(t.typeCode()));
     section.comment("fhir:"+t.getName(), rd.getDefinition());
+    if (!Utilities.noString(t.getW5()))
+      section.triple("fhir:"+t.getName(), "fhir:w5", complex().predicate("a", "fhir:w5\\#"+t.getW5()));
     processMappings(section, "fhir:"+rd.getName(), rd.getRoot());
     for (ElementDefn e : t.getElements()) {
       if (e.getName().endsWith("[x]")) {

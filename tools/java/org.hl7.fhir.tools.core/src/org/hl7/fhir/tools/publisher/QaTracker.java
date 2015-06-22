@@ -23,10 +23,7 @@ public class QaTracker {
     private int types; 
     private int packs; 
     private int paths;
-    private int bindings;
-    private int codelists;
     private int valuesets;
-    private int codes;
     
     private int hints;
     private int warnings;
@@ -54,14 +51,7 @@ public class QaTracker {
     for (ElementDefn e : definitions.getInfrastructure().values())
       countPaths(e);
     
-//    current.bindings = definitions.getBindings().size();
-//    for (BindingSpecification bs : definitions.getBindings().values())
-//      if (bs.getBinding() == Binding.CodeList) {
-//        current.codelists++;
-//        current.codes = current.codes + bs.getCodes().size();
-//      }
-//      else if (bs.getBinding() == Binding.ValueSet)
-//        current.valuesets++;
+    current.valuesets = definitions.getValuesets().size();
   }
 
   private void countPaths(ElementDefn e) {
@@ -78,10 +68,7 @@ public class QaTracker {
     s.append(" <tr><td>types</td><td>"+Integer.toString(current.types)+"</td></tr>\r\n");
     s.append(" <tr><td>packs</td><td>"+Integer.toString(current.packs)+"</td></tr>\r\n");
     s.append(" <tr><td>paths</td><td>"+Integer.toString(current.paths)+"</td></tr>\r\n");
-    s.append(" <tr><td>bindings</td><td>"+Integer.toString(current.bindings)+"</td></tr>\r\n");
-    s.append(" <tr><td>codelists</td><td>"+Integer.toString(current.codelists)+"</td></tr>\r\n");
     s.append(" <tr><td>valuesets</td><td>"+Integer.toString(current.valuesets)+"</td></tr>\r\n");
-    s.append(" <tr><td>codes</td><td>"+Integer.toString(current.codes)+"</td></tr>\r\n");
     s.append(" <tr><td>hints</td><td>"+Integer.toString(current.hints)+"</td></tr>\r\n");
     s.append(" <tr><td>warnings</td><td>"+Integer.toString(current.warnings)+"</td></tr>\r\n");
     s.append("</table>\r\n");
@@ -105,10 +92,7 @@ public class QaTracker {
     ini.setIntegerProperty("types", n, current.types, null);   
     ini.setIntegerProperty("profiles", n, current.packs, null); // need to maintain the old word here   
     ini.setIntegerProperty("paths", n, current.paths, null);   
-    ini.setIntegerProperty("bindings", n, current.bindings, null);   
-    ini.setIntegerProperty("codelists", n, current.codelists, null);   
     ini.setIntegerProperty("valuesets", n, current.valuesets, null);   
-    ini.setIntegerProperty("codes", n, current.codes, null);   
     ini.setIntegerProperty("hints", n, current.hints, null);   
     ini.setIntegerProperty("warnings", n, current.warnings, null);   
     ini.save();

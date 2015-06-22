@@ -1289,7 +1289,7 @@ public class Publisher implements URIResolver {
       } else if (e.getLevel() == IssueSeverity.WARNING) {
         w++;
       } else if (e.getLevel() == IssueSeverity.INFORMATION) {
-        w++;
+        i++;
       }
     }
     page.getQa().setCounts(ee, w, i);

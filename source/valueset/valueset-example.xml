@@ -23,6 +23,12 @@
   <!-- this example, we elected to use a UUID. We could have used 
      an OID, or a URI - depends on how it will be used. -->
   <url value="urn:uuid:256a5231-a2bb-49bd-9fea-f349d428b70d"/>
+	<!-- an imaginary identifier. This is a non FHIR identifier - might be used in a 
+	  v2 context (though you always need to translate namespaces for v2) -->
+	<identifier>
+	  <system value="http://acme.com/identifiers/valuesets"/>
+		<value value="loinc-cholesterol"/>
+	</identifier>
   <!-- for version, we are going to simply use the day of publication. This is also 
     arbitrary - whatever is here is what people use to refer to the version. 
     Could also be a UUID too -->
@@ -41,6 +47,16 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2012-06-13"/>
+	<!-- 
+	  if we didn't specify the version of LOINC on the include, then
+	  we could specify it implicitly by specifying the locked date for all value sets 
+		
+		So show this example here, but it's not actually necessary since we also 
+    have LOINC version. but if you do what this example does, and specify both,
+		you better get it right, and specify the current version of LOINC at the time
+  -->
+  <lockedDate value="2012-06-13"/> 
+
   <compose>
 
     <!-- we claim that this value set is a constraint on this other value set 
