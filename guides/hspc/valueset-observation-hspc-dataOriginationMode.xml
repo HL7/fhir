@@ -23,6 +23,7 @@
 		<concept>
 			<code value="14610118"/>
 			<display value="Stated"/>
+			<definition value="Information that is given directly, either verbally or written, that is not the result of a measurement or estimate."/>
 		</concept>
   </define>
   <compose>
