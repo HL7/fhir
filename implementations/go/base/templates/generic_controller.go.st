@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 	"time"
-	<if(searchBySubject || searchByCode)>
+	<if(searchBySubject || searchByPatient || searchByCode)>
 	"strings"
 	<endif>
 	"errors"
@@ -20,7 +20,7 @@ import (
 func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	var result []models.<ModelName>
 	c := Database.C("<LowerCaseModelName>s")
-	<if(searchBySubject)>
+	<if(searchBySubject || searchByPatient)>
 
 	r.ParseForm()
 	if (len(r.Form) == 0) {
