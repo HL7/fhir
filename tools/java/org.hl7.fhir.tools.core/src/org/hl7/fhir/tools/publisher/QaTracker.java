@@ -30,8 +30,6 @@ public class QaTracker {
     
     private int hints;
     private int warnings;
-    private int uncovered;
-    private int brokenlinks;
   }
   
   
@@ -86,8 +84,6 @@ public class QaTracker {
     s.append(" <tr><td>codes</td><td>"+Integer.toString(current.codes)+"</td></tr>\r\n");
     s.append(" <tr><td>hints</td><td>"+Integer.toString(current.hints)+"</td></tr>\r\n");
     s.append(" <tr><td>warnings</td><td>"+Integer.toString(current.warnings)+"</td></tr>\r\n");
-    s.append(" <tr><td>uncovered</td><td>"+Integer.toString(current.uncovered)+"</td></tr>\r\n");
-    s.append(" <tr><td>broken Links</td><td>"+Integer.toString(current.brokenlinks)+"</td></tr>\r\n");
     s.append("</table>\r\n");
     
     String xslt = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "WarningsToQA.xslt");
@@ -115,9 +111,12 @@ public class QaTracker {
     ini.setIntegerProperty("codes", n, current.codes, null);   
     ini.setIntegerProperty("hints", n, current.hints, null);   
     ini.setIntegerProperty("warnings", n, current.warnings, null);   
-    ini.setIntegerProperty("uncovered", n, current.uncovered, null);   
-    ini.setIntegerProperty("brokenlinks", n, current.brokenlinks, null);   
     ini.save();
+  }
+
+  public void setCounts(int e, int w, int i) {
+    current.hints = i;
+    current.warnings = w;
   }
 
 }

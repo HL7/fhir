@@ -17,9 +17,11 @@ import org.hl7.fhir.utilities.Utilities;
 public class ValueSetValidator extends BaseValidator {
 
   private WorkerContext context;
+  private List<String> fixups;
 
-  public ValueSetValidator(WorkerContext context) {
+  public ValueSetValidator(WorkerContext context, List<String> fixups) {
     this.context = context;
+    this.fixups = fixups;
   }
 
   public void validate(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, boolean internal, boolean exemptFromCopyrightRule) {
@@ -38,6 +40,9 @@ public class ValueSetValidator extends BaseValidator {
            "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement should be present for any value set that includes non-HL7 sourced codes ("+s+")");
       }
     }
+    if (fixups.contains(vs.getId()))
+      fixup(vs);
+
     if (vs.hasDefine()) {
       Set<String> codes = new HashSet<String>();
       if (rule(errors, IssueType.BUSINESSRULE, "ValueSet["+vs.getId()+"].define", vs.getDefine().hasSystem(), "If a value set has a define, it must have a system")) {
@@ -47,6 +52,7 @@ public class ValueSetValidator extends BaseValidator {
         if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && 
             !vs.getDefine().getSystem().startsWith("urn:uuid:") && 
             !vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v3/")) {
+          checkCodesForDisplayAndDefinition(errors, "ValueSet["+vs.getId()+"].define", vs.getDefine().getConcept());
           checkCodesForSpaces(errors, "ValueSet["+vs.getId()+"].define", vs, vs.getDefine().getConcept());
         }
       }
@@ -57,6 +63,22 @@ public class ValueSetValidator extends BaseValidator {
         warnings++;
     }
     vs.setUserData("warnings", o_warnings - warnings);
+  }
+
+  private void fixup(ValueSet vs) {
+    if (vs.hasDefine()) {
+      for (ConceptDefinitionComponent cc: vs.getDefine().getConcept())
+        fixup(cc);
+    }
+  }
+
+  private void fixup(ConceptDefinitionComponent cc) {
+    if (cc.hasDisplay() && !cc.hasDefinition())
+      cc.setDefinition(cc.getDisplay());
+    if (!cc.hasDisplay() && cc.hasDefinition())
+      cc.setDisplay(cc.getDefinition());
+    for (ConceptDefinitionComponent gc: cc.getConcept())
+      fixup(gc);
   }
 
   private void checkCodesForSpaces(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) {

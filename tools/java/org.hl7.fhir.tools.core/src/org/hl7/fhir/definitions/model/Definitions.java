@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
@@ -107,7 +108,6 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   private Map<String, W5Entry> w5s = new HashMap<String, W5Entry>();
   private Map<String, String> typePages = new HashMap<String, String>();
   private Map<String, String> pageTitles = new HashMap<String, String>();
-
   
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -298,6 +298,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   }
 
   private List<String> sortedNames;
+  private List<String> vsFixups = new ArrayList<String>();
   
   public List<String> sortedResourceNames() {
     if (sortedNames == null) {
@@ -553,6 +554,11 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
     }
     return null;
   }
+
+  public List<String> getVsFixups() {
+    return vsFixups ;
+  }
+
 
   
 }

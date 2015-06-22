@@ -17,11 +17,11 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>13275</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6283,7 +6283,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8151,6 +8150,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8170,8 +8170,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8869,7 +8869,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8978,7 +8978,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Equals</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">The specified property of the code equals the provided value</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
@@ -8989,7 +8989,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Is A (by subsumption)</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -9000,7 +9000,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Not (Is A) (by subsumption)</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">The specified property of the code does not have an is-a relationship with the provided value</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -9011,7 +9011,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Regular Expression</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">The specified property of the code  matches the regex specified in the provided value</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -9022,7 +9022,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">In Set</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -9033,7 +9033,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Not in Set</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -9546,8 +9546,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

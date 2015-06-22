@@ -1279,11 +1279,20 @@ public class Publisher implements URIResolver {
     String xslt3 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "RenderWarnings.xslt");
     page.log(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3), LogMessageType.Process);
 
+    int i = 0;
+    int w = 0;
+    int ee = 0;
     for (ValidationMessage e : page.getValidationErrors()) {
       if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
+        ee++;
         page.log(e.summary(), LogMessageType.Hint);
+      } else if (e.getLevel() == IssueSeverity.WARNING) {
+        w++;
+      } else if (e.getLevel() == IssueSeverity.INFORMATION) {
+        w++;
       }
     }
+    page.getQa().setCounts(ee, w, i);
   }
 
   private boolean hasBuildFlag(String n) {
@@ -2423,7 +2432,7 @@ public class Publisher implements URIResolver {
     vs.setText(new Narrative());
     vs.getText().setStatus(NarrativeStatus.GENERATED);
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
 
     return vs;
   }
@@ -2572,7 +2581,7 @@ public class Publisher implements URIResolver {
 
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), "v3 value set as code system "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), "v3 value set as code system "+id, vs, false, true);
     return vs;
   }
 
@@ -2668,7 +2677,7 @@ public class Publisher implements URIResolver {
     }
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
     return vs;
 
   }
@@ -3328,7 +3337,7 @@ public class Publisher implements URIResolver {
     if (rt.equals("ValueSet")) {
       ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
       vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
-      new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), "Value set Example "+n, vs, false, false);
+      new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), "Value set Example "+n, vs, false, false);
       if (vs.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
       vs.setUserData("path", n + ".html");
@@ -4389,7 +4398,7 @@ public class Publisher implements URIResolver {
 
     if (!e.isCoveredByExample() && !Utilities.noString(path)) {
       //      page.log("The resource path " + path + e.getName() + " is not covered by any example", LogMessageType.Warning);
-      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path '" + path+e.getName() + "' had no found values in any example. Consider reviewing the path", IssueSeverity.WARNING));
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.WARNING));
     }
     for (ElementDefn c : e.getElements()) {
       produceCoverageWarning(path + e.getName() + "/", c);
@@ -4529,26 +4538,26 @@ public class Publisher implements URIResolver {
     DocumentBuilder builder = factory.newDocumentBuilder();
     Document xml = builder.parse(new CSFileInputStream(new CSFile(filename)));
 
-    if (xml.getDocumentElement().getNodeName().equals("feed")) {
+    if (xml.getDocumentElement().getNodeName().equals("Bundle")) {
       Element child = XMLUtil.getFirstChild(xml.getDocumentElement());
       while (child != null) {
         if (child.getNodeName().equals("entry")) {
-          Element grandchild = XMLUtil.getFirstChild(xml.getDocumentElement());
+          Element grandchild = XMLUtil.getFirstChild(child);
           while (grandchild != null) {
-            if (grandchild.getNodeName().equals("content"))
-              testSearchParameters(XMLUtil.getFirstChild(grandchild), "?");
+            if (grandchild.getNodeName().equals("resource"))
+              testSearchParameters(XMLUtil.getFirstChild(grandchild));
             grandchild = XMLUtil.getNextSibling(grandchild);
           }
         }
         child = XMLUtil.getNextSibling(child);
       }
     } else {
-      testSearchParameters(xml.getDocumentElement(), xml.getDocumentElement().getNodeName());
+      testSearchParameters(xml.getDocumentElement());
     }
   }
 
-  private void testSearchParameters(Node e, String name) throws Exception {
-    ResourceDefn r = page.getDefinitions().getResourceByName(name);
+  private void testSearchParameters(Element e) throws Exception {
+    ResourceDefn r = page.getDefinitions().getResourceByName(e.getNodeName());
     for (SearchParameterDefn sp : r.getSearchParams().values()) {
 
       if (sp.getXPath() != null) {
@@ -4671,7 +4680,7 @@ public class Publisher implements URIResolver {
             && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
           new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
 
-        new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), name, vs, true, false);
+        new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), name, vs, true, false);
 
         addToResourceFeed(vs, valueSetsFeed, null); // todo - what should the Oids be
 
@@ -4714,7 +4723,7 @@ public class Publisher implements URIResolver {
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
       new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), n, vs, true, false);
+    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), n, vs, true, false);
 
     if (isGenerate) {
 //       page.log(" ... "+n, LogMessageType.Process);
@@ -4767,7 +4776,7 @@ public class Publisher implements URIResolver {
         if (ToolingExtensions.getOID(vs.getDefine()) == null)
           throw new Exception("No OID on value set define for "+vs.getUrl());
       }
-      new ValueSetValidator(page.getWorkerContext()).validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
+      new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
 
       page.getValueSets().put(vs.getUrl(), vs);
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);

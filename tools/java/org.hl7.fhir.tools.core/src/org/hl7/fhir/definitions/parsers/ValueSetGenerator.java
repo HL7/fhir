@@ -18,6 +18,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
+import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ValueSetGenerator {
@@ -86,7 +87,7 @@ public class ValueSetGenerator {
       DefinedCode rd = definitions.getKnownResources().get(s);
       ConceptDefinitionComponent c = vs.getDefine().addConcept();
       c.setCode(rd.getCode());
-      c.setDisplay(rd.getDisplay());
+      c.setDisplay(rd.getCode());
       c.setDefinition(rd.getDefinition());
     }
 

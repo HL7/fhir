@@ -306,7 +306,7 @@ public class ValueSetImporterV2 {
     // v2 versioning
     // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate(errors, "v2 table "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(errors, "v2 table "+id, vs, false, true);
     return vs;
   }
 
@@ -394,7 +394,7 @@ public class ValueSetImporterV2 {
     // v2 versioning
     // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate(errors, "v2 table "+id, vs, false, true);
+    new ValueSetValidator(page.getWorkerContext(), page.getDefinitions().getVsFixups()).validate(errors, "v2 table "+id, vs, false, true);
     return vs;
   }
 
