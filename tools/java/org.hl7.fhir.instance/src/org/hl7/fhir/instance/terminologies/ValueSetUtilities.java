@@ -9,6 +9,9 @@ public class ValueSetUtilities {
   public static ValueSet makeShareable(ValueSet vs) {
     if (!vs.hasMeta())
       vs.setMeta(new Meta());
+    for (UriType t : vs.getMeta().getProfile()) 
+      if (t.getValue().equals("http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"))
+        return vs;
     vs.getMeta().getProfile().add(new UriType("http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"));
     return vs;
   }

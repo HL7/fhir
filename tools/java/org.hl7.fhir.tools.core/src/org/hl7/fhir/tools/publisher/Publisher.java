@@ -4593,7 +4593,6 @@ public class Publisher implements URIResolver {
   }
 
   private void compareXml(String t, String n, String fn1, String fn2) throws Exception {
-    page.log("    xml1", LogMessageType.Process);
     char sc = File.separatorChar;
     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
     dbf.setNamespaceAware(true);
@@ -4609,34 +4608,32 @@ public class Publisher implements URIResolver {
     Document doc2 = db.parse(new CSFile(fn2));
     doc2.normalizeDocument();
     stripWhitespaceAndComments(doc2);
-    page.log("    xml2", LogMessageType.Process);
 
     XmlGenerator xmlgen = new XmlGenerator();
     File tmp1 = Utilities.createTempFile("xml", ".xml");
     xmlgen.generate(doc1.getDocumentElement(), tmp1, doc1.getDocumentElement().getNamespaceURI(), doc1.getDocumentElement().getLocalName());
     File tmp2 = Utilities.createTempFile("xml", ".xml");
     xmlgen.generate(doc2.getDocumentElement(), tmp2, doc2.getDocumentElement().getNamespaceURI(), doc2.getDocumentElement().getLocalName());
-    page.log("    xml3", LogMessageType.Process);
 
     boolean ok = !TextFile.fileToString(tmp1.getAbsolutePath()).equals(TextFile.fileToString(tmp2.getAbsolutePath()));
-    page.log("    xml4", LogMessageType.Process);
 
     if (ok) {
       page.getValidationErrors().add(
               new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, "Reference Implementation", "file " + t + " did not round trip perfectly in XML in platform " + n, IssueSeverity.WARNING));
       String diff = diffProgram != null ? diffProgram : System.getenv("ProgramFiles(X86)") + sc + "WinMerge" + sc + "WinMergeU.exe";
-//      if (new CSFile(diff).exists()) {
-//        List<String> command = new ArrayList<String>();
-//        command.add("\"" + diff + "\" \"" + tmp1.getAbsolutePath() + "\" \"" + tmp2.getAbsolutePath() + "\"");
-//
-//        ProcessBuilder builder = new ProcessBuilder(command);
-//        builder.directory(new CSFile(page.getFolders().rootDir));
-//        final Process process = builder.start();
+      if (new CSFile(diff).exists()) {
+        List<String> command = new ArrayList<String>();
+        command.add("\"" + diff + "\" \"" + tmp1.getAbsolutePath() + "\" \"" + tmp2.getAbsolutePath() + "\"");
+
+        ProcessBuilder builder = new ProcessBuilder(command);
+        builder.directory(new CSFile(page.getFolders().rootDir));
+//        final Process process = builder.start(); 
+        builder.start();
 //        process.waitFor();
-//      } else {
-//        // no diff program
-//        page.log("Files for diff: '" + fn1 + "' and '" + fn2 + "'", LogMessageType.Warning);
-//      }
+      } else {
+        // no diff program
+        page.log("Files for diff: '" + fn1 + "' and '" + fn2 + "'", LogMessageType.Warning);
+      }
     }
   }
 
