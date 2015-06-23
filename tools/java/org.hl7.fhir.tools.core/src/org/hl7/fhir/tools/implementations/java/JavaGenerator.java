@@ -876,6 +876,9 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
       builder.directory(new File(folders.dstDir));
       final Process process = builder.start();
       process.waitFor();
+      if (!file.exists())
+        throw new Exception("Java Round trip execution failed without generating any response");
+      
       String result = TextFile.fileToString(err);
       if (!"ok".equals(result))
         throw new Exception(result);
