@@ -165,56 +165,6 @@ part of the narrative SHOULD always be embedded as a <a href="https://tools.ietf
 in an attachment or a contained resource.
 </p>
 
-<!--
-<h4>References between Narrative and Data</h4>
-<p>
-Some systems are able to link specific data elements to specific portions of
-the narrative. This can help human users in that recipient systems can
-display the data associated with the narrative when the users views it.
-</p>
-<p>
-Linking between elements in the narrative and structured data elements is
-done using an id/idref based approach, where a source element indicates
-that its content is derived from the target element:
-</p>
-<div class="example">
-<pre class="xml">
-&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;text&gt;
-    &lt;status value=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-      &lt;p&gt;... &lt;span idref=&quot;dob&quot;/&gt;30-11-1972&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/text&gt;
-  &lt;birthDate id=&quot;dob&quot; value=&quot;1972-11-30&quot; /&gt;
-</pre>
-</div>
-<p>
-That example shows a fragment of narrative that is derived from
-a data element. In some systems, natural language processing
-generates data from the narrative:
-</p>
-<div class="example">
-<pre class="xml">
-&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;text&gt;
-    &lt;status value=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-      &lt;p&gt;... &lt;span id=&quot;dob&quot;/&gt;30-11-1972&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/text&gt;
-  &lt;birthDate idref=&quot;dob&quot; value=&quot;1972-11-30&quot; /&gt;
-</pre>
-</div>
-<p>
-References between the xhtml elements and the data elements must
-be understood to establish a "derived from" relationship, where the
-derived content (whether text or data) refers to the source content.
-Note that this means some references may be forward references
-(references to elements defined later in the instance)
-</p>
--->
-
 <a name="css"></a>
 <h3>Styling the XHTML</h3>
 <p>

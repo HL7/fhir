@@ -124,7 +124,7 @@ This can cause loss of precision for FHIR numbers. You may want to use a custom 
 If the value has an id attribute, or extensions, then this is represented as follows:
 </p>
 <pre class="xml">
- &lt;<b>dob</b> id="314159" value="1970-03-30" &gt;
+ &lt;<b>birthDate</b> id="314159" value="1970-03-30" &gt;
    &lt;extension url="http://example.org/fhir/StructureDefinition/text"&gt;
      &lt;valueString value="Easter 1970"/&gt;     
    &lt;/extension&gt;
@@ -132,8 +132,8 @@ If the value has an id attribute, or extensions, then this is represented as fol
 </pre>
 <p>is represented in JSON as:</p>
 <pre class="json">
- "dob": "1972-11-30",
- "_dob": { 
+ "birthDate": "1972-11-30",
+ "_birthDate": { 
    "id": "314159", 
    "extension" : [ {
       "url" : "http://example.org/fhir/StructureDefinition/text",
