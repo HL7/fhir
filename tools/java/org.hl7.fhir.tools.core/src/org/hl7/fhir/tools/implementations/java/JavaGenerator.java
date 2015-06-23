@@ -875,6 +875,11 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
       ProcessBuilder builder = new ProcessBuilder(command);
       builder.directory(new File(folders.dstDir));
       final Process process = builder.start();
+      BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+      String s;
+      while ((s = stdError.readLine()) != null) {
+        System.err.println(s);
+      }    
       process.waitFor();
       if (!file.exists())
         throw new Exception("Java Round trip execution failed without generating any response");
