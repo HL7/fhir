@@ -630,8 +630,8 @@ public class ResourceValidator extends BaseValidator {
     }
     boolean isComplex = !e.typeCode().equals("code");
 
-    if (isComplex && cd.getValueSet() != null && cd.getValueSet().getDefine() != null && cd.getStrength() != BindingStrength.EXAMPLE && 
-          !cd.getValueSet().getUrl().contains("/v2/") && !cd.getValueSet().getUrl().contains("/v3/")) {// && cd.getValueSet().getUserData("vs-val-warned") == null) {
+    if (isComplex && cd.getValueSet() != null && cd.getValueSet().hasDefine() && cd.getStrength() != BindingStrength.EXAMPLE && 
+          !cd.getValueSet().getUrl().contains("/v2/") && !cd.getValueSet().getUrl().contains("/v3/")) {
       hint(errors, IssueType.BUSINESSRULE, path, false, "The value "+cd.getValueSet().getUrl()+" defines codes, but is used by a Coding/CodeableConcept @ "+path+", so it should not use FHIR defined codes");
       cd.getValueSet().setUserData("vs-val-warned", true);
     }

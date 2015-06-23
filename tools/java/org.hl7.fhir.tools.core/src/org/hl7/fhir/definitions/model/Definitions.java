@@ -139,6 +139,8 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
       root = structures.get(name);
     if (infrastructure.containsKey(name))
       root = infrastructure.get(name);
+    if (baseResources.containsKey(name))
+      root = baseResources.get(name).getRoot();
     if (resources.containsKey(name))
       root = resources.get(name).getRoot();
     return root != null;
@@ -492,7 +494,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
     while (e != null && i < parts.length) {
       if (e.getAcceptableGenericTypes().isEmpty() && hasType(e.typeCode()))
         e = getElementDefn(e.typeCode());
-      e = e.getElementByName(parts[i], true);
+      e = e.getElementByName(parts[i], true, this);
       i++;
     }
     return e;

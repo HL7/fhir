@@ -9,7 +9,6 @@
   <copyright value="CPT copyright 2014 American Medical Association. All rights reserved."/>
   <status value="active"/>
   <date value="2015-03-12"/>
-	<lockedDate value="2015-03-12"/>
   <compose>
     <include>
       <system value="http://www.ama-assn.org/go/cpt"/>

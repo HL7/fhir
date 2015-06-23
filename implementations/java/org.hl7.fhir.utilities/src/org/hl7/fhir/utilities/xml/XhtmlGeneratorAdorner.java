@@ -65,6 +65,7 @@ public interface XhtmlGeneratorAdorner {
   
   XhtmlGeneratorAdornerState getState(XhtmlGenerator ref, XhtmlGeneratorAdornerState state, Element node) throws Exception;
   XhtmlGeneratorAdornerState getAttributeMarkup(XhtmlGenerator xhtmlGenerator, XhtmlGeneratorAdornerState state, Element node, String nodeName, String textContent) throws Exception;
+  String getLink(XhtmlGenerator ref, XhtmlGeneratorAdornerState state, Element node) throws Exception;
 
 }
 

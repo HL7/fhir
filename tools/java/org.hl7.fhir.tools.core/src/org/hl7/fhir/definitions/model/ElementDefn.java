@@ -254,7 +254,7 @@ public class ElementDefn {
     this.maxLength = maxLength;
   }
 
-  public ElementDefn getElementByName(String name, boolean throughChoice) {
+  public ElementDefn getElementByName(String name, boolean throughChoice, Definitions definitions) {
     String n = name.contains(".") ? name.substring(0, name.indexOf(".")) : name;
     String t = name.contains(".") ? name.substring(name.indexOf(".") + 1) : null;
     if (n.equals(this.name) && t != null)
@@ -262,13 +262,13 @@ public class ElementDefn {
     
     for (int i = elements.size() - 1; i >= 0; i--) {
       ElementDefn e = elements.get(i);
-      if (nameMatches(n, e, throughChoice))
+      if (nameMatches(n, e, throughChoice, definitions))
         return t == null ? e : e.getElementByName(t);
     }
     return null;
   }
 
-  private boolean nameMatches(String n, ElementDefn e, boolean throughChoice) {
+  private boolean nameMatches(String n, ElementDefn e, boolean throughChoice, Definitions definitions) {
     if (e.getName().equals(n))
       return true;
     else if (!throughChoice || !e.getName().endsWith("[x]"))
@@ -278,7 +278,14 @@ public class ElementDefn {
       if (!n.startsWith(b))
         return false;
       String tn = n.substring(b.length());
-      for (TypeRef t : e.getTypes()) 
+      if (e.typeCode().equals("*") && definitions != null) {
+        for (TypeRef t : definitions.getKnownTypes()) {
+          if (!definitions.getInfrastructure().containsKey(t.getName()) && !definitions.getConstraints().containsKey(t.getName())) {
+            if (t.getName().equalsIgnoreCase(tn))
+              return true;
+          }
+        }
+      } else for (TypeRef t : e.getTypes()) 
         if (t.getName().equalsIgnoreCase(tn))
           return true;
       return false;
@@ -295,7 +302,7 @@ public class ElementDefn {
 
 		for (int i = elements.size() - 1; i >= 0; i--) {
 			ElementDefn e = elements.get(i);
-			if (nameMatches(n, e, false))
+			if (nameMatches(n, e, false, null))
 				return t == null ? e : e.getElementByName(t);
 //			if (e.getName().length() > name.length()
 //					&& e.getName().substring(0, name.length())
@@ -568,7 +575,7 @@ public class ElementDefn {
 			} else if (definitions.hasType(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
 			}
-			t = res.getElementByName(en, throughChoice);
+			t = res.getElementByName(en, throughChoice, definitions);
 			if (t == null) {
 				throw new Exception("unable to resolve " + pathname);
 			}

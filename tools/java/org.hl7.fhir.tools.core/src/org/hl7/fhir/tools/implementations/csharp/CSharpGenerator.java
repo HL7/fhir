@@ -38,6 +38,7 @@ import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.instance.utils.Version;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.tools.publisher.DotNetFramework;
@@ -199,7 +200,7 @@ public boolean doesCompile() {
   private String ZipFilename;
   
   @Override
-  public boolean compile(String rootDir, List<String> errors, Logger logger) 
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) 
   {  
     String solutionDirectory = Utilities.path(rootDir, "implementations", "csharp");
     String solutionFile = Utilities.path(solutionDirectory, "Hl7.Fhir.sln");

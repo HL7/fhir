@@ -298,8 +298,22 @@ pre.xml              {
 	width: 650px;
 }
 
+a.xmltag   {
+  color: Navy;
+}
+a.xmltag :visited  {
+  color: Navy;
+}
+
+a.xmltag :hover  {
+  color: Blue;
+}
+
 span.xmltag   {
   color: Navy;
+}
+span.xmltagred  {
+  color: Maroon;
 }
 
 span.xmlcomment  {

@@ -32,6 +32,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.Logger;
 
 public interface PlatformGenerator {
@@ -112,7 +113,7 @@ public interface PlatformGenerator {
    * @return true if the compile succeeded
    * @throws Exception 
    */
-  public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception;
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception;
   
   /**
    * 

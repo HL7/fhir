@@ -33,6 +33,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;
@@ -86,7 +87,7 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   }
 
   @Override
-  public boolean compile(String rootDir, List<String> errors, Logger logger) {
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) {
     return false;
   }
 

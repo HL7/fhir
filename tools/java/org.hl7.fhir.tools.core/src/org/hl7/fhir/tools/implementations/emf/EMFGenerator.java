@@ -9,6 +9,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.utils.Version;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.emf.EMFStructureGenerator.OOGenClass;
 import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
@@ -102,7 +103,7 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
 
    
   @Override
-  public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
     throw new UnsupportedOperationException("not implemented in EMF Generator");  
   }
 

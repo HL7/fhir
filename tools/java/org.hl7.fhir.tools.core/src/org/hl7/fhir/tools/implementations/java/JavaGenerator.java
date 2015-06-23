@@ -63,9 +63,13 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.Constants;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.valuesets.IssueType;
 import org.hl7.fhir.instance.test.ToolsHelper;
 import org.hl7.fhir.instance.utils.Version;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.tools.implementations.java.JavaResourceGenerator.JavaGenClass;
@@ -372,7 +376,7 @@ public boolean doesCompile() {
   }
   
   @Override
-public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
     assert(this.folders.rootDir.equals(rootDir));
     char sl = File.separatorChar;
     Map<String, JavaClass> classes = new HashMap<String, JavaClass>();
@@ -407,6 +411,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     if (!result) {
       for (Diagnostic<? extends JavaFileObject> t : diagnostics.getDiagnostics()) {
         logger.log("c: "+t.toString(), LogMessageType.Error);
+        issues.add(new ValidationMessage(Source.Publisher, IssueType.EXCEPTION, -1, -1, "Java Compile", t.toString(), IssueSeverity.ERROR));
       }
     }
 

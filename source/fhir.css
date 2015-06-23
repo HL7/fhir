@@ -302,6 +302,10 @@ span.xmltag   {
   color: Navy;
 }
 
+a.xmltag   {
+  color: Navy;
+}
+
 span.xmlcomment  {
   color: Grey;
 }

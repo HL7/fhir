@@ -1500,7 +1500,7 @@ public class Publisher implements URIResolver {
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
         if (gen.doesCompile()) {
           page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
-          if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page)) {
+          if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page, page.getValidationErrors())) {
             // Must always be able to compile Java to go on. Also, if we're
             // building
             // the web build, all generators that can compile, must compile
@@ -4396,8 +4396,7 @@ public class Publisher implements URIResolver {
 
   private void produceCoverageWarning(String path, ElementDefn e) {
 
-    if (!e.isCoveredByExample() && !Utilities.noString(path)) {
-      //      page.log("The resource path " + path + e.getName() + " is not covered by any example", LogMessageType.Warning);
+    if (!e.isCoveredByExample() && !Utilities.noString(path) && !e.typeCode().startsWith("@")) {
       page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.WARNING));
     }
     for (ElementDefn c : e.getElements()) {
@@ -4491,6 +4490,7 @@ public class Publisher implements URIResolver {
       for (int i = 0; i < nl.getLength(); i++) {
         Element e = (Element) nl.item(i);
         logError("  @" + e.getAttribute("location") + ": " + e.getTextContent(), LogMessageType.Error);
+        page.getValidationErrors().add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, -1, -1, n+":"+e.getAttribute("location"), e.getTextContent(), IssueSeverity.ERROR));
         errorCount++;
       }
     }

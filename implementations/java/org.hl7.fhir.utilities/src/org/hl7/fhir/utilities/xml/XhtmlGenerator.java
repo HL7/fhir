@@ -212,7 +212,11 @@ public class XhtmlGenerator {
   }
 
   private void writeElement(Writer out, Element node, XhtmlGeneratorAdornerState state, int level) throws Exception {
-    out.write("<span class=\"xmltag\">&lt;"+node.getNodeName()+"</span>");
+    String link = adorner == null ? null : adorner.getLink(this, state, node);
+    if (link != null)
+      out.write("<span class=\"xmltag\">&lt;<a href=\""+link+"\" class=\"xmltag\">"+node.getNodeName()+"</a></span>");
+    else
+      out.write("<span class=\"xmltagred\">&lt;"+node.getNodeName()+"</span>");
     if (node.hasAttributes()) {
       out.write("<span class=\"xmlattr\">");
       XhtmlGeneratorAdornerState newstate = adorner == null ? new XhtmlGeneratorAdornerState("", "") : adorner.getState(this, state, node);
@@ -238,7 +242,10 @@ public class XhtmlGenerator {
 
         out.write(newstate.getSuffix());
       }
-      out.write("<span class=\"xmltag\">&lt;/"+node.getNodeName()+"&gt;</span>");
+      if (link != null)
+        out.write("<span class=\"xmltag\">&lt;/<a href=\""+link+"\" class=\"xmltag\">"+node.getNodeName()+"</a>&gt;</span>");
+      else
+        out.write("<span class=\"xmltag\">&lt;/"+node.getNodeName()+"&gt;</span>");
     }
     else 
       out.write("<span class=\"xmltag\">/&gt;</span>");
