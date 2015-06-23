@@ -46,6 +46,7 @@ import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -4340,34 +4341,43 @@ public class Publisher implements URIResolver {
   private void roundTrip() throws Exception {
     page.log("Reference Platform Validation", LogMessageType.Process);
 
-    processingList.clear();
+    List<String> list = new ArrayList<String>();
     
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       if (wantBuild(rname)) {
         for (Example e : r.getExamples()) {
           String n = e.getFileTitle();
-          processingList.put(n, e);
+          list.add(n);
         }
       }
     }
+    
+    if (buildFlags.get("all")) {
+      list.add("profiles-resources");
+      list.add("profiles-types");
+      list.add("profiles-others");
+      list.add("search-parameters");
+      list.add("extension-definitions");
+      list.add("valuesets");
+      list.add("conceptmaps");
+      list.add("v2-tables");
+      list.add("v3-codesystems");
+    }
+
+    Collections.sort(list);
+    
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
       if (gen.doesTest()) {
         page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
-        gen.test(page.getFolders(), processingList.keySet());
+        gen.test(page.getFolders(), list);
       }
     }
     
-    for (String rname : page.getDefinitions().sortedResourceNames()) {
-      ResourceDefn r = page.getDefinitions().getResources().get(rname);
-      if (wantBuild(rname)) {
-        for (Example e : r.getExamples()) {
-          String n = e.getFileTitle();
-		      page.log(" ...test " + n, LogMessageType.Process);
-		      validateRoundTrip(rname, n);
-		    }
-		  }
-		}
+    for (String n : list) {
+      page.log(" ...test " + n, LogMessageType.Process);
+      validateRoundTrip(n);
+    }
 
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
@@ -4522,11 +4532,11 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void validateRoundTrip(String r, String n) throws Exception {
+  private void validateRoundTrip(String n) throws Exception {
     testSearchParameters(page.getFolders().dstDir + n + ".xml");
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
       if (gen.doesTest()) {
-        compareXml(r, n, gen.getName(), page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n + "."+gen.getName()+".xml");
+        compareXml(n, gen.getName(), page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n + "."+gen.getName()+".xml");
       }
     }
   }
@@ -4539,27 +4549,31 @@ public class Publisher implements URIResolver {
     Document xml = builder.parse(new CSFileInputStream(new CSFile(filename)));
 
     if (xml.getDocumentElement().getNodeName().equals("Bundle")) {
+      // iterating the entries running xpaths takes too long. What we're going to do 
+      // is list all the resources, and then evaluate all the paths...
+      Set<String> names = new HashSet<String>();
       Element child = XMLUtil.getFirstChild(xml.getDocumentElement());
       while (child != null) {
         if (child.getNodeName().equals("entry")) {
           Element grandchild = XMLUtil.getFirstChild(child);
           while (grandchild != null) {
             if (grandchild.getNodeName().equals("resource"))
-              testSearchParameters(XMLUtil.getFirstChild(grandchild));
+              names.add(XMLUtil.getFirstChild(grandchild).getNodeName());
             grandchild = XMLUtil.getNextSibling(grandchild);
           }
         }
         child = XMLUtil.getNextSibling(child);
       }
+      for (String name : names) 
+        testSearchParameters(xml.getDocumentElement(), name, true);
     } else {
-      testSearchParameters(xml.getDocumentElement());
+      testSearchParameters(xml.getDocumentElement(), xml.getDocumentElement().getNodeName(), false);
     }
   }
 
-  private void testSearchParameters(Element e) throws Exception {
-    ResourceDefn r = page.getDefinitions().getResourceByName(e.getNodeName());
+  private void testSearchParameters(Element e, String name, boolean inBundle) throws Exception {
+    ResourceDefn r = page.getDefinitions().getResourceByName(name);
     for (SearchParameterDefn sp : r.getSearchParams().values()) {
-
       if (sp.getXPath() != null) {
         try {
           NamespaceContext context = new NamespaceContextMap("f", "http://hl7.org/fhir", "h", "http://www.w3.org/1999/xhtml");
@@ -4567,7 +4581,7 @@ public class Publisher implements URIResolver {
           XPath xpath = factory.newXPath();
           xpath.setNamespaceContext(context);
           XPathExpression expression;
-          expression = xpath.compile("/"+sp.getXPath());
+          expression = inBundle ? xpath.compile("/f:Bundle/f:entry/f:resource/"+sp.getXPath()) : xpath.compile("/"+sp.getXPath());
           NodeList resultNodes = (NodeList) expression.evaluate(e, XPathConstants.NODESET);
           if (resultNodes.getLength() > 0)
             sp.setWorks(true);
@@ -4578,7 +4592,8 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void compareXml(String r, String t, String n, String fn1, String fn2) throws Exception {
+  private void compareXml(String t, String n, String fn1, String fn2) throws Exception {
+    page.log("    xml1", LogMessageType.Process);
     char sc = File.separatorChar;
     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
     dbf.setNamespaceAware(true);
@@ -4594,14 +4609,19 @@ public class Publisher implements URIResolver {
     Document doc2 = db.parse(new CSFile(fn2));
     doc2.normalizeDocument();
     stripWhitespaceAndComments(doc2);
+    page.log("    xml2", LogMessageType.Process);
 
     XmlGenerator xmlgen = new XmlGenerator();
     File tmp1 = Utilities.createTempFile("xml", ".xml");
     xmlgen.generate(doc1.getDocumentElement(), tmp1, doc1.getDocumentElement().getNamespaceURI(), doc1.getDocumentElement().getLocalName());
     File tmp2 = Utilities.createTempFile("xml", ".xml");
     xmlgen.generate(doc2.getDocumentElement(), tmp2, doc2.getDocumentElement().getNamespaceURI(), doc2.getDocumentElement().getLocalName());
+    page.log("    xml3", LogMessageType.Process);
 
-    if (!TextFile.fileToString(tmp1.getAbsolutePath()).equals(TextFile.fileToString(tmp2.getAbsolutePath()))) {
+    boolean ok = !TextFile.fileToString(tmp1.getAbsolutePath()).equals(TextFile.fileToString(tmp2.getAbsolutePath()));
+    page.log("    xml4", LogMessageType.Process);
+
+    if (ok) {
       page.getValidationErrors().add(
               new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, "Reference Implementation", "file " + t + " did not round trip perfectly in XML in platform " + n, IssueSeverity.WARNING));
       String diff = diffProgram != null ? diffProgram : System.getenv("ProgramFiles(X86)") + sc + "WinMerge" + sc + "WinMergeU.exe";

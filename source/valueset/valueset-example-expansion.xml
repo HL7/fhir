@@ -22,12 +22,12 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<table class="grid">
 				<tr>
-					<td colspan="3"><b>Cholesterol codes</b></td>
-				</tr>
-				<tr>
 					<td>http://loinc.org</td>
 					<td>14647-2</td>
 					<td>Cholesterol [Moles/volume] in Serum or Plasma</td>
+				</tr>
+				<tr>
+					<td colspan="3"><b>Additional Cholesterol codes</b></td>
 				</tr>
 				<tr>
 					<td>http://loinc.org</td>
@@ -133,9 +133,9 @@
 		
 		<!-- and the actual expansion -->
 		<!-- 
-		  this expansion is made as a heirarchy - two sets of codes 
-			categorised by a label. This is to help a human user navigate 
-			the list (e.g. in a picklist)
+		  this expansion is made as a heirarchy - a preferred code, followed by two 
+			sets of codes categorised by a label. This is to help a human user 
+			navigate the list (e.g. in a picklist)
 			
 			Note that the heirarchy may not have anything to do with the
 			definitions of the codes (e.g. could be divided into common and less common)
@@ -145,19 +145,19 @@
 			by the expansion service.
 		-->
 		<contains>
+			<system value="http://loinc.org"/>
+			<!-- 
+				the version can be specified for either the expansion, or
+				each individual codes. Technically, these aren't quite the same 
+				thing, but it would be pretty weird for them to differ using LOINC
+			-->
+			<version value="2.50"/>
+			<code value="14647-2"/>
+			<display value="Cholesterol [Moles/volume] in Serum or Plasma"/>
+		</contains>
+		<contains>
 		  <abstract value="true"/>
 			<display value="Cholesterol codes"/>
-			<contains>
-				<system value="http://loinc.org"/>
-				<!-- 
-					the version can be specified for either the expansion, or
-					each individual codes. Technically, these aren't quite the same 
-					thing, but it would be pretty weird for them to differ using LOINC
-				-->
-				<version value="2.50"/>
-				<code value="14647-2"/>
-				<display value="Cholesterol [Moles/volume] in Serum or Plasma"/>
-			</contains>
 			<contains>
 				<system value="http://loinc.org"/>
 				<version value="2.50"/>

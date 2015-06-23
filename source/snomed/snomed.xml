@@ -7803,6 +7803,10 @@
     <display value="Hospital-based outpatient oncology clinic"/>
     <display value="Hospital-based outpatient oncology clinic (environment)"/>
   </concept>
+  <concept id="900000000000003001" display="Fully specified name (core metadata concept)">
+    <display value="Fully specified name"/>
+    <display value="Fully specified name (core metadata concept)"/>
+  </concept>
   <concept id="901005" display="Helicopter-based care (environment)">
     <display value="Helicopter-based care"/>
     <display value="Helicopter-based care (environment)"/>
