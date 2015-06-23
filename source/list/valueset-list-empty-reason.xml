@@ -38,6 +38,11 @@
       <definition value="Information was not provided due to privacy or confidentiality concerns. Note that it should not be assumed that this means that the particular information in question was withheld due to its contents - it can also be a policy decision"/>
     </concept>
     <concept>
+      <code value="unavailable"/>
+      <display value="Unavailable"/>
+      <definition value="Information to populate this list cannot be obtained.  E.g. unconscious patient"/>
+    </concept>
+    <concept>
       <code value="notstarted"/>
       <display value="Not Started"/>
       <definition value="The work to populate this list has not yet begun"/>
