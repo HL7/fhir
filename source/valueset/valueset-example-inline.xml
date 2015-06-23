@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="example-inline"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+	</meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Value set "ACME Codes for Cholesterol": This is an example value set that includes 
+        all the  codes for serum cholesterol defined by ACME inc.</p>
+      <p>Developed by: FHIR project team (example)</p>
+      <p>Published for testing on 13-June 2012</p>
+      <p>This value set includes all the ACME codes for serum cholesterol:</p>
+			<table class="grid">
+			  <tr>
+				 <td><b>Code</b></td>
+				 <td><b>Display</b></td>
+				 <td><b>Definition</b></td>
+				</tr>
+			  <tr>
+				 <td>chol-mmol</td>
+				 <td>SChol (mmol/L)</td>
+				 <td>Serum Cholesterol, in mmol/L</td>
+				</tr>
+			  <tr>
+				 <td>chol-mass</td>
+				 <td>SChol (mg/L)</td>
+				 <td>Serum Cholesterol, in mg/L</td>
+				</tr>
+			  <tr>
+				 <td>chol</td>
+				 <td>SChol</td>
+				 <td>Serum Cholesterol</td>
+				</tr>
+			</table>
+    </div>
+  </text>
+  <!-- 
+	  for this example, we use a real URI, since this example does have a canonical address
+		at which it's posted. Alternatively, We could have used an OID, or a UUID -->
+  <url value="http://hl7.org/fhir/ValueSet/example-inline"/>
+	
+	<!-- an imaginary identifier. This is a non FHIR identifier - might be used in a 
+	  v2 context (though you always need to translate namespaces for v2) -->
+	<identifier>
+	  <system value="http://acme.com/identifiers/valuesets"/>
+		<value value="loinc-cholesterol-inl"/>
+	</identifier>
+	
+  <!-- for version, we are going to simply use the day of publication. This is also 
+    arbitrary - whatever is here is what people use to refer to the version. 
+    Could also be a UUID too -->
+  <version value="20150622"/>
+	
+  <!-- set of loinc codes for cholesterol for LONC 2.36 -->
+  <name value="ACME Codes for Cholesterol in Serum/Plasma"/>
+  <publisher value="HL7 International"/>
+  <contact>
+	  <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This is an example value set that includes all the ACME codes for serum/plasma cholesterol from v2.36"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2015-06-22"/>
+
+	<!-- 
+		This value set publishes the underlying definition of the ACME code system
+		We don't keep track of authorship etc  here - we assume that ACME has a
+		system for that. We're just representing the public face of the code 
+		system for external users
+	-->
+  <define>
+		<!--
+			note that since we give a literal URL here, there's an expectation 
+			that accessing that URL will give some form of representation of 
+			the full code system, or a pointer about how to get more infomration. 
+	
+			This is not an absolute requirement, but it may be enforced by some 
+			servers - for instance, the HL7 valueset registry will. -->
+		<system value="http://acme.com/config/fhir/codesystems/cholesterol"/>
+		<!-- version is not mandatory, but is highly recommended. Note that 
+			you should change the identify of the code system if existing codes 
+			are redefined -->
+		<version value="4.2.3"/>
+		
+		<!-- it's often unstated - are codes case sensitive or not. And 
+       it can be the cause of operational or clinical safety problems. 
+       So FHIR requires that it always be specified. -->
+		<caseSensitive value="true"/>
+		<!-- 
+			ACME's defined definitions. Note that these are not 
+			*good* definitions - but they are very commonly the kind 
+			of definitions that are encountered in production
+		-->
+		<concept>
+			<code value="chol-mmol"/>
+			<display value="SChol (mmol/L)"/>
+			<definition value="Serum Cholesterol, in mmol/L"/>
+			<designation>
+			  <use>
+          <system value="http://acme.com/config/fhir/codesystems/internal"/>
+					<code value="internal-label"/>
+				</use>
+				<value value="From ACME POC Testing"/>
+			</designation>
+		</concept>
+		<concept>
+			<code value="chol-mass"/>
+			<display value="SChol (mg/L)"/>
+			<definition value="Serum Cholesterol, in mg/L"/>
+			<designation>
+			  <use>
+          <system value="http://acme.com/config/fhir/codesystems/internal"/>
+					<code value="internal-label"/>
+				</use>
+				<value value="From Paragon Labs"/>
+			</designation>
+		</concept>
+		<concept>
+			<code value="chol"/>
+			<display value="SChol"/>
+			<definition value="Serum Cholesterol"/>
+			<designation>
+			  <use>
+          <system value="http://acme.com/config/fhir/codesystems/internal"/>
+					<code value="internal-label"/>
+				</use>
+				<value value="Obdurate Labs uses this with both kinds of units..."/>
+			</designation>
+		</concept>
+  </define>
+</ValueSet>
+				

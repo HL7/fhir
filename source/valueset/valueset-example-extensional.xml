@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="example-extensional"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+	</meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Value set "LOINC Codes for Cholesterol": This is an example value set that includes 
+        all the  codes for serum cholesterol from LOINC v2.36.</p>
+      <p>Developed by: FHIR project team (example)</p>
+      <p>Published for testing on 13-June 2012</p>
+      <p>This value set includes all the LOINC codes in LOINC Part Concept Cholesterol | Bld-Ser-Plas (LP43571-6), except for 5932-9 Cholesterol [Presence] in Blood by Test strip</p>
+      <p>This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</p>
+    </div>
+  </text>
+  <!-- 
+	  for this example, we use a real URI, since this example does have a canonical address
+		at which it's posted. Alternatively, We could have used an OID, or a UUID -->
+  <url value="http://hl7.org/fhir/ValueSet/example-extensional"/>
+	
+	<!-- an imaginary identifier. This is a non FHIR identifier - might be used in a 
+	  v2 context (though you always need to translate namespaces for v2) -->
+	<identifier>
+	  <system value="http://acme.com/identifiers/valuesets"/>
+		<value value="loinc-cholesterol-ext"/>
+	</identifier>
+	
+  <!-- for version, we are going to simply use the day of publication. This is also 
+    arbitrary - whatever is here is what people use to refer to the version. 
+    Could also be a UUID too -->
+  <version value="20150622"/>
+	
+  <!-- set of loinc codes for cholesterol for LONC 2.36 -->
+  <name value="LOINC Codes for Cholesterol in Serum/Plasma"/>
+  <publisher value="HL7 International"/>
+  <contact>
+	  <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36"/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2015-06-22"/>
+
+  <!-- 
+	  in extensional value sets, it's often done
+    not to specify a locked date, or a version of the
+		code system - we're saying, whatever are the right
+		codes in the version you are using 
+	-->
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+			<!--
+        instead of listing the codes (see the intensional example)
+			  we do something else: all codes in LOINC part LP43571-6
+				
+				Doing it like this means we can't change the displays (per the 
+				intensional example). 
+				
+				-->
+			<filter>
+			  <property value="parent"/>
+				<op value="="/>
+				<value value="LP43571-6"/>
+			</filter>	
+    </include>
+		
+		<!--
+  		The part LP43571-6 includes the weird code 
+		  5932-9 Cholesterol [Presence] in Blood by Test strip 
+			- we don't want that one. no. 
+		-->
+		<exclude>
+      <system value="http://loinc.org"/>
+			<concept>
+			  <code value="5932-9"/>
+				<display value="Cholesterol [Presence] in Blood by Test strip"/>
+			</concept>	
+		</exclude>
+  </compose>
+</ValueSet>
+				
