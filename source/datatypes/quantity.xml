@@ -4289,8 +4289,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Money</Data></Cell>
     <Cell><Data ss:Type="String">An amount of money. With regard to precision, see [[X]]</Data></Cell>
-    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = &quot;urn:std:iso:4217&quot; - currency).</Data></Cell>
-    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:std:iso:4217')</Data></Cell>
+    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = &quot;urn:iso:std:iso:4217&quot; - currency).</Data></Cell>
+    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:iso:std:iso:4217')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">CodedQuantity</Data></Cell>

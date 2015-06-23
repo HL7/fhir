@@ -73,12 +73,12 @@
    <serviceDate value="2014-08-16"/>
    <unitPrice>
       <value value="135.57"/>
-      <system value="urn:std:iso:4217"/>
+      <system value="urn:iso:std:iso:4217"/>
       <code value="USD"/> 
    </unitPrice> 
    <net>
       <value value="135.57"/>
-      <system value="urn:std:iso:4217"/>
+      <system value="urn:iso:std:iso:4217"/>
       <code value="USD"/> 
    </net> 
   </item>

@@ -79,12 +79,12 @@
 				<type>
           <text value="Global Medical Device Nomenclature"/>
         </type>
-				<system value="urn:std:iso:11073:10101"/>
+				<system value="urn:iso:std:iso:11073:10101"/>
 				<value value="2000"/>
 			</identifier>
 			<type>
 				<coding>
-					<system value="urn:std:iso:11073:10101"/> 
+					<system value="urn:iso:std:iso:11073:10101"/> 
 					<code value="2000"/>
 					<display value = "MDC_DEV_ANALY_SAT_O2_MDS"/>
 				</coding>
@@ -96,7 +96,7 @@
 	
 	<type>
 		<coding>
-			<system value="urn:std:iso:11073:10101"/> 
+			<system value="urn:iso:std:iso:11073:10101"/> 
 			<code value="2000"/>
 			<display value = "MDC_DEV_ANALY_SAT_O2_MDS"/>
 		</coding>
@@ -111,7 +111,7 @@
 	</source>	
 	<operationalStatus>
 		<coding>
-			<system value="urn:std:iso:11073:10101"/> 
+			<system value="urn:iso:std:iso:11073:10101"/> 
 			<code value = "0"/>
 			<display value = "disconnected"/>
 		</coding>

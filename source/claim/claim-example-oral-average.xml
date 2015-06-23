@@ -73,12 +73,12 @@
    <serviceDate value="2014-08-16"/>
    <unitPrice>
      <value value="135.57"/>
-     <system value="urn:std:iso:4217"/>
+     <system value="urn:iso:std:iso:4217"/>
      <code value="USD"/> 
    </unitPrice> 
    <net>
      <value value="135.57"/>
-     <system value="urn:std:iso:4217"/>
+     <system value="urn:iso:std:iso:4217"/>
      <code value="USD"/> 
    </net> 
   </item>
@@ -98,12 +98,12 @@
    <serviceDate value="2014-08-16"/>
    <unitPrice>
      <value value="105.00"/>
-     <system value="urn:std:iso:4217"/>
+     <system value="urn:iso:std:iso:4217"/>
      <code value="USD"/> 
    </unitPrice> 
    <net>
      <value value="105.00"/>
-     <system value="urn:std:iso:4217"/>
+     <system value="urn:iso:std:iso:4217"/>
      <code value="USD"/> 
    </net> 
    <bodySite>
@@ -131,12 +131,12 @@
    <serviceDate value="2014-08-16"/>
    <unitPrice>
      <value value="1100.00"/>
-     <system value="urn:std:iso:4217"/>
+     <system value="urn:iso:std:iso:4217"/>
      <code value="USD"/> 
    </unitPrice> 
    <net>
      <value value="1100.00"/>
-     <system value="urn:std:iso:4217"/>
+     <system value="urn:iso:std:iso:4217"/>
      <code value="USD"/> 
    </net> 
    <bodySite>
@@ -154,12 +154,12 @@
      </service>
      <unitPrice>
        <value value="750.00"/>
-       <system value="urn:std:iso:4217"/>
+       <system value="urn:iso:std:iso:4217"/>
        <code value="USD"/> 
      </unitPrice> 
      <net>
        <value value="750.00"/>
-       <system value="urn:std:iso:4217"/>
+       <system value="urn:iso:std:iso:4217"/>
        <code value="USD"/> 
      </net> 
    </detail>
@@ -174,12 +174,12 @@
      </service>
      <unitPrice>
        <value value="350.00"/>
-       <system value="urn:std:iso:4217"/>
+       <system value="urn:iso:std:iso:4217"/>
        <code value="USD"/> 
      </unitPrice> 
      <net>
        <value value="350.00"/>
-       <system value="urn:std:iso:4217"/>
+       <system value="urn:iso:std:iso:4217"/>
        <code value="USD"/> 
      </net> 
    </detail>

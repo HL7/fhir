@@ -47,7 +47,7 @@
 	 </code>
 	 <amount>
  	    <value value="135.57"/>
-		<system value="urn:std:iso:4217"/>
+		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/>
 	 </amount>
    </adjudication>
@@ -58,7 +58,7 @@
 	 </code>
 	 <amount>
 	    <value value="10.00"/>
-		<system value="urn:std:iso:4217"/>
+		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/>
 	 </amount>  
    </adjudication>
@@ -76,7 +76,7 @@
 	 </code>
 	 <amount>
   	    <value value="100.47"/>
-		<system value="urn:std:iso:4217"/>
+		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/>
 	 </amount>	
    </adjudication>
@@ -85,13 +85,13 @@
 
  <totalCost>
 	<value value="135.57"/>
-	<system value="urn:std:iso:4217"/>
+	<system value="urn:iso:std:iso:4217"/>
 	<code value="USD"/>
  </totalCost>	
  
  <totalBenefit>
 	<value value="100.47"/>
-	<system value="urn:std:iso:4217"/>
+	<system value="urn:iso:std:iso:4217"/>
 	<code value="USD"/>
  </totalBenefit>
 
@@ -101,7 +101,7 @@
  
  <paymentAmount>
 	<value value="100.47"/>
-	<system value="urn:std:iso:4217"/>
+	<system value="urn:iso:std:iso:4217"/>
 	<code value="USD"/>
  </paymentAmount>	
  

@@ -40,7 +40,7 @@
 	<date value="2014-08-16"/>
 	<amount>
 		<value value="1000.00"/>
-		<system value="urn:std:iso:4217"/>
+		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/>
 	</amount>   
   </detail>
@@ -56,7 +56,7 @@
 	<date value="2014-08-12"/>
 	<amount>
 		<value value="4000.00"/>
-		<system value="urn:std:iso:4217"/>
+		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/>
 	</amount>   
   </detail>
@@ -69,14 +69,14 @@
 	<date value="2014-08-16"/>
 	<amount>
 		<value value="-1500.00"/>
-		<system value="urn:std:iso:4217"/>
+		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/>
 	</amount>   
   </detail>
   
   <total>
 	<value value="3500.00"/>
-	<system value="urn:std:iso:4217"/>
+	<system value="urn:iso:std:iso:4217"/>
 	<code value="USD"/>
   </total>  
  
