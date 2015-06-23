@@ -4354,7 +4354,7 @@ public class Publisher implements URIResolver {
     }
     
     if (buildFlags.get("all")) {
-//      list.add("profiles-resources");
+      list.add("profiles-resources");
 //      list.add("profiles-types");
 //      list.add("profiles-others");
 //      list.add("search-parameters");
