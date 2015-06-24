@@ -25,6 +25,9 @@
 				<code value="88480006"/>
 				<display value="Potassium"/>
 			</concept>
+		</include>
+		<include>
+		<system value="http://snomed.info/sct"/>
 			<filter>
 				<!--SNOMED CT - Children of SCTID: 226355009 "Nutrients (substance)"-->
 				<property value="concept"/>
