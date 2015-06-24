@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <version value="0.01"/>
+    <name value="HSPC Gestational Age at Birth Meas Method Device"/>
+    <immutable value="true"/>
+    <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <description value="SELECT SNOMED CT code system values and LOINC system code values."/>
+    <copyright value="TBD"/>
+    <status value="draft"/>
+    <extensible value="true"/>
+    <date value="2015-02-09"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+				<code value="21840007"/>
+				<display value="date of last menstrual period"/>
+			</concept>
+            <concept>
+				<code value="248986005"/>
+				<display value="estimated date of conception"/>
+			</concept>
+            <concept>
+				<code value="16310003"/>
+				<display value="ultrasound"/>
+			</concept>
+            <concept>
+				<code value="34536000"/>
+				<display value="amniocentesis"/>
+			</concept>
+        </include>
+        <include>
+			<system value="http://loinc.org"/>
+			<concept>
+				<code value="11881-0"/>
+				<display value="Uterus Fundal height Tape measure"/>
+			</concept>
+			<concept>
+				<code value="11850-5"/>
+				<display value="Gestational sac Mean diameter US"/>
+			</concept>
+			<concept>
+				<code value="11957-8"/>
+				<display value="Fetal Crown Rump length US"/>
+			</concept>
+			<concept>
+				<code value="11820-8"/>
+				<display value="Fetal Head Diameter.biparietal US"/>
+			</concept>
+			<concept>
+				<code value="11963-6"/>
+				<display value="Fetal Femur diaphysis [Length] US"/>
+			</concept>
+			<concept>
+				<code value="11979-2"/>
+				<display value="Fetal Abdomen Circumference US"/>
+			</concept>
+			<concept>
+				<code value="11984-2"/>
+				<display value="Fetal Head Circumference US"/>
+			</concept>
+		</include>
+    </compose>
+</ValueSet>
