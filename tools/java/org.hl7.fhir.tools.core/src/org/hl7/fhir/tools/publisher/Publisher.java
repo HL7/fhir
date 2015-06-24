@@ -4362,8 +4362,8 @@ public class Publisher implements URIResolver {
       list.add("extension-definitions");
 //      list.add("valuesets");
       list.add("conceptmaps");
-      list.add("v2-tables");
-      list.add("v3-codesystems");
+//      list.add("v2-tables");
+//      list.add("v3-codesystems");
     }
 
     Collections.sort(list);
