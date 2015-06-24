@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jun 21, 2015 12:43+1000 for FHIR v0.5.0
+// Generated on Wed, Jun 24, 2015 09:17+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1212,12 +1212,16 @@ public class Provenance extends DomainResource {
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="start", path="Provenance.period.start", description="Starting time with inclusive boundary", type="date" )
   public static final String SP_START = "start";
+  @SearchParamDefinition(name="entity", path="Provenance.entity.type", description="Entity Type", type="token" )
+  public static final String SP_ENTITY = "entity";
   @SearchParamDefinition(name="partytype", path="Provenance.agent.type", description="Agent Type", type="token" )
   public static final String SP_PARTYTYPE = "partytype";
   @SearchParamDefinition(name="target", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
   public static final String SP_TARGET = "target";
   @SearchParamDefinition(name="party", path="Provenance.agent.reference[x]", description="Identity of agent", type="reference" )
   public static final String SP_PARTY = "party";
+  @SearchParamDefinition(name="entitytype", path="Provenance.entity.reference", description="Identity of entity", type="uri" )
+  public static final String SP_ENTITYTYPE = "entitytype";
   @SearchParamDefinition(name="end", path="Provenance.period.end", description="End time with inclusive boundary, if not ongoing", type="date" )
   public static final String SP_END = "end";
 

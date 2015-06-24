@@ -1654,7 +1654,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private boolean isAbsolute(String uri) {
     return Utilities.noString(uri) || uri.startsWith("http:") || uri.startsWith("https:") || uri.startsWith("urn:uuid:") || uri.startsWith("urn:oid:") || 
-        uri.startsWith("urn:ietf:") || uri.startsWith("urn:iso:") || uri.startsWith("urn:std:");
+        uri.startsWith("urn:ietf:") || uri.startsWith("urn:iso:");
   }
   
   private void checkIdentifier(String path, Element element, ElementDefinition context) {

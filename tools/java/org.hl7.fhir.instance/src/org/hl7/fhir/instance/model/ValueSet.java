@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jun 21, 2015 12:43+1000 for FHIR v0.5.0
+// Generated on Wed, Jun 24, 2015 09:17+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -128,12 +128,12 @@ public class ValueSet extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case EQUAL: return " ";
-            case ISA: return "Is A";
-            case ISNOTA: return "Is Not A";
-            case REGEX: return "Regex";
-            case IN: return "In";
-            case NOTIN: return "Not In";
+            case EQUAL: return "Equals";
+            case ISA: return "Is A (by subsumption)";
+            case ISNOTA: return "Not (Is A) (by subsumption)";
+            case REGEX: return "Regular Expression";
+            case IN: return "In Set";
+            case NOTIN: return "Not in Set";
             default: return "?";
           }
         }

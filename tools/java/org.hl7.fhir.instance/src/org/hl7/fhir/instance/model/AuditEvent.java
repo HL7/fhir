@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jun 21, 2015 12:43+1000 for FHIR v0.5.0
+// Generated on Wed, Jun 24, 2015 09:17+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -332,11 +332,11 @@ public class AuditEvent extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case _1: return " ";
-            case _2: return " ";
-            case _3: return " ";
-            case _4: return " ";
-            case _5: return " ";
+            case _1: return "Machine Name";
+            case _2: return "IP Address";
+            case _3: return "Telephone Number";
+            case _4: return "Email address";
+            case _5: return "URI";
             default: return "?";
           }
         }
@@ -437,10 +437,10 @@ public class AuditEvent extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case _1: return " ";
-            case _2: return " ";
-            case _3: return " ";
-            case _4: return " ";
+            case _1: return "Person";
+            case _2: return "System Object";
+            case _3: return "Organization";
+            case _4: return "Other";
             default: return "?";
           }
         }
@@ -1016,21 +1016,21 @@ public class AuditEvent extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case _1: return " ";
-            case _2: return " ";
-            case _3: return " ";
-            case _4: return " ";
-            case _5: return " ";
-            case _6: return " ";
-            case _7: return " ";
-            case _8: return " ";
-            case _9: return " ";
-            case _10: return "  ";
-            case _11: return "  ";
-            case _12: return "  ";
-            case _13: return "  ";
-            case _14: return "  ";
-            case _15: return "  ";
+            case _1: return "Origination / Creation";
+            case _2: return "Import / Copy from original";
+            case _3: return "Amendment";
+            case _4: return "Verification";
+            case _5: return "Translation";
+            case _6: return "Access / Use";
+            case _7: return "De-identification";
+            case _8: return "Aggregation, summarization, derivation";
+            case _9: return "Report";
+            case _10: return "Export / Copy to target";
+            case _11: return "Disclosure";
+            case _12: return "Receipt of disclosure";
+            case _13: return "Archiving";
+            case _14: return "Logical deletion";
+            case _15: return "Permanent erasure / Physical destruction";
             default: return "?";
           }
         }

@@ -2558,6 +2558,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     tr.addTag("td").addTag("b").addText("Name");
     tr.addTag("td").addTag("b").addText("Cardinality");
     tr.addTag("td").addTag("b").addText("Type");
+    tr.addTag("td").addTag("b").addText("Binding");
     tr.addTag("td").addTag("b").addText("Documentation");
     for (OperationDefinitionParameterComponent p : opd.getParameter()) {
       genOpParam(tbl, "", p);
@@ -2573,6 +2574,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
 		tr.addTag("td").addText(path+p.getName());
 		tr.addTag("td").addText(Integer.toString(p.getMin())+".."+p.getMax());
 		tr.addTag("td").addText(p.hasType() ? p.getType() : "");
+      XhtmlNode td = tr.addTag("td");
+      if (p.hasBinding() && p.getBinding().hasValueSet()) {
+        if (p.getBinding().getValueSet() instanceof Reference)
+          AddVsRef(p.getBinding().getValueSetReference().getReference(), td);
+        else
+          td.addTag("a").setAttribute("href", p.getBinding().getValueSetUriType().getValue()).addText("External Reference");
+        td.addText(" ("+p.getBinding().getStrength().getDisplay()+")");
+      }
 		addMarkdown(tr.addTag("td"), p.getDocumentation());
 		if (!p.hasType()) {
 			for (OperationDefinitionParameterComponent pp : p.getPart()) {
