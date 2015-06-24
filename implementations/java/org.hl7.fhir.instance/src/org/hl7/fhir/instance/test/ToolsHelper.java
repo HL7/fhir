@@ -71,9 +71,9 @@ public class ToolsHelper {
         throw new Exception("Missing Command Parameter. Valid Commands: round, json, version, fragments, snapshot-maker");
       if (args[0].equals("round")) 
         self.executeRoundTrip(args);
-      if (args[0].equals("test")) 
+      else if (args[0].equals("test")) 
         self.executeTest(args);
-      if (args[0].equals("examples")) 
+      else if (args[0].equals("examples")) 
         self.executeExamples(args);
       else if (args[0].equals("json")) 
         self.executeJson(args);
@@ -86,7 +86,7 @@ public class ToolsHelper {
       else if (args[0].equals("snapshot-maker")) 
         self.generateSnapshots(args);
       else 
-        throw new Exception("Unknown command '"+args[0]+"'. Valid Commands: round, json, version, fragments, snapshot-maker");
+        throw new Exception("Unknown command '"+args[0]+"'. Valid Commands: round, test, examples, json, cxml, version, fragments, snapshot-maker");
     } catch (Throwable e) {
       try {
         e.printStackTrace();
