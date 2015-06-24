@@ -92,7 +92,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     public Boolean doCompile;  
   }
 
-  private static final boolean IN_PROCESS = true;
+  private static final boolean IN_PROCESS = false;
   
   private FolderManager folders;
   private String javaDir;

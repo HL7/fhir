@@ -4341,39 +4341,36 @@ public class Publisher implements URIResolver {
   private void roundTrip() throws Exception {
     page.log("Reference Platform Validation", LogMessageType.Process);
 
+    page.log("Round Trip #1", LogMessageType.Process);
     List<String> list = new ArrayList<String>();
     
-    for (String rname : page.getDefinitions().sortedResourceNames()) {
-      ResourceDefn r = page.getDefinitions().getResources().get(rname);
-      if (wantBuild(rname)) {
-        for (Example e : r.getExamples()) {
-          String n = e.getFileTitle();
-          list.add(n);
-        }
-      }
-    }
-    
-    if (buildFlags.get("all")) {
-      list.add("profiles-resources");
-      list.add("profiles-types");
-      list.add("profiles-others");
-      
-      list.add("search-parameters");
-      list.add("extension-definitions");
-//      list.add("valuesets");
-//      list.add("conceptmaps");
-//      list.add("v2-tables");
-//      list.add("v3-codesystems");
-    }
-
+    listExamples(list);
     Collections.sort(list);
-    
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
       if (gen.doesTest()) {
         page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
         gen.test(page.getFolders(), list);
       }
     }
+    
+    page.log("Round Trip #2", LogMessageType.Process);
+    if (buildFlags.get("all")) {
+      list = new ArrayList<String>();
+      listCollections(list);
+    }
+   
+    for (PlatformGenerator gen : page.getReferenceImplementations()) {
+      if (gen.doesTest()) {
+        page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
+        gen.test(page.getFolders(), list);
+      }
+    }
+
+    list = new ArrayList<String>();
+    
+    listExamples(list);
+    listCollections(list);
+    Collections.sort(list);
     
     for (String n : list) {
       page.log(" ...test " + n, LogMessageType.Process);
@@ -4389,6 +4386,30 @@ public class Publisher implements URIResolver {
           //              LogMessageType.Warning);
           page.getValidationErrors().add(
               new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, rn + "." + sp.getCode(), "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")", IssueSeverity.WARNING));
+        }
+      }
+    }
+  }
+
+  private void listCollections(List<String> list) {
+    list.add("profiles-types");
+    list.add("profiles-resources");
+    list.add("profiles-others");
+    list.add("extension-definitions");
+    list.add("search-parameters");
+    list.add("v2-tables");
+    list.add("v3-codesystems");
+    list.add("valuesets");
+    list.add("conceptmaps");
+  }
+
+  private void listExamples(List<String> list) {
+    for (String rname : page.getDefinitions().sortedResourceNames()) {
+      ResourceDefn r = page.getDefinitions().getResources().get(rname);
+      if (wantBuild(rname)) {
+        for (Example e : r.getExamples()) {
+          String n = e.getFileTitle();
+          list.add(n);
         }
       }
     }
