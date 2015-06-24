@@ -526,7 +526,7 @@ public class SpreadsheetParser {
 			String s = sheet.getColumn(row, "Id");
 			if (!s.startsWith("!")) {
 			  inv.setId(s.contains("-") ? s : getAbbreviationFor(id)+"-"+s);
-			  inv.setName(sheet.getColumn(row, "Name"));
+			  inv.setRequirements(sheet.getColumn(row, "Requirements"));
 			  inv.setContext(sheet.getColumn(row, "Context"));
 			  inv.setEnglish(sheet.getColumn(row, "English"));
 			  inv.setXpath(sheet.getColumn(row, "XPath"));

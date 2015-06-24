@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 13:10+1000 for FHIR v0.5.0
+// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -895,11 +895,11 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected IdType key;
 
         /**
-         * Used to label the constraint in OCL or in short displays incapable of displaying the full human description.
+         * Description of why this constraint is necessary or appropriate.
          */
-        @Child(name = "name", type = {StringType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Short human label", formalDefinition="Used to label the constraint in OCL or in short displays incapable of displaying the full human description." )
-        protected StringType name;
+        @Child(name = "requirements", type = {StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Why this constraint necessary or appropriate", formalDefinition="Description of why this constraint is necessary or appropriate." )
+        protected StringType requirements;
 
         /**
          * Identifies the impact constraint violation has on the conformance of the instance.
@@ -922,7 +922,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         @Description(shortDefinition="XPath expression of constraint", formalDefinition="An XPath expression of constraint that can be executed to see if this constraint is met." )
         protected StringType xpath;
 
-        private static final long serialVersionUID = -1195616532L;
+        private static final long serialVersionUID = 854521265L;
 
     /*
      * Constructor
@@ -988,50 +988,50 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #name} (Used to label the constraint in OCL or in short displays incapable of displaying the full human description.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #requirements} (Description of why this constraint is necessary or appropriate.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
          */
-        public StringType getNameElement() { 
-          if (this.name == null)
+        public StringType getRequirementsElement() { 
+          if (this.requirements == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.name");
+              throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.requirements");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType(); // bb
-          return this.name;
+              this.requirements = new StringType(); // bb
+          return this.requirements;
         }
 
-        public boolean hasNameElement() { 
-          return this.name != null && !this.name.isEmpty();
+        public boolean hasRequirementsElement() { 
+          return this.requirements != null && !this.requirements.isEmpty();
         }
 
-        public boolean hasName() { 
-          return this.name != null && !this.name.isEmpty();
+        public boolean hasRequirements() { 
+          return this.requirements != null && !this.requirements.isEmpty();
         }
 
         /**
-         * @param value {@link #name} (Used to label the constraint in OCL or in short displays incapable of displaying the full human description.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #requirements} (Description of why this constraint is necessary or appropriate.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
          */
-        public ElementDefinitionConstraintComponent setNameElement(StringType value) { 
-          this.name = value;
+        public ElementDefinitionConstraintComponent setRequirementsElement(StringType value) { 
+          this.requirements = value;
           return this;
         }
 
         /**
-         * @return Used to label the constraint in OCL or in short displays incapable of displaying the full human description.
+         * @return Description of why this constraint is necessary or appropriate.
          */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
+        public String getRequirements() { 
+          return this.requirements == null ? null : this.requirements.getValue();
         }
 
         /**
-         * @param value Used to label the constraint in OCL or in short displays incapable of displaying the full human description.
+         * @param value Description of why this constraint is necessary or appropriate.
          */
-        public ElementDefinitionConstraintComponent setName(String value) { 
+        public ElementDefinitionConstraintComponent setRequirements(String value) { 
           if (Utilities.noString(value))
-            this.name = null;
+            this.requirements = null;
           else {
-            if (this.name == null)
-              this.name = new StringType();
-            this.name.setValue(value);
+            if (this.requirements == null)
+              this.requirements = new StringType();
+            this.requirements.setValue(value);
           }
           return this;
         }
@@ -1174,7 +1174,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("key", "id", "Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.", 0, java.lang.Integer.MAX_VALUE, key));
-          childrenList.add(new Property("name", "string", "Used to label the constraint in OCL or in short displays incapable of displaying the full human description.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("requirements", "string", "Description of why this constraint is necessary or appropriate.", 0, java.lang.Integer.MAX_VALUE, requirements));
           childrenList.add(new Property("severity", "code", "Identifies the impact constraint violation has on the conformance of the instance.", 0, java.lang.Integer.MAX_VALUE, severity));
           childrenList.add(new Property("human", "string", "Text that can be used to describe the constraint in messages identifying that the constraint has been violated.", 0, java.lang.Integer.MAX_VALUE, human));
           childrenList.add(new Property("xpath", "string", "An XPath expression of constraint that can be executed to see if this constraint is met.", 0, java.lang.Integer.MAX_VALUE, xpath));
@@ -1184,7 +1184,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         ElementDefinitionConstraintComponent dst = new ElementDefinitionConstraintComponent();
         copyValues(dst);
         dst.key = key == null ? null : key.copy();
-        dst.name = name == null ? null : name.copy();
+        dst.requirements = requirements == null ? null : requirements.copy();
         dst.severity = severity == null ? null : severity.copy();
         dst.human = human == null ? null : human.copy();
         dst.xpath = xpath == null ? null : xpath.copy();
@@ -1198,7 +1198,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other instanceof ElementDefinitionConstraintComponent))
           return false;
         ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
-        return compareDeep(key, o.key, true) && compareDeep(name, o.name, true) && compareDeep(severity, o.severity, true)
+        return compareDeep(key, o.key, true) && compareDeep(requirements, o.requirements, true) && compareDeep(severity, o.severity, true)
            && compareDeep(human, o.human, true) && compareDeep(xpath, o.xpath, true);
       }
 
@@ -1209,12 +1209,12 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other instanceof ElementDefinitionConstraintComponent))
           return false;
         ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
-        return compareValues(key, o.key, true) && compareValues(name, o.name, true) && compareValues(severity, o.severity, true)
+        return compareValues(key, o.key, true) && compareValues(requirements, o.requirements, true) && compareValues(severity, o.severity, true)
            && compareValues(human, o.human, true) && compareValues(xpath, o.xpath, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (key == null || key.isEmpty()) && (name == null || name.isEmpty())
+        return super.isEmpty() && (key == null || key.isEmpty()) && (requirements == null || requirements.isEmpty())
            && (severity == null || severity.isEmpty()) && (human == null || human.isEmpty()) && (xpath == null || xpath.isEmpty())
           ;
       }

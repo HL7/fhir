@@ -350,7 +350,7 @@ public class CompositeTypeConverter {
 		// In the old model, Id was actually a short identifying name
 		// and Name contained a short description.
 		result.setName(invariant.getId());
-		result.setDescription(Utilities.cleanupTextString(invariant.getName()));
+		result.setDescription(Utilities.cleanupTextString(invariant.getRequirements()));
 		result.setHuman(Utilities.cleanupTextString(invariant.getEnglish()));
 		result.setOcl(Utilities.cleanupTextString(invariant.getOcl()));
 		result.setXpath(Utilities.cleanupTextString(invariant.getXpath()));

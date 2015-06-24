@@ -374,7 +374,7 @@ public class ProfileGenerator {
       throw new Exception("There is no TLA for '"+pt.getName()+"' in fhir.ini");
     ElementDefinitionConstraintComponent inv = new ElementDefinitionConstraintComponent();
     inv.setKey(s+"-1");
-    inv.setName(pt.getInvariant().getName());
+    inv.setRequirements(pt.getInvariant().getRequirements());
     inv.setSeverity(ConstraintSeverity.ERROR);
     inv.setHuman(pt.getInvariant().getEnglish());
     inv.setXpath(pt.getInvariant().getXpath());
@@ -832,7 +832,7 @@ public class ProfileGenerator {
       ElementDefinitionConstraintComponent con = new ElementDefinitionConstraintComponent();
       Invariant inv = e.getInvariants().get(in);
       con.setKey(inv.getId());
-      con.setName(inv.getName());
+      con.setRequirements(inv.getRequirements());
       if (Utilities.noString(inv.getSeverity()))
         con.setSeverity(ConstraintSeverity.ERROR);
       else
