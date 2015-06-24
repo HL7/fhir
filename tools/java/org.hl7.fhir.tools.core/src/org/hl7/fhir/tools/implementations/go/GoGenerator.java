@@ -109,14 +109,14 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         }
 
         String genericControllerTemplate = TextFile.fileToString(Utilities.path(basedDir, "templates", "generic_controller.go.st"));
-        String genericBundleTemplate = TextFile.fileToString(Utilities.path(basedDir, "templates", "generic_bundle.go.st"));
+        String genericModelAppendixTemplate = TextFile.fileToString(Utilities.path(basedDir, "templates", "generic_model_appendix.go.st"));
 
         Map<String, ResourceDefn> namesAndDefinitions = definitions.getResources();
         generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
 
         for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
-            generateMgoModel(entry.getKey(), dirs.get("modelDir"), definitions, "time");
-            generateBundleStructs(entry.getKey(), dirs.get("modelDir"), genericBundleTemplate);
+            generateMgoModel(entry.getKey(), dirs.get("modelDir"), definitions, "encoding/json", "time");
+            generateModelAppendix(entry.getKey(), dirs.get("modelDir"), genericModelAppendixTemplate);
             generateGoController(entry.getKey(), entry.getValue(), dirs.get("serverDir"), genericControllerTemplate);
         }
 
@@ -145,7 +145,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         model.generate();
     }
 
-    private void generateBundleStructs(String name, String modelDir, String genericBundleTemplate) throws IOException {
+    private void generateModelAppendix(String name, String modelDir, String genericBundleTemplate) throws IOException {
         File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
         ST bundleTemplate = new ST(genericBundleTemplate);
 

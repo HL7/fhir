@@ -22,3 +22,14 @@ type <ModelName>Category struct {
 	Label  string	`json:"label,omitempty"`
 	Scheme string	`json:"scheme,omitempty"`
 }
+
+func (resource *<ModelName>) MarshalJSON() ([]byte, error) {
+	x := struct {
+		ResourceType string `json:"resourceType"`
+		<ModelName>
+	}{
+		ResourceType: "<ModelName>",
+		<ModelName>:  *resource,
+	}
+	return json.Marshal(x)
+}

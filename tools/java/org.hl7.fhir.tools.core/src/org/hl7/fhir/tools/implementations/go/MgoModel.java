@@ -213,6 +213,7 @@ public class MgoModel {
 
     private void generateComponentStruct(GenBlock block, ElementDefn elementDefinition) {
         if(isComponent(elementDefinition)) {
+            block.ln();
             block.bs(String.format("type %s struct {", getComponentStructName(elementDefinition)));
             for (ElementDefn nestedElement : elementDefinition.getElements()) {
                 generateFields(block, nestedElement);
