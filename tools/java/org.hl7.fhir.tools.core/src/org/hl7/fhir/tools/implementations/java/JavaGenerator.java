@@ -867,6 +867,7 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
         file.delete();
       List<String> command = new ArrayList<String>();
       command.add("java");
+      command.add("-Xmx2G");
       command.add("-jar");
       command.add("org.hl7.fhir.tools.jar");
       command.add("test");
