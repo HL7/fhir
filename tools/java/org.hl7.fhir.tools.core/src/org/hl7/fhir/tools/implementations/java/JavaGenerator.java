@@ -727,7 +727,7 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
     // for debugging: do it in process
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
-      t.processExamples(folders.rootDir, names);
+      t.processExamples(folders.dstDir, names);
     } else {
       StringBuilder b = new StringBuilder();
       b.append(folders.dstDir);
