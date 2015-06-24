@@ -4357,9 +4357,10 @@ public class Publisher implements URIResolver {
       list.add("profiles-resources");
       list.add("profiles-types");
       list.add("profiles-others");
-//      list.add("search-parameters");
-//      list.add("extension-definitions");
-//      list.add("valuesets");
+      
+      list.add("search-parameters");
+      list.add("extension-definitions");
+      list.add("valuesets");
 //      list.add("conceptmaps");
 //      list.add("v2-tables");
 //      list.add("v3-codesystems");
