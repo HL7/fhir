@@ -1122,6 +1122,274 @@ of <a href="auditevent.html">Audit Event</a> resources
 auditing the search itself.
 </p>
 
+<a name="table"> </a>
+<h3>Summary Tables</h3>
+
+<p>
+Common Parameters defined for all resources:
+</p>
+<table class="list">
+<tbody><tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>
+<tr><td><a href="#id">_id</a></td><td><a href="#string">string</a></td><td>Resource id (not a full URL)</td><td>Resource.id</td></tr>
+<tr><td><a href="#lastUpdated">_lastUpdated</a></td><td><a href="#date">date</a></td><td>Date last updated. Server has discretion on the boundary precision</td><td>Resource.meta.lastUpdated</td></tr>
+<tr><td><a href="#tag">_tag</a></td><td><a href="#token">token</a></td><td>Search by a resource tag</td><td>Resource.meta.tag</td></tr>
+<tr><td><a href="#profile">_profile</a></td><td><a href="#uri">uri</a></td><td>Search for all resources tagged with a profile</td><td>Resource.meta.profile</td></tr>
+<tr><td><a href="#security">_security</a></td><td><a href="#token">token</a></td><td>Search by a security label</td><td>Resource.meta.security</td></tr>
+<tr><td><a href="#text">_text</a></td><td><a href="#string">string</a></td><td>Text search against the narrative</td><td></td></tr>
+<tr><td><a href="#content">_content</a></td><td><a href="#string">string</a></td><td>Text search against the entire resource</td><td></td></tr>
+<tr><td><a href="#list">_list</a></td><td><a href="#string">string</a></td><td>All resources in nominated list (by id, not a full URL)</td><td></td></tr>
+<tr><td><a href="#query">_query</a></td><td><a href="#string">string</a></td><td>Custom named query</td><td></td></tr>
+</tbody></table>
+<p>
+Search Control Parameters:
+</p>
+<table class="list">
+<tbody><tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Allowable Content</b></td></tr>
+<tr><td><a href="#sort">_sort</a></td><td><a href="#string">string</a></td><td>Order to sort results in (can repeat for inner sort orders)</td><td>The name of a valid search parameter</td></tr>
+<tr><td><a href="#count">_count</a></td><td><a href="#number ">number </a></td><td>Number of results per page</td><td>Whole Number</td></tr>
+<tr><td><a href="#include">_include</a></td><td><a href="#string">string</a></td><td>Other resources to include in the search results that search matches point to</td><td>SourceType:searchParam(:targetType)</td></tr>
+<tr><td><a href="#revinclude">_revinclude</a></td><td><a href="#string">string</a></td><td>Other resources to include in the search results when they refer to search matches</td><td>SourceType:searchParam(:targetType)</td></tr>
+<tr><td><a href="#summary">_summary</a></td><td><a href="#string">string</a></td><td>Just return the summary elements (for resources where this is defined)</td><td>true | false (false is default)</td></tr>
+<tr><td><a href="#contained">_contained</a></td><td><a href="#string">string</a></td><td>Whether to return resources contained in other resources in the search matches</td><td>true | false | both (false is default)</td></tr>
+<tr><td><a href="#containedType">_containedType</a></td><td><a href="#string">string</a></td><td>If returning contained resources, whether to return the contained or container resources</td><td>container | contained</td></tr>
+</tbody></table>
+
+<p>
+Cross-map between search parameter types and Data types:
+</p>
+<table class="list">
+ <tr>
+  <td><b>Data Type</b></td>
+  <td><b><a href="#number">Number</a></b></td>
+  <td><b><a href="#date">Date/DateTime</a></b></td>
+  <td><b><a href="#string">String</a></b></td>
+  <td><b><a href="#token">Token</a></b></td>
+  <td><b><a href="#reference">Reference</a></b></td>
+  <td><b><a href="#quantity">Quantity</a></b></td>
+  <td><b><a href="#uri">URI</a></b></td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#boolean">boolean</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td>Y. true|false (System = http://hl7.org/fhir/special-values but not usually needed)</td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#code">code</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td>Y <span color="red">(wrong?)</span></td> <!-- string -->
+  <td>Y. (System, if desired, is defined in the underlying value set for eeach code)</td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#date">date</a></td>
+  <td></td> <!-- number -->
+  <td>Y</td> <!-- date -->
+  <td></td> <!-- string -->
+  <td></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#dateTime">dateTime</a></td>
+  <td></td> <!-- number -->
+  <td>Y</td> <!-- date -->
+  <td></td> <!-- string -->
+  <td></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#instant">instant</a></td>
+  <td></td> <!-- number -->
+  <td>Y</td> <!-- date -->
+  <td></td> <!-- string -->
+  <td></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#integer">integer</a></td>
+  <td>Y</td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td>Y <span color="red">(wrong?)</span></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#oid">oid</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td>Y <span color="red">(wrong) - should be uri</span></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#string">string</a></td>
+  <td></td> <!-- number -->
+  <td>Y <span color="red">(wrong?)</span></td> <!-- date -->
+  <td>Y</td> <!-- string -->
+  <td>Y <span color="red">(wrong?)</span></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#uri">uri</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td>Y <span color="red">(wrong - should be uri)</span></td> <!-- string -->
+  <td>Y <span color="red">(wrong - should be uri)</span></td> <!-- token -->
+  <td>Y <span color="red">(wrong? - where is this?)</span></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td>Y</td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Address">Address</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td>Y. search on any elements in the address</td> <!-- string -->
+  <td></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td>Y</td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Coding">Coding</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td>Y</td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#ContactPoint">ContactPoint</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td>Y <span color="red">(wrong?)</span></td> <!-- string -->
+  <td>Y</td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Duration">Duration</a></td>
+  <td>Y <span color="red">(wrong?) - where is this?</span></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td>Y</td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#HumanName">HumanName</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td>Y. Search on any element in the name</td> <!-- string -->
+  <td></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Identifier">Identifier</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td>Y</td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Period">Period</a></td>
+  <td></td> <!-- number -->
+  <td>Y</td> <!-- date -->
+  <td></td> <!-- string -->
+  <td></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Quantity">Quantity</a></td>
+  <td>Y <span color="red">(wrong?)</span></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td>Y <span color="red">(wrong?)</span></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td>Y</td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Range">Range</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td>Y <span color="red">(wrong?)</span></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Reference">Reference</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td></td> <!-- token -->
+  <td>Y</td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#SampledData">SampledData</a></td>
+  <td></td> <!-- number -->
+  <td></td> <!-- date -->
+  <td></td> <!-- string -->
+  <td></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td>Y</td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Timing">Timing</a></td>
+  <td></td> <!-- number -->
+  <td>Y</td> <!-- date -->
+  <td></td> <!-- string -->
+  <td></td> <!-- token -->
+  <td></td> <!-- reference -->
+  <td></td> <!-- quantity -->
+  <td></td> <!-- uri -->
+ </tr>
+</table>
+
 </div>
 
 [%file newfooter%]
