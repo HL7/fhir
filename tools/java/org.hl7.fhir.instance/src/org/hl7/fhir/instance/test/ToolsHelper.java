@@ -71,9 +71,9 @@ public class ToolsHelper {
         throw new Exception("Missing Command Parameter. Valid Commands: round, json, version, fragments, snapshot-maker");
       if (args[0].equals("round")) 
         self.executeRoundTrip(args);
-      if (args[0].equals("test")) 
+      else if (args[0].equals("test")) 
         self.executeTest(args);
-      if (args[0].equals("examples")) 
+      else if (args[0].equals("examples")) 
         self.executeExamples(args);
       else if (args[0].equals("json")) 
         self.executeJson(args);
