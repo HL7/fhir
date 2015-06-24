@@ -180,10 +180,16 @@
 			</coding>
 		</meaning>
 	</referenceRange>
-	<derivedFrom>
-		<reference value="#height"/>
-	</derivedFrom>
-	<derivedFrom>
-		<reference value="#weight"/>
-	</derivedFrom>
+  <related>
+    <type value="derived-from"/>
+    <target>
+      <reference value="#height"/>
+    </target>
+  </related>
+  <related>
+    <type value="derived-from"/>
+    <target>
+      <reference value="#weight"/>
+    </target>
+  </related>
 </Observation>

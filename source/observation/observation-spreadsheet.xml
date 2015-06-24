@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-06-02T19:12:02Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2015-06-17T22:59:45Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -450,7 +450,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s110">
+  <Style ss:ID="s111">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
@@ -1248,7 +1248,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">An observation exists to have a value, though it may not if it is in error, or it represents a group of observations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for apgar, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from &lt;http://hl7.org/fhir/v2/vs/0136&gt; (These &quot;yes/no&quot; concepts can be mapped to the display name &quot;true/false&quot; or other mutually exclusive terms that may be needed&quot;).  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for an apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from &lt;http://hl7.org/fhir/v2/vs/0136&gt; (These &quot;yes/no&quot; concepts can be mapped to the display name &quot;true/false&quot; or other mutually exclusive terms that may be needed&quot;).  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">value</Data><NamedCell
@@ -2154,7 +2154,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48.75">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.derivedFrom</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">!Observation.derivedFrom</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2206,13 +2206,13 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Observations related to this observation</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Resource related to this observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A  reference to another observations whose relationship is defined by the relationship type code.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A  reference to another resource ( usally another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for apgar, the observations from which the measure is derived).</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and a set of related observations or sometimes questionnaireanswers  from which the measure is derived.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Some observations have important relationships to other observations (e.g Blood Pressure = systolic + diastolic), or are derived from other observations (e.g. calculated apgar score).  Observations from which an observation is derived  should be separate resources referenced using the derivedFrom element.  Observations that are a group of observations could be separate resources referenced using the related element with type &quot;has-member&quot; or as component observation(s).  It depends upon whether the attributes are unique to each of the related results ( i.e. is not identical), and/or each panel results  must be processed as indepedent FHIR resources.   A CBC is an  example of a result that could be either as a observation with component observations,  or as a panel observation referencing  related panel member observations. </Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Some observations have important relationships to other observations (e.g Blood Pressure = systolic + diastolic), or are derived from other observations (e.g. calculated apgar score).  Observations from which an observation is derived  should be separate resources referenced using the related element with type &quot;derived-from&quot;.  Observations that are a group of observations could be separate resources referenced using the related element with type &quot;has-member&quot; or as component observation(s).  It depends upon whether the attributes are unique to each of the related results ( i.e. is not identical), and/or each panel results  must be processed as indepedent FHIR resources.   A CBC is an  example of a result that could be either as a observation with component observations,  or as a panel observation referencing  related panel member observations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outBoundRelationship</Data><NamedCell
@@ -2245,13 +2245,14 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">has-member | sequel-to | replaces | qualified-by | interfered-by</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A code specifying the kind of relationship that exists with the target observation</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A code specifying the kind of relationship that exists with the target resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A relationship type SHOULD be provided.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String"> &quot;derived-from&quot; is only logical choice when referencing QuestionnaireAnswer resource.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.typeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2272,7 +2273,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Observation)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Observation|QuestionnaireAnswers)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2282,9 +2283,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Observation that is related to this one</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Resource that is related to this one</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A reference to the observation that is related to this observation</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A reference to the observation or questionnaireanswer that is related to this observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2297,7 +2298,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">can an invarient be made to limit code when referencing a resource type?</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.component</Data><NamedCell
@@ -2322,7 +2324,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation ( they are not seperable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Some observations have important relationships to other observations (e.g Blood Pressure = systolic + diastolic), or are derived from other observations (e.g. calculated apgar score).  Observations from which an observation is derived  should be separate resources referenced using the derivedFrom element.  Observations that are a group of observations could be separate resources referenced using the related element with type &quot;has-member&quot; or as component observation(s).  It depends upon whether the attributes are unique to each of the related results ( i.e. is not identical), and/or each panel results  must be processed as indepedent FHIR resources.   A CBC is an  example of a result that could be either as a observation with component observations,  or as a panel observation referencing  related panel member observations. </Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Some observations have important relationships to other observations (e.g Blood Pressure = systolic + diastolic), or are derived from other observations (e.g. calculated apgar score).  Observations from which an observation is derived  should be separate resources referenced using the related element with type &quot;derived-from&quot;.  Observations that are a group of observations could be separate resources referenced using the related element with type &quot;has-member&quot; or as component observation(s).  It depends upon whether the attributes are unique to each of the related results ( i.e. is not identical), and/or each panel results  must be processed as indepedent FHIR resources.   A CBC is an  example of a result that could be either as a observation with component observations,  or as a panel observation referencing  related panel member observations. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outBoundRelationship[typeCode=COMP]</Data><NamedCell
@@ -2425,7 +2427,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">An observation exists to have a value, though it may not if it is in error, or it represents a group of observations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for apgar, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from &lt;http://hl7.org/fhir/v2/vs/0136&gt; (These &quot;yes/no&quot; concepts can be mapped to the display name &quot;true/false&quot; or other mutually exclusive terms that may be needed&quot;).  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for an apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from &lt;http://hl7.org/fhir/v2/vs/0136&gt; (These &quot;yes/no&quot; concepts can be mapped to the display name &quot;true/false&quot; or other mutually exclusive terms that may be needed&quot;).  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">value</Data><NamedCell
@@ -4529,9 +4531,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>26</TopRowBottomPane>
+   <TopRowBottomPane>28</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>18</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4539,7 +4541,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4547,7 +4548,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
+     <ActiveRow>30</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4823,7 +4825,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C24:R17C24,R28C1:R31C26,R32C17</Range>
+   <Range>R7C24:R17C24,R28C1:R31C26,R32C17,R32C19</Range>
    <Condition>
     <Value1>R[1048559]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -4946,7 +4948,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R28C1:R31C26,R32C17</Range>
+   <Range>R28C1:R31C26,R32C17,R32C19</Range>
    <Condition>
     <Value1>LEFT(R[-17]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -5625,26 +5627,8 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R32C19</Range>
    <Condition>
-    <Value1>R[-17]C3=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(R[-17]C&lt;&gt;&quot;&quot;,R[-17]C1=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R32C19</Range>
-   <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C[16096])),#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R32C19</Range>
-   <Condition>
-    <Value1>LEFT(R[-17]C1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
@@ -5734,7 +5718,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Shall only be present if Observation.value[x] is not present</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:dataAbsentReason)) or (not(exists(*[starts-with(local-name(.), 'value')])))</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:dataAbsentReason)) or (not(exists(*[starts-with(local-name(.), 'value')])))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">7</Data><NamedCell
@@ -5746,23 +5730,14 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">f:code/@value !=  f:component.code/@value</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+   <Row ss:AutoFitHeight="0" ss:Height="44.25">
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s109"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5771,7 +5746,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5780,7 +5755,16 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="Default"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5789,7 +5773,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5798,7 +5782,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5807,7 +5791,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5816,7 +5800,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5825,7 +5809,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5834,7 +5818,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5843,7 +5827,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5852,7 +5836,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5861,7 +5845,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5870,7 +5854,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5879,7 +5863,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5888,7 +5872,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5897,7 +5881,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5906,7 +5890,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5915,7 +5899,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5924,7 +5908,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5933,7 +5917,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5942,7 +5926,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5951,7 +5935,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5960,7 +5944,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5969,7 +5953,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5978,7 +5962,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5987,7 +5971,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5996,7 +5980,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6005,7 +5989,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6014,7 +5998,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6023,7 +6007,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6032,7 +6016,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6041,7 +6025,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6050,7 +6034,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6059,7 +6043,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6068,7 +6052,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6077,7 +6061,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6086,7 +6070,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6095,7 +6079,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6104,7 +6088,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6113,7 +6097,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6122,7 +6106,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s112"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6166,8 +6150,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6216,7 +6200,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C1:R6C2,R6C4:R6C5,R2C6:R6C7,R2C1:R5C5</Range>
+   <Range>R2C6:R6C7,R2C1:R5C5,R6C1:R7C2,R6C4:R7C5</Range>
    <Condition>
     <Value1>AND(R[1048559]C1=&quot;&quot;,R[1048559]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -6230,14 +6214,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R6C1</Range>
+   <Range>R2C1:R7C1</Range>
    <Condition>
     <Value1>AND(R[1048559]C&lt;&gt;&quot;&quot;,R[1048558]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R6C5,R2C7:R6C7,R2C2:R6C2</Range>
+   <Range>R2C7:R6C7,R2C2:R7C2,R2C4:R7C5</Range>
    <Condition>
     <Value1>(R[1048559]C1&lt;&gt;&quot;&quot;)&lt;&gt;(R[1048559]C[16368]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -6251,7 +6235,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C1:R6C2,R6C4:R6C5,R2C6:R6C7,R2C1:R5C5</Range>
+   <Range>R2C6:R6C7,R2C1:R5C5,R6C1:R7C2,R6C4:R7C5</Range>
    <Condition>
     <Value1>LEFT(R[1048559]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -6570,7 +6554,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6587,7 +6571,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>19</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -8296,7 +8280,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C1</Range>
+   <Range>R17C1,R20C1</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -8435,13 +8419,6 @@
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R20C1</Range>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
  </Worksheet>
  <Worksheet ss:Name="Examples">
   <Names>
@@ -8556,7 +8533,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">BMI</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">!BMI</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Real-world patient - bmi</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">f201</Data></Cell>
@@ -8628,7 +8605,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">Glasgow Score</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">!Glasgow Score</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Clinical assessment tool example - Glasgow Score</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">glasgow</Data></Cell>
@@ -8804,8 +8781,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>20</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10906,7 +10882,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='observation-relationshiptypes'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="49" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s141" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s141" ss:Width="80.25"/>
@@ -10964,6 +10940,17 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"><Data ss:Type="String">=ActRrelationshipType.MBR</Data></Cell>
     <Cell ss:StyleID="s146"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s145"><Data ss:Type="String">derived-from</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The target resource (Observation or QuestionnaireAnswer) is part of the information from which this observation value is derived. (e.g. calculated anion gap, Apgar score)  NOTE:  &quot;derived-from&quot; is only logical choice when referencing QuestionnaireAnswer</Data></Cell>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"><Data ss:Type="String" x:Ticked="1">=ActRrelationshipType.DRIV</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">#3819</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s145"><Data ss:Type="String">sequel-to</Data></Cell>
@@ -11485,7 +11472,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -11493,15 +11480,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2C1:R6C1</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -11511,185 +11497,108 @@
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R15C9,R19C1:R48C9</Range>
+   <Range>R20C1:R49C9,R18C1:R18C9,R2C1:R16C9</Range>
    <Condition>
     <Value1>AND(R[1048560]C1=&quot;&quot;,R[1048560]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R15C1,R20C1:R48C1</Range>
+   <Range>R21C1:R49C1,R2C1:R16C1</Range>
    <Condition>
     <Value1>AND(R[1048560]C&lt;&gt;&quot;&quot;,R[1048559]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C2:R15C3,R19C2:R48C3</Range>
+   <Range>R20C2:R49C3,R18C2:R18C3,R2C2:R16C3</Range>
    <Condition>
     <Value1>AND(R[1048560]C1&lt;&gt;&quot;&quot;,(R[1048560]C2=&quot;&quot;)=(R[1048560]C3=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C5:R15C6,R19C5:R48C6</Range>
+   <Range>R20C5:R49C6,R18C5:R18C6,R2C5:R16C6</Range>
    <Condition>
     <Value1>AND(R[1048560]C1&lt;&gt;&quot;&quot;,R[1048560]C3=&quot;&quot;,R[1048560]C[16320]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C6:R15C6,R19C6:R48C6</Range>
+   <Range>R20C6:R49C6,R18C6,R2C6:R16C6</Range>
    <Condition>
     <Value1>AND(R[1048560]C1&lt;&gt;&quot;&quot;,,R[1048560]C3=&quot;&quot;,R[1048560]C5=&quot;&quot;,R[1048560]C[16304]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R15C9,R19C1:R48C9</Range>
+   <Range>R20C1:R49C9,R18C1:R18C9,R2C1:R16C9</Range>
    <Condition>
     <Value1>LEFT(R[1048560]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C1:R16C9,R18C1:R18C9</Range>
+   <Range>R17C1:R17C9,R19C1:R19C9</Range>
    <Condition>
     <Value1>AND(#REF!=&quot;&quot;,#REF!&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C1</Range>
-   <Condition>
-    <Value1>AND(R[-15]C&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C1</Range>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,R[-15]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C2:R16C3,R18C2:R18C3</Range>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,(#REF!=&quot;&quot;)=(#REF!=&quot;&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C5:R16C6,R18C5:R18C6</Range>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C6,R18C6</Range>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,,#REF!=&quot;&quot;,#REF!=&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C1:R16C9,R18C1:R18C9</Range>
-   <Condition>
-    <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C9</Range>
-   <Condition>
-    <Value1>AND(R[1048559]C1=&quot;&quot;,R[1048559]C&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C1:R17C9</Range>
-   <Condition>
-    <Value1>AND(R[-15]C1=&quot;&quot;,R[-15]C&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1</Range>
-   <Condition>
-    <Value1>AND(R[1048559]C&lt;&gt;&quot;&quot;,R[1048558]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R18C1</Range>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,R[-16]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R19C1</Range>
    <Condition>
     <Value1>AND(R[-16]C&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R2C3</Range>
+   <Range>R17C1</Range>
    <Condition>
-    <Value1>AND(R[1048559]C1&lt;&gt;&quot;&quot;,(R[1048559]C2=&quot;&quot;)=(R[1048559]C3=&quot;&quot;))</Value1>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,R[-16]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C2:R17C3</Range>
+   <Range>R17C2:R17C3,R19C2:R19C3</Range>
    <Condition>
-    <Value1>AND(R[-15]C1&lt;&gt;&quot;&quot;,(R[-15]C2=&quot;&quot;)=(R[-15]C3=&quot;&quot;))</Value1>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,(#REF!=&quot;&quot;)=(#REF!=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R2C6</Range>
+   <Range>R17C5:R17C6,R19C5:R19C6</Range>
    <Condition>
-    <Value1>AND(R[1048559]C1&lt;&gt;&quot;&quot;,R[1048559]C3=&quot;&quot;,R[1048559]C[16320]=&quot;&quot;)</Value1>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C5:R17C6</Range>
+   <Range>R17C6,R19C6</Range>
    <Condition>
-    <Value1>AND(R[-15]C1&lt;&gt;&quot;&quot;,R[-15]C3=&quot;&quot;,R[-15]C[16320]=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6</Range>
-   <Condition>
-    <Value1>AND(R[1048559]C1&lt;&gt;&quot;&quot;,,R[1048559]C3=&quot;&quot;,R[1048559]C5=&quot;&quot;,R[1048559]C[16304]=&quot;&quot;)</Value1>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,,#REF!=&quot;&quot;,#REF!=&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C6</Range>
+   <Range>R17C1:R17C9,R19C1:R19C9</Range>
    <Condition>
-    <Value1>AND(R[-15]C1&lt;&gt;&quot;&quot;,,R[-15]C3=&quot;&quot;,R[-15]C5=&quot;&quot;,R[-15]C[16304]=&quot;&quot;)</Value1>
+    <Value1>LEFT(#REF!,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R19C1</Range>
+   <Condition>
+    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,R[-17]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C9</Range>
+   <Range>R20C1</Range>
    <Condition>
-    <Value1>LEFT(R[1048559]C1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R17C1:R17C9</Range>
-   <Condition>
-    <Value1>LEFT(R[-15]C1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+    <Value1>AND(R[-16]C&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>

@@ -174,17 +174,26 @@
 			<text value="Mild TBI"/>
 		</meaning>
 	</referenceRange>
-	<!-- put the references to the contained components here using the derivedFrom element  -->
-	<derivedFrom>
-		<reference value="#motor"/>
-		<display value="Motor score"/>
-	</derivedFrom>
-	<derivedFrom>
-		<reference value="#verbal"/>
-		<display value="Verbal score"/>
-	</derivedFrom>
-	<derivedFrom>
-		<reference value="#eyes"/>
-		<display value="Eyes score"/>
-	</derivedFrom>
+	<!-- put the references to the contained components here using the derived-From type  -->
+	  <related>
+	    <type value="derived-from"/>
+	    <target>
+	      <reference value="#motor"/>
+	      <display value="Motor score"/>
+	    </target>
+	  </related>
+	  <related>
+	    <type value="derived-from"/>
+	    <target>
+	      <reference value="#verbal"/>
+	      <display value="Verbal score"/>
+	    </target>
+	  </related>
+	  <related>
+	    <type value="derived-from"/>
+	    <target>
+	      <reference value="#eyes"/>
+	      <display value="Eyes score"/>
+	    </target>
+  </related>
 </Observation>
