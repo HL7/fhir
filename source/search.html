@@ -1127,7 +1127,7 @@ auditing the search itself.
 
 <table class="list">
 <tr><td colspan="4">Common Parameters defined for all resources:</td></tr>
-<tbody><tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>
+<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>
 <tr><td><a href="#id">_id</a></td><td><a href="#string">string</a></td><td>Resource id (not a full URL)</td><td>Resource.id</td></tr>
 <tr><td><a href="#lastUpdated">_lastUpdated</a></td><td><a href="#date">date</a></td><td>Date last updated. Server has discretion on the boundary precision</td><td>Resource.meta.lastUpdated</td></tr>
 <tr><td><a href="#tag">_tag</a></td><td><a href="#token">token</a></td><td>Search by a resource tag</td><td>Resource.meta.tag</td></tr>
@@ -1138,7 +1138,7 @@ auditing the search itself.
 <tr><td><a href="#list">_list</a></td><td><a href="#string">string</a></td><td>All resources in nominated list (by id, not a full URL)</td><td></td></tr>
 <tr><td><a href="#query">_query</a></td><td><a href="#string">string</a></td><td>Custom named query</td><td></td></tr>
 <tr><td colspan="4">Search Control Parameters:</td></tr>
-<tbody><tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Allowable Content</b></td></tr>
+<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Allowable Content</b></td></tr>
 <tr><td><a href="#sort">_sort</a></td><td><a href="#string">string</a></td><td>Order to sort results in (can repeat for inner sort orders)</td><td>The name of a valid search parameter</td></tr>
 <tr><td><a href="#count">_count</a></td><td><a href="#number ">number </a></td><td>Number of results per page</td><td>Whole Number</td></tr>
 <tr><td><a href="#include">_include</a></td><td><a href="#string">string</a></td><td>Other resources to include in the search results that search matches point to</td><td>SourceType:searchParam(:targetType)</td></tr>
@@ -1146,7 +1146,7 @@ auditing the search itself.
 <tr><td><a href="#summary">_summary</a></td><td><a href="#string">string</a></td><td>Just return the summary elements (for resources where this is defined)</td><td>true | false (false is default)</td></tr>
 <tr><td><a href="#contained">_contained</a></td><td><a href="#string">string</a></td><td>Whether to return resources contained in other resources in the search matches</td><td>true | false | both (false is default)</td></tr>
 <tr><td><a href="#containedType">_containedType</a></td><td><a href="#string">string</a></td><td>If returning contained resources, whether to return the contained or container resources</td><td>container | contained</td></tr>
-</tbody></table>
+</table>
 
 <p>
 Cross-map between search parameter types and Data types:
@@ -1164,223 +1164,223 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#boolean">boolean</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td>Y. true|false (System = http://hl7.org/fhir/special-values but not usually needed)</td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm boolean:number%></td> <!-- number -->
+  <td><%xcm boolean:date%></td> <!-- date -->
+  <td><%xcm boolean:string%></td> <!-- string -->
+  <td><%xcm boolean:token%>. true|false (System = http://hl7.org/fhir/special-values but not usually needed)</td> <!-- token -->
+  <td><%xcm boolean:reference%></td> <!-- reference -->
+  <td><%xcm boolean:quantity%></td> <!-- quantity -->
+  <td><%xcm boolean:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#code">code</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td>Y <span style="color: red">(wrong?)</span></td> <!-- string -->
-  <td>Y. (System, if desired, is defined in the underlying value set for eeach code)</td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm code:number%></td> <!-- number -->
+  <td><%xcm code:date%></td> <!-- date -->
+  <td><%xcm code:string%> <span style="color: red">(wrong?)</span></td> <!-- string -->
+  <td><%xcm code:token%>. (System, if desired, is defined in the underlying value set for eeach code)</td> <!-- token -->
+  <td><%xcm code:reference%></td> <!-- reference -->
+  <td><%xcm code:quantity%></td> <!-- quantity -->
+  <td><%xcm code:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#date">date</a></td>
-  <td></td> <!-- number -->
-  <td>Y</td> <!-- date -->
-  <td></td> <!-- string -->
-  <td></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm date:number%></td> <!-- number -->
+  <td><%xcm date:date%></td> <!-- date -->
+  <td><%xcm date:string%></td> <!-- string -->
+  <td><%xcm date:token%></td> <!-- token -->
+  <td><%xcm date:reference%></td> <!-- reference -->
+  <td><%xcm date:quantity%></td> <!-- quantity -->
+  <td><%xcm date:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#dateTime">dateTime</a></td>
-  <td></td> <!-- number -->
-  <td>Y</td> <!-- date -->
-  <td></td> <!-- string -->
-  <td></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm dateTime:number%></td> <!-- number -->
+  <td><%xcm dateTime:date%></td> <!-- date -->
+  <td><%xcm dateTime:string%></td> <!-- string -->
+  <td><%xcm dateTime:token%></td> <!-- token -->
+  <td><%xcm dateTime:reference%></td> <!-- reference -->
+  <td><%xcm dateTime:quantity%></td> <!-- quantity -->
+  <td><%xcm dateTime:number%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#instant">instant</a></td>
-  <td></td> <!-- number -->
-  <td>Y</td> <!-- date -->
-  <td></td> <!-- string -->
-  <td></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm instant:number%></td> <!-- number -->
+  <td><%xcm instant:date%></td> <!-- date -->
+  <td><%xcm instant:string%></td> <!-- string -->
+  <td><%xcm instant:token%></td> <!-- token -->
+  <td><%xcm instant:reference%></td> <!-- reference -->
+  <td><%xcm instant:quantity%></td> <!-- quantity -->
+  <td><%xcm instant:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#integer">integer</a></td>
-  <td>Y</td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td>Y <span style="color: red">(wrong?)</span></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm integer:number%></td> <!-- number -->
+  <td><%xcm integer:date%></td> <!-- date -->
+  <td><%xcm integer:string%></td> <!-- string -->
+  <td><%xcm integer:token%> <span style="color: red">(wrong?)</span></td> <!-- token -->
+  <td><%xcm integer:reference%></td> <!-- reference -->
+  <td><%xcm integer:quantity%></td> <!-- quantity -->
+  <td><%xcm integer:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#oid">oid</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td>Y <span style="color: red">(wrong) - should be uri</span></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm oid:number%></td> <!-- number -->
+  <td><%xcm oid:date%></td> <!-- date -->
+  <td><%xcm oid:string%></td> <!-- string -->
+  <td><%xcm oid:token%> <span style="color: red">(wrong) - should be uri</span></td> <!-- token -->
+  <td><%xcm oid:reference%></td> <!-- reference -->
+  <td><%xcm oid:quantity%></td> <!-- quantity -->
+  <td><%xcm oid:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#string">string</a></td>
-  <td></td> <!-- number -->
-  <td>Y <span style="color: red">(wrong?)</span></td> <!-- date -->
-  <td>Y</td> <!-- string -->
-  <td>Y <span style="color: red">(wrong?)</span></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm string:number%></td> <!-- number -->
+  <td><%xcm string:date%></td> <!-- date -->
+  <td><%xcm string:string%></td> <!-- string -->
+  <td><%xcm string:token%> <span style="color: red">(wrong?)</span></td> <!-- token -->
+  <td><%xcm string:reference%></td> <!-- reference -->
+  <td><%xcm string:quantity%></td> <!-- quantity -->
+  <td><%xcm string:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#uri">uri</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td>Y <span style="color: red">(wrong - should be uri)</span></td> <!-- string -->
-  <td>Y <span style="color: red">(wrong - should be uri)</span></td> <!-- token -->
-  <td>Y <span style="color: red">(wrong? - where is this?)</span></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td>Y</td> <!-- uri -->
+  <td><%xcm uri:number%></td> <!-- number -->
+  <td><%xcm uri:date%></td> <!-- date -->
+  <td><%xcm uri:string%> </td> <!-- string -->
+  <td><%xcm uri:token%></td> <!-- token -->
+  <td><%xcm uri:reference%></td> <!-- reference -->
+  <td><%xcm uri:quantity%></td> <!-- quantity -->
+  <td><%xcm uri:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Address">Address</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td>Y. search on any elements in the address</td> <!-- string -->
-  <td></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm Address:number%></td> <!-- number -->
+  <td><%xcm Address:date%></td> <!-- date -->
+  <td><%xcm Address:string%> search on any elements in the address</td> <!-- string -->
+  <td><%xcm Address:token%></td> <!-- token -->
+  <td><%xcm Address:reference%></td> <!-- reference -->
+  <td><%xcm Address:quantity%></td> <!-- quantity -->
+  <td><%xcm Address:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td>Y</td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm CodeableConcept:number%></td> <!-- number -->
+  <td><%xcm CodeableConcept:date%></td> <!-- date -->
+  <td><%xcm CodeableConcept:string%></td> <!-- string -->
+  <td><%xcm CodeableConcept:token%></td> <!-- token -->
+  <td><%xcm CodeableConcept:reference%></td> <!-- reference -->
+  <td><%xcm CodeableConcept:quantity%></td> <!-- quantity -->
+  <td><%xcm CodeableConcept:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Coding">Coding</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td>Y</td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm Coding:number%></td> <!-- number -->
+  <td><%xcm Coding:date%></td> <!-- date -->
+  <td><%xcm Coding:string%></td> <!-- string -->
+  <td><%xcm Coding:token%></td> <!-- token -->
+  <td><%xcm Coding:reference%></td> <!-- reference -->
+  <td><%xcm Coding:quantity%></td> <!-- quantity -->
+  <td><%xcm Coding:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#ContactPoint">ContactPoint</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td>Y <span style="color: red">(wrong?)</span></td> <!-- string -->
-  <td>Y</td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm ContactPoint:number%></td> <!-- number -->
+  <td><%xcm ContactPoint:date%></td> <!-- date -->
+  <td><%xcm ContactPoint:string%></td> <!-- string -->
+  <td><%xcm ContactPoint:token%></td> <!-- token -->
+  <td><%xcm ContactPoint:reference%></td> <!-- reference -->
+  <td><%xcm ContactPoint:quantity%></td> <!-- quantity -->
+  <td><%xcm ContactPoint:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Duration">Duration</a></td>
-  <td>Y <span style="color: red">(wrong?) - where is this?</span></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td>Y</td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm Duration:number%> <span style="color: red">(wrong?) - where is this?</span></td> <!-- number -->
+  <td><%xcm Duration:date%></td> <!-- date -->
+  <td><%xcm Duration:string%></td> <!-- string -->
+  <td><%xcm Duration:token%></td> <!-- token -->
+  <td><%xcm Duration:reference%></td> <!-- reference -->
+  <td><%xcm Duration:quantity%></td> <!-- quantity -->
+  <td><%xcm Duration:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#HumanName">HumanName</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td>Y. Search on any element in the name</td> <!-- string -->
-  <td></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm HumanName:number%></td> <!-- number -->
+  <td><%xcm HumanName:date%></td> <!-- date -->
+  <td><%xcm HumanName:string%> Search on any element in the name</td> <!-- string -->
+  <td><%xcm HumanName:token%></td> <!-- token -->
+  <td><%xcm HumanName:reference%></td> <!-- reference -->
+  <td><%xcm HumanName:quantity%></td> <!-- quantity -->
+  <td><%xcm HumanName:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Identifier">Identifier</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td>Y</td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm Identifier:number%></td> <!-- number -->
+  <td><%xcm Identifier:date%></td> <!-- date -->
+  <td><%xcm Identifier:string%></td> <!-- string -->
+  <td><%xcm Identifier:token%></td> <!-- token -->
+  <td><%xcm Identifier:reference%></td> <!-- reference -->
+  <td><%xcm Identifier:quantity%></td> <!-- quantity -->
+  <td><%xcm Identifier:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Period">Period</a></td>
-  <td></td> <!-- number -->
-  <td>Y</td> <!-- date -->
-  <td></td> <!-- string -->
-  <td></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm Period:number%></td> <!-- number -->
+  <td><%xcm Period:date%></td> <!-- date -->
+  <td><%xcm Period:string%></td> <!-- string -->
+  <td><%xcm Period:token%></td> <!-- token -->
+  <td><%xcm Period:reference%></td> <!-- reference -->
+  <td><%xcm Period:quantity%></td> <!-- quantity -->
+  <td><%xcm Period:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Quantity">Quantity</a></td>
-  <td>Y <span style="color: red">(wrong?)</span></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td>Y <span style="color: red">(wrong?)</span></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td>Y</td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm Quantity:number%> <span style="color: red">(wrong?)</span></td> <!-- number -->
+  <td><%xcm Quantity:date%></td> <!-- date -->
+  <td><%xcm Quantity:string%></td> <!-- string -->
+  <td><%xcm Quantity:token%></td> <!-- token -->
+  <td><%xcm Quantity:reference%></td> <!-- reference -->
+  <td><%xcm Quantity:quantity%></td> <!-- quantity -->
+  <td><%xcm Quantity:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Range">Range</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td>Y <span style="color: red">(wrong?)</span></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm Range:number%></td> <!-- number -->
+  <td><%xcm Range:date%></td> <!-- date -->
+  <td><%xcm Range:string%></td> <!-- string -->
+  <td><%xcm Range:token%></td> <!-- token -->
+  <td><%xcm Range:reference%></td> <!-- reference -->
+  <td><%xcm Range:quantity%></td> <!-- quantity -->
+  <td><%xcm Range:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Reference">Reference</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td></td> <!-- token -->
-  <td>Y</td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm Reference:number%></td> <!-- number -->
+  <td><%xcm Reference:date%></td> <!-- date -->
+  <td><%xcm Reference:string%></td> <!-- string -->
+  <td><%xcm Reference:token%></td> <!-- token -->
+  <td><%xcm Reference:reference%></td> <!-- reference -->
+  <td><%xcm Reference:quantity%></td> <!-- quantity -->
+  <td><%xcm Reference:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#SampledData">SampledData</a></td>
-  <td></td> <!-- number -->
-  <td></td> <!-- date -->
-  <td></td> <!-- string -->
-  <td></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td>Y</td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm SampledData:number%></td> <!-- number -->
+  <td><%xcm SampledData:date%></td> <!-- date -->
+  <td><%xcm SampledData:string%></td> <!-- string -->
+  <td><%xcm SampledData:token%></td> <!-- token -->
+  <td><%xcm SampledData:reference%></td> <!-- reference -->
+  <td><%xcm SampledData:quantity%></td> <!-- quantity -->
+  <td><%xcm SampledData:uri%></td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Timing">Timing</a></td>
-  <td></td> <!-- number -->
-  <td>Y</td> <!-- date -->
-  <td></td> <!-- string -->
-  <td></td> <!-- token -->
-  <td></td> <!-- reference -->
-  <td></td> <!-- quantity -->
-  <td></td> <!-- uri -->
+  <td><%xcm Timing:number%></td> <!-- number -->
+  <td><%xcm Timing:date%></td> <!-- date -->
+  <td><%xcm Timing:string%></td> <!-- string -->
+  <td><%xcm Timing:token%></td> <!-- token -->
+  <td><%xcm Timing:reference%></td> <!-- reference -->
+  <td><%xcm Timing:quantity%></td> <!-- quantity -->
+  <td><%xcm Timing:uri%></td> <!-- uri -->
  </tr>
 </table>
 

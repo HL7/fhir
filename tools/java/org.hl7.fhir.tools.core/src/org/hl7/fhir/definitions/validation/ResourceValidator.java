@@ -674,4 +674,13 @@ public class ResourceValidator extends BaseValidator {
 //    System.out.println("total = "+Integer.toString(total));
   }
 
+  public void summariseSearchTypes(Set<String> searchTypeUsage) {
+    for (SearchType st : usagest.keySet()) {
+      for (String u : usagest.get(st).usage) {
+        searchTypeUsage.add(u+":"+st.name());
+      }
+    }
+    
+  }
+
 }

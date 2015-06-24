@@ -227,6 +227,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private final WorkerContext workerContext;
 //  private List<ValidationMessage> collectedValidationErrors = new ArrayList<ValidationMessage>();
   private List<ValidationMessage> validationErrors = new ArrayList<ValidationMessage>();
+  private long lastSecs = 0;
+  private Set<String> searchTypeUsage = new HashSet<String>();
+
 
   public PageProcessor(String tsServer) throws URISyntaxException {
     super();
@@ -556,6 +559,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genResRefList(com[1])+s3;
       } else if (com[0].equals("sclist")) {
         src = s1+genScList(com[1])+s3;
+      } else if (com[0].equals("xcm")) {
+        src = s1+getXcm(com[1])+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -3291,6 +3296,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genResRefList(com[1])+s3;
       } else if (com[0].equals("sclist")) {
         src = s1+genScList(com[1])+s3;
+      } else if (com[0].equals("xcm")) {
+        src = s1+getXcm(com[1])+s3;
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -5175,8 +5182,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return genDate;
   }
 
-  private long lastSecs = 0;
-
   
   @Override
   public void log(String content, LogMessageType type) {
@@ -5914,4 +5919,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (ElementDefn c : e.getElements())
       genResRefItem(b, base, path, c);
   }
+
+  public Set<String> getSearchTypeUsage() {
+    return searchTypeUsage ;
+  }
+  
+  private String getXcm(String param) {
+    if (searchTypeUsage.contains(param)) 
+      return "<span style=\"font-weight: bold\">Y</span> ";
+    else
+      return "<span style=\"color: grey\">N</span>";
+  }
+  
 }

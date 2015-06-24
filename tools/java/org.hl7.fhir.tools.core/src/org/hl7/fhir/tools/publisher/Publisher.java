@@ -1235,6 +1235,7 @@ public class Publisher implements URIResolver {
       checkExampleLinks(page.getValidationErrors(), r);
     }
     val.report();
+    val.summariseSearchTypes(page.getSearchTypeUsage());
     val.dumpParams();
     checkAllOk();
   }
