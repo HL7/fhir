@@ -1125,10 +1125,8 @@ auditing the search itself.
 <a name="table"> </a>
 <h3>Summary Tables</h3>
 
-<p>
-Common Parameters defined for all resources:
-</p>
 <table class="list">
+<tr><td colspan="4">Common Parameters defined for all resources:</td></tr>
 <tbody><tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>
 <tr><td><a href="#id">_id</a></td><td><a href="#string">string</a></td><td>Resource id (not a full URL)</td><td>Resource.id</td></tr>
 <tr><td><a href="#lastUpdated">_lastUpdated</a></td><td><a href="#date">date</a></td><td>Date last updated. Server has discretion on the boundary precision</td><td>Resource.meta.lastUpdated</td></tr>
@@ -1139,11 +1137,7 @@ Common Parameters defined for all resources:
 <tr><td><a href="#content">_content</a></td><td><a href="#string">string</a></td><td>Text search against the entire resource</td><td></td></tr>
 <tr><td><a href="#list">_list</a></td><td><a href="#string">string</a></td><td>All resources in nominated list (by id, not a full URL)</td><td></td></tr>
 <tr><td><a href="#query">_query</a></td><td><a href="#string">string</a></td><td>Custom named query</td><td></td></tr>
-</tbody></table>
-<p>
-Search Control Parameters:
-</p>
-<table class="list">
+<tr><td colspan="4">Search Control Parameters:</td></tr>
 <tbody><tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Allowable Content</b></td></tr>
 <tr><td><a href="#sort">_sort</a></td><td><a href="#string">string</a></td><td>Order to sort results in (can repeat for inner sort orders)</td><td>The name of a valid search parameter</td></tr>
 <tr><td><a href="#count">_count</a></td><td><a href="#number ">number </a></td><td>Number of results per page</td><td>Whole Number</td></tr>
@@ -1161,7 +1155,7 @@ Cross-map between search parameter types and Data types:
  <tr>
   <td><b>Data Type</b></td>
   <td><b><a href="#number">Number</a></b></td>
-  <td><b><a href="#date">Date/DateTime</a></b></td>
+  <td><b><a href="#date">Date (+Time)</a></b></td>
   <td><b><a href="#string">String</a></b></td>
   <td><b><a href="#token">Token</a></b></td>
   <td><b><a href="#reference">Reference</a></b></td>
@@ -1182,7 +1176,7 @@ Cross-map between search parameter types and Data types:
   <td><a href="datatypes.html#code">code</a></td>
   <td></td> <!-- number -->
   <td></td> <!-- date -->
-  <td>Y <span color="red">(wrong?)</span></td> <!-- string -->
+  <td>Y <span style="color: red">(wrong?)</span></td> <!-- string -->
   <td>Y. (System, if desired, is defined in the underlying value set for eeach code)</td> <!-- token -->
   <td></td> <!-- reference -->
   <td></td> <!-- quantity -->
@@ -1223,7 +1217,7 @@ Cross-map between search parameter types and Data types:
   <td>Y</td> <!-- number -->
   <td></td> <!-- date -->
   <td></td> <!-- string -->
-  <td>Y <span color="red">(wrong?)</span></td> <!-- token -->
+  <td>Y <span style="color: red">(wrong?)</span></td> <!-- token -->
   <td></td> <!-- reference -->
   <td></td> <!-- quantity -->
   <td></td> <!-- uri -->
@@ -1233,7 +1227,7 @@ Cross-map between search parameter types and Data types:
   <td></td> <!-- number -->
   <td></td> <!-- date -->
   <td></td> <!-- string -->
-  <td>Y <span color="red">(wrong) - should be uri</span></td> <!-- token -->
+  <td>Y <span style="color: red">(wrong) - should be uri</span></td> <!-- token -->
   <td></td> <!-- reference -->
   <td></td> <!-- quantity -->
   <td></td> <!-- uri -->
@@ -1241,9 +1235,9 @@ Cross-map between search parameter types and Data types:
  <tr>
   <td><a href="datatypes.html#string">string</a></td>
   <td></td> <!-- number -->
-  <td>Y <span color="red">(wrong?)</span></td> <!-- date -->
+  <td>Y <span style="color: red">(wrong?)</span></td> <!-- date -->
   <td>Y</td> <!-- string -->
-  <td>Y <span color="red">(wrong?)</span></td> <!-- token -->
+  <td>Y <span style="color: red">(wrong?)</span></td> <!-- token -->
   <td></td> <!-- reference -->
   <td></td> <!-- quantity -->
   <td></td> <!-- uri -->
@@ -1252,9 +1246,9 @@ Cross-map between search parameter types and Data types:
   <td><a href="datatypes.html#uri">uri</a></td>
   <td></td> <!-- number -->
   <td></td> <!-- date -->
-  <td>Y <span color="red">(wrong - should be uri)</span></td> <!-- string -->
-  <td>Y <span color="red">(wrong - should be uri)</span></td> <!-- token -->
-  <td>Y <span color="red">(wrong? - where is this?)</span></td> <!-- reference -->
+  <td>Y <span style="color: red">(wrong - should be uri)</span></td> <!-- string -->
+  <td>Y <span style="color: red">(wrong - should be uri)</span></td> <!-- token -->
+  <td>Y <span style="color: red">(wrong? - where is this?)</span></td> <!-- reference -->
   <td></td> <!-- quantity -->
   <td>Y</td> <!-- uri -->
  </tr>
@@ -1292,7 +1286,7 @@ Cross-map between search parameter types and Data types:
   <td><a href="datatypes.html#ContactPoint">ContactPoint</a></td>
   <td></td> <!-- number -->
   <td></td> <!-- date -->
-  <td>Y <span color="red">(wrong?)</span></td> <!-- string -->
+  <td>Y <span style="color: red">(wrong?)</span></td> <!-- string -->
   <td>Y</td> <!-- token -->
   <td></td> <!-- reference -->
   <td></td> <!-- quantity -->
@@ -1300,7 +1294,7 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Duration">Duration</a></td>
-  <td>Y <span color="red">(wrong?) - where is this?</span></td> <!-- number -->
+  <td>Y <span style="color: red">(wrong?) - where is this?</span></td> <!-- number -->
   <td></td> <!-- date -->
   <td></td> <!-- string -->
   <td></td> <!-- token -->
@@ -1340,10 +1334,10 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Quantity">Quantity</a></td>
-  <td>Y <span color="red">(wrong?)</span></td> <!-- number -->
+  <td>Y <span style="color: red">(wrong?)</span></td> <!-- number -->
   <td></td> <!-- date -->
   <td></td> <!-- string -->
-  <td>Y <span color="red">(wrong?)</span></td> <!-- token -->
+  <td>Y <span style="color: red">(wrong?)</span></td> <!-- token -->
   <td></td> <!-- reference -->
   <td>Y</td> <!-- quantity -->
   <td></td> <!-- uri -->
@@ -1353,7 +1347,7 @@ Cross-map between search parameter types and Data types:
   <td></td> <!-- number -->
   <td></td> <!-- date -->
   <td></td> <!-- string -->
-  <td>Y <span color="red">(wrong?)</span></td> <!-- token -->
+  <td>Y <span style="color: red">(wrong?)</span></td> <!-- token -->
   <td></td> <!-- reference -->
   <td></td> <!-- quantity -->
   <td></td> <!-- uri -->
