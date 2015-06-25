@@ -21,6 +21,7 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Parameters;
 import org.hl7.fhir.instance.model.Resource;
@@ -479,6 +480,13 @@ public class WorkerContext implements NameResolver {
 
   public List<String> getResourceNames() {
     return resourceNames;
+  }
+
+  public StructureDefinition getTypeStructure(TypeRefComponent type) {
+    if (type.hasProfile())
+      return profiles.get(type.getProfile());
+    else
+      return profiles.get(type.getCode());
   }
 
 }

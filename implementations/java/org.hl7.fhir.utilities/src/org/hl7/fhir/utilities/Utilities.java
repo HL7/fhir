@@ -802,4 +802,13 @@ public class Utilities {
   public static boolean isOid(String cc) {
     return cc.matches(OID_REGEX) && cc.lastIndexOf('.') > 5;
   }
+
+
+  public static boolean equals(String one, String two) {
+    if (one == null && two == null)
+      return true;
+    if (one == null || two == null)
+      return false;
+    return one.equals(two);
+  }
 }

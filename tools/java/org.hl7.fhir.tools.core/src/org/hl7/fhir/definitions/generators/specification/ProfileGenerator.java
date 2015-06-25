@@ -214,6 +214,7 @@ public class ProfileGenerator {
     p.setText(new Narrative());
     p.getText().setStatus(NarrativeStatus.GENERATED);
     p.getText().setDiv(div);
+    checkHasTypes(p);
     return p;
   }
 
@@ -295,6 +296,7 @@ public class ProfileGenerator {
     p.setText(new Narrative());
     p.getText().setStatus(NarrativeStatus.GENERATED);
     p.getText().setDiv(div);
+    checkHasTypes(p);
     return p;
   }
 
@@ -338,6 +340,7 @@ public class ProfileGenerator {
     p.setText(new Narrative());
     p.getText().setStatus(NarrativeStatus.GENERATED);
     p.getText().setDiv(div);
+    checkHasTypes(p);
     return p;
   }
   
@@ -402,6 +405,7 @@ public class ProfileGenerator {
     p.setText(new Narrative());
     p.getText().setStatus(NarrativeStatus.GENERATED);
     p.getText().setDiv(div);
+    checkHasTypes(p);
     return p;
   }
   
@@ -468,6 +472,7 @@ public class ProfileGenerator {
     p.setText(new Narrative());
     p.getText().setStatus(NarrativeStatus.GENERATED);
     p.getText().setDiv(div);
+    checkHasTypes(p);
     return p;
   }
   
@@ -558,6 +563,7 @@ public class ProfileGenerator {
     p.setText(new Narrative());
     p.getText().setStatus(NarrativeStatus.GENERATED);
     p.getText().setDiv(div);
+    checkHasTypes(p);
     return p;
   }
 
@@ -772,11 +778,14 @@ public class ProfileGenerator {
               childType.getAggregations().addAll(t.getAggregations());
               expandedTypes.add(childType);
             }
-          } else {
+          } else if (!t.getName().startsWith("=")) {
             expandedTypes.add(t);
           }
         }
-        for (TypeRef t : expandedTypes) {
+        if (expandedTypes.isEmpty()) {
+          if (snapshot != SnapShotMode.None)
+            ce.addType().setCode(snapshot == SnapShotMode.DataType ? "Element" : "BackboneElement");
+        } else for (TypeRef t : expandedTypes) {
           TypeRefComponent type = new TypeRefComponent();
           type.setCode(t.getName());
           String profile = t.getProfile();
@@ -1214,6 +1223,12 @@ public class ProfileGenerator {
       }
     } else
       pp.setType(p.getType());
+  }
+
+  private void checkHasTypes(StructureDefinition p) {
+    for (ElementDefinition ed : p.getSnapshot().getElement())
+      if (!ed.hasType() && !ed.hasNameReference() && !(ed.getPath().equals("Resource") || ed.getPath().equals("Element")))
+        throw new Error("No Type on "+ed.getPath());
   }
 
 

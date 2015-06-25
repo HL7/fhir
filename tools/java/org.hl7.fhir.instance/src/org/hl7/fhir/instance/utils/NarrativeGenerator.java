@@ -185,7 +185,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     @Override
     public Base getBase() throws Exception {
-      if (type == null || type.equals("Resource"))
+      if (type == null || type.equals("Resource") || type.equals("BackboneElement") || type.equals("Element"))
         return null;
       
       String xml = new XmlGenerator().generate(element);
@@ -252,8 +252,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     private String determineType(Element e) {
       if (definition.getType().isEmpty())
         return null;
-      if (definition.getType().size() == 1)
+      if (definition.getType().size() == 1) {
+        if (definition.getType().get(0).getCode().equals("Element") || definition.getType().get(0).getCode().equals("BackboneElement"))
+          return null;
         return definition.getType().get(0).getCode();
+      }
       String t = e.getNodeName().substring(tail(definition.getPath()).length()-3);
       boolean allReference = true;
       for (TypeRefComponent tr : definition.getType()) {
@@ -798,9 +801,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private boolean isPrimitive(ElementDefinition e) {
     //we can tell if e is a primitive because it has types
-    return !e.getType().isEmpty();
+    if (e.getType().isEmpty())
+      return false;
+    if (e.getType().size() == 1 && isBase(e.getType().get(0).getCode()))
+      return false;
+    return true;
+//    return !e.getType().isEmpty()
   }
   
+  private boolean isBase(String code) {
+    return code.equals("Element") || code.equals("BackboneElement");
+  }
+
   private ElementDefinition getElementDefinition(List<ElementDefinition> elements, String path, PropertyWrapper p) {
     for (ElementDefinition element : elements)
       if (element.getPath().equals(path))
