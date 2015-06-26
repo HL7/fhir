@@ -41,6 +41,9 @@ their own distributions formats .
  <li><a href="conceptmap.html">Concept Maps</a> describe mappings between value sets</li>
  <li>The ValueSet resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. Value set
 resources can be converted to CTS2 value set and code system resources</li>
+ <li>The value set resource is aligned with the <a href="http://wiki.hl7.org/index.php?title=Value_Set_Definition_Standard_Project">Value Set Definition</a> (VSD) project. 
+ Not all the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
+ In the ValueSet resource, the <code>compose</code> and <code>define</code> elements make up the VSD Content Logical definition</li>
 </ul>
 </div>
 
