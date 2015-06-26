@@ -879,6 +879,24 @@
     <display value="Body mass index 30+ - obesity"/>
     <display value="Body mass index 30+ - obesity (finding)"/>
   </concept>
+  <concept id="16310003" display="Diagnostic ultrasonography (procedure)">
+    <display value="Ultrasonography"/>
+    <display value="Ultrasonography, NOS"/>
+    <display value="Diagnostic ultrasonography, NOS"/>
+    <display value="Echography, NOS"/>
+    <display value="Ultrasound scan, NOS"/>
+    <display value="Ultrasound procedure, NOS"/>
+    <display value="Diagnostic ultrasonography"/>
+    <display value="Echography"/>
+    <display value="Ultrasound scan"/>
+    <display value="USS - Ultrasound scan"/>
+    <display value="Ultrasound"/>
+    <display value="Ultrasonogram"/>
+    <display value="US - Ultrasound"/>
+    <display value="Diagnostic sonar"/>
+    <display value="Ultrasound procedure"/>
+    <display value="Diagnostic ultrasonography (procedure)"/>
+  </concept>
   <concept id="16313001" display="Tea (substance)">
     <display value="Tea"/>
     <display value="Tea, NOS"/>
@@ -1216,6 +1234,12 @@
     <display value="Accident caused by electric current"/>
     <display value="Accidents caused by electric current"/>
     <display value="Accidents caused by electric current (finding)"/>
+  </concept>
+  <concept id="21840007" display="Date of last menstrual period (observable entity)">
+    <display value="LMP - Last menstrual period"/>
+    <display value="Last menstrual period"/>
+    <display value="Date of last menstrual period"/>
+    <display value="Date of last menstrual period (observable entity)"/>
   </concept>
   <concept id="21864008" display="Seasonal course (qualifier value)">
     <display value="Seasonal course (qualifier value)"/>
@@ -2001,6 +2025,11 @@
     <display value="p.p. - Post-prandial"/>
     <display value="Postprandial"/>
     <display value="Postprandial (qualifier value)"/>
+  </concept>
+  <concept id="248986005" display="Estimated date of conception (observable entity)">
+    <display value="EDC - Estimated date of conception"/>
+    <display value="Estimated date of conception"/>
+    <display value="Estimated date of conception (observable entity)"/>
   </concept>
   <concept id="249943000:363698007=72098002,260868000=6934004" display="Weakness of distal arms and legs (finding) where Finding site (attribute) = Entire left upper arm (body structure), and Permanence (attribute) = Permanent (qualifier value)"/>
   <concept id="25062003" display="Feeding tube">
@@ -3961,6 +3990,13 @@
     <display value="Rectum"/>
     <display value="Rectum, NOS"/>
     <display value="Rectum structure (body structure)"/>
+  </concept>
+  <concept id="34536000" display="Amniocentesis">
+    <display value="AC - Amniocentesis"/>
+    <display value="Amniocentesis"/>
+    <display value="Amniocentesis, NOS"/>
+    <display value="Incision and drainage of amnion"/>
+    <display value="Amniocentesis (procedure)"/>
   </concept>
   <concept id="34608000" display="ALT measurement">
     <display value="Alanine aminotransferase measurement"/>
