@@ -25,10 +25,10 @@
     <scheduledTiming>
       <!--2 months-->
       <repeat>
-        <bounds>
+        <boundsPeriod>
           <start value="2013-03-11"/>
           <end value="2013-05-11"/>
-        </bounds>
+        </boundsPeriod>
         <!-- twice per day -->
         <frequency value="2"/>
         <period value="1"/>

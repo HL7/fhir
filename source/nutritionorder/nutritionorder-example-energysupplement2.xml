@@ -66,9 +66,9 @@ edited by Eric Haas Health eData Inc
 		<productName value="Ensure Pudding"/>
 		<schedule>
 			<repeat>
-        <bounds>
+        <boundsPeriod>
           <start value="2015-02-10"/>
-        </bounds>
+        </boundsPeriod>
 				<when value="AC"/>
 				<duration value="0"/>
 				<units value="min"/>

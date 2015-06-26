@@ -60,9 +60,9 @@ edited by Eric Haas Health eData Inc
 		<productName value="Beneprotein"/>
 		<schedule>
 			<repeat>
-        <bounds>
+        <boundsPeriod>
           <start value="2015-02-10"/>
-        </bounds>
+        </boundsPeriod>
 				<when value="C"/>
 			</repeat>
 		</schedule>

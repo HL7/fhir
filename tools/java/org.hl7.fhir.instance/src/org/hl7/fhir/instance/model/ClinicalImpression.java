@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1089,6 +1089,10 @@ public class ClinicalImpression extends DomainResource {
       return (CodeableConcept) this.trigger;
     }
 
+    public boolean hasTriggerCodeableConcept() throws Exception { 
+      return this.trigger instanceof CodeableConcept;
+    }
+
     /**
      * @return {@link #trigger} (The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.)
      */
@@ -1096,6 +1100,10 @@ public class ClinicalImpression extends DomainResource {
       if (!(this.trigger instanceof Reference))
         throw new Exception("Type mismatch: the type Reference was expected, but "+this.trigger.getClass().getName()+" was encountered");
       return (Reference) this.trigger;
+    }
+
+    public boolean hasTriggerReference() throws Exception { 
+      return this.trigger instanceof Reference;
     }
 
     public boolean hasTrigger() { 

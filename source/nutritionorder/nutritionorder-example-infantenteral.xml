@@ -81,9 +81,9 @@ edited by Eric Haas Health eData Inc
 		<!-- scheduled 4 oz every 3hrs not to exceed 32 oz/day-->
 		<schedule>
 			<repeat>
-			<bounds>
+			<boundsPeriod>
 			  <start value="2014-09-17"/>
-			</bounds>
+			</boundsPeriod>
 				<frequency value="1"/>
 				<period value="3"/>
 				<periodUnits value="h"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -871,8 +871,9 @@ public class JsonParser extends JsonParserBase {
   protected Timing.TimingRepeatComponent parseTimingTimingRepeatComponent(JsonObject json, Timing owner) throws Exception {
     Timing.TimingRepeatComponent res = new Timing.TimingRepeatComponent();
     parseElementProperties(json, res);
-    if (json.has("bounds"))
-      res.setBounds(parsePeriod(json.getAsJsonObject("bounds")));
+    Type bounds = parseType("bounds", json);
+    if (bounds != null)
+      res.setBounds(bounds);
     if (json.has("count"))
       res.setCountElement(parseInteger(json.get("count").getAsLong()));
     if (json.has("_count"))
@@ -6484,6 +6485,8 @@ public class JsonParser extends JsonParserBase {
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("source"))
       res.setSource(parseReference(json.getAsJsonObject("source")));
+    if (json.has("encounter"))
+      res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), List_.ListStatus.NULL, new List_.ListStatusEnumFactory()));
     if (json.has("_status"))
@@ -7552,12 +7555,6 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("referenceRange");
       for (int i = 0; i < array.size(); i++) {
         res.getReferenceRange().add(parseObservationObservationReferenceRangeComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("derivedFrom")) {
-      JsonArray array = json.getAsJsonArray("derivedFrom");
-      for (int i = 0; i < array.size(); i++) {
-        res.getDerivedFrom().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("related")) {
@@ -12511,7 +12508,7 @@ public class JsonParser extends JsonParserBase {
   protected void composeTimingTimingRepeatComponentInner(Timing.TimingRepeatComponent element) throws Exception {
       composeElement(element);
       if (element.hasBounds()) {
-        composePeriod("bounds", element.getBounds());
+        composeType("bounds", element.getBounds());
       }
       if (element.hasCountElement()) {
         composeIntegerCore("count", element.getCountElement(), false);
@@ -19438,6 +19435,9 @@ public class JsonParser extends JsonParserBase {
       if (element.hasSource()) {
         composeReference("source", element.getSource());
       }
+      if (element.hasEncounter()) {
+        composeReference("encounter", element.getEncounter());
+      }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new List_.ListStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new List_.ListStatusEnumFactory(), false);
@@ -20826,12 +20826,6 @@ public class JsonParser extends JsonParserBase {
         openArray("referenceRange");
         for (Observation.ObservationReferenceRangeComponent e : element.getReferenceRange()) 
           composeObservationObservationReferenceRangeComponent(null, e);
-        closeArray();
-      };
-      if (element.hasDerivedFrom()) {
-        openArray("derivedFrom");
-        for (Reference e : element.getDerivedFrom()) 
-          composeReference(null, e);
         closeArray();
       };
       if (element.hasRelated()) {
@@ -25240,7 +25234,7 @@ public class JsonParser extends JsonParserBase {
     else if (type instanceof ContactPoint)
        composeContactPointInner((ContactPoint) type);
     else
-      throw new Exception("Unhanded type "+type.getClass().getName());
+      throw new Exception("Unhanded type");
   }
 
 }

@@ -1262,7 +1262,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     x.addText(displayIdentifier(ii));
   }
   
-  private void renderTiming(Timing s, XhtmlNode x) {
+  private void renderTiming(Timing s, XhtmlNode x) throws Exception {
     x.addText(displayTiming(s));
   }
   
@@ -1312,7 +1312,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
   
   
-  private String displayTiming(Timing s) {
+  private String displayTiming(Timing s) throws Exception {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     if (s.hasCode())
     	b.append("Code: "+displayCodeableConcept(s.getCode()));
@@ -1327,8 +1327,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     
     if (s.hasRepeat()) {
       TimingRepeatComponent rep = s.getRepeat();
-      if (rep.hasBounds() && rep.getBounds().hasStart()) 
-        b.append("Starting "+rep.getBounds().getStartElement().toHumanDisplay());
+      if (rep.hasBoundsPeriod() && rep.getBoundsPeriod().hasStart()) 
+        b.append("Starting "+rep.getBoundsPeriod().getStartElement().toHumanDisplay());
       if (rep.hasCount()) 
         b.append("Count "+Integer.toString(rep.getCount())+" times");
       if (rep.hasDuration()) 
@@ -1360,8 +1360,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
         }
         b.append("Do "+st);
       }
-      if (rep.hasBounds() && rep.getBounds().hasEnd()) 
-        b.append("Until "+rep.getBounds().getEndElement().toHumanDisplay());
+      if (rep.hasBoundsPeriod() && rep.getBoundsPeriod().hasEnd()) 
+        b.append("Until "+rep.getBoundsPeriod().getEndElement().toHumanDisplay());
     } 
     return b.toString();
   }

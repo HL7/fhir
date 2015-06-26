@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -256,6 +256,10 @@ public class Group extends DomainResource {
           return (CodeableConcept) this.value;
         }
 
+        public boolean hasValueCodeableConcept() throws Exception { 
+          return this.value instanceof CodeableConcept;
+        }
+
         /**
          * @return {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
          */
@@ -263,6 +267,10 @@ public class Group extends DomainResource {
           if (!(this.value instanceof BooleanType))
             throw new Exception("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
+        }
+
+        public boolean hasValueBooleanType() throws Exception { 
+          return this.value instanceof BooleanType;
         }
 
         /**
@@ -274,6 +282,10 @@ public class Group extends DomainResource {
           return (Quantity) this.value;
         }
 
+        public boolean hasValueQuantity() throws Exception { 
+          return this.value instanceof Quantity;
+        }
+
         /**
          * @return {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
          */
@@ -281,6 +293,10 @@ public class Group extends DomainResource {
           if (!(this.value instanceof Range))
             throw new Exception("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Range) this.value;
+        }
+
+        public boolean hasValueRange() throws Exception { 
+          return this.value instanceof Range;
         }
 
         public boolean hasValue() { 

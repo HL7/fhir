@@ -133,10 +133,10 @@
       <scheduledTiming>
         <!-- The encounter should occur between 14 feb and 28 feb -->
         <repeat>
-          <bounds>
+          <boundsPeriod>
             <start value="2013-02-14"/>
             <end value="2013-02-28"/>
-          </bounds>
+          </boundsPeriod>
         </repeat>
       </scheduledTiming>
       <performer>
@@ -171,10 +171,10 @@
       <scheduledTiming>
         <!-- The encounter should occur between 1 march and 14 march -->
         <repeat>
-          <bounds>
+          <boundsPeriod>
             <start value="2013-03-01"/>
             <end value="2013-03-14"/>
-          </bounds>
+          </boundsPeriod>
         </repeat>
       </scheduledTiming>
       <performer>
@@ -207,10 +207,10 @@
       <scheduledTiming>
         <!-- The delivery should occur between 1 September and 14 September -->
         <repeat>
-          <bounds>
+          <boundsPeriod>
             <start value="2013-09-01"/>
             <end value="2013-09-14"/>
-          </bounds>
+          </boundsPeriod>
         </repeat>
       </scheduledTiming>
       <!-- Where the delivery is to occur... 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -260,6 +260,10 @@ public class Procedure extends DomainResource {
           return (CodeableConcept) this.site;
         }
 
+        public boolean hasSiteCodeableConcept() throws Exception { 
+          return this.site instanceof CodeableConcept;
+        }
+
         /**
          * @return {@link #site} (Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.)
          */
@@ -267,6 +271,10 @@ public class Procedure extends DomainResource {
           if (!(this.site instanceof Reference))
             throw new Exception("Type mismatch: the type Reference was expected, but "+this.site.getClass().getName()+" was encountered");
           return (Reference) this.site;
+        }
+
+        public boolean hasSiteReference() throws Exception { 
+          return this.site instanceof Reference;
         }
 
         public boolean hasSite() { 
@@ -1249,6 +1257,10 @@ public class Procedure extends DomainResource {
       return (DateTimeType) this.performed;
     }
 
+    public boolean hasPerformedDateTimeType() throws Exception { 
+      return this.performed instanceof DateTimeType;
+    }
+
     /**
      * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
@@ -1256,6 +1268,10 @@ public class Procedure extends DomainResource {
       if (!(this.performed instanceof Period))
         throw new Exception("Type mismatch: the type Period was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (Period) this.performed;
+    }
+
+    public boolean hasPerformedPeriod() throws Exception { 
+      return this.performed instanceof Period;
     }
 
     public boolean hasPerformed() { 

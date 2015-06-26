@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1346,6 +1346,10 @@ public class Patient extends DomainResource {
       return (BooleanType) this.deceased;
     }
 
+    public boolean hasDeceasedBooleanType() throws Exception { 
+      return this.deceased instanceof BooleanType;
+    }
+
     /**
      * @return {@link #deceased} (Indicates if the individual is deceased or not.)
      */
@@ -1353,6 +1357,10 @@ public class Patient extends DomainResource {
       if (!(this.deceased instanceof DateTimeType))
         throw new Exception("Type mismatch: the type DateTimeType was expected, but "+this.deceased.getClass().getName()+" was encountered");
       return (DateTimeType) this.deceased;
+    }
+
+    public boolean hasDeceasedDateTimeType() throws Exception { 
+      return this.deceased instanceof DateTimeType;
     }
 
     public boolean hasDeceased() { 
@@ -1447,6 +1455,10 @@ public class Patient extends DomainResource {
       return (BooleanType) this.multipleBirth;
     }
 
+    public boolean hasMultipleBirthBooleanType() throws Exception { 
+      return this.multipleBirth instanceof BooleanType;
+    }
+
     /**
      * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
      */
@@ -1454,6 +1466,10 @@ public class Patient extends DomainResource {
       if (!(this.multipleBirth instanceof IntegerType))
         throw new Exception("Type mismatch: the type IntegerType was expected, but "+this.multipleBirth.getClass().getName()+" was encountered");
       return (IntegerType) this.multipleBirth;
+    }
+
+    public boolean hasMultipleBirthIntegerType() throws Exception { 
+      return this.multipleBirth instanceof IntegerType;
     }
 
     public boolean hasMultipleBirth() { 
@@ -1922,26 +1938,34 @@ public class Patient extends DomainResource {
   public static final String SP_PHONETIC = "phonetic";
   @SearchParamDefinition(name="link", path="Patient.link.other", description="All patients linked to the given patient", type="reference" )
   public static final String SP_LINK = "link";
+  @SearchParamDefinition(name="address-country", path="Patient.address.country", description="A country specified in an address", type="string" )
+  public static final String SP_ADDRESSCOUNTRY = "address-country";
   @SearchParamDefinition(name="animal-species", path="Patient.animal.species", description="The species for animal patients", type="token" )
   public static final String SP_ANIMALSPECIES = "animal-species";
   @SearchParamDefinition(name="deathdate", path="Patient.deceased[x]", description="The date of death has been provided and satisfies this search value", type="date" )
   public static final String SP_DEATHDATE = "deathdate";
   @SearchParamDefinition(name="organization", path="Patient.managingOrganization", description="The organization at which this person is a patient", type="reference" )
   public static final String SP_ORGANIZATION = "organization";
-  @SearchParamDefinition(name="given", path="Patient.name.given", description="A portion of the given name of the patient", type="string" )
-  public static final String SP_GIVEN = "given";
+  @SearchParamDefinition(name="address-city", path="Patient.address.city", description="A city specified in an address", type="string" )
+  public static final String SP_ADDRESSCITY = "address-city";
+  @SearchParamDefinition(name="address-state", path="Patient.address.state", description="A state specified in an address", type="string" )
+  public static final String SP_ADDRESSSTATE = "address-state";
   @SearchParamDefinition(name="careprovider", path="Patient.careProvider", description="Patient's nominated care provider, could be a care manager, not the organization that manages the record", type="reference" )
   public static final String SP_CAREPROVIDER = "careprovider";
+  @SearchParamDefinition(name="given", path="Patient.name.given", description="A portion of the given name of the patient", type="string" )
+  public static final String SP_GIVEN = "given";
   @SearchParamDefinition(name="address", path="Patient.address", description="An address in any kind of address/part of the patient", type="string" )
   public static final String SP_ADDRESS = "address";
   @SearchParamDefinition(name="family", path="Patient.name.family", description="A portion of the family name of the patient", type="string" )
   public static final String SP_FAMILY = "family";
+  @SearchParamDefinition(name="address-use", path="Patient.address.use", description="A use code specified in an address", type="token" )
+  public static final String SP_ADDRESSUSE = "address-use";
   @SearchParamDefinition(name="name", path="Patient.name", description="A portion of either family or given name of the patient", type="string" )
   public static final String SP_NAME = "name";
-  @SearchParamDefinition(name="telecom", path="Patient.telecom", description="The value in any kind of telecom details of the patient", type="token" )
-  public static final String SP_TELECOM = "telecom";
   @SearchParamDefinition(name="birthdate", path="Patient.birthDate", description="The patient's date of birth", type="date" )
   public static final String SP_BIRTHDATE = "birthdate";
+  @SearchParamDefinition(name="telecom", path="Patient.telecom", description="The value in any kind of telecom details of the patient", type="token" )
+  public static final String SP_TELECOM = "telecom";
   @SearchParamDefinition(name="active", path="Patient.active", description="Whether the patient record is active", type="token" )
   public static final String SP_ACTIVE = "active";
   @SearchParamDefinition(name="gender", path="Patient.gender", description="Gender of the patient", type="token" )
@@ -1952,6 +1976,8 @@ public class Patient extends DomainResource {
   public static final String SP_LANGUAGE = "language";
   @SearchParamDefinition(name="identifier", path="Patient.identifier", description="A patient identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="address-postalcode", path="Patient.address.postalCode", description="A postalCode specified in an address", type="string" )
+  public static final String SP_ADDRESSPOSTALCODE = "address-postalcode";
 
 }
 

@@ -83,9 +83,9 @@ edited by Eric Haas Health eData Inc
 		<!--EH:  1 8 oz can tid using coded data -->
 		<schedule>
 			<repeat>
-        <bounds>
+        <boundsPeriod>
           <start value="2015-02-10"/>
-        </bounds>
+        </boundsPeriod>
 				<frequency value="3"/>
 				<period value="1"/>
 				<periodUnits value="d"/>

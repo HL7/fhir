@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -258,6 +258,10 @@ public class Provenance extends DomainResource {
           return (UriType) this.reference;
         }
 
+        public boolean hasReferenceUriType() throws Exception { 
+          return this.reference instanceof UriType;
+        }
+
         /**
          * @return {@link #reference} (Identity of participant as a Resource or uri.)
          */
@@ -265,6 +269,10 @@ public class Provenance extends DomainResource {
           if (!(this.reference instanceof Reference))
             throw new Exception("Type mismatch: the type Reference was expected, but "+this.reference.getClass().getName()+" was encountered");
           return (Reference) this.reference;
+        }
+
+        public boolean hasReferenceReference() throws Exception { 
+          return this.reference instanceof Reference;
         }
 
         public boolean hasReference() { 

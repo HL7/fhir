@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -431,11 +431,11 @@ public class Timing extends Type implements ICompositeType {
     @Block()
     public static class TimingRepeatComponent extends Element implements IBaseDatatypeElement {
         /**
-         * Outer bounds for start and/or end limits of the timing schedule.
+         * Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.
          */
-        @Child(name = "bounds", type = {Period.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Start and/or end limits", formalDefinition="Outer bounds for start and/or end limits of the timing schedule." )
-        protected Period bounds;
+        @Child(name = "bounds", type = {Duration.class, Period.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Length, or (Start and/or end) limits", formalDefinition="Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule." )
+        protected Type bounds;
 
         /**
          * A total count of the desired number of repetitions.
@@ -500,7 +500,7 @@ public class Timing extends Type implements ICompositeType {
         @Description(shortDefinition="Regular life events the event is tied to", formalDefinition="A real world event that the occurrence of the event should be tied to." )
         protected Enumeration<EventTiming> when;
 
-        private static final long serialVersionUID = -960490812L;
+        private static final long serialVersionUID = -841464149L;
 
     /*
      * Constructor
@@ -510,15 +510,36 @@ public class Timing extends Type implements ICompositeType {
       }
 
         /**
-         * @return {@link #bounds} (Outer bounds for start and/or end limits of the timing schedule.)
+         * @return {@link #bounds} (Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.)
          */
-        public Period getBounds() { 
-          if (this.bounds == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TimingRepeatComponent.bounds");
-            else if (Configuration.doAutoCreate())
-              this.bounds = new Period(); // cc
+        public Type getBounds() { 
           return this.bounds;
+        }
+
+        /**
+         * @return {@link #bounds} (Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.)
+         */
+        public Duration getBoundsDuration() throws Exception { 
+          if (!(this.bounds instanceof Duration))
+            throw new Exception("Type mismatch: the type Duration was expected, but "+this.bounds.getClass().getName()+" was encountered");
+          return (Duration) this.bounds;
+        }
+
+        public boolean hasBoundsDuration() throws Exception { 
+          return this.bounds instanceof Duration;
+        }
+
+        /**
+         * @return {@link #bounds} (Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.)
+         */
+        public Period getBoundsPeriod() throws Exception { 
+          if (!(this.bounds instanceof Period))
+            throw new Exception("Type mismatch: the type Period was expected, but "+this.bounds.getClass().getName()+" was encountered");
+          return (Period) this.bounds;
+        }
+
+        public boolean hasBoundsPeriod() throws Exception { 
+          return this.bounds instanceof Period;
         }
 
         public boolean hasBounds() { 
@@ -526,9 +547,9 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #bounds} (Outer bounds for start and/or end limits of the timing schedule.)
+         * @param value {@link #bounds} (Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.)
          */
-        public TimingRepeatComponent setBounds(Period value) { 
+        public TimingRepeatComponent setBounds(Type value) { 
           this.bounds = value;
           return this;
         }
@@ -964,7 +985,7 @@ public class Timing extends Type implements ICompositeType {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("bounds", "Period", "Outer bounds for start and/or end limits of the timing schedule.", 0, java.lang.Integer.MAX_VALUE, bounds));
+          childrenList.add(new Property("bounds[x]", "Duration|Period", "Either a duraction for the length of the timing schedule, or outer bounds for start and/or end limits of the timing schedule.", 0, java.lang.Integer.MAX_VALUE, bounds));
           childrenList.add(new Property("count", "integer", "A total count of the desired number of repetitions.", 0, java.lang.Integer.MAX_VALUE, count));
           childrenList.add(new Property("duration", "decimal", "How long this thing happens for when it happens.", 0, java.lang.Integer.MAX_VALUE, duration));
           childrenList.add(new Property("durationUnits", "code", "The units of time for the duration, in UCUM units.", 0, java.lang.Integer.MAX_VALUE, durationUnits));

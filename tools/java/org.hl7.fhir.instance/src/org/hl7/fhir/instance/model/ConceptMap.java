@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1773,6 +1773,10 @@ public class ConceptMap extends DomainResource {
       return (UriType) this.source;
     }
 
+    public boolean hasSourceUriType() throws Exception { 
+      return this.source instanceof UriType;
+    }
+
     /**
      * @return {@link #source} (The source value set that specifies the concepts that are being mapped.)
      */
@@ -1780,6 +1784,10 @@ public class ConceptMap extends DomainResource {
       if (!(this.source instanceof Reference))
         throw new Exception("Type mismatch: the type Reference was expected, but "+this.source.getClass().getName()+" was encountered");
       return (Reference) this.source;
+    }
+
+    public boolean hasSourceReference() throws Exception { 
+      return this.source instanceof Reference;
     }
 
     public boolean hasSource() { 
@@ -1810,6 +1818,10 @@ public class ConceptMap extends DomainResource {
       return (UriType) this.target;
     }
 
+    public boolean hasTargetUriType() throws Exception { 
+      return this.target instanceof UriType;
+    }
+
     /**
      * @return {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
@@ -1817,6 +1829,10 @@ public class ConceptMap extends DomainResource {
       if (!(this.target instanceof Reference))
         throw new Exception("Type mismatch: the type Reference was expected, but "+this.target.getClass().getName()+" was encountered");
       return (Reference) this.target;
+    }
+
+    public boolean hasTargetReference() throws Exception { 
+      return this.target instanceof Reference;
     }
 
     public boolean hasTarget() { 

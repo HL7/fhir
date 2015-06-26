@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -470,6 +470,10 @@ public class DeviceUseRequest extends DomainResource {
       return (CodeableConcept) this.bodySite;
     }
 
+    public boolean hasBodySiteCodeableConcept() throws Exception { 
+      return this.bodySite instanceof CodeableConcept;
+    }
+
     /**
      * @return {@link #bodySite} (Indicates the site on the subject's body where the device should be used ( i.e. the target site).)
      */
@@ -477,6 +481,10 @@ public class DeviceUseRequest extends DomainResource {
       if (!(this.bodySite instanceof Reference))
         throw new Exception("Type mismatch: the type Reference was expected, but "+this.bodySite.getClass().getName()+" was encountered");
       return (Reference) this.bodySite;
+    }
+
+    public boolean hasBodySiteReference() throws Exception { 
+      return this.bodySite instanceof Reference;
     }
 
     public boolean hasBodySite() { 
@@ -960,6 +968,10 @@ public class DeviceUseRequest extends DomainResource {
       return (Timing) this.timing;
     }
 
+    public boolean hasTimingTiming() throws Exception { 
+      return this.timing instanceof Timing;
+    }
+
     /**
      * @return {@link #timing} (The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
@@ -969,6 +981,10 @@ public class DeviceUseRequest extends DomainResource {
       return (Period) this.timing;
     }
 
+    public boolean hasTimingPeriod() throws Exception { 
+      return this.timing instanceof Period;
+    }
+
     /**
      * @return {@link #timing} (The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
@@ -976,6 +992,10 @@ public class DeviceUseRequest extends DomainResource {
       if (!(this.timing instanceof DateTimeType))
         throw new Exception("Type mismatch: the type DateTimeType was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (DateTimeType) this.timing;
+    }
+
+    public boolean hasTimingDateTimeType() throws Exception { 
+      return this.timing instanceof DateTimeType;
     }
 
     public boolean hasTiming() { 

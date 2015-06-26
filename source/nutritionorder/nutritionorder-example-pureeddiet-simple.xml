@@ -58,9 +58,9 @@ edited by Eric Haas Health eData Inc
 		<!-- EH example of three times a day starting on 2/10 -->
 		<schedule>
 			<repeat>
-        <bounds>
+        <boundsPeriod>
           <start value="2015-02-10"/>
-        </bounds>
+        </boundsPeriod>
 				<frequency value="3"/>
 				<period value="1"/>
 				<periodUnits value="d"/>

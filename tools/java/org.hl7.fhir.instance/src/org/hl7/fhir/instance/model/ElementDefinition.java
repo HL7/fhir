@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -1427,6 +1427,10 @@ public class ElementDefinition extends Type implements ICompositeType {
           return (UriType) this.valueSet;
         }
 
+        public boolean hasValueSetUriType() throws Exception { 
+          return this.valueSet instanceof UriType;
+        }
+
         /**
          * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
@@ -1434,6 +1438,10 @@ public class ElementDefinition extends Type implements ICompositeType {
           if (!(this.valueSet instanceof Reference))
             throw new Exception("Type mismatch: the type Reference was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (Reference) this.valueSet;
+        }
+
+        public boolean hasValueSetReference() throws Exception { 
+          return this.valueSet instanceof Reference;
         }
 
         public boolean hasValueSet() { 

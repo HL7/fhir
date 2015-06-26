@@ -34,9 +34,9 @@
     <dosageInstruction>
         <scheduledTiming>
             <repeat>
-              <bounds>
+              <boundsPeriod>
                   <start value="2011-05-01"/>
-              </bounds>
+              </boundsPeriod>
               <frequency value="1"/>
               <period value="1"/>
               <periodUnits value="d"/>

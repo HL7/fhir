@@ -39,10 +39,10 @@
         </additionalInstructions>
         <scheduledTiming>
             <repeat>
-                <bounds>
+                <boundsPeriod>
                     <start value="2013-08-04"/>
                     <end value="2013-11-05"/>
-                </bounds>
+                </boundsPeriod>
                 <frequency value="3"/>
                 <period value="1"/>
                 <periodUnits value="d"/>

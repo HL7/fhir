@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -925,8 +925,8 @@ public class XmlParser extends XmlParserBase {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("bounds")) {
-        res.setBounds(parsePeriod(xpp));
+      if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "bounds")) {
+        res.setBounds(parseType("bounds", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("count")) {
         res.setCountElement(parseInteger(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("duration")) {
@@ -5664,6 +5664,8 @@ public class XmlParser extends XmlParserBase {
         res.setSubject(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("source")) {
         res.setSource(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("encounter")) {
+        res.setEncounter(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, List_.ListStatus.NULL, new List_.ListStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("date")) {
@@ -6678,8 +6680,6 @@ public class XmlParser extends XmlParserBase {
         res.setEncounter(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("referenceRange")) {
         res.getReferenceRange().add(parseObservationObservationReferenceRangeComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("derivedFrom")) {
-        res.getDerivedFrom().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("related")) {
         res.getRelated().add(parseObservationObservationRelatedComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("component")) {
@@ -11108,9 +11108,8 @@ public class XmlParser extends XmlParserBase {
       xml.enter(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasBounds()) {
-        composePeriod("bounds", element.getBounds());
-      }
-      if (element.hasCountElement()) {
+        composeType("bounds", element.getBounds());
+      }      if (element.hasCountElement()) {
         composeInteger("count", element.getCountElement());
       }
       if (element.hasDurationElement()) {
@@ -16279,6 +16278,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSource()) {
         composeReference("source", element.getSource());
       }
+      if (element.hasEncounter()) {
+        composeReference("encounter", element.getEncounter());
+      }
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new List_.ListStatusEnumFactory());
       if (element.hasDateElement()) {
@@ -17372,10 +17374,6 @@ public class XmlParser extends XmlParserBase {
       if (element.hasReferenceRange()) { 
         for (Observation.ObservationReferenceRangeComponent e : element.getReferenceRange()) 
           composeObservationObservationReferenceRangeComponent("referenceRange", e);
-      }
-      if (element.hasDerivedFrom()) { 
-        for (Reference e : element.getDerivedFrom()) 
-          composeReference("derivedFrom", e);
       }
       if (element.hasRelated()) { 
         for (Observation.ObservationRelatedComponent e : element.getRelated()) 

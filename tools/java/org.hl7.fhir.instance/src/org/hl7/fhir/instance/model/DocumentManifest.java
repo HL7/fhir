@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -89,6 +89,10 @@ public class DocumentManifest extends DomainResource {
           return (Attachment) this.p;
         }
 
+        public boolean hasPAttachment() throws Exception { 
+          return this.p instanceof Attachment;
+        }
+
         /**
          * @return {@link #p} (The list of DocumentReference or Media Resources, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.)
          */
@@ -96,6 +100,10 @@ public class DocumentManifest extends DomainResource {
           if (!(this.p instanceof Reference))
             throw new Exception("Type mismatch: the type Reference was expected, but "+this.p.getClass().getName()+" was encountered");
           return (Reference) this.p;
+        }
+
+        public boolean hasPReference() throws Exception { 
+          return this.p instanceof Reference;
         }
 
         public boolean hasP() { 

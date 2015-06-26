@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -704,6 +704,10 @@ public class SupplyRequest extends DomainResource {
       return (CodeableConcept) this.reason;
     }
 
+    public boolean hasReasonCodeableConcept() throws Exception { 
+      return this.reason instanceof CodeableConcept;
+    }
+
     /**
      * @return {@link #reason} (Why the supply item was requested.)
      */
@@ -711,6 +715,10 @@ public class SupplyRequest extends DomainResource {
       if (!(this.reason instanceof Reference))
         throw new Exception("Type mismatch: the type Reference was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (Reference) this.reason;
+    }
+
+    public boolean hasReasonReference() throws Exception { 
+      return this.reason instanceof Reference;
     }
 
     public boolean hasReason() { 

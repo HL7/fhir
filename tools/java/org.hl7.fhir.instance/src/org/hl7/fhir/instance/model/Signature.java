@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -192,6 +192,10 @@ public class Signature extends Type implements ICompositeType {
       return (UriType) this.who;
     }
 
+    public boolean hasWhoUriType() throws Exception { 
+      return this.who instanceof UriType;
+    }
+
     /**
      * @return {@link #who} (A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key).)
      */
@@ -199,6 +203,10 @@ public class Signature extends Type implements ICompositeType {
       if (!(this.who instanceof Reference))
         throw new Exception("Type mismatch: the type Reference was expected, but "+this.who.getClass().getName()+" was encountered");
       return (Reference) this.who;
+    }
+
+    public boolean hasWhoReference() throws Exception { 
+      return this.who instanceof Reference;
     }
 
     public boolean hasWho() { 

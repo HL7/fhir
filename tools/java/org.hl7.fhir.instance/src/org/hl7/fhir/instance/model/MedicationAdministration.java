@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -979,6 +979,10 @@ public class MedicationAdministration extends DomainResource {
       return (DateTimeType) this.effectiveTime;
     }
 
+    public boolean hasEffectiveTimeDateTimeType() throws Exception { 
+      return this.effectiveTime instanceof DateTimeType;
+    }
+
     /**
      * @return {@link #effectiveTime} (An interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.)
      */
@@ -986,6 +990,10 @@ public class MedicationAdministration extends DomainResource {
       if (!(this.effectiveTime instanceof Period))
         throw new Exception("Type mismatch: the type Period was expected, but "+this.effectiveTime.getClass().getName()+" was encountered");
       return (Period) this.effectiveTime;
+    }
+
+    public boolean hasEffectiveTimePeriod() throws Exception { 
+      return this.effectiveTime instanceof Period;
     }
 
     public boolean hasEffectiveTime() { 
@@ -1016,6 +1024,10 @@ public class MedicationAdministration extends DomainResource {
       return (CodeableConcept) this.medication;
     }
 
+    public boolean hasMedicationCodeableConcept() throws Exception { 
+      return this.medication instanceof CodeableConcept;
+    }
+
     /**
      * @return {@link #medication} (Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
@@ -1023,6 +1035,10 @@ public class MedicationAdministration extends DomainResource {
       if (!(this.medication instanceof Reference))
         throw new Exception("Type mismatch: the type Reference was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (Reference) this.medication;
+    }
+
+    public boolean hasMedicationReference() throws Exception { 
+      return this.medication instanceof Reference;
     }
 
     public boolean hasMedication() { 

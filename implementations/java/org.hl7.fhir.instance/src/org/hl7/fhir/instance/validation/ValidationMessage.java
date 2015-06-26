@@ -48,7 +48,8 @@ public class ValidationMessage
     Schema,
     Schematron,
     Publisher, 
-    Ontology
+    Ontology,
+    ProfileComparer
   }
   
   private Source source;
@@ -59,6 +60,19 @@ public class ValidationMessage
   private IssueType type;
   private IssueSeverity level;
   
+  
+  public ValidationMessage(Source source, IssueType type, String path, String message, IssueSeverity level) {
+    super();
+    this.line = -1;
+    this.col = -1;
+    this.location = path;
+    this.message = message;
+    this.level = level;
+    this.source = source;
+    this.type = type;
+    if (type == null)
+      throw new Error("A type must be provided");
+  }
   
   public ValidationMessage(Source source, IssueType type, int line, int col, String path, String message, IssueSeverity level) {
     super();

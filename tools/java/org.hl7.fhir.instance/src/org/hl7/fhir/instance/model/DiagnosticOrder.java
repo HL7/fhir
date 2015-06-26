@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -784,6 +784,10 @@ public class DiagnosticOrder extends DomainResource {
           return (CodeableConcept) this.bodySite;
         }
 
+        public boolean hasBodySiteCodeableConcept() throws Exception { 
+          return this.bodySite instanceof CodeableConcept;
+        }
+
         /**
          * @return {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
          */
@@ -791,6 +795,10 @@ public class DiagnosticOrder extends DomainResource {
           if (!(this.bodySite instanceof Reference))
             throw new Exception("Type mismatch: the type Reference was expected, but "+this.bodySite.getClass().getName()+" was encountered");
           return (Reference) this.bodySite;
+        }
+
+        public boolean hasBodySiteReference() throws Exception { 
+          return this.bodySite instanceof Reference;
         }
 
         public boolean hasBodySite() { 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -2514,6 +2514,10 @@ public class ValueSet extends DomainResource {
           return (StringType) this.value;
         }
 
+        public boolean hasValueStringType() throws Exception { 
+          return this.value instanceof StringType;
+        }
+
         /**
          * @return {@link #value} (The value of the parameter.)
          */
@@ -2521,6 +2525,10 @@ public class ValueSet extends DomainResource {
           if (!(this.value instanceof BooleanType))
             throw new Exception("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
+        }
+
+        public boolean hasValueBooleanType() throws Exception { 
+          return this.value instanceof BooleanType;
         }
 
         /**
@@ -2532,6 +2540,10 @@ public class ValueSet extends DomainResource {
           return (IntegerType) this.value;
         }
 
+        public boolean hasValueIntegerType() throws Exception { 
+          return this.value instanceof IntegerType;
+        }
+
         /**
          * @return {@link #value} (The value of the parameter.)
          */
@@ -2539,6 +2551,10 @@ public class ValueSet extends DomainResource {
           if (!(this.value instanceof DecimalType))
             throw new Exception("Type mismatch: the type DecimalType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DecimalType) this.value;
+        }
+
+        public boolean hasValueDecimalType() throws Exception { 
+          return this.value instanceof DecimalType;
         }
 
         /**
@@ -2550,6 +2566,10 @@ public class ValueSet extends DomainResource {
           return (UriType) this.value;
         }
 
+        public boolean hasValueUriType() throws Exception { 
+          return this.value instanceof UriType;
+        }
+
         /**
          * @return {@link #value} (The value of the parameter.)
          */
@@ -2557,6 +2577,10 @@ public class ValueSet extends DomainResource {
           if (!(this.value instanceof CodeType))
             throw new Exception("Type mismatch: the type CodeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (CodeType) this.value;
+        }
+
+        public boolean hasValueCodeType() throws Exception { 
+          return this.value instanceof CodeType;
         }
 
         public boolean hasValue() { 

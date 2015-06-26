@@ -82,9 +82,9 @@ edited by Eric Haas Health eData Inc
 		<!--EH:Glucerna Shake at 3pm and HS-->
 		<schedule>
 			<repeat>
-				<bounds>
+				<boundsPeriod>
 					<start value="2015-02-10T15:00:00Z"/>
-				</bounds>
+				</boundsPeriod>
 				<frequency value="1"/>
 				<period value="24"/>
 				<periodUnits value="h"/>

@@ -72,9 +72,9 @@ editor Eric Haas Health eData Inc
 			
 			<schedule>
 			<repeat>
-				<bounds>
+				<boundsPeriod>
 				  <start value="2014-09-17T07:00:00Z"/>
-				</bounds>
+				</boundsPeriod>
 			</repeat>
 			</schedule>
 			<rateQuantity>
@@ -87,9 +87,9 @@ editor Eric Haas Health eData Inc
 		<administration>	
 			<schedule>
 			<repeat>
-				<bounds>
+				<boundsPeriod>
 				  <start value="2014-09-17T11:00:00Z"/>
-				</bounds>
+				</boundsPeriod>
 			</repeat>
 			</schedule>
 			<rateQuantity>
@@ -102,9 +102,9 @@ editor Eric Haas Health eData Inc
 		<administration>		
 			<schedule>
 			<repeat>
-				<bounds>
+				<boundsPeriod>
 				  <start value="2014-09-17T15:00:00Z"/>
-				</bounds>
+				</boundsPeriod>
 			</repeat>
 			</schedule>
 			<rateQuantity>

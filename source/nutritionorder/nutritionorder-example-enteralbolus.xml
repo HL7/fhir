@@ -105,9 +105,9 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		<administration>
 			<schedule>
 				<repeat>
-				<bounds>
+				<boundsPeriod>
 				  <start value="2014-09-17T16:00:00Z"/>
-				</bounds>
+				</boundsPeriod>
 					<frequency value="1"/>
 					<period value="4"/>
 					<periodUnits value="h"/>

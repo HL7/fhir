@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 24, 2015 20:08+1000 for FHIR v0.5.0
+// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -913,6 +913,10 @@ public class DiagnosticReport extends DomainResource {
       return (DateTimeType) this.effective;
     }
 
+    public boolean hasEffectiveDateTimeType() throws Exception { 
+      return this.effective instanceof DateTimeType;
+    }
+
     /**
      * @return {@link #effective} (The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.)
      */
@@ -920,6 +924,10 @@ public class DiagnosticReport extends DomainResource {
       if (!(this.effective instanceof Period))
         throw new Exception("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (Period) this.effective;
+    }
+
+    public boolean hasEffectivePeriod() throws Exception { 
+      return this.effective instanceof Period;
     }
 
     public boolean hasEffective() { 

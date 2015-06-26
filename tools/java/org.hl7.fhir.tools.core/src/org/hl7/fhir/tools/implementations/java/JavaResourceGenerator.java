@@ -1210,6 +1210,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		        write(indent+"  return ("+ttn+") this."+getElementName(e.getName(), true)+";\r\n");
 		        write(indent+"}\r\n");
 		        write("\r\n");
+            write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+ttn+"() throws Exception { \r\n");
+            write(indent+"  return this."+getElementName(e.getName(), true)+" instanceof "+ttn+";\r\n");
+            write(indent+"}\r\n");
+            write("\r\n");
 			    }
 			  }
         write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
