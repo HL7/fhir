@@ -6,12 +6,12 @@
   <text>
     <status value="generated"/>
     <xhtml:div>
-      <xhtml:p>Bob Dolin, MD</xhtml:p>
+      <xhtml:p>Harold Hippocrates, MD</xhtml:p>
     </xhtml:div>
   </text>
   <name>
-    <family value="Dolin"/>
-    <given value="Bob"/>
+    <family value="Hippocrates"/>
+    <given value="Harold"/>
     <suffix value="MD"/>
   </name>
 </Practitioner>

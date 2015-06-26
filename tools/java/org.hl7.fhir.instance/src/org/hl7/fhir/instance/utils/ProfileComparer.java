@@ -179,6 +179,8 @@ public class ProfileComparer {
     assert(left.path().equals(right.path()));
     
     if (left.current().hasSlicing() || right.current().hasSlicing()) {
+      if (isExtension(left.path()))
+        return compareExtensions(path, left, right);
       return true;
 //      throw new Exception("Slicing is not handled yet");
     // todo: name 
@@ -245,6 +247,15 @@ public class ProfileComparer {
     this.subset.getSnapshot().getElement().add(subset);
     this.superset.getSnapshot().getElement().add(superset);
     return compareChildren(path, left, right);
+  }
+
+  private boolean compareExtensions(String path, DefinitionNavigator left, DefinitionNavigator right) {
+    //
+    return false;
+  }
+
+  private boolean isExtension(String path) {
+    return path.endsWith("Extension");
   }
 
   private boolean compareChildren(String path, DefinitionNavigator left, DefinitionNavigator right) throws Exception {

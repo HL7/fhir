@@ -27,13 +27,13 @@
 	</subject>
 	<author>
 	  <reference value="Practitioner/xcda-author"/>
-	  <display value="Robert Dolin MD"/>
+	  <display value="Harold Hippocrates, MD"/>
 	</author>
 	<attester>
 	  <mode value="legal"/>
 	  <party>
 		<reference value="Practitioner/xcda-author"/>
-		<display value="Robert Dolin MD"/>
+		<display value="Harold Hippocrates, MD"/>
 	  </party>
 	</attester>
 	<custodian>

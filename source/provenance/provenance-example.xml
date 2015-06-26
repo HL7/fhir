@@ -3,33 +3,68 @@
   <id value="example"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Authored on 8-Nov 2011 by Grahame Grieve. Content extracted from ISO-21090</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>
   </text>
+  <!-- 
+    where possible, provenance targets should be version specific,
+    so that there is no ambiguity about which version of the 
+    record this relates to
+  -->
   <target>
-    <reference value="Patient/example/_history/1"/>
+    <reference value="Procedure/example/_history/1"/>
   </target>
-  <!-- nominal activity: editing the standard -->
   <period>
-    <start value="2011-06-23"/>
+    <start value="2015-06-27"/>
   </period>
-  <recorded value="2012-11-08T23:16:03+11:00"/>
+  <recorded value="2015-06-27T08:39:24+10:00"/>
   <reason>
-    <text value="Editing the FHIR Specification"/>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="3457005"/>
+      <display value="Referral"/>
+    </coding>
+    <text value="Accepting a referral"/>
   </reason>
   <location>
-    <reference value="Location/2"/>
+    <reference value="Location/example"/>
   </location>
-  <!-- author -->
+  <!-- reference to a patient consent to share inforamtion -->
+  <policy value="http://acme.com/fhir/Consent/25"/>
+  
+  <!-- author = Harold Hippocrates -->
   <agent>
     <role>
       <system value="http://hl7.org/fhir/provenance-participant-role"/>
       <code value="author"/>
     </role>
-    <type>
-      <system value="http://hl7.org/fhir/provenance-participant-type"/>
-      <code value="person"/>
-    </type>
-    <referenceUri value="mailto:grahame@healthintersections.com.au"></referenceUri>
-    <display value="Grahame Grieve"/>
+    <actor>
+      <reference value="Practitioner/xcda-author"/>
+    </actor>
+    <!-- very often, the user won't have a known system - these aren't available 
+      for security system log ons. But where you can define it, you should -->
+    <userId>
+      <system value="http://acme.com/fhir/users/sso"/>      
+      <value value="hhd"/>
+    </userId>
   </agent>
+  <!-- information extract from a CCDA referral document -->
+  <entity>
+    <role value="source"/>
+    <!-- this code is extracted from the CDA source document -->
+    <type>
+      <system value="http://loinc.org"/>
+      <code value="57133-1"/>
+      <display value="Referral note"/>      
+    </type>
+    <!-- 
+      the document is in an XDS repository. 
+      as a source, we're going to give an MHD 
+      reference. (easier than XDS.b call with parameters!)
+
+      Note that though this is a URI, so that you can reference
+      outside FHIR, you can also put a standard FHIR reference 
+      here as well
+    -->
+    <reference value="DocumentReference/90f55916-9d15-4b8f-87a9-2d7ade8670c8"/>    
+  </entity>
 </Provenance>
