@@ -10,7 +10,7 @@ There are several different kinds of uses for a List resource:
 <%codelist ListMode%>
 
 <p>
-The final mode - a changes list, may include deleted items. A typical case is a medication
+A changes list may include deleted items. A typical case is a medication
 list in a discharge summary, where the list includes items that have been both added and deleted.
 In order to ensure that the list is safe to process, any item where the flag implies that the 
 item has actually been deleted SHALL have the deleted element set to true. 
