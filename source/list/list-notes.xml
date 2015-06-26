@@ -1,13 +1,38 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
+<a name="order"> </a>
+<h2>List Order</h2>
+<p>
+All lists are considered ordered - the order in which items literally 
+appear in the list may be an important part of the meaning of the list. 
+Reordering the items in a list may change the meaning of the list. 
+</p>
+<p>
+While a list always contains an ordered set of items, the signficance
+of the order may be unknown, or it may be insigificant. As an 
+example, consider a list of patients for a practitioner to visit.
+The list may be in order, where the patients are to be visited in
+the stated order, or just an unsorted list of patients to be visited
+in any order.
+</p>
+<p>
+The list resource has a property <code>orderedBy</code> that, if
+present, specifies the meaning of the item order. Note, though,
+that the meaning of the order may be known implicitly rather 
+than specified in the <code>orderedBy</code> element.
+</p>
+<p>
+Applications SHOULD NOT reorder the elements in a list unless they
+understand the impact of this on the meaning of the list.
+</p>
+
 <a name="status"> </a>
 <h2>List Mode &amp; Item Deleted</h2>
 
 <p>
 There are several different kinds of uses for a List resource:
 </p>
-<%codelist ListMode%>
+<%codelist http://hl7.org/fhir/vs/list-mode%>
 
 <p>
 A changes list may include deleted items. A typical case is a medication
