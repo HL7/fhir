@@ -180,6 +180,7 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, parent.getName(), !p.getCode().equals("filter"), "Search Parameter Name cannot be 'filter')");
       rule(errors, IssueType.STRUCTURE, parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
       rule(errors, IssueType.STRUCTURE, parent.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
+      hint(errors, IssueType.STRUCTURE, parent.getName(), !stringMatches(p.getCode(), "id", "lastUpdated", "tag", "profile", "security", "text", "content", "list", "query"), "Search Parameter Names cannot be named one of the reserved names (\""+p.getCode()+"\")");
       rule(errors, IssueType.STRUCTURE, parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
       if (rule(errors, IssueType.STRUCTURE, parent.getName(), !Utilities.noString(p.getDescription()), "Search Parameter description is empty (\""+p.getCode()+"\")"))
         rule(errors, IssueType.STRUCTURE, parent.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().startsWith("e.g. ") || p.getDescription().contains("|"), "Search Parameter descriptions should start with an uppercase character(\""+p.getDescription()+"\")");
@@ -187,8 +188,20 @@ public class ResourceValidator extends BaseValidator {
         for (String path : p.getPaths()) {
           ElementDefn e;
           e = parent.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
-          for (TypeRef t : e.getTypes()) {
-            usagest.get(p.getType()).usage.add((e.getTypes().size() > 1 ? path+":" : "") +t.getName());
+          List<TypeRef> tlist;
+          if (path.endsWith("."+e.getName()))
+            tlist = e.getTypes();
+          else {
+            tlist = new ArrayList<TypeRef>();
+            for (TypeRef t : e.getTypes())
+              if (path.endsWith(Utilities.capitalize(t.getName())))
+                tlist.add(t);
+          }
+          for (TypeRef t : tlist) {
+            if (definitions.getSearchRules().containsKey(t.getName()) && definitions.getSearchRules().get(t.getName()).contains(p.getType().name())) 
+              usagest.get(p.getType()).usage.add((e.getTypes().size() > 1 ? path+":" : "") +t.getName());
+            else 
+              rule(errors, IssueType.STRUCTURE, parent.getName(), tlist.size() > 0, "Search Parameter "+p.getCode()+" : "+p.getType().name()+" type illegal for "+path+" : "+t.getName()+"");      
           }
         }
       } catch (Exception e1) {
@@ -238,6 +251,14 @@ public class ResourceValidator extends BaseValidator {
     if (rule(errors, IssueType.STRUCTURE, parent.getName(), warnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has warnings"))
       rule(errors, IssueType.STRUCTURE, parent.getName(), vsWarnings == 0 || parent.getFmmLevel().equals("0"), "Resource "+parent.getName()+" (FMM="+parent.getFmmLevel()+") cannot have a FMM level >1 if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
+
+  private boolean stringMatches(String value, String... args) {
+    for(String arg: args) {
+      if (value.equalsIgnoreCase(arg))
+        return true;      
+    }
+    return false;
+  }
 
   private boolean hasActivFalse(ResourceDefn parent) {
     ElementDefn e = parent.getRoot().getElementByName("active");

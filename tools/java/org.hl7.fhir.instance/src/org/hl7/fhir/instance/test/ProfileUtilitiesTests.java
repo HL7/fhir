@@ -7,7 +7,6 @@ import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.utils.ProfileComparer;
-import org.hl7.fhir.instance.utils.ProfileComparer.ProfileComparerOutome;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -20,12 +19,17 @@ public class ProfileUtilitiesTests {
     //		new ProfileUtilities(context).generateSchematrons(new FileOutputStream("c:\\temp\\test.sch"), p);
     StructureDefinition left = (StructureDefinition) new XmlParser().parse(new FileInputStream("C:\\work\\org.hl7.fhir\\build\\publish\\patient-daf-dafpatient.profile.xml"));
     StructureDefinition right = (StructureDefinition) new XmlParser().parse(new FileInputStream("C:\\work\\org.hl7.fhir\\build\\publish\\patient-qicore-qicore-patient.profile.xml"));
-    ProfileComparerOutome outcome = new ProfileComparer(context).compareProfiles(left, right);
-    if (outcome.getCommonContent() != null)
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("C:\\temp\\common.xml"), outcome.getCommonContent());
+    ProfileComparer comp = new ProfileComparer(context);
+    comp.setLeftStructure(left);
+    comp.setRightStructure(right);
+    comp.compareProfiles();
+    if (comp.getSubset() != null)
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("C:\\temp\\intersection.xml"), comp.getSubset());
+    if (comp.getSuperset() != null)
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("C:\\temp\\union.xml"), comp.getSuperset());
     
-    for (ValidationMessage vm : outcome.getMessages()) 
+    for (ValidationMessage vm : comp.getMessages()) 
       System.out.println(vm.summary());
-    System.out.println("done. "+Integer.toString(outcome.getMessages().size())+" messages");
+    System.out.println("done. "+Integer.toString(comp.getMessages().size())+" messages");
   }
 }

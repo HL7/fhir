@@ -222,6 +222,9 @@ public class SourceParser {
     loadPrimitives();
     eCoreParseResults.getPrimitive().addAll(PrimitiveConverter.buildPrimitiveTypesFromFhirModel(definitions.getPrimitives().values()));
 
+    for (String id : ini.getPropertyNames("search-rules"))
+      definitions.seachRule(id, ini.getStringProperty("search-rules", id));
+    
     for (String id : ini.getPropertyNames("valueset-fixup"))
       definitions.getVsFixups().add(id);
 

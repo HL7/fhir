@@ -63,8 +63,8 @@ public class ValidationMessage
   
   public ValidationMessage(Source source, IssueType type, String path, String message, IssueSeverity level) {
     super();
-    this.line = line;
-    this.col = col;
+    this.line = -1;
+    this.col = -1;
     this.location = path;
     this.message = message;
     this.level = level;

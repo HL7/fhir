@@ -108,6 +108,7 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   private Map<String, W5Entry> w5s = new HashMap<String, W5Entry>();
   private Map<String, String> typePages = new HashMap<String, String>();
   private Map<String, String> pageTitles = new HashMap<String, String>();
+  private Map<String, Set<String>> searchRules = new HashMap<String, Set<String>>();
   
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -558,9 +559,20 @@ public class Definitions implements org.hl7.fhir.instance.utils.NameResolver {
   }
 
   public List<String> getVsFixups() {
-    return vsFixups ;
+    return vsFixups;
   }
 
+  public void seachRule(String type, String searchTypes) {
+    Set<String> set = new HashSet<String>();
+    for (String s : searchTypes.split(",")) {
+      set.add(s);
+    }
+    searchRules.put(type, set);
+  }
+
+  public Map<String, Set<String>> getSearchRules() {
+    return searchRules;
+  }
 
   
 }

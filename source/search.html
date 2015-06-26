@@ -367,15 +367,9 @@ name systems, but it is generally less useful than the :below search.
 <a name="token" />
 <h4>token</h4>
 <p>
-A token type is a parameter that searches on a code or identifier value
-where the value may have a URI that scopes its meaning (from a <a href="datatypes.html#Coding">Coding</a>,
-a <a href="datatypes.html#CodeableConcept">CodeableConcept</a> or an <a href="datatypes.html#Identifier">Identifier</a> type, and also
-from a <a href="datatypes.html#code">code</a> where the URI is implicit, or for a boolean).
-</p>
-<p>
-If the parameter has no modifier, the search is performed against
-the URI/value from a Coding or an Identifier. The syntax for the
-value is one of the following:
+A token type is a parameter that searches on a pair, a URI and a value. It is used against
+ code or identifier value where the value may 
+have a URI that scopes its meaning. The search is performed against the  pair from a Coding or an Identifier. The syntax for the value is one of the following:
 </p>
 <ul>
  <li><b>[parameter]=[code]</b>: the value of [code] matches a Coding.code or Identifier.value irrespective of the value of the system property</li>
@@ -385,6 +379,66 @@ value is one of the following:
 <p>
 Note that the namespace URI and code both must be <a href="#escaping">escaped</a>. Matches are literal (e.g. not based on subsumption or other code system features), but not case sensitive.
 </p>
+<p>
+Token search parameters are used for the following data types:
+</p>
+<table class="lines">
+ <tr>
+  <td><b>Data Type</b></td>
+  <td><b>URI</b></td>
+  <td><b>Code</b></td>
+  <td><b>Comments</b></td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Coding">Coding</a></td>
+  <td>Coding.system</td>
+  <td>Coding.code</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td>
+  <td>CodeableConcept.coding.system</td>
+  <td>CodeableConcept.coding.code</td>
+  <td>Matches against any coding in the CodeableConcept</td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Identifier">Identifier</a></td>
+  <td>Identifier.system</td>
+  <td>Identifier.value</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Identifier">ContactPoint</a></td>
+  <td>ContactPoint.use</td>
+  <td>ContactPoint.value</td>
+  <td>The use is prepended by <a href="contact-point-system.html">http://hl7.org/fhir/contact-point-system</a>/</td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#code">code</a></td>
+  <td>(implicit)</td>
+  <td>code</td>
+  <td>the system is defined in the value set (though it's not usually needed)</td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#boolean">boolean</a></td>
+  <td>(implicit)</td>
+  <td>boolean</td>
+  <td>The implicit system is <a href="special-values.html">http://hl7.org/fhir/special-values</a></td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#string">string</a></td>
+  <td>n/a</td>
+  <td>string</td>
+  <td>Token is sometimes used for string to indicate that exact matching is the correct default search stategy</td>
+ </tr>
+</table>
+<p>
+Note about the use of token search parameters for boolean fields: the boolean values 'true' and 'false' are also represented
+as formal codes in the <a href="special-values.html">Special Values</a> code system, which is useful when boolean values 
+need to be represented in a <a href="datatypes.html#coding">Coding</a> data type. The namespace for these codes is 
+http://hl7.org/fhir/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
+</p>
+
 <p><b>Modifiers:</b></p>
 <table class="lines">
  <tr> <td><b>Modifier</b></td> <td><b>Use</b></td> </tr>
@@ -412,12 +466,6 @@ Here are some example searches:
  <tr><td><pre> GET [base]/Patient?active=true</pre></td><td>Search for any patients that are active</td></tr>
 </table>
 
-<p>
-Note about the use of token search parameters for boolean fields: the boolean values 'true' and 'false' are also represented
-as formal codes in the <a href="special-values.html">Special Values</a> code system, which is useful when boolean values 
-need to be represented in a <a href="datatypes.html#coding">Coding</a> data type. The namespace for these codes is 
-http://hl7.org/fhir/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
-</p>
 
 <a name="quantity" />
 <h4>quantity</h4>
@@ -1154,13 +1202,13 @@ Cross-map between search parameter types and Data types:
 <table class="list">
  <tr>
   <td><b>Data Type</b></td>
-  <td><b><a href="#number">Number</a></b></td>
-  <td><b><a href="#date">Date (+Time)</a></b></td>
-  <td><b><a href="#string">String</a></b></td>
-  <td><b><a href="#token">Token</a></b></td>
-  <td><b><a href="#reference">Reference</a></b></td>
-  <td><b><a href="#quantity">Quantity</a></b></td>
-  <td><b><a href="#uri">URI</a></b></td>
+  <td><b><a href="#number">number</a></b></td>
+  <td><b><a href="#date">date</a></b></td>
+  <td><b><a href="#string">string</a></b></td>
+  <td><b><a href="#token">token</a></b></td>
+  <td><b><a href="#reference">reference</a></b></td>
+  <td><b><a href="#quantity">quantity</a></b></td>
+  <td><b><a href="#uri">uri</a></b></td>
  </tr>
  <tr>
   <td><a href="datatypes.html#boolean">boolean</a></td>
@@ -1176,7 +1224,7 @@ Cross-map between search parameter types and Data types:
   <td><a href="datatypes.html#code">code</a></td>
   <td><%xcm code:number%></td> <!-- number -->
   <td><%xcm code:date%></td> <!-- date -->
-  <td><%xcm code:string%> <span style="color: red">(wrong?)</span></td> <!-- string -->
+  <td><%xcm code:string%></td> <!-- string -->
   <td><%xcm code:token%>. (System, if desired, is defined in the underlying value set for eeach code)</td> <!-- token -->
   <td><%xcm code:reference%></td> <!-- reference -->
   <td><%xcm code:quantity%></td> <!-- quantity -->
@@ -1217,7 +1265,7 @@ Cross-map between search parameter types and Data types:
   <td><%xcm integer:number%></td> <!-- number -->
   <td><%xcm integer:date%></td> <!-- date -->
   <td><%xcm integer:string%></td> <!-- string -->
-  <td><%xcm integer:token%> <span style="color: red">(wrong?)</span></td> <!-- token -->
+  <td><%xcm integer:token%></td> <!-- token -->
   <td><%xcm integer:reference%></td> <!-- reference -->
   <td><%xcm integer:quantity%></td> <!-- quantity -->
   <td><%xcm integer:uri%></td> <!-- uri -->
@@ -1227,7 +1275,7 @@ Cross-map between search parameter types and Data types:
   <td><%xcm oid:number%></td> <!-- number -->
   <td><%xcm oid:date%></td> <!-- date -->
   <td><%xcm oid:string%></td> <!-- string -->
-  <td><%xcm oid:token%> <span style="color: red">(wrong) - should be uri</span></td> <!-- token -->
+  <td><%xcm oid:token%></td> <!-- token -->
   <td><%xcm oid:reference%></td> <!-- reference -->
   <td><%xcm oid:quantity%></td> <!-- quantity -->
   <td><%xcm oid:uri%></td> <!-- uri -->
@@ -1237,7 +1285,7 @@ Cross-map between search parameter types and Data types:
   <td><%xcm string:number%></td> <!-- number -->
   <td><%xcm string:date%></td> <!-- date -->
   <td><%xcm string:string%></td> <!-- string -->
-  <td><%xcm string:token%> <span style="color: red">(wrong?)</span></td> <!-- token -->
+  <td><%xcm string:token%></td> <!-- token -->
   <td><%xcm string:reference%></td> <!-- reference -->
   <td><%xcm string:quantity%></td> <!-- quantity -->
   <td><%xcm string:uri%></td> <!-- uri -->
@@ -1294,7 +1342,7 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Duration">Duration</a></td>
-  <td><%xcm Duration:number%> <span style="color: red">(wrong?) - where is this?</span></td> <!-- number -->
+  <td><%xcm Duration:number%></td> <!-- number -->
   <td><%xcm Duration:date%></td> <!-- date -->
   <td><%xcm Duration:string%></td> <!-- string -->
   <td><%xcm Duration:token%></td> <!-- token -->
@@ -1334,7 +1382,7 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Quantity">Quantity</a></td>
-  <td><%xcm Quantity:number%> <span style="color: red">(wrong?)</span></td> <!-- number -->
+  <td><%xcm Quantity:number%></td> <!-- number -->
   <td><%xcm Quantity:date%></td> <!-- date -->
   <td><%xcm Quantity:string%></td> <!-- string -->
   <td><%xcm Quantity:token%></td> <!-- token -->

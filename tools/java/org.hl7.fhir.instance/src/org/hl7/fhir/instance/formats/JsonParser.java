@@ -25240,7 +25240,7 @@ public class JsonParser extends JsonParserBase {
     else if (type instanceof ContactPoint)
        composeContactPointInner((ContactPoint) type);
     else
-      throw new Exception("Unhanded type");
+      throw new Exception("Unhanded type "+type.getClass().getName());
   }
 
 }
