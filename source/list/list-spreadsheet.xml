@@ -7469,7 +7469,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The list is prepared as a statement of changes that have been made or recommended</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">A list that indicates where changes have been made or recommended</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">This is typically used in clinical summaries (e.g. Discharge Summary, Transfers of care). These lists should be understood as human-readable statements, and applications should be extremely careful if automated processing is attempted</Data></Cell>
