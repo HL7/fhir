@@ -17,7 +17,8 @@ of the content of the List might be expressed in narrative only.  E.g. A text re
 resource is only needed if there is a need to filter the set of resources by a mechanism that cannot be accomplished 
 via a simple query.  I.e. There is no need to have a List for all <a href="allergyintolerance.html">AllergyIntolerances</a>
 that exist on a server for a given Patient.  However, List is an appropriate mechanism to provide a filtered list of the 
-subset of AllergyIntolerances that are deemed to be "current".
+subset of AllergyIntolerances that are deemed to be "current". Lists are allowed to contain other lists, so 
+that there is a nested collection of lists.
 </p>
 </div>
 
