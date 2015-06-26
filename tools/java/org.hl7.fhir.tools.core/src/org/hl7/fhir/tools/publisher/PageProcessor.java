@@ -2312,6 +2312,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String codelist(ValueSet vs, String mode, boolean links) throws Exception {
     if (vs == null)
+      vs = definitions.getValuesets().get(mode);
+    if (vs == null)
       return "No ValueSet?";
     if (!vs.hasDefine())
       throw new Exception("Code list '"+mode+"' is empty/not defined");
