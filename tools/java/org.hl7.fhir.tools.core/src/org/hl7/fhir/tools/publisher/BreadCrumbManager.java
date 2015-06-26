@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -356,7 +357,10 @@ public class BreadCrumbManager {
             if (Utilities.noString(path[0]) || definitions.hasResource(path[0]))
               b.append("        <li><a href=\""+prefix+(Utilities.noString(path[0]) ? "profilelist" : path[0].toLowerCase()+"-profiles")+".html\">Profiles</a></li>");
           }
-          b.append("        <li><a href=\""+prefix+path[1].toLowerCase()+".html\">Profile</a></li>");
+          
+          Profile pack = definitions.hasResource(path[0]) ? definitions.getResourceByName(path[0]).getConformancePackage(path[1]) : null;
+          if (pack == null || !("profile".equals(pack.metadata("navigation")) && pack.getProfiles().size() == 1))
+            b.append("        <li><a href=\""+prefix+path[1].toLowerCase()+".html\">Profile</a></li>");
 //          b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+".html\">"+path[0]+"</a></li>");
         } else {
           String[] path = p.split("\\.");

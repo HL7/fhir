@@ -247,6 +247,13 @@ public class ResourceDefn  {
   public void setFmmLevel(String fmmLevel) {
     this.fmmLevel = fmmLevel;
   }
+
+  public Profile getConformancePackage(String id) {
+    for (Profile p : conformancePackages)
+      if (p.getId().equals(id))
+        return p;
+    return null;
+  }
   
   
 }

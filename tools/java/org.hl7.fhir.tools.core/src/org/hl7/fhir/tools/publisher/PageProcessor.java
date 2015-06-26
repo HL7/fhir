@@ -4054,7 +4054,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (!started) 
       s.append("  <tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ig.getName())+"</b></td></tr>\r\n");
     s.append("  <tr>\r\n");
-    s.append("    <td><a href=\"").append(ap.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
+    String ref = ap.getId().toLowerCase()+".html";
+    if ("profile".equals(ap.metadata("navigation")) && ap.getProfiles().size() == 1)
+      ref = ap.getProfiles().get(0).getId()+".html";
+    s.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
     s.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
     s.append(" </tr>\r\n");
   }
@@ -4393,7 +4396,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource, tabs);
   }
 
-  public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path) throws Exception {
+  public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path, String intro, String notes) throws Exception {
     String workingTitle = null;
 
     while (src.contains("<%") || src.contains("[%"))
@@ -4534,9 +4537,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("definitionsonthispage"))
         src = s1+"<p><i>Todo</i></p>"+s3;
       else if (com[0].equals("profile.intro"))
-        src = s1 + s3;
+        src = s1 +genProfileDoco(pack, intro)+ s3;
       else if (com[0].equals("profile.notes"))
-        src = s1 + s3;
+        src = s1 +genProfileDoco(pack, notes)+ s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
       else if (com[0].equals("resurl")) {
@@ -4548,6 +4551,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String genProfileDoco(Profile ap, String doco) {
+    if ("profile".equals(ap.metadata("navigation")) && ap.getProfiles().size() == 1)
+      return doco;
+    else
+      return "";
   }
 
   private String profileDictionaryLink(ConstraintStructure profile) {

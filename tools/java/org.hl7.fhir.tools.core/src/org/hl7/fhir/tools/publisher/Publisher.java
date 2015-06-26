@@ -3573,16 +3573,18 @@ public class Publisher implements URIResolver {
     String intro = pack.getIntroduction() != null ? page.loadXmlNotesFromFile(pack.getIntroduction(), false, null, null, null) : null;
     String notes = pack.getNotes() != null ? page.loadXmlNotesFromFile(pack.getNotes(), false, null, null, null) : null;
 
-    String src = TextFile.fileToString(page.getFolders().srcDir + "template-conformance-pack.html");
-    src = page.processConformancePackageIncludes(pack, src, intro, notes, resourceName);
-    if (st != null)
-      src = insertSectionNumbers(src, st, pack.getId().toLowerCase() + ".html");
-    page.getEpub().registerFile(pack.getId().toLowerCase() + ".html", "Profile " + pack.getId(), EPubManager.XHTML_TYPE);
-    TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
+    if (!("profile".equals(pack.metadata("navigation")) && pack.getProfiles().size() == 1)) {
+      String src = TextFile.fileToString(page.getFolders().srcDir + "template-conformance-pack.html");
+      src = page.processConformancePackageIncludes(pack, src, intro, notes, resourceName);
+      if (st != null)
+        src = insertSectionNumbers(src, st, pack.getId().toLowerCase() + ".html");
+      page.getEpub().registerFile(pack.getId().toLowerCase() + ".html", "Profile " + pack.getId(), EPubManager.XHTML_TYPE);
+      TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
+    }
 
     // now, we produce each profile
     for (ConstraintStructure profile : pack.getProfiles())
-      produceProfile(resourceName, pack, profile, st);
+      produceProfile(resourceName, pack, profile, st, intro, notes);
 
     for (SearchParameter sp : pack.getSearchParameters())
       producePackSearchParameter(resourceName, pack, sp, st);
@@ -3637,7 +3639,7 @@ public class Publisher implements URIResolver {
     page.getEpub().registerExternal(title + ".json.html");
   }
 
-  private void produceProfile(String resourceName, Profile pack, ConstraintStructure profile, SectionTracker st) throws Exception {
+  private void produceProfile(String resourceName, Profile pack, ConstraintStructure profile, SectionTracker st, String intro, String notes) throws Exception {
     File tmp = Utilities.createTempFile("tmp", ".tmp");
     String title = profile.getId();
 
@@ -3672,7 +3674,7 @@ public class Publisher implements URIResolver {
     String tx = TextFile.fileToString(tmp.getAbsolutePath());
 
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-profile.html");
-    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes);
     if (st != null)
       src = insertSectionNumbers(src, st, title + ".html");
     page.getEpub().registerFile(title + ".html", "StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
@@ -3685,14 +3687,14 @@ public class Publisher implements URIResolver {
 //    TextFile.stringToFile(src, page.getFolders().dstDir + title + "-examples.html");
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
-    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes);
     if (st != null)
       src = insertSectionNumbers(src, st, title + "-definitions.html");
     page.getEpub().registerFile(title + "-definitions.html", "Definitions for StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-definitions.html");
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-mappings.html");
-    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes);
     if (st != null)
       src = insertSectionNumbers(src, st, title + "-mappings.html");
     page.getEpub().registerFile(title + "-mappings.html", "Mappings for StructureDefinition " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
@@ -3732,7 +3734,7 @@ public class Publisher implements URIResolver {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, "StructureDefinition", profile.getTitle(), 0, true, title + ".profile.xml.html");
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-profile-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processProfileIncludes(title + ".profile.xml.html", profile.getId(), pack, profile, "", "", "", html, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+    html = page.processProfileIncludes(title + ".profile.xml.html", profile.getId(), pack, profile, "", "", "", html, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes);
     TextFile.stringToFile(html, page.getFolders().dstDir + title + ".profile.xml.html");
 
     page.getEpub().registerFile(title + ".profile.xml.html", "StructureDefinition", EPubManager.XHTML_TYPE);
@@ -3740,7 +3742,7 @@ public class Publisher implements URIResolver {
     json = resource2Json(profile.getResource());
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("StructureDefinition for " + profile.getResource().getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     html = TextFile.fileToString(page.getFolders().srcDir + "template-profile-example-json.html").replace("<%example%>", json);
-    html = page.processProfileIncludes(title + ".profile.json.html", profile.getId(), pack, profile, "", "", "", html, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+    html = page.processProfileIncludes(title + ".profile.json.html", profile.getId(), pack, profile, "", "", "", html, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId(), intro, notes);
     TextFile.stringToFile(html, page.getFolders().dstDir + title + ".profile.json.html");
     //    page.getEpub().registerFile(n + ".json.html", description, EPubManager.XHTML_TYPE);
     page.getEpub().registerExternal(n + ".json.html");
@@ -3978,12 +3980,12 @@ public class Publisher implements URIResolver {
     String tx = ""; //todo
 
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-profile.html");
-    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??"); // resourceName+"/"+pack.getId()+"/"+profile.getId());
+    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", ""); // resourceName+"/"+pack.getId()+"/"+profile.getId());
     page.getEpub().registerFile(file + ".html", "StructureDefinition " + p.getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + file + ".html");
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-mappings.html");
-    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??");
+    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "");
     page.getEpub().registerFile(file + "-mappings.html", "Mappings for StructureDefinition " + p.getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + file + "-mappings.html");
 
@@ -3993,7 +3995,7 @@ public class Publisher implements URIResolver {
 //    TextFile.stringToFile(src, page.getFolders().dstDir + title + "-examples.html");
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
-    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??");
+    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "");
     page.getEpub().registerFile(file + "-definitions.html", "Definitions for StructureDefinition " + p.getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + file + "-definitions.html");
 
