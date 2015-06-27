@@ -66,33 +66,44 @@ public class DefinitionNavigator {
     return structure.getSnapshot().getElement().get(index);
   }
   
+  public List<DefinitionNavigator> slices() throws Exception {
+    if (children == null) {
+      loadChildren();
+    }
+    return slices;
+  }
+  
   public List<DefinitionNavigator> children() throws Exception {
     if (children == null) {
-      children = new ArrayList<DefinitionNavigator>();
-      String prefix = current().getPath()+".";
-      Map<String, DefinitionNavigator> nameMap = new HashMap<String, DefinitionNavigator>();
-
-      for (int i = index + 1; i < structure.getSnapshot().getElement().size(); i++) {
-        String path = structure.getSnapshot().getElement().get(i).getPath();
-        if (path.startsWith(prefix) && !path.substring(prefix.length()).contains(".")) {
-          DefinitionNavigator dn = new DefinitionNavigator(context, structure, i, this.path+"."+tail(path), names, null);
-          
-          if (nameMap.containsKey(path)) {
-            DefinitionNavigator master = nameMap.get(path);
-            if (!master.current().hasSlicing()) 
-              throw new Exception("Found slices with no slicing details at "+dn.current().getPath());
-            if (master.slices == null) 
-              master.slices = new ArrayList<DefinitionNavigator>();
-            master.slices.add(dn);
-          } else {
-            nameMap.put(path, dn);
-            children.add(dn);
-          }
-        } else if (path.length() < prefix.length())
-          break;
-      }
+      loadChildren();
     }
     return children;
+  }
+
+  private void loadChildren() throws Exception {
+    children = new ArrayList<DefinitionNavigator>();
+    String prefix = current().getPath()+".";
+    Map<String, DefinitionNavigator> nameMap = new HashMap<String, DefinitionNavigator>();
+
+    for (int i = index + 1; i < structure.getSnapshot().getElement().size(); i++) {
+      String path = structure.getSnapshot().getElement().get(i).getPath();
+      if (path.startsWith(prefix) && !path.substring(prefix.length()).contains(".")) {
+        DefinitionNavigator dn = new DefinitionNavigator(context, structure, i, this.path+"."+tail(path), names, null);
+        
+        if (nameMap.containsKey(path)) {
+          DefinitionNavigator master = nameMap.get(path);
+          if (!master.current().hasSlicing()) 
+            throw new Exception("Found slices with no slicing details at "+dn.current().getPath());
+          if (master.slices == null) 
+            master.slices = new ArrayList<DefinitionNavigator>();
+          master.slices.add(dn);
+        } else {
+          nameMap.put(path, dn);
+          children.add(dn);
+        }
+      } else if (path.length() < prefix.length())
+        break;
+    }
   }
 
   public String path() {

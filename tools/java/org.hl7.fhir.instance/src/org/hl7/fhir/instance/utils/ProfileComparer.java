@@ -2,11 +2,13 @@ package org.hl7.fhir.instance.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.print.attribute.HashAttributeSet;
+import javax.xml.bind.helpers.DefaultValidationEventHandler;
 
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.Base;
@@ -178,14 +180,7 @@ public class ProfileComparer {
     assert(right != null);
     assert(left.path().equals(right.path()));
     
-    if (left.current().hasSlicing() || right.current().hasSlicing()) {
-      if (isExtension(left.path()))
-        return compareExtensions(path, left, right);
-      return true;
-//      throw new Exception("Slicing is not handled yet");
-    // todo: name 
-    }
-    
+    // we ignore slicing right now - we're going to clone the root one anyway, and then think about clones 
     // simple stuff
     ElementDefinition subset = new ElementDefinition();
     subset.setPath(left.path());
@@ -242,20 +237,85 @@ public class ProfileComparer {
     // note these are backwards
     superset.getConstraint().addAll(intersectConstraints(path, left.current().getConstraint(), right.current().getConstraint()));
     subset.getConstraint().addAll(unionConstraints(path, left.current().getConstraint(), right.current().getConstraint()));
-    
+
+    // now process the slices
+    if (left.current().hasSlicing() || right.current().hasSlicing()) {
+      if (isExtension(left.path()))
+        return compareExtensions(path, superset, subset, left, right);
+//      return true;
+      else
+        throw new Exception("Slicing is not handled yet");
+    // todo: name 
+    }
+
     // add the children
     this.subset.getSnapshot().getElement().add(subset);
     this.superset.getSnapshot().getElement().add(superset);
     return compareChildren(path, left, right);
   }
 
-  private boolean compareExtensions(String path, DefinitionNavigator left, DefinitionNavigator right) {
-    //
-    return false;
+  private class ExtensionUsage {
+    private DefinitionNavigator defn;
+    private int minSuperset;
+    private int minSubset;
+    private String maxSuperset;
+    private String maxSubset;
+    private boolean both = false;
+    
+    public ExtensionUsage(DefinitionNavigator defn, int min, String max) {
+      super();
+      this.defn = defn;
+      this.minSubset = min;
+      this.minSuperset = min;
+      this.maxSubset = max;
+      this.maxSuperset = max;
+    }
+    
+  }
+  private boolean compareExtensions(String path, ElementDefinition superset, ElementDefinition subset, DefinitionNavigator left, DefinitionNavigator right) throws Exception {
+    // for now, we don't handle sealed (or ordered) extensions
+    
+    // for an extension the superset is all extensions, and the subset is.. all extensions - well, unless thay are sealed. 
+    // but it's not useful to report that. instead, we collate the defined ones, and just adjust the cardinalities
+    Map<String, ExtensionUsage> map = new HashMap<String, ExtensionUsage>();
+    
+    if (left.slices() != null)
+      for (DefinitionNavigator ex : left.slices()) {
+        String url = ex.current().getType().get(0).getProfile().get(0).getValue();
+        if (map.containsKey(url))
+          throw new Exception("Duplicate Extension "+url+" at "+path);
+        else
+          map.put(url, new ExtensionUsage(ex, ex.current().getMin(), ex.current().getMax()));
+      }
+    if (right.slices() != null)
+      for (DefinitionNavigator ex : right.slices()) {
+        String url = ex.current().getType().get(0).getProfile().get(0).getValue();
+        if (map.containsKey(url)) {
+          ExtensionUsage exd = map.get(url);
+          exd.minSuperset = unionMin(exd.defn.current().getMin(), ex.current().getMin());
+          exd.maxSuperset = unionMax(exd.defn.current().getMax(), ex.current().getMax());
+          exd.minSubset = intersectMin(exd.defn.current().getMin(), ex.current().getMin());
+          exd.maxSubset = intersectMax(exd.defn.current().getMax(), ex.current().getMax());
+          exd.both = true;
+          rule(exd.maxSubset.equals("*") || Integer.parseInt(exd.maxSubset) >= exd.minSubset, path, "Cardinality Mismatch on extension: "+card(exd.defn)+"/"+card(ex));
+        } else {
+          map.put(url, new ExtensionUsage(ex, ex.current().getMin(), ex.current().getMax()));
+        }
+      }
+    List<String> names = new ArrayList<String>();
+    names.addAll(map.keySet());
+    Collections.sort(names);
+    for (String name : names) {
+      ExtensionUsage exd = map.get(name);
+      if (exd.both)
+        this.subset.getSnapshot().getElement().add(exd.defn.current().copy().setMin(exd.minSubset).setMax(exd.maxSubset));
+      this.superset.getSnapshot().getElement().add(exd.defn.current().copy().setMin(exd.minSuperset).setMax(exd.maxSuperset));
+    }    
+    return true;
   }
 
   private boolean isExtension(String path) {
-    return path.endsWith("Extension");
+    return path.endsWith(".extension") || path.endsWith(".modifierExtension");
   }
 
   private boolean compareChildren(String path, DefinitionNavigator left, DefinitionNavigator right) throws Exception {
