@@ -21,12 +21,12 @@ public class DefinitionNavigator {
   private TypeRefComponent typeOfChildren;
   private String path;
   
-  public DefinitionNavigator(WorkerContext context, StructureDefinition structure, int index) throws Exception {
+  public DefinitionNavigator(WorkerContext context, StructureDefinition structure) throws Exception {
     if (!structure.hasSnapshot())
       throw new Exception("Snapshot required");
     this.context = context;
     this.structure = structure;
-    this.index = index;
+    this.index = 0;
     this.path = current().getPath();
     names.add(nameTail());
   }

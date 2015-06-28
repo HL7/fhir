@@ -135,13 +135,15 @@ public class SvgGenerator extends BaseGenerator {
   private double miny = 0;
   private boolean attributes = true;
   IniFile ini;
+  private String id;
 
   public SvgGenerator(PageProcessor page) {
     this.definitions = page.getDefinitions();
     this.page = page;
   }
 
-  public String generate(String filename) throws Exception {
+  public String generate(String filename, String id) throws Exception {
+    this.id = id;
     ini = new IniFile(filename);
     String[] classNames = ini.getStringProperty("diagram", "classes").split("\\,");
     if ("false".equals(ini.getStringProperty("diagram", "attributes")))
@@ -603,7 +605,7 @@ public class SvgGenerator extends BaseGenerator {
   private void shadowFilter(XMLWriter xml) throws IOException {
     xml.escapedText(
         "  <defs>\r\n"+
-            "    <filter id=\"shadow\" x=\"0\" y=\"0\" width=\"200%\" height=\"200%\">\r\n"+
+            "    <filter id=\"shadow"+id+"\" x=\"0\" y=\"0\" width=\"200%\" height=\"200%\">\r\n"+
             "      <feOffset result=\"offOut\" in=\"SourceGraphic\" dx=\"3\" dy=\"3\" />\r\n"+
             "      <feColorMatrix result=\"matrixOut\" in=\"offOut\" type=\"matrix\" values=\"0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0\" />\r\n"+
             "      <feGaussianBlur result=\"blurOut\" in=\"matrixOut\" stdDeviation=\"2\" />\r\n"+
@@ -624,7 +626,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("ry", "4");
     xml.attribute("width", Double.toString(item.width));
     xml.attribute("height", Double.toString(item.height));
-    xml.attribute("filter", "url(#shadow)");
+    xml.attribute("filter", "url(#shadow"+id+")");
     xml.attribute("style", "fill:#f0f8ff;stroke:black;stroke-width:1");
     xml.element("rect", null);    
 
@@ -675,7 +677,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("ry", "4");
     xml.attribute("width", Double.toString(item.width));
     xml.attribute("height", Double.toString(item.height));
-    xml.attribute("filter", "url(#shadow)");
+    xml.attribute("filter", "url(#shadow"+id+")");
     if (fakes.values().contains(e) && primitive == null)
       xml.attribute("style", "fill:#f8ddf8;stroke:black;stroke-width:1");
     else if (primitive instanceof DefinedStringPattern)

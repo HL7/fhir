@@ -127,8 +127,7 @@ public class ResourceValidator extends BaseValidator {
     return errors;
   }
   
-  public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) throws Exception {
-    
+  public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) throws Exception {    
     rule(errors, IssueType.STRUCTURE, parent.getName(), !name.equals("Metadata"), "The name 'Metadata' is not a legal name for a resource");
     rule(errors, IssueType.STRUCTURE, parent.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
     rule(errors, IssueType.STRUCTURE, parent.getName(), !name.equals("Tag"), "The name 'Tag' is not a legal name for a resource");
@@ -341,7 +340,9 @@ public class ResourceValidator extends BaseValidator {
 		hint(errors, IssueType.STRUCTURE, path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
     checkDefinitions(errors, path, e);
     warning(errors, IssueType.STRUCTURE, path, !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
-    rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("id") || !parentName.equals("Bundle"), "Element named \"id\" not allowed");
+    rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("id"), "Element named \"id\" not allowed");
+    hint(errors, IssueType.STRUCTURE, path, !e.getName().equals("comments"), "Element named \"comments\" not allowed - use 'comment'");
+    hint(errors, IssueType.STRUCTURE, path, !e.getName().equals("notes"), "Element named \"notes\" not allowed - use 'note'");
     rule(errors, IssueType.STRUCTURE, path, !e.getName().endsWith("[x]") || !e.unbounded(), "Elements with a choice of types cannot have a cardinality > 1");
     rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("extension"), "Element named \"extension\" not allowed");
     rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("entries"), "Element named \"entries\" not allowed");
@@ -356,6 +357,17 @@ public class ResourceValidator extends BaseValidator {
 //    if (needsRimMapping)
 //      warning(errors, IssueType.REQUIRED, path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
 
+    if (e.getName().equals("comment")) {
+      hint(errors, IssueType.STRUCTURE, path, false, "MnM must have confirmed this should not be an Annotation");
+      hint(errors, IssueType.STRUCTURE, path, e.typeCode().equals("string"), "The type of 'comment' must be 'string'");
+      hint(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0, "The min cardinality of 'comment' must be 0");
+      hint(errors, IssueType.STRUCTURE, path, e.getMaxCardinality() == 1, "The max cardinality of 'comment' must be 1");
+    }
+    if (e.getName().equals("note")) {
+      hint(errors, IssueType.STRUCTURE, path, e.typeCode().equals("Annotation"), "The type of 'note' must be 'Annotation'");
+      hint(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0, "The min cardinality of 'note' must be 0");
+      hint(errors, IssueType.STRUCTURE, path, e.unbounded(), "The max cardinality of 'note' must be *");
+    }
     String sd = e.getShortDefn();
     if( sd.length() > 0)
 		{

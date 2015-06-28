@@ -125,7 +125,7 @@ in particular implementations or contexts of use.
 		
 </table>
   
-[%edt Meta resource.html%]
+[%edt Meta resource.html 1%]
 
 <p>
 Note that the RESTful API defines some <a href="operations.html">Operations</a> that provide

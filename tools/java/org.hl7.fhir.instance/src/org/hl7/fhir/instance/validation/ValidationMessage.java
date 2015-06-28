@@ -59,6 +59,7 @@ public class ValidationMessage
   private String message;
   private IssueType type;
   private IssueSeverity level;
+  private String html;
   
   
   public ValidationMessage(Source source, IssueType type, String path, String message, IssueSeverity level) {
@@ -85,6 +86,34 @@ public class ValidationMessage
     this.type = type;
     if (type == null)
     	throw new Error("A type must be provided");
+  }
+  
+  public ValidationMessage(Source source, IssueType type, String path, String message, String html, IssueSeverity level) {
+    super();
+    this.line = -1;
+    this.col = -1;
+    this.location = path;
+    this.message = message;
+    this.html = html;
+    this.level = level;
+    this.source = source;
+    this.type = type;
+    if (type == null)
+      throw new Error("A type must be provided");
+  }
+  
+  public ValidationMessage(Source source, IssueType type, int line, int col, String path, String message, String html, IssueSeverity level) {
+    super();
+    this.line = line;
+    this.col = col;
+    this.location = path;
+    this.message = message;
+    this.html = html;
+    this.level = level;
+    this.source = source;
+    this.type = type;
+    if (type == null)
+      throw new Error("A type must be provided");
   }
   
   public ValidationMessage() {
@@ -148,5 +177,10 @@ public class ValidationMessage
   public String toXML() {
   	return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + location + "\" type=\"" + type + "\" level=\"" + level + "\">" + Utilities.escapeXml(message) + "</message>";
   }
+
+  public String getHtml() {
+    return html == null ? Utilities.escapeXml(message) : html;
+  }
+  
   
 }
