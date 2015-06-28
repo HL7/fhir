@@ -429,9 +429,9 @@ public class ProfileGenerator {
     }
 
     if (r.getFmmLevel() != null)
-      ToolingExtensions.addStringExtension(p, ToolingExtensions.EXT_FMM_LEVEL, r.getFmmLevel());
+      ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(r.getFmmLevel()));
     if (r.getFmmLevelNoWarnings() != null)
-      ToolingExtensions.addStringExtension(p, ToolingExtensions.EXT_FMM_LEVEL_NO_WARN, r.getFmmLevelNoWarnings());
+      ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL_NO_WARN, Integer.parseInt(r.getFmmLevelNoWarnings()));
     ToolResourceUtilities.updateUsage(p, usage);
     p.setName(r.getRoot().getName());
     p.setPublisher("Health Level Seven International"+(r.getWg() == null ? "" : " ("+r.getWg().getName()+")"));
