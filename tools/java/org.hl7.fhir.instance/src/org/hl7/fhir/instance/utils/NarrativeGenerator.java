@@ -41,6 +41,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Address;
+import org.hl7.fhir.instance.model.Annotation;
 import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.Base64BinaryType;
@@ -861,6 +862,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.addText(((org.hl7.fhir.instance.model.DecimalType) e).getValue().toString());
     } else if (e instanceof HumanName) {
       renderHumanName((HumanName) e, x);
+    } else if (e instanceof Annotation) {
+      renderAnnotation((Annotation) e, x);
     } else if (e instanceof Address) {
       renderAddress((Address) e, x);
     } else if (e instanceof ContactPoint) {
@@ -1297,6 +1300,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
   
   private void renderHumanName(HumanName name, XhtmlNode x) {
     x.addText(displayHumanName(name));
+  }
+  
+  private void renderAnnotation(Annotation annot, XhtmlNode x) {
+    x.addText(annot.getText());
   }
   
   private void renderAddress(Address address, XhtmlNode x) {

@@ -269,6 +269,8 @@ public class SpreadsheetParser {
           resource.setEnteredInErrorStatus(sheet.rows.get(row).get(1));
         if (sheet.rows.get(row).size() >= 2 && "fmm".equals(sheet.rows.get(row).get(0)))
           resource.setFmmLevel(sheet.rows.get(row).get(1));
+        if (sheet.rows.get(row).size() >= 2 && "fmm-no-warnings".equals(sheet.rows.get(row).get(0)))
+          resource.setFmmLevelNoWarnings(sheet.rows.get(row).get(1));
       }
     }
   }

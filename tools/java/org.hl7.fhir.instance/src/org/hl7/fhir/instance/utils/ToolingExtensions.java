@@ -81,6 +81,8 @@ public class ToolingExtensions {
   private static final String EXT_ALLOWABLE_UNITS = "http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits";
   public static final String EXT_CIMI_REFERENCE = "http://hl7.org/fhir/StructureDefinition/cimi-reference";
   public static final String EXT_UNCLOSED = "http://hl7.org/fhir/StructureDefinition/valueset-unclosed";
+  public static final String EXT_FMM_LEVEL = "http://hl7.org/fhir/StructureDefinition/fmm";
+  public static final String EXT_FMM_LEVEL_NO_WARN = "http://hl7.org/fhir/StructureDefinition/fmm-no-warnings";
   
   
   // specific extension helpers

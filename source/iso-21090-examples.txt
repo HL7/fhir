@@ -2024,7 +2024,7 @@ The denominator shall not be zero.
 Two nonNull RTOs are equal if their numerator and denominator are equal.
 7.8.8.4  Invariants
 if the RTO is not nullFlavored, both a numerator and a denominator are required;
-uncertainty SHALL not be populated;
+uncertainty SHALL NOT be populated;
 neither numerator nor denominator may be of type TS.
 OCL for Invariants:
 inv "numerator and denominator required": isNull xor

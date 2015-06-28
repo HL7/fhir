@@ -561,6 +561,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("xcm")) {
         src = s1+getXcm(com[1])+s3;
+      } else if (com[0].equals("fmm")) {
+        src = s1+getFmm(com[1])+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -2314,7 +2316,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (vs == null)
       vs = definitions.getValuesets().get(mode);
     if (vs == null)
-      return "No ValueSet?";
+      throw new Exception("No ValueSet for "+mode);
     if (!vs.hasDefine())
       throw new Exception("Code list '"+mode+"' is empty/not defined");
     boolean hasComments = false;
@@ -3300,6 +3302,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("xcm")) {
         src = s1+getXcm(com[1])+s3;
+      } else if (com[0].equals("fmm")) {
+        src = s1+getFmm(com[1])+s3;
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -5934,6 +5938,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public Set<String> getSearchTypeUsage() {
     return searchTypeUsage ;
+  }
+  
+  private String getFmm(String resourceName) throws Exception {
+    ResourceDefn rd = definitions.getResourceByName(resourceName);
+    if (rd == null)
+      throw new Exception("unable to find resource '"+resourceName+"'");
+    return " <a href=\"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
   
   private String getXcm(String param) {
