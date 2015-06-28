@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
+// Generated on Sun, Jun 28, 2015 23:38+1000 for FHIR v0.5.0
 
 import java.util.*;
 
@@ -147,11 +147,11 @@ public class Device extends DomainResource {
     protected CodeableConcept type;
 
     /**
-     * Descriptive information, usage information, or implantation information that is not captured in an existing Device  resource element.
+     * Descriptive information, usage information or implantation information that is not captured in an existing element.
      */
-    @Child(name = "note", type = {StringType.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Device notes and comments", formalDefinition="Descriptive information, usage information, or implantation information that is not captured in an existing Device  resource element." )
-    protected List<StringType> note;
+    @Child(name = "note", type = {Annotation.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Device notes and comments", formalDefinition="Descriptive information, usage information or implantation information that is not captured in an existing element." )
+    protected List<Annotation> note;
 
     /**
      * Status of the Device availability.
@@ -259,7 +259,7 @@ public class Device extends DomainResource {
     @Description(shortDefinition="Network address to contact device", formalDefinition="A network address on which the device may be contacted directly." )
     protected UriType url;
 
-    private static final long serialVersionUID = -1564330518L;
+    private static final long serialVersionUID = 366690094L;
 
   /*
    * Constructor
@@ -341,57 +341,43 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #note} (Descriptive information, usage information, or implantation information that is not captured in an existing Device  resource element.)
+     * @return {@link #note} (Descriptive information, usage information or implantation information that is not captured in an existing element.)
      */
-    public List<StringType> getNote() { 
+    public List<Annotation> getNote() { 
       if (this.note == null)
-        this.note = new ArrayList<StringType>();
+        this.note = new ArrayList<Annotation>();
       return this.note;
     }
 
     public boolean hasNote() { 
       if (this.note == null)
         return false;
-      for (StringType item : this.note)
+      for (Annotation item : this.note)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #note} (Descriptive information, usage information, or implantation information that is not captured in an existing Device  resource element.)
+     * @return {@link #note} (Descriptive information, usage information or implantation information that is not captured in an existing element.)
      */
     // syntactic sugar
-    public StringType addNoteElement() {//2 
-      StringType t = new StringType();
+    public Annotation addNote() { //3
+      Annotation t = new Annotation();
       if (this.note == null)
-        this.note = new ArrayList<StringType>();
+        this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return t;
     }
 
-    /**
-     * @param value {@link #note} (Descriptive information, usage information, or implantation information that is not captured in an existing Device  resource element.)
-     */
-    public Device addNote(String value) { //1
-      StringType t = new StringType();
-      t.setValue(value);
+    // syntactic sugar
+    public Device addNote(Annotation t) { //3
+      if (t == null)
+        return this;
       if (this.note == null)
-        this.note = new ArrayList<StringType>();
+        this.note = new ArrayList<Annotation>();
       this.note.add(t);
       return this;
-    }
-
-    /**
-     * @param value {@link #note} (Descriptive information, usage information, or implantation information that is not captured in an existing Device  resource element.)
-     */
-    public boolean hasNote(String value) { 
-      if (this.note == null)
-        return false;
-      for (StringType v : this.note)
-        if (v.equals(value)) // string
-          return true;
-      return false;
     }
 
     /**
@@ -1011,7 +997,7 @@ public class Device extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Unique instance identifiers assigned to a device by organizations like manufacturers or owners .   If the identifier identifies the type of device, Device.type should be used.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("type", "CodeableConcept", "Code or identifier to identify a kind of device.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("note", "string", "Descriptive information, usage information, or implantation information that is not captured in an existing Device  resource element.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("note", "Annotation", "Descriptive information, usage information or implantation information that is not captured in an existing element.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("status", "code", "Status of the Device availability.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("manufacturer", "string", "A name of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         childrenList.add(new Property("model", "string", "The 'model' - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.", 0, java.lang.Integer.MAX_VALUE, model));
@@ -1037,8 +1023,8 @@ public class Device extends DomainResource {
         };
         dst.type = type == null ? null : type.copy();
         if (note != null) {
-          dst.note = new ArrayList<StringType>();
-          for (StringType i : note)
+          dst.note = new ArrayList<Annotation>();
+          for (Annotation i : note)
             dst.note.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
@@ -1087,8 +1073,8 @@ public class Device extends DomainResource {
         if (!(other instanceof Device))
           return false;
         Device o = (Device) other;
-        return compareValues(note, o.note, true) && compareValues(status, o.status, true) && compareValues(manufacturer, o.manufacturer, true)
-           && compareValues(model, o.model, true) && compareValues(version, o.version, true) && compareValues(manufactureDate, o.manufactureDate, true)
+        return compareValues(status, o.status, true) && compareValues(manufacturer, o.manufacturer, true) && compareValues(model, o.model, true)
+           && compareValues(version, o.version, true) && compareValues(manufactureDate, o.manufactureDate, true)
            && compareValues(expiry, o.expiry, true) && compareValues(udi, o.udi, true) && compareValues(lotNumber, o.lotNumber, true)
            && compareValues(url, o.url, true);
       }

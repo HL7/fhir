@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Jun 27, 2015 07:33+1000 for FHIR v0.5.0
+// Generated on Sun, Jun 28, 2015 23:38+1000 for FHIR v0.5.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -312,6 +312,23 @@ public class JsonParser extends JsonParserBase {
       res.setNumerator(parseQuantity(json.getAsJsonObject("numerator")));
     if (json.has("denominator"))
       res.setDenominator(parseQuantity(json.getAsJsonObject("denominator")));
+    return res;
+  }
+
+  protected Annotation parseAnnotation(JsonObject json) throws Exception {
+    Annotation res = new Annotation();
+    parseTypeProperties(json, res);
+    Type author = parseType("author", json);
+    if (author != null)
+      res.setAuthor(author);
+    if (json.has("time"))
+      res.setTimeElement(parseDateTime(json.get("time").getAsString()));
+    if (json.has("_time"))
+      parseElementProperties(json.getAsJsonObject("_time"), res.getTimeElement());
+    if (json.has("text"))
+      res.setTextElement(parseString(json.get("text").getAsString()));
+    if (json.has("_text"))
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextElement());
     return res;
   }
 
@@ -882,6 +899,10 @@ public class JsonParser extends JsonParserBase {
       res.setDurationElement(parseDecimal(json.get("duration").getAsBigDecimal()));
     if (json.has("_duration"))
       parseElementProperties(json.getAsJsonObject("_duration"), res.getDurationElement());
+    if (json.has("durationMax"))
+      res.setDurationMaxElement(parseDecimal(json.get("durationMax").getAsBigDecimal()));
+    if (json.has("_durationMax"))
+      parseElementProperties(json.getAsJsonObject("_durationMax"), res.getDurationMaxElement());
     if (json.has("durationUnits"))
       res.setDurationUnitsElement(parseEnumeration(json.get("durationUnits").getAsString(), Timing.UnitsOfTime.NULL, new Timing.UnitsOfTimeEnumFactory()));
     if (json.has("_durationUnits"))
@@ -920,6 +941,10 @@ public class JsonParser extends JsonParserBase {
       res.setUseElement(parseEnumeration(json.get("use").getAsString(), Address.AddressUse.NULL, new Address.AddressUseEnumFactory()));
     if (json.has("_use"))
       parseElementProperties(json.getAsJsonObject("_use"), res.getUseElement());
+    if (json.has("type"))
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), Address.AddressType.NULL, new Address.AddressTypeEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("text"))
       res.setTextElement(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
@@ -4319,16 +4344,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("note")) {
       JsonArray array = json.getAsJsonArray("note");
       for (int i = 0; i < array.size(); i++) {
-        res.getNote().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_note")) {
-      JsonArray array = json.getAsJsonArray("_note");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getNote().size())
-          res.getNote().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getNote().get(i));
+        res.getNote().add(parseAnnotation(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("status"))
@@ -5931,16 +5947,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("modalityList")) {
       JsonArray array = json.getAsJsonArray("modalityList");
       for (int i = 0; i < array.size(); i++) {
-        res.getModalityList().add(parseEnumeration(array.get(i).getAsString(), ImagingStudy.ImagingModality.NULL, new ImagingStudy.ImagingModalityEnumFactory()));
-      }
-    };
-    if (json.has("_modalityList")) {
-      JsonArray array = json.getAsJsonArray("_modalityList");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getModalityList().size())
-          res.getModalityList().add(parseEnumeration(null, ImagingStudy.ImagingModality.NULL, new ImagingStudy.ImagingModalityEnumFactory()));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getModalityList().get(i));
+        res.getModalityList().add(parseCoding(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("referrer"))
@@ -5968,7 +5975,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("procedure")) {
       JsonArray array = json.getAsJsonArray("procedure");
       for (int i = 0; i < array.size(); i++) {
-        res.getProcedure().add(parseCoding(array.get(i).getAsJsonObject()));
+        res.getProcedure().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("interpreter"))
@@ -8821,15 +8828,10 @@ public class JsonParser extends JsonParserBase {
     parseBackboneProperties(json, res);
     if (json.has("role"))
       res.setRole(parseCoding(json.getAsJsonObject("role")));
-    if (json.has("type"))
-      res.setType(parseCoding(json.getAsJsonObject("type")));
-    Type reference = parseType("reference", json);
-    if (reference != null)
-      res.setReference(reference);
-    if (json.has("display"))
-      res.setDisplayElement(parseString(json.get("display").getAsString()));
-    if (json.has("_display"))
-      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayElement());
+    if (json.has("actor"))
+      res.setActor(parseReference(json.getAsJsonObject("actor")));
+    if (json.has("userId"))
+      res.setUserId(parseIdentifier(json.getAsJsonObject("userId")));
     return res;
   }
 
@@ -10876,6 +10878,8 @@ public class JsonParser extends JsonParserBase {
       return parseAttachment(json.getAsJsonObject(prefix+"Attachment"));
     else if (json.has(prefix+"Ratio"))
       return parseRatio(json.getAsJsonObject(prefix+"Ratio"));
+    else if (json.has(prefix+"Annotation"))
+      return parseAnnotation(json.getAsJsonObject(prefix+"Annotation"));
     else if (json.has(prefix+"SampledData"))
       return parseSampledData(json.getAsJsonObject(prefix+"SampledData"));
     else if (json.has(prefix+"Reference"))
@@ -11020,6 +11024,8 @@ public class JsonParser extends JsonParserBase {
       return parseAttachment(json);
     else if (type.equals("Ratio"))
       return parseRatio(json);
+    else if (type.equals("Annotation"))
+      return parseAnnotation(json);
     else if (type.equals("SampledData"))
       return parseSampledData(json);
     else if (type.equals("Reference"))
@@ -11067,6 +11073,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Attachment"))
       return true;
     if (json.has(prefix+"Ratio"))
+      return true;
+    if (json.has(prefix+"Annotation"))
       return true;
     if (json.has(prefix+"SampledData"))
       return true;
@@ -11855,6 +11863,29 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
+  protected void composeAnnotation(String name, Annotation element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeAnnotationInner(element);
+      close();
+    }
+  }
+
+  protected void composeAnnotationInner(Annotation element) throws Exception {
+      composeElement(element);
+      if (element.hasAuthor()) {
+        composeType("author", element.getAuthor());
+      }
+      if (element.hasTimeElement()) {
+        composeDateTimeCore("time", element.getTimeElement(), false);
+        composeDateTimeExtras("time", element.getTimeElement(), false);
+      }
+      if (element.hasTextElement()) {
+        composeStringCore("text", element.getTextElement(), false);
+        composeStringExtras("text", element.getTextElement(), false);
+      }
+  }
+
   protected void composeSampledData(String name, SampledData element) throws Exception {
     if (element != null) {
       open(name);
@@ -12518,6 +12549,10 @@ public class JsonParser extends JsonParserBase {
         composeDecimalCore("duration", element.getDurationElement(), false);
         composeDecimalExtras("duration", element.getDurationElement(), false);
       }
+      if (element.hasDurationMaxElement()) {
+        composeDecimalCore("durationMax", element.getDurationMaxElement(), false);
+        composeDecimalExtras("durationMax", element.getDurationMaxElement(), false);
+      }
       if (element.hasDurationUnitsElement()) {
         composeEnumerationCore("durationUnits", element.getDurationUnitsElement(), new Timing.UnitsOfTimeEnumFactory(), false);
         composeEnumerationExtras("durationUnits", element.getDurationUnitsElement(), new Timing.UnitsOfTimeEnumFactory(), false);
@@ -12561,6 +12596,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUseElement()) {
         composeEnumerationCore("use", element.getUseElement(), new Address.AddressUseEnumFactory(), false);
         composeEnumerationExtras("use", element.getUseElement(), new Address.AddressUseEnumFactory(), false);
+      }
+      if (element.hasTypeElement()) {
+        composeEnumerationCore("type", element.getTypeElement(), new Address.AddressTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new Address.AddressTypeEnumFactory(), false);
       }
       if (element.hasTextElement()) {
         composeStringCore("text", element.getTextElement(), false);
@@ -16749,15 +16788,9 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasNote()) {
         openArray("note");
-        for (StringType e : element.getNote()) 
-          composeStringCore(null, e, true);
+        for (Annotation e : element.getNote()) 
+          composeAnnotation(null, e);
         closeArray();
-        if (anyHasExtras(element.getNote())) {
-          openArray("_note");
-          for (StringType e : element.getNote()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
       };
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Device.DeviceStatusEnumFactory(), false);
@@ -18747,15 +18780,9 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasModalityList()) {
         openArray("modalityList");
-        for (Enumeration<ImagingStudy.ImagingModality> e : element.getModalityList()) 
-          composeEnumerationCore(null, e, new ImagingStudy.ImagingModalityEnumFactory(), true);
+        for (Coding e : element.getModalityList()) 
+          composeCoding(null, e);
         closeArray();
-        if (anyHasExtras(element.getModalityList())) {
-          openArray("_modalityList");
-          for (Enumeration<ImagingStudy.ImagingModality> e : element.getModalityList()) 
-            composeEnumerationExtras(null, e, new ImagingStudy.ImagingModalityEnumFactory(), true);
-          closeArray();
-        }
       };
       if (element.hasReferrer()) {
         composeReference("referrer", element.getReferrer());
@@ -18782,8 +18809,8 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasProcedure()) {
         openArray("procedure");
-        for (Coding e : element.getProcedure()) 
-          composeCoding(null, e);
+        for (Reference e : element.getProcedure()) 
+          composeReference(null, e);
         closeArray();
       };
       if (element.hasInterpreter()) {
@@ -22412,15 +22439,11 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRole()) {
         composeCoding("role", element.getRole());
       }
-      if (element.hasType()) {
-        composeCoding("type", element.getType());
+      if (element.hasActor()) {
+        composeReference("actor", element.getActor());
       }
-      if (element.hasReference()) {
-        composeType("reference", element.getReference());
-      }
-      if (element.hasDisplayElement()) {
-        composeStringCore("display", element.getDisplayElement(), false);
-        composeStringExtras("display", element.getDisplayElement(), false);
+      if (element.hasUserId()) {
+        composeIdentifier("userId", element.getUserId());
       }
   }
 
@@ -25096,6 +25119,8 @@ public class JsonParser extends JsonParserBase {
        composeAttachment(prefix+"Attachment", (Attachment) type);
     else if (type instanceof Ratio)
        composeRatio(prefix+"Ratio", (Ratio) type);
+    else if (type instanceof Annotation)
+       composeAnnotation(prefix+"Annotation", (Annotation) type);
     else if (type instanceof SampledData)
        composeSampledData(prefix+"SampledData", (SampledData) type);
     else if (type instanceof Reference)
@@ -25201,6 +25226,8 @@ public class JsonParser extends JsonParserBase {
        composeAttachmentInner((Attachment) type);
     else if (type instanceof Ratio)
        composeRatioInner((Ratio) type);
+    else if (type instanceof Annotation)
+       composeAnnotationInner((Annotation) type);
     else if (type instanceof SampledData)
        composeSampledDataInner((SampledData) type);
     else if (type instanceof Reference)
