@@ -3602,6 +3602,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       }
       else if (com[0].equals("othertabs"))
         src = s1 + genOtherTabs(com[1], tabs) + s3;
+      else if (com[0].equals("svg"))
+        src = s1+new SvgGenerator(this).generate(resource, com[1])+s3;        
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
       else if (com[0].equals("pageheader"))
@@ -3674,8 +3676,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           src = s1+mappings+s3;
       else if (com[0].equals("mappingslist"))
           src = s1+mappingsList+s3;
-      else if (com[0].equals("svg"))
-        src = s1+new SvgGenerator(this).generate(resource)+s3;        
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(name) + s3;
       else if (com[0].equals("navlist"))

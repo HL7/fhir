@@ -177,15 +177,17 @@ public class SvgGenerator extends BaseGenerator {
     return s.substring(s.indexOf(">")+1);
   }
 
-  public String generate(ResourceDefn resource) throws Exception {
-      ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-      XMLWriter xml = new XMLWriter(bytes, "UTF-8");
-      generate(resource, xml);
-      String s = new String(bytes.toByteArray());
-      return s.substring(s.indexOf(">")+1);
+  public String generate(ResourceDefn resource, String id) throws Exception {
+    this.id = id;
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    XMLWriter xml = new XMLWriter(bytes, "UTF-8");
+    generate(resource, xml);
+    String s = new String(bytes.toByteArray());
+    return s.substring(s.indexOf(">")+1);
   }
 
-  public void generate(ResourceDefn resource, String filename) throws Exception {
+  public void generate(ResourceDefn resource, String filename, String id) throws Exception {
+    this.id = id;
     classes.clear();
     links.clear();
     XMLWriter xml = new XMLWriter(new FileOutputStream(filename), "UTF-8");

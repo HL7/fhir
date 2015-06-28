@@ -3017,7 +3017,7 @@ public class Publisher implements URIResolver {
     String mappingsList = mgen.getMappingsList();
 
     SvgGenerator svg = new SvgGenerator(page);
-    svg.generate(resource, page.getFolders().dstDir + n + ".svg");
+    svg.generate(resource, page.getFolders().dstDir + n + ".svg", "1");
 
     String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(resource.getName());
     SectionTracker st = new SectionTracker(prefix);
@@ -3872,7 +3872,7 @@ public class Publisher implements URIResolver {
     String mappingsList = mgen.getMappingsList();
 
     SvgGenerator svg = new SvgGenerator(page);
-    svg.generate(lm.getResource(), page.getFolders().dstDir + n + ".svg");
+    svg.generate(lm.getResource(), page.getFolders().dstDir + n + ".svg", "2");
 
     String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(lm.getId());
     SectionTracker st = new SectionTracker(prefix);
