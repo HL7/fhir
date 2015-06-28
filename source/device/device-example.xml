@@ -29,6 +29,13 @@
     </coding>
     <text value="ECG"/>
   </type>
+	<note>
+	  <authorReference>
+		  <reference value="Practitioner/xcda-author"/>
+		</authorReference>
+		<time value="2015-06-28T14:03:32+10:00"/>
+		<text value="QA Checked"/>
+	</note>
   <status value="available"/>
   <manufacturer value="Acme Devices, Inc"/>
   <model value="AB 45-J"/>
