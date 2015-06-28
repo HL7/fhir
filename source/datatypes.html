@@ -1032,6 +1032,38 @@ For example some environments may choose a different XAdES profile, hashing algo
 Signature is used in the following places: [%dtusage Signature%]
 </p>
 
+<a name="Annotation"></a>
+<a name="annotation"></a>
+<h2 style="margin-bottom: 1px">
+Annotation
+</h2>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes-examples.html#Annotation">Examples</a>, <a href="datatypes-definitions.html#Annotation">Detailed Descriptions</a> and <a href="datatypes-mappings.html#Annotation">Mappings</a>.
+</p>
+<p>
+A  text note which also  contains information about who made the statement and when. 
+</p>
+[%dt Annotation%]
+<p>
+Systems that do not have structured annotations simply communicate a single annotation with no author or time. 
+</p>
+<p>
+This element may need to be included in narrative because of the potential for modifying information. 
+</p>
+<p>
+Annotations <b>SHOULD NOT</b> be used to communicate "modifying" information that could be computable 
+(this is a SHOULD because enforcing user behavior is nearly impossible).
+</p>
+<!--<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints Annotation%]
+
+</div>
+-->
+<p>
+Annotation is used in the following places: [%dtusage Annotation%]
+</p>
+
 <a name="open"> </a>
 <h2>Open Type Element</h2>
 <p>
@@ -1062,6 +1094,7 @@ Some elements do not have a specified type. The type is represented by the wildc
  <li><a href="datatypes.html#ContactPoint">ContactPoint</a></li>
  <li><a href="datatypes.html#Timing">Timing</a></li>
  <li><a href="datatypes.html#Signature">Signature</a></li>
+ <li><a href="datatypes.html#Annotation">Annotation</a></li>
  <li><a href="references.html#Reference">Reference</a> - a reference to another resource</li>
 </ul>
 <p>
@@ -1087,7 +1120,7 @@ The following types are defined as part of the data types, but are documented el
 </ul>
 
 </div>
-[%onthispage Primitive Types#primitive|Data Types#Types|Other Types#other%]
+<!--[.%.onthispage Primitive Types#primitive|Data Types#Types|Other Types#other.%.]-->
 
 [%file newfooter%]
 
@@ -1115,6 +1148,7 @@ $( '#tabs-Address' ).tabs({ active: currentTabIndex, activate: function( event, 
 $( '#tabs-ContactPoint' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Timing' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Signature' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Annotation' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
      
      
 function store(currentTab) {
@@ -1136,6 +1170,7 @@ function store(currentTab) {
   $( '#tabs-ContactPoint' ).tabs('option', 'active', currentTab);
   $( '#tabs-Timing' ).tabs('option', 'active', currentTab);
   $( '#tabs-Signature' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Annotation' ).tabs('option', 'active', currentTab);
   document.activeElement.blur();
 }     
 </script>

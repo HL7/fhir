@@ -1,5 +1,5 @@
 [diagram]
-classes=Identifier,HumanName,Address,ContactPoint,Timing,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money
+classes=Identifier,HumanName,Address,ContactPoint,Timing,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money,Annotation
 attributes=false
 
 [size]
@@ -10,13 +10,14 @@ height=218
 CodeableConcept=-150;50
 Coding=-150;10
 Timing=-150;-30
-Ratio=-135;-70
-Period=-70;-70
-Range=0;-70
-Attachment=50;-70
-Identifier=150;-70
-HumanName=160;-30
-Address=165;10
+Ratio=-150;-70
+Period=-95;-70
+Range=-25;-70
+Attachment=20;-70
+Identifier=110;-70
+HumanName=175;-30
+Address=205;-70
+Annotation=170;10
 ContactPoint=170;50
 Quantity=-10;50
 SampledData=70;50
