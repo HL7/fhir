@@ -140,9 +140,7 @@ public class MgoModel {
                 } else if (elementType.equals("instant") || elementType.equals("date") || elementType.equals("dateTime") || elementType.equals("time")) {
                     block.ln(getFieldDefinition(fieldName, m.typify("FHIRDateTime")));
                 } else if (elementType.equals("string") || elementType.equals("uri") || elementType.equals("code") || elementType.equals("id") || elementType.equals("oid") || elementType.equals("xhtml")) {
-                    if (fieldName.equals("Gender")) {
-                        block.ln(getFieldDefinition(fieldName, m.typify("CodeableConcept")));
-                    } else if (!fieldName.equals("Id")) {
+                    if (!fieldName.equals("Id")) {
                         block.ln(getFieldDefinition(fieldName, m.typify("string")));
                     }
                 } else if (elementType.equals("Resource") || elementType.equals("idref")) {
