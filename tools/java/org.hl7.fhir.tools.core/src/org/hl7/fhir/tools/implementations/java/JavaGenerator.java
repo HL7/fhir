@@ -396,7 +396,7 @@ public boolean doesCompile() {
     
     Iterable<? extends JavaFileObject> units = fileManager.getJavaFileObjectsFromFiles(list);
     DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
-    List<String> options = new ArrayList<String>();
+    List<String> options =  Arrays.asList("-encoding", "UTF-8");
     StringBuilder path= new StringBuilder();
     for (String n : paths)
       path.append(File.pathSeparator+n);
