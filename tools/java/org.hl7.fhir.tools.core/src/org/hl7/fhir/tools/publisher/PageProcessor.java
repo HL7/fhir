@@ -835,20 +835,37 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String genCmpMessages(ProfileComparison cmp) {
     StringBuilder b = new StringBuilder();
-    b.append("<ul>\r\n");
+    b.append("<table class=\"grid\">\r\n");
+    b.append("<tr><td><b>Path</b></td><td><b>Message</b></td></tr>\r\n");
+    b.append("<tr><td colspan=\"2\" style=\"background: #eeeeee\">Errors Detected</td></tr>\r\n");
+    boolean found = false;
     for (ValidationMessage vm : cmp.getMessages())
-      if (vm.getLevel() == IssueSeverity.INFORMATION)
-        b.append("<li>"+Utilities.escapeXml(vm.summary()).replace("\r\n", "<br/>")+"</li>\r\n");
+      if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL) {
+        found = true;
+        b.append("<tr><td>"+vm.getLocation()+"</td><td>"+vm.getHtml()+(vm.getLevel() == IssueSeverity.FATAL ? "(<span style=\"color: maroon\">This error terminated the comparison process</span>)" : "")+"</td></tr>\r\n");
+      }
+    if (!found)
+    b.append("<tr><td colspan=\"2\">(None)</td></tr>\r\n");
+    
+    boolean first = true;
     for (ValidationMessage vm : cmp.getMessages())
-      if (vm.getLevel() == IssueSeverity.WARNING)
-        b.append("<li>"+Utilities.escapeXml(vm.summary()).replace("\r\n", "<br/>")+"</li>\r\n");
+      if (vm.getLevel() == IssueSeverity.WARNING) {
+        if (first) {
+          first = false;
+          b.append("<tr><td colspan=\"2\" style=\"background: #eeeeee\">Warnings about the comparison</td></tr>\r\n");
+        }
+        b.append("<tr><td>"+vm.getLocation()+"</td><td>"+vm.getHtml()+"</td></tr>\r\n");
+      }
+    first = true;
     for (ValidationMessage vm : cmp.getMessages())
-      if (vm.getLevel() == IssueSeverity.ERROR)
-        b.append("<li>"+Utilities.escapeXml(vm.summary()).replace("\r\n", "<br/>")+"</li>\r\n");
-    for (ValidationMessage vm : cmp.getMessages())
-      if (vm.getLevel() == IssueSeverity.FATAL)
-        b.append("<li>"+Utilities.escapeXml(vm.summary()).replace("\r\n", "<br/>")+"</li>\r\n");
-    b.append("</ul>\r\n");
+      if (vm.getLevel() == IssueSeverity.INFORMATION) {
+        if (first) {
+          b.append("<tr><td colspan=\"2\" style=\"background: #eeeeee\">Notes about differences (e.g. definitions)</td></tr>\r\n");
+          first = false;
+        }
+        b.append("<tr><td>"+vm.getLocation()+"</td><td>"+vm.getHtml()+"</td></tr>\r\n");
+      }
+    b.append("</table>\r\n");
     return b.toString();
   }
 
@@ -3235,9 +3252,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String expandValueSet(String fileTitle, ValueSet vs) throws Exception {
     if (vs == null) 
       throw new Exception("no vs?");
-    return expandVS(vs, "");
+    if (hasUnfixedContent(vs)) {
+      String s = "<p>&nbsp;</p>\r\n<a name=\"expansion\"> </a>\r\n<h2>Expansion</h2>\r\n";
+      return s + expandVS(vs, "");
+    } else
+      return "";
   }
   
+  private boolean hasUnfixedContent(ValueSet vs) {
+    if (vs.hasExpansion())
+      return true;
+    if (vs.hasCompose()) {
+      if (vs.getCompose().hasImport())
+        return true;
+      for (ConceptSetComponent inc : vs.getCompose().getInclude())
+        if (inc.hasFilter() || !inc.hasConcept())
+          return true;
+      for (ConceptSetComponent exc : vs.getCompose().getExclude())
+        if (exc.hasFilter() || !exc.hasConcept())
+          return true;
+    }
+    return false;
+  }
+
   private String vsCLD(String fileTitle, ValueSet vs) throws Exception {
     if (vs == null) 
       throw new Exception("no vs?");

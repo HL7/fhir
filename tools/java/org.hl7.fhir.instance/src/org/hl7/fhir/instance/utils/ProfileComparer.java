@@ -489,17 +489,22 @@ public class ProfileComparer {
     }
     ElementDefinitionBindingComponent left = lDef.getBinding();
     ElementDefinitionBindingComponent right = rDef.getBinding();
+    if (Base.compareDeep(left, right, false)) {
+      subset.setBinding(left);
+      superset.setBinding(right);      
+    }
     
     // if they're both examples/preferred then:
     // subset: left wins if they're both the same
     // superset: 
     if (isPreferredOrExample(left) && isPreferredOrExample(right)) {
-      if (right.getStrength() == BindingStrength.PREFERRED && left.getStrength() == BindingStrength.EXAMPLE) { 
+      if (right.getStrength() == BindingStrength.PREFERRED && left.getStrength() == BindingStrength.EXAMPLE && !Base.compareDeep(left.getValueSet(), right.getValueSet(), false)) { 
         outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Example/preferred bindings differ at "+path+" using binding from "+outcome.rightName(), IssueSeverity.INFORMATION));
         subset.setBinding(right);
         superset.setBinding(unionBindings(outcome, path, left, right));
       } else {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Example/preferred bindings differ at "+path+" using binding from "+outcome.leftName(), IssueSeverity.INFORMATION));
+        if ((right.getStrength() != BindingStrength.EXAMPLE || left.getStrength() != BindingStrength.EXAMPLE) && !Base.compareDeep(left.getValueSet(), right.getValueSet(), false) ) 
+          outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Example/preferred bindings differ at "+path+" using binding from "+outcome.leftName(), IssueSeverity.INFORMATION));
         subset.setBinding(left);
         superset.setBinding(unionBindings(outcome, path, left, right));
       }
@@ -920,7 +925,7 @@ public class ProfileComparer {
         if (Utilities.equals(r.getId(), l.getId()) || (Utilities.equals(r.getXpath(), l.getXpath()) && r.getSeverity() == l.getSeverity()))
           found = true;
       if (!found)
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "SturctureDefinition "+outcome.leftName()+" has a constraint that is not found in "+outcome.rightName()+" and it is uncertain whether they are compatible ("+l.getXpath()+")", IssueSeverity.WARNING));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "StructureDefinition "+outcome.leftName()+" has a constraint that is not found in "+outcome.rightName()+" and it is uncertain whether they are compatible ("+l.getXpath()+")", IssueSeverity.WARNING));
       result.add(l);
     }
     for (ElementDefinitionConstraintComponent r : right) {
@@ -929,7 +934,7 @@ public class ProfileComparer {
         if (Utilities.equals(r.getId(), l.getId()) || (Utilities.equals(r.getXpath(), l.getXpath()) && r.getSeverity() == l.getSeverity()))
           found = true;
       if (!found) {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "SturctureDefinition "+outcome.rightName()+" has a constraint that is not found in "+outcome.leftName()+" and it is uncertain whether they are compatible ("+r.getXpath()+")", IssueSeverity.WARNING));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "StructureDefinition "+outcome.rightName()+" has a constraint that is not found in "+outcome.leftName()+" and it is uncertain whether they are compatible ("+r.getXpath()+")", IssueSeverity.WARNING));
         result.add(r);
       }
     }
