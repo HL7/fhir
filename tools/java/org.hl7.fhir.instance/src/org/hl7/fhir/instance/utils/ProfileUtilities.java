@@ -60,8 +60,20 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 public class ProfileUtilities {
 
 
+  private static final String ROW_COLOR_ERROR = "#ffcccc";
+  private static final String ROW_COLOR_FATAL = "#ff9999";
+  private static final String ROW_COLOR_WARNING = "#ffebcc";
+  private static final String ROW_COLOR_HINT = "#ebf5ff";
+  public static final int STATUS_OK = 0;
+  public static final int STATUS_HINT = 1;
+  public static final int STATUS_WARNING = 2;
+  public static final int STATUS_ERROR = 3;
+  public static final int STATUS_FATAL = 4;
+  
 
   private static final String DERIVATION_EQUALS = "derivation.equals";
+  public static final String UD_ERROR_STATUS = "error-status";
+  
   private final WorkerContext context;
   
   public ProfileUtilities(WorkerContext context) {
@@ -994,6 +1006,7 @@ public class ProfileUtilities {
     if (!onlyInformationIsMapping(all, element)) { 
       Row row = gen.new Row();
       row.setAnchor(element.getPath());
+      row.setColor(getRowColor(element));
       boolean hasDef = element != null;
       boolean ext = false;
       if (s.equals("extension") || s.equals("modifierExtension")) { 
@@ -1101,6 +1114,18 @@ public class ProfileUtilities {
     }
   }
 
+
+
+  private String getRowColor(ElementDefinition element) {
+    switch (element.getUserInt(UD_ERROR_STATUS)) {
+    case STATUS_OK: return null;
+    case STATUS_HINT: return ROW_COLOR_HINT;
+    case STATUS_WARNING: return ROW_COLOR_WARNING;
+    case STATUS_ERROR: return ROW_COLOR_ERROR;
+    case STATUS_FATAL: return ROW_COLOR_FATAL;
+    default: return null;
+    }
+  }
 
 
   private String urltail(String path) {

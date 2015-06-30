@@ -257,7 +257,6 @@ public class ToolsHelper {
       }
       s.append("</results>\r\n");
 
-      System.out.println("done (fail = "+Integer.toString(fail)+")");
       TextFile.stringToFile(s.toString(), args[2]);
     } catch (Exception e) {
       e.printStackTrace();
