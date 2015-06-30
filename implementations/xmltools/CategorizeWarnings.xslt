@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs">
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 	<xsl:variable name="allmessages" as="element(message)*">
     <xsl:apply-templates mode="fix" select="/warnings/message"/>
@@ -38,7 +38,7 @@
           <xsl:when test="@location='rdf:w5.base' and contains(., ':')">
             <xsl:attribute name="resource" select="substring-before(., ':')"/>
             <xsl:attribute name="location" select="substring-before(., ':')"/>
-            <xsl:attribute name="text" select="fn:normalize-space(substring-after(., ':'))"/>
+            <xsl:attribute name="text" select="normalize-space(substring-after(., ':'))"/>
           </xsl:when>
           <xsl:when test="@location='rdf:w5.base'">
             <xsl:attribute name="location" select="''"/>
@@ -89,7 +89,7 @@
               <xsl:variable name="messages" as="element(message)*" select="$messages[@resource=current()/@id or @valueset=current()/valueset/@name]"/>
               <xsl:if test="$messages">
                 <xsl:copy>
-                  <xsl:copy-of select="parent::group/@type|@id"/>
+                  <xsl:copy-of select="parent::group/@type|@id|@fmm|@basefmm"/>
                   <xsl:for-each select="$messages">
                     <xsl:sort select="@display"/>
                     <xsl:copy-of select="."/>

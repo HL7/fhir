@@ -11,6 +11,12 @@
           <xsl:for-each select="$bundle/entry/resource/StructureDefinition[publisher/@value=current()]">
             <xsl:sort select="name/@value"/>
             <resource id="{id/@value}">
+              <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm']">
+                <xsl:attribute name="fmm" select="valueInteger/@value"/>
+              </xsl:for-each>
+              <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm-no-warnings']">
+                <xsl:attribute name="basefmm" select="valueInteger/@value"/>
+              </xsl:for-each>
               <xsl:for-each select="distinct-values(snapshot/element/binding/valueSetReference/reference/@value)">
                 <valueset name="{substring-after(., '/vs/')}"/>
               </xsl:for-each>
