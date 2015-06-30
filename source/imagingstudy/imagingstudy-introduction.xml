@@ -12,12 +12,12 @@ referenced in other clinical contexts such as <a href="diagnosticreport.html">di
 <a href="careplan.html">Care Plans</a>, etc. Also, see the use case description below.
 </p>
 <p>
-This resource has been specifically designed with use in DICOM contexts in mind. 
-The content is closely based on the definitions of the equivalent DICOM 
-constructs, and informed by usage patterns already established through DICOM
-implementation practices, including XDS-I. It is not, however, necessary to 
-use DICOM infrastructure in order to use this resource.
+The elements in this resource mirror DICOM attributes which are listed in the description.  
+Although it is not necessary to use DICOM infrastructure to use this resource, it may be 
+informative to search in <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part03/PS3.3.html">DICOM PS3.3</a> for the referenced tags to better understand their 
+proper contents and usage.
 </p>
+
 </div>
 
 
