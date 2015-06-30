@@ -743,6 +743,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + xreferencesForFhir(name) + s3;      
       else if (com[0].equals("vsexpansion"))
         src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : ((ValueSet) resource)) + s3;
+      else if (com[0].equals("vscld"))
+        src = s1 + vsCLD(Utilities.fileTitle(file), resource == null ? null : ((ValueSet) resource)) + s3;
       else if (com[0].equals("vsexpansionig"))
         src = s1 + expandValueSetIG((ValueSet) resource) + s3;
       else if (com[0].equals("v3expansion"))
@@ -860,6 +862,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(" <td><b>Comparison</b></td>");
     b.append(" <td><b>Error #</b></td>");
     b.append(" <td><b>Warning #</b></td>");
+    b.append(" <td><b>Hint #</b></td>");
     b.append("</tr>");
     
     for (ProfileComparison cmp : pc.getComparisons()) {
@@ -869,6 +872,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append(" <td><a href=\""+pc.getId()+"."+cmp.getId()+".html\">Click Here</a></td>");
       b.append(" <td>"+cmp.getErrorCount()+"</td>");
       b.append(" <td>"+cmp.getWarningCount()+"</td>");
+      b.append(" <td>"+cmp.getHintCount()+"</td>");
       b.append("</tr>");
     }
     b.append("</table>\r\n");
@@ -904,10 +908,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String txsummary(ValueSet vs) {
+    String c = "";
+    if (vs.hasCopyright())
+      c = "<tr><td>Copyright:</td><td>"+Utilities.escapeXml(vs.getCopyright())+"</td></tr>\r\n";
     if (vs.hasDefine()) {
-      return "<tr><td>System URL:</td><td>"+vs.getDefine().getSystem()+"</td></tr>\r\n<tr><td>System OID:</td><td>"+ToolingExtensions.getOID(vs.getDefine())+"</td></tr>";
+      return c+"<tr><td>System URL:</td><td>"+vs.getDefine().getSystem()+"</td></tr>\r\n<tr><td>System OID:</td><td>"+ToolingExtensions.getOID(vs.getDefine())+"</td></tr>";
     } else
-      return "";
+      return c+"";
   }
 
   private String genExampleProfileLink(Resource resource) {
@@ -3229,6 +3236,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (vs == null) 
       throw new Exception("no vs?");
     return expandVS(vs, "");
+  }
+  
+  private String vsCLD(String fileTitle, ValueSet vs) throws Exception {
+    if (vs == null) 
+      throw new Exception("no vs?");
+    vs = vs.copy();
+    vs.setExpansion(null);
+    vs.setText(null);
+    new NarrativeGenerator("", workerContext).generate(vs, null, false);
+    return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(vs.getText().getDiv())+"</div>";
   }
   
   private String expandV3ValueSet(String name) throws Exception {
@@ -5974,7 +5991,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       exp.setText(null); 
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
       
-      new NarrativeGenerator(prefix, workerContext).generate(exp, vs);
+      new NarrativeGenerator(prefix, workerContext).generate(exp, vs, false);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
       e.printStackTrace();

@@ -544,7 +544,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (r instanceof ConceptMap) {
       generate((ConceptMap) r); // Maintainer = Grahame
     } else if (r instanceof ValueSet) {
-      generate((ValueSet) r); // Maintainer = Grahame
+      generate((ValueSet) r, true); // Maintainer = Grahame
     } else if (r instanceof OperationOutcome) {
       generate((OperationOutcome) r); // Maintainer = Grahame
     } else if (r instanceof Conformance) {
@@ -1848,29 +1848,24 @@ public class NarrativeGenerator implements INarrativeGenerator {
    * @param codeSystems
    * @throws Exception
    */
-  public void generate(ValueSet vs) throws Exception {
-    generate(vs, null);
+  public void generate(ValueSet vs, boolean header) throws Exception {
+    generate(vs, null, header);
   }
   
-  public void generate(ValueSet vs, ValueSet src) throws Exception {
+  public void generate(ValueSet vs, ValueSet src, boolean header) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     if (vs.hasExpansion()) {
       if (!vs.hasDefine() && !vs.hasCompose())
-        generateExpansion(x, vs, src);
+        generateExpansion(x, vs, src, header);
       else
         throw new Exception("Error: should not encounter value set expansion at this point");
     }
-    Integer count = countMembership(vs);
-    if (count == null)
-      x.addTag("p").addText("This value set does not contain a fixed number of concepts");
-    else
-      x.addTag("p").addText("This value set contains "+count.toString()+" concepts");
     
     boolean hasExtensions = false;
     if (vs.hasDefine())
-      hasExtensions = generateDefinition(x, vs);
+      hasExtensions = generateDefinition(x, vs, header);
     if (vs.hasCompose()) 
-      hasExtensions = generateComposition(x, vs) || hasExtensions;
+      hasExtensions = generateComposition(x, vs, header) || hasExtensions;
     inject(vs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
   }
 
@@ -1922,7 +1917,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return count;
   }
 
-  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src) {
+  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (ConceptMap a : context.getMaps().values()) {
@@ -1934,12 +1929,19 @@ public class NarrativeGenerator implements INarrativeGenerator {
       }
     }
 
-    XhtmlNode h = x.addTag("h3");
-    h.addText("Value Set Contents");
-    if (IsNotFixedExpansion(vs))
-      x.addTag("p").addText(vs.getDescription());
-    if (vs.hasCopyright())
-      generateCopyright(x, vs);
+    if (header) {
+      XhtmlNode h = x.addTag("h3");
+      h.addText("Value Set Contents");
+      if (IsNotFixedExpansion(vs))
+        x.addTag("p").addText(vs.getDescription());
+      if (vs.hasCopyright())
+        generateCopyright(x, vs);
+    }
+    Integer count = countMembership(vs);
+    if (count == null)
+      x.addTag("p").addText("This value set does not contain a fixed number of concepts");
+    else
+      x.addTag("p").addText("This value set contains "+count.toString()+" concepts");
 
     boolean doSystem = checkDoSystem(vs, src);
     
@@ -1981,7 +1983,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return false;
   }
 
-  private boolean generateDefinition(XhtmlNode x, ValueSet vs) {
+  private boolean generateDefinition(XhtmlNode x, ValueSet vs, boolean header) {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (ConceptMap a : context.getMaps().values()) {
@@ -1994,13 +1996,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     List<String> langs = new ArrayList<String>();
 
-    XhtmlNode h = x.addTag("h2");
-    h.addText(vs.getName());
+    if (header) {
+      XhtmlNode h = x.addTag("h2");
+      h.addText(vs.getName());
+      XhtmlNode p = x.addTag("p");
+      smartAddText(p, vs.getDescription());
+      if (vs.hasCopyright())
+        generateCopyright(x, vs);
+    }
     XhtmlNode p = x.addTag("p");
-    smartAddText(p, vs.getDescription());
-    if (vs.hasCopyright())
-      generateCopyright(x, vs);
-    p = x.addTag("p");
     p.addText("This value set defines its own terms in the system "+vs.getDefine().getSystem());
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     boolean commentS = false;
@@ -2276,16 +2280,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  return mappings;
   }
 
-	private boolean generateComposition(XhtmlNode x, ValueSet vs) throws Exception {
+	private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header) throws Exception {
 	  boolean hasExtensions = false;
     if (!vs.hasDefine()) {
-      XhtmlNode h = x.addTag("h2");
-      h.addText(vs.getName());
+      if (header) {
+        XhtmlNode h = x.addTag("h2");
+        h.addText(vs.getName());
+        XhtmlNode p = x.addTag("p");
+        smartAddText(p, vs.getDescription());
+        if (vs.hasCopyrightElement())
+          generateCopyright(x, vs);
+      }
       XhtmlNode p = x.addTag("p");
-      smartAddText(p, vs.getDescription());
-      if (vs.hasCopyrightElement())
-        generateCopyright(x, vs);
-      p = x.addTag("p");
       p.addText("This value set includes codes defined in other code systems, using the following rules:");
     } else {
       XhtmlNode p = x.addTag("p");

@@ -196,7 +196,15 @@ public class ProfileComparer {
     public String getWarningCount() {
       int c = 0;
       for (ValidationMessage vm : messages)
-        if (vm.getLevel() == IssueSeverity.INFORMATION || vm.getLevel() == IssueSeverity.WARNING)
+        if (vm.getLevel() == IssueSeverity.WARNING)
+          c++;
+      return Integer.toString(c);
+    }
+    
+    public String getHintCount() {
+      int c = 0;
+      for (ValidationMessage vm : messages)
+        if (vm.getLevel() == IssueSeverity.INFORMATION)
           c++;
       return Integer.toString(c);
     }
